@@ -1,0 +1,647 @@
+#post{
+	width: 100%;
+	height: 100%;
+}
+#post .post-content{
+	width: 985px;
+	height: auto;
+	margin: -55px auto 130px;
+}
+
+.post-content .post-content-left{
+	width: 725px;
+	height: auto;
+	float: left;
+	border-right: 1px #EAEAEA solid;
+}
+/*下面开始左边分类排序部分*/
+.post-contentleft-top{
+	width: 680px;
+	height: 40px;
+	clear: both;
+	margin-left: 45px;
+}
+.post-contentleft-top p.classify{
+	margin-left: 32px;
+}
+.post-contentleft-top p.classify  span a{
+	color: #B6B6B6;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	display: inline-block;
+	width: 50px;
+}
+.post-contentleft-top p.classify .date-time{
+	font-size: 12px;
+}
+.post-contentleft-top p.classify  span a.active{
+	color: #000;
+}
+.post-contentleft-top p.classify  span a:hover{
+	color: #000;
+}
+.post-contentleft-top p.sort{
+	float: right;
+	height: 22px;
+	margin-top: -14px;
+}
+.post-contentleft-top p.sort span{
+	display: inline-block;
+	margin-right: 5px;
+}
+.post-contentleft-top p.sort i{
+	margin-right: 8px;
+}
+.post-contentleft-top p.sort span a{
+	color: #B6B6B6;
+	float: left;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.post-contentleft-top p.sort span a:hover{
+	color: #E22319;
+}
+.post-contentleft-top p.sort .current{
+	color: #E22319;
+}
+
+.sortText text{
+	float:left;	
+}
+.fontGray{
+	color: #b6b6b6;
+    font-family: "微软雅黑";
+    font-size: 12px;
+	cursor:pointer;
+}
+.fontRed{
+	color: #E22319;
+}
+.sortText img{
+	float: left;
+    margin-left: 1px;
+}
+
+/*上面结束左边分类排序部分*/
+
+.post-content .post-content-right{
+	width: 253px;
+	height: auto;
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*下面开始davcai-list部分*/
+.davcai-list{
+	width: 616px;
+	height: auto;
+}
+.davcai-list .davcai-list-top{
+	width: 616px;
+	height: 35px;
+	background:url(../../../images/davcai/post/davcai-list-top-bg.png) no-repeat;	
+	margin: 0 auto;
+}
+.davcai-list-top li{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	width: 70px;
+	text-align: center;
+	font-weight: bold;
+	color: #000000;
+	font-family: "微软雅黑";
+}
+.davcai-list .davcai-list-width01{
+	width: 84px;
+}
+.davcai-list .davcai-list-width02{
+	width: 162px;
+}
+.davcai-list .davcai-list-width03{
+	width: 110px;
+}
+.davcai-list .davcai-list-width04{
+	width: 45px;
+}
+.davcai-list .davcai-list-width05{
+	width: 65px;
+}
+.davcai-list .davcai-list-width06{
+	width: 62px;
+}
+
+.davcai-list .davcai-list-middle{
+	width: 616px;
+	height: auto;
+	background:url(../../../images/davcai/post/davcai-list-middle-bg.png) repeat;	
+	margin-left: 1px;
+}
+.davcai-list-middle .winprize{
+	width: 181px;
+	height: 140px;
+	float: right;
+	margin-top: -145px;
+	margin-right: 25px;
+}
+.davcai-list .davcai-list-details{
+	width: 616px;
+	height: 38px;
+}
+.davcai-list-details li{
+	float: left;
+	height: 38px;
+	width: 70px;
+	line-height: 38px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.davcai-list-details li.davcai-list-width02 a{
+	color: #1B9BFF;
+	font-size: 12px;
+}
+.davcai-list-details li.davcai-list-width02 .match-left{
+	width: 70px;
+	height: 38px;
+	line-height: 38px;
+	float: left;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 12px;
+}
+.davcai-list-details li.davcai-list-width02 .match-right{
+	width: 70px;
+	height: 38px;
+	line-height: 38px;
+	float: right;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 12px;
+}
+.davcai-list-details li.davcai-list-width02 .match-vs{
+	width: 18px;
+	height: 38px;
+	line-height: 38px;
+	font-size: 15px;
+	float: left;
+	font-style: normal;
+}
+.davcai-list-middle hr.davcai-list-dotted{
+	clear: both;
+	height: 1px;
+	width: 590px;
+	border: none;
+	border-top: 1px #D5D5D5 dashed;
+	margin:0 auto;
+}
+.davcai-list-middle .davcai-list-pass,.davcai-list-multiple,.davcai-list-money{
+	height: 40px;
+	line-height: 40px;
+	margin-left: 8px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #000000;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-indent: 12px;
+}
+.davcai-list-middle .davcai-list-pass{
+	margin-top: 30px;
+}
+.davcai-list-pass span,label{
+	margin-right: 20px;
+}
+.davcai-list-multiple span{
+	margin-right: 20px;
+}
+.davcai-list-money label{
+	color: #E22319;
+	margin-right: -3px;
+}
+.davcai-list-money span{
+	margin-right: 20px;
+}
+.davcai-list .davcai-list-bottom{
+	width: 616px;
+	height: 15px;
+	background:url(../../../images/davcai/post/davcai-list-bttom-bg.png) no-repeat;	
+	margin: 0 auto;
+	margin-left: 1px;
+}
+
+/*上面结束.davcai-list单子页面*/
+
+
+
+
+
+/*下面开始davcai-popular-race热门赛事部分*/
+.davcai-popular-race-outer{
+	width: 243px;
+	height: auto;
+	margin-bottom: 15px;
+}
+.davcai-popular-race-outer h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-popular-race-outer .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+.davcai-popular-race{
+	width: 253px;
+	height: auto;
+}
+.davcai-popular-race-son{
+	height: 28px;
+	line-height: 28px;
+	width: 253px;
+  	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-popular-race-son a{
+	color: #000;
+}
+.davcai-popular-race-son .popular-race-match{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #8D8D8D;
+	width: 50px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .race-team-left,.race-team-right{
+	width: 75px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .red-race-team-left,.red-race-team-right{
+	width: 85px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .race-team-left{
+	text-align: left;
+}
+.davcai-popular-race-son .race-team-right{
+	text-align: right;
+	margin-left: -20px;
+}
+.davcai-popular-race-son .race-team-left i{
+	text-align: right;
+	width: 20px;
+	display: inline-block;
+	margin-right: 2px;
+}
+.davcai-popular-race-son .race-team-right i{
+	text-align: left;
+	width: 20px;
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.davcai-popular-race-son .popular-race-vs{
+	color: #FF0000;
+	font-weight: bold;
+	width: 16px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .popular-red-race-vs{
+	color: #FF0000;
+	font-weight: bold;
+	width: 20px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son span,label{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-popular-race-son .popular-race-list{
+	color: #E22319;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	width: 18px;
+	height: 25px;
+	float: right;
+	margin-right: 15px;
+}
+/*上面结束davcai-popular-race热门赛事部分*/
+
+
+
+/*下面开始davcai-ranking-list排行榜部分*/
+.davcai-ranking-list-outer{
+	width: 253px;
+	height: auto;
+	margin-bottom: 20px;
+}
+.davcai-ranking-list-outer h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-ranking-list-outer .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+
+h4.title .blue-mark-tips{
+	width: 17px;
+	height: 17px;
+	line-height:17px ;
+	display: inline-block;
+	margin-bottom: -4px;
+	margin-left: 45px;
+	background:url(../../../images/davcai/post/blue-mark-tips.png) no-repeat ;
+	cursor: pointer;
+}
+.davcai-ranking-list-outer .blue-mark-tips-tan{
+	width: 222px;
+	height: 146px;
+	background:url(../../../images/davcai/post/blue-mark-tips-tan.png) no-repeat ;
+	padding: 30px 10px 12px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	text-indent: 20px;
+	margin-left: 11px;
+	clear: both;
+	float: left;
+	margin-top: -9px;
+	margin-bottom: 8px;
+	z-index: 1000;
+	position: absolute;
+	display: none;
+}
+.davcai-ranking-list-outer .blue-mark-tips-tan-big{
+	width: 222px;
+	height: 266px;
+	background:url(../../../images/davcai/post/blue-mark-tips-tan-big.png) no-repeat ;
+	padding: 30px 10px 12px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	text-indent: 20px;
+	margin-left: 11px;
+	clear: both;
+	float: left;
+	margin-top: -9px;
+	margin-bottom: 8px;
+	z-index: 1000;
+	position: absolute;
+	line-height: 168%;
+	display: none;
+}
+.davcai-ranking-list-outer .hr-solid-half{
+	height: 1px;
+	width: 150px;
+	float: right;
+	border: none;
+	border-top: 2px #EAEAEA solid;
+	margin-top: 0px;
+	margin-bottom: 12px;
+}
+.davcai-ranking-list-outer .ranking-list-tab{
+	clear: both;
+	text-align: center;
+	float: left;
+	margin-top: 0px;
+	margin-left: 3px;
+	margin-bottom: 12px;
+}
+.ranking-list-tab a{
+	width: 122px;
+	height: 29px;
+	line-height: 29px;
+	display: inline-block;
+	border: 1px #D6D6D6 solid;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	padding-top: 0px;
+	text-align: center;
+	color: #000000;
+	float: left;
+	background: #EEEEEE;
+}
+.ranking-list-tab a:hover{
+	background: #fff;
+	font-weight: bold;
+}
+.ranking-list-tab a.current{
+	background: #fff;
+	font-weight: bold;
+}
+.ranking-list-tab .nearly-fifty-field{
+	border-left: none;
+
+}
+.ranking-list-tab .rank-football{
+	border-left: none;
+
+}
+
+.davcai-ranking-list{
+	width: 253px;
+	border: 1px transparent solid;
+}
+.davcai-ranking-list .davcai-ranking-list-son{
+	width: 253px;
+	height: 55px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+}
+.davcai-ranking-list hr.ranking-list-dotted{
+	clear: both;
+	height: 1px;
+	width: 253px;
+	border: none;
+	border-top: 1px #000 dashed;
+	margin-bottom: 10px;
+}
+
+
+/*上面是晒单红人总战绩榜*/
+.davcai-ranking-list-son .ranking-user{
+	width: 56px;
+	height: 54px;
+	float: left;
+	margin-left: 0px;
+	margin-right: 6px;
+}
+.davcai-ranking-list-son .ranking-name{
+	width: 100px;
+	height: 18px;
+	margin-bottom: 2px\0;
+	display: inline-block;
+	color: #008FFF;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-ranking-list-son .ranking-award,.ranking-profit{
+	width: 108px;
+	height: 15px;
+	height: 20px\0;
+	display: inline-block;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/*这个是基本*/
+
+
+
+/*这段是针对FF浏览器的csshack写的*/
+
+.davcai-ranking-list-son .plus-interest-button{
+	width: 58px;
+	height: 23px;
+	display: inline-block;
+	background: url(../../../images/davcai/post/plus-interest-button.png) no-repeat;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.davcai-ranking-list-son .ranking-money{
+	color: #FF0000;
+	font-size: 18px;
+	width: 90px;
+	height: 20px;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	bottom: 1px;
+	text-align: right;
+}
+.davcai-ranking-list-son .ranking-rate{
+	color: #FF0000;
+	font-size: 24px;
+	width: 90px;
+	height: 20px;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+	text-align: right;
+}
+.davcai-ranking-list-son .color-01{
+	color: #FF0000;/*50%+*/
+}
+.davcai-ranking-list-son .color-02{
+	color: #E4D82F;/*50%*/
+}
+.davcai-ranking-list-son .color-03{
+	color: #56C462;/*50%-*/
+}
+
+/*上面结束davcai-ranking-list排行榜部分*/
+
+
+
+/*下面是晒单红人总战绩榜*/
+.davcai-red-people-list{
+	width: 240px;
+	height: auto;
+	clear: both;
+	margin: 0 auto;;
+}
+.davcai-red-people-list .davcai-red-people-list-son{
+	width: 240px;
+	height: 36px;
+	line-height: 36px;
+	border-bottom: 1px #000 dashed;
+}
+.davcai-red-people-list-son .red-people-name{
+	width: 120px;
+	height: 36px;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	color: #008FFF;
+}
+.davcai-red-people-list-son .red-people-icon{
+	float: right;
+	width: 120px;
+	height: 36px;
+	line-height: 36px;
+	display: block;
+}
+.red-people-icon i{
+	margin-left: 10px;
+}
+/*上面是晒单红人总战绩榜*/
+
+.ranking-list-tab .nearly-fifty-field{
+	border-left: none;
+}
+.ranking-list-tab .rank-football{
+	border-left: none;
+	width: 82px;
+}
+.ranking-list-tab .rank-basketball{
+	width: 82px;
+	border-left: none;
+}
+.ranking-list-tab .all{
+	width: 82px;
+}
+
+.red-people-icon i.rank-icon-g{
+	margin-left: 2px;
+	width: 33px;
+	height: 33px;
+	display: inline-block;
+}

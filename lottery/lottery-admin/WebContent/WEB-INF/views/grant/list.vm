@@ -1,0 +1,151 @@
+#set($title="赠款管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>赠款管理</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/grant/list.do" method="post">
+				<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+				<div class="tabH tabH02 panel">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">开始日期：<input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+            结束日期：<input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+            用户ID：<input id="userId" type="text" name="userId" value="$!{userId}" maxlength="10" size="10"/>
+            状态：<select name="state" value="${state}" id="stateSel">
+				<option value="-1">查询所有</option>
+				<option value="0">未审核</option>
+				<option value="1">已审核</option>
+				</select>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+					<input id="query" type="button" class="hand btn" value="查询">
+          		</div>
+  			</div>
+			</form>
+      <div class="tabH tabH02 panel">
+        <span class="current"><b>操作</b></span>
+        <div style="margin: 4px 4px 0 10px;">
+          <a href="#" id="gAll">发起赠款</a>&nbsp;
+          <input type="button" action="_pass" value="批量通过" class="hand btn"/>
+          <input type="button" action="_reject" value="批量驳回" class="hand btn"/>
+        </div>
+      </div>
+	</div>
+    <form id="pForm" action="$base/grant/pass.do" method="post">
+		
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+				<th style="width:25px;text-align:center;"><span><input type="checkbox" id="checkAll" /></span></th>
+				<th style="width:30px;text-align:center;"><span>编号</span></th>
+				<th style="width:40px;text-align:center;"><span>会员ID</span></th>
+				<th style="width:60px;text-align:center;"><span>会员名</span></th>
+				<th style="width:40px;text-align:center;"><span>真实姓名</span></th>
+				<th style="width:50px;text-align:center;"><span>金额</span></th>
+				<th style="width:70px;text-align:center;"><span>创建时间</span></th>
+				<th style="width:130px;text-align:center;"><span>备注</span></th>
+				<th style="width:30px;text-align:center;"><span>状态</span></th>
+				<th style="width:40px;text-align:center;"><span>操作</span></th>
+			</tr>
+			#foreach($r in $paging.results)
+			<tr>
+				<td style="text-align:center;"><input type="checkbox" name="ids" value="${r.id}" #if(${r.status} != 0)disabled="disabled"#end/></td>
+				<td style="text-align:center;">${r.id}</td>
+				<td style="text-align:center;">${r.userId}</td>
+				<td style="text-align:center;">$!{r.user.username}</td>
+				<td style="text-align:center;">$!{r.user.realname}</td>
+				<td style="text-align:right;"><font color="red">￥${r.amount}</td>
+				<td style="text-align:center;">$date.format("yy-MM-dd HH:mm", ${r.createdTime})</td>
+				<td style="text-align:center;">$!{r.note}</td>
+				<td style="text-align:center;">#if($r.status == 0)<font color="red">未审核 #elseif($r.status == 1) <font color="#99cc33">已审核 #elseif($r.status == 2) <font color="#000000">已驳回 #end</td>
+				<td style="text-align:center;">#if($r.status == 0)<a href="$base/grant/pass.do?ids=${r.id}">通过</a> <a href="$base/grant/reject.do?ids=${r.id}">驳回</a>#end</td>
+			</tr>
+			#end
+		</table>
+    </form>
+	<div class="page_c">
+		<span class="l inb_a">
+			<input type="button" action="_pass" value="批量通过" class="hand btn"/>
+			<input type="button" action="_reject" value="批量驳回" class="hand btn"/>
+		</span>
+		#pager($paging 8 "pager")
+	</div>
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    $('#query').bind('click', function(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        var u = $('#userId');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        
+        if(u.val() != '' && !jQuery.trim($('#userId').val()).match(/^\d*$/g)){
+            alert('请输入正确的用户id');
+            return false;
+        }
+        
+        $('#qForm').submit();
+    });
+    
+    $('#gAll').bind('click', function(){
+        xhOpenWindow('$base/grant/add.do', {
+            id: 'gadd',
+            title: '发起赠款',
+            height: 500,
+            width: 660
+        });
+        
+        return false;
+    });
+     
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="ids"]:enabled').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="ids"]:enabled').removeAttr('checked');
+        }
+    });
+    
+	$("input[action]").click(function() {
+		var action = $(this).attr("action");
+		if (action == '_pass') {
+			$("#pForm").attr("action", "$base/grant/pass.do");
+		} 
+		if (action == '_reject') {
+			$("#pForm").attr("action", "$base/grant/reject.do");
+		}
+		
+		var chkNum = $('input[name=ids]:checked').length;
+		if(chkNum < 1){
+			alert('请至少选择一个再提交该操作!');
+			return false;
+		}
+			
+		$("#pForm").submit();
+	});
+});
+</script>

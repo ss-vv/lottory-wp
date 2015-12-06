@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:lang="http://www.springframework.org/schema/lang"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+				http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd"
+				default-autowire="byName" >
+
+
+
+	<!-- enable autowire -->
+    <context:annotation-config />
+
+    
+    <bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+		  <list>
+              <value>classpath:test.properties</value>
+              
+		  </list>
+		</property>
+	</bean>
+
+	<!-- db -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://localhost:3306/db_lottery" />
+	    <property name="username" value="test_lottery" />
+	    <property name="password" value="test77" />
+	    <property name="connectionProperties">
+	      <props>
+	        <prop key="useUnicode">true</prop>
+	        <prop key="characterEncoding">utf-8</prop>
+	      </props>
+	    </property>
+	</bean>
+	<bean id="mainSessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.jdbc.fetch_size">20</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.order_updates">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.xhcms.lottery.commons.persist.entity" />
+    </bean>
+    <bean name="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    
+	
+    <!-- JTA事务配置 -->
+    <tx:annotation-driven transaction-manager="transactionManager"  proxy-target-class="true"/>
+	
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager" >
+        <property name="sessionFactory" ref="mainSessionFactory"/>
+        <property name="defaultTimeout" value="600"/>
+    </bean>
+    
+    <!-- dao -->
+	<bean id="statusDao" class="com.xhcms.lottery.commons.persist.dao.impl.StatusDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+	
+
+	
+	
+	<!-- service -->
+	
+	
+	<bean id="statusRepository" class="com.unison.lottery.api.protocol.status.StatusRepository" init-method="init"/>
+	<bean id="statusRepositoryService" class="com.unison.lottery.api.protocol.status.service.StatusService"/>
+</beans>

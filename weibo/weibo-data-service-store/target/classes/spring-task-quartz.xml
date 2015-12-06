@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<bean id="FBTeam"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="dataQueryStoreService" />
+		</property>
+		<property name="targetMethod">
+			<value>queryFBTeamStore</value>
+		</property>
+	</bean>
+	
+	<bean id="FBLeague"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="dataQueryStoreService" />
+		</property>
+		<property name="targetMethod">
+			<value>queryFBLeagueStore</value>
+		</property>
+	</bean>
+	
+	<bean id="QTMatch"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="dataQueryStoreService" />
+		</property>
+		<property name="targetMethod">
+			<value>qtMatchStore</value>
+		</property>
+	</bean>
+	
+	<bean id="FBBFData"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="dataQueryStoreService" />
+		</property>
+		<property name="targetMethod">
+			<value>queryFBBFDataAndStore</value>
+		</property>
+	</bean>
+	
+	<bean id="FBOddsHistory"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="dataQueryStoreService" />
+		</property>
+		<property name="targetMethod">
+			<value>queryAndStoreFBOddsHistory</value>
+		</property>
+	</bean>
+
+    <!-- 查询足球欧赔接口并入库  -->
+    <bean id="queryAndStoreFbEuroOddsJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>queryAndStoreFBEuroOdds</value>
+        </property>
+    </bean>
+
+    <!-- 抓取球探足球数据库 -->
+    <bean id="dataCrawlStoreService" class="com.unison.lottery.weibo.data.service.store.persist.service.impl.DataCrawlStoreServiceImpl">
+    </bean>
+    
+    <bean id="crawlAndStoreQTFBDatabaseJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataCrawlStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>crawlAndStoreQTFBDatabase</value>
+        </property>
+    </bean>
+
+    <!-- 查询足球实时比分信息 -->
+    <bean id="queryFBBFTeam" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="FBBFData" />
+        </property>
+        <property name="cronExpression">
+            <value>0/60 * * * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 查询足球球队信息 -->
+    <bean id="queryFBTeam" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="FBTeam" />
+        </property>
+        <property name="cronExpression">
+            <value>0 5 1 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 查询足球联赛杯赛信息 -->
+    <bean id="queryFBLeague" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="FBLeague" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 12 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 查询球探网比赛id信息 -->
+    <bean id="queryQTMatch" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="QTMatch" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0/5 * * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 篮球球队信息并入库的Trigger -->
+    <bean id="queryBBTeamTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="bbTeamInfoJob" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 0/23 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 获取篮球今日的比赛信息 -->
+    <bean id="importBBMatchTodayJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBMatchToday</value>
+        </property>
+    </bean>
+    
+    <!-- 获取篮球今日的比赛信息 -->
+    <bean id="importBBMatchRealtimeJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBMatchRealtime</value>
+        </property>
+    </bean>
+    
+    <!-- 获取篮球历史比赛信息 -->
+    <bean id="importBBMatchHistoryJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBMatchHistory</value>
+        </property>
+    </bean>
+    
+	<!-- 查询篮球球队资料的job -->
+	<bean id="bbTeamInfoJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="dataQueryStoreService" />
+		</property>
+		<property name="targetMethod">
+			<value>queryBBTeamStore</value>
+		</property>
+	</bean>
+	
+	<!-- 查询篮球联赛资料的job -->
+	<bean id="bbLeagueInfoJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="dataQueryStoreService" />
+		</property>
+		<property name="targetMethod">
+			<value>queryBBLeagueStore</value>
+		</property>
+	</bean>
+	
+    <!-- 导入篮球今日赔率的job -->
+    <bean id="bbOddsJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBOdds</value>
+        </property>
+    </bean>
+
+    <!-- 导入篮球历史赔率的job -->
+    <bean id="bbOddsHistoryJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBOddsHistory</value>
+        </property>
+    </bean>
+
+    <!-- 导入篮球即时赔率的job -->
+    <bean id="bbOddsRealtimeJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBOddsRealtime</value>
+        </property>
+    </bean>
+    
+    <!-- 导入3分钟内的篮球百家欧赔, job -->
+    <bean id="importBBOddsBjEuroJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBOddsBjEuro</value>
+        </property>
+    </bean>
+    
+    <!-- 导入3年篮球百家欧赔的job -->
+    <bean id="bbOddsBjEuroHistoryJob"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dataQueryStoreService" />
+        </property>
+        <property name="targetMethod">
+            <value>importBBOddsBjEuroHistory</value>
+        </property>
+    </bean>
+    
+	<!-- 篮球联赛信息的Trigger -->
+    <bean id="queryBBLeagueTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="bbLeagueInfoJob" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0 0/23 * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- Trigger, 导入3分钟内的篮球欧赔 -->
+    <bean id="importBBEuro3MintuesTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="importBBOddsBjEuroJob" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0/3 * * * ?</value>
+        </property>
+    </bean>
+    
+	<!-- 篮球赔率的Trigger -->
+	<bean id="bbOddsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="bbOddsJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0/10 * * * ?</value>
+		</property>
+	</bean>
+    
+    <bean id="bbOddsRealtimeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="bbOddsRealtimeJob" />
+        </property>
+        <property name="cronExpression">
+            <value>0/30 * * * * ?</value>
+        </property>
+    </bean>
+    
+    <!-- 抓取足球欧赔 -->
+    <bean id="queryFbEuroOddsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="queryAndStoreFbEuroOddsJob" />
+        </property>
+        <!--
+			秒 0-59 , - * / 
+			分 0-59 , - * / 
+			小时 0-23 , - * / 
+			日期 1-31 , - * ? / L W C 
+			月份 1-12 或者 JAN-DEC , - * / 
+			星期 1-7 或者 SUN-SAT , - * ? / L C # 
+
+			年（可选） 留空, 1970-2099 , - * /  
+
+			  0 25/2 * * * ? test
+         -->
+        <property name="cronExpression">
+            <value>0 0 2 * * ?</value>
+        </property>
+    </bean>
+
+    <bean id="crawlQtFbDatabaseTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="crawlAndStoreQTFBDatabaseJob" />
+        </property>
+        <property name="cronExpression">
+            <value>0 30 1 * * ?</value>
+        </property>
+    </bean>
+
+    <!-- 获取篮球今日赛程赛果 -->
+    <bean id="todayBBMatchTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="importBBMatchTodayJob" />
+        </property>
+        <property name="cronExpression">
+            <value>0 0/5 * * * ?</value>
+        </property>
+    </bean>
+
+    <!-- 获取篮球即时比分信息 -->
+    <bean id="realtimeBBMatchTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="importBBMatchRealtimeJob" />
+        </property>
+        <property name="cronExpression">
+            <value>0/30 * * * * ?</value>
+        </property>
+    </bean>
+
+    <!-- 获取篮球的历史赛程赛果，3年，只需要运行一次 -->
+    <bean id="historyBBMatchTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="jobDetail">
+           <ref bean="importBBMatchHistoryJob"/>
+        </property>
+        <property name="startDelay">
+            <value>0</value>
+        </property>
+        <property name="repeatInterval">
+            <value>86400000</value>
+        </property>
+    </bean>
+    
+    <!-- 获取篮球的历史赔率，3年，只需要运行一次 -->
+    <bean id="historyBBOddsTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="jobDetail">
+           <ref bean="bbOddsHistoryJob"/>
+        </property>
+        <property name="startDelay">
+            <value>0</value>
+        </property>
+        <property name="repeatInterval">
+            <value>86400000</value>
+        </property>
+    </bean>
+
+    <bean id="bbOddsBjEuroHistoryTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="jobDetail">
+            <ref bean="bbOddsBjEuroHistoryJob"/>
+        </property>
+        <property name="startDelay">
+            <value>0</value>
+        </property>
+        <property name="repeatInterval">
+            <value>86400000</value>
+        </property>
+    </bean>
+
+    <!-- 测试用，部署时需要从 schedulerFactory 中去掉 -->
+<!-- 	<bean id="simpleTestTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean"> -->
+<!-- 	    <property name="jobDetail"> -->
+<!-- 	      去掉 wu  test QTMatch  wu test queryAndStoreFbEuroOddsJob -->
+	    
+<!-- 			<ref bean="QTMatch"/> -->
+<!-- 	    </property> -->
+<!-- 	    <property name="startDelay"> -->
+<!-- 	        <value>0</value> -->
+<!-- 	    </property> -->
+<!-- 	    <property name="repeatInterval"> -->
+<!-- 	        <value>86400000</value> -->
+<!-- 	    </property> -->
+<!-- 	</bean> -->
+
+	<!-- Quartz 测试用全局配置 -->
+<!-- 	<bean id="testSchedulerFactory" lazy-init="false" autowire="no" -->
+<!-- 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"> -->
+<!-- 		<property name="triggers"> -->
+<!-- 			<list> -->
+<!-- 				<ref bean="simpleTestTrigger" /> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 		<property name="quartzProperties"> -->
+<!-- 		  <props> -->
+<!-- 		      <prop key="org.quartz.scheduler.makeSchedulerThreadDaemon">true</prop> -->
+<!-- 		      <prop key="org.quartz.threadPool.makeThreadsDaemons">true</prop> -->
+<!-- 		  </props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+    <!-- 正式的 Quartz 全局配置在此文件中，部署时请打开下面的注释 -->
+   <import resource="task-prod.xml"/> 
+    
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <property name="corePoolSize" value="5" />
+	  <property name="maxPoolSize" value="10" />
+	  <property name="queueCapacity" value="25" />
+	</bean>
+</beans>

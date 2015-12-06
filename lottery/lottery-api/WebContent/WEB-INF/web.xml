@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>lottery-api</display-name>
+  <distributable/>
+  <context-param>
+    <param-name>webAppRootKey</param-name>
+    <param-value>lottery-api</param-value>
+  </context-param>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+			classpath:lottery-api.xml
+	</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <listener>
+  	<listener-class>com.unison.lottery.api.redEnvalope.util.UserRedEnvalopeValidDetection</listener-class>
+  </listener>  
+  <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+  </filter>
+  <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- JSON加解密Filter -->
+  <filter>
+    <filter-name>JsonDecryptAndEncryptFilter</filter-name>
+    <filter-class>com.unison.lottery.api.framework.filter.security.DecryptAndEncryptFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>JsonDecryptAndEncryptFilter</filter-name>
+    <url-pattern>/json/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- JSON通信协议Filter -->
+  <filter>
+    <filter-name>JsonProtocolFilter</filter-name>
+    <filter-class>com.unison.lottery.api.framework.filter.security.json.JsonProtocolFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>JsonProtocolFilter</filter-name>
+    <url-pattern>/json/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- JSON验证登陆Filter -->
+  <filter>
+    <filter-name>LoginWithJsonResponseFilter</filter-name>
+    <filter-class>com.unison.lottery.api.login.filter.LoginWithJsonResponseFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginWithJsonResponseFilter</filter-name>
+    <url-pattern>/json/security/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>DecryptAndEncryptFilter</filter-name>
+    <filter-class>com.unison.lottery.api.framework.filter.security.DecryptAndEncryptFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>DecryptAndEncryptFilter</filter-name>
+    <url-pattern>/xml/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>XmlProtocolFilter</filter-name>
+    <filter-class>com.unison.lottery.api.framework.filter.xml.XmlProtocolFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>XmlProtocolFilter</filter-name>
+    <url-pattern>/xml/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>LoginWithXmlResponseFilter</filter-name>
+    <filter-class>com.unison.lottery.api.login.filter.LoginWithXmlResponseFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginWithXmlResponseFilter</filter-name>
+    <url-pattern>/xml/security/*</url-pattern>
+  </filter-mapping>
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>FindUserInAreaServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>UserActivityChangeNotifyServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>SychnTrackInfoServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>UploadUserInfoServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>GetUserInfoServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>GetUserAuthorizePageServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>SNSShareMessageServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>SNSBindCancelServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>GetSecurityCodeServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>VerifyPhoneNumberServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>VerifyEmailServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>UploadUserListenHistoryServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>ShowUserListenHistoryServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>LogoutServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+<!--    <filter-mapping> -->
+<!--     <filter-name>LoginWithXmlResponseFilter</filter-name> -->
+<!--     <servlet-name>SynchroizePlayListServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>

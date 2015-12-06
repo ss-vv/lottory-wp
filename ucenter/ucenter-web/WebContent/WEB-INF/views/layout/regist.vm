@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  <title>$!{p_title} - 大V彩</title>
+  <meta name="keywords" content="大V彩,竞彩足球,竞彩篮球,足彩,竞彩专家推荐,竞彩专家#if($!{keywords}),$!{keywords}#end" />
+  <meta name="description" content="买竞彩,选大V彩,大V彩是中国最好最安全的网上投注平台,免费发布竞彩专家推荐信息,最新足球篮球资讯#if($!{description}),$!{description}#end" />
+  <link type="text/css" rel="stylesheet" href="$base/css/layout.css" />
+  <link type="text/css" rel="stylesheet" href="$base/css/reg.css" />
+  <script language="javascript" type="text/javascript" src="$base/js/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/ucenter.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/global-setting.js"></script>
+  #foreach($s in $styles)
+    <link type="text/css" rel="stylesheet" href="$base/${s}.css" />
+  #end
+  #foreach($s in $scripts)
+    <script language="javascript" type="text/javascript" src="$base/${s}.js"></script>  
+  #end
+</head>
+<body>
+
+<script language="javascript">
+	if(location.href.indexOf("login.do?referer") != -1 &&
+	   location.href.indexOf("follow_in_weibo.do") != -1){
+		alert("请登录后查看");
+		window.parent.location.href="http://www.davcai.com/";
+	}
+</script>
+
+<div class="wrap">
+  <div class="inwrap">
+    <div class="head">
+      #parse("inc/header_login.vm")
+    </div>
+    <div class="main">
+      $screen_content
+    </div>
+  </div>
+</div>
+#parse("inc/footer_login.vm")
+</body>
+</html>

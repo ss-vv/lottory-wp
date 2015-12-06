@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="lottery-default" extends="struts-default" abstract="true">
+
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+				<param name="root">data</param>
+				<param name="contentType">text/html</param>
+				<param name="callbackParameter">jsonp</param>
+			</result-type>
+		</result-types>
+
+		<interceptors>
+			<interceptor-stack name="lotteryStack">
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+			</interceptor-stack>
+
+			<interceptor-stack name="ajaxAccessItctStack">
+				<interceptor-ref name="lotteryStack" />
+			</interceptor-stack>
+		</interceptors>
+    
+		<default-interceptor-ref name="lotteryStack" />
+
+		<global-results>
+			<result name="input" type="velocity">/message.vm</result>
+			<result name="error" type="velocity">/message.vm</result>
+		</global-results>
+	</package>
+
+	<package name="fbmatch" extends="lottery-default" namespace="/">
+		<!-- 足彩奖上奖榜单 -->
+		<action name="aj_pmfbwingrant" 
+					  class="com.unison.lottery.pm.web.action.AjaxFootballListAction">
+             <result type="json"/>
+        </action>
+        <!-- 篮彩奖上奖榜单 -->
+		<action name="aj_pmbbwingrant" 
+					  class="com.unison.lottery.pm.web.action.AjaxBasketballListAction">
+             <result type="json"/>
+        </action>
+		<!--奖上奖榜单 -->
+		<action name="aj_pmwingrant" 
+					  class="com.unison.lottery.pm.web.action.AjaxPromotionTOPListAction">
+             <result type="json"/>
+        </action>
+        <!--中奖榜单 -->
+		<action name="aj_winTop" 
+					  class="com.unison.lottery.pm.web.action.AjaxPromotionTOPListAction" method="winTop">
+             <result type="json"/>
+        </action>
+        <!--晒单跟单排行榜单 -->
+		<action name="aj_pmshowfollow" 
+					  class="com.unison.lottery.pm.web.action.AjPmSfTOPListAction">
+             <result type="json"/>
+        </action>
+        <!--晒单排行榜单 -->
+		<action name="aj_pmshowtop" 
+					  class="com.unison.lottery.pm.web.action.AjPmShowTOPListAction">
+             <result type="json"/>
+        </action>
+	</package>
+</struts>

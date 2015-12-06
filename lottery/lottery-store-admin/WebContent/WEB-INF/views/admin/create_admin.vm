@@ -1,0 +1,72 @@
+#set($title="创建用户")
+
+#set($js = ["js/jquery.validate.js"])
+<div class="w">
+  <div class="tabH" id="tabList" >
+    <span class="current"><b>创建用户</b></span>
+  </div>
+  <div class="bx_c">
+  <form id="pForm" action="$base/admin/createAdmin.do" method="post">
+          #if($fieldErrors.username)
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="username" generated="true" class="error" style="">$fieldErrors.username.get(0)</label>
+          #end
+    <table cellspacing="0" class="tab">
+      <tr>
+        <td style="text-align:right; width:200px;">用户名：</td>
+        <td style="width:400px;"><input id="username" type="text" size="20" maxlength="20" name="username" value="" /></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">真实姓名：</td>
+        <td>
+          <input id="realName" type="text" size="20" maxlength="20" name="realName" value="" />
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">密码：</td><td><input id="password" type="password" size="20" maxlength="20" name="password" value="" /></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">手机号码：</td><td><input type="text" size="20" maxlength="20" name="mobile" value="" /></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">邮箱：</td><td><input type="text" size="20" maxlength="20" name="email" value="" /></td>
+      </tr>
+      <tr>
+        <td colspan="4" id="btnTd" style="text-align:center; padding: 5px 0px;">
+          <input type="submit" class="hand" value="提交"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+  </div>
+</div>
+<script language="javascript" type="text/javascript">
+$(function(){
+  $('#pForm').validate({
+    rules:{
+      'username': {
+        required: true
+      },
+      'realName': {
+        required: true
+      },
+      'password': {
+        required: true,
+        rangelength: [5, 20]
+      }
+    },
+    messages: {
+      'username': {
+        required: '请输入用户名'
+      },
+      'realName': {
+        required: '请输入真实姓名'
+      },
+      'password': {
+        required: '请输入密码',
+        rangelength: '请输入{0}到{1}个字符'
+      }
+    }
+  });
+
+});
+</script>

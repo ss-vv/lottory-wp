@@ -1,0 +1,1 @@
+INSERT INTO `db_lottery`.`lt_system_conf` (`conf_key`, `conf_value`, `desc`) VALUES ('should_upgrade_shitidians', 'changchun02857', '需要升级的实体店对应的lotteryPlatformId列表，以,号分隔');

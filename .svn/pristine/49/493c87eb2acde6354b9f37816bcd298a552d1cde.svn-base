@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+     default-autowire="byName" >
+	 <context:annotation-config />
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://localhost:3306/db_lottery" />
+	    <property name="username" value="test_lottery" />
+	    <property name="password" value="test77" />
+	    <property name="connectionProperties">
+	      <props>
+	        <prop key="useUnicode">true</prop>
+	        <prop key="characterEncoding">utf-8</prop>
+	      </props>
+	    </property>
+	</bean>
+	
+	 <bean id="dataSourceAccount"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/db_account" />
+        <property name="username" value="test_account" />
+        <property name="password" value="test77" />
+        <property name="connectionProperties">
+            <props>
+                <prop key="useUnicode">true</prop>
+                <prop key="characterEncoding">utf-8</prop>
+            </props>
+        </property>
+    </bean>
+
+  
+  
+  <bean id="mainSessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.jdbc.fetch_size">20</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.order_updates">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+            </props>
+        </property>
+        <property name="packagesToScan">
+        	<array>
+        		<value>com.xhcms.lottery.commons.persist.entity</value>
+        		<value>com.xhcms.ucenter.persistent.entity</value>
+        	</array>
+        </property>
+    </bean>
+    
+    <bean id="accountSessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceAccount"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.jdbc.fetch_size">20</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.order_updates">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.xhcms.lottery.commons.persist.entity" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"  proxy-target-class="true"/>
+	<!-- JTA事务配置 -->
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager" >
+        <property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    <bean id="transactionManagerAccount"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager" >
+        <property name="sessionFactory" ref="accountSessionFactory"/>
+    </bean>
+    
+	<bean name="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean name="databaseTester2" class="org.dbunit.DataSourceDatabaseTester">
+        <constructor-arg ref="dataSourceAccount" />
+    </bean>
+	
+
+</beans>

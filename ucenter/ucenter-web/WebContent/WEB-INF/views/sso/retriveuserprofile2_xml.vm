@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datas>
+	<name><![CDATA[取得用户信息接口]]></name>
+	<data>
+		<result><![CDATA[$!{data.success}]]></result>
+		<uid><![CDATA[$!{user.id}]]></uid>
+		<username><![CDATA[$!{user.username}]]></username>
+		<nickname><![CDATA[$!{user.nickname}]]></nickname>
+		<gender><![CDATA[$!{user.gendar}]]></gender>
+		<email><![CDATA[$!{user.gmail}]]></email>
+		<msn><![CDATA[]]></msn>
+		<avatar><![CDATA[$!{user.avatar}]]></avatar>
+	</data>
+	<desc><![CDATA[$!{data.data}]]></desc>
+</datas>

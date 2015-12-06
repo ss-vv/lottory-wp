@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName">
+
+	<context:annotation-config />
+	<context:component-scan base-package="
+		com.davcai.lottery.platform.client.anruizhiying,
+		com.davcai.lottery.platform.client.qiutan,
+		com.davcai.lottery.platform.client.zunao,
+		com.davcai.lottery.platform.client.util,
+		com.davcai.lottery.platform.client.anruizhiying.parser,
+		com.xhcms.lottery.dc.platform.parser,
+		com.davcai.lottery.platform.client"/>
+		
+	<bean id="placeholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:init.properties" />
+	</bean>
+
+	<bean id="interfaceConfig" class="com.unison.lottery.mc.uni.InterfaceConfig">
+		<property name="version" value="${zm.ticket.version}" />
+		<property name="partnerId" value="${zm.ticket.partnerId}" />
+		<property name="key" value="${zm.ticket.key}" />
+	</bean>
+
+	<bean id="messageParser" abstract="true"
+		class="com.unison.lottery.mc.uni.parser.MessageParser">
+		<property name="config" ref="interfaceConfig" />
+	</bean>
+
+	<bean class="com.unison.lottery.mc.uni.parser.OrderTicketResponseParser"
+		parent="messageParser" />
+		
+	<bean class="com.unison.lottery.mc.uni.parser.QueryIssueResponseParser"
+		parent="messageParser" >
+		<property name="expectedTransCode" value="101"/>
+	</bean>
+	<bean id="idMapper" class="com.unison.lottery.mc.uni.parser.util.LCZMIDMapper"/>
+	
+	<bean id="zmClient" class="com.unison.lottery.mc.uni.ZMClient"
+		abstract="true">
+		<property name="key" value="${zm.ticket.key}" />
+		<property name="partnerId" value="${zm.ticket.partnerId}" />
+		<property name="version" value="${zm.ticket.version}" />
+		<property name="url" value="${zm.ticket.url}" />
+	</bean>
+
+	<!-- 期查询 -->
+	<bean class="com.unison.lottery.mc.uni.client.QueryIssueClient"
+		parent="zmClient">
+		<property name="template" value="/tpl/queryissue.xml" />
+		<property name="parser">
+			<bean class="com.unison.lottery.mc.uni.parser.QueryIssueResponseParser" parent="messageParser">
+				<property name="expectedTransCode" value="101"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 中奖查询 -->
+	<bean class="com.unison.lottery.mc.uni.client.QueryPrizeClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_query_prize.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.QueryPrizeParser" parent="messageParser" />
+        </property>
+   </bean>
+   
+	<bean class="com.unison.lottery.mc.uni.client.OrderTicketClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_order_ticket.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.OrderTicketResponseParser" parent="messageParser" />
+        </property>
+    </bean>
+    
+    <bean id="qiuTanQueryMatchesClient" class="com.davcai.lottery.platform.client.qiutan.QiutanQueryMatchesClient"></bean>
+	
+</beans>

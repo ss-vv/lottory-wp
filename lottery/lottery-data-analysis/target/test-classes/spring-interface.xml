@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName">
+
+	<context:annotation-config />
+
+	<bean id="placeholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:init.properties" />
+	</bean>
+	<bean id="idMapper" class="com.unison.lottery.mc.uni.parser.util.LCZMIDMapper"/>
+
+	<bean id="interfaceConfig" class="com.unison.lottery.mc.uni.InterfaceConfig">
+		<property name="version" value="${zm.ticket.version}" />
+		<property name="partnerId" value="${zm.ticket.partnerId}" />
+		<property name="key" value="${zm.ticket.key}" />
+	</bean>
+
+	<bean id="messageParser" abstract="true"
+		class="com.unison.lottery.mc.uni.parser.MessageParser">
+		<property name="config" ref="interfaceConfig" />
+	</bean>
+
+	<bean class="com.unison.lottery.mc.uni.parser.OrderTicketResponseParser"
+		parent="messageParser" />
+		
+	<bean class="com.unison.lottery.mc.uni.parser.QueryIssueResponseParser"
+		parent="messageParser" >
+		<property name="expectedTransCode" value="101"/>
+	</bean>
+	
+	<bean id="zmClient" class="com.unison.lottery.mc.uni.ZMClient"
+		abstract="true">
+		<property name="key" value="${zm.ticket.key}" />
+		<property name="partnerId" value="${zm.ticket.partnerId}" />
+		<property name="version" value="${zm.ticket.version}" />
+		<property name="url" value="${zm.ticket.url}" />
+	</bean>
+
+	<!-- 期查询 -->
+	<bean class="com.unison.lottery.mc.uni.client.QueryIssueClient"
+		parent="zmClient">
+		<property name="template" value="/tpl/queryissue.xml" />
+		<property name="parser">
+			<bean class="com.unison.lottery.mc.uni.parser.QueryIssueResponseParser" parent="messageParser">
+				<property name="expectedTransCode" value="101"/>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	
+    
+	
+</beans>

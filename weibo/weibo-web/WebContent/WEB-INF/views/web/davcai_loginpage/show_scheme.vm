@@ -1,0 +1,97 @@
+#if($betScheme && $betScheme.size() > 0)
+		<div class="welcome-follow-list">
+			<h4 class="vertical-bar">
+				<img src="images/new-login/vertical-bar-green-low.png"/>
+			</h4>
+			<h3 class="vertical-bar-title">晒单跟单</h3>
+			<p class="event"></p>
+			#foreach($bet in $betScheme)
+			<!-------下面这段是一行晒单跟单里面的一张抽纸部分----->
+				<div class="welcome-follow-list-content">
+					<ul class="welcome-follow-list-content-nav">
+						<li class="list-paper-width01">赛事编号</li>
+						<li class="list-paper-width02">主队VS客队</li>
+  	  	   	   			<li class="list-paper-width03">投注内容</li>
+  	  	   	   			<li class="list-paper-width04">比分</li>
+  	  	   	   		</ul>
+  	  	   	   		#foreach($match in $bet.matchs)
+  	  	   	   		    #if($velocityCount <=2)
+				  	        <ul class="welcome-follow-list-content-details">
+				  	      		<li class="list-paper-width01">$match.cnCode</li>
+				  	          	   
+				  	      	    <li class="list-paper-width02">
+				  	      	        #getPlayId($bet, $match)
+				  	      	        #set($s="")
+				 	                #foreach($nameArr in ${match.name.split("VS")})
+        			                    #if($velocityCount == 1)
+        				                  <i class="match-left"> $nameArr 
+        				                   #if(${_playId} != '80_ZC_1' && ${_playId} != '80_ZC_2' )
+        					                  #if($math.toInteger(${match.concedePoints}) > 0)
+        						                 (+${match.concedePoints})
+        					                  #else
+        						                 (${match.concedePoints}) 
+        					                  #end
+        				                   #end
+        				                  </i>
+        			                     #end
+        			                    #if($velocityCount == 2)
+        				                   <i class="match-vs">VS</i>
+        				                   <i class="match-right">$nameArr</i>
+        			                    #end
+        		                     #end
+				  	      	     </li>
+				  	      	     <li class="list-paper-width03">
+				  	      	     	$Result.rendBetMatchContent($match)
+				  	      	     </li>
+				  	      	     <li class="list-paper-width04">
+	  		                      	$!{match.score}
+				  	      	     </li>
+				  		     </ul>
+				  		  #end
+                       #end
+                       #if($bet.matchs.size() ==1)
+				  		  <p class="welcome-follow-list-content-more"></p>
+				  	   #end
+				  	   <p class="welcome-follow-list-content-more">
+				  	      <a href="javascript:void(0);" onclick="detailClick($bet.id,this)">
+				  		     #if($bet.matchs.size() >=3)
+				  		                      更多...
+				  		     #end
+				  		  </a>
+				  	   </p>
+				  	   <p class="welcome-follow-list-content-pass">
+				  	      <span>过关方式：</span>
+				  	      <label>$status.getPlayName(${bet.playId})</label>
+				  	      <label>#passType($!{bet.passTypeIds})</label>
+				  	   </p>
+				  	   <p class="welcome-follow-list-content-multiple">
+				  	      <span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span>
+				  	      <label>${bet.multiple}倍</label>
+				  	    <p class="welcome-follow-list-content-money">
+				  	       <span>方案金额：</span>
+				  	       <label>￥$math.mul(${bet.betNote}, 2)</label>
+				  	       <i>元</i>
+				  	    </p>
+				  	    <p class="welcome-follow-list-content-item-data">
+  	  	   	   	     	     <span class="item-data-name" title="$!bet.nikeName">
+  	  	   	   	     	        <a href="http://www.davcai.com/$bet.weiboUserId/profile">$bet.nikeName</a>
+  	  	   	   	     	     </span>
+  	  	   	   	     	     #if($bet.followedSchemeId <= 0)
+  	  	   	   	     	       	 <button class="welcome-follow-list" onclick="location.href='http://www.davcai.com/$bet.weiboUserId/$bet.weiboId'">跟单($bet.followingCount)</button>
+  	  	   	   	     	     #end
+  	  	   	   	     	     <em>|</em>
+  	  	   	   	     	     <span class="item-data-review"> 
+  	  	   	   	     	        <a href="http://www.davcai.com/$bet.weiboUserId/$bet.weiboId">评论（$bet.commentCount）</a>
+  	  	   	   	     	     </span>
+  	  	   	   	     	     <em>|</em>
+  	  	   	   	     	     <span class="item-data-zan"> 
+  	  	   	   	     	         <a href="http://www.davcai.com/$bet.weiboUserId/$bet.weiboId">赞（$bet.likeCount）</a>
+  	  	   	   	     	     </span>
+  	  	   	   	     	</p>
+  	  	   	   </div><!-----------welcome-follow-list-content部分------------->
+ 	  	   	#end
+  	  	 </div>  <!--welcome-follow-list-->	
+ 	   	#end
+  	  	<p class="more-content clear-both" >
+         	<a href="http://www.davcai.com/realfollow/category_ALL">更多内容...</a>
+        </p>

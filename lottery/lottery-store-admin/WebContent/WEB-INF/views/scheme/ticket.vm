@@ -1,0 +1,110 @@
+#set($title="查看出票详情")
+<div class="w">
+  <div class="tabH" id="tabLinks">
+    <span><a href="$base/scheme/view.do?id=${id}"><b>投注方案详情</b></a></span>
+	#if("CTZC" == $lotteryId)
+		<span><a href="$base/scheme/lsmatch.do?id=${id}&playId=${playId}"><b>投注赛事详情</b></a></span>
+		<span><a href="$base/scheme/lsissue.do?id=${id}&playId=${playId}"><b>投注期详情</b></a></span>
+	#else
+		#if("JX11" == $lotteryId)
+			<span><a href="$base/scheme/lsissue.do?id=${id}&playId=${playId}"><b>投注期详情</b></a></span>
+		#elseif("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+			<span><a href="$base/scheme/lsmatch.do?id=${id}&playId=${playId}"><b>投注赛事详情</b></a></span>
+		#end
+	#end    
+	<span class="current"><b>出票详情</b></span>
+    <span><a href="$base/scheme/lspartner.do?id=${id}&playId=${playId}"><b>购买人详情</b></a></span>
+    #if("JX11" != $lotteryId)
+    <span><a href="$base/../gf/lsfollower.do?id=${id}&playId=${playId}&lotteryId=${lotteryId}"><b>跟单详情</b></a></span>
+    #end
+  </div>
+  <div class="bx_c">
+    <table cellspacing="0" class="tab" id="dataGrid">
+      <tr>
+        <th style="width:50px;text-align:center;">编号</th>
+        <th style="width:160px;text-align:center;">彩票号码</th>
+        #if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+        <th style="text-align:center;">过关方式</th>
+        #end
+        <th style="width:60px;text-align:center;">倍数</th>
+        <th style="width:80px;text-align:right;">金额（元）</th>
+        <th style="width:100px;text-align:right;">税后奖金（元）</th>
+        <th style="width:80px;text-align:center;">状态</th>
+        <th style="width:80px;text-align:center;">投注时间</th>
+        <th style="width:60px;text-align:center;">操作</th>
+      </tr>
+      #foreach($t in ${tickets})
+      <tr>
+        <td style="text-align:center;">${t.id}</td>
+        <td style="text-align:center;">#if(${t.number})${t.number}#else -- #end</td>
+        #if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+        <td style="text-align:center;">#if($t.passTypeId.charAt(0) == '1')单关#else ${t.passTypeId.replace('@', '串')}#end</td>
+        #end
+        <td style="text-align:center;">${t.multiple}</td>
+        <td style="text-align:right;">￥${t.money}</td>
+        <td style="text-align:right;">#if(${t.afterTaxBonus})￥${t.afterTaxBonus}#end</td>
+        <td style="text-align:center;">$status.bet(${t.status})</td>
+        <td style="text-align:center;">$date.format("MM-dd HH:mm", ${t.createdTime})</td>
+        <td style="text-align:center;">
+          <a href="javascript:void(0);" _id="${t.id}" _odds="$!{t.odds}" _code="${t.code}" _ptb="$!{t.preTaxBonus}" _atb="$!{t.afterTaxBonus}" _msg="$!{t.message}">查看详情</a>
+        </td>
+      </tr>
+      #end
+    </table>
+    <table cellspacing="0" class="tab" id="detailView">
+      <tr>
+        <td style="text-align:right;width:150px;">编号：</td>
+        <td _row="id" colspan="3"></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;width:150px;">税前奖金：</td>
+        <td _row="ptb"></td>
+        <td style="text-align:right;width:150px;">税后奖金：</td>
+        <td _row="atb"></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">信息：</td>
+        <td _row="msg" colspan="3"></td>
+      </tr>
+      <tr>
+		#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+        <td style="text-align:right;">赛事内容(出票赔率)：</td>
+        <td _row="code" colspan="3"></td>
+		#else
+		<td style="text-align:right;">投注内容：</td>
+		<td id="cont" colspan="3"></td>
+		#end
+      </tr>
+    </table>
+  </div>
+</div>
+<script language="javascript" type="text/javascript">
+$(function(){
+    $('#dataGrid a').bind('click', function(){
+        var _this = $(this), _view = $('#detailView td[_row]');
+		var cont = $("#cont");
+		if(cont.attr("id")) {
+			cont.html(_this.attr('_code'));
+		}
+		
+        var oArr = _this.attr('_odds').split('-'), cArr = _this.attr('_code').split('-');
+        var h = [], o;
+        for(var i = 0, j = cArr.length; i < j; i++){
+            if(oArr.length > i && oArr[i] != ''){
+                o = oArr[i].replace(/A/g, ' ');
+            }else{
+                o = '--';
+            }
+            h.push(jQuery.format('{0}<b class="red">{1}</b> ({2})<br/>', cArr[i].substr(0, 4), cArr[i].substr(4), o));
+        }
+        
+        _view.filter('[_row="id"]').text(_this.attr('_id'));
+        _view.filter('[_row="ptb"]').text(_this.attr('_ptb') + ' 元');
+        _view.filter('[_row="atb"]').text(_this.attr('_atb') + ' 元');
+        _view.filter('[_row="msg"]').text(_this.attr('_msg'));
+        _view.filter('[_row="code"]').html(h.join(''));
+            
+        return false;
+    });
+});
+</script>

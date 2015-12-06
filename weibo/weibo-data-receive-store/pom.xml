@@ -1,0 +1,255 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+		<groupId>com.unison.lottery.weibo</groupId>
+		<artifactId>weibo</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+  </parent>
+  <groupId>com.davcai.lottery.weibo</groupId>
+  <artifactId>weibo-data-receive-store</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>weibo-data-receive-store Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+  		<dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-webmvc</artifactId>  
+            <version>3.0.5.RELEASE</version>  
+        </dependency> 
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.unison.lottery.weibo</groupId>
+			<artifactId>weibo-data-service-store</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>logback-core</artifactId>
+					<groupId>ch.qos.logback</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>logback-classic</artifactId>
+					<groupId>ch.qos.logback</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.unison.lottery.weibo</groupId>
+			<artifactId>weibo-data-service-commons</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xhcms.commons</groupId>
+			<artifactId>xhcms-commons-job</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xhcms.commons</groupId>
+			<artifactId>xhcms-commons-persist</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xhcms.commons</groupId>
+			<artifactId>xhcms-commons-lang</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.0.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xbean</groupId>
+			<artifactId>xbean-spring</artifactId>
+			<version>3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.0.4.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.0.4.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>bitronix.tm</groupId>
+			<artifactId>btm</artifactId>
+			<version>2.1.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.34</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.opensymphony.quartz</groupId>
+			<artifactId>quartz</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.unison.lottery.weibo</groupId>
+			<artifactId>weibo-commons</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>compile</scope>
+			<exclusions>
+            	<exclusion>
+                	<groupId>javax.servlet</groupId>
+                	<artifactId>servlet-api</artifactId>
+            	</exclusion>
+            	<exclusion>
+            		<groupId>javax.servlet.jsp</groupId>
+                	<artifactId>jsp-api</artifactId>
+            	</exclusion>
+        	</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.davcai.lottery.push</groupId>
+			<artifactId>weibo-push-client</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>logback-core</artifactId>
+					<groupId>ch.qos.logback</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>logback-classic</artifactId>
+					<groupId>ch.qos.logback</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+  </dependencies>
+  <profiles>
+  	<profile>
+			<id>production</id>
+			<build>
+				<filters>
+					<filter>src/filter/qt-init.prod</filter>
+				</filters>
+				<resources>
+					<resource>
+						<directory>src/filter/</directory>
+						<includes>
+							<include>qt-init.properties</include>
+						</includes>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+  </profiles>
+  <build>
+    <finalName>weibo-data-receive-store</finalName>
+    
+    <defaultGoal>install</defaultGoal>
+        <plugins>
+<!--             <plugin> -->
+<!--                 <groupId>org.apache.tomcat.maven</groupId> -->
+<!--                 <artifactId>tomcat7-maven-plugin</artifactId> -->
+<!--                 <version>2.2</version> -->
+<!--                 <configuration> -->
+<!--                     <url>http://localhost:8080/manager/text</url> -->
+<!--                     server、username、password对应maven的setting下的配置 -->
+<!--                     <server>tomcat</server> -->
+<!--                     <username>admin</username> -->
+<!--                     <password>admin</password> -->
+<!--                     <path>/${project.build.finalName}</path> -->
+<!--                     war文件路径缺省情况下指向target -->
+<!--                     <warFile>${basedir}/target/${project.build.finalName}.war</warFile> -->
+<!--                 </configuration> -->
+<!--             </plugin> -->
+<!--             <plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-war-plugin</artifactId> -->
+<!-- 				<configuration> -->
+<!-- 					<webappDirectory>target/${artifactId}</webappDirectory> -->
+<!-- 					<warSourceDirectory>WebContent</warSourceDirectory> -->
+<!-- 					<webXml>WebContent/WEB-INF/web.xml</webXml> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webappDirectory>target/${artifactId}</webappDirectory>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<webXml>WebContent/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+        </plugins>
+         
+        <!-- 默认是开发环境配置 -->
+        <filters>
+			<filter>src/filter/qt-init.dev</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>src/main/resources/</directory>
+<!-- 				<excludes> -->
+<!-- 					<exclude>qt-init.properties</exclude> -->
+<!-- 				</excludes> -->
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/filter/</directory>
+				<includes>
+					<include>qt-init.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+  </build>
+</project>

@@ -1,0 +1,46 @@
+<!-------------------------下面开始welcome-win-bonus中奖奖金部分---------------------------------------->      
+#if($bonusUsers)
+	<div class="welcome-win-bonus">
+		<h4 class="vertical-bar">
+			<img src="images/new-login/vertical-bar-red.png"/>
+		</h4>
+		<h3 class="vertical-bar-title"> 中奖奖金排行</h3>
+			<p class="event event-line-winprize">
+				<a href="javascript:void(0);"><img src="images/new-login/welcome-question-blue.png" style="margin-left:4px;"></a>
+			</p>
+			#foreach($u in $bonusUsers)
+				<ul class="welcome-win-bonus-list">
+					<li class="welcome-win-bonus-list-son">
+						<a  target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile">
+							<img  src="$u.headImageURL" _nickname_block="_nickname_block" _userid="$u.weiboUserId" src="images/head-img.png" class="welcome-user-logo">
+						</a>
+  	  	   	   	     	<span class="welcome-user-name">
+  	  	   	   	     		<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile">
+	 							$!u.nickName
+	 						</a>
+  	  	   	   	     	</span> 
+  	  	   	   	     	<span class="welcome-win-bonus-list-details">开奖<i>$!u.realWeibo7OpenCount</i>单，盈利<em>$!u.realWeibo7GainCount</em>单，奖金</span>
+  	  	   	   	     	<label class="money color-red">
+  	  	   	   	     		#if($u.totalBonus<10000)
+	 							#set($bonus = $u.totalBonus.toString())
+	 							#set($index = $bonus.indexOf("."))
+	 							#set($a = $bonus.substring(0,$index))
+	 							$a元
+	 						#else
+	 							#set($u.totalBonus = $u.totalBonus/10000)
+	 							#set($bonus = $u.totalBonus.toString())
+	 							#set($index = $bonus.indexOf("."))
+	 							#set($a = $bonus.substring(0,$index))
+	 							#set($index = $index+1)
+	 							#set($b = $bonus.substring($index))
+	 							#if($b.length() > 2)
+	 								#set($b = $b.substring(0,2))
+	 							#end
+	 							$a.$b万元
+	 						#end
+  	  	   	   	     	 </label>
+  	  	   	   	     </li>
+  	  	   	   	 </ul>
+	  	  	#end
+	</div><!-----------welcome-win-bonus中奖奖金部分结束--------->
+ #end

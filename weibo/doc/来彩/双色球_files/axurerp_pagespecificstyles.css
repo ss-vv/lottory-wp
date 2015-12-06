@@ -1,0 +1,3568 @@
+body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../双色球_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:548px;
+    height:258px;
+}
+
+#u0_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:554px;
+    height:264px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:121px;
+    width:544px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2 {
+    position:absolute;
+    left:7px;
+    top:12px;
+    width:122px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u3 {
+    position:absolute;
+    left:131px;
+    top:12px;
+    width:203px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4 {
+    position:absolute;
+    left:329px;
+    top:12px;
+    width:232px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u5 {
+    position:absolute;
+    left:7px;
+    top:38px;
+    width:122px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6 {
+    position:absolute;
+    left:329px;
+    top:38px;
+    width:213px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u7 {
+    position:absolute;
+    left:81px;
+    top:66px;
+    width:345px;
+    height:49px
+}
+
+.u8_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u8_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u8_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u9 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u10_container {
+    position:absolute;
+    left:20px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u10_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u11 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u12_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u12_container {
+    position:absolute;
+    left:40px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u12_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u13 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u14_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u14_container {
+    position:absolute;
+    left:60px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u14_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u15 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u16_container {
+    position:absolute;
+    left:80px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u16_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u17 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u18_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u18_container {
+    position:absolute;
+    left:100px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u18_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u19 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u20_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u20_container {
+    position:absolute;
+    left:120px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u20_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u21 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u22_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u22_container {
+    position:absolute;
+    left:140px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u22_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u23 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u24_container {
+    position:absolute;
+    left:160px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u24_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u25 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u26_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u26_container {
+    position:absolute;
+    left:180px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u26_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u27 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u28_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u28_container {
+    position:absolute;
+    left:200px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u28_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u29 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u30_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u30_container {
+    position:absolute;
+    left:220px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u30_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u31 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u32_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u32_container {
+    position:absolute;
+    left:240px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u32_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u33 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u34_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u34_container {
+    position:absolute;
+    left:260px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u34_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u35 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u36_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u36_container {
+    position:absolute;
+    left:280px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u36_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u37 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u38_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u38_container {
+    position:absolute;
+    left:300px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u38_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u39 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u40_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u40_container {
+    position:absolute;
+    left:320px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u40_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u41 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u42_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u42_container {
+    position:absolute;
+    left:0px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u42_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u43 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u44_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u44_container {
+    position:absolute;
+    left:20px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u44_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u45 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u46_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u46_container {
+    position:absolute;
+    left:40px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u46_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u47 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u48_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u48_container {
+    position:absolute;
+    left:60px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u48_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u49 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u50_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u50_container {
+    position:absolute;
+    left:80px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u50_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u51 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u52_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u52_container {
+    position:absolute;
+    left:100px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u52_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u53 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u54_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u54_container {
+    position:absolute;
+    left:120px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u54_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u55 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u56_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u56_container {
+    position:absolute;
+    left:140px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u56_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u57 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u58_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u58_container {
+    position:absolute;
+    left:160px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u58_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u59 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u60_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u60_container {
+    position:absolute;
+    left:180px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u60_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u61 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u62_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u62_container {
+    position:absolute;
+    left:200px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u62_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u63 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u64_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u64_container {
+    position:absolute;
+    left:220px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u64_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u65 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u66_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u66_container {
+    position:absolute;
+    left:240px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u66_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u67 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u68_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u68_container {
+    position:absolute;
+    left:260px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u68_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u69 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u70_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u70_container {
+    position:absolute;
+    left:280px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u70_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u71 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u72_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u72_container {
+    position:absolute;
+    left:300px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u72_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u73 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u74_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u74_container {
+    position:absolute;
+    left:320px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u74_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u75 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u76 {
+    position:absolute;
+    left:81px;
+    top:122px;
+    width:325px;
+    height:49px
+}
+
+.u77_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u77_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u77_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u78 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u79_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u79_container {
+    position:absolute;
+    left:20px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u79_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u80 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u81_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u81_container {
+    position:absolute;
+    left:40px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u81_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u82 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u83_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u83_container {
+    position:absolute;
+    left:60px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u83_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u84 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u85_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u85_container {
+    position:absolute;
+    left:80px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u85_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u86 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u87_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u87_container {
+    position:absolute;
+    left:100px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u87_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u88 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u89_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u89_container {
+    position:absolute;
+    left:120px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u89_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u90 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u91_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u91_container {
+    position:absolute;
+    left:140px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u91_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u92 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u93_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u93_container {
+    position:absolute;
+    left:160px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u93_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u94 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u95_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u95_container {
+    position:absolute;
+    left:180px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u95_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u96 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u97_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u97_container {
+    position:absolute;
+    left:200px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u97_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u98 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u99_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u99_container {
+    position:absolute;
+    left:220px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u99_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u100 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u101_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u101_container {
+    position:absolute;
+    left:240px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u101_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u102 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u103_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u103_container {
+    position:absolute;
+    left:260px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u103_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u104 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u105_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u105_container {
+    position:absolute;
+    left:280px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u105_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u106 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u107_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u107_container {
+    position:absolute;
+    left:300px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u107_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u108 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u109_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u109_container {
+    position:absolute;
+    left:0px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u109_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u110 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u111_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u111_container {
+    position:absolute;
+    left:20px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u111_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u112 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u113_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u113_container {
+    position:absolute;
+    left:40px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u113_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u114 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u115_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u115_container {
+    position:absolute;
+    left:60px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u115_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u116 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u117_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u117_container {
+    position:absolute;
+    left:80px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u117_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u118 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u119_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u119_container {
+    position:absolute;
+    left:100px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u119_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u120 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u121_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u121_container {
+    position:absolute;
+    left:120px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u121_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u122 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u123_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u123_container {
+    position:absolute;
+    left:140px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u123_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u124 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u125_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u125_container {
+    position:absolute;
+    left:160px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u125_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u126 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u127_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u127_container {
+    position:absolute;
+    left:180px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u127_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u128 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u129_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u129_container {
+    position:absolute;
+    left:200px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u129_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u130 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u131_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u131_container {
+    position:absolute;
+    left:220px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u131_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u132 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u133_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u133_container {
+    position:absolute;
+    left:240px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u133_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u134 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u135_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u135_container {
+    position:absolute;
+    left:260px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u135_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u136 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u137_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u137_container {
+    position:absolute;
+    left:280px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u137_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u138 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u139_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u139_container {
+    position:absolute;
+    left:300px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u139_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u140 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u141 {
+    position:absolute;
+    left:81px;
+    top:180px;
+    width:325px;
+    height:49px
+}
+
+.u142_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u142_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u142_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u143 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u144_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u144_container {
+    position:absolute;
+    left:20px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u144_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u145 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u146_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u146_container {
+    position:absolute;
+    left:40px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u146_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u147 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u148_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u148_container {
+    position:absolute;
+    left:60px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u148_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u149 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u150_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u150_container {
+    position:absolute;
+    left:80px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u150_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u151 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u152_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u152_container {
+    position:absolute;
+    left:100px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u152_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u153 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u154_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u154_container {
+    position:absolute;
+    left:120px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u154_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u155 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u156_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u156_container {
+    position:absolute;
+    left:140px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u156_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u157 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u158_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u158_container {
+    position:absolute;
+    left:160px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u158_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u159 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u160_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u160_container {
+    position:absolute;
+    left:180px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u160_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u161 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u162_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u162_container {
+    position:absolute;
+    left:200px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u162_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u163 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u164_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u164_container {
+    position:absolute;
+    left:220px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u164_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u165 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u166_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u166_container {
+    position:absolute;
+    left:240px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u166_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u167 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u168_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u168_container {
+    position:absolute;
+    left:260px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u168_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u169 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u170_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u170_container {
+    position:absolute;
+    left:280px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u170_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u171 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u172_normal {
+    background-image: url('../双色球_files/u8_normal.png');
+}
+
+.u172_container {
+    position:absolute;
+    left:300px;
+    top:0px;
+    width:20px;
+    height:24px;
+}
+
+#u172_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:30px;
+}
+
+.u173 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u174_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u174_container {
+    position:absolute;
+    left:0px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u174_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u175 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u176_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u176_container {
+    position:absolute;
+    left:20px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u176_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u177 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u178_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u178_container {
+    position:absolute;
+    left:40px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u178_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u179 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u180_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u180_container {
+    position:absolute;
+    left:60px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u180_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u181 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u182_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u182_container {
+    position:absolute;
+    left:80px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u182_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u183 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u184_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u184_container {
+    position:absolute;
+    left:100px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u184_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u185 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u186_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u186_container {
+    position:absolute;
+    left:120px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u186_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u187 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u188_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u188_container {
+    position:absolute;
+    left:140px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u188_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u189 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u190_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u190_container {
+    position:absolute;
+    left:160px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u190_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u191 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u192_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u192_container {
+    position:absolute;
+    left:180px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u192_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u193 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u194_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u194_container {
+    position:absolute;
+    left:200px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u194_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u195 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u196_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u196_container {
+    position:absolute;
+    left:220px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u196_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u197 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u198_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u198_container {
+    position:absolute;
+    left:240px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u198_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u199 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u200_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u200_container {
+    position:absolute;
+    left:260px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u200_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u201 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u202_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u202_container {
+    position:absolute;
+    left:280px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u202_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u203 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u204_normal {
+    background-image: url('../双色球_files/u42_normal.png');
+}
+
+.u204_container {
+    position:absolute;
+    left:300px;
+    top:24px;
+    width:20px;
+    height:20px;
+}
+
+#u204_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:26px;
+    height:26px;
+}
+
+.u205 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:16px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u206 {
+    position:absolute;
+    left:7px;
+    top:68px;
+    width:45px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u207 {
+    position:absolute;
+    left:7px;
+    top:89px;
+    width:74px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u208 {
+    position:absolute;
+    left:7px;
+    top:126px;
+    width:45px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u209 {
+    position:absolute;
+    left:7px;
+    top:147px;
+    width:74px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u210 {
+    position:absolute;
+    left:7px;
+    top:181px;
+    width:45px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u211 {
+    position:absolute;
+    left:7px;
+    top:202px;
+    width:74px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+

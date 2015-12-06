@@ -1,0 +1,1038 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="彩票"/>
+    <meta name="description" content="彩票"/>
+    <title>Games</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/wb_list.css">
+    <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+        <!-- header -->
+        <div class="top_nav">
+            <div class="nav_inner">
+                <div class="logo"><img src="img/logo.png" width="86" height="50"></div>
+                <div class="menu_wrap">
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li>
+                            <a href="#">精华</a><i class="sprites"></i>
+                            <div class="drop_menu">
+                                <a href="#">今日话题</a>
+                                <a href="#">热门推荐</a>
+                                <a href="#">热门讨论</a>
+                                <a href="#">最新发表</a>
+                            </div>
+                        </li>
+                        <li class="active"><a href="#">推荐</a></li>
+                        <li><a href="#">投注</a></li>
+                    </ul>
+                </div>
+                <div class="user_info">
+                    <ul>
+                        <li class="user_name">
+                            <i class="sprites"></i>
+                            <a href="#">Life时代</a>
+                        </li>
+                        <li class="search_input">
+                            <form>
+                                <div class="sprites"><input placeholder="搜索 微博/用户" type="text" class="search_text"></div>
+                                <input type="button" class="search_button sprites">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- header -->
+
+        <!-- body -->
+        <div class="main_body clearfix">
+            <div class="slide_box">
+                <div class="title">
+                    <span><b>赛事数据</b></span>
+                </div>
+                <ul>
+                    <li><a href="#">欧赔指数</a></li>
+                    <li><a href="#">亚洲盘口</a></li>
+                    <li><a href="#">交战历史</a></li>
+                    <li><a href="#">近期赛事</a></li>
+                    <li><a href="#">未来赛事</a></li>
+                </ul>
+            </div>
+            <div class="main_content">
+                <div class="inner_content">
+                    <!-- 比分 -->
+                    <div class="game_tip clearfix">
+                        <ul>
+                            <li class="left">
+                                <p style="background-image:url(pic/1.png)">
+                                    <span><b>格罗迪格SV</b></span>
+                                </p>
+                            </li>
+                            <li class="center">
+                                <div>
+                                    <div class="bg clearfix">
+                                        <span class="l_score"><b>2</b></span>
+                                        <span class="r_score"><b>1</b></span>
+                                        <div class="result"><b>完场</b></div>
+                                    </div>
+                                    <div class="result"><b>半场(1:0)</b></div>
+                                </div>
+                            </li>
+                            <li class="right">
+                                <p style="background-image:url(pic/2.png)">
+                                    <span><b>Admira</b></span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 比分 -->
+                    <div class="hr"></div>
+                    <!-- 近期赛事 -->
+                    <div class="t1 clearfix">
+                        <div class="title"><span><b>近期赛事</b></span></div>
+                        <div class="time">更新时间：2014-01-16  14:21:39</div>
+                    </div>
+                    <div class="t2 clearfix">
+                        <i class="sprites"></i>
+                        <span><b>格罗迪格SV</b></span>
+                        <div class="s_wrap">
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="t3 clearfix">
+                        <ul>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英足总杯</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英乙</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英锦赛</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英联杯</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">球会友谊</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英甲</span></div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="kj_box">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <td width="13%">赛事</td>
+                                    <td width="12%">日期</td>
+                                    <td width="45%">对阵</td>
+                                    <td>盘口</td>
+                                    <td>胜负</td>
+                                    <td>盘路</td>
+                                    <td class="no_right_border">大小</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="13%"><div class="bg blue">英足总杯</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="red">3</b>-<b>1</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="red">胜</b></td>
+                                    <td><b class="red">赢</b></td>
+                                    <td class="no_right_border"><b class="red">大</b></td>
+                                </tr>
+                                <tr class="t">
+                                    <td width="13%"><div class="bg yellow">英乙</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="green">2</b>-<b class="green">2</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="green">平</b></td>
+                                    <td><b class="red">赢</b></td>
+                                    <td class="no_right_border"><b class="red">大</b></td>
+                                </tr>
+                                <tr>
+                                    <td width="13%"><div class="bg red">英足总杯</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="blue">0</b>-<b>1</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="blue">负</b></td>
+                                    <td><b class="blue">输</b></td>
+                                    <td class="no_right_border"><b class="blue">小</b></td>
+                                </tr>
+                                <tr class="t">
+                                    <td width="13%"><div class="bg yellow">英乙</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="green">2</b>-<b class="green">2</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="green">平</b></td>
+                                    <td><b class="red">赢</b></td>
+                                    <td class="no_right_border"><b class="red">大</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cj_box clearfix">
+                        <div class="title_box">
+                            <p>格罗迪格SV近5场战绩</p>
+                        </div>
+                        <div class="trend_box">
+                            <div class="result">
+                                <span><b class="red">3胜</b><b class="green">1平</b><b class="blue">1负</b></span>
+                                <span class="s2"><b>进</b><b class="red">9球</b><b>失</b><b class="blue">5球</b></span>
+                            </div>
+                            <div class="trend_pic_box">
+                                <table height="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="bottom"><span>最近</span></td>
+                                            <td height="100%" valign="bottom" class="trend_td clearfix">
+                                                <div class="item"><span class="red" style="height:70%;"></span></div>
+                                                <div class="item"><span class="green" style="height:50%;"></span></div>
+                                                <div class="item"><span class="red" style="height:30%;"></span></div>
+                                                <div class="item"><span class="blue" style="height:60%;"></span></div>
+                                                <div class="item"><span class="red" style="height:70%;"></span></div>
+                                                <div class="item"><span class="green" style="height:50%;"></span></div>
+                                                <div class="item"><span class="red" style="height:30%;"></span></div>
+                                                <div class="item"><span class="blue" style="height:60%;"></span></div>
+                                            </td>
+                                            <td align="right" valign="bottom"><span>最远</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t2 t4 clearfix">
+                        <i class="sprites"></i>
+                        <span><b>Admira</b></span>
+                        <div class="s_wrap">
+                            <select>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="t3 clearfix">
+                        <ul>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英足总杯</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英乙</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英锦赛</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英联杯</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">球会友谊</span></div>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <div class="checkbox"><input type="checkbox"><span class="icon sprites"></span><span class="label">英甲</span></div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="kj_box">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <td width="13%">赛事</td>
+                                    <td width="12%">日期</td>
+                                    <td width="45%">对阵</td>
+                                    <td>盘口</td>
+                                    <td>胜负</td>
+                                    <td>盘路</td>
+                                    <td class="no_right_border">大小</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="13%"><div class="bg blue">英足总杯</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="red">3</b>-<b>1</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="red">胜</b></td>
+                                    <td><b class="red">赢</b></td>
+                                    <td class="no_right_border"><b class="red">大</b></td>
+                                </tr>
+                                <tr class="t">
+                                    <td width="13%"><div class="bg yellow">英乙</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="green">2</b>-<b class="green">2</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="green">平</b></td>
+                                    <td><b class="red">赢</b></td>
+                                    <td class="no_right_border"><b class="red">大</b></td>
+                                </tr>
+                                <tr>
+                                    <td width="13%"><div class="bg red">英足总杯</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="blue">0</b>-<b>1</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="blue">负</b></td>
+                                    <td><b class="blue">输</b></td>
+                                    <td class="no_right_border"><b class="blue">小</b></td>
+                                </tr>
+                                <tr class="t">
+                                    <td width="13%"><div class="bg yellow">英乙</div></td>
+                                    <td width="12%">13-11-12</td>
+                                    <td width="45%"><b>格罗迪格SV</b> <b class="green">2</b>-<b class="green">2</b> 达根汉</td>
+                                    <td>-0.25</td>
+                                    <td><b class="green">平</b></td>
+                                    <td><b class="red">赢</b></td>
+                                    <td class="no_right_border"><b class="red">大</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cj_box clearfix">
+                        <div class="title_box">
+                            <p>格罗迪格SV近5场战绩</p>
+                        </div>
+                        <div class="trend_box">
+                            <div class="result">
+                                <span><b class="red">3胜</b><b class="green">1平</b><b class="blue">1负</b></span>
+                                <span class="s2"><b>进</b><b class="red">9球</b><b>失</b><b class="blue">5球</b></span>
+                            </div>
+                            <div class="trend_pic_box">
+                                <table height="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="bottom"><span>最近</span></td>
+                                            <td height="100%" valign="bottom" class="trend_td clearfix">
+                                                <div class="item"><span class="red" style="height:70%;"></span></div>
+                                                <div class="item"><span class="green" style="height:50%;"></span></div>
+                                                <div class="item"><span class="red" style="height:30%;"></span></div>
+                                                <div class="item"><span class="blue" style="height:60%;"></span></div>
+                                                <div class="item"><span class="red" style="height:70%;"></span></div>
+                                                <div class="item"><span class="green" style="height:50%;"></span></div>
+                                                <div class="item"><span class="red" style="height:30%;"></span></div>
+                                                <div class="item"><span class="blue" style="height:60%;"></span></div>
+                                            </td>
+                                            <td align="right" valign="bottom"><span>最远</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 近期赛事 -->
+                    <!-- 微博列表 -->
+                    <div class="wb_wrap">
+                        <!-- 发布框 -->
+                        <div class="wb_publisher">
+                            <div class="input">
+                                <textarea class="input_detail"></textarea>
+                            </div>
+                            <div class="func_area clearfix">
+                                <ul class="icon_area clearfix">
+                                    <li>
+                                        <a href="javascript:;"><i class="sprites smile"></i><span>表情</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"><i class="sprites calendar"></i><span>赛事</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"><i class="sprites polaroid"></i><span>图片</span></a>
+                                    </li>
+                                </ul>
+                                <div class="btn_area">
+                                    <a href="javascript:void(0);" class="send_btn W_btn_v " title="发布微博按钮">
+                                        <span class="btn_30px">发布</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 发布框 -->
+                        <!-- 列表 -->
+                        <div class="wb_list_wrap">
+                            <ul class="tab_con clearfix">
+                                <li><a href="#" class="active">全部</a></li>
+                                <li><a href="#">推荐</a></li>
+                                <li><a href="#">晒单</a></li>
+                                <li><a href="#">合买</a></li>
+                            </ul>
+                            <ol>
+                                <li class="wb_item clearfix">
+                                    <!-- 用户信息框 -->
+                                    <div class="wb_user_tip">
+                                        <div class="bg">
+                                            <i class="sprites angle top"></i>
+                                            <div class="a clearfix">
+                                                <div class="wb_face"><img src="pic/t.jpg"></div>
+                                                <div class="user_msg">
+                                                    <div class="name"><a href="#">小权</a><a href="javascript:;">(备注)</a></div>
+                                                    <div class="msg clearfix"><i class="sprites male"></i><span>男</span><span>广东广州</span></div>
+                                                    <div class="msg clearfix"><span>股票 <a href="#">18</a></span><span>讨论 <a href="#">178</a></span><span>粉丝 <a href="#">6231</a></span></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="desc break">
+                                                    <b>简介：</b>投资没有捷径，要想比别人成功，你必须多付出一百倍的努力！人云亦云，相信分析师，内幕消息，...
+                                                </div>
+                                            </div>
+                                            <div class="btn_area clearfix">
+                                                <div class="r"><span><a href="javascript:;">@他</a></span><span><a href="javascript:;">发私信</a></span></div>
+                                                <div class="l">
+                                                    <i class="sprites yes"></i>
+                                                    <span>已关注</span><span>|</span><span><a href="javascript:;">取消</a></span>
+                                                    <span><a href="javascript:;">分组</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 用户信息框 -->
+                                    <div class="user_head">
+                                        <img src="pic/user.jpg">
+                                    </div>
+                                    <div class="content_wrap">
+                                        <span class="title"><a href="#">山行：</a></span>
+                                        <span class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</span>
+                                        <span class="wb_oc">
+                                            <a href="javascript:;" class="sprites wb_open">展开</a>
+                                        </span>
+                                        <div class="tool_wrap clearfix">
+                                            <div class="tool">
+                                                <a href="javascript:;">转发</a><i>|</i><a href="javascript:;">分享</a><i>|</i><a href="javascript:;">收藏</a><i>|</i><a href="javascript:;">评论(2)</a><i>|</i><a href="javascript:;">采纳(2)</a>
+                                            </div>
+                                            <div class="wb_time">
+                                                <span class="time">今天 11:35</span><em>来自</em><a href="#" class="from">iPhone客户端</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="wb_item clearfix">
+                                    <div class="user_head">
+                                        <img src="pic/user.jpg">
+                                    </div>
+                                    <div class="content_wrap">
+                                        <span class="title"><a href="#">山行：</a></span>
+                                        <span class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</span>
+                                        <span class="wb_oc">
+                                            <a href="javascript:;" class="sprites wb_close">收起</a>
+                                        </span>
+                                        <div class="tool_wrap clearfix">
+                                            <div class="tool">
+                                                <a href="javascript:;">转发</a><i>|</i><a href="javascript:;">分享</a><i>|</i><a href="javascript:;">收藏</a><i>|</i><a href="javascript:;">评论(2)</a><i>|</i><a href="javascript:;">采纳(2)</a>
+                                            </div>
+                                            <div class="wb_time">
+                                                <span class="time">今天 11:35</span><em>来自</em><a href="#" class="from">iPhone客户端</a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="wb_publisher wb_reply">
+                                                <i class="sprites j"></i>
+                                                <div class="input">
+                                                    <textarea class="input_detail"></textarea>
+                                                </div>
+                                                <div class="func_area clearfix">
+                                                    <ul class="icon_area clearfix">
+                                                        <li>
+                                                            <a href="javascript:;"><i class="sprites smile"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:;"><i class="sprites calendar"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <label>
+                                                                <div class="checkbox">
+                                                                    <input type="checkbox">
+                                                                    <span class="icon sprites"></span>
+                                                                    <span class="label">同时转发到我的首页</span>
+                                                                </div>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="btn_area">
+                                                        <a href="javascript:void(0);" class="send_btn W_btn_v " title="发布微博按钮">
+                                                            <span class="btn_30px">发布</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wb_reply_list">
+                                                <h3>全部评论（2）</h3>
+                                                <div>
+                                                    <div class="wb_reply_item clearfix">
+                                                        <span class="wb_face">
+                                                            <img src="pic/user.jpg">
+                                                        </span>
+                                                        <span class="wb_reply_content">
+                                                            <div class="title"><a href="#">山行：</a></div>
+                                                            <div class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</div>
+                                                            <div class="tool_wrap clearfix">
+                                                                <div class="tool">
+                                                                    <a href="javascript:;">赞</a><i>|</i><a href="javascript:;">回复</a>
+                                                                </div>
+                                                                <div class="wb_time">
+                                                                    <span class="time">今天 11:35</span>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                    <div class="wb_reply_item clearfix">
+                                                        <span class="wb_face">
+                                                            <img src="pic/user.jpg">
+                                                        </span>
+                                                        <span class="wb_reply_content">
+                                                            <div class="title"><a href="#">山行：</a></div>
+                                                            <div class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</div>
+                                                            <div class="tool_wrap clearfix">
+                                                                <div class="tool">
+                                                                    <a href="javascript:;">赞</a><i>|</i><a href="javascript:;">回复</a>
+                                                                </div>
+                                                                <div class="wb_time">
+                                                                    <span class="time">今天 11:35</span>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="wb_item clearfix">
+                                    <!-- 用户信息框 -->
+                                    <div class="wb_user_tip" style="top:-176px">
+                                        <div class="bg">
+                                            <i class="sprites angle bottom"></i>
+                                            <div class="a clearfix">
+                                                <div class="wb_face"><img src="pic/t.jpg"></div>
+                                                <div class="user_msg">
+                                                    <div class="name"><a href="#">小权</a><a href="javascript:;">(备注)</a></div>
+                                                    <div class="msg clearfix"><i class="sprites male"></i><span>男</span><span>广东广州</span></div>
+                                                    <div class="msg clearfix"><span>股票 <a href="#">18</a></span><span>讨论 <a href="#">178</a></span><span>粉丝 <a href="#">6231</a></span></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="desc break">
+                                                    <b>简介：</b>投资没有捷径，要想比别人成功，你必须多付出一百倍的努力！人云亦云，相信分析师，内幕消息，...
+                                                </div>
+                                            </div>
+                                            <div class="btn_area clearfix">
+                                                <div class="r"><span><a href="javascript:;">@他</a></span><span><a href="javascript:;">发私信</a></span></div>
+                                                <div class="l">
+                                                    <i class="sprites yes"></i>
+                                                    <span>已关注</span><span>|</span><span><a href="javascript:;">取消</a></span>
+                                                    <span><a href="javascript:;">分组</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 用户信息框 -->
+                                    <div class="user_head">
+                                        <img src="pic/user.jpg">
+                                    </div>
+                                    <div class="content_wrap">
+                                        <span class="title"><a href="#">山行：</a></span>
+                                        <span class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</span>
+                                        <span class="pic_wrap">
+                                            <img src="pic/s.jpg">
+                                            <div class="show_big">
+                                                <a href="#"><i class="sprites"></i>查看原图</a>
+                                            </div>
+                                        </span>
+                                        <div class="tool_wrap clearfix">
+                                            <div class="tool">
+                                                <a href="javascript:;">转发</a><i>|</i><a href="javascript:;">分享</a><i>|</i><a href="javascript:;">收藏</a><i>|</i><a href="javascript:;">评论(2)</a><i>|</i><a href="javascript:;">采纳(2)</a>
+                                            </div>
+                                            <div class="wb_time">
+                                                <span class="time">今天 11:35</span><em>来自</em><a href="#" class="from">iPhone客户端</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="wb_item clearfix">
+                                    <!-- alert -->
+                                    <div class="wb_alert" style="left:0;right:auto;top:0;bottom:auto;">
+                                        <div class="confirm bg">
+                                            <div class="title_wrap">
+                                                <i class="sprites close"></i>
+                                                <span>转发到我的首页</span>
+                                            </div>
+                                            <div class="content">
+                                                <div class="wb_publisher wb_reply">
+                                                    <div class="input">
+                                                        <textarea class="input_detail"></textarea>
+                                                    </div>
+                                                    <div class="func_area clearfix">
+                                                        <ul class="icon_area clearfix">
+                                                            <li>
+                                                                <a href="javascript:;"><i class="sprites smile"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;"><i class="sprites calendar"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="btn_area">
+                                                            <span>还能输入140字</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix s_btns">
+                                                        <a href="javascript:;" class="btn yes_btn"><span>确定</span></a>
+                                                        <a href="javascript:;" class="btn no_btn"><span>取消</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- alert -->
+                                    <!-- alert -->
+                                    <div class="wb_alert" style="left:0;bottom:30px">
+                                        <div class="bg">
+                                            <p class="clearfix">
+                                                <span class="content"><i class="sprites yes_icon"></i>收藏成功</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- alert -->
+                                    <!-- alert -->
+                                    <div class="wb_alert" style="bottom:30px;right:0;">
+                                        <div class="bg">
+                                            <p class="clearfix">
+                                                <span class="title">确定取消收藏吗？</span>
+                                                <a href="javascript:;" class="btn yes_btn"><span>确定</span></a>
+                                                <a href="javascript:;" class="btn no_btn"><span>取消</span></a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- alert -->
+                                    <div class="user_head">
+                                        <img src="pic/user.jpg">
+                                    </div>
+                                    <div class="content_wrap">
+                                        <span class="title"><a href="#">山行：</a></span>
+                                        <span class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</span>
+                                        <span class="pic_wrap b">
+                                            <img src="pic/b.jpg">
+                                            <div class="show_big">
+                                                <a href="#"><i class="sprites"></i>查看原图</a>
+                                            </div>
+                                        </span>
+                                        <div class="tool_wrap clearfix">
+                                            <div class="tool">
+                                                <a href="javascript:;">转发</a><i>|</i><a href="javascript:;">分享</a><i>|</i><a href="javascript:;">收藏</a><i>|</i><a href="javascript:;">评论(2)</a><i>|</i><a href="javascript:;">采纳(2)</a>
+                                            </div>
+                                            <div class="wb_time">
+                                                <span class="time">今天 11:35</span><em>来自</em><a href="#" class="from">iPhone客户端</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="wb_item clearfix">
+                                    <!-- alert -->
+                                    <div class="wb_alert" style="left:0;right:auto;top:0;bottom:auto;">
+                                        <div class="confirm bg">
+                                            <div class="title_wrap">
+                                                <i class="sprites close"></i>
+                                                <span>分享讨论</span>
+                                            </div>
+                                            <div class="content">
+                                                <p class="clearfix">
+                                                    <span class="title">请先绑定你要分享的网站账号</span>
+                                                    <a href="javascript:;" class="btn no_btn"><span>绑定新浪微博</span></a>
+                                                    <a href="javascript:;" class="btn no_btn"><span>绑定QQ账号</span></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- alert -->
+                                    <div class="user_head">
+                                        <img src="pic/user.jpg">
+                                    </div>
+                                    <div class="content_wrap">
+                                        <span class="title"><a href="#">山行：</a></span>
+                                        <span class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</span>
+                                        <div class="quote">
+                                            <i class="j"></i>
+                                            <div class="title"><a href="#">山行：</a></div>
+                                            <div class="content break">昨晚去中山论坛走了走，有人感叹，又一个中山本地品牌扑街，比浙江佬攻陷。 此次收购，有个亮点，收购主体为天堂金元。天堂金元为京新控股与天堂硅谷共同出资成立的孵化平台，其中85%的资金由天堂硅谷对外募集，天堂元金系围绕浙江京新药业的发展战略，专业从事股权投资、产业并购等业务的投资平台...</div>
+                                            <div class="wb_oc">
+                                                <a href="javascript:;" class="sprites wb_open">展开</a>
+                                            </div>
+                                            <div class="pic_wrap">
+                                                <img src="pic/s.jpg">
+                                                <div class="show_big">
+                                                    <a href="#"><i class="sprites"></i>查看原图</a>
+                                                </div>
+                                            </div>
+                                            <div class="wb_time">
+                                                <span class="time">今天 11:35</span><a href="#" class="from">相关讨论(2)</a>
+                                            </div>
+                                        </div>
+                                        <div class="tool_wrap clearfix">
+                                            <div class="tool">
+                                                <a href="javascript:;">转发</a><i>|</i><a href="javascript:;">分享</a><i>|</i><a href="javascript:;">收藏</a><i>|</i><a href="javascript:;">评论(2)</a><i>|</i><a href="javascript:;">采纳(2)</a>
+                                            </div>
+                                            <div class="wb_time">
+                                                <span class="time">今天 11:35</span><em>来自</em><a href="#" class="from">iPhone客户端</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <!-- 列表 -->
+                    </div>
+                    <!-- 微博列表 -->
+                </div>
+            </div>
+            <div class="tab_box">
+                <ul>
+                    <!-- 联赛排名 -->
+                    <li class="tab_item">
+                        <div class="title">
+                            <i class="sprites i1"></i><span>联赛排名</span>
+                        </div>
+                        <div class="tab_title">
+                            <img src="pic/a.jpg"><span>奥地利超级联赛</span>
+                        </div>
+                        <div>
+                            <table width="100%" class="dotted" border="0" cellspacing="0" cellpadding="0">
+                                <thead>
+                                    <tr bgcolor="#f6f5f5">
+                                        <td width="6%" align="center" height="23">&nbsp;</td>
+                                        <td width="22%">球队</td>
+                                        <td width="12%" align="center">已赛</td>
+                                        <td width="10%" align="center">胜</td>
+                                        <td width="10%" align="center">平</td>
+                                        <td width="10%" align="center">负</td>
+                                        <td width="16%" align="center">GF:GA</td>
+                                        <td width="14%" align="center">积分</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" align="center" height="23">1</td>
+                                        <td width="22%"><b>萨尔斯堡</b></td>
+                                        <td width="12%" align="center">19</td>
+                                        <td width="10%" align="center">13</td>
+                                        <td width="10%" align="center">4</td>
+                                        <td width="10%" align="center">2</td>
+                                        <td width="16%" align="center"><b class="blue">57:16</b></td>
+                                        <td width="14%" align="center"><b class="red">43</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    <!-- 联赛排名 -->
+                    <!-- 射手/助攻榜 -->
+                    <li class="tab_item">
+                        <div class="title">
+                            <i class="sprites i2"></i><span class="s2">射手/助攻榜</span>
+                        </div>
+                        <div class="tab_title">
+                            <ul class="clearfix">
+                                <li><a href="javascript:;">最佳进球手</a></li>
+                                <li><a href="javascript:;">最佳助攻</a></li>
+                                <li><a href="javascript:;" class="active">牌</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <table width="100%" class="dotted list" border="0" cellspacing="0" cellpadding="0">
+                                <thead>
+                                    <tr bgcolor="#f6f5f5">
+                                        <td width="6%" align="center" height="23">&nbsp;</td>
+                                        <td>球员</td>
+                                        <td width="14%" align="center">进球</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr class="t">
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="6%" valign="top" align="center" height="23">1</td>
+                                        <td><b>Zulechner, Philipp</b><br><b>格罗迪格SV</b></td>
+                                        <td width="14%" align="center"><b class="red">15</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    <!-- 射手/助攻榜 -->
+                    <!-- 赛程 -->
+                    <li class="tab_item">
+                        <div class="title" style="padding-bottom:4px;line-height:24px;">
+                            <i class="sprites i3"></i><span>赛程</span>
+                        </div>
+                        <div class="tab_title">
+                            <img src="pic/a.jpg"><span>奥地利超级联赛</span>
+                        </div>
+                        <div>
+                            <div class="date_list">
+                                <ul class="clearfix" style="width:200%;">
+                                    <li class="date_item"><a href="javascript:;">18</a></li>
+                                    <li class="date_item"><a href="javascript:;">19</a></li>
+                                    <li class="date_item"><a class="active" href="javascript:;">20</a></li>
+                                    <li class="date_item"><a class="disabled" href="javascript:;">21</a></li>
+                                    <li class="date_item"><a class="disabled" href="javascript:;">22</a></li>
+                                    <li class="date_item"><a class="disabled" href="javascript:;">23</a></li>
+                                </ul>
+                            </div>
+                            <div class="f_t">17/12/13</div>
+                            <table width="100%" class="dotted team_list" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td width="39%" height="45" valign="top" align="left">
+                                            <div class="team_name">
+                                                <img src="pic/1.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                        <td align="center"><span class="time"><b>2 - 1</b></span><span class="time">完 场</span></td>
+                                        <td width="39%" align="right" valign="top">
+                                            <div class="team_name2">
+                                                <img src="pic/2.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="f_t">18/12/13</div>
+                            <table width="100%" class="dotted team_list" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td width="39%" height="45" valign="top" align="left">
+                                            <div class="team_name">
+                                                <img src="pic/1.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                        <td align="center"><span class="time"><b>-:-</b></span><span class="time">20:30</span></td>
+                                        <td width="39%" align="right" valign="top">
+                                            <div class="team_name2">
+                                                <img src="pic/2.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="39%" height="45" valign="top" align="left">
+                                            <div class="team_name">
+                                                <img src="pic/1.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                        <td align="center"><span class="time"><b>-:-</b></span><span class="time">20:30</span></td>
+                                        <td width="39%" align="right" valign="top">
+                                            <div class="team_name2">
+                                                <img src="pic/2.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="39%" height="45" valign="top" align="left">
+                                            <div class="team_name">
+                                                <img src="pic/1.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                        <td align="center"><span class="time"><b>-:-</b></span><span class="time">20:30</span></td>
+                                        <td width="39%" align="right" valign="top">
+                                            <div class="team_name2">
+                                                <img src="pic/2.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="39%" height="45" valign="top" align="left">
+                                            <div class="team_name">
+                                                <img src="pic/1.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                        <td align="center"><span class="time"><b>-:-</b></span><span class="time">20:30</span></td>
+                                        <td width="39%" align="right" valign="top">
+                                            <div class="team_name2">
+                                                <img src="pic/2.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="39%" height="45" valign="top" align="left">
+                                            <div class="team_name">
+                                                <img src="pic/1.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                        <td align="center"><span class="time"><b>-:-</b></span><span class="time">20:30</span></td>
+                                        <td width="39%" align="right" valign="top">
+                                            <div class="team_name2">
+                                                <img src="pic/2.png"><span>格罗迪格SV</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                    <!-- 赛程 -->
+                </ul>
+            </div>
+        </div>
+        <!-- body -->
+        <!-- footer -->
+        <div class="copyright_box">
+            <div class="t_bg">
+                <a href="javascript:;">关于我们</a> | <a href="javascript:;">商务合作</a> | <a href="javascript:;">联系我们</a> | <a href="javascript:;">法律声明</a>
+            </div>
+            <p>Copyright &copy; 2014 大V彩 版权所有 京ICP备12043110号-4<br><span><b>购彩有风险，请理性投注。</b></span>禁止向未满18岁的未成年人销售彩票</p>
+            <p><img src="pic/b.png"></p>
+        </div>
+        <!-- footer -->
+    </body>
+</html>

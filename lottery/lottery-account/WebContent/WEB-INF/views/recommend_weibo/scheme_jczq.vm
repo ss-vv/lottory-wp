@@ -1,0 +1,86 @@
+<div class="list-paper-content-topbg"></div>
+<div class="list-paper-content-middlebg">
+<ul class="list-paper-content-nav">
+  	<li class="list-paper-width01">赛事编号</li>
+  	<li class="list-paper-width02">主队VS客队</li>
+  	<li class="list-paper-width03">玩法</li>
+  	<li class="list-paper-width04">投注内容</li>
+  	<li class="list-paper-width05">比分</li>
+  	<li class="list-paper-width06">赛果</li>
+</ul>
+#set($guodanCount = 0)
+#set($totalCount = 0)
+#set($overCount = 0)
+#foreach($m in ${scheme.matchs})
+	#set($totalCount = $totalCount + 1)
+	#getPlayId($scheme, $m)
+	<ul class="list-paper-content-details">
+	  	<li class="list-paper-width01">${m.cnCode}</li>
+	  	<li class="list-paper-width02">
+			<a href="http://www.davcai.com/matches/JCZQ/$m.matchId" target="_blank" _matchfloatcardtype="JCZQ" _matchid="$m.matchId" iframeid="2$scheme.id">
+        		#foreach($nameArr in ${m.name.split("VS")})
+        			#if($velocityCount == 1)
+        				$nameArr 
+        				#if(${_playId} != '80_ZC_1' && ${_playId} != '80_ZC_2' )
+        					#if($math.toInteger(${m.concedePoints}) > 0)
+        						(+${m.concedePoints})
+        					#else
+        						(${m.concedePoints}) 
+        					#end
+        				#end
+        			#end
+        			#if($velocityCount == 2)
+        				&nbsp VS &nbsp   $nameArr
+        			#end
+        		#end	 
+        	</a>
+        </li>
+	  	<li class="list-paper-width03">$status.getPlayName(${m.playId})</li>
+	  	<li class="list-paper-width04"
+	  		#if($Result.isMatchWin(${m},${scheme}))
+	  			#set($guodanCount = $guodanCount + 1) 
+	  			style="background: url(http://trade.davcai.com/ac/images/flag.png) no-repeat 36px 36px;background-position: 0 0;color: red;text-align: center;" 
+	  		#else 
+	  			style="text-align:center"
+	  		#end >
+	  		#if(${m.betCode} && ${m.betCode} !="")
+		  		#if($Result.isMatchWin(${m},${scheme}))
+	            	<div >$Result.cn(${_playId}, ${m.betCode}, ${m.odds})</div>
+	            #else
+	            	<div >$Result.cn(${_playId}, ${m.betCode}, null)</div>
+	            #end
+	        #else
+	        	#if($!{p_title}=="合买详情")
+	        		$status.privacy(${scheme.privacy})
+	        	#else
+	        		$status.privacy(${scheme.followSchemePrivacy})
+	        	#end
+	        #end
+        </li>
+	  	<li class="list-paper-width05">$!{m.score}</li>
+	  	<li class="list-paper-width06">
+	  	#if(${m.status} == 5)
+	  		#set($overCount = $overCount + 1)
+	  		$Result.cn(${_playId}, ${m.result}, null)
+	  	#end
+	  	</li>
+	  	#if(${m.annotation} && ${m.annotation} != "")
+	  		<p class="list-paper-content-review">${m.annotation}</p>
+	  	#end
+	</ul>
+#end
+	<p class="list-paper-content-pass"><span>过关方式：</span><label>$status.getPlayName(${scheme.playId})</label><label>$!{scheme.passTypeIds}</label></p>
+	<p class="list-paper-content-multiple"><span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label> ${scheme.multiple}倍</label></p>
+#if($totalCount == $overCount)
+	<p class="list-paper-content-multiple"><span>方案金额：</span><label>￥$math.mul(${scheme.betNote}, 2)</label><i>元</i></p>
+	<p class="list-paper-content-money"><span>命中率：</span><label>
+		#set($guodanlv = $guodanCount * 100.0 / $totalCount )
+		#set($guodanlv = $guodanlv.toString())
+		#set($index = $guodanlv.indexOf("."))
+		#set($guodanlv = $guodanlv.substring(0,$index))
+		$guodanlv %</label></p>
+#else
+	<p class="list-paper-content-money"><span>方案金额：</span><label>￥$math.mul(${scheme.betNote}, 2)</label><i>元</i></p>
+#end
+</div>
+<div class="list-paper-content-juchi"></div>

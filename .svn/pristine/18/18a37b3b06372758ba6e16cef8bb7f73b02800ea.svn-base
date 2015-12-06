@@ -1,0 +1,15 @@
+.addFriendBtn {
+	margin-top: 3px;
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 4px;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+}
+
+.generalAddBtn{
+	
+	margin-top:-8px!important;
+}

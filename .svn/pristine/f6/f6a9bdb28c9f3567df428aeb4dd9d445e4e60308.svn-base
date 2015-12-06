@@ -1,0 +1,22 @@
+package com.xhcms.lottery.admin.persist.service.impl;
+
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoQueryBalanceImpl;
+import com.xhcms.lottery.admin.persist.service.QueryBalanceService;
+
+public class QueryBalanceImpl implements QueryBalanceService {
+	
+	@Autowired
+	private YuanChengChuPiaoQueryBalanceImpl queryBalanceImpl; 
+	
+	public BigDecimal queryBalanceResponse4OneLoop() {
+		BigDecimal b;
+		BigDecimal   b1= new BigDecimal(Double.valueOf(queryBalanceImpl.queryBalanceForOneLoop().getBalance()));
+		return b = b1.setScale(2,BigDecimal.ROUND_HALF_UP);
+		
+	}
+
+}

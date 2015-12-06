@@ -1,0 +1,30 @@
+<div class="widget home-widget">
+    <div class="tipstop">
+        <h2 class="widget-title">
+            <a href="javascript:void(0)"><span class="index-color">在线客服</span></a>
+        </h2>
+        <div class="fixit"></div>
+        <div class="tipstopic">
+            <ul>
+                <li class="wb-help">
+					<div class="helper">
+    					<em>如果您有任何问题，请</em>
+    					<a href="javascript:void(0);" nickname="大V彩小助手" id="atBtn">@大V彩小助手</a>
+                    </div>
+				</li>
+				<li>
+					<div class="online-service">
+						<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2366741343&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank" title="大V彩客服"><img style="width: 100%;height: 100%;max-width: 120px;" alt="点击这里给我发消息" border="0" src="/images/qq_service.png" title="点击这里给我发消息"></a>
+					</div>
+                </li>
+                <li>
+                  <div class="qq-div-style">
+                    <em class="qq-word-style">大V彩会员QQ群:</em>
+                    <span class="kefu-qq-style">212991920</span>
+                  </div>
+                </li>
+			</ul>
+        </div>
+        <div class="fixit"></div>
+    </div>
+</div>

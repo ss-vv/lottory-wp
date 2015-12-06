@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 实单/跟单 -->
+	<package name="realfollow" extends="weibo-web-default" namespace="/realfollow">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="category_{lottery}"
+			class="com.unison.lottery.weibo.web.action.pc.RealAndFollowWeiboAction" 
+			method="category">
+			<param name="lottery">{1}</param>
+			<result name="success">/web/realfollow/{1}.vm</result>
+		</action>
+		<action name="ajax_{lottery}"
+			class="com.unison.lottery.weibo.web.action.pc.RealAndFollowWeiboAction" 
+			method="ajax">
+			<param name="lottery">{1}</param>
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+	</package>
+	<!-- 推荐模块 -->
+	<package name="recommend" extends="weibo-web-default" namespace="/recommend">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="category_{lottery}"
+			class="com.unison.lottery.weibo.web.action.pc.RecommendAction" 
+			method="category">
+			<param name="lottery">{1}</param>
+			<result name="success">/web/recommend/{1}.vm</result>
+		</action>
+		
+		<action name="ajax_{lottery}"
+			class="com.unison.lottery.weibo.web.action.pc.RecommendAction" 
+			method="ajax">
+			<param name="lottery">{1}</param>
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+		
+		<!-- 推荐分析用户 -->
+		<action name="get_analyze_expert"
+			class="com.unison.lottery.weibo.web.action.pc.RecommendAction" 
+			method="getAnalyzeTalentUser">
+			<result name="success" type="json">
+				<param name="root">analyzeTalentUsers</param>
+			</result>
+		</action>
+		<!-- 异步获取推荐比赛列表 -->
+		<action name="ajax_recommend_match" class="com.unison.lottery.weibo.web.action.pc.ajax.RecommendMatchAction">
+		  <result name="success" type="json"></result>
+		</action>
+	</package>
+	
+	<!-- 热门赛事 -->
+	<package name="hotrecommendmatch" extends="weibo-web-default" namespace="/">
+	  <default-interceptor-ref name="defaultStack" />
+	  <action name="ajax_hot_recommend_match" class="com.unison.lottery.weibo.web.action.pc.ajax.HotRecommendAction" method="showHotMatch">
+	    <result name="success" type="json"></result>
+	  </action>
+	  <action name="ajax_hot_recommend_match_by_weibo" class="com.unison.lottery.weibo.web.action.pc.ajax.HotRecommendAction" method="showHotRecommendWeiboMatch">
+	   <result name="success" type="json"></result>
+	  </action>
+	</package>
+	<!-- 晒单战绩榜 -->
+	<package name="scoretoplist" extends="weibo-web-default" namespace="/">
+	 <default-interceptor-ref name="defaultStack" />
+	 <action name="ajax_load_score" class="com.unison.lottery.weibo.web.action.pc.ajax.ScoreTopListAction" method="loadScoreTopList">
+	   <result name="success" type="json"></result>
+	 </action>
+	</package>
+	<!-- 推荐中 右侧 -->
+	<package name="shengliyinglilv" extends="weibo-web-default" namespace="/">
+	 <default-interceptor-ref name="defaultStack" />
+	 <action name="ajax_{t}" class="com.unison.lottery.weibo.web.action.pc.ajax.SPFShengLvAndYingLvAction" method="{1}">
+	   <result name="success" type="json"></result>
+	 </action>
+	</package>
+	<!-- 中奖奖金排行榜 -->
+	<package name="bounsuser" extends="weibo-web-default" namespace="/">
+	<default-interceptor-ref name="defaultStack" />
+	 <action name="ajax_bonus_users" class="com.unison.lottery.weibo.web.action.pc.ajax.BounsUserAction">
+	   <result name="success" type="json"></result>
+	 </action>
+	</package>
+	<!-- 晒单页晒单助人   跟单 -->
+	<package name="newwinlist" extends="weibo-web-default" namespace="/newwinlist">
+	 <default-interceptor-ref name="defaultStack" />
+	 <action name="ajax_{showtype}" class="com.unison.lottery.weibo.web.action.pc.ajax.NewWinListAction" method="{1}">
+	  <result name="success" type="json"></result>
+	 </action>
+	</package>
+	<!-- 中奖喜报页面 中奖奖金排行版 -->
+	<package name="prizelist" extends="weibo-web-default" namespace="/prize">
+	 <default-interceptor-ref name="defaultStack" />
+	 <action name="ajax_winprize" class="com.unison.lottery.weibo.web.action.pc.ajax.BonusListAction">
+	 <result name="success" type="json"></result>
+	 </action>
+	</package>
+	<!-- 中奖喜报页 最红赛事 -->
+	<package name="hotrecommend" extends="weibo-web-default" namespace="/hotrecommend">
+	 <default-interceptor-ref name="defaultStack" />
+	 <action name="ajax_hotrecommend" class="com.unison.lottery.weibo.web.action.pc.ajax.HotRecommendMatchAction">
+	   <result name="success" type="json"></result>
+	 </action>
+	</package>
+	<!-- 活跃用户 -->
+	<package name="activeuser" extends="weibo-web-default" namespace="/activeuser">
+	  <default-interceptor-ref name="defaultStack" />
+	  <action name="ajax_activeuser" class="com.unison.lottery.weibo.web.action.pc.ajax.ActiveUserAction">
+	  <result name="success" type="json"></result>
+	 </action>
+	</package>
+</struts>

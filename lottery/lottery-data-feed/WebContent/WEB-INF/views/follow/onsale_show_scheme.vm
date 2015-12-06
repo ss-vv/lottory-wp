@@ -1,0 +1,107 @@
+#set($p_title="晒单跟单")
+#set($user_score="晒单红人总战绩榜")
+#set($referer="http://trade.davcai.com/df/follow/oss.do?uid=$uid")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="推荐用户,晒单推荐,跟单推荐,中奖排行榜")
+#set($pos="fl")
+#set($styles = ["style/style_follow_group", "css/hack-bootstrap"])
+
+<div class="lyl lyw-g fl">
+	<div class="mod mod-c mod-c-a wh-mh">
+		<form id="qForm" action="$base/follow/oss.do?uid=$uid" method="post">  
+		<input id="orderBy" name="orderBy" type="hidden" value="$!{orderBy}">
+		<input id="asc" name="asc" type="hidden" value="$!{asc}">
+		<div class="mh">
+			<div class="tabh tabh-e">
+				<a href="$base/follow/index.do" class="cur"><span>热门推荐</span></a>
+			    <a href="$base/follow/list.do?lid=JCZQ"><span>足球方案</span></a>
+			    <a href="$base/follow/list.do?lid=JCLQ"><span>篮球方案</span></a>
+				<a href="$base/follow/list.do?lid=BJDC"><span>北京单场方案</span></a>
+			    <a href="$base/follow/swl.do?lid=JCZQ"><span>晒单中奖榜</span></a>
+			    <a href="$base/follow/fwl.do?lid=JCZQ"><span>跟单中奖榜</span></a>
+			</div>
+		</div>
+		<div class="mhs">
+			<div  class="st">
+				<div class="fl">
+					<b><font color="red">$!{userName}</font></b>的
+					<a href="javascript:void(0);"  class="cur"><span>当前晒单</span></a><b class="line"></b>
+					<a href="$base/follow/osf.do?uid=$uid"><span>当前跟单</span></a><b class="line"></b>
+					<a href="$base/follow/ws.do?uid=$uid"><span>晒单战绩</span></a><b class="line"></b>
+					<a href="$base/follow/wf.do?uid=$uid"><span>跟单战绩</span></a>
+				</div>
+				<div class="fr">
+					<input class="btn_dora_s" id="custom" type="button" value="定制"/>
+					<span style="margin-right:20px;">战绩:#showUserScorePic($!{userScore.showPic})</span>
+				</div>
+			</div>
+		</div>
+		<div class="tblbox tblbox-c mp-f">
+		    <table  cellspacing="0" cellpadding="0" border="0" class="tbl">
+			         <tr>
+			            <th style="width:120px;" class="thl"><div class="inth"><div class="hide">发起人</div></div></th>
+			            <th><div class="inth"><div class="hide">战绩</div></div></th>
+			            <th style="width:120px;"><div class="inth"><div class="hide">玩法</div></div></th>
+			            <th style="width:65px;"><div class="inth"><div class="hide">投注额</div></div></th>				            
+				        <th style="width:100px;"><div class="inth"><div class="hide"><a href="javascript:void(0);" _col="offtime"><div class="c-c">#orderColumn($!{orderBy},'offtime',$!{asc})截止时间</div></a></div></div></th>
+				        <th style="width:60px;"><div class="inth"><div class="hide"><a href="javascript:void(0);" _col="returnRate"><div class="c-c">#orderColumn($!{orderBy},'returnRate',$!{asc})回报率</div></a></div></div></th>
+				        <th style="width:50px;"><div class="inth"><div class="hide"><a href="javascript:void(0);" _col="followedRatio"><div class="c-c">#orderColumn($!{orderBy},'followedRatio',$!{asc})提成</div></a></div></div></th>
+			            <th style="width:60px;"><div class="inth"><div class="hide">人气</div></div></th>
+			            <th style="width:65px;"><div class="inth"><div class="hide">跟单总金额</div></div></th>
+			            <th style="width:60px;" class="tdr"><div class="inth"><div class="hide">操作</div></div></th>
+			          </tr>
+		           #foreach($ss in $paging.results)
+			          #set($s=${ss.scheme})
+			          <tr>
+			            <td class="tdl">$!{s.sponsor}</td>
+			            <td>#showUserScorePic($!{ss.userScore.showPic})</td>
+			            <td class="tdc">
+			            #lotteryIcon($s)$status.playName($s.playId)
+			            </td>
+			            <td>$!{s.totalAmount}元</td>				            
+			            <td>$date.format("yyyy-MM-dd HH:mm", ${s.offtime})</td>
+			            <td>$!{s.maxBonusReturnRatio}倍</td>
+			            <td>#if($!{s.followedRatio}==0)无 #else $!{s.followedRatio}% #end</td>
+			            <td>#hotFollow($!{s.followingCount})</td>
+			            <td>$!{s.followTotalAmount}元</td>
+			            <td class="tdr"><a href="http://trade.davcai.com/ac/follow.do?id=$!{s.id}" target="_blank" style="margin-right:0px;">跟单</a></td>
+			          </tr>
+		          #end		          
+			</table>
+		</div>
+		</form>
+		<space>&nbsp;</space>
+	</div>
+</div>
+<div class="lyr lyw-f fr">
+	#parse("inc/topn.vm")
+	#include("inc/topn-desc.vm")
+</div>
+<form id="cForm" action="http://trade.davcai.com/ac/cm.do" method="get" target="_blank">
+	<input type="hidden" name="fuid" value="$uid">
+</form>
+<script type="text/javascript">
+$(function(){
+    $("a[_col]").click(function() {
+    	if($("#orderBy").val() == $(this).attr("_col")) {
+    		if($("#asc").val().trim() == "true") {
+    			$("#asc").val("false");
+    		} else {
+    			$("#asc").val("true");
+    		}
+    	} else {
+    		$("#orderBy").val($(this).attr("_col"));
+    		if ($(this).attr("_col")=="offtime") {
+    			$("#asc").val("true");
+    		} else {
+    			$("#asc").val("false");
+    		}
+    	}
+    	$("#qForm").submit();
+    });
+    
+    $('#custom').bind('click', function(){ 
+		$("#cForm").submit();
+    });
+});
+</script>

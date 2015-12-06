@@ -1,0 +1,122 @@
+<div >
+  <table  cellpadding="0" cellspacing="0" border="0">
+	#if(${scheme.ctBetContents[0].chooseType} == 0)
+    <tr>
+      <th  style="width:80px;text-align:center;">赛事编号</th>
+      <th style="width:200px;text-align:center;">主队 VS 客队</th>
+      #if(${scheme.playId} == "26_ZC_BQ")
+      <th style="width:60px;text-align:center;">半全场</th>
+      #end
+      <th style="width:80px;text-align:center;">投注内容</th>
+      <th style="width:80px;text-align:center;">开奖结果</th>
+      <th style="width:120px;text-align:center;">开奖信息</th>
+      <th class="thr" style="width:40px;text-align:center;">胆码</th>
+    </tr>
+    	#if(${scheme.playId} == "27_ZC_JQ")
+        	#foreach($m in ${scheme.ctFBMatchs})
+        		#set($betmatchResult=${scheme.ctBetContents[0].code.split(',').get($math.sub($math.mul(${m.matchId},2),2))})
+            	#set($betmatchResult2=${scheme.ctBetContents[0].code.split(',').get($math.add($math.sub($math.mul(${m.matchId},2),2),1))})
+                #if($issueInfo.bonusCode && $issueInfo.bonusCode!="")#set($matchResult=$issueInfo.bonusCode.toCharArray()[$math.sub($math.sub($math.mul(${m.matchId},2),2))])#end
+                #if($issueInfo.bonusCode && $issueInfo.bonusCode!="")#set($matchResult2=$issueInfo.bonusCode.toCharArray()[$math.add($math.sub($math.mul(${m.matchId},2),2),1)])#end
+            <tr>
+              <td rowspan="2" ><div >${m.matchId}</div></td>
+              <td rowspan="2"><div >${m.homeTeamName}<br />${m.guestTeamName}</div></td>
+              <td #if($matchResult && $betmatchResult.indexOf($matchResult.toString())!=-1) class="bet_pass"#end><div >$Result.cn(${scheme.playId},$betmatchResult , ${m.odds}) </div></td>
+              <td><div ><span class="c-i">$Result.cn(${scheme.playId}, $matchResult.toString(), ${m.odds})</span></div></td>
+              #if(${m.matchId}==1)<td rowspan="8"><div  style="text-align:left;">
+				  #set($bonus=${issueInfo.bonusInfo.split(";")})
+                  #set($firstPrize=$bonus[0].split(" "))
+                  	开奖信息：$firstPrize[0]<br/>中奖注数：$firstPrize[1]<br/>每注金额：$firstPrize[2]<br/>
+                  #if($bonus.size()>1)
+                  	#set($secondPrize=$bonus[1].split(" "))
+                  	开奖信息：$secondPrize[0]<br/>中奖注数：$secondPrize[1]<br/>每注金额：$secondPrize[2]<br/>
+                  #end</div></td>
+               #end
+              <td class="tdr bgbrr-e">#if($m.seed)胆#else &nbsp;#end</td>
+            </tr>
+            <tr>
+            	<td #if($matchResult2 && $betmatchResult2.indexOf($matchResult2.toString())!=-1) class="bet_pass"#end><div >$Result.cn(${scheme.playId},$betmatchResult2 , ${m.odds})</div></td>
+            	<td><div ><span class="c-i">$Result.cn(${scheme.playId}, $matchResult2.toString(), ${m.odds})</span></div></td>
+            	<td class="tdr bgbrr-e">&nbsp;</td>
+            </tr>
+        	#end
+        #elseif(${scheme.playId} == "26_ZC_BQ")
+        	#foreach($m in ${scheme.ctFBMatchs})
+            <tr>
+            	#set($betmatchResult=${scheme.ctBetContents[0].code.split(',').get($math.sub($math.mul(${m.matchId},2),2))})
+            	#set($betmatchResult2=${scheme.ctBetContents[0].code.split(',').get($math.add($math.sub($math.mul(${m.matchId},2),2),1))})
+                #if($issueInfo.bonusCode && $issueInfo.bonusCode!="")#set($matchResult=$issueInfo.bonusCode.toCharArray()[$math.sub($math.sub($math.mul(${m.matchId},2),2))])#end
+                #if($issueInfo.bonusCode && $issueInfo.bonusCode!="")#set($matchResult2=$issueInfo.bonusCode.toCharArray()[$math.add($math.sub($math.mul(${m.matchId},2),2),1)])#end
+              <td rowspan="2" ><div >${m.matchId}</div></td>
+              <td rowspan="2"><div >${m.homeTeamName} VS ${m.guestTeamName}</div></td>
+              <td><div >半场</div></td>
+              <td #if($matchResult && $betmatchResult.indexOf($matchResult.toString())!=-1) class="bet_pass"#end><div >$Result.cn(${scheme.playId},$betmatchResult , ${m.odds}) </div></td>
+              <td><div ><span class="c-i">$Result.cn(${scheme.playId}, $matchResult.toString(), ${m.odds})</span></div></td>
+              #if(${m.matchId}==1)<td rowspan="12"><div  style="text-align:left;">
+				  #set($bonus=${issueInfo.bonusInfo.split(";")})
+                  #set($firstPrize=$bonus[0].split(" "))
+                  	开奖信息：$firstPrize[0]<br/>中奖注数：$firstPrize[1]<br/>每注金额：$firstPrize[2]<br/>
+                  #if($bonus.size()>1)
+                  	#set($secondPrize=$bonus[1].split(" "))
+                  	开奖信息：$secondPrize[0]<br/>中奖注数：$secondPrize[1]<br/>每注金额：$secondPrize[2]<br/>
+                  #end</div></td>
+               #end
+              <td class="tdr bgbrr-e">#if($m.seed)胆#else &nbsp;#end</td>
+            </tr>
+            <tr>
+            	<td><div >全场</div></td>
+            	<td #if($matchResult2 && $betmatchResult2.indexOf($matchResult2.toString())!=-1) class="bet_pass"#end><div >$Result.cn(${scheme.playId},$betmatchResult2 , ${m.odds})</div></td>
+            	<td><div ><span class="c-i">$Result.cn(${scheme.playId}, $matchResult2.toString(), ${m.odds})</span></div></td>
+            	<td class="tdr bgbrr-e">&nbsp;</td>
+            </tr>
+        	#end
+        #else
+        	#foreach($m in ${scheme.ctFBMatchs})
+            <tr>
+              <td ><div >${m.matchId}</div></td>
+              <td><div >${m.homeTeamName} VS ${m.guestTeamName}</div></td>
+              #set($betmatchResult=${scheme.ctBetContents[0].code.split(',').get($math.sub(${m.matchId},1))})
+              #if($issueInfo.bonusCode && $issueInfo.bonusCode!="")#set($matchResult=$issueInfo.bonusCode.toCharArray()[$math.sub(${m.matchId},1)])#end
+              <td #if($matchResult && $betmatchResult.indexOf($matchResult.toString()) != -1) class="bet_pass"#end><div >$Result.cn(${scheme.playId}, $betmatchResult, ${m.odds})</div></td>
+              <td><div ><span class="c-i">$Result.cn(${scheme.playId}, $matchResult.toString(), ${m.odds})</span></div></td>
+              #if(${m.matchId}==1)<td rowspan="14"><div  style="text-align:left;">
+				  #set($bonus=${issueInfo.bonusInfo.split(";")})
+                  #set($firstPrize=$bonus[0].split(" "))
+                  	开奖信息：$firstPrize[0]<br/>中奖注数：$firstPrize[1]<br/>每注金额：$firstPrize[2]<br/>
+                  #if($bonus.size()>1)
+                  	#set($secondPrize=$bonus[1].split(" "))
+                  	开奖信息：$secondPrize[0]<br/>中奖注数：$secondPrize[1]<br/>每注金额：$secondPrize[2]<br/>
+                  #end</div></td>
+               #end
+              <td class="tdr bgbrr-e">
+                 #set( $result = false )
+                  #foreach($seed in ${scheme.ctBetContents[0].seed.split(',')})
+                  	#if($seed==$math.sub(${m.matchId},1)) #set( $result = true ) #end
+                  #end
+                  #if($result)胆#else&nbsp; #end
+               </td>
+            </tr>
+        	#end
+        #end
+    #else
+      <tr>
+        <th  style="width:250px;">机选列表</th>
+        <th style="width:250px;">开奖号</th>
+        <th class="thr">开奖信息</th>
+      </tr>
+            <tr >
+              <td >#foreach($m in ${scheme.ctBetContents})$m.code.replaceAll("-","*")<br/>#end</div></td>
+              <td ><b class="c-i">#if(${issueInfo.bonusCode} && ${issueInfo.bonusCode}!="") ${issueInfo.bonusCode}#else -- --#end</b></div></td>
+              <td >
+              #set($bonus=${issueInfo.bonusInfo.split(";")})
+              #set($firstPrize=$bonus[0].split(" "))
+              	开奖信息：$firstPrize[0]<br/>中奖注数：$firstPrize[1]<br/>每注金额：$firstPrize[2]<br/>
+              #if($bonus.size()>1)
+              	#set($secondPrize=$bonus[1].split(" "))
+              	开奖信息：$secondPrize[0]<br/>中奖注数：$secondPrize[1]<br/>每注金额：$secondPrize[2]<br/>
+              #end
+               </div></td>
+            </tr>
+    #end
+  </table>
+</div>

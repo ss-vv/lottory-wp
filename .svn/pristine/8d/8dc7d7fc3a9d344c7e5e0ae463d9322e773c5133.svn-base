@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="utf-8" />
+<meta name="robots" content="all" />
+<meta name="author" content="星汇盛世" />
+<meta name="copyright" content="auction.cn 版权所有，未经授权禁止链接、复制或建立镜像。" />
+<meta name="description" content="星汇后台"/>
+<meta name="keywords" content="星汇后台"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>星汇盛世_内容管理系统_$title</title>
+<link rel="icon" href="http://www.xhcms.com/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.xhcms.com/favicon.ico" type="image/x-icon" />
+
+<link type="text/css" rel="stylesheet" href="$base/css/comm.css" />
+<link type="text/css" rel="stylesheet" href="$base/xhdesk/style/window.css" />
+<link type="text/css" rel="stylesheet" href="$base/xhdesk/style/filter.css" />
+
+  <script language="javascript" type="text/javascript" src="$base/js/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/xhcms/desk.if.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/xhcms/ui.core.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/jet/jet.core.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/xhcms/jooe.core.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/xhcms/jooe.event.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/xhcms/ui.base.js"></script>
+  <script language="javascript" type="text/javascript" src="$base/js/xhcms/ui.button.js"></script>
+#foreach($j in $js)
+<script type="text/javascript" src="$base/$j"></script>
+#end
+#foreach($s in $styles)
+  <link type="text/css" rel="stylesheet" href="$base/${s}.css" />
+#end
+</head>
+<body>
+${screen_content}
+</body>
+</html>

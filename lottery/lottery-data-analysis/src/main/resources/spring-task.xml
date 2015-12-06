@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+
+	<bean id="dataStore" class="com.xhcms.lottery.dc.core.DataStore">
+		<property name="persisters">
+			<map> 
+				<entry key="zc_odds">
+					<bean class="com.xhcms.lottery.dc.persist.persister.ZCOddsPersisterImpl" />
+				</entry>
+				<entry key="lc_odds">
+					<bean class="com.xhcms.lottery.dc.persist.persister.LCOddsPersisterImpl" />
+				</entry>
+				<entry key="anrui_zc_odds">
+					<bean class="com.xhcms.lottery.dc.persist.persister.AnRuiZCOddsPersisterImpl" />
+				</entry>
+				<entry key="anrui_lc_odds">
+					<bean class="com.xhcms.lottery.dc.persist.persister.AnRuiLCOddsPersisterImpl" />
+				</entry>
+				<entry key="zc_result">
+					<bean
+						class="com.xhcms.lottery.dc.persist.persister.ZCMatchResultPersisterImpl" />
+				</entry>
+				<entry key="lc_result">
+					<bean
+						class="com.xhcms.lottery.dc.persist.persister.LCMatchResultPersisterImpl" />
+				</entry>
+				<entry key="zc_match">
+					<bean class="com.xhcms.lottery.dc.persist.persister.ZCMatchPersisterImpl" />
+				</entry>
+				<entry key="lc_match">
+					<bean class="com.xhcms.lottery.dc.persist.persister.LCMatchPersisterImpl" />
+				</entry>
+				<entry key="ct_zc_match">
+					<bean class="com.xhcms.lottery.dc.persist.persister.CTZCMatchPersisterImpl" />
+				</entry>
+				<entry key="query_issueinfo_result">
+					<bean class="com.xhcms.lottery.dc.persist.persister.IssueinfoPersisterImpl" />
+				</entry>
+				<entry key="query_issueinfo_result_3D">
+					<bean class="com.xhcms.lottery.dc.persist.persister.IssueinfoPersisterImpl" />
+				</entry>
+				<entry key="update_issueinfo_lc_status">
+					<bean class="com.xhcms.lottery.dc.persist.persister.UpdateIssueinfoLCStatusPersisterImpl"/>
+				</entry>
+				<entry key="ssq_issueinfo">
+					<bean class="com.xhcms.lottery.dc.persist.persister.SsqIssueInfoImpl"/>
+				</entry>
+				<entry key="zc_jc_teams">
+					<bean class="com.xhcms.lottery.dc.persist.persister.CGJTeamPersisterImpl" >
+						<property name="year" value="2014"/>
+						<property name="betTypes">
+							<list>
+								<value>jcsjbgj</value>
+							</list>
+						</property>
+					</bean>
+				</entry>
+				<entry key="bjdc_spf_result">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.BDMatchResultPersisterImpl"/>
+				</entry>
+				<entry key="bjdc_bf_result">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.BDMatchResultPersisterImpl"/>
+				</entry>
+				<entry key="bjdc_sxds_result">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.BDMatchResultPersisterImpl"/>
+				</entry>
+				<entry key="bjdc_jqs_result">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.BDMatchResultPersisterImpl"/>
+				</entry>
+				<entry key="bjdc_bqc_result">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.BDMatchResultPersisterImpl"/>
+				</entry>
+				<entry key="bjdc_sf_result">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.BDSFMatchResultPersisterImpl"/>
+				</entry>
+				<!-- 北京单场赛程数据存储的key -->
+				<entry key="bjdc_match_SPF">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCMatchPersisterImpl" />
+				</entry>
+				<entry key="bjdc_match_SF">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCMatchSFGGPersisterImpl" />
+				</entry>
+				<!-- 北京单场赔率数据存储的key -->
+				<entry key="bjdc_odds_SPF">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCOddsPersisterImpl" />
+				</entry>
+				<entry key="bjdc_odds_JQS">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCOddsPersisterImpl" />
+				</entry>
+				<entry key="bjdc_odds_SXDS">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCOddsPersisterImpl" />
+				</entry>
+				<entry key="bjdc_odds_BF">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCOddsPersisterImpl" />
+				</entry>
+				<entry key="bjdc_odds_BQC">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCOddsPersisterImpl" />
+				</entry>
+				<entry key="bjdc_odds_SF">
+					<bean class="com.xhcms.lottery.dc.persist.persister.BJDCOddsPersisterImpl" />
+				</entry>
+				<entry key="fb_preset_scheme_task">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.FBPresetSchemePersisterImpl"/>
+				</entry>
+				<entry key="bb_preset_scheme_task">
+				      <bean class="com.xhcms.lottery.dc.persist.persister.BBPresetSchemePersisterImpl"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="crawlWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Crawl" />
+		<property name="maxSize" value="10" />
+	</bean>
+
+	<bean id="runWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Run" />
+		<property name="maxSize" value="30" />
+	</bean>
+	<bean id="checkTicketWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-checkTicket" />
+		<property name="maxSize" value="30" />
+	</bean>
+	<bean id="checkBonusWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-checkBonus" />
+		<property name="maxSize" value="30" />
+	</bean>
+	
+	<bean id="runWS4Persist" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Persist" />
+		<property name="maxSize" value="30" />
+	</bean>
+	
+	<bean id="runWS4Order" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Order" />
+		<property name="maxSize" value="10" />
+	</bean>
+	
+	<bean id="runWS4QueryIssue" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-QueryIssue" />
+		<property name="maxSize" value="30" />
+	</bean>
+	
+	<bean id="openSaleIntercessor" class="com.xhcms.lottery.dc.task.ticket.OpenSaleIntercessor">
+	  <property name="fbSaleTime">
+	    <array>
+	      <value>0902-0045</value> <!-- 周一 -->
+	      <value>0902-0045</value>
+	      <value>0902-0045</value>
+	      <value>0902-0045</value>
+	      <value>0902-0045</value>
+	      <value>0902-0045</value>
+	      <value>0902-0045</value>
+	    </array>
+	  </property>
+	  <property name="bbSaleTime">
+	    <array>
+	      <value>0902-0045</value> <!-- 周一 -->
+	      <value>0902-0045</value>
+	      <value>0732-0045</value>
+	      <value>0732-0045</value>
+	      <value>0902-0045</value>
+	      <value>0902-0045</value>
+	      <value>0902-0045</value>
+	    </array>
+	  </property>
+	</bean>
+
+    <bean id="interfaceConfig" class="com.unison.lottery.mc.uni.InterfaceConfig">
+        <property name="version" value="${zm.ticket.version}" />
+        <property name="partnerId" value="${zm.ticket.partnerId}" />
+        <property name="key" value="${zm.ticket.key}" />
+    </bean>
+
+    <bean id="messageParser" abstract="true" class="com.unison.lottery.mc.uni.parser.MessageParser">
+        <property name="config" ref="interfaceConfig"/>
+    </bean>
+    
+    <!-- 中民客户端基础配置类 -->
+    <bean id="zmClientBase" class="com.unison.lottery.mc.uni.ZMClient"
+        abstract="true">
+        <property name="key" value="${zm.ticket.key}" />
+        <property name="partnerId" value="${zm.ticket.partnerId}" />
+        <property name="version" value="${zm.ticket.version}" />
+        <property name="url" value="${zm.ticket.url}" />
+    </bean>
+    
+    <!-- 竞彩赛事客户端 -->
+    <bean id="queryMatchesClient" 
+        class="com.unison.lottery.mc.uni.client.QueryMatchesClient"
+        parent="zmClientBase">
+        <property name="template" value="/tpl/zm_query_matches.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryMatchesParser" parent="messageParser">
+                <property name="openSaleIntercessor" ref="openSaleIntercessor" />
+                <property name="haltSales" value="-15"/>
+            </bean>
+        </property>
+    </bean>
+    
+    <!-- 竞彩赛果客户端 -->
+    <bean id="queryMatchResultsClient" 
+        class="com.unison.lottery.mc.uni.client.QueryMatchResultsClient"
+        parent="zmClientBase">
+        <property name="template" value="/tpl/zm_query_match_results.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryMatchResultsParser" parent="messageParser"/>
+        </property>
+    </bean>
+
+    <!-- 竞彩赔率客户端 -->
+    <bean id="queryJCOddsClient" 
+        class="com.unison.lottery.mc.uni.client.QueryJCOddsClient"
+        parent="zmClientBase">
+        <property name="template" value="/tpl/zm_query_jc_odds.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryJCOddsParser" parent="messageParser"/>
+        </property>
+    </bean>
+	
+    <!-- 竞彩足球赛事采集调度 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Football Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="360" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesTask">
+                <property name="type" value="jczq"/>
+                <property name="storeDataName" value="zc_match"/>
+                <property name="zmClient" ref="queryMatchesClient"/>
+           </bean>
+        </property>
+    </bean>-->
+    
+    <!-- 竞彩篮球赛事采集调度 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Basketball Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="360" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesTask">
+                <property name="type" value="jclq"/>
+                <property name="storeDataName" value="lc_match"/>
+                <property name="zmClient" ref="queryMatchesClient"/>
+           </bean>
+        </property>
+    </bean>-->
+    
+    <!-- 竞猜世界杯冠军队伍数据采集调度 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch jcsjbgj Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="360" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesTask">
+                <property name="type" value="jcsjbgj"/>
+                <property name="storeDataName" value="zc_jc_teams"/>
+                <property name="zmClient" ref="queryMatchesClient"/>
+           </bean>
+        </property>
+    </bean> -->
+    
+	<!-- 竞彩足球赛果调度 -->
+  <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Football Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="jczq"/>
+                <property name="storeDataName" value="zc_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+           </bean>
+        </property>
+    </bean>
+    
+    <!-- 北京单场赛果调度 -->
+    <!-- SPF -->
+ 	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="SPF"/>
+                <property name="storeDataName" value="bjdc_spf_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+              
+           </bean>
+        </property>
+    </bean>
+   <!--  BF -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="BF"/>
+                <property name="storeDataName" value="bjdc_bf_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+            
+           </bean>
+        </property>
+       </bean>
+    <!-- SXDS -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="SXDS"/>
+                <property name="storeDataName" value="bjdc_sxds_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+          
+           </bean>
+        </property>
+       </bean>
+      <!-- JQS -->    
+        <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="JQS"/>
+                <property name="storeDataName" value="bjdc_jqs_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+             
+           </bean>
+        </property>
+       </bean>
+     <!-- BQC  --> 
+        <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="BQC"/>
+                <property name="storeDataName" value="bjdc_bqc_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+             
+           </bean>
+        </property>
+       </bean>
+       <!-- SF -->
+        <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="SF"/>
+                <property name="storeDataName" value="bjdc_sf_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+             
+           </bean>
+        </property>
+       </bean>
+	 
+	<!-- 竞彩篮球赛果调度 --> 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Basketball Match Results Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="3600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchResultsTask">
+                <property name="type" value="jclq"/>
+                <property name="storeDataName" value="lc_result"/>
+                <property name="zmClient" ref="queryMatchResultsClient"/>
+           </bean>
+        </property>
+    </bean>
+
+    <!-- 竞彩足球单关赔率调度 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Football JC Odds DG Task"/>
+        <property name="workspace" ref="crawlWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="60" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchJCOddsTask">
+                <property name="type" value="jczqdg"/>
+                <property name="storeDataName" value="zc_odds"/>
+                <property name="zmClient" ref="queryJCOddsClient"/>
+           </bean>
+        </property>
+    </bean>-->
+    
+    <!-- 竞彩足球过关赔率调度
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Football JC Odds GG Task"/>
+        <property name="workspace" ref="crawlWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="60" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchJCOddsTask">
+                <property name="type" value="jczqgg"/>
+                <property name="storeDataName" value="zc_odds"/>
+                <property name="zmClient" ref="queryJCOddsClient"/>
+           </bean>
+        </property>
+    </bean> -->
+
+    <!-- 竞彩篮球单关赔率调度 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Basketball JC Odds DG Task"/>
+        <property name="workspace" ref="crawlWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="60" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchJCOddsTask">
+                <property name="type" value="jclqdg"/>
+                <property name="storeDataName" value="lc_odds"/>
+                <property name="zmClient" ref="queryJCOddsClient"/>
+           </bean>
+        </property>
+    </bean>-->
+
+    <!-- 竞彩篮球过关赔率调度
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Basketball JC Odds GG Task"/>
+        <property name="workspace" ref="crawlWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="60" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchJCOddsTask">
+                <property name="type" value="jclqgg"/>
+                <property name="storeDataName" value="lc_odds"/>
+                <property name="zmClient" ref="queryJCOddsClient"/>
+           </bean>
+        </property>
+    </bean> -->
+
+	<!-- 远程出票查询奖金   不用这个了
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Get Bonus List Task" />
+		<property name="workspace" ref="runWS4Order" />
+		<property name="time" value="2012-01-01 00:00:05" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.YuanChengChuPiaoGetBonusListTask" />
+		</property>
+	</bean>
+    -->	
+
+	<!-- 竞彩出票 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Buy JC Ticket Task" />
+		<property name="workspace" ref="runWS4Order" />
+		<property name="time" value="2012-01-01 00:00:05" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.BuyJCTicketTask" />
+		</property>
+	</bean>
+	
+	<!-- 高频彩出票 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Buy HF Ticket Task" />
+		<property name="workspace" ref="runWS4Order" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="15" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.BuyHFTicketTask" />
+		</property>
+	</bean>
+
+	<!-- 传统足彩出票 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Buy HF Ticket Task" />
+		<property name="workspace" ref="runWS4Order" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.BuyCTTicketTask" />
+		</property>
+	</bean>
+
+	<!-- 福彩出票 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Buy HF Ticket Task" />
+		<property name="workspace" ref="runWS4Order" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="15" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.BuyWFTicketTask" />
+		</property>
+	</bean>
+	
+	<!-- 北单出票 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Buy BD Ticket Task" />
+		<property name="workspace" ref="runWS4Order" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="15" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.BuyBDTicketTask" />
+		</property>
+	</bean>
+	
+	<!-- 追号计划任务开始 -->
+	<bean id="repeatRunTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="repeatTask" />
+		</property>
+		<property name="targetMethod">
+			<value>execute</value>
+		</property>
+	</bean>
+	<!-- 设置追号任务执行的时间点 -->
+	<bean id="repeatCode_cron_week" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="repeatRunTask" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 6 ? * 1-7</value>
+		</property>
+	</bean>
+	<bean id="repeatCode_cron_tw" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="repeatRunTask" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 12 ? * TUE,THU,SUN</value>
+		</property>
+	</bean>
+	<bean id="repeatCode_cron_six" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="repeatRunTask" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 18 ? * TUE,THU,SUN</value>
+		</property>
+	</bean>
+	<bean id="repeatCode_cron_seven" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="repeatRunTask" />
+		</property>
+		<property name="cronExpression">
+			<value>0 45 19 ? * TUE,THU,SUN</value>
+		</property>
+	</bean>
+	<bean id="repeatSchedule" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="repeatCode_cron_tw" />
+				<ref bean="repeatCode_cron_six" />
+				<ref bean="repeatCode_cron_seven"/>
+				<ref bean="repeatCode_cron_week" />
+			</list>
+		</property>
+	</bean>
+	<!-- 追号计划任务结束 -->
+	
+	<!-- 检查尊奥出票情况 
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check Buy Ticket Result Task" />
+		<property name="workspace" ref="checkTicketWS" />
+		<property name="time" value="2012-01-01 00:00:30" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckTicketTask" />
+		</property>
+	</bean>-->
+	
+	
+	<!-- 检查竟彩中奖 
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check JC Bonus Task" />
+		<property name="workspace" ref="checkBonusWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckBonusTask"/>
+		</property>
+	</bean>-->
+	
+	<!-- 检查高频彩中奖 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check HF Bonus Task" />
+		<property name="workspace" ref="checkBonusWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckHFBonusTask"/>
+		</property>
+	</bean>
+	
+	<!-- 检查重庆时时彩中奖 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check CQSS Bonus Task" />
+		<property name="workspace" ref="checkBonusWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckCQSSBonusTask"/>
+		</property>
+	</bean>
+
+	<!-- 检查传统足彩中奖
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check CTZC Bonus Task" />
+		<property name="workspace" ref="checkBonusWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="43200" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckCTZCBonusTask"/>
+		</property>
+	</bean> -->
+	
+	<!-- 检查福彩中奖 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check CTZC Bonus Task" />
+		<property name="workspace" ref="checkBonusWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="86400" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckWFBonusTask"/>
+		</property>
+	</bean>
+
+	<!-- 检查北京单场中奖 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check BJDC Bonus Task" />
+		<property name="workspace" ref="checkBonusWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="3600" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckBDBonusTask"/>
+		</property>
+	</bean>
+
+	<!-- 扣款 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Deduct Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:04:00" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.DeductTask" />
+		</property>
+	</bean>
+
+	<!-- 更新赛事状态 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Update Match Status Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:05" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.match.UpdateMatchStatusTask" />
+		</property>
+	</bean>
+
+	<!-- 晒单跟单定制器 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="CustomMadeExecuteWorker Schedule Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:05" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.custommade.CustomMadeExecuteWorker" />
+		</property>
+	</bean>
+	
+	<!-- 合买强制停止、流标 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Force GroupBuy Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:05" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.ForceBuyTicketTask" >
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 高频彩期查询客户端 -->
+    <bean id="queryIssueinfoClient" class="com.unison.lottery.mc.uni.client.QueryIssueClient"
+		parent="zmClientBase">
+		<property name="template" value="/tpl/queryissue.xml" />
+		<property name="parser">
+			<bean class="com.unison.lottery.mc.uni.parser.QueryIssueResponseParser" parent="messageParser">
+				<property name="expectedTransCode" value="101"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 高频彩期查询 -->
+	 
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query HF issueinfo Task" />
+		<property name="workspace" ref="runWS4QueryIssue" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+		         <property name="storeDataName" value="query_issueinfo_result"/>
+		         <property name="zmClient" ref="queryIssueinfoClient"/>
+		         <property name="lotteryIds">
+		         	<list>
+		         		<value>JX11X5</value>
+		         	</list>
+		         </property>
+		    </bean>
+		</property>
+	</bean>
+	<!-- 更新高频彩大V彩自定义状态任务 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="update issueinfo LC_status Task" />
+		<property name="workspace" ref="runWS4QueryIssue" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="5" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.UpdateIssueinfoLCStatusTask">
+		         <property name="storeDataName" value="update_issueinfo_lc_status"/>
+		    </bean>
+		</property>
+	</bean>
+	
+	<!-- 传统足彩期查询 -->
+<!-- 	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry"> -->
+<!-- 		<property name="name" value="Query CTZQ issueinfo Task" /> -->
+<!-- 		<property name="workspace" ref="runWS" /> -->
+<!-- 		<property name="time" value="2012-01-01 00:00:00" /> -->
+<!-- 		<property name="period" value="120" /> -->
+<!-- 		<property name="job"> -->
+<!-- 			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask"> -->
+<!-- 		         <property name="storeDataName" value="query_issueinfo_result"/> -->
+<!-- 		         <property name="zmClient" ref="queryIssueinfoClient"/> -->
+<!-- 		         <property name="lotteryIds"> -->
+<!-- 		         	<list> -->
+<!-- 		         		<value>14CSF</value> -->
+<!-- 		         		<value>SFR9</value> -->
+<!-- 		         		<value>6CBQ</value> -->
+<!-- 		         		<value>4CJQ</value> -->
+<!-- 		         	</list> -->
+<!-- 		         </property> -->
+<!-- 		    </bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<!-- 传统足彩赛事客户端 -->
+    <bean id="queryMatchesClientByCTZC" 
+        class="com.unison.lottery.mc.uni.client.QueryMatchesCTZCClient"
+        parent="zmClientBase">
+        <property name="template" value="/tpl/zm_query_matches_ctzc.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryMatchesCTZCParser" parent="messageParser">
+                <property name="openSaleIntercessor" ref="openSaleIntercessor" />
+            </bean>
+        </property>
+    </bean>
+    
+    <!-- 14场胜平负 赛事采集调度 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch CTZCFootball Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesCTZCTask">
+                <property name="type" value="14CSF"/>
+                <property name="storeDataName" value="ct_zc_match"/>
+                <property name="zmClient" ref="queryMatchesClientByCTZC"/>
+           </bean>
+        </property>
+    </bean>-->
+
+    <!-- 胜负9场 赛事采集调度
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch CTZCFootball Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesCTZCTask">
+                <property name="type" value="SFR9"/>
+                <property name="storeDataName" value="ct_zc_match"/>
+                <property name="zmClient" ref="queryMatchesClientByCTZC"/>
+           </bean>
+        </property>
+    </bean> -->
+    
+    <!-- 6场半全 赛事采集调度 
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch CTZCFootball Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesCTZCTask">
+                <property name="type" value="6CBQ"/>
+                <property name="storeDataName" value="ct_zc_match"/>
+                <property name="zmClient" ref="queryMatchesClientByCTZC"/>
+           </bean>
+        </property>
+    </bean>-->
+    
+    <!-- 4场进球 赛事采集调度
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch CTZCFootball Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="600" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesCTZCTask">
+                <property name="type" value="4CJQ"/>
+                <property name="storeDataName" value="ct_zc_match"/>
+                <property name="zmClient" ref="queryMatchesClientByCTZC"/>
+           </bean>
+        </property>
+    </bean> -->
+	
+	<!-- 重庆时时彩期查询 -->
+	 <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query CQSSC issueinfo Task" />
+		<property name="workspace" ref="runWS4QueryIssue" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+		         <property name="storeDataName" value="query_issueinfo_result"/>
+		         <property name="zmClient" ref="queryIssueinfoClient"/>
+		         <property name="lotteryIds">
+		         	<list>
+		         		<value>ZQSSC</value>
+		         	</list>
+		         </property>
+		    </bean>
+		</property>
+	</bean> 
+	
+	<!-- 北京单场彩期查询 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query BJDC issueinfo Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+		         <property name="storeDataName" value="query_issueinfo_result"/>
+		         <property name="zmClient" ref="queryIssueinfoClient"/>
+		         <property name="lotteryIds">
+		         	<list>
+		         		<value>SPF</value>
+		         	</list>
+		         </property>
+		    </bean>
+		</property>
+	</bean>
+    <!-- 胜负 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query BJDCSF issueinfo Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+		         <property name="storeDataName" value="query_issueinfo_result"/>
+		         <property name="zmClient" ref="queryIssueinfoClient"/>
+		         <property name="lotteryIds">
+		         	<list>
+		         		<value>SF</value>
+		         	</list>
+		         </property>
+		    </bean>
+		</property>
+	</bean>
+	
+	<!-- 福彩：双色球期查询 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query FC(SSQ) issueinfo Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="3600" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+		         <property name="storeDataName" value="query_issueinfo_result"/>
+		         <property name="zmClient" ref="queryIssueinfoClient"/>
+		         <property name="lotteryIds">
+		         	<list>
+		         		<value>SSQ</value>
+		         	</list>
+		         </property>
+		    </bean>
+		</property>
+	</bean>
+	
+	<!-- 福彩3D期查询 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query FC3D issueinfo Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="86400" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+		         <property name="storeDataName" value="query_issueinfo_result_3D"/>
+		         <property name="zmClient" ref="queryIssueinfoClient"/>
+		         <property name="lotteryIds">
+		         	<list>
+		         		<value>3D</value>
+		         	</list>
+		         </property>
+		    </bean>
+		</property>
+	</bean>
+	
+	<!-- 查询并存储双色球各期信息 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query And Store SSQ issueinfo Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="3600" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.SsqIssueInfoTask">
+		         <property name="storeDataName" value="ssq_issueinfo"/>
+		         <property name="lotteryId">
+		         		<value>SSQ</value>
+		         </property>
+		    </bean>
+		</property>
+	</bean>
+	
+	<!-- 北单赛事客户端 -->
+    <bean id="queryMatchesClientWithBJDC" 
+        class="com.unison.lottery.mc.uni.client.QueryMatchesBJDCClient"
+        parent="zmClientBase">
+        <property name="template" value="/tpl/zm_query_matches_bjdc.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryMatchesBJDCParser" parent="messageParser">
+                <property name="openSaleIntercessor" ref="openSaleIntercessor" />
+            </bean>
+        </property>
+    </bean>
+    
+    <!-- 北单赛事采集调度 -->
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Matches Task"/>
+        <property name="workspace" ref="runWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="60" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchMatchesBJDCTask">
+                <property name="typeList">
+                	<list>
+                		<value>SPF</value>
+                		<value>SF</value>
+                	</list>
+                </property>
+                <property name="storeDataName" value="bjdc_match"/>
+                <property name="zmClient" ref="queryMatchesClientWithBJDC"/>
+           </bean>
+        </property>
+    </bean>
+    
+    <!-- 更新北单赛事状态 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Update Match Status Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:05" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.match.UpdateBJDCMatchStatusTask" />
+		</property>
+	</bean>
+    
+    <!-- 北单赔率客户端 -->
+    <bean id="queryBJDCOddsClient" 
+        class="com.unison.lottery.mc.uni.client.QueryBJDCOddsClient"
+        parent="zmClientBase">
+        <property name="template" value="/tpl/zm_query_bjdc_odds.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryBJDCOddsParser" parent="messageParser"/>
+        </property>
+    </bean>
+    
+    <!-- 北京单场赔率调度 -->
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch BJDC Odds Task"/>
+        <property name="workspace" ref="crawlWS" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="60" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.task.fetch.zm.FetchBJDCOddsTask">
+                <property name="playType">
+                	<list>
+                		<value>SPF</value>
+                		<value>JQS</value>
+                		<value>SXDS</value>
+                		<value>BF</value>
+                		<value>BQC</value>
+                		<value>SF</value>
+                	</list>
+                </property>
+                <property name="storeDataName" value="bjdc_odds"/>
+                <property name="zmClient" ref="queryBJDCOddsClient"/>
+           </bean>
+        </property>
+    </bean>
+	
+	<!-- 竞彩足球方案预兑奖后台任务 -->
+	<!-- <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="scheme preset Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.preset.FBPresetSchemeTask" >
+				<property name="storeDataName" value="fb_preset_scheme_task"/>
+			</bean>
+		</property>
+	</bean> -->
+	<!-- 竞彩篮球方案预兑奖后台任务 -->
+	<!-- <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="scheme preset Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.preset.BBPresetSchemeTask" >
+				<property name="storeDataName" value="bb_preset_scheme_task"/>
+			</bean>
+		</property>
+	</bean> -->
+	
+	<!-- 数据持久化 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Persist Task" />
+		<property name="workspace" ref="runWS4Persist" />
+		<property name="period" value="5" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.PersistTask" />
+		</property>
+	</bean>
+	<!-- 远程查看票状态 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check Buy Ticket Result Task" />
+		<property name="workspace" ref="checkTicketWS" />
+		<property name="time" value="2012-01-01 00:00:30" />
+		<property name="period" value="60" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckRemoteTicketStatusTask" />
+		</property>
+	</bean>
+</beans>

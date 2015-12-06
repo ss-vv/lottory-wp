@@ -1,0 +1,152 @@
+#set($title="优惠劵管理")
+#set($styles=["css/jqueryui/jquery-ui","css/style"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b style="color:blue;">优惠劵管理</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/voucher/list.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel" style="height:auto;clear:both;overflow:hidden;">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">
+          			用户名称：<input type="text" name="username" value="$!{username}" maxlength="18" size="8"/>
+          			优惠劵ID：<input type="text" name="voucherUserId" value="$!{voucherUserId}" maxlength="18" size="8"/>
+            		优惠劵名称：
+            		<select name="voucherId">
+		            			<option value="">不限</option>
+						#foreach($v in $vouchers)
+							#if($v.id == $voucherId)
+			    				<option selected="selected" value="$v.id">${v.name}#if($!{v.limit})_$!{v.limit}#end</option>
+							#else
+			    				<option value="$v.id">${v.name}#if($!{v.limit})_$!{v.limit}#end</option>
+							#end
+						#end
+					 </select>
+		            状态：<select name="state" value="${state}" id="stateSel">
+		              <option value="">不限</option>
+		              <option value="UNUSED">未使用</option>
+		              <option value="USED">已使用</option>
+		              <option value="EXPIRE">已过期</option>
+		            </select>
+		            <br/>
+		            赠款类型：
+		            <select name="granttypeId">
+		            			<option value="">不限</option>
+						#foreach($g in $grantTypes)
+							#if($g.id == $granttypeId)
+			    				<option selected="selected" value="$g.id">$g.name</option>
+							#else
+			    				<option value="$g.id">$g.name</option>
+							#end
+						#end
+					 </select>
+		            类型：
+		            <select name="voucherType">
+		            			<option value="">不限</option>
+						#foreach($g in $voucherTypes)
+							#if($g.type == $voucherType)
+			    				<option selected="selected" value="$g.type">$g.name</option>
+							#else
+			    				<option value="$g.type">$g.name</option>
+							#end
+						#end
+					 </select>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+  					#if($admin_user.username && ($admin_user.username=='root' || $admin_user.username=='handongyang'))
+  					<input type="button" class="hand btn" value="赠送" id="createVoucher">
+  					#end
+            		<input type="submit" class="hand btn" value="查询">
+          		</div>
+  			</div>
+			</form>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+            	<th style="border-right:none;" class="thl"><div class="inth"><div class="hide" style="text-align:center">优惠劵</div></div></th>
+            	<th style="border-right:none;"><div class="inth"><div class="hide" style="text-align:center">用户名</div></div></th>
+            	<th style="border-right:none;"><div class="inth"><div class="hide" style="text-align:center">名称/编号</div></div></th>
+            	<th style="border-right:none;"><div class="inth"><div class="hide" style="text-align:center">有效期</div></div></th>
+            	<th style="border-right:none;" ><div class="inth"><div class="hide" style="text-align:center">赠款类型</div></div></th>
+            	<th style="" class="thr"><div class="inth"><div class="hide" style="text-align:center">状态</div></div></th>
+          	</tr>
+			#foreach($v in $paging.results)
+          	<tr>
+            	<td style="border-right:none;text-align:center" class="tdl"><span #if($v.voucher.price > 0) class="voucher" #else class="voucher_scj" #end><span #if($v.voucher.price > 0) class="voucher_number" #else class="voucher_number_scj" #end>$math.toInteger(${v.voucher.grant})</span></span></td>
+            	<td style="border-right:none;text-align:center;color:black;">${v.user.username}</td>
+            	<td style="border-right:none;text-align:center" ><span style="color:black;">${v.voucher.name}</span><br/><span class="buy_date">$v.id</span></td>
+            	<td style="border-right:none;text-align:center"  class="buy_date">$date.format("yyyy-MM-dd HH:mm", ${v.effectTime})<br/>$date.format("yyyy-MM-dd HH:mm", ${v.deadTime})</td>
+            	<td style="border-right:none;text-align:center" >$v.grantType.name</td>
+            	<td style="text-align:center; #if(${v.status}==0) color:#999999; #end #if(${v.status}==2) color:black; #end" class="tdr">#if($v.status==0)<a href="javascript:void(0);" style="text-decoration: NONE;COLOR:#999999;" title="点击删除" _name="delLink">$Result.voucherStatus(${v.status})</a>#else$Result.voucherStatus(${v.status})#end<br/>#if($v.lockTime)$date.format("yyyy-MM-dd HH:mm", ${v.lockTime})#end</td>
+          	</tr>
+          	#end
+		</table>
+    </form>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+function submitone(wid){
+     if(confirm('确定要提交选中的用户？')){
+            jQuery.getJSON('$base/promote/ja_submit.do', 'id='+wid, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                	alert('未知错误。');
+                	$('#qForm').submit();
+                }
+            });
+        }
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(f != null && t != null){
+            if(t.getTime() < f.getTime()){
+                alert('终止日期不能早于开始日期');
+                return false;
+            }
+            if((t.getTime() - f.getTime()) / 86400000 > 90){
+                alert('查询日期区间不能超过90天');
+                return false;
+            }
+        }
+        $('#qForm').submit();
+    }
+    // 赠送优惠劵
+    $('#createVoucher').bind('click', function(){
+        xhOpenWindow('$base/voucher/add.do', {
+            id: 'addvoucher',
+            title: '赠送优惠劵',
+            height: 300,
+            width: 560
+        });
+        return false;
+    });
+   $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="id"]:enabled').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="id"]:enabled').removeAttr('checked');
+        }
+    });
+});
+</script>

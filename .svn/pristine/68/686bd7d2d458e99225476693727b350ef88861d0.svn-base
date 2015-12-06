@@ -1,0 +1,95 @@
+	 <!--------下面开始wel-lottery-classify注册登陆框下面的部分-------------->
+  	 <div class="wel-lottery-classify">
+  	 	 <p class="friendship-prompt"> 彩票是一种消遣，沟通能带来财富</p>
+  	 	 
+  	 	 <div class="shaidan-kuang">
+  	 	 	今天，<br/>
+                               大V彩用户已晒
+            <i class="shaidan-num" title="${showSchemeNum}">${showSchemeNum}</i><em>个</em>  
+            <span class="touzhudan">投注单</span>
+  	 	 </div>
+  	 	        <!------下面开始lottery-kuang部分------------>
+  	 	  <div class="lottery-kuang">
+  	 	  	    <ul class="lottery-kuang-list">
+  	 	  	    	 <li class="lottery-kuang-list-son">
+  	 	  	    	 	<a href="javascript:void(0);"><img src="images/new-login/jczq-lottery-logo.png" class="fl"/></a>
+  	 	  	    	 	<h4 class="lottery-kuang-list-son-name">竞彩足球</h4>
+  	 	  	    	 	<label class="lottery-kuang-list-son-explain">买两场，易中奖</label>
+  	 	  	    	 	<p class="dotted-line"></p>
+  	 	  	    	 	<p class="lottery-kuang-list-son-select">
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jczq_80_zc_2.html"  target="_blank">胜平负/</a><a href="http://trade.davcai.com/df/bet/jczq_01_zc_2.html"  target="_blank">让球</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jczq.do"  target="_blank">混合过关</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jczq_02_zc_2.html"  target="_blank">比分</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jczq_03_zc_2.html"  target="_blank">进球数</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jczq_04_zc_2.html"  target="_blank">半全场</a>&nbsp;
+  	 	  	    	 		
+  	 	  	    	 	</p> 
+  	 	  	    	 </li>
+  	 	  	    	 <li class="lottery-kuang-list-son">
+  	 	  	    	 	<a href="javascript:void(0);"><img src="images/new-login/jclq-lottery-logo.png" class="fl"/></a>
+  	 	  	    	 	<h4 class="lottery-kuang-list-son-name">竞彩篮球</h4>
+  	 	  	    	 	<label class="lottery-kuang-list-son-explain">易中奖，高返奖</label>
+  	 	  	    	 	<p class="dotted-line"></p>
+  	 	  	    	 	<p class="lottery-kuang-list-son-select">
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jclq_06_lc_2.html"  target="_blank">让分胜负</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jclq_07_lc_2.html"  target="_blank">胜负</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jclq_09_lc_2.html"  target="_blank">大小分</a>&nbsp;<br/>
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jclq_08_lc_2.html"  target="_blank">胜分差</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/jclq.do"  target="_blank">混合过关</a>&nbsp;
+  	 	  	    	 	</p>
+  	 	  	    	 </li>
+  	 	  	    	 <li class="lottery-kuang-list-son">
+  	 	  	    	 	<a href="javascript:void(0);"><img src="images/new-login/bjdc-lottery-logo.png" class="fl"/></a>
+  	 	  	    	 	<h4 class="lottery-kuang-list-son-name">北京单场</h4>
+  	 	  	    	 	<label class="lottery-kuang-list-son-explain">赢长串，奖金高</label>
+  	 	  	    	 	<p class="dotted-line"></p>
+  	 	  	    	 	<p class="lottery-kuang-list-son-select">
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/bjdc_spf.html"  target="_blank">胜平负</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/bjdc_bf.html"   target="_blank">比分</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/bjdc_bqc.html"  target="_blank">半全场</a>&nbsp;<br/>
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/bjdc_jqs.html"  target="_blank">总进球数</a>
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/bjdc_sxds.html" target="_blank">上下单双</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/bjdc_sf.html">胜负过关</a>
+  	 	  	    	 	</p>
+  	 	  	    	 </li>
+  	 	  	    	 <li class="lottery-kuang-list-son">
+  	 	  	    	 	<a href="javascript:void(0);"><img src="images/new-login/ctzc-lottery-logo.png" class="fl"/></a>
+  	 	  	    	 	<h4 class="lottery-kuang-list-son-name">传统足彩</h4>
+  	 	  	    	 	<label class="lottery-kuang-list-son-explain">单注最高奖金500万</label>
+  	 	  	    	 	<p class="dotted-line"></p>
+  	 	  	    	 	<p class="lottery-kuang-list-son-select">
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/ctzc_24_zc_14.html"  target="_blank">14场胜负</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/ctzc_25_zc_r9.html"  target="_blank">任选9场</a>&nbsp;<br/>
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/ctzc_27_zc_jq.html"  target="_blank">四场进球</a>&nbsp;
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/ctzc_26_zc_bq.html"  target="_blank">六场半全</a>&nbsp;
+  	 	  	    	 	</p>
+  	 	  	    	 </li>
+  	 	  	    	 <li class="lottery-kuang-list-son  border-none">
+  	 	  	    	 	<a href="javascript:void(0);"><img src="images/new-login/jczq-lottery-logo.png" class="fl"/></a>
+  	 	  	    	 	<h4 class="lottery-kuang-list-son-name">数字彩</h4>
+  	 	  	    	 	<label class="lottery-kuang-list-son-explain">奖金过亿:10分钟开奖</label>
+  	 	  	    	 	<p class="dotted-line-b"></p>
+  	 	  	    	 	<p class="lottery-kuang-list-son-select">
+  	 	  	    	 		<a href="http://trade.davcai.com/df/bet/ssq_general.html"  target="_blank">双色球 </a>&nbsp;
+  	 	  	    	 		<!--<a href="javascript:void(0);">11选5</a>&nbsp;
+  	 	  	    	 		<a href="javascript:void(0);">时时彩</a>&nbsp;-->
+  	 	  	    	 	</p>
+  	 	  	    	 </li>
+  	 	  	    </ul>
+  	 	 
+  	 	  </div><!----------lottery-kuang部分结束----------->
+  	 	<div class="wel-lottery-time-axis">
+  	 		<span class="wel-lottery-time-axis-time">
+  	 			$!date.format('yyyy/MM/dd',$!today)
+  	 		</span>
+  	 		<ul class="wel-lottery-time-axis-bet">
+  	 			<li class="wel-lottery-time-axis-bet-son" id="jczq_n"><span id="jczq_num">#if($jczqBetNum) $jczqBetNum #else 0 #end</span>人在投注</li>
+  	 			<li class="wel-lottery-time-axis-bet-son" id="jclq_n"><span id="jclq_num">#if($jclqBetNum) $jclqBetNum #else 0 #end</span>人在投注</li>
+  	 			<li class="wel-lottery-time-axis-bet-son" id="bjdc_n"><span id="bjdc_num">#if($bjdcBetNum) $bjdcBetNum #else 0 #end</span>人在投注</li>
+  	 			<li class="wel-lottery-time-axis-bet-son" id="ctzq_n"><span id="ctzq_num">#if($ctzqBetNum) $ctzqBetNum #else 0 #end</span>人在投注</li>
+  	 			<li class="wel-lottery-time-axis-bet-son" id="ssq_n"><span id="ssq_num">#if($ssqBetNum) $ssqBetNum #else 0 #end</span>人在投注</li>
+  	 		</ul>
+  	 		
+  	 	</div><!-------wel-lottery-time-axis部分结束------->
+  	 
+  	 </div><!------wel-lottery-classify结束----------->

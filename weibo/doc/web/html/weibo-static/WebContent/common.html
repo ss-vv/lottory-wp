@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>注册  大V彩微博</title>
+<meta name="keywords" content="大V彩微博">
+<meta name="description" content="大V彩微博">
+<link rel="shortcut icon" href="http://www.davcai.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/placeholder.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//首页搜索
+		$("#searchSubmit").click(function() {
+			$("#homeSearch").submit();
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="header">
+		<div class="headContainer">
+			<h1 id="logo"><span>大V彩</span></h1>
+			<div class="search">
+				<form id="homeSearch" method="GET" action="http://www.davcai.com">
+					<label for="keyword-search">
+						<input type="text" id="keyword" name="keyword" placeholder="搜索人名 / 球队"
+							autocomplete="off" value="" class="placeholderHack"/>
+						<span class="icon" id="searchSubmit"><i></i></span>
+	                </label>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="center" class="container">
+		<div class="wrapper">
+			
+		</div>
+	</div>
+	
+	<!-- 底部开始 -->
+	<div class="bottomWrapper">
+		<div id="bottom" class="bottom-container">
+		</div>
+		
+		<!-- 版权开始 -->
+		<div class="footer">
+			<div class="copyright">
+				<ul>
+					<li><a href="javascript:void(0)">大V彩客户端</a></li>
+					<li><a href="javascript:void(0)">关于大V彩</a></li>
+					<li><a href="javascript:void(0)">常见问题</a></li>
+					<li><span>@2013 davcai.com</span></li>
+					<li><a href="javascript:void(0)">京ICP证10086号</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 版权结束 -->
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>

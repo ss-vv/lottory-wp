@@ -1,0 +1,101 @@
+#macro (pager $url $p $maxList)
+	#set($span = (${maxList} - 3)/2)
+	#set($__pc = $p.pageCount)
+    #if($url.indexOf("?") != -1)
+        #set($cURL=($url + "&pageNo="))
+    #else
+        #set($cURL=($url + "?pageNo="))
+    #end
+    	<span class="r page inb_a">
+	#if($p.pageNo > 1)
+		<a class="prev" href="${cURL}${p.prevPageNo}" class="btn_p" pageNo="1">上一页</a>
+    #end
+    
+    #set($totalNo = ${span} * 2 + 3)
+    #set($totalNo1 = $totalNo - 1)
+    #if($p.pageCount > $totalNo)
+    	#if($p.pageNo <= $span + 2)
+    		#foreach($i in [1..$totalNo1])
+		        #linkA(${p.pageNo}, $i, $cURL)
+		    #end
+		    #linkA(0, 0, "#")
+		    #linkA(${p.pageNo}, ${p.pageCount}, $cURL)
+    	#elseif($p.pageNo > ($p.pageCount - (${span} + 2)))
+    		#linkA(${p.pageNo}, 1, ${cURL})
+			#linkA(0, 0, "#")
+			#set($num = ${p.pageCount} - ${totalNo} + 2)
+			#foreach($i in [$num..${p.pageCount}])
+	        	#linkA(${p.pageNo}, ${i}, ${cURL})
+	        #end
+    	#else
+    		#linkA(${p.pageNo}, 1, $cURL)
+    		#linkA(0 0 "#")
+			#set($num = ${p.pageNo}-${span})
+			#set($num2 = ${p.pageNo}+$span)
+    		#foreach($i in [$num..$num2])
+		        #linkA($p.pageNo, $i, $cURL)
+		    #end
+		    #linkA(0, 0, "#")
+		    #linkA($p.pageNo, $p.pageCount, $cURL)
+    	#end
+    #elseif ($p.pageCount > 1)
+		#foreach($i in [1..$p.pageCount])
+	        #linkA(${p.pageNo}, $i, $cURL)
+	    #end
+    #else
+        #linkA(1, 1, $cURL)
+    #end
+    
+    #if ($p.pageNo < $p.pageCount)
+		<a href="${cURL}${p.nextPageNo}" class="btn_p" pageNo="1">下一页</a>
+	#end
+	
+	&nbsp;转到<input type="text" name="_pageNo" class="txts" size="4" /><input type="button" value="GO" class="hand" onclick="_goPage(this)" />
+	  <script type="text/javascript">
+	  var pcount = "${__pc}";
+	  
+	  function _goPage(el){
+	  	var pageNo = 1;
+	 	var inputs = el.parentNode.getElementsByTagName('input');
+	  	for(var i=0;i<inputs.length;i++){
+	  		var name=inputs[i].getAttribute('name');
+			if(name && name == '_pageNo'){
+				pageNo=inputs[i].value;
+				break;
+		  	};
+	  	};
+	  	if(pageNo>0 && pageNo<=pcount){
+			location.href='$cURL'+pageNo;
+	  	}else{
+	    	alert('请输入正确的页数');
+	  	}
+	  }
+	  </script>
+	</span>
+#end
+
+
+<#-- 分页链接A -->
+#macro (linkA $pageNo $idx $url)
+	#if ($idx == 0)
+		<span>...</span>
+    #elseif ($pageNo == $idx)
+		 <a href="javascript:void(0);"><b>${idx}</b></a>
+    #else
+        <a href="${url}${idx}">${idx}</a>
+    #end
+#end
+
+#macro (umenu $url $cur $pos $text)
+  #if($cur == $pos)
+    <a href="javascript:void(0);" class="cur"><span class="bg_l"><span class="bg_r">$text 
+    #if($cur == 'myvoucher' || $cur == 'rh')<img src="http://trade.davcai.com/ac/images/bet/new.gif"/>
+    #elseif($cur == 'inbox')<span id="menuInboxCount"></span>
+    #end</span></span></a>
+  #else
+    <a href="$url"><span class="bg_l"><span class="bg_r">$text 
+    #if($cur == 'myvoucher'  || $cur == 'rh')<img src="http://trade.davcai.com/ac/images/bet/new.gif"/>
+    #elseif($cur == 'inbox')<span id="menuInboxCount"></span>
+    #end</span></span></a>
+  #end
+#end

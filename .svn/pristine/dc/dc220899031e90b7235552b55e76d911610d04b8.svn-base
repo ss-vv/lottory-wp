@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 精华相关Action（今日话题 热门推荐 热门讨论 最新发表） -->
+	<!-- 今日话题 -->
+	<package name="topic" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="dailyTopic"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.TopicAction" method="show">
+			<result name="success">/web/marrow/dailyTopic.vm</result>
+		</action>
+		<action name="ajax-dailyTopic"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.TopicAction">
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 热门推荐 -->
+	<package name="hotRecommend" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="hotRecommend"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.HotRecommendAction" method="show">
+			<result name="success">/web/marrow/hotRecommend.vm</result>
+		</action>
+		<action name="ajax-hot-recommend"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.HotRecommendAction">
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 热门讨论 -->
+	<package name="hotDiscuss" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="hotDiscuss"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.HotDiscussAction" method="show">
+			<result name="success">/web/marrow/hotDiscuss.vm</result>
+		</action>
+		<action name="ajax-hot-discuss"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.HotDiscussAction">
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 最新发表 -->
+	<package name="latestPublish" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="latestPublish"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.LatestPublishAction" method="show">
+			<result name="success">/web/marrow/latestPublish.vm</result>
+		</action>
+		<action name="ajax-latest-publish"
+			class="com.unison.lottery.weibo.web.action.pc.marrow.LatestPublishAction">
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 中奖喜报 -->
+	<package name="winning" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="winningList"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WinningNewsAction" method="show">
+			<result name="success">/web/marrow/winningList.vm</result>
+		</action>
+		<action name="ajax-winning-list"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WinningNewsAction" method="winningList">
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+		<action name="ajax-following-winnings"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WinningNewsAction" method="myFollowingWinningList">
+			<result name="success" type="json">
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+	</package>
+</struts>

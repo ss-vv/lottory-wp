@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+
+	<package name="weibo-web-default" extends="struts-default">
+		<result-types>
+            <result-type name="layout" class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult" default="true" />
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+				<param name="root">data</param>
+				<param name="contentType">text/html</param>
+				<param name="callbackParameter">callback</param>
+                <param name="ignoreHierarchy">false</param>
+			</result-type>
+		</result-types>
+
+		<interceptors>
+			<interceptor name="loginInteceptor"
+				class="com.unison.lottery.weibo.web.interceptor.LoginInterceptor"/>
+				
+			<interceptor-stack name="weiboUcDefaultStack">
+ 				<interceptor-ref name="loginInteceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="weiboUcDefaultStack" />
+
+		<default-action-ref name="defaultAction" />
+
+		<global-results>
+			<result name="input" type="redirect">/welcome</result>
+			<result name="error" type="redirect">/welcome</result>
+			<result name="login" type="redirect">${ssoLogin}</result>
+			<result name="login_mobile" type="redirect">${ssoLogin}</result>
+			<result name="add_nickname">/web/add_nickname.vm</result>
+		</global-results>
+
+		<action name="defaultAction" class="com.opensymphony.xwork2.ActionSupport">
+			<result name="success" type="redirect">/welcome</result>
+		</action>
+		
+		<action name="welcome"
+			class="com.unison.lottery.weibo.web.action.WelcomeAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="mobile">/web/login_new.vm</result>
+			<result name="notMobile">/web/login_new.vm</result>
+			<!-- 已登录 -->
+			<result name="to_home" type="redirect">home</result>
+		</action>
+		
+		<!-- ajax退出 -->
+		<action name="logout"
+			class="com.unison.lottery.weibo.web.action.LogoutAction" method="ajax">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="navigation" class="com.unison.lottery.weibo.web.action.NavigationAction">
+		  <interceptor-ref name="defaultStack"></interceptor-ref>
+		  <result name="success">web/navigation.vm</result>
+		</action>
+			<action name="betnum" class="com.unison.lottery.weibo.web.action.pc.AjaxBetNumAction">
+		    <interceptor-ref name="defaultStack"></interceptor-ref>
+		    <result name="success" type="json"/> 
+		</action>
+		<action name="alipayLogin" class="com.unison.lottery.weibo.web.action.pc.alipaylogin.AlipayAction">
+		 <interceptor-ref name="defaultStack"></interceptor-ref>
+		 <result name="success" type="velocity">
+		 	/web/goalipay.vm
+		 </result>
+		</action>
+	</package>
+	
+	<!-- <include file="struts-mobile.xml" /> -->
+	<include file="struts-web.xml" />
+	<include file="struts-marrow.xml" />
+	<include file="struts-recommend.xml" />
+	<include file="struts-match.xml" />
+	<include file="struts-weibomsg.xml" />
+	<include file="struts-account.xml" />
+	<include file="struts-upload.xml" />
+	<include file="struts-bet.xml" />
+	<include file="struts-analyse.xml"></include>
+</struts>

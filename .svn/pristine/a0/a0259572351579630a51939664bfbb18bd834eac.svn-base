@@ -1,0 +1,1999 @@
+<html>
+<head>
+    <title>主页-竞足</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet">
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet">
+    <link href="主页-竞足_files/axurerp_pagespecificstyles.css" type="text/css" rel="stylesheet">
+<!--[if IE 6]>
+    <link href="主页-竞足_files/axurerp_pagespecificstyles_ie6.css" type="text/css" rel="stylesheet">
+<![endif]-->
+    <script src="data/sitemap.js"></script>
+    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/axutils.js"></script>
+    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="resources/scripts/axurerp_beforepagescript.js"></script>
+    <script src="resources/scripts/messagecenter.js"></script>
+<script src='主页-竞足_files/data.js'></script>
+</head>
+<body>
+<div id="main_container">
+
+<div id="u0" class="u0_container"   >
+<div id="u0_img" class="u0_normal detectCanvas"></div>
+<div id="u1" class="u1" style="visibility:hidden;"  >
+<div id="u1_rtf"></div>
+</div>
+</div>
+<div id="u2" class="u2"  >
+<div id="u2_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:36px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"> 大V彩</span></p></div>
+</div>
+<div id="u3" class="u3"  >
+<div id="u3_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:20px;font-weight:normal;font-style:normal;text-decoration:none;color:#FFFFFF;">首页</span></p></div>
+</div>
+<div id="u4" class="u4"  >
+<div id="u4_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:20px;font-weight:normal;font-style:normal;text-decoration:none;color:#FFFFFF;">推荐</span></p></div>
+</div>
+<div id="u5" class="u5_container"   >
+<div id="u5_img" class="u5_normal detectCanvas"></div>
+<div id="u6" class="u6"  >
+<div id="u6_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#CCCCCC;">搜索人名\球队名</span></p></div>
+</div>
+</div>
+<div id="u7" class="u7_container"   >
+<div id="u7_img" class="u7_normal detectCanvas"></div>
+<div id="u8" class="u8" style="visibility:hidden;"  >
+<div id="u8_rtf"></div>
+</div>
+</div>
+<div id="u9" class="u9"  >
+<div id="u9_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#FFFFFF;">username</span></p></div>
+</div>
+<div id="u10" class="u10_container"   >
+<div id="u10_img" class="u10_normal detectCanvas"></div>
+<div id="u11" class="u11" style="visibility:hidden;"  >
+<div id="u11_rtf"></div>
+</div>
+</div>
+<div id="u12" class="u12_container"   >
+<div id="u12_img" class="u12_normal detectCanvas"></div>
+<div id="u13" class="u13" style="visibility:hidden;"  >
+<div id="u13_rtf"></div>
+</div>
+</div>
+<div id="u14" class="u14_container"   data-label="image">
+<div id="u14_img" class="u14_normal detectCanvas"></div>
+<div id="u15" class="u15" style="visibility:hidden;"  >
+<div id="u15_rtf"></div>
+</div>
+</div>
+<div id="u16" class="u16_container"   >
+<div id="u16_img" class="u16_normal detectCanvas"></div>
+<div id="u17" class="u17" style="visibility:hidden;"  >
+<div id="u17_rtf"></div>
+</div>
+</div>
+<div id="u18" class="u18_container"   >
+<div id="u18_img" class="u18_normal detectCanvas"></div>
+<div id="u19" class="u19" style="visibility:hidden;"  >
+<div id="u19_rtf"></div>
+</div>
+</div>
+<INPUT id="u20" type=text value="" class="u20" data-label="微薄内容"    >
+
+<INPUT id="u21" type="submit" class="u21" value="表情"   >
+
+<INPUT id="u22" type="submit" class="u22" value="图片"   >
+
+<INPUT id="u23" type="submit" class="u23" value="发布"   >
+<div id="u24" class="u24" >
+<DIV id="u24_line" class="u24_line" ></DIV>
+</div>
+<div id="u25" class="u25"  >
+<div id="u25_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">全部</span></p></div>
+</div>
+<div id="u26" class="u26"  >
+<div id="u26_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">推荐</span></p></div>
+</div>
+<div id="u27" class="u27"  >
+<div id="u27_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">关注赛事</span></p></div>
+</div>
+<div id="u28" class="u28"  >
+<div id="u28_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">新闻</span></p></div>
+</div>
+<div id="u29" class="u29_container"   data-label="image">
+<div id="u29_img" class="u29_normal detectCanvas"></div>
+<div id="u30" class="u30" style="visibility:hidden;"  >
+<div id="u30_rtf"></div>
+</div>
+</div>
+<div id="u31" class="u31"  >
+<div id="u31_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">xxxxx</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">xx</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span></p></div>
+</div>
+<div id="u32" class="u32"  >
+<div id="u32_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001&nbsp; &nbsp;&nbsp; 意大利 vs 英格兰&nbsp; &nbsp; 推荐结果： 胜，平</span></p><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001&nbsp; &nbsp;&nbsp; 意大利 vs 英格兰&nbsp; &nbsp; 推荐结果： 胜，平</span></p><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001&nbsp; &nbsp;&nbsp; 意大利 vs 英格兰&nbsp; &nbsp; 推荐结果： 胜，平</span></p><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001&nbsp; &nbsp;&nbsp; 意大利 vs 英格兰&nbsp; &nbsp; 推荐结果： 胜，平</span></p></div>
+</div>
+<div id="u33" class="u33"  >
+<div id="u33_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#999999;">今天&nbsp; 07:35 来自 大V彩</span></p></div>
+</div>
+<div id="u34" class="u34_container"   data-label="image">
+<div id="u34_img" class="u34_normal detectCanvas"></div>
+<div id="u35" class="u35" style="visibility:hidden;"  >
+<div id="u35_rtf"></div>
+</div>
+</div>
+<div id="u36" class="u36"  >
+<div id="u36_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">xxxxx</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">xx</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span></p></div>
+</div>
+<div id="u37" class="u37"  >
+<div id="u37_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">我发起了竞足胜平负玩法的合买，还剩余25元，</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">小伙伴们</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">再不出手就来不及啦！</span></p></div>
+</div>
+<div id="u38" class="u38"  >
+<div id="u38_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#999999;">今天&nbsp;&nbsp; 07:35&nbsp; 来自 大V彩</span></p></div>
+</div>
+<div id="u39" class="u39_container"   data-label="image">
+<div id="u39_img" class="u39_normal detectCanvas"></div>
+<div id="u40" class="u40" style="visibility:hidden;"  >
+<div id="u40_rtf"></div>
+</div>
+</div>
+<div id="u41" class="u41"  >
+<div id="u41_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">xxxxx</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">xx</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span></p></div>
+</div>
+<div id="u42" class="u42"  >
+<div id="u42_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">我</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">购买</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">了竞足胜平负玩法的</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">方案</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">，</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">方案金额</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1256</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">元，</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">不管你信不信，反正我信肯定中！有胆量跟单吗？</span></p></div>
+</div>
+<div id="u43" class="u43"  >
+<div id="u43_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#999999;">今天&nbsp;&nbsp; 07:35&nbsp; 来自 大V彩</span></p></div>
+</div>
+<div id="u44" class="u44"  >
+<div id="u44_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">公</span><span style="font-family:微软雅黑;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">告</span></p></div>
+</div><div id="u45" class="u45" >
+<DIV id="u45_line" class="u45_line" ></DIV>
+</div><div id="u46" class="u46" >
+<DIV id="u46_line" class="u46_line" ></DIV>
+</div>
+<div id="u47" class="u47"  >
+<div id="u47_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">排行榜Top10</span></p></div>
+</div>
+<div id="u48" class="u48_container"   >
+<div id="u48_img" class="u48_normal detectCanvas"></div>
+<div id="u49" class="u49"  >
+<div id="u49_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">红人</span></p></div>
+</div>
+</div>
+<div id="u50" class="u50_container"   >
+<div id="u50_img" class="u50_normal detectCanvas"></div>
+<div id="u51" class="u51"  >
+<div id="u51_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">推荐</span></p></div>
+</div>
+</div>
+<div id="u52" class="u52_container"   >
+<div id="u52_img" class="u52_normal detectCanvas"></div>
+<div id="u53" class="u53" style="visibility:hidden;"  >
+<div id="u53_rtf"></div>
+</div>
+</div>
+<DIV id="u54" style="" data-label="排行榜top10">
+<DIV id="pd4u54" style="visibility:hidden;" data-label="流单">
+</DIV>
+<DIV id="pd3u54" style="visibility:hidden;" data-label="合买">
+</DIV>
+<DIV id="pd2u54" style="visibility:hidden;" data-label="晒单">
+</DIV>
+<DIV id="pd1u54" style="visibility:hidden;" data-label="推荐">
+</DIV>
+<DIV id="pd0u54" style="" data-label="红人">
+<div id="u55" class="u55_container"   >
+<div id="u55_img" class="u55_normal detectCanvas"></div>
+<div id="u56" class="u56" style="visibility:hidden;"  >
+<div id="u56_rtf"></div>
+</div>
+</div>
+<div id="u57" class="u57_container"   data-label="image">
+<div id="u57_img" class="u57_normal detectCanvas"></div>
+<div id="u58" class="u58" style="visibility:hidden;"  >
+<div id="u58_rtf"></div>
+</div>
+</div>
+<div id="u59" class="u59"  >
+<div id="u59_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">username</span></p></div>
+</div>
+<div id="u60" class="u60"  >
+<div id="u60_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">擅长：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜平负&nbsp; 总进球数</span></p></div>
+</div>
+<div id="u61" class="u61"  >
+<div id="u61_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">推荐：106条&nbsp; </span></p></div>
+</div>
+<div id="u62" class="u62"  >
+<div id="u62_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">合买</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u63" class="u63"  >
+<div id="u63_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">晒单</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u64" class="u64"  >
+<div id="u64_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">粉丝</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">9999人</span></p></div>
+</div>
+<div id="u65" class="u65_container"   >
+<div id="u65_img" class="u65_normal detectCanvas"></div>
+<div id="u66" class="u66"  >
+<div id="u66_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">+关注</span></p></div>
+</div>
+</div>
+<div id="u67" class="u67_container"   >
+<div id="u67_img" class="u67_normal detectCanvas"></div>
+<div id="u68" class="u68" style="visibility:hidden;"  >
+<div id="u68_rtf"></div>
+</div>
+</div>
+<div id="u69" class="u69_container"   data-label="image">
+<div id="u69_img" class="u69_normal detectCanvas"></div>
+<div id="u70" class="u70" style="visibility:hidden;"  >
+<div id="u70_rtf"></div>
+</div>
+</div>
+<div id="u71" class="u71"  >
+<div id="u71_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">username</span></p></div>
+</div>
+<div id="u72" class="u72"  >
+<div id="u72_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">擅长：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜平负&nbsp; 总进球数</span></p></div>
+</div>
+<div id="u73" class="u73"  >
+<div id="u73_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">推荐：106条&nbsp; </span></p></div>
+</div>
+<div id="u74" class="u74"  >
+<div id="u74_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">合买</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u75" class="u75"  >
+<div id="u75_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">晒单</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u76" class="u76"  >
+<div id="u76_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">粉丝</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">9999人</span></p></div>
+</div>
+<div id="u77" class="u77_container"   >
+<div id="u77_img" class="u77_normal detectCanvas"></div>
+<div id="u78" class="u78"  >
+<div id="u78_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">+关注</span></p></div>
+</div>
+</div>
+<div id="u79" class="u79_container"   >
+<div id="u79_img" class="u79_normal detectCanvas"></div>
+<div id="u80" class="u80" style="visibility:hidden;"  >
+<div id="u80_rtf"></div>
+</div>
+</div>
+<div id="u81" class="u81_container"   data-label="image">
+<div id="u81_img" class="u81_normal detectCanvas"></div>
+<div id="u82" class="u82" style="visibility:hidden;"  >
+<div id="u82_rtf"></div>
+</div>
+</div>
+<div id="u83" class="u83"  >
+<div id="u83_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">username</span></p></div>
+</div>
+<div id="u84" class="u84"  >
+<div id="u84_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">擅长：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜平负&nbsp; 总进球数</span></p></div>
+</div>
+<div id="u85" class="u85"  >
+<div id="u85_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">推荐：106条&nbsp; </span></p></div>
+</div>
+<div id="u86" class="u86"  >
+<div id="u86_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">合买</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u87" class="u87"  >
+<div id="u87_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">晒单</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u88" class="u88"  >
+<div id="u88_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">粉丝</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">9999人</span></p></div>
+</div>
+<div id="u89" class="u89_container"   >
+<div id="u89_img" class="u89_normal detectCanvas"></div>
+<div id="u90" class="u90"  >
+<div id="u90_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">+关注</span></p></div>
+</div>
+</div>
+<div id="u91" class="u91_container"   >
+<div id="u91_img" class="u91_normal detectCanvas"></div>
+<div id="u92" class="u92" style="visibility:hidden;"  >
+<div id="u92_rtf"></div>
+</div>
+</div>
+<div id="u93" class="u93_container"   data-label="image">
+<div id="u93_img" class="u93_normal detectCanvas"></div>
+<div id="u94" class="u94" style="visibility:hidden;"  >
+<div id="u94_rtf"></div>
+</div>
+</div>
+<div id="u95" class="u95"  >
+<div id="u95_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">username</span></p></div>
+</div>
+<div id="u96" class="u96"  >
+<div id="u96_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">擅长：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜平负&nbsp; 总进球数</span></p></div>
+</div>
+<div id="u97" class="u97"  >
+<div id="u97_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">推荐：106条&nbsp; </span></p></div>
+</div>
+<div id="u98" class="u98"  >
+<div id="u98_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">合买</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u99" class="u99"  >
+<div id="u99_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">晒单</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：106条&nbsp; </span></p></div>
+</div>
+<div id="u100" class="u100"  >
+<div id="u100_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">粉丝</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">9999人</span></p></div>
+</div>
+<div id="u101" class="u101_container"   >
+<div id="u101_img" class="u101_normal detectCanvas"></div>
+<div id="u102" class="u102"  >
+<div id="u102_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">+关注</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+<INPUT id="u103" type="submit" class="u103" value="赛事"   >
+
+<DIV id="u104" style="visibility:hidden;" data-label="插入赛事">
+<DIV id="pd0u104" style="" data-label="状态1">
+<div id="u105" class="u105_container"   >
+<div id="u105_img" class="u105_normal detectCanvas"></div>
+<div id="u106" class="u106" style="visibility:hidden;"  >
+<div id="u106_rtf"></div>
+</div>
+</div>
+<INPUT id="u107" type=text value="周二001场可输入2001查找" class="u107"     >
+
+<div id="u108" class="u108"  >
+<div id="u108_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">请输入场次号码\球队名</span></p></div>
+</div>
+<div id="u109" class="u109"  >
+<div id="u109_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">X</span></p></div>
+</div>
+</DIV>
+</DIV>
+<DIV id="u110" class="u110;" >
+
+</DIV>
+
+<DIV id="u110container" style="position:absolute; left:24px; top:155px; width:110px; height:35px; overflow:visible">
+
+<div id="u111" class="u111_container"   >
+<div id="u111_img" class="u111_normal detectCanvas"></div>
+<div id="u112" class="u112"  >
+<div id="u112_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">首页</span></p></div>
+</div>
+</div>
+</DIV>
+<div id="u113" class="u113"  >
+<div id="u113_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:20px;font-weight:normal;font-style:normal;text-decoration:none;color:#FFFFFF;">精华</span></p></div>
+</div>
+<div id="u114" class="u114"  >
+<div id="u114_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:20px;font-weight:normal;font-style:normal;text-decoration:none;color:#FFFFFF;">投注</span></p></div>
+</div>
+<DIV id="u115" class="u115;" >
+
+</DIV>
+
+<DIV id="u115container" style="position:absolute; left:24px; top:180px; width:110px; height:185px; overflow:visible">
+
+<div id="u116" class="u116_container"   >
+<div id="u116_img" class="u116_normal detectCanvas"></div>
+<div id="u117" class="u117"  >
+<div id="u117_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">收</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">藏</span></p></div>
+</div>
+</div>
+<div id="u118" class="u118_container"   >
+<div id="u118_img" class="u118_normal detectCanvas"></div>
+<div id="u119" class="u119"  >
+<div id="u119_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">评</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">论我的</span></p></div>
+</div>
+</div>
+<div id="u120" class="u120_container"   >
+<div id="u120_img" class="u120_normal detectCanvas"></div>
+<div id="u121" class="u121"  >
+<div id="u121_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">提</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">到我的</span></p></div>
+</div>
+</div>
+<div id="u122" class="u122_container"   >
+<div id="u122_img" class="u122_normal detectCanvas"></div>
+<div id="u123" class="u123"  >
+<div id="u123_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">私</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">信</span></p></div>
+</div>
+</div>
+<div id="u124" class="u124_container"   >
+<div id="u124_img" class="u124_normal detectCanvas"></div>
+<div id="u125" class="u125"  >
+<div id="u125_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">关</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">注（10）</span></p></div>
+</div>
+</div>
+<div id="u126" class="u126_container"   >
+<div id="u126_img" class="u126_normal detectCanvas"></div>
+<div id="u127" class="u127"  >
+<div id="u127_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">粉</span><span style="font-family:微软雅黑;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">丝（20）</span></p></div>
+</div>
+</div>
+</DIV>
+<div id="u128" class="u128_container"   >
+<div id="u128_img" class="u128_normal detectCanvas"></div>
+<div id="u129" class="u129"  >
+<div id="u129_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">竞彩足球</span></p></div>
+</div>
+</div>
+<div id="u130" class="u130_container"   >
+<div id="u130_img" class="u130_normal detectCanvas"></div>
+<div id="u131" class="u131"  >
+<div id="u131_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">双色球</span></p></div>
+</div>
+</div>
+<div id="u132" class="u132_container"   >
+<div id="u132_img" class="u132_normal detectCanvas"></div>
+<div id="u133" class="u133"  >
+<div id="u133_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">设置彩种</span></p></div>
+</div>
+</div><div id="u134" class="u134" >
+<DIV id="u134_line" class="u134_line" ></DIV>
+</div>
+<DIV id="u135" style="visibility:hidden;" data-label="设置彩种面板">
+<DIV id="pd0u135" style="" data-label="状态1">
+<div id="u136" class="u136_container"   >
+<div id="u136_img" class="u136_normal detectCanvas"></div>
+<div id="u137" class="u137" style="visibility:hidden;"  >
+<div id="u137_rtf"></div>
+</div>
+</div>
+<DIV id="u138container" style="position:absolute; left:14px; top:10px; width:100px; height:20px; ; ; ;" >
+<LABEL for="u138">
+<div id="u139" class="u139"  >
+<div id="u139_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">竞彩足球</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u138" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"   >
+</DIV>
+<DIV id="u140container" style="position:absolute; left:14px; top:36px; width:100px; height:20px; ; ; ;" >
+<LABEL for="u140">
+<div id="u141" class="u141"  >
+<div id="u141_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">竞彩</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">篮球</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u140" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"   >
+</DIV>
+<DIV id="u142container" style="position:absolute; left:14px; top:62px; width:100px; height:20px; ; ; ;" >
+<LABEL for="u142">
+<div id="u143" class="u143"  >
+<div id="u143_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">传统足彩</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u142" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"   >
+</DIV>
+<DIV id="u144container" style="position:absolute; left:14px; top:88px; width:100px; height:20px; ; ; ;" >
+<LABEL for="u144">
+<div id="u145" class="u145"  >
+<div id="u145_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">双色球</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u144" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"   >
+</DIV>
+<div id="u146" class="u146_container"   >
+<div id="u146_img" class="u146_normal detectCanvas"></div>
+<div id="u147" class="u147"  >
+<div id="u147_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">确定</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+<div id="u148" class="u148"  >
+<div id="u148_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">http://Xrjk.com</span></p></div>
+</div>
+<div id="u149" class="u149"  >
+<div id="u149_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">http://Xrjk.com</span></p></div>
+</div>
+<DIV id="u150" style="" data-label="综合信息">
+<DIV id="pd6u150" style="visibility:hidden;" data-label="双色球">
+<div id="u151" class="u151_container"   >
+<div id="u151_img" class="u151_normal detectCanvas"></div>
+<div id="u152" class="u152" style="visibility:hidden;"  >
+<div id="u152_rtf"></div>
+</div>
+</div>
+<div id="u153" class="u153"  >
+<div id="u153_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">双色球2013096期</span></p></div>
+</div>
+<div id="u154" class="u154"  >
+<div id="u154_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">上期开奖</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">号码</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">01,02,03,04,05,06,</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">07</span></p></div>
+</div>
+<div id="u155" class="u155"  >
+<div id="u155_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">本期开奖号码：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span></p></div>
+</div>
+<DIV id="u156" style="" data-label="首页-双色球">
+<DIV id="pd2u156" style="visibility:hidden;" data-label="已开奖">
+<div id="u157" class="u157"  >
+<div id="u157_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">01,02,03,04,05,06</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">05</span></p></div>
+</div>
+</DIV>
+<DIV id="pd1u156" style="visibility:hidden;" data-label="未开奖 截止">
+<div id="u158" class="u158"  >
+<div id="u158_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">开奖中</span></p></div>
+</div>
+</DIV>
+<DIV id="pd0u156" style="" data-label="未开奖未截止">
+<div id="u159" class="u159"  >
+<div id="u159_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">未开奖&nbsp; 距离截止投注还有：10:32:58</span></p></div>
+</div>
+</DIV>
+</DIV>
+<INPUT id="u160" type="submit" class="u160" value="1"   >
+
+<INPUT id="u161" type="submit" class="u161" value="2"   >
+
+<INPUT id="u162" type="submit" class="u162" value="3"   >
+<div id="u163" class="u163" >
+<DIV id="u163_line" class="u163_line" ></DIV>
+</div>
+<div id="u164" class="u164"  >
+<div id="u164_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">本期</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">奖池</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">：</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1.6亿</span></p></div>
+</div>
+<div id="u165" class="u165_container"   >
+<div id="u165_img" class="u165_normal detectCanvas"></div>
+<div id="u166" class="u166" style="visibility:hidden;"  >
+<div id="u166_rtf"></div>
+</div>
+</div>
+<DIV id="u167" style="" data-label="首页-双色球-开奖详情">
+<DIV id="pd1u167" style="visibility:hidden;" data-label="已开奖">
+<DIV id="u168" class="u168;" >
+
+</DIV>
+
+<DIV id="u168container" style="position:absolute; left:0px; top:0px; width:305px; height:173px; overflow:visible">
+
+<div id="u169" class="u169_container"   >
+<div id="u169_img" class="u169_normal detectCanvas"></div>
+<div id="u170" class="u170"  >
+<div id="u170_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">奖级</span></p></div>
+</div>
+</div>
+<div id="u171" class="u171_container"   >
+<div id="u171_img" class="u171_normal detectCanvas"></div>
+<div id="u172" class="u172"  >
+<div id="u172_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">奖金</span></p></div>
+</div>
+</div>
+<div id="u173" class="u173_container"   >
+<div id="u173_img" class="u173_normal detectCanvas"></div>
+<div id="u174" class="u174"  >
+<div id="u174_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">注</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">数</span></p></div>
+</div>
+</div>
+<div id="u175" class="u175_container"   >
+<div id="u175_img" class="u175_normal detectCanvas"></div>
+<div id="u176" class="u176"  >
+<div id="u176_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">一</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u177" class="u177_container"   >
+<div id="u177_img" class="u177_normal detectCanvas"></div>
+<div id="u178" class="u178"  >
+<div id="u178_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">5</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">,</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">000,000</span></p></div>
+</div>
+</div>
+<div id="u179" class="u179_container"   >
+<div id="u179_img" class="u179_normal detectCanvas"></div>
+<div id="u180" class="u180"  >
+<div id="u180_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">10</span></p></div>
+</div>
+</div>
+<div id="u181" class="u181_container"   >
+<div id="u181_img" class="u181_normal detectCanvas"></div>
+<div id="u182" class="u182"  >
+<div id="u182_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">二</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u183" class="u183_container"   >
+<div id="u183_img" class="u183_normal detectCanvas"></div>
+<div id="u184" class="u184"  >
+<div id="u184_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">800</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">,</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">000</span></p></div>
+</div>
+</div>
+<div id="u185" class="u185_container"   >
+<div id="u185_img" class="u185_normal detectCanvas"></div>
+<div id="u186" class="u186"  >
+<div id="u186_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">26</span></p></div>
+</div>
+</div>
+<div id="u187" class="u187_container"   >
+<div id="u187_img" class="u187_normal detectCanvas"></div>
+<div id="u188" class="u188"  >
+<div id="u188_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">三</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u189" class="u189_container"   >
+<div id="u189_img" class="u189_normal detectCanvas"></div>
+<div id="u190" class="u190"  >
+<div id="u190_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">3,000</span></p></div>
+</div>
+</div>
+<div id="u191" class="u191_container"   >
+<div id="u191_img" class="u191_normal detectCanvas"></div>
+<div id="u192" class="u192"  >
+<div id="u192_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">268</span></p></div>
+</div>
+</div>
+<div id="u193" class="u193_container"   >
+<div id="u193_img" class="u193_normal detectCanvas"></div>
+<div id="u194" class="u194"  >
+<div id="u194_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">四等奖</span></p></div>
+</div>
+</div>
+<div id="u195" class="u195_container"   >
+<div id="u195_img" class="u195_normal detectCanvas"></div>
+<div id="u196" class="u196"  >
+<div id="u196_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">100</span></p></div>
+</div>
+</div>
+<div id="u197" class="u197_container"   >
+<div id="u197_img" class="u197_normal detectCanvas"></div>
+<div id="u198" class="u198"  >
+<div id="u198_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">15682</span></p></div>
+</div>
+</div>
+<div id="u199" class="u199_container"   >
+<div id="u199_img" class="u199_normal detectCanvas"></div>
+<div id="u200" class="u200"  >
+<div id="u200_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">五等奖</span></p></div>
+</div>
+</div>
+<div id="u201" class="u201_container"   >
+<div id="u201_img" class="u201_normal detectCanvas"></div>
+<div id="u202" class="u202"  >
+<div id="u202_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">10</span></p></div>
+</div>
+</div>
+<div id="u203" class="u203_container"   >
+<div id="u203_img" class="u203_normal detectCanvas"></div>
+<div id="u204" class="u204"  >
+<div id="u204_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2451556</span></p></div>
+</div>
+</div>
+<div id="u205" class="u205_container"   >
+<div id="u205_img" class="u205_normal detectCanvas"></div>
+<div id="u206" class="u206"  >
+<div id="u206_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">六</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u207" class="u207_container"   >
+<div id="u207_img" class="u207_normal detectCanvas"></div>
+<div id="u208" class="u208"  >
+<div id="u208_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5</span></p></div>
+</div>
+</div>
+<div id="u209" class="u209_container"   >
+<div id="u209_img" class="u209_normal detectCanvas"></div>
+<div id="u210" class="u210"  >
+<div id="u210_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">26546846</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+<DIV id="pd0u167" style="" data-label="未开奖">
+<DIV id="u211" class="u211;" >
+
+</DIV>
+
+<DIV id="u211container" style="position:absolute; left:0px; top:0px; width:305px; height:173px; overflow:visible">
+
+<div id="u212" class="u212_container"   >
+<div id="u212_img" class="u212_normal detectCanvas"></div>
+<div id="u213" class="u213"  >
+<div id="u213_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">奖级</span></p></div>
+</div>
+</div>
+<div id="u214" class="u214_container"   >
+<div id="u214_img" class="u214_normal detectCanvas"></div>
+<div id="u215" class="u215"  >
+<div id="u215_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">奖金</span></p></div>
+</div>
+</div>
+<div id="u216" class="u216_container"   >
+<div id="u216_img" class="u216_normal detectCanvas"></div>
+<div id="u217" class="u217"  >
+<div id="u217_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">注</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">数</span></p></div>
+</div>
+</div>
+<div id="u218" class="u218_container"   >
+<div id="u218_img" class="u218_normal detectCanvas"></div>
+<div id="u219" class="u219"  >
+<div id="u219_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">一</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u220" class="u220_container"   >
+<div id="u220_img" class="u220_normal detectCanvas"></div>
+<div id="u221" class="u221"  >
+<div id="u221_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">--</span></p></div>
+</div>
+</div>
+<div id="u222" class="u222_container"   >
+<div id="u222_img" class="u222_normal detectCanvas"></div>
+<div id="u223" class="u223"  >
+<div id="u223_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u224" class="u224_container"   >
+<div id="u224_img" class="u224_normal detectCanvas"></div>
+<div id="u225" class="u225"  >
+<div id="u225_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">二</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u226" class="u226_container"   >
+<div id="u226_img" class="u226_normal detectCanvas"></div>
+<div id="u227" class="u227"  >
+<div id="u227_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u228" class="u228_container"   >
+<div id="u228_img" class="u228_normal detectCanvas"></div>
+<div id="u229" class="u229"  >
+<div id="u229_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u230" class="u230_container"   >
+<div id="u230_img" class="u230_normal detectCanvas"></div>
+<div id="u231" class="u231"  >
+<div id="u231_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">三</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u232" class="u232_container"   >
+<div id="u232_img" class="u232_normal detectCanvas"></div>
+<div id="u233" class="u233"  >
+<div id="u233_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">--</span></p></div>
+</div>
+</div>
+<div id="u234" class="u234_container"   >
+<div id="u234_img" class="u234_normal detectCanvas"></div>
+<div id="u235" class="u235"  >
+<div id="u235_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u236" class="u236_container"   >
+<div id="u236_img" class="u236_normal detectCanvas"></div>
+<div id="u237" class="u237"  >
+<div id="u237_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">四等奖</span></p></div>
+</div>
+</div>
+<div id="u238" class="u238_container"   >
+<div id="u238_img" class="u238_normal detectCanvas"></div>
+<div id="u239" class="u239"  >
+<div id="u239_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u240" class="u240_container"   >
+<div id="u240_img" class="u240_normal detectCanvas"></div>
+<div id="u241" class="u241"  >
+<div id="u241_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u242" class="u242_container"   >
+<div id="u242_img" class="u242_normal detectCanvas"></div>
+<div id="u243" class="u243"  >
+<div id="u243_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">五等奖</span></p></div>
+</div>
+</div>
+<div id="u244" class="u244_container"   >
+<div id="u244_img" class="u244_normal detectCanvas"></div>
+<div id="u245" class="u245"  >
+<div id="u245_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">--</span></p></div>
+</div>
+</div>
+<div id="u246" class="u246_container"   >
+<div id="u246_img" class="u246_normal detectCanvas"></div>
+<div id="u247" class="u247"  >
+<div id="u247_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u248" class="u248_container"   >
+<div id="u248_img" class="u248_normal detectCanvas"></div>
+<div id="u249" class="u249"  >
+<div id="u249_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">六</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">等奖</span></p></div>
+</div>
+</div>
+<div id="u250" class="u250_container"   >
+<div id="u250_img" class="u250_normal detectCanvas"></div>
+<div id="u251" class="u251"  >
+<div id="u251_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+<div id="u252" class="u252_container"   >
+<div id="u252_img" class="u252_normal detectCanvas"></div>
+<div id="u253" class="u253"  >
+<div id="u253_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">-</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<INPUT id="u254" type="submit" class="u254" value="上一期"   >
+
+<INPUT id="u255" type="submit" class="u255" value="下一期"   >
+
+<div id="u256" class="u256"  >
+<div id="u256_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">开奖详情：</span></p></div>
+</div>
+</DIV>
+<DIV id="pd5u150" style="visibility:hidden;" data-label="昨日开奖">
+<IFRAME id="u257" style="position:absolute; left:0px; top:0px; width:560px; height:269px; ; ; ;;" basesrc="投注记录.html" frameborder="1" scrolling="auto" ></IFRAME>
+
+</DIV>
+<DIV id="pd4u150" style="visibility:hidden;" data-label="红人">
+</DIV>
+<DIV id="pd3u150" style="visibility:hidden;" data-label="推荐">
+<IFRAME id="u258" style="position:absolute; left:0px; top:0px; width:560px; height:270px; ; ; ;;" basesrc="推荐详情.html" frameborder="1" scrolling="auto" ></IFRAME>
+
+</DIV>
+<DIV id="pd2u150" style="visibility:hidden;" data-label="晒单">
+<IFRAME id="u259" style="position:absolute; left:0px; top:0px; width:560px; height:270px; ; ; ;;" basesrc="晒单.html" frameborder="1" scrolling="auto" ></IFRAME>
+
+</DIV>
+<DIV id="pd1u150" style="visibility:hidden;" data-label="合买">
+<IFRAME id="u260" style="position:absolute; left:0px; top:0px; width:560px; height:270px; ; ; ;;" basesrc="合买.html" frameborder="1" scrolling="auto" ></IFRAME>
+
+</DIV>
+<DIV id="pd0u150" style="" data-label="今日赛事">
+<DIV id="u261" style="" data-label="竞彩足球玩法切换">
+<DIV id="pd4u261" style="visibility:hidden;" data-label="半全场">
+<DIV id="u262" style="" data-label="胜平负">
+<DIV id="pd1u262" style="visibility:hidden;" data-label="周二">
+</DIV>
+<DIV id="pd0u262" style="" data-label="周一">
+<DIV id="u263" style="visibility:hidden;" data-label="周一赛事">
+<DIV id="pd0u263" style="" data-label="状态1">
+<DIV id="u264" class="u264;" >
+
+</DIV>
+
+<DIV id="u264container" style="position:absolute; left:0px; top:0px; width:557px; height:59px; overflow:visible">
+
+<div id="u265" class="u265_container"   >
+<div id="u265_img" class="u265_normal detectCanvas"></div>
+<div id="u266" class="u266"  >
+<div id="u266_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u267" class="u267_container"   >
+<div id="u267_img" class="u267_normal detectCanvas"></div>
+<div id="u268" class="u268"  >
+<div id="u268_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u269" class="u269_container"   >
+<div id="u269_img" class="u269_normal detectCanvas"></div>
+<div id="u270" class="u270"  >
+<div id="u270_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u271" class="u271_container"   >
+<div id="u271_img" class="u271_normal detectCanvas"></div>
+<div id="u272" class="u272"  >
+<div id="u272_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u273" class="u273_container"   >
+<div id="u273_img" class="u273_normal detectCanvas"></div>
+<div id="u274" class="u274"  >
+<div id="u274_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u275" class="u275_container"   >
+<div id="u275_img" class="u275_normal detectCanvas"></div>
+<div id="u276" class="u276"  >
+<div id="u276_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u277" class="u277_container"   >
+<div id="u277_img" class="u277_normal detectCanvas"></div>
+<div id="u278" class="u278"  >
+<div id="u278_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u279" class="u279_container"   >
+<div id="u279_img" class="u279_normal detectCanvas"></div>
+<div id="u280" class="u280"  >
+<div id="u280_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u281" class="u281_container"   >
+<div id="u281_img" class="u281_normal detectCanvas"></div>
+<div id="u282" class="u282"  >
+<div id="u282_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u283" class="u283_container"   >
+<div id="u283_img" class="u283_normal detectCanvas"></div>
+<div id="u284" class="u284"  >
+<div id="u284_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u285" class="u285_container"   >
+<div id="u285_img" class="u285_normal detectCanvas"></div>
+<div id="u286" class="u286"  >
+<div id="u286_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u287" class="u287_container"   >
+<div id="u287_img" class="u287_normal detectCanvas"></div>
+<div id="u288" class="u288"  >
+<div id="u288_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u289" class="u289_container"   >
+<div id="u289_img" class="u289_normal detectCanvas"></div>
+<div id="u290" class="u290"  >
+<div id="u290_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周一</span></p></div>
+</div>
+</div>
+<DIV id="u291" style="" data-label="周二标题">
+<DIV id="pd0u291" style="" data-label="状态1">
+<DIV id="u292" style="visibility:hidden;" data-label="周二赛事">
+<DIV id="pd0u292" style="" data-label="状态1">
+<DIV id="u293" class="u293;" >
+
+</DIV>
+
+<DIV id="u293container" style="position:absolute; left:0px; top:0px; width:555px; height:59px; overflow:visible">
+
+<div id="u294" class="u294_container"   >
+<div id="u294_img" class="u294_normal detectCanvas"></div>
+<div id="u295" class="u295"  >
+<div id="u295_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u296" class="u296_container"   >
+<div id="u296_img" class="u296_normal detectCanvas"></div>
+<div id="u297" class="u297"  >
+<div id="u297_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u298" class="u298_container"   >
+<div id="u298_img" class="u298_normal detectCanvas"></div>
+<div id="u299" class="u299"  >
+<div id="u299_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u300" class="u300_container"   >
+<div id="u300_img" class="u300_normal detectCanvas"></div>
+<div id="u301" class="u301"  >
+<div id="u301_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u302" class="u302_container"   >
+<div id="u302_img" class="u302_normal detectCanvas"></div>
+<div id="u303" class="u303"  >
+<div id="u303_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u304" class="u304_container"   >
+<div id="u304_img" class="u304_normal detectCanvas"></div>
+<div id="u305" class="u305"  >
+<div id="u305_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u306" class="u306_container"   >
+<div id="u306_img" class="u306_normal detectCanvas"></div>
+<div id="u307" class="u307"  >
+<div id="u307_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u308" class="u308_container"   >
+<div id="u308_img" class="u308_normal detectCanvas"></div>
+<div id="u309" class="u309"  >
+<div id="u309_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u310" class="u310_container"   >
+<div id="u310_img" class="u310_normal detectCanvas"></div>
+<div id="u311" class="u311"  >
+<div id="u311_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u312" class="u312_container"   >
+<div id="u312_img" class="u312_normal detectCanvas"></div>
+<div id="u313" class="u313"  >
+<div id="u313_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u314" class="u314_container"   >
+<div id="u314_img" class="u314_normal detectCanvas"></div>
+<div id="u315" class="u315"  >
+<div id="u315_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u316" class="u316_container"   >
+<div id="u316_img" class="u316_normal detectCanvas"></div>
+<div id="u317" class="u317"  >
+<div id="u317_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u318" class="u318_container"   data-label="周二标题">
+<div id="u318_img" class="u318_normal detectCanvas"></div>
+<div id="u319" class="u319"  >
+<div id="u319_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">二</span></p></div>
+</div>
+</div>
+<DIV id="u320" style="" data-label="周二操作">
+<DIV id="pd1u320" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u321" type="submit" class="u321" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u320" style="" data-label="展开按钮">
+<INPUT id="u322" type="submit" class="u322" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="u323" style="" data-label="操作">
+<DIV id="pd1u323" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u324" type="submit" class="u324" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u323" style="" data-label="展开按钮">
+<INPUT id="u325" type="submit" class="u325" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="pd3u261" style="visibility:hidden;" data-label="进球数">
+<DIV id="u326" style="" data-label="胜平负">
+<DIV id="pd1u326" style="visibility:hidden;" data-label="周二">
+</DIV>
+<DIV id="pd0u326" style="" data-label="周一">
+<DIV id="u327" style="visibility:hidden;" data-label="周一赛事">
+<DIV id="pd0u327" style="" data-label="状态1">
+<DIV id="u328" class="u328;" >
+
+</DIV>
+
+<DIV id="u328container" style="position:absolute; left:0px; top:0px; width:557px; height:59px; overflow:visible">
+
+<div id="u329" class="u329_container"   >
+<div id="u329_img" class="u329_normal detectCanvas"></div>
+<div id="u330" class="u330"  >
+<div id="u330_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u331" class="u331_container"   >
+<div id="u331_img" class="u331_normal detectCanvas"></div>
+<div id="u332" class="u332"  >
+<div id="u332_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u333" class="u333_container"   >
+<div id="u333_img" class="u333_normal detectCanvas"></div>
+<div id="u334" class="u334"  >
+<div id="u334_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u335" class="u335_container"   >
+<div id="u335_img" class="u335_normal detectCanvas"></div>
+<div id="u336" class="u336"  >
+<div id="u336_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u337" class="u337_container"   >
+<div id="u337_img" class="u337_normal detectCanvas"></div>
+<div id="u338" class="u338"  >
+<div id="u338_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u339" class="u339_container"   >
+<div id="u339_img" class="u339_normal detectCanvas"></div>
+<div id="u340" class="u340"  >
+<div id="u340_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u341" class="u341_container"   >
+<div id="u341_img" class="u341_normal detectCanvas"></div>
+<div id="u342" class="u342"  >
+<div id="u342_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u343" class="u343_container"   >
+<div id="u343_img" class="u343_normal detectCanvas"></div>
+<div id="u344" class="u344"  >
+<div id="u344_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u345" class="u345_container"   >
+<div id="u345_img" class="u345_normal detectCanvas"></div>
+<div id="u346" class="u346"  >
+<div id="u346_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u347" class="u347_container"   >
+<div id="u347_img" class="u347_normal detectCanvas"></div>
+<div id="u348" class="u348"  >
+<div id="u348_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u349" class="u349_container"   >
+<div id="u349_img" class="u349_normal detectCanvas"></div>
+<div id="u350" class="u350"  >
+<div id="u350_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u351" class="u351_container"   >
+<div id="u351_img" class="u351_normal detectCanvas"></div>
+<div id="u352" class="u352"  >
+<div id="u352_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u353" class="u353_container"   >
+<div id="u353_img" class="u353_normal detectCanvas"></div>
+<div id="u354" class="u354"  >
+<div id="u354_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周一</span></p></div>
+</div>
+</div>
+<DIV id="u355" style="" data-label="周二标题">
+<DIV id="pd0u355" style="" data-label="状态1">
+<DIV id="u356" style="visibility:hidden;" data-label="周二赛事">
+<DIV id="pd0u356" style="" data-label="状态1">
+<DIV id="u357" class="u357;" >
+
+</DIV>
+
+<DIV id="u357container" style="position:absolute; left:0px; top:0px; width:555px; height:59px; overflow:visible">
+
+<div id="u358" class="u358_container"   >
+<div id="u358_img" class="u358_normal detectCanvas"></div>
+<div id="u359" class="u359"  >
+<div id="u359_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u360" class="u360_container"   >
+<div id="u360_img" class="u360_normal detectCanvas"></div>
+<div id="u361" class="u361"  >
+<div id="u361_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u362" class="u362_container"   >
+<div id="u362_img" class="u362_normal detectCanvas"></div>
+<div id="u363" class="u363"  >
+<div id="u363_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u364" class="u364_container"   >
+<div id="u364_img" class="u364_normal detectCanvas"></div>
+<div id="u365" class="u365"  >
+<div id="u365_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u366" class="u366_container"   >
+<div id="u366_img" class="u366_normal detectCanvas"></div>
+<div id="u367" class="u367"  >
+<div id="u367_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u368" class="u368_container"   >
+<div id="u368_img" class="u368_normal detectCanvas"></div>
+<div id="u369" class="u369"  >
+<div id="u369_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u370" class="u370_container"   >
+<div id="u370_img" class="u370_normal detectCanvas"></div>
+<div id="u371" class="u371"  >
+<div id="u371_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u372" class="u372_container"   >
+<div id="u372_img" class="u372_normal detectCanvas"></div>
+<div id="u373" class="u373"  >
+<div id="u373_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u374" class="u374_container"   >
+<div id="u374_img" class="u374_normal detectCanvas"></div>
+<div id="u375" class="u375"  >
+<div id="u375_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u376" class="u376_container"   >
+<div id="u376_img" class="u376_normal detectCanvas"></div>
+<div id="u377" class="u377"  >
+<div id="u377_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u378" class="u378_container"   >
+<div id="u378_img" class="u378_normal detectCanvas"></div>
+<div id="u379" class="u379"  >
+<div id="u379_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u380" class="u380_container"   >
+<div id="u380_img" class="u380_normal detectCanvas"></div>
+<div id="u381" class="u381"  >
+<div id="u381_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u382" class="u382_container"   data-label="周二标题">
+<div id="u382_img" class="u382_normal detectCanvas"></div>
+<div id="u383" class="u383"  >
+<div id="u383_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">二</span></p></div>
+</div>
+</div>
+<DIV id="u384" style="" data-label="周二操作">
+<DIV id="pd1u384" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u385" type="submit" class="u385" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u384" style="" data-label="展开按钮">
+<INPUT id="u386" type="submit" class="u386" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="u387" style="" data-label="操作">
+<DIV id="pd1u387" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u388" type="submit" class="u388" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u387" style="" data-label="展开按钮">
+<INPUT id="u389" type="submit" class="u389" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="pd2u261" style="visibility:hidden;" data-label="比分">
+<DIV id="u390" style="" data-label="胜平负">
+<DIV id="pd1u390" style="visibility:hidden;" data-label="周二">
+</DIV>
+<DIV id="pd0u390" style="" data-label="周一">
+<DIV id="u391" style="visibility:hidden;" data-label="周一赛事">
+<DIV id="pd0u391" style="" data-label="状态1">
+<DIV id="u392" class="u392;" >
+
+</DIV>
+
+<DIV id="u392container" style="position:absolute; left:0px; top:0px; width:557px; height:59px; overflow:visible">
+
+<div id="u393" class="u393_container"   >
+<div id="u393_img" class="u393_normal detectCanvas"></div>
+<div id="u394" class="u394"  >
+<div id="u394_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u395" class="u395_container"   >
+<div id="u395_img" class="u395_normal detectCanvas"></div>
+<div id="u396" class="u396"  >
+<div id="u396_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u397" class="u397_container"   >
+<div id="u397_img" class="u397_normal detectCanvas"></div>
+<div id="u398" class="u398"  >
+<div id="u398_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u399" class="u399_container"   >
+<div id="u399_img" class="u399_normal detectCanvas"></div>
+<div id="u400" class="u400"  >
+<div id="u400_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u401" class="u401_container"   >
+<div id="u401_img" class="u401_normal detectCanvas"></div>
+<div id="u402" class="u402"  >
+<div id="u402_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u403" class="u403_container"   >
+<div id="u403_img" class="u403_normal detectCanvas"></div>
+<div id="u404" class="u404"  >
+<div id="u404_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u405" class="u405_container"   >
+<div id="u405_img" class="u405_normal detectCanvas"></div>
+<div id="u406" class="u406"  >
+<div id="u406_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u407" class="u407_container"   >
+<div id="u407_img" class="u407_normal detectCanvas"></div>
+<div id="u408" class="u408"  >
+<div id="u408_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u409" class="u409_container"   >
+<div id="u409_img" class="u409_normal detectCanvas"></div>
+<div id="u410" class="u410"  >
+<div id="u410_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u411" class="u411_container"   >
+<div id="u411_img" class="u411_normal detectCanvas"></div>
+<div id="u412" class="u412"  >
+<div id="u412_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u413" class="u413_container"   >
+<div id="u413_img" class="u413_normal detectCanvas"></div>
+<div id="u414" class="u414"  >
+<div id="u414_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u415" class="u415_container"   >
+<div id="u415_img" class="u415_normal detectCanvas"></div>
+<div id="u416" class="u416"  >
+<div id="u416_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u417" class="u417_container"   >
+<div id="u417_img" class="u417_normal detectCanvas"></div>
+<div id="u418" class="u418"  >
+<div id="u418_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周一</span></p></div>
+</div>
+</div>
+<DIV id="u419" style="" data-label="周二标题">
+<DIV id="pd0u419" style="" data-label="状态1">
+<DIV id="u420" style="visibility:hidden;" data-label="周二赛事">
+<DIV id="pd0u420" style="" data-label="状态1">
+<DIV id="u421" class="u421;" >
+
+</DIV>
+
+<DIV id="u421container" style="position:absolute; left:0px; top:0px; width:555px; height:59px; overflow:visible">
+
+<div id="u422" class="u422_container"   >
+<div id="u422_img" class="u422_normal detectCanvas"></div>
+<div id="u423" class="u423"  >
+<div id="u423_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u424" class="u424_container"   >
+<div id="u424_img" class="u424_normal detectCanvas"></div>
+<div id="u425" class="u425"  >
+<div id="u425_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u426" class="u426_container"   >
+<div id="u426_img" class="u426_normal detectCanvas"></div>
+<div id="u427" class="u427"  >
+<div id="u427_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u428" class="u428_container"   >
+<div id="u428_img" class="u428_normal detectCanvas"></div>
+<div id="u429" class="u429"  >
+<div id="u429_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u430" class="u430_container"   >
+<div id="u430_img" class="u430_normal detectCanvas"></div>
+<div id="u431" class="u431"  >
+<div id="u431_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u432" class="u432_container"   >
+<div id="u432_img" class="u432_normal detectCanvas"></div>
+<div id="u433" class="u433"  >
+<div id="u433_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u434" class="u434_container"   >
+<div id="u434_img" class="u434_normal detectCanvas"></div>
+<div id="u435" class="u435"  >
+<div id="u435_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u436" class="u436_container"   >
+<div id="u436_img" class="u436_normal detectCanvas"></div>
+<div id="u437" class="u437"  >
+<div id="u437_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u438" class="u438_container"   >
+<div id="u438_img" class="u438_normal detectCanvas"></div>
+<div id="u439" class="u439"  >
+<div id="u439_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u440" class="u440_container"   >
+<div id="u440_img" class="u440_normal detectCanvas"></div>
+<div id="u441" class="u441"  >
+<div id="u441_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u442" class="u442_container"   >
+<div id="u442_img" class="u442_normal detectCanvas"></div>
+<div id="u443" class="u443"  >
+<div id="u443_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u444" class="u444_container"   >
+<div id="u444_img" class="u444_normal detectCanvas"></div>
+<div id="u445" class="u445"  >
+<div id="u445_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u446" class="u446_container"   data-label="周二标题">
+<div id="u446_img" class="u446_normal detectCanvas"></div>
+<div id="u447" class="u447"  >
+<div id="u447_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">二</span></p></div>
+</div>
+</div>
+<DIV id="u448" style="" data-label="周二操作">
+<DIV id="pd1u448" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u449" type="submit" class="u449" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u448" style="" data-label="展开按钮">
+<INPUT id="u450" type="submit" class="u450" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="u451" style="" data-label="操作">
+<DIV id="pd1u451" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u452" type="submit" class="u452" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u451" style="" data-label="展开按钮">
+<INPUT id="u453" type="submit" class="u453" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="pd1u261" style="visibility:hidden;" data-label="让球">
+<DIV id="u454" style="" data-label="胜平负">
+<DIV id="pd1u454" style="visibility:hidden;" data-label="周二">
+</DIV>
+<DIV id="pd0u454" style="" data-label="周一">
+<DIV id="u455" style="visibility:hidden;" data-label="周一赛事">
+<DIV id="pd0u455" style="" data-label="状态1">
+<DIV id="u456" class="u456;" >
+
+</DIV>
+
+<DIV id="u456container" style="position:absolute; left:0px; top:0px; width:557px; height:59px; overflow:visible">
+
+<div id="u457" class="u457_container"   >
+<div id="u457_img" class="u457_normal detectCanvas"></div>
+<div id="u458" class="u458"  >
+<div id="u458_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u459" class="u459_container"   >
+<div id="u459_img" class="u459_normal detectCanvas"></div>
+<div id="u460" class="u460"  >
+<div id="u460_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u461" class="u461_container"   >
+<div id="u461_img" class="u461_normal detectCanvas"></div>
+<div id="u462" class="u462"  >
+<div id="u462_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u463" class="u463_container"   >
+<div id="u463_img" class="u463_normal detectCanvas"></div>
+<div id="u464" class="u464"  >
+<div id="u464_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u465" class="u465_container"   >
+<div id="u465_img" class="u465_normal detectCanvas"></div>
+<div id="u466" class="u466"  >
+<div id="u466_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u467" class="u467_container"   >
+<div id="u467_img" class="u467_normal detectCanvas"></div>
+<div id="u468" class="u468"  >
+<div id="u468_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u469" class="u469_container"   >
+<div id="u469_img" class="u469_normal detectCanvas"></div>
+<div id="u470" class="u470"  >
+<div id="u470_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u471" class="u471_container"   >
+<div id="u471_img" class="u471_normal detectCanvas"></div>
+<div id="u472" class="u472"  >
+<div id="u472_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u473" class="u473_container"   >
+<div id="u473_img" class="u473_normal detectCanvas"></div>
+<div id="u474" class="u474"  >
+<div id="u474_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u475" class="u475_container"   >
+<div id="u475_img" class="u475_normal detectCanvas"></div>
+<div id="u476" class="u476"  >
+<div id="u476_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u477" class="u477_container"   >
+<div id="u477_img" class="u477_normal detectCanvas"></div>
+<div id="u478" class="u478"  >
+<div id="u478_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u479" class="u479_container"   >
+<div id="u479_img" class="u479_normal detectCanvas"></div>
+<div id="u480" class="u480"  >
+<div id="u480_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u481" class="u481_container"   >
+<div id="u481_img" class="u481_normal detectCanvas"></div>
+<div id="u482" class="u482"  >
+<div id="u482_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周一</span></p></div>
+</div>
+</div>
+<DIV id="u483" style="" data-label="周二标题">
+<DIV id="pd0u483" style="" data-label="状态1">
+<DIV id="u484" style="visibility:hidden;" data-label="周二赛事">
+<DIV id="pd0u484" style="" data-label="状态1">
+<DIV id="u485" class="u485;" >
+
+</DIV>
+
+<DIV id="u485container" style="position:absolute; left:0px; top:0px; width:555px; height:59px; overflow:visible">
+
+<div id="u486" class="u486_container"   >
+<div id="u486_img" class="u486_normal detectCanvas"></div>
+<div id="u487" class="u487"  >
+<div id="u487_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u488" class="u488_container"   >
+<div id="u488_img" class="u488_normal detectCanvas"></div>
+<div id="u489" class="u489"  >
+<div id="u489_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u490" class="u490_container"   >
+<div id="u490_img" class="u490_normal detectCanvas"></div>
+<div id="u491" class="u491"  >
+<div id="u491_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u492" class="u492_container"   >
+<div id="u492_img" class="u492_normal detectCanvas"></div>
+<div id="u493" class="u493"  >
+<div id="u493_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">欧</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赔</span></p></div>
+</div>
+</div>
+<div id="u494" class="u494_container"   >
+<div id="u494_img" class="u494_normal detectCanvas"></div>
+<div id="u495" class="u495"  >
+<div id="u495_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">亚</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">盘</span></p></div>
+</div>
+</div>
+<div id="u496" class="u496_container"   >
+<div id="u496_img" class="u496_normal detectCanvas"></div>
+<div id="u497" class="u497"  >
+<div id="u497_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u498" class="u498_container"   >
+<div id="u498_img" class="u498_normal detectCanvas"></div>
+<div id="u499" class="u499"  >
+<div id="u499_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u500" class="u500_container"   >
+<div id="u500_img" class="u500_normal detectCanvas"></div>
+<div id="u501" class="u501"  >
+<div id="u501_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u502" class="u502_container"   >
+<div id="u502_img" class="u502_normal detectCanvas"></div>
+<div id="u503" class="u503"  >
+<div id="u503_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 vs 英格兰</span></p></div>
+</div>
+</div>
+<div id="u504" class="u504_container"   >
+<div id="u504_img" class="u504_normal detectCanvas"></div>
+<div id="u505" class="u505"  >
+<div id="u505_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u506" class="u506_container"   >
+<div id="u506_img" class="u506_normal detectCanvas"></div>
+<div id="u507" class="u507"  >
+<div id="u507_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">半球/一球</span></p></div>
+</div>
+</div>
+<div id="u508" class="u508_container"   >
+<div id="u508_img" class="u508_normal detectCanvas"></div>
+<div id="u509" class="u509"  >
+<div id="u509_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u510" class="u510_container"   data-label="周二标题">
+<div id="u510_img" class="u510_normal detectCanvas"></div>
+<div id="u511" class="u511"  >
+<div id="u511_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">二</span></p></div>
+</div>
+</div>
+<DIV id="u512" style="" data-label="周二操作">
+<DIV id="pd1u512" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u513" type="submit" class="u513" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u512" style="" data-label="展开按钮">
+<INPUT id="u514" type="submit" class="u514" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="u515" style="" data-label="操作">
+<DIV id="pd1u515" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u516" type="submit" class="u516" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u515" style="" data-label="展开按钮">
+<INPUT id="u517" type="submit" class="u517" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="pd0u261" style="" data-label="胜平负">
+<DIV id="u518" style="" data-label="胜平负">
+<DIV id="pd1u518" style="visibility:hidden;" data-label="周二">
+</DIV>
+<DIV id="pd0u518" style="" data-label="周一">
+<DIV id="u519" style="visibility:hidden;" data-label="周一赛事">
+<DIV id="pd0u519" style="" data-label="状态1">
+<DIV id="u520" class="u520;" >
+
+</DIV>
+
+<DIV id="u520container" style="position:absolute; left:0px; top:0px; width:559px; height:59px; overflow:visible">
+
+<div id="u521" class="u521_container"   >
+<div id="u521_img" class="u521_normal detectCanvas"></div>
+<div id="u522" class="u522"  >
+<div id="u522_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u523" class="u523_container"   >
+<div id="u523_img" class="u523_normal detectCanvas"></div>
+<div id="u524" class="u524"  >
+<div id="u524_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u525" class="u525_container"   >
+<div id="u525_img" class="u525_normal detectCanvas"></div>
+<div id="u526" class="u526"  >
+<div id="u526_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">开赛时间</span></p></div>
+</div>
+</div>
+<div id="u527" class="u527_container"   >
+<div id="u527_img" class="u527_normal detectCanvas"></div>
+<div id="u528" class="u528"  >
+<div id="u528_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u529" class="u529_container"   >
+<div id="u529_img" class="u529_normal detectCanvas"></div>
+<div id="u530" class="u530"  >
+<div id="u530_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">竞彩胜平负SP</span></p></div>
+</div>
+</div>
+<div id="u531" class="u531_container"   >
+<div id="u531_img" class="u531_normal detectCanvas"></div>
+<div id="u532" class="u532"  >
+<div id="u532_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u533" class="u533_container"   >
+<div id="u533_img" class="u533_normal detectCanvas"></div>
+<div id="u534" class="u534"  >
+<div id="u534_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u535" class="u535_container"   >
+<div id="u535_img" class="u535_normal detectCanvas"></div>
+<div id="u536" class="u536"  >
+<div id="u536_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u537" class="u537_container"   >
+<div id="u537_img" class="u537_normal detectCanvas"></div>
+<div id="u538" class="u538"  >
+<div id="u538_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">上中下完</span></p></div>
+</div>
+</div>
+<div id="u539" class="u539_container"   >
+<div id="u539_img" class="u539_normal detectCanvas"></div>
+<div id="u540" class="u540"  >
+<div id="u540_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#FF0000;">3</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#000000;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#FF0000;">1</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;"> 英格兰</span></p></div>
+</div>
+</div>
+<div id="u541" class="u541_container"   >
+<div id="u541_img" class="u541_normal detectCanvas"></div>
+<div id="u542" class="u542"  >
+<div id="u542_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u543" class="u543_container"   >
+<div id="u543_img" class="u543_normal detectCanvas"></div>
+<div id="u544" class="u544"  >
+<div id="u544_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u545" class="u545_container"   >
+<div id="u545_img" class="u545_normal detectCanvas"></div>
+<div id="u546" class="u546"  >
+<div id="u546_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周一</span></p></div>
+</div>
+</div>
+<DIV id="u547" style="" data-label="周二标题">
+<DIV id="pd0u547" style="" data-label="状态1">
+<DIV id="u548" style="visibility:hidden;" data-label="周二赛事">
+<DIV id="pd0u548" style="" data-label="状态1">
+<DIV id="u549" class="u549;" >
+
+</DIV>
+
+<DIV id="u549container" style="position:absolute; left:0px; top:0px; width:559px; height:59px; overflow:visible">
+
+<div id="u550" class="u550_container"   >
+<div id="u550_img" class="u550_normal detectCanvas"></div>
+<div id="u551" class="u551"  >
+<div id="u551_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">赛事</span></p></div>
+</div>
+</div>
+<div id="u552" class="u552_container"   >
+<div id="u552_img" class="u552_normal detectCanvas"></div>
+<div id="u553" class="u553"  >
+<div id="u553_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">场</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+</div>
+<div id="u554" class="u554_container"   >
+<div id="u554_img" class="u554_normal detectCanvas"></div>
+<div id="u555" class="u555"  >
+<div id="u555_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">开赛时间</span></p></div>
+</div>
+</div>
+<div id="u556" class="u556_container"   >
+<div id="u556_img" class="u556_normal detectCanvas"></div>
+<div id="u557" class="u557"  >
+<div id="u557_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">球</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">队</span></p></div>
+</div>
+</div>
+<div id="u558" class="u558_container"   >
+<div id="u558_img" class="u558_normal detectCanvas"></div>
+<div id="u559" class="u559"  >
+<div id="u559_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">竞彩胜平负SP</span></p></div>
+</div>
+</div>
+<div id="u560" class="u560_container"   >
+<div id="u560_img" class="u560_normal detectCanvas"></div>
+<div id="u561" class="u561"  >
+<div id="u561_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">操</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">作</span></p></div>
+</div>
+</div>
+<div id="u562" class="u562_container"   >
+<div id="u562_img" class="u562_normal detectCanvas"></div>
+<div id="u563" class="u563"  >
+<div id="u563_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">世预赛</span></p></div>
+</div>
+</div>
+<div id="u564" class="u564_container"   >
+<div id="u564_img" class="u564_normal detectCanvas"></div>
+<div id="u565" class="u565"  >
+<div id="u565_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">周一001</span></p></div>
+</div>
+</div>
+<div id="u566" class="u566_container"   >
+<div id="u566_img" class="u566_normal detectCanvas"></div>
+<div id="u567" class="u567"  >
+<div id="u567_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">10:36</span></p></div>
+</div>
+</div>
+<div id="u568" class="u568_container"   >
+<div id="u568_img" class="u568_normal detectCanvas"></div>
+<div id="u569" class="u569"  >
+<div id="u569_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">意大利 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#000000;">-</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#000000;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;"> 英格兰</span></p></div>
+</div>
+</div>
+<div id="u570" class="u570_container"   >
+<div id="u570_img" class="u570_normal detectCanvas"></div>
+<div id="u571" class="u571"  >
+<div id="u571_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">胜 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">1.85</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">平</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3.25</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">负 </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#008000;">4.67</span></p></div>
+</div>
+</div>
+<div id="u572" class="u572_container"   >
+<div id="u572_img" class="u572_normal detectCanvas"></div>
+<div id="u573" class="u573"  >
+<div id="u573_rtf"><p style="text-align:center;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">看</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">推荐</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</DIV>
+<div id="u574" class="u574_container"   data-label="周二标题">
+<div id="u574_img" class="u574_normal detectCanvas"></div>
+<div id="u575" class="u575"  >
+<div id="u575_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2013-09-23&nbsp;&nbsp; 周</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">二</span></p></div>
+</div>
+</div>
+<DIV id="u576" style="" data-label="周二操作">
+<DIV id="pd1u576" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u577" type="submit" class="u577" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u576" style="" data-label="展开按钮">
+<INPUT id="u578" type="submit" class="u578" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV id="u579" style="" data-label="操作">
+<DIV id="pd1u579" style="visibility:hidden;" data-label="隐藏按钮">
+<INPUT id="u580" type="submit" class="u580" value="隐藏"   >
+
+</DIV>
+<DIV id="pd0u579" style="" data-label="展开按钮">
+<INPUT id="u581" type="submit" class="u581" value="展开"   >
+
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<SELECT id="u582" class="u582"   >
+<OPTION selected value="20131016">20131016</OPTION>
+<OPTION  value="20131015">20131015</OPTION>
+<OPTION  value="20131014">20131014</OPTION>
+</SELECT>
+
+<DIV id="u583container" style="position:absolute; left:258px; top:155px; width:100px; height:20px; ; ; ;" >
+<LABEL for="u583">
+<div id="u584" class="u584"  >
+<div id="u584_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">已结束</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u583" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"   >
+</DIV><div id="u585" class="u585" >
+<DIV id="u585_line" class="u585_line" ></DIV>
+</div>
+<div id="u586" class="u586"  >
+<div id="u586_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">中奖喜报</span></p></div>
+</div>
+<div id="u587" class="u587_container"   data-label="image">
+<div id="u587_img" class="u587_normal detectCanvas"></div>
+<div id="u588" class="u588" style="visibility:hidden;"  >
+<div id="u588_rtf"></div>
+</div>
+</div>
+<div id="u589" class="u589"  >
+<div id="u589_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">username</span></p></div>
+</div>
+<div id="u590" class="u590"  >
+<div id="u590_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">中奖：10025元</span></p></div>
+</div>
+<div id="u591" class="u591"  >
+<div id="u591_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">双色球</span></p></div>
+</div><div id="u592" class="u592" >
+<DIV id="u592_line" class="u592_line" ></DIV>
+</div>
+<div id="u593" class="u593_container"   data-label="image">
+<div id="u593_img" class="u593_normal detectCanvas"></div>
+<div id="u594" class="u594" style="visibility:hidden;"  >
+<div id="u594_rtf"></div>
+</div>
+</div>
+<div id="u595" class="u595"  >
+<div id="u595_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">中奖：10025元</span></p></div>
+</div>
+<div id="u596" class="u596"  >
+<div id="u596_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">双色球</span></p></div>
+</div><div id="u597" class="u597" >
+<DIV id="u597_line" class="u597_line" ></DIV>
+</div>
+<div id="u598" class="u598_container"   data-label="image">
+<div id="u598_img" class="u598_normal detectCanvas"></div>
+<div id="u599" class="u599" style="visibility:hidden;"  >
+<div id="u599_rtf"></div>
+</div>
+</div>
+<div id="u600" class="u600"  >
+<div id="u600_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">中奖：10025元</span></p></div>
+</div>
+<div id="u601" class="u601"  >
+<div id="u601_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">双色球</span></p></div>
+</div><div id="u602" class="u602" >
+<DIV id="u602_line" class="u602_line" ></DIV>
+</div>
+<div id="u603" class="u603"  >
+<div id="u603_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">username</span></p></div>
+</div>
+<div id="u604" class="u604"  >
+<div id="u604_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">username</span></p></div>
+</div>
+<div id="u605" class="u605"  >
+<div id="u605_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">双色球50期加奖活动，总</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">加奖</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">超50亿元！</span></p></div>
+</div>
+<div id="u606" class="u606"  >
+<div id="u606_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">周六006 皇马VS巴萨 比赛取消公告。</span></p></div>
+</div>
+<div id="u607" class="u607"  >
+<div id="u607_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">十月大V彩晒单跟单奖励活动！</span></p></div>
+</div>
+<div id="u608" class="u608"  >
+<div id="u608_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">双色球50期加奖活动，总</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">加奖</span><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">超50亿元！</span></p></div>
+</div>
+<div id="u609" class="u609"  >
+<div id="u609_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">周六006 皇马VS巴萨 比赛取消公告。</span></p></div>
+</div>
+<div id="u610" class="u610"  >
+<div id="u610_rtf"><p style="text-align:left;"><span style="font-family:微软雅黑;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">十月大V彩晒单跟单奖励活动！</span></p></div>
+</div>
+<div id="u611" class="u611"  >
+<div id="u611_rtf"><p style="text-align:right;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">转发</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">分享</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">收藏</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">评论</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp; 采纳</span></p></div>
+</div>
+<DIV id="u612" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:481px; top:747px; width:239px; height:20px;;" ></div>
+<div id="u613" class="u613"  >
+<div id="u613_rtf"><p style="text-align:right;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">转发</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">分享</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">收藏</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">评论</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp; 采纳</span></p></div>
+</div>
+<DIV id="u614" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:481px; top:877px; width:239px; height:20px;;" ></div>
+<div id="u615" class="u615"  >
+<div id="u615_rtf"><p style="text-align:right;"><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">转发</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">分享</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">收藏</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp;</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">评论</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp; </span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#000000;">|</span><span style="font-family:微软雅黑;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">&nbsp; 采纳</span></p></div>
+</div>
+<DIV id="u616" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:481px; top:1004px; width:239px; height:20px;;" ></div>
+</div>
+<div class="preload"><img src="主页-竞足_files/u0_normal.png" width="1" height="1"/><img src="主页-竞足_files/u5_normal.png" width="1" height="1"/><img src="主页-竞足_files/u7_normal.png" width="1" height="1"/><img src="主页-竞足_files/u10_normal.png" width="1" height="1"/><img src="主页-竞足_files/u12_normal.png" width="1" height="1"/><img src="主页-竞足_files/image_u14_normal.png" width="1" height="1"/><img src="主页-竞足_files/u16_normal.png" width="1" height="1"/><img src="主页-竞足_files/u18_normal.png" width="1" height="1"/><img src="主页-竞足_files/u24_line.png" width="1" height="1"/><img src="主页-竞足_files/u45_line.png" width="1" height="1"/><img src="主页-竞足_files/u46_line.png" width="1" height="1"/><img src="主页-竞足_files/u48_normal.png" width="1" height="1"/><img src="主页-竞足_files/u52_normal.png" width="1" height="1"/><img src="主页-竞足_files/u55_normal.png" width="1" height="1"/><img src="主页-竞足_files/image_u57_normal.png" width="1" height="1"/><img src="主页-竞足_files/u65_normal.png" width="1" height="1"/><img src="主页-竞足_files/u105_normal.png" width="1" height="1"/><img src="主页-竞足_files/u111_normal.png" width="1" height="1"/><img src="主页-竞足_files/u128_normal.png" width="1" height="1"/><img src="主页-竞足_files/u134_line.png" width="1" height="1"/><img src="主页-竞足_files/u136_normal.png" width="1" height="1"/><img src="主页-竞足_files/u146_normal.png" width="1" height="1"/><img src="主页-竞足_files/u151_normal.png" width="1" height="1"/><img src="主页-竞足_files/u163_line.png" width="1" height="1"/><img src="主页-竞足_files/u165_normal.png" width="1" height="1"/><img src="主页-竞足_files/u169_normal.png" width="1" height="1"/><img src="主页-竞足_files/u265_normal.png" width="1" height="1"/><img src="主页-竞足_files/u267_normal.png" width="1" height="1"/><img src="主页-竞足_files/u269_normal.png" width="1" height="1"/><img src="主页-竞足_files/u271_normal.png" width="1" height="1"/><img src="主页-竞足_files/u273_normal.png" width="1" height="1"/><img src="主页-竞足_files/u275_normal.png" width="1" height="1"/><img src="主页-竞足_files/u289_normal.png" width="1" height="1"/><img src="主页-竞足_files/u304_normal.png" width="1" height="1"/><img src="主页-竞足_files/u525_normal.png" width="1" height="1"/><img src="主页-竞足_files/u527_normal.png" width="1" height="1"/><img src="主页-竞足_files/u529_normal.png" width="1" height="1"/><img src="主页-竞足_files/u531_normal.png" width="1" height="1"/><img src="主页-竞足_files/u585_line.png" width="1" height="1"/><img src="主页-竞足_files/u592_line.png" width="1" height="1"/><img src="主页-竞足_files/u597_line.png" width="1" height="1"/><img src="主页-竞足_files/u602_line.png" width="1" height="1"/></div>
+</body>
+<script src="resources/scripts/axurerp_pagescript.js"></script>
+<script src="主页-竞足_files/axurerp_pagespecificscript.js" charset="utf-8"></script>

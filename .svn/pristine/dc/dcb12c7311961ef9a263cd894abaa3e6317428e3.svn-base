@@ -1,0 +1,220 @@
+#macro (pager $url $p $maxList)
+	#set($span = (${maxList} - 3)/2)
+	#set($__pc = $p.pageCount)
+    #if($url.indexOf("?") != -1)
+        #set($cURL=($url + "&pageNo="))
+    #else
+        #set($cURL=($url + "?pageNo="))
+    #end
+    	<span class="r page inb_a">
+	#if($p.pageNo > 1)
+		<a class="prev" href="${cURL}${p.prevPageNo}" class="btn_p" pageNo="1">上一页</a>
+    #end
+    
+    #set($totalNo = ${span} * 2 + 3)
+    #set($totalNo1 = $totalNo - 1)
+    #if($p.pageCount > $totalNo)
+    	#if($p.pageNo <= $span + 2)
+    		#foreach($i in [1..$totalNo1])
+		        #linkA(${p.pageNo}, $i, $cURL)
+		    #end
+		    #linkA(0, 0, "#")
+		    #linkA(${p.pageNo}, ${p.pageCount}, $cURL)
+    	#elseif($p.pageNo > ($p.pageCount - (${span} + 2)))
+    		#linkA(${p.pageNo}, 1, ${cURL})
+			#linkA(0, 0, "#")
+			#set($num = ${p.pageCount} - ${totalNo} + 2)
+			#foreach($i in [$num..${p.pageCount}])
+	        	#linkA(${p.pageNo}, ${i}, ${cURL})
+	        #end
+    	#else
+    		#linkA(${p.pageNo}, 1, $cURL)
+    		#linkA(0 0 "#")
+			#set($num = ${p.pageNo}-${span})
+			#set($num2 = ${p.pageNo}+$span)
+    		#foreach($i in [$num..$num2])
+		        #linkA($p.pageNo, $i, $cURL)
+		    #end
+		    #linkA(0, 0, "#")
+		    #linkA($p.pageNo, $p.pageCount, $cURL)
+    	#end
+    #elseif ($p.pageCount > 1)
+		#foreach($i in [1..$p.pageCount])
+	        #linkA(${p.pageNo}, $i, $cURL)
+	    #end
+    #else
+        #linkA(1, 1, $cURL)
+    #end
+    
+    #if ($p.pageNo < $p.pageCount)
+		<a href="${cURL}${p.nextPageNo}" class="btn_p" pageNo="1">下一页</a>
+	#end
+	
+	&nbsp;转到<input type="text" name="_pageNo" class="txts" size="4" /><input type="button" value="GO" class="hand" onclick="_goPage(this)" />
+	  <script type="text/javascript">
+	  var pcount = "${__pc}";
+	  
+	  function _goPage(el){
+	  	var pageNo = 1;
+	 	var inputs = el.parentNode.getElementsByTagName('input');
+	  	for(var i=0;i<inputs.length;i++){
+	  		var name=inputs[i].getAttribute('name');
+			if(name && name == '_pageNo'){
+				pageNo=inputs[i].value;
+				break;
+		  	};
+	  	};
+	  	if(pageNo>0 && pageNo<=pcount){
+			location.href='$cURL'+pageNo;
+	  	}else{
+	    	alert('请输入正确的页数');
+	  	}
+	  }
+	  </script>
+	</span>
+#end
+
+
+<#-- 分页链接A -->
+#macro (linkA $pageNo $idx $url)
+	#if ($idx == 0)
+		<span>...</span>
+    #elseif ($pageNo == $idx)
+		 <a href="javascript:void(0);"><b>${idx}</b></a>
+    #else
+        <a href="${url}${idx}">${idx}</a>
+    #end
+#end
+
+
+#macro (format_date $the_date)
+    $date.format($the_date, "yyyy-MM-dd hh:mm:ss")
+#end
+
+#macro (pagerHtml $curPage $totalPages)
+    #set($prev = $curPage - 1)
+    #if($prev < 1)
+        #set($prev=1)
+    #end
+    #set($next = $curPage + 1)
+    #if($next > $totalPages)
+        #set($next=$totalPages)
+    #end
+    #set($width=2)
+    #set($pager = $Pager.paging($curPage, $totalPages, 2))
+    <ul class="pager">
+        #if( $prev != $curPage )
+        <li class="last"><a data-page="$prev" href="?page=$prev"><span>上一页</span><i></i></a></li>
+        #end
+        #foreach($pageNo in $pager.pages)
+            #if($pageNo == -1)
+                <li>...</li>
+            #else
+                <li #if($pageNo==$curPage)class="active"#end><a data-page="$pageNo" href="?page=$pageNo">$pageNo</a></li>
+            #end
+        #end
+        #if( $next != $totalPages )
+        <li class="next"><a data-page="$next" href="?page=$next"><span>下一页</span><i></i></a></li>
+        #end
+    </ul>
+#end
+
+#macro (pagerHtmlWithGetPram $parmString $curPage $totalPages)
+    #set($prev = $curPage - 1)
+    #if($prev < 1)
+        #set($prev=1)
+    #end
+    #set($next = $curPage + 1)
+    #if($next > $totalPages)
+        #set($next=$totalPages)
+    #end
+    #set($width=2)
+    #set($pager = $Pager.paging($curPage, $totalPages, 2))
+    <ul class="pager">
+        #if( $prev != $curPage )
+        <li class="last"><a data-page="$prev" href="?$parmString&page=$prev"><span>上一页</span><i></i></a></li>
+        #end
+        #foreach($pageNo in $pager.pages)
+            #if($pageNo == -1)
+                <li>...</li>
+            #else
+                <li #if($pageNo==$curPage)class="active"#end><a data-page="$pageNo" href="?$parmString&page=$pageNo">$pageNo</a></li>
+            #end
+        #end
+        #if( $next != $totalPages )
+        <li class="next"><a data-page="$next" href="?$parmString&page=$next"><span>下一页</span><i></i></a></li>
+        #end
+    </ul>
+#end
+
+#macro(topicName $type)
+	#if("DAILY_TOPIC" == $type) 今日话题
+	#else 未知
+	#end
+#end
+
+#macro(playtype $playType)
+     #if($playType)
+         #set($str="")
+        #if($playType=="01_ZC_1" || $playType=="01_ZC_2")
+          #set($str="让球胜平负")
+        #elseif($playType=="80_ZC_1" || $playType=="80_ZC_2")
+          #set($str="胜平负")
+        #elseif($playType=="06_LC_1" || $playType=="06_LC_2")
+          #set($str="让分胜负")
+        #elseif($playType=="07_LC_1" || $playType=="07_LC_2")
+          #set($str="胜负")
+        #elseif($playType=="91_BJDC_SPF")
+          #set($str="让球胜平负")        
+        #elseif($playType=="96_BJDC_SF")
+          #set($str="北单胜负")
+        #end
+         $str
+     #end
+#end
+#macro(subPlayType $code $t)
+      #if($code)
+          #set($s="")
+          #if($code.length() >= 4)
+           #set($str=$code.substring(4))
+           #if($t=="bjdc")
+           #set($str=$code.substring(3))
+           #end
+           #if($str=="3")
+             #set($s="胜")
+            #elseif($str=="1")
+             #set($s="平")
+            #elseif($str=="0")
+              #set($s="负")
+            #elseif($str=="31")
+              #set($s="胜,平")
+            #elseif($str=="30")
+              #set($s="胜,负")
+            #elseif($str=="10")
+              #set($s="平,负")
+            #elseif($str=="310")
+              #set($s="胜,平,负")
+            #end
+               $s
+          #end
+     #end
+#end
+
+#macro(bbPlayType $code)
+      #if($code)
+          #set($s="")
+          #if($code.length() > 4)
+           #set($str=$code.substring(4))
+           #if($str=="2")
+             #set($s="胜")
+            #elseif($str=="1")
+             #set($s="负")
+            #elseif($str=="21")
+              #set($s="胜,负")
+            #end
+               $s
+          #end
+     #end
+#end
+
+

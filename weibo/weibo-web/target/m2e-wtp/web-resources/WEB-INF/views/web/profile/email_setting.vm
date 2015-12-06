@@ -1,0 +1,39 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="邮箱管理")
+#set($styles=["css/profile.css","css/imgareaselect/imgareaselect-default.css"])
+
+#set($scripts=["js/cities.js","js/web/profile/profile.js","js/web/login.js",
+	"js/imgareaselect/jquery.imgareaselect.pack.js",
+	"js/jquery.form.js",
+	"js/web/profile/email.js"])
+
+<div id="mail-management">
+	#parse("web/profile/inc/profile_header.vm")
+	<form class="mail-management-form">
+		<ul>
+			<li>
+				<label>当前邮箱</label>
+				<span id="currentEmail">$!user.email</span>
+				#if($user.verifyStatus == 1 || $user.verifyStatus == 3)
+  					<i>已验证</i>
+				#else
+  					<i style="background: url(../images/fork.png) no-repeat 0px 8px;">未验证</i>
+				#end
+			</li>
+			<li>
+				<label>输入邮箱地址</label>
+				<input id="new_email"  type="text" value="" placeholder="如果您填写有误，请输入新邮箱并验证">
+			</li>
+			<li>
+  	    		<label></label>
+  	    		<button id="new_verify_email_btn"  class="mail-management-form-submit">发送验证邮件</button>
+  	    	</li>
+		</ul>
+	</form>
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#yxyz').attr('class','active');	
+	});
+</script>

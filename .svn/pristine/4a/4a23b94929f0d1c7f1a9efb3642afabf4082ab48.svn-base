@@ -1,0 +1,3 @@
+<script id="follow-btn-tmpl" type="text/x-jquery-tmpl">
+	<span class="addFriendBtn generalAddBtn"  title="{{title}}" _id="relationshipBtnId">{{view}}</span>
+</script>

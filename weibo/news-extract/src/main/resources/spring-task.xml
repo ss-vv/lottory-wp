@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+
+	<bean id="runWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Run" />
+		<property name="maxSize" value="20" />
+	</bean>
+	
+	<!-- 抽取红色标题新闻 task -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="extract red title news task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="180" />
+		<property name="job">
+				<bean class="com.unison.lottery.newsextract.task.ExtractHupuNewsTask" />
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="lt_client_update">
+    <column>id</column>
+    <column>newest_version</column>
+    <column>platform</column>
+    <column>download_url</column>
+    <column>update_type</column>
+    <column>update_desc</column>
+    <row>
+      <value>1</value>
+      <value>android-lc-1.0.0</value>
+      <value>android</value>
+      <value>http://localhost:8080/lottery-api/download/lc.apk</value>
+      <value>0</value>
+      <value>1、新增了&quot;铃声&quot;功能TAGBR2、调整界面UITAGBR3、修改BUG</value>
+    </row>
+  </table>
+</dataset>

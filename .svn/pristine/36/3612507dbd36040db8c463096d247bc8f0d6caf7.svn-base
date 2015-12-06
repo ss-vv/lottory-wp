@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+
+	<package name="weibo-admin-default" extends="struts-default">
+		<result-types>
+            <result-type name="layout" class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult" default="true" />
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+				<param name="root">data</param>
+				<param name="contentType">text/html</param>
+				<param name="callbackParameter">jsonp</param>
+			</result-type>
+		</result-types>
+
+		<interceptors>
+			<interceptor name="loginInteceptor"
+				class="com.unison.weibo.admin.interceptor.AccessInterceptor"/>
+				
+			<interceptor-stack name="weiboAdminDefaultStack">
+ 				<interceptor-ref name="loginInteceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="weiboAdminDefaultStack" />
+
+		<default-action-ref name="defaultAction" />
+
+        <global-results>
+            <result name="login">login.vm</result>
+        </global-results>
+        
+		<action name="defaultAction" class="com.opensymphony.xwork2.ActionSupport">
+			<result name="success">404.vm</result>
+		</action>
+		
+		<action name="login" class="com.unison.weibo.admin.action.LoginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>login.vm</result>
+			<result name="toHome" type="redirect">dailyTopic.do</result>
+		</action>
+		
+		<action name="logout" class="com.unison.weibo.admin.action.LogoutAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result type="redirect">login.do</result>
+		</action>
+		
+		<action name="dailyTopic" class="com.unison.weibo.admin.action.topic.TopicAction"
+			method="topicQuery">
+            <result>dailyTopic.vm</result>
+		</action>
+		
+		<action name="introduce">
+            <result>introduce.vm</result>
+		</action>
+		
+		<action name="specialUsers" class="com.unison.weibo.admin.action.user.SpecialUserAction">
+		  <result>specialUsers.vm</result>
+		</action>
+		
+        <action name="addSpUser" class="com.unison.weibo.admin.action.user.SpecialUserAction" method="addSpecialUser">
+          <result>specialUsers.vm</result>
+        </action>
+        
+        <action name="registSpUser" class="com.unison.weibo.admin.action.user.SpecialUserAction" method="registSpecialUser">
+          <result>specialUsers.vm</result>
+        </action>
+		
+        <action name="weiboNews" class="com.unison.weibo.admin.action.weibo.WeiboNewsAction">
+          <result>weiboNews.vm</result>
+        </action>
+        
+        <action name="updateWeiboNews" class="com.unison.weibo.admin.action.weibo.WeiboNewsAction" method="updateWeiboNews">
+          <result name="success" type="json"/>
+        </action>
+        <action name="deleteWeiboNews" class="com.unison.weibo.admin.action.weibo.WeiboNewsAction" method="deleteWeiboNews">
+          <result name="success" type="json"/>
+        </action>
+        <action name="publishWeiboNews" class="com.unison.weibo.admin.action.weibo.WeiboNewsAction" method="publishWeiboNews">
+          <result name="success" type="json"/>
+        </action>
+
+        <action name="pushPrivateMsg" class="com.unison.weibo.admin.action.msg.PushPrivateMsgAction">
+          <result>pushPrivateMsg.vm</result>
+        </action>
+        <action name="aj_post_private_msg" class="com.unison.weibo.admin.action.msg.PushPrivateMsgAction" method="postPrivateMsg">
+          <result name="success" type="json"/>
+        </action>
+		<action name="/{matchType}/prepareMatchs" class="com.unison.weibo.admin.action.match.MatchAction" method="getPreparedMatchs">
+         <result>/prepareMatchs.vm</result>
+        </action>
+        <action name="addRecommend" class="com.unison.weibo.admin.action.match.MatchAction" method="addRecommend">
+         <result type="redirect">/${matchType}/prepareMatchs.do</result>
+        </action>
+        <action name="/{matchType}/recommend" class="com.unison.weibo.admin.action.match.RecommendAction" method="displayRecommends">
+         <result >/recommend.vm</result>
+        </action>
+        <action name="putOn" class="com.unison.weibo.admin.action.match.RecommendAction" method="putOn">
+         <result type="redirect">/${matchType}/recommend.do</result>
+        </action>
+        <action name="getOff" class="com.unison.weibo.admin.action.match.RecommendAction" method="getOff">
+         <result type="redirect">/${matchType}/recommend.do</result>
+        </action>
+       <action name="displayAd" class="com.unison.weibo.admin.action.ad.AdvertisementAction" method="showAd">
+          <result>ad.vm</result>
+        </action>
+        <action name="uploadAd" class="com.unison.weibo.admin.action.ad.UploadAdAction">
+          <result type="json"/>
+        </action>
+        <action name="addAd" class="com.unison.weibo.admin.action.ad.AdvertisementAction" method="addAd">
+          <result type="json"/>
+        </action>
+        <action name="putOnAd" class="com.unison.weibo.admin.action.ad.AdvertisementAction" method="putOnAd">
+         <result type="json"/>
+        </action>
+         <action name="getOffAd" class="com.unison.weibo.admin.action.ad.AdvertisementAction" method="getOffAd">
+         <result type="json"/>
+        </action>
+        <action name="deleteAd" class="com.unison.weibo.admin.action.ad.AdvertisementAction" method="deleteAd">
+         <result type="json"/>
+        </action>
+        <action name="updateAd" class="com.unison.weibo.admin.action.ad.AdvertisementAction" method="updateAd">
+         <result type="json"/>
+        </action>
+        <action name="getAd" class="com.unison.weibo.admin.action.ad.AdvertisementAction" method="getAdById">
+          <result type="json"/>
+        </action>
+        <action name="appActivity" class="com.unison.weibo.admin.action.app.AppActivityAction">
+          <result name="success">appActivity.vm </result>
+        </action>
+        <action name="sendActivityApp" class="com.unison.weibo.admin.action.app.AppActivityAction" method="sendActivityApp">
+          <result name="success">sendAppActvity.vm </result>
+        </action>
+        <!-- 联赛 -->
+          <action name="basketballLeagueMatch" class="com.unison.weibo.admin.action.league.basketballLeagueAction">
+          <result name="success">basketballLeagueMatch.vm </result>
+          </action>
+          <action name="footballLeagueMatch" class="com.unison.weibo.admin.action.league.footballLeagueAction">
+          <result name="success">footballLeagueMatch.vm </result>
+          </action>
+          <!-- 足球详情 -->
+          <action name="footballleagueinfo" class="com.unison.weibo.admin.action.league.footballLeagueAction" method="footballleagueinfo">
+          	<result name="success" type="json"/>
+          </action>
+          <!-- 足球编辑 -->
+          <action name="footballleagueedit" class="com.unison.weibo.admin.action.league.footballLeagueAction" method="footballleagueedit">
+          	<result name="success" type="json"/>
+          </action>
+          
+          <!-- 篮球详情 -->
+          <action name="basketballleagueinfo" class="com.unison.weibo.admin.action.league.basketballLeagueAction" method="basketballleagueinfo">
+          	<result name="success" type="json"/>
+          </action>
+          <!-- 篮球编辑 -->
+          <action name="basketballleagueedit" class="com.unison.weibo.admin.action.league.basketballLeagueAction" method="basketballleagueedit">
+          	<result name="success" type="json"/>
+          </action>
+          
+          
+        <action name="addActivity" class="com.unison.weibo.admin.action.app.AppActivityAction" method="createActivity">
+			<result name="success" type="json"/>
+		</action>
+        <action name="getActivity" class="com.unison.weibo.admin.action.app.AppActivityAction" method="getActivityById">
+			<result name="success" type="json"/>
+		</action>
+        <action name="deleteActivity" class="com.unison.weibo.admin.action.app.AppActivityAction" method="deleteActivity">
+			<result name="success" type="json"/>
+		</action>
+        <action name="putOnApp" class="com.unison.weibo.admin.action.app.AppActivityAction" method="putOnApp">
+			<result name="success" type="json"/>
+		</action>
+		<action name="putOffApp" class="com.unison.weibo.admin.action.app.AppActivityAction" method="putOffApp">
+			<result name="success" type="json"/>
+		</action>
+		<action name="putDownApp" class="com.unison.weibo.admin.action.app.AppActivityAction" method="putDownApp">
+		<result name="success" type="json"/>
+		</action>
+		<action name="putUpApp" class="com.unison.weibo.admin.action.app.AppActivityAction" method="putUpApp">
+		<result name="success" type="json"/>
+		</action>
+		<action name="putUpUpApp" class="com.unison.weibo.admin.action.app.AppActivityAction" method="putUpUpApp">
+		<result name="success" type="json"/>
+		</action>
+        <action name="findGroupids" class="com.unison.weibo.admin.action.app.AppActivityAction" method="findGroupids">
+			<result name="success" type="json"/>
+		</action>
+        <action name="sendContentToGroup" class="com.unison.weibo.admin.action.app.AppActivityAction" method="sendContentToGroup">
+			<result name="success" type="json"/>
+		</action>
+	</package>
+	<include file="struts-topic.xml"/>
+	<include file="struts-qt.xml"/>
+</struts>

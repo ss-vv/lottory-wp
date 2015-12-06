@@ -1,0 +1,14 @@
+#API_SERVER_HOST
+API_SERVER_HOST = a1.easemob.com
+
+#APPKEY
+APPKEY = fuqiutest#testdavcai
+
+#APP_CLIENT_ID
+APP_CLIENT_ID = YXA6gtT8gInAEeSmSn2DwLY4_w
+
+#APP_CLIENT_SECRET
+APP_CLIENT_SECRET = YXA6vcdcaRZ8o7TC-knjlUUm3uxnyp0
+
+##齐鹏的测试群---此群公司内部用，用作查询所有群的标识
+COMMON_GROUP = 1428486188141356

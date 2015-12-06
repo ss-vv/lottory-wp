@@ -1,0 +1,83 @@
+#content {
+	width: 960px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.primer {
+	float: left;
+}
+
+.empty {
+	width: 960px;
+	height: 10px;
+	clear: both;
+}
+
+.emptyb {
+	width: 960px;
+	height: 40px;
+	clear: both;
+}
+
+.form {
+	width: 240px;
+	height: 176px;
+	float: left;
+}
+
+.form li {
+	float: left;
+	width: 240px;
+	height: 44px;
+	line-height: 44px;
+	background: url(../images/bet/default_bg.png);
+}
+
+.form li .flag {
+	display: inline;
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin: 10px 0px 0px 10px;
+}
+
+.form li .country {
+	display: inline;
+	margin-left: 15px;
+	color: #333333;
+}
+
+.form li .rank {
+	color: #999999;
+	float: left;
+	margin-left: 7px;
+	padding: 0 10px 0 0;
+}
+
+.form li em {
+	margin-right: 18px;
+	color: #333333;
+}
+
+.form li:hover {
+	width: 240px;
+	height: 44px;
+	line-height: 44px;
+	background: url(../images/bet/focus_bg.png);
+	cursor: pointer;
+}
+
+.form li.active {
+	width: 240px;
+	height: 44px;
+	line-height: 44px;
+	background: url(../images/bet/select_bg.png);
+}
+
+.form li.is-dead {
+	width: 240px;
+	height: 44px;
+	line-height: 44px;
+	background: url(../images/bet/dead_bg.png);
+}

@@ -1,0 +1,59 @@
+@charset "utf-8";
+/*
+ * Properties 属性
+ * style 样式
+ */
+/* width height */
+.wh-mg .mm {height:499px;}
+.wh-mh .mm {height:385px;}
+/* margin padding */
+.mp-b {margin-bottom:-10px!important;}
+/*
+ * Elements 元素
+ * style 样式
+ */
+/* icns */
+.icns36 {width:36px; height:36px; background:url(../images/icns36.gif) no-repeat -999px 0;}
+.icns36_reglog {background-position:0 0;}
+.icns36_recharge {background-position:0 -36px;}
+.icns36_buy {background-position:0 -72px;}
+.icns36_account {background-position:0 -108px;}
+.icns36_win {background-position:0 -144px;}
+.icns36_duijiang {background-position:0 -180px;}
+/*
+ * content 内容
+ * style 样式
+ */
+/* mod */
+.mod-f {background:#f4f8fe url(../images/mod/mm-f.png) repeat-y center top; border:#d1e3fd 1px solid;}
+.mod-f .mh {height:28px; background:url(../images/mod/mh-f.png) repeat-x; border-bottom:#d1e3fd 1px solid;}
+.mod-f .mh .tt {margin:3px 0 0 10px;}
+.mod-f .mh .tt .icns {width:16px; height:16px; margin-top:3px; background:url(../images/mod/mhtt-f.png) no-repeat; _background:url(../images/blank.gif) repeat left top; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/mod/mhtt-f.png", sizingMethod="crop"); float:left;}
+.mod-f .mm {border-bottom:#fff 1px solid;}
+.mod-g {padding:1px; background-color:#fff; border:#d1e3fd 1px solid;}
+.mod-g .mh {height:30px; background:url(../images/mod/mod-g.png) repeat-x;}
+.mod-g .mh .tt {font-size:16px; margin:6px 0 0 12px;}
+.mod-g .mm {background:url(../images/mod/mod-g.png) repeat-x 0 -30px;}
+.mod-h {background-color:#fff; border:#d1e3fd 1px solid;}
+.mod-h .mh {height:26px; background-color:#f4f8fe; border:#fff 1px solid;}
+.mod-h .mh .tt {margin:2px 0 0 10px;}
+.mod-h .mm {border-top:#d1e3fd 1px solid;}
+/* nav */
+.nav-a .row {height:28px; line-height:28px; padding-left:50px; background:#f4f8fe url(../images/nav-a.gif) no-repeat 40px 0; border-top:#fff 1px solid; border-bottom:#d1e3fd 1px solid;}
+.nav-a .cur {background-position:40px -28px;}
+/* stepbox */
+.stepbox-c {height:49px; margin:10px; background:url(../images/step-c.png) repeat-x; border:#d4e5fd 1px solid;}
+.stepbox-c div {width:115px; height:49px; padding-left:15px; background:url(../images/step_arr-c.png) no-repeat; display:inline; float:left;}
+.stepbox-c .first {padding-left:2px; background:none; border-left:#fff 1px solid;}
+.stepbox-c .last {width:120px; border-right:#fff 1px solid;}
+.stepbox-c .icns36 {margin-top:6px; float:left;}
+.stepbox-c a {font-size:16px; font-weight:bold; margin:12px -24px 0 0; float:left;}
+/* helpbox */
+.helpbox {clear:both; *zoom:1;}
+.helpbox .row {display:inline; float:left;}
+.helpbox .row .tt,
+.helpbox .row .ctt {overflow:hidden;}
+.helpbox-a .row {width:300px; height:120px; margin:30px 40px 0 50px;}
+.helpbox-a .row .tt {height:24px; font-weight:bold; background:url(../images/helpbox-a.png) repeat-x 0 center;}
+.helpbox-a .row .tt a {padding-right:3px; background-color:#fff;}
+.helpbox-a .row .ctt {height:96px;}

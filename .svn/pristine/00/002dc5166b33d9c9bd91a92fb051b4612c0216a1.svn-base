@@ -1,0 +1,135 @@
+
+
+.cp_type_wrap {
+    width: 100%;
+}
+
+.cp_type_wrap .tab_wrap {
+    overflow: hidden;
+}
+
+.cp_type_wrap .tab_wrap li {
+    height: 27px;
+    float: left;
+    line-height: 27px;
+    position: relative;
+    margin: 0 1px;
+    min-width: 64px;
+    width: auto;
+    _width: 64px;
+    text-align: center;
+    background-position: -1px -195px;
+}
+
+.list li .cp_type_btn,
+.cp_type_wrap .tab_wrap li{
+    cursor: pointer;
+}
+
+.cp_type_wrap .tab_wrap li > span {
+    padding: 0 8px;
+    color: #999;
+}
+
+.list li .cp_type_btn > div,
+.cp_type_wrap .tab_wrap li > div {
+    background-position: -181px -195px;
+    position: absolute;
+    height: 100%;
+    width: 8px;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.list li .cp_type_btn,
+.cp_type_wrap .tab_wrap li:hover,
+.cp_type_wrap .tab_wrap li.active {
+    background-position: -1px -229px;
+}
+
+.list li .cp_type_btn > span,
+.cp_type_wrap .tab_wrap li:hover > span,
+.cp_type_wrap .tab_wrap li.active > span {
+    color: #fff;
+}
+
+.list li .cp_type_btn > div,
+.cp_type_wrap .tab_wrap li:hover > div,
+.cp_type_wrap .tab_wrap li.active > div {
+    background-position: -181px -229px;
+}
+
+.cp_type_wrap .gray_bg {
+    padding: 5px;
+    background-color: #e7e7e7;
+}
+
+.cp_type_wrap .gray_bg > div {
+    background-color: #fff;
+    padding: 14px 0 4px 14px;
+    +padding: 14px;
+}
+
+.cp_type_wrap .gray_bg .list li {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+}
+
+.list li > img {
+    display: block;
+    float: left;
+    width: 66px;
+    border: 1px solid #ccc;
+}
+
+.list li > div {
+    margin-left: 74px;
+}
+
+.list li h3 {
+    line-height: 26px;
+}
+
+.list li .cp_type_btn {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    width: 80px;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.list li .cp_type_btn span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.list li .cp_type_btn.cp_follow i {
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 6px;
+    top: 7px;
+    background-position: -1px -270px;
+
+    -webkit-transition: -webkit-transform .3s ease;
+       -moz-transition: -moz-transform .3s ease;
+        -ms-transition: -ms-transform .3s ease;
+         -o-transition: -o-transform .3s ease;
+            transition: transform .3s ease;
+}
+
+.list li .cp_type_btn.cp_unfollow i {
+    display: none;
+}
+
+.list li .cp_type_btn:hover i {
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+}

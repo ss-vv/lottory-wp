@@ -1,0 +1,73 @@
+# database
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+#production
+db.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = lottery
+db.password = 8DFy4unX
+
+#jishibifen
+#production
+url=jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+userName=lottery
+password=8DFy4unX
+#//pool size
+minPoolSize=1
+maxPoolSize=20
+#jing cai bifen
+zqJishiUrl=http://txt.win007.com/phone/schedule_0_3.txt
+lqjingcaiJishiUrl=http://apk.win007.com/phone/LqSchedule.aspx
+
+#jishi odds
+#?ID=956976&lang=0&ran=1415011336639
+QtFbJingcaiMatchJishiOpOdds=http://apk.win007.com/phone/1x2.aspx
+#?OddsID=43803748&ran=1418117949765
+QtFbJingcaiMatchHistoryOpOdds=http://apk.win007.com/phone/1x2Detail.aspx
+#?ID=956976&lang=0&ran=1415011296996
+QtFbJingcaiMatchJishiYpOdds=http://apk.win007.com/phone/Handicap.aspx
+#?OddsID=4370784&ran=1418117918247
+QtFbJingcaiMatchHistoryYpOdds=http://apk.win007.com/phone/HandicapDetail.aspx
+#?ID=956976&lang=0&ran=1415011226522
+QtFbJingcaiMatchJishiOuOdds=http://apk.win007.com/phone/OverUnder.aspx
+#?OddsID=3906261&ran=1418118066735
+QtFbJingcaiMatchHistoryOuOdds=http://apk.win007.com/phone/OverUnderDetail.aspx
+#?ID=956976&lang=0&ran=1415011073668
+QtFbMatchLiveEvent=http://apk.win007.com/phone/ResultDetail.aspx
+#
+basketMatchPlayerStatistic=http://txt.win007.com/jsData/tech/
+#
+qtBasketMatchTeamStatistics=http://apk.win007.com/phone/LqTeamTechnic.aspx
+#zq jishi oddsChange
+zqEuroOddsChange=http://txt.win007.com/phone/txt/eurochange.txt
+zqAsianOddsChange=http://txt.win007.com/phone/txt/asianchange.txt
+zqOuOddsChange=http://txt.win007.com/phone/txt/ouchange.txt
+#
+lqJishiOuOdds=http://apk.win007.com/phone/LqOverUnder.aspx
+lqJishiAsianOdds=http://apk.win007.com/phone/LqHandicap2.aspx
+lqJishiEuroOdds=http://apk.win007.com/phone/Lq1x2.aspx
+#\u5B58\u653E\u4E0A\u6B21\u6293\u53D6\u7684\u8DB3\u7403\u8D54\u7387\u5185\u5BB9\u7684\u6587\u4EF6\u540D\u79F0
+euroFile=euro
+asianFile=asian
+ouFile=ou
+lqEuroFile=lqeuro
+lqAsianFile=lqasian
+lqOuFile=lqou
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+#Redis
+redis.url = 10.171.13.215
+redis.port = 33133
+pushServerUrl=http://push.davcai.com/push-server/comet
+pushHXServerUrl=http://api.davcai.com/lottery-api/syncLiveScores
+pushConnectionTimeOutInMs=30000
+
+#header
+headerList=\u534E\u4E3AY511-T00:Android 4.2.0;\u4E09\u661F I9508:Android 4.2.0;\u534E\u4E3AP6-T00:Android 4.2.0;\u4E09\u661F I9308:Android 4.2.0;\u4E09\u661FSM-N9008:Android 4.3.1;\u7EA2\u7C73:Android 4.2.0;
+# btm
+btm.log.1 = /data/logs/qtm-weibo-data-receiveandstore-sub1.log
+btm.log.2 = /data/logs/qtm-weibo-data-receiveandstore-sub2.log
+
+#des key
+DES_KEY=xe6tRoFz
+#\u6293\u53D6\u6570\u636E\u540E\u8981\u53D1\u9001\u7684\u5230\u7684\u670D\u52A1\u5668
+serverSend_base_url=localhost:8080/

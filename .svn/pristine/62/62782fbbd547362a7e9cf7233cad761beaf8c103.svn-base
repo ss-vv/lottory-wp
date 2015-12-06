@@ -1,0 +1,40 @@
+
+/*html {overflow-y:scroll;filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+-webkit-filter: grayscale(100%);}
+body{filter:Gray;}*/
+/*最上面的这段是使网站变灰色的代码*/
+
+
+*{margin:0;padding:0;}
+ul{list-style:none;}
+a{text-decoration:none;}
+
+html,body{width:100%;height:100%;background:#fff;font-size:12px;font-family:"微软雅黑",宋体, Arial, Helvetica, sans-serif;΢���ź�;}
+.fl{float:left;}
+.fr{float:right;}
+.font_15{font-size:15px;}
+img{border:none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

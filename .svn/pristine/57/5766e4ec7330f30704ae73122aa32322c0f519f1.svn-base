@@ -1,0 +1,5 @@
+namespace java com.unison.thrift.user.account.gen
+
+service UserAccountHandler {
+	i64 findWeiboUserIdByLotteryUid(1:string uid)
+}

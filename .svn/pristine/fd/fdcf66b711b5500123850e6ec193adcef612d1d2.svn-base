@@ -1,0 +1,82 @@
+#set($title="查看出票详情")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript" src="$base/js/lottery/betContent.js"></script>
+<script language="javascript" type="text/javascript" src="$base/js/lottery/ticket-detail-format.js"></script>
+<style type="text/css">
+	.bet-css {
+		display: block;
+        height: auto;
+		margin-top:20px;
+	}
+	.ct {
+		font-size:16px;
+	}
+</style>
+<div class="w">
+  <div class="tabH" id="tabLinks">
+	<span class="current"><b>出票详情</b></span>
+  </div>
+  #if($!{playId} != "jcsjbgj")
+      <div class="bx_c">
+        <table cellspacing="0" class="tab" id="dataGrid">
+          <tr>
+            <th style="width:50px;text-align:center;">编号</th>
+            <th style="width:160px;text-align:center;">彩票号码</th>
+            #if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+            <th style="text-align:center;">过关方式</th>
+            #end
+            <th style="width:60px;text-align:center;">倍数</th>
+            <th style="width:80px;text-align:right;">金额（元）</th>
+            <th style="width:100px;text-align:right;">税后奖金（元）</th>
+            <th style="width:80px;text-align:center;">状态</th>
+            <th style="width:80px;text-align:center;">投注时间</th>
+          </tr>
+          <tr>
+            <td style="text-align:center;">${ticket.id}</td>
+            <td style="text-align:center;">#if(${ticket.number})${ticket.number}#else -- #end</td>
+            #if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+            <td style="text-align:center;">
+				#if($!ticket.passTypeId.charAt(0) == '1')单关
+					#else $!{ticket.passTypeId.replace('@', '串')}
+				#end
+			</td>
+            #end
+            <td style="text-align:center;">${ticket.multiple}</td>
+            <td style="text-align:right;">￥${ticket.money}</td>
+            <td style="text-align:right;">#if(${ticket.afterTaxBonus})￥${ticket.afterTaxBonus}#end</td>
+            <td style="text-align:center;">$status.bet(${ticket.status})</td>
+            <td style="text-align:center;">$date.format("MM-dd HH:mm", ${ticket.createdTime})</td>
+			
+			<input type="hidden" id="clickDetail" href="javascript:void(0);" _id="${ticket.id}" 
+				_odds="$!{ticket.odds}" _code="$!{ticket.code}" _expectBonus="$!{ticket.expectBonus}" 
+				_msg="$!{ticket.message}" _playId="$!{ticket.playId}"/>
+          </tr>
+		  
+        </table>
+        <table cellspacing="0" class="tab" id="detailView">
+          <tr>
+            <td style="text-align:right;width:150px;">编号：</td>
+            <td _row="id" colspan="3"></td>
+          </tr>
+          <tr>
+            <td style="text-align:right;width:150px;">理论奖金：</td>
+            <td _row="expectBonus"></td>
+          </tr>
+          <tr>
+            <td style="text-align:right;">信息：</td>
+            <td _row="msg" colspan="3"></td>
+          </tr>
+          <tr>
+    		#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+            <td style="text-align:right;">赛事内容(出票赔率)：</td>
+            <td _row="code" colspan="3" style="font-size:20px;"></td>
+    		#else
+    		<td style="text-align:right;">投注内容：</td>
+    		<td id="cont" class="ct" colspan="3"></td>
+    		#end
+          </tr>
+        </table>
+      </div>
+  #end
+</div>

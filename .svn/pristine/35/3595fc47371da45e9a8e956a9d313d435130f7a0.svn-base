@@ -1,0 +1,54 @@
+#parse("web/inc/header_login.vm")
+<script language="javascript" type="text/javascript" src="/js/davcai/recommend/recommend_match.js?v=${res.version}"></script>
+<script language="javascript" type="text/javascript" src="/js/web/home/home_relationship.js?v=${res.version}"></script>
+    <div id="center" class="container">
+        <div class="left-sidebar">
+            <div class="wrapper">
+                <div class="widget">
+                    <div class="person-info head-list scores_slide_box">
+                        <a href="$!user.weiboUserId/profile" class="profile_info_pic" >
+							<img src="$!user.headImageURL" alt="$!user.nickName" width="100px" height="100px" class="shadow" />
+						</a>
+						<div class="user_name">
+							<span><a href="$!user.weiboUserId/profile">$!user.nickName
+							#if($user.certificationType == 1)
+								<i class="niu" title="大V彩牛人" style="background:url('../images/niu.png') 50% no-repeat;width: 32px;position: relative;height: 15px;display: inline-block;"></i>
+							#end
+							</a></span>
+						</div>
+						<div class="user_link">
+							<a href="$!user.weiboUserId/profile" class="profile_link">查看个人页</a>
+						</div>
+                    </div>
+                </div>
+                <div class="widget">
+					<div class="scores_left_menu_wrap">
+                        <ul>
+                            <li class="o s-home"><a href="$base/home">首页</a></li>
+                            <li class="t s-favorite"><a href="$base/favoriateList">收藏</a></li>
+                        </ul>
+                        <ul>
+                            <li id="atMe" class="fo s-atMe"><a href="/atMeList">提到我的</a></li>
+                            <li id="commentMe" class="fi s-cmnt-me"><a href="cmnt_me">评论我的</a></li>
+                        </ul>
+						<ul>
+                            <li class="se s-bet"><a href="http://trade.davcai.com/ac/record/bet.do">投注记录</a></li>
+                            <li class="se s-recharge"><a href="http://trade.davcai.com/ac/recharge.do">充值</a></li>
+                            <li class="se s-withdraw"><a href="http://trade.davcai.com/ac/withdraw.do">提现</a></li>
+                            <li class="se s-balance"><a href="http://trade.davcai.com/ac/balance.do">账户明细</a></li>
+                        </ul>
+                        <ul class="last_child">
+                            <li id="myFollowings" class="se s-following"><a href="rltship_findFollowings">关注(<label style="margin-right: 0px;" id="followingsNum"></label>)</a></li>
+                            <li id="myFollowers" class="ei s-follower"><a href="rltship_findFollowers">粉丝(<label style="margin-right: 0px;" id="followersNum"></label>)</a></li>
+                        </ul>
+					</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main">
+            ${screen_content}
+        </div>
+        #parse("/web/inc/home_right.vm")
+    </div>
+#parse("web/inc/footer_login.vm")

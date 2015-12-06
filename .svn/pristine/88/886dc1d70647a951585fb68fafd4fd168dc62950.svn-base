@@ -1,0 +1,43 @@
+	    <!-- 底部开始 -->
+	    <div class="bottomWrapper">
+	        <!-- 版权开始 -->
+			#include("web/inc/copyrights.vm")				
+	        <!-- 版权结束 -->
+	    </div>
+	    <div id="emotion_icons"></div>
+	    <!-- 底部结束 -->
+	    #include("web/inc/baiduStatistics.vm")
+	    <!-- 提示对话框 -->
+		<div class="modal fade" style="display:none;" id="messageWindow">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">通知</h4>
+		      </div>
+		      <div class="modal-body">
+		      		<div id="messageContent"></div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+         <div id="all"></div>
+         
+         #parse("web/tmpl/loading.vm") ##加载loading图标模板
+         #parse("web/tmpl/weibo-msg/weibo-msg.vm") ##微博消息
+         #parse("web/tmpl/weibo-msg/favorite.vm") ##收藏微博消息模板
+         #parse("web/tmpl/bet/scheme.vm") ##赛事方案模板
+         #parse("web/tmpl/bet/new-scheme.vm") ##新赛事方案模板
+         #parse("web/tmpl/bet/new-bet-record-scheme.vm") ##新赛事方案模板
+         #parse("web/tmpl/bet/weibo-real-follow-form.vm") ##微博跟单窗口模板
+		 #parse("web/tmpl/bet/weibo-groupbuy-form.vm") ##微博合买窗口模板
+</body>
+#jsResEnvironment(${res.debug},${res.version})  ## 加载css和js资源
+
+#foreach($s in $scripts)
+	<script language="javascript" type="text/javascript" src="$base/${s}?v=${res.version}"></script>  
+#end
+</html>

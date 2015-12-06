@@ -1,0 +1,1 @@
+INSERT INTO `db_lottery`.`lt_system_conf` (`conf_key`, `conf_value`, `desc`) VALUES ('allow_self_regist', '0', '是否允许自行注册。0表示不允许，1表示允许');

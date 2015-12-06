@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+      <amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+    </property>
+  </bean>
+
+  <!-- 异步发布微博到粉丝的时间线 -->
+  <bean id="publishFollowersProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_FOLLOWERS_CMD" physicalName="com.unison.weibo.queue.WB_PUBLISH_FOLLOWERS_CMD" />
+    </property>
+  </bean>
+
+  <!-- 异步发布赛事、推荐、新闻到粉丝的时间线 -->
+  <bean id="publishCommandProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_CMD" physicalName="com.unison.weibo.queue.WB_PUBLISH_CMD" />
+    </property>
+  </bean>
+
+  <!-- 异步处理关注关系 -->
+  <bean id="followCommandProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_FOLLOW_CMD" physicalName="com.unison.weibo.queue.WB_FOLLOW_CMD" />
+    </property>
+  </bean>
+
+	<!-- 异步删除微博from时间线 -->
+  <bean id="deleteWeiboProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_DELETE_WEIBO" physicalName="com.unison.weibo.queue.WB_LAICAI_DELETE_WEIBO" />
+    </property>
+  </bean>
+  
+  <!-- 根据方案发晒单微博 -->
+  <bean id="sendPostWithScheme" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_PUBLISH_FULL_CMD" physicalName="com.unison.weibo.queue.WB_LAICAI_PUBLISH_FULL_CMD" />
+    </property>
+  </bean>
+
+  <!-- 消息发送器 -->
+  <bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender" 
+        init-method="init" destroy-method="destroy">
+    <property name="threads" value="${amq.sender.threads}" />
+    <property name="producers">
+      <map>
+        <entry key="PublishCommand" value-ref="publishCommandProducer" />
+        <entry key="FollowCommand" value-ref="followCommandProducer" />
+        <entry key="PublishFollowersHandle" value-ref="publishFollowersProducer" />
+        <entry key="DeleteWeiboHandle" value-ref="deleteWeiboProducer" />
+        <entry key="SchemeHandle" value-ref="sendPostWithScheme" />
+      </map>
+    </property>
+  </bean>
+</beans>

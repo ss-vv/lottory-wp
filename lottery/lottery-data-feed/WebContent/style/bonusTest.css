@@ -1,0 +1,71 @@
+.pingce {
+	width: 450px;
+	background-color: #FFF;
+	border: 1px solid #656666;
+	position: absolute;
+	bottom: 81px;
+	left: 519px;
+	z-index: 100;
+}
+.pingce_title {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	padding: 0px 10px;
+	position: relative;
+	background-position: 0 0;
+	background-repeat: repeat-x;
+	background-color: #E9E9E2;
+}
+.pingce_list .jjtipstable th {
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #D1E5FE;
+	background-color: #C2E8FF;
+}
+.pingce_list .jjtipstable td, .pingce_list .jjtipstable th {
+	border-bottom: 1px solid #D1E5FE;
+	height: 28px;
+	line-height: 28px;
+	font-weight: 400;
+}
+.pingce_list .font_red {
+	font-weight:bold;
+	color:red;
+}
+.pingce_title a {
+	font-weight: bold;
+	text-decoration: underline;
+	position: absolute;
+	top: 0;
+	right: 60px;
+}
+.pingce_title em {
+	font-weight: bold;
+	text-decoration: underline;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	cursor: pointer;
+}
+.bet_help {
+	width: 20px;
+	height: 20px;
+	float: left;
+	position: relative;
+	z-index: 199;
+}
+.tipsBetAmount{
+	margin-right: 6px !important;
+}
+.tipsTheoryBonus{
+	margin-right: 17px !important;
+}
+
+.bonus-tips {
+	vertical-align: middle; 
+	margin-top: -6px; 
+	margin-left: 0px;
+}
+.bonus-detail {
+	margin-left: 3px;
+}

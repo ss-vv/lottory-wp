@@ -1,0 +1,31 @@
+下述: mobile的openId和lt_user.weixinUid等价;
+     pc的openId和lt_user.weixinPCUid等价
+流程：
+1、在现有lt_user添加字段weixinUnionId，weixinPCUid,(原有的weixinUid给移动端用)
+
+2、将lt_user现有用户的weixinUid+weixinToken去获取一遍unionId，保留关系weixinUid-->unionId到集合;
+	根据获取到的weixinUid-->unionId集合判断unionId重复情况，将unionId重复对应的weixinUid记录进行账户合并（手动）；
+	合并方法（再确认）：
+		重复记录都没有资金情况：保留一个；
+		一个账户有自己情况：保留有资金的账户；
+		都有资金情况：进行资金合并，保留合并后账户
+
+3、将lt_user现有用户的weixinUid+weixinToken去获取一遍unionId，并存入weixinUnionId，如遇到token失效跳过
+
+4、用户登录逻辑修改：
+	1）PC登录成功后得到openId，token；使用openId去lt_user匹配weixinPCUid：
+		匹配成功-->
+			①检查weixinUnionId是否为空，为空则重新获取unionId，并存入weixinUnionId,否则不做操作；
+			②继续登录流程；
+		匹配失败-->再获取unionId，去lt_user匹配weixinUnionId：
+			匹配成功-->将openId存到weixinPCUid，继续登录流程；
+			匹配失败-->新用户，继续注册流程
+	2）Mobile登录成功后得到openId，token；使用openId去lt_user匹配weixinUid：
+		匹配成功-->
+			①检查weixinUnionId是否为空，为空则重新获取unionId，并存入weixinUnionId,否则不做操作；
+			②继续登录流程；
+		匹配失败-->获取unionId，去lt_user匹配weixinUnionId:
+			匹配成功-->将openId存到weixinid，继续登录流程；
+			匹配失败-->新用户，继续注册流程；
+5、注册流程：
+	原有注册基础上增加存储weixinUnionId步骤

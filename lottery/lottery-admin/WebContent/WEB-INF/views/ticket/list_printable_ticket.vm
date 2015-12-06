@@ -1,0 +1,155 @@
+#set($title="投注方案管理")
+#set($styles=["css/jqueryui/jquery-ui","js/jquery-ui-1.11.4.custom/jquery-ui.min"])
+<script type="text/javascript" src="$base/js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="$base/js/lottery/printable-ticket.js?version=1.0.5"></script>
+
+<div class="w">
+	<div class="tabH">
+		<span><a href="$base/ticket/listPhysicalStoreTicket.do?lotteryId=JCZQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩足球</b></a></span>
+		<span><a href="$base/ticket/listPhysicalStoreTicket.do?lotteryId=JCLQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩篮球</b></a></span>
+		<span><a href="$base/ticket/listPhysicalStoreTicket.do?lotteryId=CTZC&lotteryPlatformId=${lotteryPlatformId}"><b>传统足彩</b></a></span>
+		<span #if("JCZQ" == $lotteryId) class="current" #end><a href="$base/ticket/listPrintableTicket.do?lotteryId=JCZQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩足球导出</b></a></span>
+		<span #if("JCLQ" == $lotteryId) class="current" #end><a href="$base/ticket/listPrintableTicket.do?lotteryId=JCLQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩篮球导出</b></a></span>
+		<span #if("CTZC" == $lotteryId) class="current" #end><a href="$base/ticket/listPrintableTicket.do?lotteryId=CTZC&lotteryPlatformId=${lotteryPlatformId}"><b>传统足彩导出</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in">
+			<form id="qForm" action="$base/ticket/listPrintableTicket.do" method="post">
+				<input type="hidden" name="lotteryId" value="${lotteryId}"/>
+				<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+				<input type="hidden" name="lotteryPlatformId" value="${lotteryPlatformId}"/>
+				<div class="tabH tabH02 panel">
+	       			<span class="current"><b>查询条件</b></span>
+	        		<div class="l">
+	        			玩法：
+	        			<select name="playId" id="playIds">
+	        			  	 #if("JCZQ" == $lotteryId)
+					            <option value="all">所有玩法</option>
+					            <option value="01_ZC_1">让球胜平负单关</option>
+					            <option value="01_ZC_2">让球胜平负过关</option>
+					            <option value="80_ZC_1">胜平负单关</option>
+					            <option value="80_ZC_2">胜平负过关</option>
+					            <option value="02_ZC_1">比分单关</option>
+					            <option value="02_ZC_2">比分过关</option>
+					            <option value="03_ZC_1">总进球数单关</option>
+					            <option value="03_ZC_2">总进球数过关</option>
+					            <option value="04_ZC_1">胜负半全单关</option>
+					            <option value="04_ZC_2">胜负半全过关</option>
+					            <option value="05_ZC_2">混合过关</option>
+					          #elseif("JCLQ" == $lotteryId)
+					            <option value="all">所有玩法</option>
+					            <option value="06_LC_1">让分胜负单关</option>
+					            <option value="06_LC_2">让分胜负过关</option>
+					            <option value="07_LC_1">胜负单关</option>
+					            <option value="07_LC_2">胜负过关</option>
+					            <option value="08_LC_1">胜分差单关</option>
+					            <option value="08_LC_2">胜分差过关</option>
+					            <option value="09_LC_1">大小分单关</option>
+					            <option value="09_LC_2">大小分过关</option>
+								<option value="10_LC_2">混合过关</option>
+						      #elseif("CTZC" == $lotteryId)
+						      	<option value="all">所有玩法</option>
+						        <option value="24_ZC_14">14场胜负</option>
+						        <option value="25_ZC_R9">胜负任9</option>
+						        <option value="26_ZC_BQ">6场半全</option>
+						        <option value="27_ZC_JQ">4场进球</option>
+							  #end
+				        </select>
+				                状态：
+	        			<select name="state" id="states">
+	        				<option value="3"  #if("3" == $state) selected="selected" #end >可导出的票</option>
+	        				<option value="4" #if("4" == $state) selected="selected" #end >已导出的票</option>
+	        			</select>
+	        			
+	        			#if(3==$state)
+	        				
+	        			#else
+	        				<input type="button" id="buyTicketBtn" style="margin-left: 150px;" value="批量执行实体出票">
+	        				<a style="margin-left: 150px;" href="http://admin.davcai.com/lottery/ticket/listHighSpeedPrintFile.do?lotteryPlatformId=${lotteryPlatformId}" target="_blank">查看导出文件</a>
+	        			#end
+	        		</div>
+					#if(3==$state)        		
+	        		<span class="current"><b>　　　　　　导出到：</b></span>
+	        		<div class="l">
+	        			实体店：
+	        			<select name="exportToShitidian" id="export_to_shitidian">
+	        				<option value="changchunshitidian2"  #if("changchunshitidian2" == $exportToShitidian) selected="selected" #elseif("changchunshitidian2" == $lotteryPlatformId) selected="selected" #end >长春站13967</option>
+	        				<option value="changchunshitidian" #if("changchunshitidian" == $exportToShitidian) selected="selected" #elseif("changchunshitidian" == $lotteryPlatformId) selected="selected" #end >天津站15015</option>
+	        				<option value="changchun60005" #if("changchun60005" == $exportToShitidian) selected="selected" #elseif("changchun60005" == $lotteryPlatformId) selected="selected" #end >长春站71116</option>
+	        				<option value="shanxi00001" #if("shanxi00001" == $exportToShitidian) selected="selected" #elseif("shanxi00001" == $lotteryPlatformId) selected="selected" #end >山西11112</option>
+	        				<option value="changchun02857" #if("changchun02857" == $exportToShitidian) selected="selected" #elseif("changchun02857" == $lotteryPlatformId) selected="selected" #end >长春站3店</option>
+	        				<option value="kuaisuchupiao" #if("kuaisuchupiao" == $exportToShitidian) selected="selected" #elseif("kuaisuchupiao" == $lotteryPlatformId) selected="selected" #end >快速出票</option>
+	        			</select>
+        				<input type="button" id="exportToBtn" style="margin-left: 80px;"  value="批量导出到该实体店">
+	        		</div>
+	        		#end
+	        	</div>
+			</form>
+			<form id="doForm" action="" method="post">
+			<input type="hidden" name="lotteryId" value="${lotteryId}"/>
+			<input type="hidden" name="playId" value="${playId}"/>
+			<input type="hidden" name="lotteryPlatformId" value="${lotteryPlatformId}"/>
+			<table cellspacing="0" id="dataGrid" class="tab">
+				<tr>
+					<th style="width:25px;text-align:center;"><input type="checkbox" id="selectAll"><label>全选</label></th>
+					<th style="width:25px;text-align:center;"><span>票号</span></th>
+					<th style="width:25px;text-align:center;"><span>方案编号</span></th>
+					<th style="width:30px;text-align:center;"><span>玩法</span></th>
+					#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+					<th style="width:40px;text-align:center;">过关方式</th>
+	                #end
+					<th style="width:20px;text-align:center;"><span>注数</span></th>
+					<th style="width:30px;text-align:center;"><span>投注倍数</span></th>
+					<th style="width:40px;text-align:center;"><span>总金额（元）</span></th>
+					<th style="width:40px;text-align:center;">税后奖金</th>
+					<th style="width:40px;text-align:center;"><span>投注时间</span></th>
+					<th style="width:40px;text-align:center;"><span>方案截止时间</span></th>
+					<th style="width:40px;text-align:center;"><span>彩机截止时间</span></th>
+					<th style="width:40px;text-align:center;"><span>状态</span></th>
+					<th style="width:40px;text-align:center;"><span>出票机code</span></th>
+				</tr>
+				
+				#foreach($s in $printableTickets)
+					<tr>
+						<td>
+							#if(3==$state)
+								<input type="checkbox" value="${s.ticketId}" name="printableTicketIds" ticket-checkbox="true"/>
+							#else
+								<input type="checkbox" value="${s.ticketId}" name="alreadyExpoetTicketIds" ticket-checkbox="true"/>
+							#end
+						</td>
+						<td style="text-align:center;">${s.ticketId}</td>
+						<td style="text-align:center;">${s.schemeId}</td>
+						<td style="text-align:center;">$status.playName($s.playId)</td>
+						#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+						<td style="text-align:center;">
+							$!{s.passTypeId}
+						</td>
+		                #end
+						<td style="text-align:center;">${s.note}</td>
+						<td style="text-align:center;">${s.multiple}</td>
+		        		<td style="text-align:center;">￥${s.money}</td>
+						<td style="text-align:center;">#if(${t.afterTaxBonus})￥${t.afterTaxBonus}#end</td>
+						<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.createdTime})</td>
+						<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.schemeOfftime})</td>
+						<td style="text-align:center;" class="red">$date.format("MM-dd HH:mm", ${s.machineOfftime})</td>
+						<td style="text-align:center;">$status.bet(${s.status})</td>
+						<td style="text-align:center;">${s.printBetContent}</td>
+					</tr>
+				#end
+			</table></form>
+		</div>
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+<script type="text/javascript">
+	var playId = '${playId}';
+	var state = ${state};
+	function pager_reload(pn){
+	    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+	}
+</script>
+<div id="download_dialog">
+</div>
+<div id="dialog">
+</div>

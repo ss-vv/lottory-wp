@@ -1,0 +1,28 @@
+#set($p_title="收件箱")
+#set($pos="inbox-detail")
+
+<div class="lyr lyw-g fr">
+	<div class="mod mod-c mod-c-a">
+		<div class="mh">
+			<div class="tt">收件箱</div>
+		</div>
+		<div class="mm">
+			<span class="cb">&nbsp;</span>
+			<form id="inboxForm1" action="$base/inbox.do" method="post">
+				<div class="tblbox tblbox-c mp-f">
+					<table id="msgtab" class="tbl" cellpadding="0" cellspacing="0" border="0">
+						<tr class="tar">
+							<td class="tdr" style="width:765px;"><div class="tal2"><b>$message.subject</b></div></td>
+						</tr>
+						<tr class="last">
+							<td class="tdr" colspan="4">
+								<div class="tal2">&nbsp;&nbsp;$message.note</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</form>
+			<span class="cb">&nbsp;</span>
+		</div>
+	</div>
+</div>	

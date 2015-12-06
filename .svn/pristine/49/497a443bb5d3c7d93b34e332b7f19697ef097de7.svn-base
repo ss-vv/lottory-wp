@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>我的大V彩微博首页</title>
+<meta name="keywords" content="我的首页 - 大V彩微博">
+<meta name="description" content="我的首页 - 大V彩微博">
+<link rel="shortcut icon" href="http://www.davcai.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/emoticon.css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript" src="js/jquery.emoticons.js"></script>
+</head>
+<body id="my-home">
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<h1 id="logo">
+					<span><a href="/">大V彩</a></span>
+				</h1>
+				<div class="nav_logined">
+					<ul class="nav">
+						<li class="active"><a class="out" href="/">首页</a></li>
+						<li class="dropdown">
+							<a href="javascript:void(0);" class="dropdown-toggle out">精华<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li class=""><a href="#">今日话题</a></li>
+								<li class=""><a href="#">热门讨论</a></li>
+								<li class=""><a href="#">兴趣推荐</a></li>
+								<li class=""><a href="#">最新发表</a></li>
+								<li class=""><a href="#">大V彩微博访谈</a></li>
+							</ul>
+						</li>
+						<li class=""><a class="out" href="#">推荐</a></li>
+						<li class="guide_div_two guide_div"><a class="out" href="#">投注</a></li>
+					</ul>
+					<ul class="nav pull-right account">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle">屌丝玩大V彩,屌丝玩大V彩<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#"><img src="images/avatar_01.png" width="30px" height="30px">屌丝玩大V彩,屌丝玩大V彩</a>
+								</li>
+								<li class=""><a href="#">个人设置</a></li>
+								<li class=""><a href="#">彩票设置</a></li>
+								<li><a href="http://localhost" class="exit">退出</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<div class="search">
+					<form method="get" action="#">
+						<input id="quick-search" name="q" type="text" autocomplete="off" placeholder="搜索 彩票/讨论/用户" class="typeahead">
+					</form>
+					<label>
+						<span class="icon"><i></i></span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="center" class="container">
+		<div class="left-sidebar">
+			<div class="wrapper">
+				<div class="widget">
+					<div class="person-info head-list">
+						<a href="#" class="profile_info_pic">
+						<img src="images/avatar_01.png" alt="屌丝玩大V彩" width="50px" height="50px" class="shadow" /></a>
+						<a href="#" class="txt">屌丝玩大V彩</a>
+						<a href="#" class="profile_link">查看个人页</a>
+					</div>
+				</div>
+				<div class="widget">
+					<div class="my-nav nav">
+						<ul class="left-sep">
+							<li><a href="/" class="home"><span>&nbsp;</span>首页</a></li>
+							<li><a href="/favs.html" class="fav"><span>&nbsp;</span>收藏</a></li>
+						</ul>
+						<ul class="left-sep">
+							<li><a href="/atme.html" class="atme"><span>&nbsp;</span>提到我的</a></li>
+							<li><a href="/comments.html" class="comments"><span>&nbsp;</span>评论我的</a></li>
+							<li><a href="/messages.html" class="dm"><span>&nbsp;</span>私信</a></li>
+						</ul>
+						<ul>
+							<li><a href="/friends.html" class="friends"><span>&nbsp;</span>关注 <small>(22)</small></a></li>
+							<li><a href="/follows.html" class="follows"><span>&nbsp;</span>粉丝 <small>(864万)</small></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div style="display: none" class="loading"></div>
+			<div class="wrapper">
+				<div id="sysnotify" class="sysnotify"></div>
+				<div class="new-portfolio">
+					<div id="portfolioTab" class="tab portfolio">
+						<ul class='groups'>
+							<li id="jczq" class='active'><a title="竞彩足球">竞彩足球</a></li>
+							<li id="sz"><a title='数字彩'>数字彩</a></li>
+							<li id="setLottery"><a title='设置彩种'>设置彩种</a></li>
+						</ul>
+					</div>
+					<div class="portfolio-wrapper jczq">
+						<table cellspacing='0' cellpadding='0' class='portfolio'>
+							<tr class='even gameBg'>
+								<td>2013-11-07<span class="matchDay">周四</span></td>
+								<td colspan="5"></td>
+								<td class="right expand">收起</td>
+								<td class='last'><span class='operation icon' title='查看赛事'></span></td>
+							</tr>
+							<tbody>
+								<table cellspacing="0" cellpadding="0" class="portfolio">
+									<thead>
+										<tr>
+										<th class="eventTitle">赛事</th>
+										<th class="eventTitle">场次</th>
+										<th class="eventTitle">开赛时间</th>
+										<th class="eventTitle">球队</th>
+										<th class="eventTitle">竞彩胜平负SP</th>
+										<th class="eventTitle">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="odd_data">
+											<td><span class="nocolor">荷兰乙级联赛</span></td>
+											<td><span class="stock-color stock-current">周一001</span></td>
+											<td><span class="stock-color">11-11 23:54</span></td>
+											<td><span class="nocolor">恒大VS首尔FC</span></td>
+											<td><span class="nocolor" title="">胜1.85平2.2负3.7</span></td>
+											<td><a target="_blank" title="" href="#">看推荐</a></td>
+										</tr>
+										<tr class="even_data">
+											<td><span class="nocolor">英格兰锦标赛</span></td>
+											<td><span class="stock-color stock-current">周一001</span></td>
+											<td><span class="stock-color">11-11 23:54</span>
+											<td><span class="nocolor">恒大VS首尔FC</span></td>
+											<td><span class="nocolor" title="">胜1.85平2.2负3.7</span></td>
+											<td><a target="_blank" title="" href="#">看推荐</a></td>
+										</tr>
+										<tr class="odd_data">
+											<td><span class="nocolor">荷兰乙级联赛</span></td>
+											<td><span class="stock-color stock-current">周一001</span></td>
+											<td><span class="stock-color">11-11 23:54</span></td>
+											<td><span class="nocolor">恒大VS首尔FC</span></td>
+											<td><span class="nocolor" title="">胜1.85平2.2负3.7</span></td>
+											<td><a target="_blank" title="" href="#">看推荐</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</tbody>
+						</table>
+						<table cellspacing='0' cellpadding='0' class='portfolio'>
+							<tr class='even gameBg'>
+								<td>2013-11-07<span class="match">周四</span></td>
+								<td colspan="5"></td>
+								<td class="right expand">收起</td>
+								<td class='last'><span class='operation icon' title='查看赛事'></span></td>
+							</tr>
+							<tbody>
+								<table cellspacing="0" cellpadding="0" class="portfolio">
+									<thead>
+										<tr>
+										<th class="eventTitle">赛事</th>
+										<th class="eventTitle">场次</th>
+										<th class="eventTitle">开赛时间</th>
+										<th class="eventTitle">球队</th>
+										<th class="eventTitle">竞彩胜平负SP</th>
+										<th class="eventTitle">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="odd_data">
+											<td><span class="nocolor">荷兰乙级联赛</span></td>
+											<td><span class="stock-color stock-current">周一001</span></td>
+											<td><span class="stock-color">11-11 23:54</span></td>
+											<td><span class="nocolor">恒大VS首尔FC</span></td>
+											<td><span class="nocolor" title="">胜1.85平2.2负3.7</span></td>
+											<td><a target="_blank" title="" href="#">看推荐</a></td>
+										</tr>
+										<tr class="even_data">
+											<td><span class="nocolor">英格兰锦标赛</span></td>
+											<td><span class="stock-color stock-current">周一001</span></td>
+											<td><span class="stock-color">11-11 23:54</span>
+											<td><span class="nocolor">恒大VS首尔FC</span></td>
+											<td><span class="nocolor" title="">胜1.85平2.2负3.7</span></td>
+											<td><a target="_blank" title="" href="#">看推荐</a></td>
+										</tr>
+										<tr class="odd_data">
+											<td><span class="nocolor">荷兰乙级联赛</span></td>
+											<td><span class="stock-color stock-current">周一001</span></td>
+											<td><span class="stock-color">11-11 23:54</span></td>
+											<td><span class="nocolor">恒大VS首尔FC</span></td>
+											<td><span class="nocolor" title="">胜1.85平2.2负3.7</span></td>
+											<td><a target="_blank" title="" href="#">看推荐</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</tbody>
+						</table>
+					</div>
+					<div class="portfolio-wrapper sz" style="display: none;">
+						<table cellspacing='0' cellpadding='0' id='all-portfolio' class='portfolio'>
+							<tbody>
+								<tr class='even gameBg'>
+									<td>2013-11-11<span class="match">周一</span></td>
+									<td colspan="5"></td>
+									<td class="right">展开</td>
+									<td class='last'><span class='operation icon' title='查看赛事'></span></td>
+								</tr>
+								<tr class='odd gameBg'>
+									<td>2013-11-12<span class="match">周二</span></td>
+									<td colspan="5"></td>
+									<td class="right">展开</td>
+									<td class='last'><span class='operation icon' title='查看赛事'></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="portfolio-wrapper setLottery" style="display: none;">
+						<table cellspacing='0' cellpadding='0' id='all-portfolio' class='portfolio'>
+							<tbody>
+								<tr class='even gameBg'>
+									<td>2013-11-13<span class="match">周三</span></td>
+									<td colspan="5"></td>
+									<td class="right">展开</td>
+									<td class='last'><span class='operation icon' title='查看赛事'></span></td>
+								</tr>
+								<tr class='odd gameBg'>
+									<td>2013-11-14<span class="match">周四</span></td>
+									<td colspan="5"></td>
+									<td class="right">展开</td>
+									<td class='last'><span class='operation icon' title='查看赛事'></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<!-- publish box-->
+				<div id="main-editor" class="guide_div_three guide_div">
+					<div class="editor">
+						<div class="editor-wrapper" id="publish">
+							<div id="emotionArea"><textarea class="text" id="status-box"></textarea></div>
+							<div class="emotion">
+								<span title="插入表情" id="message_face" class="face"><s></s><span>表情</span></span>
+								<span title="过滤赛事" class="match"><s></s><span>赛事</span></span>
+								<span title="上传图片" class="upload"><s></s><span>图片</span></span>
+							</div>
+							<!-- 显示表情 -->
+							<br/>
+							<div><a href="JavaScript:void(0)" id="show_face">显示表情</a></div>
+							<div class="show_emotion"></div>
+						</div>
+						<div class="editor-footer">
+							<div class="submit-container">
+								<input type="button" value="发布" class="submit main-submit disabled" />
+							</div>
+							<div class="back-container"></div>
+							<div class="footer-controller"></div>
+						</div>
+					</div>
+				</div>
+				<!-- status list-->
+				<div class="status-nav newTab_white">
+					<ul class="status-tab upper lotteryScheme">
+						<li class="active"><a href="javascript:void(0);">全部 </a></li>
+						<li id="rec"><a href="javascript:void(0);">推荐</a></li>
+						<li id="sd"><a href="javascript:void(0);">晒单</a></li>
+						<li id="hm"><a href="javascript:void(0);">合买</a></li>
+					</ul>
+				</div>
+				<div class="home-timeline processing">
+					<ul class="status-list">
+						<li id="status_26022762">
+							<div class="headpic"><a href="#"><img width="50px" height="50px" src="images/avatar_01.png" /></a></div>
+							<div class="content status_content">
+								<div class="status expandable">
+									<p><a href="#">屌丝玩大V彩:</a></p>
+									<h4><a href="detail.html" target="_blank">长江股份</a></h4>
+									<div class="summary">
+										报告作者：长江 报告出处：长江 相关彩票：煤矿 地税 水土 长江 <span class="show-all"><i></i>展开</span>
+									</div>
+									<div class="detail">
+										报告作者：长江&nbsp; &nbsp; &nbsp;报告出处：长江<br>相关彩票：煤矿 地税 水土<br>
+										<br>长江<br> <span class="fold-all"><i></i>收起</span>
+									</div>
+								</div>
+								<div class="meta">
+									<div class="infos">
+										<a href="#" class="time">48分钟前</a><span>来自大V彩微博</span>
+									</div>
+									<div class="ops">
+										<a href="javascript:void(0);" class="repost">转发</a>
+										<a href="javascript:void(0);" class="share">分享</a>
+										<a href="javascript:void(0);" class="addFav">收藏</a>
+										<a href="javascript:void(0);" class="statusComment last">评论</a>
+									</div>
+								</div>
+							</div>
+							<div class="commentContainer">
+								
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="right-sidebar">
+			<div class="wrapper">
+				<div class="widget">
+					<div class="tipstop">
+						<h2 class="widget-title">
+							<a href="#"><span class="index-color-bold">公告</span></a>
+						</h2>
+						<div class="fixit"></div>
+						<div class="tipstopic">
+							<ul class="tipstopic-list">
+								<li><span><a href="http://www.davcai.com/notice/6727.html" target="_blank">双色球不中500万返购彩金</a></span></li>
+								<li><span><a href="http://www.davcai.com/notice/6727.html" target="_blank">新用户 充20送10元</a></span></li>
+								<li><span><a href="http://www.davcai.com/notice/6727.html" target="_blank">竞彩购彩返彩金活动</a></span></li>
+								<li><span><a href="http://www.davcai.com/notice/6727.html" target="_blank">大V彩：晒单跟单奖励活动</a></span></li>
+								<li><span><a href="http://www.davcai.com/notice/6727.html" target="_blank">国庆假期网站提款处理时间公告</a></span></li>
+							</ul>
+						</div>
+						<div class="fixit"></div>
+					</div>
+				</div>
+				 
+				<div class="widget">
+					<div>
+						<h2 class="widget-title index-color-bold">中奖喜报</h2>
+						<div class="fixit"></div>
+						<ul class="rightSider-list">
+							<li>
+								<div class="headpic">
+									<a href="#"><img width="50px" height="50px" src="images/avatar_01.png"></a>
+								</div>
+								<div class="content">
+									<a href="#" target="_blank"><span>大V彩老吴</span></a>
+									<div class="userDes">双色球</div>
+									<div class="userDes"><span class="winColor">中奖：5000元</span></div>
+								</div>
+							</li>
+							<li style="position: relative;">
+								<div class="headpic">
+									<a href="#"><img width="50px" height="50px" src="images/avatar_01.png"></a>
+								</div>
+								<div class="content">
+									<a href="#" target="_blank"><span>屌丝玩竞彩</span></a>
+									<div class="userDes">双色球</div>
+									<div class="userDes"><span class="winColor">中奖：1200元</span></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="widget">
+					<div>
+						<h2 class="widget-title index-color-bold">排行榜TOP10</h2>
+						<div class="fixit"></div>
+						<ul class="rightSider-list">
+							<li>
+								<div class="headpic">
+									<a href="#"><img width="50px" height="50px" src="images/avatar_01.png"></a>
+								</div>
+								<div class="content">
+									<a href="#" target="_blank"><span>竞彩大亨</span></a>
+									<div class="userDes">推荐：100条	晒单：200条</div>
+									<div class="userDes">合买：100条	粉丝：800万</div>
+								</div>
+								<div class="userDes">
+									<span class="userGood">擅长：胜平负&nbsp;14场</span>
+									<div class="addFriendBtn" title="加关注"><b>＋</b>加关注</div>
+								</div>
+							</li>
+							<li>
+								<div class="headpic">
+									<a href="#"><img width="50px" height="50px" src="images/avatar_01.png"></a>
+								</div>
+								<div class="content">
+									<a href="#" target="_blank"><span>三五一十四</span></a>
+									<div class="userDes">推荐：100条	晒单：200条</div>
+									<div class="userDes">合买：100条	粉丝：800万</div>
+								</div>
+								<div class="userDes">
+									<span class="userGood">擅长：胜平负&nbsp;总进球数</span>
+									<div class="addFriendBtn" title="加关注"><b>＋</b>加关注</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="risk">提示：大V彩微博里任何用户或者嘉宾的发言，都有其特定立场，投注决策需要建立在独立思考之上。</div>
+		<div class="copyright">
+			<a href="/about/faq" target="_blank">常见问题</a>
+			<a href="/about/contact-us" target="_blank">联系方式</a>
+			<a href="/about/jobs" target="_blank">加入我们</a>
+			<a href="/about" target="_blank">关于大V彩微博</a><a>© 2013 .COM</a>
+			<a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证100666号</a>
+		</div>
+	</div>
+</body>
+</html>

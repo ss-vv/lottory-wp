@@ -1,0 +1,56 @@
+@charset "utf-8";
+/*
+ * init 初始化
+ * style 样式
+ */
+body {margin:0; word-break:break-all; word-wrap:break-word;}
+a, b, cite, div, em, form, fieldset, i, img, label, p, span, strong, var,
+h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl, dt, dd,
+table, thead, tbody, tr, th, td {margin:0; padding:0; border:none; font-style:normal; list-style:none;}
+a {color:#333; text-decoration:none;}
+a:hover {color:#000; text-decoration:underline;}
+input, textarea, select {outline:none;}
+/*
+ * Properties 属性
+ * style 样式
+ */
+/* color */
+.c-a {color:#0c0;}
+.c-b {color:#fc0;}
+.c-c {color:#c00;}
+/*
+ * Elements 元素
+ * style 样式
+ */
+/*
+ * content 内容
+ * style 样式
+ */
+body {line-height:18px; color:#333; font-family:"宋体"; font-size:12px;}
+.scrollbox {overflow:auto;}
+/* chatbox */
+.chatbox {background:#ff8400 url(../images/chat/chatbox.png) repeat-x; overflow:hidden; *zoom:1;}
+.chatbox .modh {height:26px; line-height:26px; color:#fff; padding:0 6px;}
+.chatbox .modm {margin:0 6px 6px; border:#d7fff9 1px solid; overflow:hidden; *zoom:1;}
+.chatbox .mmh,
+.chatbox .mmhl,
+.chatbox .mmf,
+.chatbox .mmfl {height:3px; background:url(../images/chat/chatbox_trbl.png) no-repeat;}
+.chatbox .mmh {padding-right:3px; background-position:right 0;}
+.chatbox .mmhl {padding-left:3px; background-position:0 0;}
+.chatbox .mmhr {height:3px; background:url(../images/chat/chatbox_tc.png) repeat-x; overflow:hidden;}
+.chatbox .mmf {padding-right:3px; background-position:right -3px;}
+.chatbox .mmfl {padding-left:3px; background-position:0 -3px;}
+.chatbox .mmfr {height:3px; background:url(../images/chat/chatbox_bc.png) repeat-x; overflow:hidden;}
+.chatbox .mmm {background:#fff url(../images/chat/chatbox_rc.png) repeat-y right 0;}
+.chatbox .inmmm {padding:3px 6px; background:url(../images/chat/chatbox_lc.png) repeat-y; overflow:hidden; *zoom:1;}
+.chatbox .tips {padding:3px 10px; background:url(../images/chat/arr.gif) no-repeat 0 6px;}
+.chatbox .row {padding:3px 0;}
+.chatbox .name,
+.chatbox .user {color:#00c; font-weight:bold;}
+.chatbox .txtr {width:100%; float:left; overflow:hidden; *zoom:1;}
+.chatbox .intxtr {width:100%; font-size:12px; padding:0; background:none; border:none; float:left;}
+.chatbox .btn {width:62px; height:30px; margin:-33px 23px 0 0; background:url(../images/chat/btn.gif) no-repeat; float:right;}
+.chatbox .btn .iptbtn {width:62px; height:30px; line-height:30px; color:#fff; text-align:left; padding:0; padding-left:7px; background:none; border:none; cursor:pointer;}
+.chatbox .btn:hover {text-decoration:none;}

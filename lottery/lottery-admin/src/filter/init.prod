@@ -1,0 +1,26 @@
+# database
+db.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = lottery
+db.password = 8DFy4unX
+
+# database
+db2.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = account
+db2.password = C2g5GL4m
+
+# shiroDb
+shirodb.serverName = rdsbenain3yiqrn.mysql.rds.aliyuncs.com
+shirodb.databaseName = db_lottery
+
+# ActiveMQ
+amq.brokerURL = tcp://10.171.46.81:61616
+amq.sender.threads = 20
+
+#system send privateMessage account UserID
+privateMessageSenderId = 619145310522368
+
+#赛事颜色超时时间(毫秒)
+match_color_timeout = 120000
+
+dataStoreDirPath =/data/weibo/images/export
+downloadUrlPre =http://images.davcai.com/export

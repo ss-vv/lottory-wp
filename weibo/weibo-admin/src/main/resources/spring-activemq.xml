@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+      <amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+    </property>
+  </bean>
+
+  <!-- 异步发布微博到粉丝的时间线 -->
+  <bean id="publishFollowersProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_FOLLOWERS_CMD" physicalName="com.unison.weibo.queue.WB_PUBLISH_FOLLOWERS_CMD" />
+    </property>
+  </bean>
+	
+  <!-- 异步发布微博新闻到粉丝的时间线 -->
+  <bean id="publishNewsFollowersProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_NEWS_PUBLISH_FOLLOWERS_CMD" physicalName="com.unison.weibo.queue.WB_NEWS_PUBLISH_FOLLOWERS_CMD" />
+    </property>
+  </bean>
+
+  <!-- 异步发布赛事、推荐、新闻到粉丝的时间线 -->
+  <bean id="publishCommandProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_CMD" physicalName="com.unison.weibo.queue.WB_PUBLISH_CMD" />
+    </property>
+  </bean>
+
+  <!-- 异步处理关注关系 -->
+  <bean id="followCommandProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_FOLLOW_CMD" physicalName="com.unison.weibo.queue.WB_FOLLOW_CMD" />
+    </property>
+  </bean>
+  <!-- 异步处理系统私信推送 -->
+  <bean id="pushSystemPrivateMsgProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_PUSH_PRIVATEMSG_LISTENER" physicalName="com.unison.weibo.queue.WB_LAICAI_PUSH_PRIVATEMSG" />
+    </property>
+  </bean>
+
+  <!-- 消息发送器 -->
+  <bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender" 
+        init-method="init" destroy-method="destroy">
+    <property name="threads" value="${amq.sender.threads}" />
+    <property name="producers">
+      <map>
+        <entry key="PublishCommand" value-ref="publishCommandProducer" />
+        <entry key="FollowCommand" value-ref="followCommandProducer" />
+        <entry key="PublishFollowersHandle" value-ref="publishFollowersProducer" />
+        <entry key="PublishWeiboNewsHandle" value-ref="publishNewsFollowersProducer" />
+        <entry key="PushPrivateMsgToAllHandle" value-ref="pushSystemPrivateMsgProducer" />
+      </map>
+    </property>
+  </bean>
+</beans>

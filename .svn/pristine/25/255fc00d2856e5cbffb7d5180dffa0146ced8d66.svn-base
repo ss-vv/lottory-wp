@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:init.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+    <context:component-scan base-package="com.davcai.lottery.push.server,
+    com.davcai.lottery.push.common.odds" />
+	<bean id="redisClient" class="com.davcai.lottery.push.common.redis.RedisClientImpl"></bean>
+	<bean id="pushMessageDao" class="com.davcai.lottery.push.common.redis.dao.PushMessageDaoImpl">
+		<property name="propertyNamesOfDate">
+			<set>
+				<value>scheduleMatchTime</value>
+				<value>halfStartTime</value>
+			</set>
+		</property>
+	</bean>
+	<bean id="redisTemplate" class="com.unison.lottery.weibo.common.redis.RedisTemplate">
+		<constructor-arg index="0"><value>${redis.url}</value></constructor-arg>
+		<constructor-arg index="1"><value>${redis.port}</value></constructor-arg>
+	</bean>
+	<bean id="idGenerator" class="com.unison.lottery.weibo.common.service.impl.IdGeneratorImpl"></bean>
+</beans>

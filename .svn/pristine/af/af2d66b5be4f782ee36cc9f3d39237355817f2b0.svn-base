@@ -1,0 +1,30 @@
+<!-- 转发窗口 -->
+<form id="forwardForm">
+	<input type="hidden" name="weiboMsg.postId" id="postId"/>
+	<div class="modal fade" id="forwardModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title">转发到我的首页</h4>
+	      </div>
+	      <div class="modal-body">
+	      <div class="editor">
+	      		<div class="editor-wrapper">
+			      		<div id="emotionArea"><textarea class="form-control" rows="5" id="forwardContent" name="weiboMsg.content" placeholder="说点什么吧……"></textarea></div>
+			      		<div class="emotion">
+		                    <span title="插入表情" id="message_face_forward" class="face"><s></s><span>表情</span></span>
+		                    <span title="过滤赛事" class="match"><s></s><span>赛事</span></span>
+		                    <span id="remainingWords" style="float:right;clear:both;">还可输入<em style='color:red;'>140</em>字</span>
+		                </div>
+		          </div>
+		   </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="forwardBtn">转发</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</form>

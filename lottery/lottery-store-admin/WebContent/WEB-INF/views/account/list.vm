@@ -1,0 +1,73 @@
+#set($title="用户管理")
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>用户管理</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/account/list.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">
+            用户名：<input type="text" name="username" value="$!{username}" maxlength="32" size="20"/>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+            <input type="submit" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+				<th style="width:50px;text-align:center;"><span>用户ID</span></th>
+        <th style="width:80px;text-align:center;"><span>用户名称</span></th>
+        <th style="width:70px;text-align:right;"><span>可用余额</span></th>
+				<th style="width:70px;text-align:right;"><span>冻结现金</span></th>
+				<th style="width:60px;text-align:right;"><span>冻结赠款</span></th>
+				<th style="width:120px;text-align:center;"><span>开户行</span></th>
+				<th style="width:120px;text-align:center;"><span>银行账户</span></th>
+				<th style="width:80px;text-align:center;"><span>对账时间</span></th>
+				<th style="width:40px;text-align:center;"><span>操作</span></th>
+			</tr>
+			#foreach($u in $paging.results)
+			<tr>
+        <td style="text-align:center;">${u.id}</td>
+				<td style="text-align:center;">${u.username}</td>
+				<td style="text-align:right;">${u.free}</td>
+				<td style="text-align:right;">${u.frozenFund}</td>
+				<td style="text-align:right;">${u.frozenGrant}</td>
+				<td style="text-align:center;">$!{u.bank}</td>
+				<td style="text-align:center;">$!{u.accountNumber}</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd", ${u.checkedTime})</td>
+        <td style="text-align:center;">
+          <a href="javascript:void(0);" _uid="${u.id}" _action="view">详情</a>
+        </td>
+			</tr>
+			#end
+		</table>
+    </form>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    // 查看详情
+    $('#dataGrid a[_action="view"]').bind('click', function(){
+        var uid = $(this).attr('_uid');
+        xhOpenWindow('$base/account/view.do?id=' + uid, {
+            id: 'u_' + uid,
+            title: '查看用户账户信息',
+            height: 360,
+            width: 600
+        });
+        
+        return false;
+    });
+});
+</script>

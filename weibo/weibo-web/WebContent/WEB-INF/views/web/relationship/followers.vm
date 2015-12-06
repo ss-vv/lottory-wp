@@ -1,0 +1,41 @@
+#set($layout="web/home_default.vm")
+#set($scripts=["js/web/jquery.emoticons.js", 
+	"js/web/login.js", 
+	 
+	"js/web/home/home_relationship.js", 
+	"js/web/home/announceAndWinning.js",
+	"js/web/home/interest_user.js", "js/web/label-slide.js"])
+#set($p_title="我的粉丝")
+
+<div class="wrapper">
+	<div>
+		<h2>我的粉丝</h2>
+        <div class="fixit"></div>
+        <ul class="rightSider-list no-top-line">
+	    	#foreach($user in $data.results)
+		    <li>
+			    <div class="headpic" style="float:left;" _userid="$user.weiboUserId">
+			    <a href="http://www.davcai.com/$user.weiboUserId/profile"><img id="sponsor_user_headImage" width="50px" height="50px" src="$user.headImageURL"></a>
+			    </div>
+			    <div style="position: relative;margin-left: 5px;float: left;">
+				    <a style="max-width: 145px;" href="http://www.davcai.com/$user.weiboUserId/profile" target="_blank"><span id="sponsor_user_name">$user.nickName</span></a>
+				    <div class="userDes"> 主帖：$user.weiboCount</div>
+				    <div class="userDes"> 关注：$user.followingCount  | 粉丝：$user.followerCount</div>
+			    </div>
+			    <div style="position: relative;float:right" >
+			    	#if($user.beFollowed)
+			    		<span class="friendEachother" title="相互关注" ></span>
+			    		<div class="addFriendBtn" title="取消关注" flag="unFollowFlag" _userId="$user.weiboUserId" >取消关注</div>
+			    	#else
+			    		<div class="addFriendBtn" title="加关注" flag="followFlag" _userId="$user.weiboUserId" >+加关注</div>
+			    	#end
+			    </div>
+		    </li>
+		    #end
+    	</ul>
+    	
+    	<div class="pager-wrapper">
+        	#pagerHtml($data.pageRequest.pageIndex $data.pageRequest.pageCount)
+        </div>
+	</div>
+</div>

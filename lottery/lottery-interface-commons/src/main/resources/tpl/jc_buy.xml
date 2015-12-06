@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head transcode="${transcode}" partnerid="${partnerid}" version="${version}" time="${time}" />
+  <body>
+    <ticketorder lotteryid="${lotteryId}" ticketnum="${ticketNum}" totalmoney="${totalMoney}">
+      <tickets>
+      #foreach($t in $tickets)
+        <ticket id="${t.id}" play="${t.playId}" passtype="${t.passTypeId}" multiple="${t.multiple}" money="${t.money}" code="${t.code}" issue="$!{t.issue}" />
+      #end
+      </tickets>
+    </ticketorder>
+  </body>
+</msg>

@@ -1,0 +1,1204 @@
+body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../投注_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:0px;
+    top:65px;
+    width:150px;
+    height:984px;
+}
+
+#u0_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:156px;
+    height:990px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:484px;
+    width:146px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2_normal {
+    background-image: url('../投注_files/u2_normal.png');
+}
+
+.u2_container {
+    position:absolute;
+    left:150px;
+    top:65px;
+    width:868px;
+    height:984px;
+}
+
+#u2_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:874px;
+    height:990px;
+}
+
+.u3 {
+    position:absolute;
+    left:2px;
+    top:484px;
+    width:864px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4_normal {
+    background-image: url('../页头_files/u65_normal.png');
+}
+
+.u4_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1024px;
+    height:65px;
+}
+
+#u4_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1030px;
+    height:71px;
+}
+
+.u5 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:1020px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6 {
+    position:absolute;
+    left:0px;
+    top:10px;
+    width:123px;
+    height:46px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u7 {
+    position:absolute;
+    left:160px;
+    top:29px;
+    width:41px;
+    height:27px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8 {
+    position:absolute;
+    left:316px;
+    top:29px;
+    width:41px;
+    height:27px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u9_normal {
+    background-image: url('../页头_files/u70_normal.png');
+}
+
+.u9_container {
+    position:absolute;
+    left:730px;
+    top:29px;
+    width:283px;
+    height:27px;
+}
+
+#u9_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:289px;
+    height:33px;
+}
+
+.u10 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:279px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u11_normal {
+    background-image: url('../页头_files/u72_normal.png');
+}
+
+.u11_container {
+    position:absolute;
+    left:978px;
+    top:27px;
+    width:32px;
+    height:32px;
+}
+
+#u11_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:32px;
+    height:32px;
+}
+
+.u12 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:28px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u13 {
+    position:absolute;
+    left:625px;
+    top:35px;
+    width:81px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u14_normal {
+    background-image: url('../页头_files/u75_normal.png');
+}
+
+.u14_container {
+    position:absolute;
+    left:706px;
+    top:43px;
+    width:8px;
+    height:8px;-webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+
+}
+
+#u14_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:14px;
+    height:14px;
+}
+
+.u15 {
+    position:absolute;
+    left:2px;
+    top:-4px;
+    width:4px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16 {
+    position:absolute;
+    left:234px;
+    top:29px;
+    width:41px;
+    height:27px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u17 {
+    position:absolute;
+    left:403px;
+    top:29px;
+    width:41px;
+    height:27px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u19 {
+    position:absolute;
+    left:25px;
+    top:124px;
+    width:105px;
+    height:180px
+}
+
+.u20_normal {
+    background-image: url('../投注_files/u20_normal.png');
+}
+
+.u20_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100px;
+    height:25px;
+}
+
+#u20_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:31px;
+}
+
+.u21 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u22_normal {
+    background-image: url('../投注_files/u20_normal.png');
+}
+
+.u22_container {
+    position:absolute;
+    left:0px;
+    top:25px;
+    width:100px;
+    height:25px;
+}
+
+#u22_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:31px;
+}
+
+.u23 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24_normal {
+    background-image: url('../投注_files/u20_normal.png');
+}
+
+.u24_container {
+    position:absolute;
+    left:0px;
+    top:50px;
+    width:100px;
+    height:25px;
+}
+
+#u24_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:31px;
+}
+
+.u25 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u26_normal {
+    background-image: url('../投注_files/u20_normal.png');
+}
+
+.u26_container {
+    position:absolute;
+    left:0px;
+    top:75px;
+    width:100px;
+    height:25px;
+}
+
+#u26_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:31px;
+}
+
+.u27 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u28_normal {
+    background-image: url('../投注_files/u20_normal.png');
+}
+
+.u28_container {
+    position:absolute;
+    left:0px;
+    top:100px;
+    width:100px;
+    height:25px;
+}
+
+#u28_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:31px;
+}
+
+.u29 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u30_normal {
+    background-image: url('../投注_files/u20_normal.png');
+}
+
+.u30_container {
+    position:absolute;
+    left:0px;
+    top:125px;
+    width:100px;
+    height:25px;
+}
+
+#u30_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:31px;
+}
+
+.u31 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u32_normal {
+    background-image: url('../投注_files/u20_normal.png');
+}
+
+.u32_container {
+    position:absolute;
+    left:0px;
+    top:150px;
+    width:100px;
+    height:25px;
+}
+
+#u32_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:31px;
+}
+
+.u33 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u34 {
+    position:absolute;
+    left:6px;
+    top:73px;
+    width:112px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u35_line {
+    background-image: url('../投注_files/u35_line.png');
+}
+
+.u35_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:150px;
+    height:3px;
+}
+
+.u35 {
+    position:absolute;
+    left:0px;
+    top:98px;
+    width:150px;
+    height:10px;
+    
+}
+
+.u36 {
+    position:absolute;
+    left:167px;
+    top:77px;
+    width:163px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u37 {
+    position:absolute;
+    left:431px;
+    top:77px;
+    width:255px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u38 {
+    position:absolute;
+    left:729px;
+    top:77px;
+    width:268px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u39 {
+    position:absolute;
+    left:167px;
+    top:106px;
+    width:122px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u40 {
+    position:absolute;
+    left:431px;
+    top:107px;
+    width:253px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u41_line {
+    background-image: url('../投注_files/u41_line.png');
+}
+
+.u41_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:868px;
+    height:3px;
+}
+
+.u41 {
+    position:absolute;
+    left:150px;
+    top:137px;
+    width:868px;
+    height:10px;
+    
+}
+
+.u42_normal {
+    background-image: url('../投注_files/u42_normal.png');
+}
+
+.u42_container {
+    position:absolute;
+    left:167px;
+    top:157px;
+    width:432px;
+    height:207px;
+}
+
+#u42_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:432px;
+    height:207px;
+}
+
+.u43 {
+    position:absolute;
+    left:2px;
+    top:96px;
+    width:428px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u44_normal {
+    background-image: url('../投注_files/u44_normal.png');
+}
+
+.u44_container {
+    position:absolute;
+    left:703px;
+    top:150px;
+    width:233px;
+    height:215px;
+}
+
+#u44_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:233px;
+    height:215px;
+}
+
+.u45 {
+    position:absolute;
+    left:2px;
+    top:100px;
+    width:229px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u46_line {
+    background-image: url('../投注_files/u46_line.png');
+}
+
+.u46_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:868px;
+    height:3px;
+}
+
+.u46 {
+    position:absolute;
+    left:150px;
+    top:374px;
+    width:868px;
+    height:10px;
+    
+}
+
+.u47_normal {
+    background-image: url('../投注_files/u47_normal.png');
+}
+
+.u47_container {
+    position:absolute;
+    left:268px;
+    top:394px;
+    width:582px;
+    height:211px;
+}
+
+#u47_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:582px;
+    height:211px;
+}
+
+.u48 {
+    position:absolute;
+    left:2px;
+    top:98px;
+    width:578px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u49_line {
+    background-image: url('../投注_files/u49_line.png');
+}
+
+.u49_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:868px;
+    height:3px;
+}
+
+.u49 {
+    position:absolute;
+    left:150px;
+    top:660px;
+    width:868px;
+    height:10px;
+    
+}
+
+.u50_normal {
+    background-image: url('../投注_files/u50_normal.png');
+}
+
+.u50_container {
+    position:absolute;
+    left:242px;
+    top:630px;
+    width:409px;
+    height:30px;
+}
+
+#u50_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:409px;
+    height:30px;
+}
+
+.u51 {
+    position:absolute;
+    left:2px;
+    top:7px;
+    width:405px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u52_line {
+    background-image: url('../投注_files/u52_line.png');
+}
+
+.u52_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:868px;
+    height:3px;
+}
+
+.u52 {
+    position:absolute;
+    left:151px;
+    top:620px;
+    width:868px;
+    height:10px;
+    
+}
+
+.u53 {
+    position:absolute;
+    left:750px;
+    top:633px;
+    width:100px;
+    height:25px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u54_line {
+    background-image: url('../投注_files/u54_line.png');
+}
+
+.u54_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:868px;
+    height:3px;
+}
+
+.u54 {
+    position:absolute;
+    left:150px;
+    top:856px;
+    width:868px;
+    height:10px;
+    
+}
+
+.u55 {
+    position:absolute;
+    left:165px;
+    top:839px;
+    width:125px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u56_normal {
+    background-image: url('../投注_files/image_u56_normal.png');
+}
+
+.u56_container {
+    position:absolute;
+    left:160px;
+    top:876px;
+    width:46px;
+    height:46px;
+}
+
+#u56_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:46px;
+    height:46px;
+}
+
+.u57 {
+    position:absolute;
+    left:2px;
+    top:15px;
+    width:42px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u58 {
+    position:absolute;
+    left:216px;
+    top:876px;
+    width:150px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u59 {
+    position:absolute;
+    left:216px;
+    top:896px;
+    width:477px;
+    height:105px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u60 {
+    position:absolute;
+    left:216px;
+    top:1010px;
+    width:161px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u61 {
+    position:absolute;
+    left:475px;
+    top:1010px;
+    width:239px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u62 {
+    position:absolute;
+    left:290px;
+    top:688px;
+    width:560px;
+    height:74px;
+    ;
+    ;
+    text-align: left;;
+    font-family:'微软雅黑';
+    font-size: 16px;
+    color:#CCCCCC;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u63 {
+    position:absolute;
+    left:290px;
+    top:772px;
+    width:50px;
+    height:30px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 14px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u64 {
+    position:absolute;
+    left:439px;
+    top:772px;
+    width:50px;
+    height:30px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 14px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u65 {
+    position:absolute;
+    left:750px;
+    top:772px;
+    width:100px;
+    height:30px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 16px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u66 {
+    position:absolute;
+    left:364px;
+    top:771px;
+    width:50px;
+    height:30px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'微软雅黑';
+    font-size: 14px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+#u67 {
+    position:absolute;
+    left:305px;
+    top:697px;
+    width:288px;
+    height:65px;
+    overflow:hidden;
+}
+
+#pd0u67 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:288px;
+    height:65px;
+    
+}
+
+.u68_normal {
+    background-image: url('../投注_files/u68_normal.png');
+}
+
+.u68_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:287px;
+    height:64px;
+}
+
+#u68_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:293px;
+    height:70px;
+}
+
+.u69 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:283px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u70 {
+    position:absolute;
+    left:12px;
+    top:31px;
+    width:260px;
+    height:25px;
+    ;
+    ;
+    text-align: left;;
+    font-family:'微软雅黑';
+    font-size: 14px;
+    color:#999999;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u71 {
+    position:absolute;
+    left:12px;
+    top:6px;
+    width:168px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+

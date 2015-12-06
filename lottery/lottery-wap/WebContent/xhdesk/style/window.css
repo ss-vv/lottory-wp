@@ -1,0 +1,97 @@
+@charset "utf-8";
+/*****mask proxy***********/
+.dragMask {width:100%; height:100%; position:absolute; top:0px; left:0px; display:none;}
+.dragMask {background:url(../images/win/win_bg_c01.png) repeat;}
+.dragProxy {border:1px solid #000; position:absolute;}
+/*****fullscreen_tip********/
+.fullscreen_tip {width:369px; height:77px; margin-top:-80px; margin-left:-184px; background:url(../images/fullscreen_tip.png) no-repeat; position:absolute; top:50%; left:50%; display:block;}
+/***** window 窗口 **********/
+.window {position:absolute;}
+.win_outer {padding:9px; position:absolute; right:0px; left:0px;}
+.win_inner {width:100%; height:100%; position:relative;}
+.win_bg {width:100%; height:100%; position:absolute; z-index: -1;}
+.win_bg_c {width:100%; height:100%; position:absolute; overflow:hidden;}
+.win_bg_t {width:100%; height:9px; position:absolute; top:-9px; overflow:hidden;}
+.win_bg_r {width:9px; height:100%; position:absolute; right:-9px; overflow:hidden;}
+.win_bg_b {width:100%; height:9px; position:absolute; bottom:-9px; overflow:hidden;}
+.win_bg_l {width:9px; height:100%; position:absolute; left:-9px; overflow:hidden;}
+.win_bg_rt {width:9px; height:9px; position:absolute; top:-9px; right:-9px; overflow:hidden;}
+.win_bg_rb {width:9px; height:9px; position:absolute; bottom:-9px; right:-9px; overflow:hidden;}
+.win_bg_lb {width:9px; height:9px; position:absolute; bottom:-9px; left:-9px; overflow:hidden;}
+.win_bg_lt {width:9px; height:9px; position:absolute; top:-9px; left:-9px; overflow:hidden;}
+.win_ctt {height:100%;}
+.win_ttBar {height:24px;}
+.win_ttBar .win_tt {height:18px; line-height:20px; font-size:12px; font-weight:bold; cursor:default; white-space:nowrap; display:block; overflow:hidden;}
+.win_ttBar .win_btnBox {display:block;}
+.win_body {background-color:#fff; position:absolute; top:24px; bottom:0px; overflow:hidden;}
+.window_controlArea {width:100%; height:23px; padding:3px 0px 0px; position:absolute; bottom:0px;}
+.window_bg_iframe {width:100%; height:100%; margin:0px; padding:0px; background-color:#fff; filter:alpha(opacity=0); opacity:0; position:absolute; top:0px; left:0px; z-index:-1; display:block; overflow:hidden;}
+.win_bg_trbl {width:54px; height:18px; background:url(../images/win/win_bg_trbl.png) no-repeat left top; overflow:hidden;}
+.window .win_bg_c {background:url(../images/win/win_bg_c01.png) repeat;}
+.window .win_bg_t {background:url(../images/win/win_bg_t01.png) repeat-x;}
+.window .win_bg_r {background:url(../images/win/win_bg_r01.png) repeat-y;}
+.window .win_bg_b {background:url(../images/win/win_bg_b01.png) repeat-x;}
+.window .win_bg_l {background:url(../images/win/win_bg_l01.png) repeat-y;}
+.window .win_bg_rt {background:url(../images/win/win_bg_trbl.png) no-repeat -9px 0;}
+.window .win_bg_rb {background:url(../images/win/win_bg_trbl.png) no-repeat -9px -9px;}
+.window .win_bg_lt {background:url(../images/win/win_bg_trbl.png) no-repeat 0 0;}
+.window .win_bg_lb {background:url(../images/win/win_bg_trbl.png) no-repeat 0 -9px;}
+.window_current .win_bg_c {background:#9fcdf8; _filter:none;}
+.window_current .win_bg_t {background:url(../images/win/win_bg_t02.png) repeat-x;}
+.window_current .win_bg_r {background:url(../images/win/win_bg_r02.png) repeat-y;}
+.window_current .win_bg_b {background:url(../images/win/win_bg_b02.png) repeat-x;}
+.window_current .win_bg_l {background:url(../images/win/win_bg_l02.png) repeat-y;}
+.window_current .win_bg_rt {background:url(../images/win/win_bg_trbl.png) no-repeat -27px 0;}
+.window_current .win_bg_rb {background:url(../images/win/win_bg_trbl.png) no-repeat -27px -9px;}
+.window_current .win_bg_lt {background:url(../images/win/win_bg_trbl.png) no-repeat -18px 0;}
+.window_current .win_bg_lb {background:url(../images/win/win_bg_trbl.png) no-repeat -18px -9px;}
+/***** widget 窗口 **********/
+.win_outer {padding:8px; position:absolute; right:0px; left:0px;}
+.win_inner {width:100%; height:100%; position:relative;}
+.widget .win_bg_c {background:url(../images/win/win_bg_c03.png) repeat;}
+.widget .win_bg_t {background:url(../images/win/win_bg_t03.png) repeat-x;}
+.widget .win_bg_r {background:url(../images/win/win_bg_r03.png) repeat-y;}
+.widget .win_bg_b {background:url(../images/win/win_bg_b03.png) repeat-x;}
+.widget .win_bg_l {background:url(../images/win/win_bg_l03.png) repeat-y;}
+.widget .win_bg_rt {background:url(../images/win/win_bg_trbl.png) no-repeat -45px 0;}
+.widget .win_bg_rb {background:url(../images/win/win_bg_trbl.png) no-repeat -45px -9px;}
+.widget .win_bg_lt {background:url(../images/win/win_bg_trbl.png) no-repeat -36px 0;}
+.widget .win_bg_lb {background:url(../images/win/win_bg_trbl.png) no-repeat -36px -9px;}
+.widget_current .win_bg_c {background:#9fcdf8; _filter:none;}
+.widget_current .win_bg_t {background:url(../images/win/win_bg_t02.png) repeat-x;}
+.widget_current .win_bg_r {background:url(../images/win/win_bg_r02.png) repeat-y;}
+.widget_current .win_bg_b {background:url(../images/win/win_bg_b02.png) repeat-x;}
+.widget_current .win_bg_l {background:url(../images/win/win_bg_l02.png) repeat-y;}
+.widget_current .win_bg_rt {background:url(../images/win/win_bg_trbl.png) no-repeat -27px 0;}
+.widget_current .win_bg_rb {background:url(../images/win/win_bg_trbl.png) no-repeat -27px -9px;}
+.widget_current .win_bg_lt {background:url(../images/win/win_bg_trbl.png) no-repeat -18px 0;}
+.widget_current .win_bg_lb {background:url(../images/win/win_bg_trbl.png) no-repeat -18px -9px;}
+/****windows button****/
+.window_button {text-align:center; text-decoration:none; margin-left:10px; background:url(../images/btn.gif) no-repeat; display:none; float:right; overflow:hidden;}
+.window_button {width:65px; height:23px; line-height:23px;}
+.window_action_button {width:18px; height:18px; margin-left:4px; cursor:pointer; font-size:0px; line-height:999999px; display:block; float:right; overflow:hidden;}
+.window_action_button {background:url(../images/win/win_btn.png) no-repeat;}
+.window_close {background-position:-144px 0px;}
+.window_close:hover {background-position:-144px -18px;}
+.window_max {background-position:-90px 0px;}
+.window_max:hover {background-position:-90px -18px;}
+.window_max {background-position:-90px 0px;}
+.window_max:hover {background-position:-90px -18px;}
+.window_max {background-position:-126px 0px;}
+.window_max:hover {background-position:-126px -18px;}
+.window_restore {background-position:-90px 0px;}
+.window_restore:hover {background-position:-90px -18px;}
+.window_min {background-position:-108px 0px;}
+.window_min:hover {background-position:-108px -18px;}
+.window_fullscreen {background-position:-72px 0px;}
+.window_fullscreen:hover {background-position:-72px -18px;}
+.window_restore_full {background-position:-54px 0px;}
+.window_restore_full:hover {background-position:-54px -18px;}
+.window_refresh {background-position:-36px 0px;}
+.window_refresh:hover {background-position:-36px -18px;}
+.window_home {background-position:-162px 0px;}
+.window_home:hover {background-position:-162px -18px;}
+.window_pinUp {background-position:0px 0px;}
+.window_pinUp:hover {background-position:0px -18px;}
+.window_pinDown {background-position:-18px 0px;}
+.window_pinDown:hover {background-position:-18px -18px;}

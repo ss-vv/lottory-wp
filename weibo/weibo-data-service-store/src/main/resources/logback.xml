@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+	<property name="LOG_HOME" value="/data/logs" />
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 支持多JVM同时操作同一个日志文件 -->
+		<prudent>true</prudent>
+		<!-- 按天来回滚，如果需要按小时来回滚，则设置为{yyyy-MM-dd_HH} -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/weibo-data.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>100MB</MaxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>
+				%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{96}
+				[%line] - %msg%n
+			</pattern>
+			<charset>UTF-8</charset> <!-- 此处设置字符集 -->
+		</encoder>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders 作用是将logger事件转换成字节数组，并将字节数组写入到输出流 -->
+		<encoder>
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符 -->
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.unison" level="INFO" additivity="false">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="ch.qos.logback" level="INFO" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="org.apache.activemq" level="INFO" additivity="false">
+		<appender-ref ref="FILE"></appender-ref>
+	</logger>
+	<logger name="org.hibernate" level="ERROR" additivity="false">
+		<appender-ref ref="FILE"></appender-ref>
+	</logger>
+	<root level="INFO">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT"></appender-ref> 
+	</root>
+</configuration>

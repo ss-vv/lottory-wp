@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <!-- 投注方案相关 -->
+  <package name="shceme" extends="global" namespace="/scheme">
+    <!-- 查询未派奖方案 -->
+    <action name="lsnotaward" class="com.xhcms.lottery.admin.web.action.scheme.ListAction">
+      <result>lsnotaward.vm</result>
+    </action>
+    
+    <!-- 查询未兑奖方案 -->
+    <action name="lsbought" class="com.xhcms.lottery.admin.web.action.scheme.ListAction" method="bought">
+      <result>lsbought.vm</result>
+    </action>
+    
+    <!-- 查询已派奖方案 -->
+    <action name="lsawarded" class="com.xhcms.lottery.admin.web.action.scheme.ListAction" method="awarded">
+      <result>lsawarded.vm</result>
+    </action>
+    
+    <!-- 查询未中奖方案 -->
+    <action name="lsnotwin" class="com.xhcms.lottery.admin.web.action.scheme.ListAction" method="notWin">
+      <result>lsnotwin.vm</result>
+    </action>
+    
+    <!-- 查询投注方案列表 -->
+    <action name="lsbet" class="com.xhcms.lottery.admin.web.action.scheme.ListBetAction">
+      <result>lsbet.vm</result>
+    </action>
+    
+    <!-- 派奖 -->
+    <action name="aj_award" class="com.xhcms.lottery.admin.web.action.scheme.AjaxAwardAction">
+      <result type="json" />
+    </action>
+    
+    <!-- 查看详情 -->
+    <action name="view" class="com.xhcms.lottery.admin.web.action.scheme.ViewAction">
+      <result>view.vm</result>
+    </action>
+    
+    <!-- 查看投注赛事 -->
+    <action name="lsmatch" class="com.xhcms.lottery.admin.web.action.scheme.ListMatchAction">
+      <result>match.vm</result>
+      <result name="ctmatch">ctmatch.vm</result>
+    </action>
+    
+    <!-- 查看投注期信息 -->
+    <action name="lsissue" class="com.xhcms.lottery.admin.web.action.scheme.ListIssueAction">
+      <result>issue.vm</result>
+    </action>
+    
+    <!-- 撤单 -->
+    <action name="aj_cancel" class="com.xhcms.lottery.admin.web.action.scheme.AjaxCancelAction">
+      <result type="json"/>
+    </action>
+    
+    <!-- 重置方案为可出票 -->
+    <action name="aj_set_allow_buy" class="com.xhcms.lottery.admin.web.action.scheme.AjaxSetToAllowBuyAction">
+      <result type="json"/>
+    </action>
+    
+    <!-- 查看投注合买人 -->
+    <action name="lspartner" class="com.xhcms.lottery.admin.web.action.scheme.ListPartnerAction">
+      <result>partner.vm</result>
+    </action>
+    
+    <!-- 查看出票详情 -->
+    <action name="lsticket" class="com.xhcms.lottery.admin.web.action.scheme.ListTicketAction">
+      <result>ticket.vm</result>
+    </action>
+    <action name="bet_time" class="com.xhcms.lottery.admin.web.action.scheme.BetTimeAction">
+      <result>bet-time.vm</result>
+    </action>
+    <action name="save_bet_time" class="com.xhcms.lottery.admin.web.action.scheme.BetTimeAction" method="save">
+      <result type="json"/>
+    </action>
+    
+    <!-- 强制方案中未出票的为失败状态，并返还冻结 -->
+    <action name="aj_set_ticket_fail" class="com.xhcms.lottery.admin.web.action.scheme.AjaxSetTicketFailAction">
+      <result type="json"/>
+    </action>
+    
+  </package>
+
+	<package name="ticket" extends="global" namespace="/ticket">
+		<action name="aj_edit_priority" class="com.xhcms.lottery.admin.web.action.ticket.AllocateTicketAction" method="edit">
+			 <result type="json" />
+		</action>
+		<action name="aj_batch_set_priority" class="com.xhcms.lottery.admin.web.action.ticket.AllocateTicketAction" method="batchEdit">
+			 <result type="json" />
+		</action>
+		<action name="lsPriority" class="com.xhcms.lottery.admin.web.action.ticket.AllocateTicketAction">
+			<result>priorityList.vm</result>
+		</action>
+		<action name="listPhysicalStoreTicket" class="com.xhcms.lottery.admin.web.action.ticket.ListPhysicalTicketAction">
+			<result>physical_store_ticket.vm</result>
+		</action>
+		<action name="listPrintableTicket" class="com.xhcms.lottery.admin.web.action.ticket.PrintableTicketAction">
+			<result>list_printable_ticket.vm</result>
+		</action>
+		<action name="exportPintableTicket" class="com.xhcms.lottery.admin.web.action.ticket.PrintableTicketAction" method="exportPrintableFile">
+			<result type="json">
+				<param name="root">downloadUrl</param>
+			</result>
+		</action>
+		
+		<!-- 列出票中的高速打印文件 -->
+		<action name="listHighSpeedPrintFile" class="com.xhcms.lottery.admin.web.action.ticket.ListPhysicalTicketAction" method="listHighSpeedPrintFile">
+			<result>downloadfile.vm</result>
+		</action>
+		
+		<action name="exportedTicketFileDetail" class="com.xhcms.lottery.admin.web.action.ticket.ListPhysicalTicketAction" method="exportedTicketFileDetail">
+			<result>exportedTicketFileDetail.vm</result>
+		</action>
+		
+		<action name="set_ticket_export_succ" class="com.xhcms.lottery.admin.web.action.ticket.ListPhysicalTicketAction" method="tickExporSuccess">
+			<result type="json"></result>
+		</action>
+		
+		
+		<!-- 查看票的详情 -->
+	    <action name="detail" class="com.xhcms.lottery.admin.web.action.ticket.ListPhysicalTicketAction" method="ticketDetail">
+	      <result>ticket_detail.vm</result>
+	    </action>
+	    
+	    <!-- 手动设置状态“未出票”的为“成功”状态 -->
+    	<action name="aj_set_ticket_succ" class="com.xhcms.lottery.admin.web.action.scheme.AjaxSetTicketSuccessAction">
+      		<result type="json"/>
+      	</action>
+      	<!-- 批量设置状态“未出票”的为“成功”状态  -->
+    	<action name="aj_batch_set_ticket_succ" class="com.xhcms.lottery.admin.web.action.scheme.AjaxSetTicketSuccessAction" method="batch">
+      		<result type="json"/>
+      	</action>
+      	
+		<!-- 对票进行撤单操作 -->
+    	<action name="aj_set_ticket_cancel" class="com.xhcms.lottery.admin.web.action.scheme.AjaxSetTicketCancelAction">
+      		<result type="json"/>
+      	</action>
+      	<action name="aj_batch_set_ticket_cancel" class="com.xhcms.lottery.admin.web.action.scheme.AjaxSetTicketCancelAction" method="batch">
+      		<result type="json"/>
+      	</action>
+	</package>
+
+</struts>

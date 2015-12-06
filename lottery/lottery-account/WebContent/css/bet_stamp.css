@@ -1,0 +1,13 @@
+.tie-mark-recommand {
+	opacity: 1;
+	-ms-filter: alpha(opacity=70);
+	-ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale');
+	filter: alpha(opacity=70);
+	position: absolute;
+	top: 10px;
+	left: 300px;
+	width: 190px;
+	height: 152px;
+	z-index: 3;
+	background: url("http://trade.davcai.com/ac/images/bet/zhongjiang.gif") no-repeat left top;
+}

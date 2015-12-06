@@ -1,0 +1,21 @@
+<div id="bonus_pool" style="position:fixed; right:10px; top: 200px; z-index: 999; background-image: url(http://trade.davcai.com/df/images/img/bonus_pool.png); width: 200px; height: 151px; cursor: pointer;">
+     <div id="bonus_number" style="font-size: 24px; font-family: Arial; font-weight: bold; color: #FFF; margin-top: 95px; margin-left: 0px; text-align: center;">0元</div>
+</div>
+<script type="text/javascript">
+    $('#bonus_pool').on('click', function(e){
+         e.preventDefault();
+         window.location.href="http://trade.davcai.com/ac/record/bet.do";
+    });
+    function update_bonus(){
+         $.ajax('http://trade.davcai.com/ac/record/getBonusPool.do', {
+              dataType: 'jsonp',
+              jsonp: 'jsonp',
+              cache: false,
+              success: function(result){
+                   $('#bonus_number').text(result.data+'元');
+              }
+         });
+    }
+    update_bonus();
+    setInterval(update_bonus, 60000);
+</script>

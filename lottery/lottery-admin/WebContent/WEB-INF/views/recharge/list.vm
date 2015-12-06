@@ -1,0 +1,140 @@
+#set($title="充值管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>充值管理</b></span>
+    <span><a href="$base/withdraw/list.do"><b>提现管理</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/recharge/list.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">开始日期：<input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+            结束日期：<input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+            用户名：<input type="text" name="username" value="$!{username}" maxlength="32" size="16"/>
+            订单状态：<select name="state" value="${state}" id="stateSel">
+              <option value="-1">不限状态</option>
+              <option value="0">未付款</option>
+              <option value="1">已付款，待审核</option>
+              <option value="2">已付款，待确认</option>
+              <option value="90">充值已完成</option>
+              <option value="99">充值失败</option>
+            </select>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+            <input id="query" type="button" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+      <div class="tabH tabH02 panel">
+        <span class="current"><b>批量操作</b></span>
+        <div style="margin: 4px 4px 0 10px;">
+          <input type="button" class="hand btn" value="确认所选" id="batchPass"/>
+        </div>
+      </div>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+        <th style="width:25px;text-align:center;"><span><input type="checkbox" id="checkAll" /></span></th>
+        <th style="width:60px;text-align:center;"><span>编号</span></th>
+				<th style="width:60px;text-align:center;"><span>用户名称</span></th>
+        <th style="width:80px;text-align:center;"><span>真实姓名</span></th>
+				<th style="width:80px;text-align:center;"><span>充值金额</span></th>
+				<th style="width:80px;text-align:center;"><span>支付金额</span></th>
+				<th style="width:80px;text-align:center;"><span>订单编号</span></th>
+				<th style="width:120px;text-align:center;"><span>支付通道编码</span></th>
+				<th style="width:100px;text-align:center;"><span>申请时间</span></th>
+				<th style="width:100px;text-align:center;"><span>状态</span></th>
+				<th style="width:60px;text-align:center;"><span>操作</span></th>
+			</tr>
+			#foreach($r in $paging.results)
+			<tr>
+        <td style="text-align:center;"><input type="checkbox" name="id" value="${r.id}" #if(${r.status} != 2)disabled="disabled"#end/></td>
+        <td style="text-align:center;">${r.id}</td>
+				<td style="text-align:center;">${r.username}</td>
+				<td style="text-align:center;">${r.realName}</td>
+				<td style="text-align:right;">￥${r.amount}</td>
+				<td style="text-align:right;">￥${r.payAmount}</td>
+				<td style="text-align:center;">${r.orderId}</td>
+				<td style="text-align:center;">${r.channelCode}</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${r.createdTime})</td>
+				<td style="text-align:center;">$status.recharge(${r.status})</td>
+				<td style="text-align:center;"><a href="javascript:void(0);" _rid="${r.id}">查看详情</a></td>
+			</tr>
+			#end
+		</table>
+    </form>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    $('#query').bind('click', function(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        
+        $('#qForm').submit();
+    });
+    
+    $('#dataGrid td a[_rid]').bind('click', function(){
+        var rid = $(this).attr('_rid');
+        xhOpenWindow('$base/recharge/view.do?id=' + rid, {
+            id: 'p_' + rid,
+            title: '查看充值单',
+            height: 500,
+            width: 660
+        });
+        
+        return false;
+    });
+    
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="id"]:enabled').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="id"]:enabled').removeAttr('checked');
+        }
+    });
+    
+    $('#batchPass').bind('click', function(){
+        if($('#dataGrid :checkbox[name="id"]:checked').length == 0){
+            alert('请选择要确认的充值申请单');
+            return false;
+        }
+        
+        if(confirm('确认后将向用户账户打款，确定要继续？')){
+            jQuery.getJSON('$base/recharge/aj_pass.do', $('#pForm').serialize(), function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+    });
+});
+</script>

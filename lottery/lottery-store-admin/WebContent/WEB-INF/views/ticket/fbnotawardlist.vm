@@ -1,0 +1,107 @@
+#set($title="足球兑奖管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>待兑奖</b></span>
+		<a href="$base/ticket/awardedlist.do?lid=JCLQ"><span><b>已兑奖</b></span></a>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/ticket/notawardlist.do" method="post">
+				<input type="hidden" name="playId" value="05_ZC_2"/>
+				<div class="tabH tabH02 panel">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">开始日期：<input type="text" id="createdTime" name="createdTime" value="$date.format('yyyy-MM-dd', $createdTime)" readonly="readonly" size="10"/>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+					<input id="query" type="button" class="hand btn" value="查询">
+          		</div>
+  			</div>
+			</form>
+      <div class="tabH tabH02 panel">
+        <span class="current"><b>操作</b></span>
+        <div style="margin: 4px 4px 10 10px;">
+          <input type="button" action="_pass" value="预兑奖" class="hand btn"/>
+          <input type="button" action="_reject" value="兑奖" class="hand btn"/>
+        </div>
+      </div>
+	</div>
+		
+	<table cellspacing="0" class="tab" id="dataGrid">
+		<tr>
+			<th style="width:25px;text-align:center;"><span><input type="checkbox" id="checkAll" /></span></th>
+			<th style="width:40px;text-align:center;"><span>玩法</span></th>
+			<th style="width:40px;text-align:center;"><span>过关方式</span></th>
+			<th style="width:60px;text-align:center;"><span>投注内容</span></th>
+			<th style="width:90px;text-align:center;"><span>赔率</span></th>
+			<th style="width:30px;text-align:center;"><span>注数</span></th>
+			<th style="width:30px;text-align:center;"><span>倍数</span></th>
+			<th style="width:30px;text-align:center;"><span>投注金额</span></th>
+			<th style="width:30px;text-align:center;"><span>奖金</span></th>
+			<th style="width:70px;text-align:center;"><span>出票时间</span></th>
+			<th style="width:50px;text-align:center;"><span>状态</span></th>
+		</tr>
+		#foreach($t in $tickets)
+		<tr>
+			<td style="text-align:center;"><input type="checkbox" name="ids" value="${t.id}" #if(${t.status} != 5100)disabled="disabled"#end/></td>
+			<td style="text-align:center;">$status.playName($t.playId)</td>
+			<td style="text-align:center;">${t.passTypeId.replace('@', '串')}</td>
+			<td style="text-align:center;">$!{t.code}</td>
+			<td style="text-align:center;">$!{t.odds}</td>
+			<td style="text-align:center;">${t.note}</td>
+			<td style="text-align:center;">${t.multiple}</td>
+			<td style="text-align:right;">${t.money}</td>
+			<td style="text-align:right;">$!{t.afterTaxBonus}</td>
+			<td style="text-align:center;">$date.format("yy-MM-dd HH:mm", ${t.createdTime})</td>
+			<td style="text-align:center;">$!{t.message}</td>
+		</tr>
+		#end
+	</table>
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+
+$(function(){
+    var J = jQuery;
+    $('#createdTime').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    
+    $('#query').bind('click', function(){
+        
+        $('#qForm').submit();
+    });
+    
+     
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="ids"]:enabled').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="ids"]:enabled').removeAttr('checked');
+        }
+    });
+    
+	$("input[action]").click(function() {
+		var action = $(this).attr("action");
+		if (action == '_pass') {
+			$("#pForm").attr("action", "$base/grant/pass.do");
+		} 
+		if (action == '_reject') {
+			$("#pForm").attr("action", "$base/grant/reject.do");
+		}
+		
+		var chkNum = $('input[name=ids]:checked').length;
+		if(chkNum < 1){
+			alert('请至少选择一个再提交该操作!');
+			return false;
+		}
+			
+		$("#pForm").submit();
+	});
+});
+</script>

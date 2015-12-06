@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head msg="006" partnerId="$!partnerId" version="$!version" time="$!time" />
+  <body>
+  	#foreach($withdrawResultReq in $withdrawResultReqs)
+    <withdrawResultReq transactionId="$!withdrawResultReq.transactionId" status="$!withdrawResultReq.status" 
+    	money="$!withdrawResultReq.money" partnerUserId="$!withdrawResultReq.partnerUserId"/>
+    #end
+  </body>
+</msg>

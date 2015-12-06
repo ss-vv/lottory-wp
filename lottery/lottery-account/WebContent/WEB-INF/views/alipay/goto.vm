@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="utf-8" />
+  <title>充值 - 大V彩</title>
+</head>
+<body>
+<form id="pForm" action="${url}" method="post">
+  <input type="hidden" name="partner" value="${partner}"/>
+  <input type="hidden" name="out_trade_no" value="${order}"/>
+  <input type="hidden" name="defaultbank" value="${frpId}"/>
+  <input type="hidden" name="exter_invoke_ip" value="${exterInvokeIp}"/>
+  <input type="hidden" name="extra_common_param" value="${mp}"/>
+  <input type="hidden" name="total_fee" value="${amt}"/>
+  <input type="hidden" name="return_url" value="${returnUrl}"/>
+  <input type="hidden" name="notify_url" value="${notifyUrl}"/>
+  <input type="hidden" name="service" value="create_direct_pay_by_user"/>
+  <input type="hidden" name="_input_charset" value="UTF-8"/>
+  <input type="hidden" name="subject" value="大V彩会员充值"/>
+  <input type="hidden" name="payment_type" value="1"/>
+  <input type="hidden" name="paymethod" value="${paymethod}"/>
+  <input type="hidden" name="sign_type" value="${signType}"/>
+  <input type="hidden" name="seller_email" value="${sellerEmail}"/>
+  <input type="hidden" name="sign" value="${mysign}"/>
+</form>
+<script language="javascript" type="text/javascript">
+	document.getElementById('pForm').submit();
+</script>
+</body>
+</html>
+

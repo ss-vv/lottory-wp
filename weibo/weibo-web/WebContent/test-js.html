@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/web/jquery.util.js"></script>
+<style>
+.logError{
+    color: red;
+}
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+function log(level, msg){
+    //console.log(msg);
+    var clazz='';
+    if (arguments.length == 2 || level == 'error'){
+    	clazz = 'class="logError"';
+    	$('body').append('<p '+ clazz + '>Error >> '+msg+'</p>');
+    }else{
+    	msg = level;
+		$('body').append('<p '+ clazz + '>'+msg+'</p>');
+    }
+}
+function assert(actual, expected){
+	if (actual === expected){
+		log('ok.');
+	}else{
+		var error = 'expect "'+expected+'" actual is "'+actual+'"'
+		log('error', error);
+		//throw error;
+	}
+}
+
+function assertFalse(actual, expected){
+	if (actual === expected){
+		var error
+        log(error);
+        throw error;
+    }else{
+        log('ok.');
+    }
+}
+
+function test(msg, task){
+	log(msg);
+	task();
+}
+
+$(function(){
+	log('开始js unit测试...');
+
+	test('3秒前', function(){
+        var threeSecondsAgo = new Date();
+        threeSecondsAgo.setSeconds(threeSecondsAgo.getSeconds()-3);
+        var shortTime = $.shortTime(threeSecondsAgo);
+        log('cur: ' + shortTime);
+        assert('3秒前', shortTime);
+    });
+	
+    test('一分钟内应该以秒为单位显示', function(){
+        var time = new Date(2014,5-1,8,17,20,30);
+        var reference = new Date(2014,5-1,8,17,20,30+59);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assert(shortTime, '59秒前');
+    });
+    
+    test('一小时内应该以分钟为单位显示', function(){
+        var time = new Date(2014,5-1,8,17,20,30);
+        var reference = new Date(2014,5-1,8,17,20+16,30);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assert(shortTime, '16分钟前');
+    });
+    
+    test('一小时内应该以分钟为单位显示，边界测试', function(){
+        var time = new Date(2014,5-1,8,17,20,30);
+        var reference = new Date(2014,5-1,8,18,19,30);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assert(shortTime, '59分钟前');
+    });
+    
+    test('一小时以上应该看是否是同一天', function(){
+        var time = new Date(2014,5-1,8,17,20,30);
+        var reference = new Date(2014,5-1,8,18,20,30);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assertFalse(shortTime, '59分钟前');
+        assert(shortTime, '今天 17:20');
+    });
+    
+    test('不是同一天，但是同一年，应该隐藏年', function(){
+        var time = new Date(2014,5-1,8,17,20,30);
+        var reference = new Date(2014,12-1,30,0,0,0);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assertFalse(shortTime, '59分钟前');
+        assert(shortTime, '05-08 17:20');
+    });
+    
+    test('不是同一年，显示年', function(){
+        var time = new Date(2014,5-1,8,17,20,30);
+        var reference = new Date(2015,1-1,1,0,0,0);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assertFalse(shortTime, '59分钟前');
+        assert(shortTime, '2014-05-08 17:20');
+    });
+
+    test('格式化 string 日期串', function(){
+        var time = '2014-05-08T17:20:30';
+        var reference = new Date(2014,5-1,1,0,0,0);
+        var shortTime = $.shortTime(time, reference);
+        log('原始日期：' + time);
+        log(shortTime);
+        assertFalse(shortTime, '59分钟前');
+        assert(shortTime, '05-08 17:20');
+    });
+
+    test('格式化 string 日期串, 5.1', function(){
+        var time = '2014-05-05T19:44:20';
+        var reference = new Date(2014,5-1,1,0,0,0);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assertFalse(shortTime, '59分钟前');
+        assert(shortTime, '05-05 19:44');
+    });
+
+    test('格式化不带T的 string 日期串', function(){
+        var time = '2014-05-05 19:44:20';
+        var reference = new Date(2014,5-1,1,0,0,0);
+        var shortTime = $.shortTime(time, reference);
+        log(shortTime);
+        assertFalse(shortTime, '59分钟前');
+        assert(shortTime, '05-05 19:44');
+    });
+
+});
+</script>
+</body>
+</html>

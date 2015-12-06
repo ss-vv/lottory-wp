@@ -1,0 +1,118 @@
+#set($title="赛事管理")
+#set($styles=["css/jqueryui/jquery-ui", "css/style"])
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js", "js/lottery/match.editor.js"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span><a href="$base/match/fblist.do"><b>足球赛事</b></a></span>
+		<span class="current"><b>篮球赛事</b></span>
+		<span><a href="$base/match/jxlist.do"><b>江西十一选五</b></a></span>
+		<span><a href="$base/match/ctfblist.do"><b>传统足彩赛事</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/match/bblist.do" method="post">
+      <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			<div class="tabH tabH02 panel">
+        <span class="current"><b>条件查询</b></span>
+				<div class="l">
+           从 <input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+         至 <input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+         <select name="state" value="${state}" id="stateSel">
+            <option value="-1">不限状态</option>
+            <option value="0">停售</option>
+            <option value="1">在售</option>
+            <option value="2">待售</option>
+            <option value="3">进行中</option>
+            <option value="4">已取消</option>
+            <option value="5">已完成</option>
+          </select>
+				</div>
+				<div class="r" style="margin: 4px 4px 0 0">
+          <input type="submit" class="hand btn" value="查询">
+        </div>
+			</div>
+			</form>
+		</div>
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr class="">
+        <th style="width:60px;text-align:center;"><span>赛事ID</span></th>
+				<th style="width:70px;text-align:center;"><span>赛事编号</span></th>
+				<th style="width:140px;text-align:center;"><span>联赛名称</span></th>
+				<th style="width:200px;text-align:center;"><span>客队 VS 主队</span></th>
+				<th style="width:80px;text-align:center;"><span>预计停售时间</span></th>
+				<th style="width:110px;text-align:center;"><span>开赛时间</span></th>
+				<th style="width:70px;text-align:center;"><span>状态</span></th>
+        <th style="width:40px;text-align:center;">操作</th>
+			</tr>
+			#foreach($m in $paging.results)
+			<tr id="$m.id">
+				<td style="text-align:center;">${m.id}</td>
+				<td style="text-align:center;">${m.cnCode}</td>
+				<td style="text-align:center;">${m.leagueName}</td>
+				<td style="text-align:center;">${m.name}</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${m.offtime})</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${m.playingTime})</td>
+				<td style="text-align:center;" _attr="${m.status}">$status.match(${m.status})</td>
+				<td style="text-align:center;"><a href="javascript:void(0);" _op="edit">编辑</a></td>
+			</tr>
+			#end
+		</table>
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#dataGrid a[_op="edit"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+        new matchEditor({
+            width: 380, 
+            height: 300, 
+            data: {
+                mtype : 1,
+                id: $('td', _tr).eq(0).text(),
+                cnCode: $('td', _tr).eq(1).text(),
+                leagueName: $('td', _tr).eq(2).text(),
+                name: $('td', _tr).eq(3).text(),
+                offtime: $('td', _tr).eq(4).text(),
+                playingTime: $('td', _tr).eq(5).text(),
+                status: $('td', _tr).eq(6).attr('_attr')
+            },
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+
+        return false;
+    });
+    
+});
+</script>

@@ -1,0 +1,209 @@
+.ui-loading{
+    margin: 0 auto;
+    padding: 10px 0px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+.ui-loading-img{
+    width: 16px;
+    height: 16px;
+    border: 0px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* 弹出窗口 */
+.ui-panel{
+    position: absolute;
+    font-size: 12px;
+    min-height: 100px;
+    min-width: 100px;
+    padding: 0px;
+    z-index: 10241;
+    background-color: #FFFFFF;
+}
+
+.ui-panel-bg{
+    height:100%;
+    left:0;
+    position:absolute;
+    top:0;
+    width:100%;
+}
+
+.ui-panel-bg-t, .ui-panel-bg-r, .ui-panel-bg-b, .ui-panel-bg-l, .ui-panel-bg-rt, .ui-panel-bg-rb, .ui-panel-bg-lt,.ui-panel-bg-lb{
+    overflow:hidden;
+    position:absolute;
+    zoom:1;
+    z-index:999;
+}
+
+.ui-panel-bg-t, .ui-panel-bg-b{
+    height:5px;
+    left:0;
+    width:100%;
+}
+.ui-panel-bg-t{
+    background:url("../images/ui/win_bg_t.png") repeat-x;
+    _background:url("../images/ui/s.gif") repeat;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/ui/../images/ui/win_bg_t.png", sizingMethod="scale");
+    border-bottom:1px solid #ACABAB;
+    top:-6px;
+}
+.ui-panel-bg-b{
+    background:url("../images/ui/win_bg_b.png") repeat-x;
+    _background:url("../images/ui/s.gif") repeat;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/ui/../images/ui/win_bg_b.png", sizingMethod="scale");
+    border-top:1px solid #ACABAB;
+    bottom:-6px;
+}
+.ui-panel-bg-r, .ui-panel-bg-l{
+    height:100%;
+    top:0;
+    width:5px;
+}
+.ui-panel-bg-r{
+    background:url("../images/ui/win_bg_r.png") repeat-y;
+    _background:url("../images/ui/s.gif") repeat;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/ui/../images/ui/win_bg_r.png", sizingMethod="scale");
+    border-left:1px solid #ACABAB;
+    right:-6px;
+}
+.ui-panel-bg-l{
+    background:url("../images/ui/win_bg_l.png") repeat-y;
+    _background:url("../images/ui/s.gif") repeat;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/ui/../images/ui/win_bg_l.png", sizingMethod="scale");
+    border-right:1px solid #ACABAB;
+    left:-6px;
+}
+.ui-panel-bg-rt, .ui-panel-bg-rb{
+    height:6px;
+    width:6px;
+    right:-6px;
+}
+.ui-panel-bg-rt{
+    top:-6px;
+}
+.ui-panel-bg-rb{
+    bottom:-6px;
+}
+.ui-panel-bg-lt, .ui-panel-bg-lb{
+    height:6px;
+    left:-6px;
+    width:6px;
+}
+.ui-panel-bg-lb{
+    bottom:-6px;
+}
+.ui-panel-bg-lt{
+    top:-6px;
+}
+.ui-panel-bg-trbl{
+    background:url("../images/ui/win_bg_trbl.png") no-repeat scroll left top transparent;
+    _background:url("../images/ui/s.gif") repeat;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/ui/../images/ui/win_bg_trbl.png", sizingMethod="crop");
+    display:block;
+    height:12px;
+    overflow:hidden;
+    width:12px;
+}
+.ui-panel-bg-rt .ui-panel-bg-trbl{
+    margin-left:-6px;
+}
+.ui-panel-bg-rb .ui-panel-bg-trbl{
+    margin:-6px 0 0 -6px;
+}
+.ui-panel-bg-lb .ui-panel-bg-trbl{
+    margin-top:-6px;
+}
+
+.ui-panel-content{
+    height:100%;
+    overflow:hidden;
+    width:100%;
+    z-index:9;
+    position: relative;
+}
+
+.ui-panel-header{
+    background:url("../images/ui/v.gif") repeat-x;
+    height: 29px;
+    margin: 1px 1px 0;
+    position: relative;
+}
+
+.ui-panel-title{
+    color:#333333;
+    float:left;
+    font-size:13px;
+    font-weight:bold;
+    height:27px;
+    line-height:27px;
+    padding:0 10px;
+}
+
+.ui-panel-close{
+    background:url("../images/ui/icons.gif") no-repeat scroll;
+    float:right;
+    height:16px;
+    margin:6px 6px 0 0;
+    overflow:hidden;
+    text-indent:-9999px;
+    width:16px;
+}
+
+.ui-panel-close:hover{
+   background-position: 0 -16px;
+}
+
+.ui-panel-body{
+    line-height:18px;
+    position: relative;
+    overflow: auto;
+    z-index:9;
+}
+
+.ui-panel-iframe {
+    width:100%; 
+    margin:0px; 
+    padding:0px; 
+    filter:alpha(opacity=0); opacity:0; 
+    position:absolute; 
+    top:0px; 
+    left:0px; 
+    z-index:0; 
+    display:block; 
+    overflow:hidden;
+}
+
+.ui-panel-model{
+    z-index: 1024;
+    position: fixed;
+    top:0px;
+    left:0px;
+    background-color: #000;
+    filter:alpha(opacity=0.4); opacity:0.4; 
+}
+
+/* 对话框 */
+.ui-dialog {
+    width: 300px;
+}
+
+.ui-dialog-text {
+    padding:15px;
+    text-align:center;
+}
+
+.ui-login {
+    width: 525px;
+}
+
+.ui-login .ui-panel-header {
+    background: none;
+}
+
+.ui-login .ui-panel-title {
+    display: none;
+}

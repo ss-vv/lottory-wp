@@ -1,0 +1,56 @@
+/*下面这两段是问号提示层*/
+/*这个span.poptip隐藏层放在了上面的a标签里面*/
+.today-some p.today-some-expected-bonus span.poptip{
+	position:absolute;
+	display:block;
+	width:330px;
+	height:90px;
+	background: #FFFFE1;
+	border: 1px #95A3AB solid;
+	border-radius:5px;
+	margin-left: -100px;
+	margin-top: 30px;
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: none;
+}
+.today-some p.today-some-expected-bonus span.poptip i{
+	font-size: 12px;
+    line-height: 160%;
+    padding: 4px;
+    padding-top: 3px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.today-some p.today-some-expected-bonus span.poptip i em{
+	font-weight: bold;
+	font-size: 14px;
+	display: inline-block;
+	margin-bottom: 4px;
+}
+.today-some p.today-some-expected-bonus span.poptip .poptip-top{
+	display:inline-block;
+	position:absolute;
+	left:90px;
+	top:-30px;
+	width:0;
+	height:0;
+	border-style:solid;
+	border-width:15px;
+    border-color:transparent  transparent #95A3AB  transparent;
+}
+.today-some p.today-some-expected-bonus span.poptip .poptip-bottom{
+	display:inline-block;
+	position:absolute;
+	left:90px;
+	top:-29px;
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:15px;
+    border-color:transparent  transparent #FFFFE1  transparent;
+}
+/*上面这两段是问号提示层*/
+

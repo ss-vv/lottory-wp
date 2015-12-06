@@ -1,0 +1,11 @@
+
+# database
+db.driver = com.mysql.jdbc.Driver
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+
+#Redis
+redis.url=${redis.url}
+redis.port=${redis.port}

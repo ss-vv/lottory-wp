@@ -1,0 +1,122 @@
+#set($title="选项")
+
+<link type="text/css" rel="stylesheet" href="$base/css/style.css" />
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js", "js/jquery.validate.js", "js/lottery/option.editor.js"])
+
+<div class="w">
+  <div class="bx_c">
+    <div class="bx_in" >
+      <form id="qForm" action="/option/list.do" method="get">
+        <input type="hidden" name="pageNo" value="1">
+        <div class="tabH tabH02 panel">
+          <span class="current"><b>条件查询</b></span>
+          <div class="l">
+                      彩种: <select id="lotteryId" name="lotteryId">
+                  <option value="JCZQ">竞彩足球</option> 
+                  <option value="JCLQ">竞彩篮球</option>
+                </select>
+          </div>
+          <div class="l">
+                      玩法: <select id="playId" name="playId"></select>
+          </div>
+          <div class="r" style="margin: 4px 4px 0 0"><input id="addBtn" type="button" class="hand btn" value="添加"></div>
+          <div class="r" style="margin: 4px 4px 0 0"><input id="queryBtn" type="submit" class="hand btn" value="查询"></div>
+        </div>
+      </form>
+    </div>
+    <table id="dataGrid" cellspacing="0" summary="" class="tab">
+      <tr>
+        <th style="width:100px;text-align:center;">选项名称</th>
+        <th style="width:100px;text-align:center;">选项值</th>
+        <th style="width:100px;text-align:center;">状态</th>
+        <th style="text-align:center;">备注信息</th>
+        <th style="width:150px;text-align:center;">操作</th>
+      </tr>
+      #if($list.size() == 0)
+        <tr>
+            <td colspan="5" style="text-align:center;">没有查询出相关记录</td>
+        </tr>
+      #else
+        #foreach($o in $list)
+        <tr _id="${o.id}">
+          <td style="text-align:center;">$o.name</td>            
+          <td style="text-align:center;">$o.value</td>            
+          <td style="text-align:center;" _attr="$o.status">#if($o.status == 0)有效#else无效#end</td>            
+          <td style="text-align:center;">$o.note</td>
+          <td style="text-align:center;"><a href="javascript:void(0);" _op="edit">编辑</a> <a href="javascript:void(0);" _op="delete">删除</a></td>            
+        </tr>
+        #end
+      #end
+    </table>
+  </div>
+</div>
+  
+<script type="text/javascript">
+$(function(){
+
+    $('#dataGrid a[_op="edit"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+        new optionEditor({
+            width: 400,
+            height: 300,
+            lotteryId: '$!{lotteryId}',
+            data: {
+                id: _tr.attr('_id'),
+                playId: '$!{playId}',
+                name: $('td', _tr).eq(0).text(),
+                value: $('td', _tr).eq(1).text(),
+                status: $('td', _tr).eq(2).attr('_attr'),
+                note: $('td', _tr).eq(3).text()
+            },
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+
+        return false;
+    });
+    
+    $('#dataGrid a[_op="delete"]').bind('click', function(){
+        if(confirm('确定要删除该玩法选项？')){
+            var tr = $(this).closest('tr');
+            jQuery.getJSON('$base/option/aj_rm.do', {oid: tr.attr('_id')}, function(data){
+                if(data.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+        return false;
+    });
+
+    //彩种选项
+    var _lid = $('#lotteryId');
+    var _pid = $('#playId');
+    _lid.val('$!{lotteryId}');
+    _lid.bind('change', function(){
+        var ctx = $(this);
+        _pid.initPlay({
+            lid: ctx.val(),
+            efVal: '$!{playId}'
+        });
+    });
+    
+    //玩法选项
+    _pid.initPlay({
+        lid: _lid.val(),
+        defVal: '$!{playId}'
+    });
+
+    $('#addBtn').bind('click', function(){
+        new optionEditor({
+            width: 400,
+            height: 300,
+            lotteryId: '$!{lotteryId}',
+            playId: '$!{playId}',
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+    });
+    
+});
+</script>

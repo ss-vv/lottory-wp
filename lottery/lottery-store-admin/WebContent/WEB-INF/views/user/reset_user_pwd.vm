@@ -1,0 +1,14 @@
+#set($title="重置用户登陆密码")
+<div class="w">
+    <div class="tabH" id="tabLinks">
+        <span class="current"><b>用户的新密码</b></span>
+    </div>
+    <div class="bx_c">
+        <table cellspacing="0" class="tab">
+            <tr>
+                <td style="text-align:right;width:110px;">请保存好给用户：</td><td>${userPwd}</td>
+            </tr>
+        </table>
+  </div>
+</div>
+

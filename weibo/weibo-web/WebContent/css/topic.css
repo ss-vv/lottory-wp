@@ -1,0 +1,1252 @@
+.wrapper {
+	padding-top: 0px;
+}
+
+.main_wraper {
+	width: 960px;
+	margin: 0px auto;
+	border: 1px solid #E0E0E0;
+	overflow: hidden;
+}
+
+.main_wraper .newTab_white {
+	margin-bottom: 20px;
+	margin-top: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.main_wraper .newTab_white .top {
+	padding-bottom: 10px;
+	border: none;
+}
+
+.newTab_white .top li.active a {
+	border: none;
+	background: #FFF;
+}
+
+.main_wraper .newTab_white .top li a.active {
+	border-bottom: 2px solid red;
+}
+
+.main_wraper .newTab_white .top li a:HOVER {
+	color: red;
+}
+
+.main_wraper .newTab_white .top li {
+	margin-right: 35px;
+}
+
+.main_wraper .newTab_white .top li a {
+	width: 56px;
+}
+
+.main_content {
+	float: left;
+	padding: 10px;
+	width: 589px;
+	min-height: 589px;
+	border-right: 1px solid #F1F1F1;
+}
+
+.main_content li.topic .content.status_content {
+	margin-left: 225px;
+}
+
+.winnings_tab {
+	margin-left: -10px;
+}
+
+.winnings_tab a {
+	cursor: pointer !important;
+}
+
+.winnings_tab li.active a {
+	color: red !important;
+}
+.winnings_tab li a {
+	color: #000 !important;
+}
+
+.loading {
+	display: block;
+	width:100%;
+	height:40px;
+}
+
+.recommend {
+	display: block;
+}
+
+ul.status-list li {
+	overflow: hidden;
+}
+
+.main_content li.topic h3.title {
+	max-width: 100%;
+	font-size: 18px;
+	margin-bottom: 6px;
+}
+.main_content li.topic h3.title a {
+	color: #000;
+}
+.main_content li.topic h3.title a:HOVER {
+	color: #0092FF;
+}
+
+.meta .infos a.source {
+	color:#888;
+}
+
+.main_content li.topic .info_block {
+	margin:0px;
+}
+
+.right-sidebar .widget-title {
+	padding: 0;
+	font-size: 14px;
+}
+
+.right-sidebar .widget {
+	margin-left: 12px;
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
+
+.main_content .hot-list .down {
+	margin-top: 0px;
+	padding-left: 0px;
+}
+.newTab_white.down {
+	padding: 0px 0 0 0px;
+	border-bottom: none;
+	margin-bottom: 10px;
+}
+.newTab_white .down {
+	padding: 0px 0 0 0px;
+}
+
+.main_wraper {
+	background: #FFF;
+	zoom: 1;
+	overflow: hidden;
+	border: solid 1px #DDD;
+	-webkit-box-shadow: 0 5px 5px rgba(9, 2, 3, 0.24);
+	-moz-box-shadow: 0 5px 5px rgba(9,2,3,0.24);
+	box-shadow: 0 5px 5px rgba(9, 2, 3, 0.24);
+	-webkit-box-shadow: 0 5px 5px rgba(9, 2, 3, 0.24);
+	-moz-box-shadow: 0 5px 5px rgba(9,2,3,0.24);
+	box-shadow: 0 5px 5px rgba(9, 2, 3, 0.24);
+}
+
+.newTab_white.upper {
+	margin-bottom: 6px;
+	border-bottom: solid 1px #DDD;
+	-webkit-box-shadow: 0 2px 4px rgba(1, 1, 1, 0.1);
+	-moz-box-shadow: 0 2px 4px rgba(1,1,1,0.1);
+	box-shadow: 0 2px 4px rgba(1, 1, 1, 0.1);
+	-webkit-box-shadow: 0 2px 4px rgba(1, 1, 1, 0.1);
+	-moz-box-shadow: 0 2px 4px rgba(1,1,1,0.1);
+	box-shadow: 0 2px 4px rgba(1, 1, 1, 0.1);
+	background: #FCFCFC;
+}
+
+.main_content .headpic img {
+	background-color: #FFF;
+	-webkit-box-shadow: 0 2px 4px rgba(9, 2, 3, 0.5);
+	-moz-box-shadow: 0 2px 4px rgba(9,2,3,0.5);
+	box-shadow: 0 2px 4px rgba(9, 2, 3, 0.5);
+	-webkit-box-shadow: 0 2px 4px rgba(9, 2, 3, 0.5);
+	-moz-box-shadow: 0 2px 4px rgba(9,2,3,0.5);
+	box-shadow: 0 2px 4px rgba(9, 2, 3, 0.5);
+	padding: 1px;
+	border: solid 2px #FFF;
+}
+
+.tipstop_two {
+	min-height: 142px;
+}
+
+.tipstop_two,.tipstalk ul li {
+	font-size: 13px;
+}
+
+.TipsTalk-list {
+	list-style-type: disc;
+	margin-left: 13px;
+}
+
+.tipstalk {
+	padding-top: 6px;
+	border-top: 1px solid #F1F1F1;
+	margin-bottom: 15px;
+	margin-top: 4px;
+}
+
+.tipstop_two h2 {
+	font-size: 14px;
+}
+
+.tipstalk ul li {
+	line-height: 22px;
+	white-space: nowrap;
+}
+
+.tipstalk ul li span {
+	line-height: 22px;
+}
+
+.tipstalk a {
+	color: #000;
+	width: 225px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	float: right;
+}
+
+.tipstop_two a.more {
+	float: right;
+	line-height: 1.5;
+}
+
+.status-list .status p {
+	margin: 0px 0px;
+}
+
+
+
+
+
+
+
+/*中奖喜报 davcai样式*/
+#winner{
+	width: 100%;
+	height: 100%;
+}
+#winner .winner-content{
+	width: 985px;
+	height: auto;
+	margin: 100px auto 0;
+}
+.winner-content .winner-content-left{
+	width: 715px;
+	height: auto;
+	float: left;
+	border-right: 1px #EAEAEA solid;
+}
+
+.winner-content .winner-content-right{
+	width: 253px;
+	height: auto;
+	float: right;
+}
+
+/*下面开始davcai-nav次级导航部分*/
+
+.davcai-nav{
+	width: 710px;
+	border-bottom: 3px #EAEAEA solid;
+	background-color: #fff;
+	height: 45px;
+	margin: 0 auto 33px;
+}
+.davcai-nav .davcai-nav-box{
+	width: 715px;
+	height: 45px;
+	margin: 0 auto;
+}
+.davcai-nav .davcai-nav-tab{
+	width:350px;
+	height: 45px;
+	display: inline-block;
+	float: left;
+	margin-left: 50px;
+	border: 1px transparent dashed;
+}
+.davcai-nav .davcai-nav-tab li{
+	float: left;
+	font-size: 18px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.davcai-nav .davcai-nav-tab li a{
+	color: #5F5F5F;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+}
+.davcai-nav .davcai-nav-tab li:hover a{
+	color: #000000;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+
+.davcai-nav .davcai-nav-tab li a.active{          /*相比较于之前的03版本，这段代码是聚焦当前默认的-2014/08/26 lwc*/
+	color: #000000;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+.davcai-nav .davcai-nav-tab li:hover{
+	 border-bottom:3px solid #E22319;
+	 margin-bottom:-3px;
+	 background: #fff;
+}
+.davcai-nav .davcai-nav-tab li.active{           /*相比较于之前的03版本，这段代码是聚焦当前默认的-2014/08/26 lwc*/
+	 border-bottom:3px solid #E22319;
+	 margin-bottom:-3px;
+	 background: #fff;
+}
+.davcai-nav .date-time{
+	display: inline-block;
+	width: 110px;
+	height: 25px;
+	font-size: 12px;
+	float: right;
+	margin-top: -30px;
+	margin-right: 5px;
+}
+
+.davcai-nav .davcai-nav-classify{
+	width: 130px;
+	height: 30px;
+	display: inline-block;
+	float: left;
+	margin-top: -30px;
+	margin-left: 45px;
+	color: #949494;
+}
+.davcai-nav-classify label:hover{
+	color: #010101;
+	cursor: pointer;
+}
+.davcai-nav-classify label.current{
+	color: #010101;
+}
+/*上面结束davcai-nav次级导航部分*/
+
+/*下面开始davcai-list部分*/
+.davcai-list{
+	width: 616px;
+	height: auto;
+}
+.davcai-list .davcai-list-top{
+	width: 616px;
+	height: 35px;
+	background:url(../images/davcai/winninglist/davcai-list-top-bg.png) no-repeat;	
+	margin: 0 auto;
+}
+.davcai-list-top li{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	width: 70px;
+	text-align: center;
+	font-weight: bold;
+	color: #000000;
+	font-family: "微软雅黑";
+}
+.davcai-list .davcai-list-width01{
+	width: 84px;
+}
+.davcai-list .davcai-list-width02{
+	width: 162px;
+}
+.davcai-list .davcai-list-width03{
+	width: 110px;
+}
+.davcai-list .davcai-list-width04{
+	width: 45px;
+}
+.davcai-list .davcai-list-width05{
+	width: 65px;
+}
+.davcai-list .davcai-list-width06{
+	width: 62px;
+}
+
+.davcai-list .davcai-list-middle{
+	width: 616px;
+	height: auto;
+	background:url(../images/davcai/winninglist/davcai-list-middle-bg.png) repeat;	
+	margin-left: 1px;
+}
+.davcai-list-middle .winprize{
+	width: 181px;
+	height: 140px;
+	float: right;
+	margin-top: -145px;
+	margin-right: 25px;
+}
+.davcai-list .davcai-list-details{
+	width: 616px;
+	height: 38px;
+}
+.davcai-list-details li{
+	float: left;
+	height: 38px;
+	width: 70px;
+	line-height: 38px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.davcai-list-details li.davcai-list-width02 a{
+	color: #1B9BFF;
+	font-size: 12px;
+}
+.davcai-list-details li.davcai-list-width02 .match-left{
+	width: 70px;
+	height: 38px;
+	line-height: 38px;
+	float: left;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 12px;
+}
+.davcai-list-details li.davcai-list-width02 .match-right{
+	width: 70px;
+	height: 38px;
+	line-height: 38px;
+	float: right;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 12px;
+}
+.davcai-list-details li.davcai-list-width02 .match-vs{
+	width: 18px;
+	height: 38px;
+	line-height: 38px;
+	font-size: 15px;
+	float: left;
+	font-style: normal;
+}
+.davcai-list-middle hr.davcai-list-dotted{
+	clear: both;
+	height: 1px;
+	width: 590px;
+	border: none;
+	border-top: 1px #D5D5D5 dashed;
+	margin:0 auto;
+}
+.davcai-list-middle .davcai-list-pass,.davcai-list-multiple,.davcai-list-money{
+	height: 40px;
+	line-height: 40px;
+	margin-left: 8px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #000000;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-indent: 12px;
+}
+.davcai-list-middle .davcai-list-pass{
+	margin-top: 30px;
+}
+.davcai-list-pass span,label{
+	margin-right: 20px;
+}
+.davcai-list-multiple span{
+	margin-right: 20px;
+}
+.davcai-list-money label{
+	color: #E22319;
+	margin-right: -3px;
+}
+.davcai-list-money span{
+	margin-right: 20px;
+}
+.davcai-list .davcai-list-bottom{
+	width: 616px;
+	height: 15px;
+	background:url(../images/davcai/winninglist/davcai-list-bttom-bg.png) no-repeat;	
+	margin: 0 auto;
+	margin-left: 1px;
+}
+
+/*上面结束.davcai-list单子页面*/
+
+/*下面开始davcai-popular-race热门赛事部分*/
+.davcai-popular-race-outer{
+	width: 243px;
+	height: auto;
+	margin-bottom: 15px;
+}
+.davcai-popular-race-outer h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-popular-race-outer .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+.davcai-popular-race{
+	width: 253px;
+	height: auto;
+}
+.davcai-popular-race-son{
+	height: 28px;
+	line-height: 28px;
+	width: 253px;
+  	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-popular-race-son a{
+	color: #000;
+}
+.davcai-popular-race-son .popular-race-match{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #8D8D8D;
+	width: 50px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .race-team-left,.race-team-right{
+	width: 75px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .red-race-team-left,.red-race-team-right{
+	width: 85px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .race-team-left{
+	text-align: left;
+}
+.davcai-popular-race-son .race-team-right{
+	text-align: right;
+	margin-left: -20px;
+}
+.davcai-popular-race-son .race-team-left i{
+	text-align: right;
+	width: 20px;
+	display: inline-block;
+	margin-right: 2px;
+}
+.davcai-popular-race-son .race-team-right i{
+	text-align: left;
+	width: 20px;
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.davcai-popular-race-son .popular-race-vs{
+	color: #FF0000;
+	font-weight: bold;
+	width: 16px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .popular-red-race-vs{
+	color: #FF0000;
+	font-weight: bold;
+	width: 20px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son span,label{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-popular-race-son .popular-race-list{
+	color: #E22319;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	width: 18px;
+	height: 25px;
+	float: right;
+	margin-right: 15px;
+}
+/*上面结束davcai-popular-race热门赛事部分*/
+
+/*下面开始davcai-plus-interest加关注部分*/
+.davcai-plus-outer{
+	width: 243px;
+	height: auto;
+	margin: 15px auto 20px;
+}
+.davcai-plus-outer h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-plus-outer h6.change{
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+}
+.davcai-plus-outer h6.change a{
+	color: #63B5FF;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.davcai-plus-outer .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+.davcai-plus-outer .davcai-plus-interest{
+	width: 243px;
+}
+.davcai-plus-interest li.davcai-plus-interest-son{
+	width: 243px;
+	height: 82px;
+    border-bottom: 1px #000000 dotted;
+}
+.davcai-plus-interest-son .interest-user{
+	width: 56px;
+	height: 54px;
+	float: left;
+	margin-left: 6px;
+	margin-top: 14px;
+	margin-right: 6px;
+}
+.davcai-plus-interest-son .interest-name{
+	width: 100px;
+	height: 18px;
+	line-height: 18px;
+	display: inline-block;
+	margin-top: 12px;
+	color: #008FFF;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.davcai-plus-interest-son .interest-guanzhu{
+	/*margin-top: 20px;*/
+	display: block;
+}
+.davcai-plus-interest-son .plus-interest-button{
+	width: 58px;
+	height: 23px;
+	display: inline-block;
+	background:url(../images/davcai/winninglist/plus-interest-button.png)  no-repeat ;
+	float: right;
+	margin-top: -50px;
+	margin-right: 5px;
+}
+/*上面结束davcai-plus-interest加关注部分*/
+
+/*下面开始davcai-ranking-list排行榜部分*/
+.davcai-ranking-list-outer{
+	width: 253px;
+	height: auto;
+	margin-bottom: 20px;
+}
+.davcai-ranking-list-outer h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-ranking-list-outer .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+
+h4.title .blue-mark-tips{
+	width: 17px;
+	height: 17px;
+	line-height:17px ;
+	display: inline-block;
+	margin-bottom: -4px;
+	margin-left: 45px;
+	background:url(../images/davcai/winninglist/blue-mark-tips.png) no-repeat ;
+	cursor: pointer;
+}
+.davcai-ranking-list-outer .blue-mark-tips-tan{
+	width: 222px;
+	height: 146px;
+	background:url(../images/davcai/winninglist/blue-mark-tips-tan.png) no-repeat ;
+	padding: 30px 10px 12px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	text-indent: 20px;
+	margin-left: 11px;
+	clear: both;
+	float: left;
+	margin-top: -9px;
+	margin-bottom: 8px;
+	z-index: 1000;
+	position: absolute;
+	display: none;
+}
+.davcai-ranking-list-outer .blue-mark-tips-tan-big{
+	width: 222px;
+	height: 266px;
+	background:url(../images/davcai/winninglist/blue-mark-tips-tan-big.png) no-repeat ;
+	padding: 30px 10px 12px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	text-indent: 20px;
+	margin-left: 11px;
+	clear: both;
+	float: left;
+	margin-top: -9px;
+	margin-bottom: 8px;
+	z-index: 1000;
+	position: absolute;
+	line-height: 168%;
+	display: none;
+}
+.davcai-ranking-list-outer .hr-solid-half{
+	height: 1px;
+	width: 150px;
+	float: right;
+	border: none;
+	border-top: 2px #EAEAEA solid;
+	margin-top: 0px;
+	margin-bottom: 12px;
+}
+.davcai-ranking-list-outer .ranking-list-tab{
+	clear: both;
+	text-align: center;
+	float: left;
+	margin-top: 0px;
+	margin-left: 3px;
+	margin-bottom: 12px;
+}
+.ranking-list-tab a{
+	width: 122px;
+	height: 29px;
+	line-height: 29px;
+	display: inline-block;
+	border: 1px #D6D6D6 solid;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	padding-top: 0px;
+	text-align: center;
+	color: #000000;
+	float: left;
+	background: #EEEEEE;
+}
+.ranking-list-tab a:hover{
+	background: #fff;
+	font-weight: bold;
+}
+.ranking-list-tab a.current{
+	background: #fff;
+	font-weight: bold;
+}
+.ranking-list-tab .nearly-fifty-field{
+	border-left: none;
+
+}
+.ranking-list-tab .rank-football{
+	border-left: none;
+
+}
+
+.davcai-ranking-list{
+	width: 253px;
+	border: 1px transparent solid;
+}
+.davcai-ranking-list .davcai-ranking-list-son{
+	width: 253px;
+	height: 55px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+}
+.davcai-ranking-list hr.ranking-list-dotted{
+	clear: both;
+	height: 1px;
+	width: 253px;
+	border: none;
+	border-top: 1px #000 dashed;
+	margin-bottom: 10px;
+}
+
+/*上面是晒单红人总战绩榜*/
+.davcai-ranking-list-son .ranking-user{
+	width: 56px;
+	height: 54px;
+	float: left;
+	margin-left: 0px;
+	margin-right: 6px;
+}
+.davcai-ranking-list-son .ranking-name{
+	width: 100px;
+	height: 18px;
+	margin-bottom: 2px\0;
+	display: inline-block;
+	color: #008FFF;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-ranking-list-son .ranking-award,.ranking-profit{
+	width: 100px;
+	height: 15px;
+	height: 20px\0;
+	display: inline-block;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/*这段是针对FF浏览器的csshack写的*/
+
+.davcai-ranking-list-son .plus-interest-button{
+	width: 58px;
+	height: 23px;
+	display: inline-block;
+	background: url(../images/plus-interest-button.png) no-repeat;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.davcai-ranking-list-son .ranking-money{
+	color: #FF0000;
+	font-size: 18px;
+	width: 90px;
+	height: 20px;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	bottom: 1px;
+	text-align: right;
+}
+.davcai-ranking-list-son .ranking-rate{
+	color: #FF0000;
+	font-size: 24px;
+	width: 90px;
+	height: 20px;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+	text-align: right;
+}
+.davcai-ranking-list-son .color-01{
+	color: #FF0000;/*50%+*/
+}
+.davcai-ranking-list-son .color-02{
+	color: #E4D82F;/*50%*/
+}
+.davcai-ranking-list-son .color-03{
+	color: #56C462;/*50%-*/
+}
+
+/*上面结束davcai-ranking-list排行榜部分*/
+
+#hot{
+	width: 100%;
+	height: 100%;
+}
+#hot .hot-content{
+	width: 985px;
+	height: auto;
+	margin: 100px auto 0;
+}
+.hot-content .hot-content-left{
+	width: 715px;
+	height: auto;
+	float: left;
+	border-right: 1px #EAEAEA solid;
+}
+
+.hot-content .hot-content-right{
+	width: 253px;
+	height: auto;
+	float: right;
+}
+
+
+/*下面开始davcai-nav次级导航部分*/
+
+.davcai-nav{
+	width: 710px;
+	border-bottom: 3px #EAEAEA solid;
+	background-color: #fff;
+	height: 45px;
+	margin: 0 auto 33px;
+}
+.davcai-nav .davcai-nav-box{
+	width: 715px;
+	height: 45px;
+	margin: 0 auto;
+}
+.davcai-nav .davcai-nav-tab{
+	width:350px;
+	height: 45px;
+	display: inline-block;
+	float: left;
+	margin-left: 50px;
+	border: 1px transparent dashed;
+}
+.davcai-nav .davcai-nav-tab li{
+	float: left;
+	font-size: 18px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.davcai-nav .davcai-nav-tab li a{
+	color: #5F5F5F;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+}
+.davcai-nav .davcai-nav-tab li:hover a{
+	color: #000000;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+
+.davcai-nav .davcai-nav-tab li a.active{          /*相比较于之前的03版本，这段代码是聚焦当前默认的-2014/08/26 lwc*/
+	color: #000000;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+.davcai-nav .davcai-nav-tab li:hover{
+	 border-bottom:3px solid #E22319;
+	 margin-bottom:-3px;
+	 background: #fff;
+}
+.davcai-nav .davcai-nav-tab li.active{           /*相比较于之前的03版本，这段代码是聚焦当前默认的-2014/08/26 lwc*/
+	 border-bottom:3px solid #E22319;
+	 margin-bottom:-3px;
+	 background: #fff;
+}
+.davcai-nav .date-time{
+	display: inline-block;
+	width: 110px;
+	height: 25px;
+	font-size: 12px;
+	float: right;
+	margin-top: -30px;
+	margin-right: 5px;
+}
+
+.davcai-nav .davcai-nav-classify{
+	width: 130px;
+	height: 30px;
+	display: inline-block;
+	float: left;
+	margin-top: -30px;
+	margin-left: 45px;
+	color: #949494;
+	text-align: center;
+	padding-top: 6px;
+}
+.davcai-nav-classify label:hover{
+	color: #010101;
+	cursor: pointer;
+}
+.davcai-nav-classify label.current{
+	color: #010101;
+}
+/*上面结束davcai-nav次级导航部分*/
+
+
+
+
+/*-------------- 热门讨论右侧--------------------*/
+/*下面开始davcai-popular-race热门赛事部分*/
+.davcai-popular-race-outer{
+	width: 243px;
+	height: auto;
+	margin-bottom: 15px;
+}
+.davcai-popular-race-outer h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-popular-race-outer .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+.davcai-popular-race{
+	width: 253px;
+	height: auto;
+}
+.davcai-popular-race-son{
+	height: 28px;
+	line-height: 28px;
+	width: 253px;
+  	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-popular-race-son a{
+	color: #000;
+}
+.davcai-popular-race-son .popular-race-match{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #8D8D8D;
+	width: 50px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .race-team-left,.race-team-right{
+	width: 75px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .red-race-team-left,.red-race-team-right{
+	width: 85px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .race-team-left{
+	text-align: left;
+}
+.davcai-popular-race-son .race-team-right{
+	text-align: right;
+	margin-left: -20px;
+}
+.davcai-popular-race-son .race-team-left i{
+	text-align: right;
+	width: 20px;
+	display: inline-block;
+	margin-right: 2px;
+}
+.davcai-popular-race-son .race-team-right i{
+	text-align: left;
+	width: 20px;
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.davcai-popular-race-son .popular-race-vs{
+	color: #FF0000;
+	font-weight: bold;
+	width: 16px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son .popular-red-race-vs{
+	color: #FF0000;
+	font-weight: bold;
+	width: 20px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+}
+.davcai-popular-race-son span,label{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.davcai-popular-race-son .popular-race-list{
+	color: #E22319;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	width: 18px;
+	height: 25px;
+	float: right;
+	margin-right: 15px;
+}
+/*上面结束davcai-popular-race热门赛事部分*/
+
+
+*下面开始davcai-recommend-bet右边的今日推荐部分*/
+.davcai-recommend-bet{
+	width: 243px;
+	height: auto;
+	margin: 10px auto 20px;
+}
+.davcai-recommend-bet h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-recommend-bet .more{
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+	font-size: 12px;
+}
+.davcai-recommend-bet .more a{
+	color: #93130D;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.davcai-recommend-bet .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+.davcai-recommend-bet .recommend-bet-content{
+	width: 243px;
+	height: 174px;
+	border: 1px #D2D2D2 solid;
+	background: #F2F2F2;
+	padding: 8px 5px 8px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	margin: 12px auto 0;
+}
+.recommend-bet-content h6.name{
+	display: inline-block;
+	font-size: 12px;
+}
+.recommend-bet-content .time-end{
+	float: right;
+	margin-right: 0px;
+	color: #CBCBCB;
+	font-size: 12px;
+}
+.recommend-bet-content ul.recommend-bet-content-team{
+	width:228px;
+	height: 32px;
+	margin: 15px auto 30px;
+	margin-left: 2px;
+}
+.recommend-bet-content-team li{
+	height: 32px;
+	text-align: center;
+	float: left;
+	margin-right: 3px;
+	border: 2px #BEBEBE solid;
+	cursor: pointer;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+ul.recommend-bet-content-team li.current{
+	border: 2px #E22319 solid;
+	background:url(../images/recommend-bet-match-selected.png) right bottom no-repeat ;
+}
+ul.recommend-bet-content-team li:hover{
+	border: 2px #E22319 solid;
+	background:url(../images/recommend-bet-match-selected.png) right bottom no-repeat ;
+}
+ul.recommend-bet-content-team li.recommend-bet-content-team-left,li.recommend-bet-content-team-right{
+	width: 81px;
+	height: 32px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-align: center;
+}
+li.recommend-bet-content-team-right{
+	margin-right: 0;
+}
+ul.recommend-bet-content-team li .content-team-name{
+	font-weight: bold;
+	width: 81px;
+	height: 18px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-align: center;
+}
+ul.recommend-bet-content-team li .content-team-name i{
+	font-style: normal;
+	font-weight: 100;
+	color: #E22319;
+	margin-left: 5px;
+}
+ul.recommend-bet-content-team li .content-team-odds{
+	margin-top: -2px;
+}
+ul.recommend-bet-content-team li.recommend-bet-content-team-middle{
+	width: 45px;
+	height: 32px;
+	vertical-align: middle;
+	line-height: 32px;
+	font-weight: bold;
+}
+.recommend-bet-content .recommend-bet-content-money,.recommend-bet-content-highprize{
+	margin-left: 5px;
+	margin-top: 3px;
+	width: 120px;
+	height: 18px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.recommend-bet-content .recommend-bet-content-money i{
+	color: #E22319;
+	font-weight: bold;
+}
+.recommend-bet-content .recommend-bet-content-highprize i{
+	color: #E22319;
+	font-weight: bold;
+}
+.recommend-bet-content .recommend-bet-button{
+    width: 96px;
+    height: 44px;
+    display: inline-block;
+    background:url(../images/davcai/winninglist/recommend-bet-button.png) no-repeat ;
+    float: right;
+    margin-top: -40px;
+    margin-right: 4px;
+}
+/*上面结束davcai-recommend-bet右边的今日推荐部分*/
+/*--------------热门讨论右侧over---------------*/

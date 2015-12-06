@@ -1,0 +1,47 @@
+
+# database
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+# database
+db2.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db2.url = ${db2.url}
+db2.username = ${db2.username}
+db2.password = ${db2.password}
+
+shirodb.serverName = ${shirodb.serverName}
+shirodb.databaseName = ${shirodb.databaseName}
+
+# btm
+btm.log.1 = /data/logs/btm-davcai-lottery-admin1.log
+btm.log.2 = /data/logs/btm-davcai-lottery-admin2.log
+
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+# ActiveMQ
+amq.brokerURL = ${amq.brokerURL}
+amq.sender.threads = ${amq.sender.threads}
+
+#system send privateMessage account UserID
+privateMessageSenderId = ${privateMessageSenderId}
+
+# match_color_timeout mils
+match_color_timeout = ${match_color_timeout}
+
+dataStoreDirPath =${dataStoreDirPath}
+downloadUrlPre =${downloadUrlPre}
+
+
+#prizeAmountQuery
+yuanchengchupiao.getBonusAllUrl = ${yuanchengchupiao.getBonusAllUrl}
+
+yuanchengchupiao.apiId=${yuanchengchupiao.apiId}
+yuanchengchupiao.secret=${yuanchengchupiao.secret}
+yuanchengchupiao.contentKey=${yuanchengchupiao.contentKey}
+yuanchengchupiao.getInfoUrl=${yuanchengchupiao.getInfoUrl}
+yuanchengchupiao.getInfoListUrl=${yuanchengchupiao.getInfoListUrl}
+
+

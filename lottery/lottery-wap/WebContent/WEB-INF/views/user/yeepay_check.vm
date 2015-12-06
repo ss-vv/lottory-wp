@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+	<title>
+		大V彩-wap支付宝
+	</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" />
+<meta name="MobileOptimized" content="240" />
+<link type="text/css" href="$base/css/buy.css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="$base/js/jquery.js"></script> 
+</head>
+<body>
+<form method="post" action="$base/user/yeepayResult.do" id="form1">
+	<input name="respOrderNo" type="hidden" value="$!{respOrderNo}">
+	<div class='topNavigationBar' style="color: #FFF;"> 
+		<a href="$base/index.do">首页</a>
+		> <a href="$base/user/myAccount.do">我的账户</a>  
+		> <a href="$base/user/charge.do">账户充值</a>
+	</div>
+	
+	<div class="txtTitle" style="border-top:0px; color:Red;">
+		<span id="lbCardType">
+			#if($!{recharge.getStatus()}=="0")
+			支付请求还未处理完成，<br/>请稍等几秒钟后重新查看结果。<br/>
+			<a href="#" id="ypResult">查看支付结果 >></a><br/>
+			#elseif($!{recharge.getStatus()}=="90")支付成功！<br/>
+			#elseif($!{recharge.getStatus()}=="99")支付失败：$!{recharge.getNote()}<br/>
+			#end
+		</span>
+	</div>
+	
+	<div class='topNavigationBar' style="color: #FFF;"> 
+		<a href="$base/index.do">首页</a>
+		> <a href="$base/user/myAccount.do">我的账户</a>  
+		> <a href="$base/user/charge.do">账户充值</a>
+	</div>
+</form>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+	$('#ypResult').bind('click', function(){
+		$('#form1').submit();
+	});
+});
+</script>

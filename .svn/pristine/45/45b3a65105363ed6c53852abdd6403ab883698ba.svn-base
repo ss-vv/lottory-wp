@@ -1,0 +1,19 @@
+<table cellspacing="0" class="tab">
+  <tr>
+    <th style="width:60px;text-align:center;">场次号</th>
+    <th style="width:60px;text-align:center;">玩法</th>
+    <th style="width:120px;text-align:center;">投注内容</th>
+    <th style="width:80px;text-align:center;">赛果</th>
+    <th style="width:80px;text-align:center;">开赛时间</th>
+  </tr>
+  #foreach($m in ${scheme.cgjTeams})
+	#getPlayId($scheme, $m)
+  <tr>
+    <td style="text-align:center;">$!{m.matchId}</td>
+    <td style="text-align:center;">$!{m.name}</td>
+    <td style="text-align:center;">$!{m.teamName}</td>
+    <td style="text-align:center;">$!{m.result}</td>
+    <td style="text-align:center;">$!date.format("MM-dd HH:mm", ${m.playingTime})</td>
+  </tr>
+  #end
+</table>

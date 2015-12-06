@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+	default-autowire="byName">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:qt-init.properties</value>
+			</list>
+		</property>
+	</bean>
+	<context:annotation-config />
+
+	<context:component-scan
+		base-package="
+	   com.unison.lottery.weibo.data.crawler.proxy,
+	   com.unison.lottery.weibo.data.crawler.service.store.persist.dao.impl,
+	   com.unison.lottery.weibo.dataservice.crawler.service,
+	   " />
+	<bean id="messageConverter"
+		class="com.xhcms.commons.mq.DefaultMessageConverter" />
+	<!-- 配置connectionFactory -->
+	<bean id="jmsFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL">
+					<value>${amq.brokerURL}</value>
+				</property>
+			</bean>
+			
+		</property>
+	</bean>
+
+	<!-- Spring JMS Template -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory">
+			<ref local="jmsFactory" />
+		</property>
+	</bean>
+	<bean id="downloadService"
+		class="com.unison.lottery.weibo.dataservice.commons.crawler.download.DownloadServiceImpl">
+		<property name="urlMap">
+			<map>
+				<entry key="InfoIndex">
+					<value>http://apk.win007.com/phone/InfoIndex.aspx</value> <!-- 资料库联赛赛季记录 -->
+				</entry>
+				<entry key="MatchProcessInZLKu">
+					<value>http://apk.win007.com/phone/SaiCheng2.aspx</value> <!--资料库联赛赛程记录 -->
+				</entry>
+				<entry key="CupMatchInfo">
+					<value>http://apk.win007.com/phone/CupSaiCheng.aspx</value> <!--资料库杯赛赛程记录 -->
+				</entry>
+				<entry key="MatchEventData">
+					<value>http://apk.win007.com/phone/ResultDetail.aspx</value> <!--分析事件记录 -->
+				</entry>
+				<entry key="LeagueScore">
+					<value>http://apk.win007.com/phone/Jifen2.aspx</value> <!--资料库联赛积分记录 -->
+				</entry>
+				<entry key="MatchLineupData">
+					<value>http://apk.win007.com/phone/Lineup.aspx</value> <!--分析阵容记录 -->
+				</entry>
+				<entry key="QtJishiBifen">
+					<value>http://txt.win007.com/phone/schedule_0_0.txt</value> <!--即时比分记录 -->
+				</entry>
+				<entry key="QtOddsCompany">
+					<value>http://apk.win007.com/Phone/Company.aspx</value> <!--赔率公司接口 -->
+				</entry>
+				<entry key="QtFbMatchOpOdds">
+					<value>http://apk.win007.com/Phone/1x2EuroDetail.aspx</value> <!--比赛欧赔记录 -->
+				</entry>
+				<entry key="QtFbMatchYpOdds">
+					<value>http://apk.win007.com/Phone/AsianDetail.aspx</value> <!--比赛亚赔记录 -->
+				</entry>
+				<entry key="QtFbMatchOuOdds">
+					<value>http://apk.win007.com/Phone/OuDetail.aspx</value> <!--比赛大小记录 -->
+				</entry>
+				<entry key="QtBasketJishiBifen">
+					<value>http://txt.win007.com/phone/lqscore/schedule_0_0.txt</value> <!--篮球即时比分记录 -->
+				</entry>
+				<entry key="QtBasketLeagueInfo">
+					<value>http://apk.win007.com/phone/LqInfoIndex.aspx</value> <!--篮球资料库联赛记录 -->
+				</entry>
+				<entry key="QtBasketMatchOpOdds">
+					<value>http://apk.win007.com/Phone/Lq1x2EuroDetail.aspx</value> <!--篮球 赛事欧赔数据 -->
+				</entry>
+				<entry key="QtBasketMatchYpOdds">
+					<value>http://apk.win007.com/Phone/LqAsianDetail.aspx</value> <!--篮球 赛事亚赔数据 -->
+				</entry>
+				<entry key="QtBasketMatchOuOdds">
+					<value>http://apk.win007.com/Phone/LqOuDetail.aspx</value> <!--篮球 赛事大小数据 -->
+				</entry>
+				<entry key="QtBasketMatchTeamStatistic">
+					<value>http://apk.win007.com/phone/LqTeamTechnic.aspx</value> <!--篮球 分析球队统计 -->
+				</entry>
+				<entry key="QtBasketMatchPlayerStatistic">
+					<value>http://txt.win007.com/jsData/tech/</value> <!--篮球 分析球员统计 -->
+				</entry>
+				<entry key="QtFootBallJingCaiJishi">
+					<value>http://txt.win007.com/phone/schedule_0_3.txt</value> <!--竞彩足球即时比分 -->
+				</entry>
+				<entry key="QtBasketJingCaiBifen">
+					<value>http://apk.win007.com/phone/LqSchedule.aspx</value> <!-- 竞彩篮球即时比分 -->
+				</entry>
+				<entry key="LqSaicheng">
+					<value>http://apk.win007.com/phone/LqSaiCheng2.aspx</value> <!-- 篮球赛程 -->
+				</entry>
+				<entry key="BasketCupMatchInfo">
+					<value>http://apk.win007.com/phone/LqCupSaiCheng.aspx</value> <!-- 篮球杯赛赛程 -->
+				</entry>
+				<entry key="LqLeagueScore">
+					<value>http://apk.win007.com/phone/LqJifen.aspx</value>
+				</entry>
+				<entry key="QtFbJingcaiMatchJishiOpOdds">
+					<value>http://apk.win007.com/phone/1x2.aspx</value> <!-- 足球竞彩即时欧赔 -->
+				</entry>
+				<entry key="QtFbJingcaiMatchHistoryOpOdds">
+					<value>http://apk.win007.com/phone/1x2Detail.aspx</value> <!-- 足球竞彩变化欧赔 -->
+				</entry>
+				<entry key="QtFbJingcaiMatchJishiYaOdds">
+					<value>http://apk.win007.com/phone/Handicap.aspx</value>  <!-- 足球竞彩即时亚赔 -->
+				</entry>
+				<entry key="QtFbJingcaiMatchHistoryYaOdds">
+					<value>http://apk.win007.com/phone/HandicapDetail.aspx</value>  <!-- 足球竞彩变化亚赔 -->
+				</entry>
+				<entry key="QtFbJingcaiMatchJishiOuOdds">
+					<value>http://apk.win007.com/phone/OverUnder.aspx</value>  <!-- 足球竞彩即时大小 -->
+				</entry>
+				<entry key="QtFbJingcaiMatchHistoryOuOdds">
+					<value>http://apk.win007.com/phone/OverUnderDetail.aspx</value>  <!-- 足球竞彩变化大小 -->
+				</entry>
+				<entry key="zqMatchOpOddsOneCompany">
+					<value>http://apk.win007.com/phone/1x2EuroDetail.aspx</value>
+				</entry>
+				<entry key="QtFbJishizhishuOuOddsDetails">
+					<value>http://apk.win007.com/Phone/OuDetail.aspx</value>
+				</entry>
+				
+				<entry key="QtFbJishizhishuAisanOddsDetails">
+					<value>http://apk.win007.com/Phone/AsianDetail.aspx</value>
+				</entry>
+				<entry key="qtMatch">
+					<value><![CDATA[http://client.310win.com/Default.aspx]]></value>
+				</entry>
+				<entry key="caikeBetting"> 
+					<value>http://client.310win.com/default.aspx</value>
+				</entry>
+			</map>
+
+		</property>
+
+	</bean>
+	<bean id="httpUtil"
+		class="com.unison.lottery.weibo.dataservice.commons.crawler.util.HttpUtilImpl" />
+	<bean id="qtCrawlerDataStoreService"
+		class="com.unison.lottery.weibo.data.crawler.service.store.service.impl.CrawlerZqDataStoreServiceImpl"
+		init-method="init">
+		<property name="source" value="1"></property> <!-- 来源为球探 -->
+	</bean>
+	<bean id="qtCrawlerLqDataStoreService"
+		class="com.unison.lottery.weibo.data.crawler.service.store.service.impl.CrawlerLqDataStoreServiceImpl"
+		init-method="init">
+		<property name="source" value="1"></property> <!-- 来源为球探 -->
+	</bean>
+	<bean id="userAgenChooser"
+		class="com.unison.lottery.weibo.data.crawler.proxy.UserAgenChooserImpl" />
+	<bean id="proxyChooser"
+		class="com.unison.lottery.weibo.data.crawler.proxy.ProxyChooserImpl">
+		<property name="urlMap">
+			<map>
+				<entry key="InfoIndex">
+					<value>http://apk.win007.com/phone/InfoIndex.aspx</value> <!-- 资料库联赛赛季纪录 -->
+				</entry>
+				<entry key="MatchProcessInZLKu">
+					<value>http://apk.win007.com/phone/SaiCheng2.aspx</value> <!--资料库赛程记录 -->
+				</entry>
+				<entry key="CupMatchInfo">
+					<value>http://apk.win007.com/phone/CupSaiCheng.aspx</value> <!--资料库杯赛赛程记录 -->
+				</entry>
+				<entry key="MatchEventData">
+					<value>http://apk.win007.com/phone/ResultDetail.aspx</value> <!--分析事件记录 -->
+				</entry>
+				<entry key="LeagueScore">
+					<value>http://apk.win007.com/phone/Jifen2.aspx</value> <!--资料库联赛积分记录 -->
+				</entry>
+				<entry key="QtJishiBifen">
+					<value>http://txt.win007.com/phone/schedule_0_0.txt</value> <!--即时比分记录 -->
+				</entry>
+				<entry key="QtFbMatchOpOdds">
+					<value>http://apk.win007.com/Phone/1x2EuroDetail.aspx</value> <!--比赛欧赔记录 -->
+				</entry>
+				<entry key="QtFbMatchYpOdds">
+					<value>http://apk.win007.com/Phone/AsianDetail.aspx</value> <!--比赛亚赔记录 -->
+				</entry>
+				<entry key="QtFbMatchOuOdds">
+					<value>http://apk.win007.com/Phone/OuDetail.aspx</value> <!--比赛大小记录 -->
+				</entry>
+				<entry key="QtBasketJishiBifen">
+					<value>http://txt.win007.com/phone/lqscore/schedule_0_0.txt</value> <!--篮球即时比分记录 -->
+				</entry>
+				<entry key="QtBasketLeagueInfo">
+					<value>http://apk.win007.com/phone/LqInfoIndex.aspx</value> <!--篮球资料库联赛记录 -->
+				</entry>
+				<entry key="QtBasketMatchOpOdds">
+					<value>http://apk.win007.com/Phone/Lq1x2EuroDetail.aspx</value> <!--篮球 赛事欧赔数据 -->
+				</entry>
+				<entry key="QtBasketMatchYpOdds">
+					<value>http://apk.win007.com/Phone/LqAsianDetail.aspx</value> <!--篮球 赛事亚赔数据 -->
+				</entry>
+				<entry key="QtBasketMatchOuOdds">
+					<value>http://apk.win007.com/Phone/LqOuDetail.aspx</value> <!--篮球 赛事大小数据 -->
+				</entry>
+				<entry key="QtBasketMatchTeamStatistic">
+					<value>http://apk.win007.com/phone/LqTeamTechnic.aspx</value> <!--篮球 分析球队统计 -->
+				</entry>
+				<entry key="QtBasketMatchPlayerStatistic">
+					<value>http://txt.win007.com/jsData/tech/</value> <!--篮球 分析球员统计 -->
+				</entry>
+				<entry key="QtFootBallJingCaiJishi">
+					<value>http://txt.win007.com/phone/schedule_0_3.txt</value> <!--竞彩足球即时比分 -->
+				</entry>
+				<entry key="QtBasketJingCaiBifen">
+					<value>http://apk.win007.com/phone/LqSchedule.aspx</value> <!-- 竞彩篮球即时比分 -->
+				</entry>
+				<entry key="LqSaicheng">
+					<value>http://apk.win007.com/phone/LqSaiCheng2.aspx</value> <!-- 篮球赛程 -->
+				</entry>
+				<entry key="BasketCupMatchInfo">
+					<value>http://apk.win007.com/phone/LqCupSaiCheng.aspx</value> <!-- 篮球杯赛赛程 -->
+				</entry>
+				<entry key="LqLeagueScore">
+					<value>http://apk.win007.com/phone/LqJifen.aspx</value>
+				</entry>
+				<entry key="QtFbJingcaiMatchJishiOpOdds">
+					<value>http://apk.win007.com/phone/1x2.aspx</value> <!-- 足球竞彩即时欧赔 -->
+				</entry>
+				<entry key="QtFbJingcaiMatchHistoryOpOdds">
+					<value>http://apk.win007.com/phone/1x2Detail.aspx</value> <!-- 足球竞彩变化欧赔 -->
+				</entry>
+				<entry key="zqMatchOpOddsOneCompany">
+					<value>http://apk.win007.com/phone/1x2EuroDetail.aspx</value>
+				</entry>
+				<entry key="QtFbJishizhishuOuOddsDetails">
+					<value>http://apk.win007.com/Phone/OuDetail.aspx</value>
+				</entry>
+				<entry key="QtFbJishizhishuAisanOddsDetails">
+					<value>http://apk.win007.com/Phone/AsianDetail.aspx</value>
+				</entry>
+				<entry key="qtMatch">
+					<value><![CDATA[http://client.310win.com/Default.aspx?client=1&transcode=105&msg={%22typeid%22%3A%22101%22%2C%22kind%22%3A%222%22}&version=1.6&key=fdd7059153063182f8be3cd190f9dd30]]></value>
+				</entry>
+				<entry key="caikeBetting"> 
+					<value>http://client.310win.com/default.aspx</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="proxyHealthChecker"
+		class="com.unison.lottery.weibo.data.crawler.proxy.ProxyHealthCheckerImpl">
+	</bean>
+	<bean id="analyseRepository"
+		class="com.unison.lottery.weibo.dataservice.crawler.parse.repository.AnalyseRepository" />
+	<bean id="leagueInfo_Fenxi"
+		class="com.unison.lottery.weibo.dataservice.crawler.parse.leagueInfo.LeagueInfo_Fenxi" />
+	<bean id="cupInfo_Fenxi"
+		class="com.unison.lottery.weibo.dataservice.crawler.parse.leagueInfo.CupInfo_Fenxi" />
+	<bean id="qiutanJishiBiFenAnalyse"
+		class="com.unison.lottery.weibo.dataservice.crawler.parse.realtime.AnalyseQiutanJIshiIBiFen" />
+	<bean id="zq_FenXi"
+		class="com.unison.lottery.weibo.dataservice.crawler.parse.fenxi.Zq_FenXi" />
+	<bean id="lq_FenXi"
+		class="com.unison.lottery.weibo.dataservice.crawler.parse.fenxi_lq.Lq_FenXi" />
+	<bean id="analyseCompanyUtil"
+		class="com.unison.lottery.weibo.dataservice.crawler.parse.index.analyseCompany" />
+	<bean id="postDataService"
+		class="com.unison.lottery.weibo.dataservice.commons.crawler.post.PostDataServiceImpl" />
+	<bean id="crawlerZqDataSendService"
+		class="com.unison.lottery.weibo.data.crawler.service.store.service.impl.CrawlerZqDataSendServiceImpl" />
+	<bean id="crawlerLqDataSendService"
+		class="com.unison.lottery.weibo.data.crawler.service.store.service.impl.CrawlerLqDataSendServiceImpl" />
+		<!-- 使用activemq中的点对点消息模型,随意指定一个地址 -->   
+	<bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">   
+        <constructor-arg value="com.davcai.weibo.queue.CRAWLER_FB_ZQ_ODDS"/>    
+	</bean>
+	<!-- 消息发送器 -->
+	<bean id="messageSender" class="com.unison.lottery.weibo.data.crawler.service.store.mq.CrawlerQtWeiboDataMessageSender">
+		<property name="template" ref="jmsTemplate" />
+		<property name="destination" ref="destination"></property>
+	</bean>
+</beans>

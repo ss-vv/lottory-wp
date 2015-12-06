@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 缓存 -->
+    <bean id="cacheStrategy" class="com.xhcms.commons.cache.impl.CacheStrategyImpl">
+        <property name="cacheKeys">
+            <map>
+                <!-- Cache KeyName -->
+                <entry key="u" value="60, vk.u"/>
+                <entry key="u.un" value="60, vk.u"/>
+                <entry key="u.full" value="60, vk.u"/>
+                <entry key="msg" value="60, vk.msg"/>
+                <entry key="msg.c" value="60, vk.msg"/>
+                
+                <!-- Version KeyName -->
+                <entry key="vk.u" value="1440" />
+                <entry key="vk.msg" value="1440" />
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="cache" class="com.xhcms.commons.cache.impl.MemcachedImpl" init-method="init">
+        <property name="addresses" value="${ucenter.hibernate.memcached.Servers}" />
+        <property name="cacheStrategy" ref="cacheStrategy" />
+    </bean>
+    
+    <bean id="exceptionHandler" class="com.xhcms.commons.web.struts2.interceptor.DefaultExceptionHandler">
+			<property name="handlers">
+	            <list>
+			        <bean class="com.xhcms.commons.web.struts2.interceptor.XHRuntimeExceptionHandler" />
+			    </list>
+			</property>
+	  </bean>
+	  
+	  <bean id="imageContext" class="com.xhcms.ucenter.service.ImageContext">
+	     <property name="imageStoreTempDir" value="${ucenter.image.tempStoreDir}"/>
+	     <property name="imageUploadStoreDir" value="${ucenter.image.uploadStoreDir}"/>
+	  </bean>
+    
+</beans>

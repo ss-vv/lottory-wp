@@ -1,0 +1,66 @@
+@charset "utf-8";
+/*
+ * Properties 属性
+ * style 样式
+ */
+/* width height */
+.wh-a {width:100px;}
+.wh-c {width:360px;}
+.wh-txtb .inipttxt {width:88px; height:22px; line-height:22px;}
+@-moz-document url-prefix()
+{
+   .wh-txtb .inipttxt {height:18px\0; padding-top:4px\0;}
+}
+.wh-txtb-a .inipttxt {width:220px;}
+/* color */
+.c-f {color:#999!important;}
+/* margin padding */
+.mp-b {padding:18px 36px!important;}
+/*
+ * Elements 元素
+ * style 样式
+ */
+/* ipttxt */
+.ipttxt-b {background-color:#fff; border:1px solid; border-color:#f3b18c #ffeee2 #ffecdf #f5ba9a;}
+/* btn */
+.btnx2-b,
+.btnx2-b .inbtn {height:23px; line-height:23px;}
+.btnx2-b {color:#8f1e00; padding-right:3px; background-position:right -107px;}
+.btnx2-b .inbtn {width:58px; padding-left:3px; background-position:0 -84px;}
+.btnx2-b .iptbtn {color:#8f1e00; width:58px; height:23px;}
+.btnx2-b:hover {color:#8f1e00; background-position:right -153px;}
+.btnx2-b:hover .inbtn {background-position:0 -130px;}
+/*
+ * content 内容
+ * style 样式
+ */
+/* mod */
+.mod-e {background-color:#fff;}
+.mod-e .mh {height:40px;}
+.mod-e .mh .tt {color:#8f1e00; font-size:18px; margin:6px 0 0 18px;}
+/* stepbox */
+.stepbox-a {height:36px; margin:0 18px; background:url(../images/step-a.png) repeat-x 0 -36px; border-left:#ffcdab 1px solid; border-right:#ddd 1px solid;}
+.stepbox-a div {height:36px; display:inline; float:left;}
+.stepbox-a .first {width:170px; background:url(../images/step-a.png) repeat-x;}
+.stepbox-a .last {width:170px; padding-left:20px; background:url(../images/step_arr-a.png) no-repeat;}
+.stepbox-a div span {width:20px; height:21px; line-height:21px; font-size:15px; color:#fff; font-weight:bold; text-align:center; margin:7px 12px 0; background:url(../images/step_num.gif) no-repeat; float:left; overflow:hidden;}
+.stepbox-a div b {color:#8f1e00; font-size:14px; margin-top:7px; float:left;}
+/* formbox */
+.formbox .lbl,
+.formbox .tips {display:inline; float:left;}
+.formbox .row_l .lbl {display:inline; float:right;}
+.formbox-a .row {padding-bottom:3px;}
+.formbox-a .lbl,
+.formbox-a .ipttxt,
+.formbox-a .iptchk,
+.formbox-a .btnx2,
+.formbox-a .tips {margin-top:3px; margin-right:6px;}
+.formbox-a .lbl {margin-right:0;}
+.formbox-a-b .row {padding-bottom:6px;}
+.formbox-a-b .lbl {text-align:right;}
+.formbox-a-b .lbl,
+.formbox-a-b .ipttxt,
+.formbox-a-b .iptchk,
+.formbox-a-b .btnx2,
+.formbox-a-b .tips {margin-top:6px;}
+

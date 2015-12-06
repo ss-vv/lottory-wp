@@ -1,0 +1,260 @@
+#set($layout = "bet.vm")
+#set($p_title = "合买详情")
+#set($scripts=["js/jquery.blockUI"])
+#composeReferer()
+
+<div class="mod mod-d">
+  <div class="imglst imglst-b bgbrr-c">
+    <div class="row">
+      <span class="img">
+        #parse("/bet/playImg.vm")
+      </span>
+      <b class="phases fl">第 #if(${scheme.lotteryId}=='CTZC') 20${scheme.issueNumber} #elseif(${scheme.lotteryId}=='SSQ') ${issueInfo.issueNumber} #else  $date.format("yyyyMMdd", ${scheme.createdTime})#end 期</b>
+      <span class="tips">方案发起时间：$date.format("yyyy-MM-dd HH:mm", ${scheme.createdTime})　　认购截止时间：$date.format("yyyy-MM-dd HH:mm", ${scheme.offtime})</span>
+	  <div class="ban-bf"> 
+	  	<input  type="text" id="copyurl" value="$copyURL" style="width:240px;"/>
+		<span class="clipinner"><a href="javascript:void(0);"  onclick="copyToClipboard('$copyURL');"><img src="$base/images/page_copy.gif" /></a></span>
+	  </div>
+    </div>
+    <span class="clear"></span>
+  </div>
+  <div class="tblbox tblbox-d">
+    <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+      <tr>
+        <th class="thl" style="width:160px;">
+          <div class="inth">合买发起人信息<br/>#if($!{user.id}!=$!{scheme.sponsorId})<a href="http://trade.davcai.com/ac/cm.do?fuid=$!{scheme.sponsorId}"  target="_blank" style="color:blue;margin:auto;">我要定制</a>#end</div>
+        </th>
+        <td>
+        		<div class="intd">
+	                 <b>$!{scheme.sponsor}</b>&nbsp;&nbsp;&nbsp;战绩：#userScoreGroupbuy($!{scheme}, ${scheme.lotteryId})
+	                 <br/>总中奖金额：<b class="c-i">￥${sponsorAward}</b>
+	                 <!-- Baidu Button BEGIN -->
+                     <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" style="margin-top: -30px; float: right;line-height:1.2;">
+			        <span class="bds_more">分享到：</span>
+			        <a class="bds_qzone"></a>
+			        <a class="bds_tsina"></a>
+			        <a class="bds_tqq"></a>
+			        <a class="bds_renren"></a>
+					<a class="shareCount"></a>
+    				</div>
+					<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+					<script type="text/javascript" id="bdshell_js"></script>
+					<script type="text/javascript">
+						document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+					</script>
+					<!-- Baidu Button END -->
+	            </div>
+        </td>
+      </tr>
+      #parse("/bet/schemeinfo.vm")
+      #parse("/bet/new-scheme.vm")
+      #if($scheme.status == 5203 || $scheme.status == 12)
+		<tr>
+        	<th class="thl"><div class="inth">中奖详情</div></th>
+        	<td>
+        		<div class="intd">
+        		中奖情况：$status.bet(${scheme.status}) <br/>
+        		方案税后总奖金：<b class="c-i">￥${scheme.afterTaxBonus}元</b><br/>
+        		合买发起人佣金(<b class="c-i">$!{scheme.shareRatio}%</b>)收入：<b class="c-i">#if(${scheme.afterTaxBonus}>${scheme.totalAmount})￥$Result.mulPer(${scheme.afterTaxBonus},$!{scheme.shareRatio})#else￥0#end元</b>
+        		</div>
+        		
+        		<a class="btn" href="javascript:void(0)" _op="submit"></a>
+        	</td>
+        </tr>
+        #else
+        #end
+        #if(${scheme.matchs} || (${scheme.ctBetContents} && ${scheme.ctFBMatchs}) || ${scheme.digitalBetContents})
+        <tr>
+        	<th class="thl"><div class="inth">保密类型</div></th>
+        	<td><div class="intd">$status.privacy(${scheme.privacy})</div></td>
+        </tr>
+        #end
+        <tr>
+        <th class="thl"><div class="inth">我要合买</div></th>
+        <td class="relative">
+        	<div class="bet-bf-maindiv">
+        	#if(${scheme.type} == 1 && ${scheme.saleStatus} == 0 && ${offtime}==0)
+        	<form id="bForm" action="betconfirm.do" method="post">
+        		#if($!{user.id}<=0)
+        		<div class="bet-bf-div">
+								温馨提示： 您尚未登录，请先<a href="http://www.davcai.com/welcome" style="color:red;">【登录】</a>
+				</div>
+				#end
+				#if($!{user.id}>0)
+        		<div class="bet-bf-div">
+        				<input type="hidden" name="type" value="3"/>
+						<input type="hidden" name="schemeId" value="$!{scheme.id}"/>
+						已认购金额：<b class="c-i">￥${scheme.purchasedAmount}元</b>
+						进度：$Result.progress(${scheme})%
+				</div>
+				<div class="bet-bf-div">
+						发起人保底：#if(${scheme.floorAmount}==0)无#else$math.roundTo(2,$math.mul($math.div(${scheme.floorAmount},${scheme.totalAmount}),100))%#end
+				</div>
+				<div class="bet-bf-div">
+						合买提成：$!{scheme.shareRatio}%&nbsp;理论最高奖金：<b class="c-i"><span id="maxmoney">￥$math.roundTo(2,$math.div(${scheme.maxBonus},${scheme.totalAmount}))元 </span></b>
+				</div>
+				<div class="bet-bf-div">
+						可认购金额：<b class="c-i"><span id="canBuyAmount">￥$math.sub(${scheme.totalAmount},${scheme.purchasedAmount})元</span></b>&nbsp;&nbsp;我要认购：<input  type="text" maxlength="5" id="buyAmount" name="buyAmount" value="1" style="width:50px;"/>元
+				</div>
+				<div id="remainTime" style="font-size: 17px; font-weight: 800; color: #FF9900"></div><div id="remainSeconds" style="display: none">${deadline}</div>
+					<a class="btn-bf" href="javascript:void(0)"  _op="submit">立即投注</a>
+				#end
+			</form>
+			#else
+				合买已结束。
+			#end
+			</div>
+        </td>
+      </tr>
+      #if($!{user.username}==$!{scheme.sponsor})
+		#if(${scheme.playId} != "jcsjbgj")
+			#parse("/bet/schemeSplit.vm")
+		#else
+			#parse("/bet/cgjSchemeSplit.vm")
+		#end
+      #end
+	#parse("/bet/user_list_groupbuy.vm")
+    </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="text/javascript">
+	/*复制当前页面地址到剪切板*/
+	function copyToClipboard(txt) {
+ 		if(window.clipboardData) {
+   	 		window.clipboardData.clearData();
+    		window.clipboardData.setData("Text", txt);
+  		} else if(navigator.userAgent.indexOf("Opera") != -1) {
+    		window.location = txt;
+  		} else if (window.netscape) {
+    		try {
+    	  		netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+    		} catch (e) {
+      			alert("您的firefox安全限制限制您进行剪贴板操作，请在地址栏中输入“about:config”将“signed.applets.codebase_principal_support”设置为“true”之后重试");
+      			return false;
+    		}
+    		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+    		if (!clip)
+      			return;
+    		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+    		if (!trans)
+      			return;
+    		trans.addDataFlavor('text/unicode');
+    		var str = new Object();
+    		var len = new Object();
+   			var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+    		var copytext = txt;
+    		str.data = copytext;
+    		trans.setTransferData("text/unicode",str,copytext.length*2);
+    		var clipid = Components.interfaces.nsIClipboard;
+    		if (!clip)
+      			return false;
+    		clip.setData(trans,null,clipid.kGlobalClipboard);
+  		}
+	}  
+	
+	/*重载trim方法,使ie支持*/
+	if(!String.prototype.trim) {
+    	var TRIM_REG = "/^/s+|/s+$/g";
+    	String.prototype.trim = function() { return this.replace(TRIM_REG, ''); }
+	}
+	
+	function checkconfirm(){
+		if(confirm( "是否认购？")){
+			return checkMultiple();
+		} else {
+			return false;
+		}
+	}
+	
+	/*检查倍数是否为正整数*/
+	function  checkMultiple(){
+			if(!document.getElementById("buyAmount").value.trim().match(/^[0-9]*[1-9][0-9]*$/)){
+	      		alert("请输入正整数!");
+	      		return false;
+	      }else{
+	      		return true;
+	      }
+	}
+	
+	function tab(a,b,c) { 
+		for(var i=1;i<=b;i++) { 
+			if(c==i) { 
+				// 判断选择模块
+				$("#"+a+"_to_"+i).addClass("no");
+				$("#"+a+"_mo_"+i).show();
+			} else { // 没有选择的模块
+				$("#"+a+"_to_"+i).removeClass("no");
+				$("#"+a+"_mo_"+i).hide();
+			} 
+		} 
+	}
+	
+	$(function(){
+		/*注册失去焦点后验证加计算事件*/
+		$("#buyAmount").blur(function(){
+			var buyAmount=isNaN(parseInt(document.getElementById("buyAmount").value.trim()))==true?1:parseInt(document.getElementById("buyAmount").value.trim());
+			buyAmount=buyAmount<=0?1:buyAmount;
+			buyAmount=document.getElementById("buyAmount").value=buyAmount>$math.sub(${scheme.totalAmount},${scheme.purchasedAmount})?$math.sub(${scheme.totalAmount},${scheme.purchasedAmount}):buyAmount;
+			var canBuyAmount=$math.sub(${scheme.totalAmount},${scheme.purchasedAmount})-buyAmount;
+			document.getElementById("canBuyAmount").innerHTML="￥"+canBuyAmount+"元";
+			
+			var maxmoney=($math.div(${scheme.maxBonus},${scheme.totalAmount})*buyAmount).toFixed(2);
+			document.getElementById("maxmoney").innerHTML="￥"+maxmoney+"元";
+		});
+		
+	    $('#showTicketBtn').bind('click', function(){
+	        $('#ticketGrid').toggle();
+	    });
+	    
+	    var _form = $('#bForm');
+	    var count = 0;
+	    $('a[_op=submit]', _form).bind('click', function(){
+	    	setTimeout(function(){
+	    		_form.submit();
+	    	}, 0);
+	    });
+	    
+	    _form.bind('submit', function(e){
+	    	if(!checkconfirm()){
+	    		e.preventDefault();
+	    	}else{
+		    	setTimeout(function(){
+		    			    		$.blockUI({  
+									     overlayCSS:{backgroundColor:'#FFFFFF'},  
+									     message:'方案已提交，正在处理中，请勿重复提交！',  
+									     css:{  
+										      backgroundColor:'#FFFFFF',  
+										      height:40  
+									     }  
+								     }); 
+		    	}, 1000);
+ 
+	    	}
+	    });
+	});
+</script>
+<script type="text/javascript">
+        var SysSecond;
+        var InterValObj;
+        $(document).ready(function () {
+            SysSecond = parseInt($("#remainSeconds").html()); //这里获取倒计时的起始时间 
+            InterValObj = window.setInterval(SetRemainTime, 1000); //间隔函数，1秒执行 
+        });
+        //将时间减去1秒，计算天、时、分、秒 
+        function SetRemainTime() {
+            if (SysSecond > 0) {
+                SysSecond = SysSecond - 1;
+                var second = Math.floor(SysSecond % 60);             // 计算秒     
+                var minite = Math.floor((SysSecond / 60) % 60);      //计算分 
+                var hour = Math.floor((SysSecond / 3600) % 24);      //计算小时 
+                var day = Math.floor((SysSecond / 3600) / 24);        //计算天 
+                $("#remainTime").html("剩余"+ day + "天" + hour + "小时" + minite + "分" + second + "秒");
+            } else {//剩余时间小于或等于0的时候，就停止间隔函数 
+                window.clearInterval(InterValObj);
+                //这里可以添加倒计时时间为0后需要执行的事件 
+            }
+        } 
+    </script>

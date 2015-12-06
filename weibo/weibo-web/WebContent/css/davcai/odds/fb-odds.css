@@ -1,0 +1,155 @@
+#bet-data-box {
+	width: 985px;
+	height: auto;
+	margin: 50px auto;
+}
+/*bet-data-left开始*/
+
+.bet-data-left {
+	width: 138px;
+	height: auto;
+	float: left;
+}
+.bet-data-left .bdl-menu {
+	width: 140px;
+	margin-top: 40px;
+}
+.bdl-menu li {
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+}
+.bdl-menu li a {
+	color: #5F5F5F;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.bdl-menu .current {
+	color: #E22319;
+	font-weight: bold;
+}
+/*bet-data-left结束*/
+
+.bet-data-content {
+	width: 842px;
+	height: auto;
+	float: right;
+	border-left: 1px #EAEAEA solid;
+	padding-left: 2px;
+}
+/*下面亚赔开始*/
+
+.asia-odds {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px #CCCCCC solid;
+	border-bottom: none;
+	table-layout: fixed;
+}
+.asia-odds tr {
+	text-align: center;
+}
+.asia-odds tr td {
+	border: 1px #ccc solid;
+}
+.asia-odds tr td a {
+	color: #000;
+}
+/*上面欧赔结束*/
+
+.color-red {
+	color: #FF0000!important;
+}
+.color-green {
+	color: #339900!important;
+}
+.bgcolor-red {
+	background-color: #FF0000;
+}
+/*下面欧赔开始*/
+
+.europe-odds {
+	width: 100%;
+	border-collapse: collapse;
+	border-bottom: none;
+	table-layout: fixed;
+	text-align: center;
+	border: 1px #ccc solid;
+}
+.europe-odds tr {
+	border-bottom: 1px #ccc solid;
+}
+.europe-odds tr td .all-company {
+	display: inline-block;
+	background-color: #FFFFFF;
+	border: 1px #E0DACF solid;
+	width: 75px;
+	height: 25px;
+	line-height: 25px;
+}
+.europe-odds tr td .all-company img {
+	float: right;
+	margin-top: 10px;
+	margin-right: 5px;
+}
+.europe-odds tr td .company-list {
+	width: 75px;
+	position: absolute;
+	top: 24px;
+	left: 56px;
+	border: 1px #ccc solid;
+	border-top: none;
+	border-bottom: none;
+	display: none;
+	margin-top: -2px;
+}
+.europe-odds tr td .company-list li {
+	height: 24px;
+	width: 75px;
+	line-height: 24px;
+	border-bottom: 1px #E0DACF solid;
+	background-color: #FFFFFF;
+}
+.europe-odds tr td .company-list li a:hover {
+	color: #ff0000;
+}
+.europe-odds tr td a {
+	color: #000;
+}
+.europe-odds tr td input {
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-left: 10px;
+	float: left;
+}
+.europe-odds tr .br {
+	border-right: 1px #ccc solid;
+}
+/*上面欧赔结束*/
+
+
+
+
+/*odds-tip悬浮层*/
+.odds-tip{
+	width: 255px;
+	height: auto;
+	border: 2px #9C8A78 solid;
+	clear: both;
+	position:absolute;
+	display: none;
+	background: #FFFFFF;
+}
+.odds-tip .odds-tip-table{
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+.odds-tip-table tr {
+	border-bottom: 1px #ccc solid;
+}
+
+.odds-pop{
+	cursor: pointer;
+}
+/*odds-tip悬浮层*/

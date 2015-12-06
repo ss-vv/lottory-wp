@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    default-autowire="byName">
+	<bean id="zunAoOrderTicketClient" class="com.davcai.lottery.platform.client.zunao.ZunAoOrderTicketClientImpl" >
+	</bean> 
+	<bean id="zunAoQueryPrizeClient" class="com.davcai.lottery.platform.client.zunao.ZunAoQueryPrizeClientImpl"></bean>
+	<bean id="zmClient" class="com.unison.lottery.mc.uni.ZMClient" abstract="true">
+	    <property name="key" value="${zm.ticket.key}" />
+	    <property name="partnerId" value="${zm.ticket.partnerId}" />
+	    <property name="version" value="${zm.ticket.version}" />
+	    <property name="url" value="${zm.ticket.url}" />
+	 </bean>
+	<bean id="zunAoOrderTicketOldClient" class="com.unison.lottery.mc.uni.client.OrderTicketClient" parent="zmClient">
+		<property name="template" value="/tpl/zm_order_ticket.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.OrderTicketResponseParser" parent="messageParser"/>
+        </property>
+	</bean>
+	<bean id="zunAoQueryPrizeOldClient" class="com.unison.lottery.mc.uni.client.QueryPrizeClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_query_prize.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.QueryPrizeParser" parent="messageParser" />
+        </property>
+    </bean>
+    <bean id="messageParser" abstract="true" class="com.unison.lottery.mc.uni.parser.MessageParser">
+      <property name="config" ref="interfaceConfig"/>
+  	</bean>
+  	<bean id="interfaceConfig" class="com.unison.lottery.mc.uni.InterfaceConfig">
+      <property name="version" value="${zm.ticket.version}" />
+      <property name="partnerId" value="${zm.ticket.partnerId}" />
+      <property name="key" value="${zm.ticket.key}" />
+  	</bean>
+</beans>

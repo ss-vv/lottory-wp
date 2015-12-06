@@ -1,0 +1,255 @@
+<script id="real-weibo-follow-user-tmpl" type="text/x-jquery-tmpl">
+	<li class="list-open-form-son">
+		<div class="headpic head_pic" style="" _userid="{{weiboUserId}}">
+			<a href="http://www.davcai.com/{{weiboUserId}}/profile" target="_blank">
+					<img width="54px" height="54px" src="{{headImageURL}}"/>
+			</a>	
+		</div>
+		<div>
+			<span class="list-open-form-son-name"  _userid="{{weiboUserId}}" _nickname_block="_nickname_block">
+				<a href="http://www.davcai.com/{{weiboUserId}}/profile" target="_blank" >{{nickName}}</a>
+			</span>
+			<span class="list-open-form-son-with">{{weiboType}}￥{{buyAmount}}</span>
+			<span class="list-open-form-son-bonus">{{{awardAmount}}}</span>
+		</div>
+	</li>
+</script>
+<script id="praise-user-tmpl" type="text/x-jquery-tmpl">
+	<span id="like_{{postId}}_user_{{weiboUserId}}" _u="{{weiboUserId}}_u"><span _dot="_dot">{{dot}}</span><a href="http://www.davcai.com/{{weiboUserId}}/profile" target="_blank">{{nickName}}</a></span>
+</script>
+<script id="praise-container-tmpl" type="text/x-jquery-tmpl">
+	<div id="like_post_{{postId}}_users" class="list-open-praise"></div>
+</script>
+<script id="comment-list-tmpl" type="text/x-jquery-tmpl">
+	<div class="commentInfo" style="">
+		<div class="hd">
+			<span class="commentNum">全部评论<span class="counts">（{{commentCount}}）</span></span>
+		</div>
+		<div class="loading" style="display: none;"></div>
+		<ul class="commentList">{{#comments}}
+			<li id="comment_{{id}}" _comment="{{id}}">
+				<div class="headpic" _userid="{{author.weiboUserId}}">
+					<a href="{{authorHomeURL}}" data-name="{{author.nickName}}">
+					<img width="30px" height="30px" src="{{author.headImageURL}}">
+					</a>
+				</div>
+				<div class="content" style="display: block;">
+					<a href="{{authorHomeURL}}" data-name="{{author.nickName}}">{{author.nickName}}</a>:<span class="cmt_con">{{content}}</span>
+					<!--
+					<div class="comment">
+						<a href="{{authorHomeURL}}" data-name="{{author.nickName}}">{{author.nickName}}
+							<span class="user_remark" data-name="{{author.nickName}}" style="display: none">()</span>
+						</a>{{{replyTo}}}
+					</div>
+					<div class="cmt_con summary">
+						<span>{{content}}</span>
+					</div>
+					-->
+					<div class="ops">
+						<div class="infos">
+							<span class="createAt" createdat="{{createTimeLong}}">{{createTimeSpan}}</span>
+							<a href="#" class="reportSpam_comment last" style="display: none;">举报</a>
+						</div>
+						{{#isOwner}}<a href="#" class="deleteComment">删除</a>{{/isOwner}}
+						<a href="#" class="{{like}}" like_count="{{praisedCount}}">{{praiseText}}</a><a href="#" class="reply last">回复</a>
+					</div>
+				</div>
+			</li>{{/comments}}
+		</ul>
+	</div>
+</script>
+<script id="comments-container-tmpl" type="text/x-jquery-tmpl">
+	<div class="commentPostArea">
+		<div class="arrow-top">
+			<span class="arrow-top-out"></span>
+			<span class="arrow-top-in"></span>
+		</div>
+		<div class="inputArea">
+			<textarea class="commentEditor"
+				style="min-height: 50px; height: 60.21875px;font-family:Microsoft YaHei;font-size:13px;"></textarea>
+		</div>
+		<span class="showFaceButton">&nbsp;</span>
+		<span class="addStock">&nbsp;</span>
+		<div class="editor fn-btn">
+			<div class="emotion selector">
+				<span title="插入表情" class="face" comment_face><s></s><span>表情</span></span>
+				<span title="过滤赛事" class="match matchFindForward game_show_btn"><s></s><span>赛事</span></span>
+			</div>
+		</div>
+		<label class="forward-home"><input type="checkbox" name="forward"> 同时转发到我的首页 </label>
+		<input type="button" _id="submit-comment-content" class="commentSubmit button" value="发布">
+		<div class="fixit"></div>
+	</div>
+</script>
+<script id="time-field-set-tmpl" type="text/x-jquery-tmpl">
+	<fieldset name="_timeFieldset" style="padding:0 0 0 204px;border-color:#e6e6e6;border-style:solid;border-width:1px 0 0 0;margin-top: -7px;background-color: #ffffff;" node-type="feed_list_timeTip">
+		<legend style="width:135px;text-align:center;font-weight:400;color:#aeaeae;font:12px/1.125 Arial,Helvetica,sans-serif;" node-type="feed_list_timeText">{{interval}}前，你看到这里</legend>
+	</fieldset>
+</script>					
+<script id="new-weibo-msg-tip-tmpl" type="text/x-jquery-tmpl">
+	<div _id="new-weibo-notify-div" style="text-align:center;height:30px;border-bottom:1px solid #f1f1f1;display:none;">
+		<a href="javascript:void(0);" style="padding:4px 50px;background-color:#f9f9f9;border:solid 1px #ddd;border-radius:2px;font:12px Arial, sans-serif;color:#555;text-decoration:none;">您有<span _id="new-weibo-count">{{newWeiboCount}}</span>条新消息，点击查看</a>
+	</div>
+</script>
+<script id="load-more-weibo-tmpl" type="text/x-jquery-tmpl">
+	<div class="ias_trigger" style="display: none;">
+		<a href="javascript:void(0);" >加载更多</a>
+	</div>
+</script>
+<script id="weibo-msg-tmpl" type="text/x-jquery-tmpl">
+	{{#posts}}<li _id="post_{{id}}" class="item" weiboMsgLi>
+		<input type="hidden" name="timeLine" value="{{timeLine}}"/>
+		<div class="headpic" _userid="{{ownerId}}">
+			<a href="http://www.davcai.com/{{ownerId}}/profile"><img width="50px" height="50px" src="{{headImageURL}}" /></a>
+		</div>
+		<div class="content status_content">
+			<div class="status expandable">
+				<p><a href="http://www.davcai.com/{{ownerId}}/profile" _id="{{ownerId}}" _nickname_block="_nickname_block" _userid="{{ownerId}}">{{nickName}}</a>{{{certificationView}}}
+					<span class="tag-left">{{#_tags}}
+						<span class="tag-style" style="background-color:{{bgcolor}};color:{{color}};{{tagDisplay}}" _tagToSchemeId="{{schemeId}}" _tagId="{{id}}">{{name}}{{value}}</span>{{/_tags}}
+					</span>
+				</p>
+				<h4><a href="/{{ownerId}}/{{id}}" target="_blank" _n="title"  title="查看详情"  _postId="{{id}}">{{title}}</a></h4>
+				<div class="summary" style="margin-top: 10px;" _n="content" _hideDiv weiboType="{{type}}" schameId="{{schameId}}">
+					{{{content}}}
+				</div>
+				<div class="summary"  _n="content" _sourceDiv style="display:none;margin-top: 10px;">
+					{{{content}}}
+				</div>
+				{{#srcwb}}
+				<div  class="statusforward expandable" style="width: 500px;">
+					<p><a href="http://www.davcai.com/{{srcwb.ownerId}}/profile" _id="{{srcwb.ownerId}}"  _nickname_block="_nickname_block" _userid="{{srcwb.ownerId}}">{{srcwb.nickName}}</a>{{{srcCertificationView}}}</p>
+					<h4><a href="/{{srcwb.ownerId}}/{{srcwb.id}}" target="_blank"  title="查看详情"  _postId="{{srcwb.id}}">{{srcwb.title}}</a></h4>
+					<div class="summary" _hideDiv>
+						{{{srcwb.content}}}
+					</div>
+					<div class="summary"  _sourceDiv style="display:none;">
+						{{{srcwb.content}}}
+					</div>
+					<div data-type="source-scheme-view">
+					</div>
+					{{{sourceFollowRealBtn}}}
+					{{{sourceAcceptRecBtn}}}
+					<div class="meta" style="margin-top: 12px;">
+						<div class="infos">
+							<a href="/{{srcwb.ownerId}}/{{srcwb.id}}" target="_blank"  title="查看详情" class="time">{{shortCreateTime}}</a>
+							<span>&nbsp;<a href="http://www.davcai.com/{{srcwb.ownerId}}/{{srcwb.id}}" style="color:#0092FF;" target="_blank"  _postId="{{srcwb.id}}">相关讨论({{commentCount}})</a></span>{{{srcFromUrl}}}
+						</div>
+					</div>
+				</div>
+				{{/srcwb}}
+				<div data-type="scheme-view">
+				</div>
+				<div class="meta"  style="padding-top:10px;">
+					<div class="infos">
+						<a href="/{{ownerId}}/{{id}}"  target="_blank" class="time" title="查看详情">{{shortCreateTime}}</a>{{{fromUrlPosi}}}
+					</div>
+					<div class="ops">
+						<div _id="follow-real-weibo-btn" _followBtn style="display: inline-block;">
+							{{{followOrPartnerView}}}
+						</div>
+						<div _id="accept-recomend-weibo-btn" style="display: inline-block;">
+							<input class="accept-rec-button" type="button"  value="采纳" _url="{{acceptWeiboBtnUrl}}"/>
+						</div>
+						{{#isCurrentUser}}
+							<a href="javascript:void(0);" class="repost" data-toggle="modal"  data-target="#modal"  _n="edit" _postId="{{id}}"  style="display:none;">修改</a>
+							<a href="javascript:void(0);" class="repost" data-toggle="modal"  data-target="#modal"  _n="delete" _postId="{{id}}" >删除</a>
+						{{/isCurrentUser}}
+						<a href="javascript:void(0);" class="repost" data-toggle="modal"  data-target="#modal"  _s="{{forwardCount}}"  _n="forward" _postId="{{id}}">{{forward}}</a>
+						<a href="javascript:void(0);" class="share"  _n="share" _postId="{{id}}" _share_link="/{{ownerId}}/{{id}}">{{share}}</a>
+						<a href="javascript:void(0);" class="addFav" _n="favoriate" _s="{{isfavoriated}}" _count="{{favoriateCount}}"  _postId="{{id}}">{{favoriate}}</a>
+						<a href="javascript:void(0);" class="statusComment" _n="comment" _postId="{{id}}">{{comment}}</a>
+						<a href="javascript:void(0);" class="statusComment last" _n="like"  _s="{{isliked}}"  _count="{{likeCount}}" _postId="{{id}}">{{like}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div _id="weibo-footer-container">
+			<div class="commentContainer display_textarea" comment-container-div weibo-footer-element style="display: block;">
+			</div>
+		</div>
+		<div _id="real-follower-div">
+			<div id="real_post_{{id}}_my_followers" realPostMyFollowers>{{{myRealFollowersView}}}</div>
+			<div id="real_post_{{id}}_followers" style="display:none" realPostFollowers>{{{realFollowersView}}}</div>
+		</div>
+		{{{likeUserView}}}
+	</li>{{/posts}}
+</script>
+
+<script id="share-dialog-tmpl" type="text/x-jquery-tmpl">
+	<!-- 分享窗口 -->
+	<form _id="shareDialog">
+		<input type="hidden" name="postId" id="postId"/>
+		<div class="modal fade" _id="shareModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">分享至</h4>
+		        #if($user.sinaWeiboUid)
+					<input _id="sinaWeiboCheck" name="sinaWeiboCheck" type="checkbox" checked="checked" style="margin:5px">已绑定的新浪微博</input>
+				#else
+					<a href="http://www.davcai.com/to_bind_auth">点击去绑定新浪微博</a>
+				#end
+				<label _id="tipBindInfo" style="color:red"></label>	        
+		      </div>
+		      <div class="modal-body">
+		      <div class="editor">
+		      		<div class="editor-wrapper">
+				      		<div id="emotionAreaForShare">
+								<textarea class="form-control" rows="5" id="shareContent" name="shareContent" placeholder="说点什么吧……"></textarea>
+								<div id="filter_dialog_share" style="display:none;"></div>
+							</div>
+				      		<div class="emotion limitWeiboLen">
+			                    <span title="插入表情" _id="message_face_share" class="face"><s></s><span>表情</span></span>
+			                    <span title="过滤赛事" class="match matchFindShare game_show_btn"><s></s><span>赛事</span></span>
+			                    <span id="shareContentRemainingWords" style="float:right;clear:both;">还可输入<em style='color:red;'>140</em>字</span>
+			                </div>
+			          </div>
+			   </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="sharePostBtn">分享</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</form>
+</script>
+
+<script id="forward-dialog-tmpl" type="text/x-jquery-tmpl">
+	<!-- 转发窗口 -->
+	<form _id="forwardDialog">
+		<input type="hidden" name="weiboMsg.postId" _id="postId"/>
+		<div class="modal fade" _id="forwardModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">转发到我的首页</h4>
+		      </div>
+		      <div class="modal-body">
+		      <div class="editor">
+		      		<div class="editor-wrapper">
+				      		<div id="emotionArea">
+								<textarea class="form-control" rows="5" _id="forwardContent" id="forwardContent" name="weiboMsg.content" placeholder="说点什么吧……"></textarea>
+								<div id="filter_dialog_forward" style="display:none;"></div>
+							</div>
+				      		<div class="emotion limitWeiboLen">
+			                    <span title="插入表情" _id="message_face_forward" class="face"><s></s><span>表情</span></span>
+			                    <span title="过滤赛事" class="match matchFindForward game_show_btn"><s></s><span>赛事</span></span>
+			                    <span _id="remainingWords" style="float:right;clear:both;">还可输入<em style='color:red;'>1000</em>字</span>
+			                </div>
+			          </div>
+			   </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="forwardBtn">转发</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal --> 
+	</form>
+</script>

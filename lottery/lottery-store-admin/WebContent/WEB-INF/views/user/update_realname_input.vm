@@ -1,0 +1,45 @@
+#set($title="变更真实姓名")
+<div class="w">
+	<div class="tabH" id="tabLinks">
+		<span class="current"><b>变更真实姓名</b></span>
+	</div>
+	<div class="bx_c">
+		<table cellspacing="0" class="tab">
+			<tr>
+				<td style="text-align:right;width:110px;">用户ID：</td><td>${u.id}</td>
+      		</tr>
+			<tr>
+				<td style="text-align:right;width:110px;">真实姓名：</td><td>${u.realname}</td>
+      		</tr>
+			<tr>
+				<td style="text-align:right;width:110px;">新的姓名：</td>
+				<td><input type="text" id="newRealName" value=""/></td>
+      		</tr>
+      		<tr>
+		        <td colspan="4" style="text-align:center; padding: 5px 0px;">
+		          <input type="button" class="hand btn" value="更新" id="actionBtn" _action="updateRealname"/>
+		        </td>
+      		</tr>
+		</table>
+  	</div>
+</div>
+<script language="javascript" type="text/javascript">
+	$(function(){
+	    $('#actionBtn').bind('click', function(){
+	    	var newRealName = $("#newRealName").val();
+	    	if(!newRealName) {
+	    		alert("给定的用户名为空或不合法!");
+	    		return;
+	    	}
+	    	var param = {id: ${u.id}};
+	    	param.realname = newRealName;
+	        var act = $(this).attr('_action'), tip = '更改用户姓名？', url = 'update_realname.do';
+				        
+	        if(confirm('确定要' + tip)){
+	            jQuery.getJSON('$base/user/' + url, param, function(json){
+                    window.location.reload();
+	            });
+	        }
+	    });
+	});
+</script>

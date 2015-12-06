@@ -1,0 +1,50 @@
+* html .u1_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u1_normal.png");
+}
+
+* html .u3_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u3_normal.png");
+}
+
+* html .u5_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u5_normal.png");
+}
+
+* html .u7_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u7_normal.png");
+}
+
+* html .u9_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u7_normal.png");
+}
+
+* html .u11_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u7_normal.png");
+}
+
+* html .u14_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u1_normal.png");
+}
+
+* html .u16_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u3_normal.png");
+}
+
+* html .u18_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u5_normal.png");
+}
+
+* html .u20_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="推荐菜单_files/u20_normal.png");
+}
+

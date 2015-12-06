@@ -1,0 +1,23 @@
+# database
+db.url = jdbc:mysql://182.92.191.193:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = test_lottery
+db.password = test77
+
+# database
+db2.url = jdbc:mysql://182.92.191.193:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = test_account
+db2.password = test77
+
+# redis
+redis.url = 182.92.191.193
+redis.port = 22122
+
+# active mq
+amq.brokerURL=tcp://182.92.191.193:61616
+
+#thrift.port
+thrift.port = 32100
+
+#scheme time to live
+scheme.timeToLive=86400
+scheme.final.timeToLive=604800

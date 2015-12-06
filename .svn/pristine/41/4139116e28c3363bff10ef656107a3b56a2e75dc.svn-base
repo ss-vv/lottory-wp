@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<methodRequest name="buyHistory"  validId="146a2476-fabb-4e83-a2b3-bb0e96449b06"  clientVersion="客户端版本号"  channel="渠道号"  deviceId="sim卡序列号"  modelName="机型信息"  betType="all"  firstResult="0" />

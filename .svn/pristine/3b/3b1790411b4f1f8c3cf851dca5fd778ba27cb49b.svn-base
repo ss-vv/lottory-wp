@@ -1,0 +1,8 @@
+ #if($ad && $ad.picPath)
+     <div class="welcome-boot-screen">
+          <a #if($ad.hrefLink) href="${ad.hrefLink}" #end><img src="$!{ad.picPath}" /></a>
+  	   	   <span class="welcome-close-screen">
+  	   	      <a href="javascript:void(0);"><img src="images/new-login/welcome-close-screen.png"/></a>
+  	   	   </span>
+  	 </div> <!--------这段是开机画面welcome-boot-screen部分----------> 
+#end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+
+	<bean id="runWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Run" />
+		<property name="maxSize" value="20" />
+	</bean>
+	
+	<!-- 出票监控任务 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Ticket Monitor Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="270" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.alarm.task.TicketMonitorTask">
+				<!-- 单位秒 -->
+				<!-- 报警阀值，出票时间超过该时间，将报警 -->
+				<property name="thresholdValue" value="480"></property>
+				<!-- 扫描配置（from），扫描到报警阀值前 intervalValue 秒的票-->
+				<!-- intervalValue 值应比 该任务执行周期 大 以避免 遗漏 出票失败的票 -->
+				<property name="intervalValue" value="300"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 实体店出票监控任务 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="ShiTiDian Ticket Monitor Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:00:00" />
+		<property name="period" value="600" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.alarm.task.ShiTiDianTicketMonitorTask">
+			</bean>
+		</property>
+	</bean>
+</beans>

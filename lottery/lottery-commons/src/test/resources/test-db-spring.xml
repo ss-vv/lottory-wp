@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+  default-autowire="byName">
+
+  <context:annotation-config />
+
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://182.92.191.193:3306/db_lottery" />
+    <property name="username" value="test_lottery" />
+    <property name="password" value="test77" />
+    <property name="connectionProperties">
+      <props>
+        <prop key="useUnicode">true</prop>
+        <prop key="characterEncoding">utf-8</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+        <prop key="hibernate.jdbc.fetch_size">20</prop>
+        <prop key="hibernate.jdbc.batch_size">20</prop>
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.order_updates">true</prop>
+        <prop key="hibernate.cache.use_second_level_cache">false</prop>
+      </props>
+    </property>
+    <property name="packagesToScan" value="com.xhcms.lottery.commons.persist.entity"/>
+  </bean>
+
+  <tx:annotation-driven transaction-manager="transactionManager" />
+  
+  <bean id="accountDao" class="com.xhcms.lottery.commons.persist.dao.impl.AccountDaoImpl" />
+  <bean id="orderDao" class="com.xhcms.lottery.commons.persist.dao.impl.OrderDaoImpl" />
+  <bean id="rechargeDao" class="com.xhcms.lottery.commons.persist.dao.impl.RechargeDaoImpl" />
+  <bean id="userDao" class="com.xhcms.lottery.commons.persist.dao.impl.UserDaoImpl" />
+  <bean id="withdrawDao" class="com.xhcms.lottery.commons.persist.dao.impl.WithdrawDaoImpl"/>
+  <bean id="betPartnerDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetPartnerDaoImpl"/>
+  <bean id="issueinfoDao" class="com.xhcms.lottery.commons.persist.dao.impl.IssueinfoDaoImpl"/>
+
+  <bean id="accountService" class="com.xhcms.lottery.commons.persist.service.impl.AccountServiceImpl" />
+  <bean id="ordertService" class="com.xhcms.lottery.commons.persist.service.impl.OrderServiceImpl" />
+  <bean id="matchColorService" class="com.xhcms.lottery.commons.persist.service.impl.MatchColorServiceImpl" />
+  
+  <!-- DAO -->
+  <bean id="playDao" class="com.xhcms.lottery.commons.persist.dao.impl.PlayDaoImpl" />
+  <bean id="fBMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.FBMatchDaoImpl" />
+  <bean id="bBMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BBMatchDaoImpl" />
+  <bean id="matchColorDao" class="com.xhcms.lottery.commons.persist.dao.impl.MatchColorDaoImpl" />
+ 
+  <bean id="bjdcMatchPlayDao" class="com.xhcms.lottery.commons.persist.dao.impl.BJDCMatchPlayDaoImpl"/>
+  <bean id="bjdcMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BJDCMatchDaoImpl"/>
+
+    <bean id="dataSourceAccount"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/db_account" />
+        <property name="username" value="test_account" />
+        <property name="password" value="test77" />
+        <property name="connectionProperties">
+            <props>
+                <prop key="useUnicode">true</prop>
+                <prop key="characterEncoding">utf-8</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="mainSessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.jdbc.fetch_size">20</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.order_updates">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.xhcms.lottery.commons.persist.entity" />
+    </bean>
+    
+    <bean id="accountSessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceAccount"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.jdbc.fetch_size">20</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.order_updates">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.xhcms.lottery.commons.persist.entity" />
+    </bean>
+
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager" >
+        <property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    <bean id="transactionManagerAccount"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager" >
+        <property name="sessionFactory" ref="accountSessionFactory"/>
+    </bean>
+    
+    <bean name="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <bean name="databaseTester2" class="org.dbunit.DataSourceDatabaseTester">
+        <constructor-arg ref="dataSourceAccount" />
+    </bean>
+</beans>

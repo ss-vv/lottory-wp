@@ -1,0 +1,21 @@
+<!-- 跟单用户列表 -->
+<div style="display:none">
+	<ul id="follow_schemas_data_ul">
+		#foreach($followScheme in ${scheme.followSchemes})
+			<li index="$velocityCount" 
+				sponsor="${followScheme.sponsor}"
+				multiple="${followScheme.multiple}"
+				buyAmount="${followScheme.buyAmount}"
+				afterTaxBonus="#if(${followScheme.afterTaxBonus}==0)#else${followScheme.afterTaxBonus}#end"
+				followSchemeId = "$!{followScheme.id}"></li>
+		#end
+	</ul>
+</div>
+#if($offtime == 0)
+<div style="margin-top:50px;width: 520px;display:none"><!--去掉-->
+#else
+<div style="width: 520px;display:none"><!--去掉-->
+#end
+	<ul id="follow_schema_user_ul">
+	</ul>
+</div>

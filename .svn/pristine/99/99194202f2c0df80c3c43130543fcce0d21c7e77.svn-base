@@ -1,0 +1,11 @@
+CREATE TABLE `pm_recharge` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id自增',
+	`user_id` BIGINT(20) UNSIGNED NOT NULL COMMENT '用户id',
+	`promotion_id` BIGINT(20) UNSIGNED NOT NULL COMMENT '活动id',
+	`granttype_id` SMALLINT(5) UNSIGNED NOT NULL COMMENT '赠款类型id',
+	`recharge_id` BIGINT(20) UNSIGNED NOT NULL COMMENT '充值记录id',
+	`created_time` DATETIME NOT NULL COMMENT '创建时间',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;

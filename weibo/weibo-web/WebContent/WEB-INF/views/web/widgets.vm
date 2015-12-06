@@ -1,0 +1,8 @@
+<div class="wb_match_wrap" id="match_wrap">
+    <div class="match_title_bar clearfix"><i class="sprites close"></i><span>请输入赛事编号/球队名称 过滤</span></div>
+    <div class="match_content">
+        <input class="match_input">
+        <div class="helper-hidden"></div>
+    </div>
+</div>
+<div class="ui_overlay" id="ui_overlay"></div>

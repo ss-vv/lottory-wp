@@ -1,0 +1,46 @@
+<script language="javascript" type="text/javascript" src="/js/web/message/at-window.js"></script>
+<script language="javascript" type="text/javascript" src="/js/davcai/lastpublish/lastpublish.js"></script>
+<div id="center" class="right-sidebar">
+    <div class="wrapper">
+        <div class="gonggao">
+            <div class="tipstop">
+                <h2 class="widget-title">
+                    <a href="#"><span class="index-color">公告</span></a>
+                </h2>
+                <div class="fixit"></div>
+                <div class="tipstopic" id="announceList">
+                </div>
+				<div class="loading" style="display: none;height:40px;"></div>
+                <div class="fixit"></div>
+            </div>
+        </div>
+        <div class="davcai-today-commend">
+          <!--异步填充数据 -->
+  	  	 </div>
+  	  	 <div class="davcai-hot-discuss" id="hotdiscuss">
+  	  	   <!-- 最热讨论 -->
+         </div>
+  	  	 <div class="davcai-hot-discuss" id="lastpublish">
+  	  	   <!-- 最新发表 -->
+  	  	 </div>
+         <div class="davcai-plus-outer">
+    	  	  <h4 class="title">中奖喜报</h4>
+              <h6 class="change"><a href="/winningList">更多</a></h6>
+  	  	      <hr class="hr-solid">
+  	  	      <ul class="davcai-plus-interest" id="winning_user_list" >
+  	  	      <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	      </ul>
+    	  </div><!---davcai-plus-outer部分----->
+    	  <div class="davcai-plus-outer">
+    	  	  <h4 class="title">你可能感兴趣的人</h4>
+              <h6 class="change"><a href="javascript:void(0);">换一换</a></h6>
+  	  	      <hr class="hr-solid">
+  	  	      
+  	  	      <ul class="davcai-plus-interest" id="interest_user_list">
+  	  	      <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	      </ul>
+    	  </div><!---davcai-plus-outer部分----->
+		#parse("/web/inc/saling_time.vm")
+    </div>
+</div>
+#parse("web/inc/common_tmpl.vm")

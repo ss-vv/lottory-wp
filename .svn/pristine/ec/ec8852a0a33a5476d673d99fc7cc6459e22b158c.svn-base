@@ -1,0 +1,24 @@
+.copyright_box .t_bg {
+    background: #f5f5f5;
+    text-align: center;
+    line-height: 55px;
+}
+
+.copyright_box .t_bg a {
+    text-decoration: none;
+    color: #333;
+}
+
+.copyright_box .t_bg a:hover {
+    color: #e22319;
+}
+
+.copyright_box p {
+    margin-top: 8px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.copyright_box p span {
+    color: red;
+}

@@ -1,0 +1,30 @@
+.prompt-box{width: 384px;height: 175px;background:url(http://www.davcai.com/images/tip_lt_bg2.png);overflow: hidden;}
+.prompt-box .prompt-box-top{width:356px;height:78px;background:#F5F5F5;margin: 13px auto 0;}
+.prompt-box .prompt-box-top .img_left{float:left;margin: 18px 10px 5px 11px;}
+.prompt-box .prompt-box-top .top-r{width: 330px;height: 68px;margin-left: 60px;padding-top: 12px;}
+.prompt-box .prompt-box-top .top-r .name{font-size:14px;font-weight: bold;line-height:200%;}
+.prompt-box .prompt-box-top .top-r .prompt-box-detail{line-height:350%;}
+.prompt-box .prompt-box-top .top-r .prompt-box-detail a{color:#0092FF;}
+.prompt-box .prompt-box-top .top-r .prompt-box-detail i{margin-left: 10px;margin-right:8px; font-size: 13px;}
+
+.prompt-box .prompt-box-top .top-r .attention{
+	float: right;
+	margin-top:-68px;
+	margin-right: 48px;
+	width: 58px;
+	height: 22px;
+	text-align: center;
+	line-height: 22px;
+	padding: 4px;
+}
+.prompt-box .prompt-box-bottom{width:360px;height:90px;margin: 10px auto 0;}
+.prompt-box .prompt-box-bottom .line{line-height:1px;padding:0 10px 0;margin:7px 0;border-left:140px solid #ccc;
+	border-right:143px solid #ccc;
+	margin-bottom:18px;}
+.prompt-box .prompt-box-bottom .fadan{color:#333333;font-weight: bold;font-size: 14px;}
+.prompt-box .prompt-box-bottom .kaijiang{color:#333333;font-weight: bold;font-size: 14px;}
+.prompt-box .prompt-box-bottom .zhongdan{color:#333333;font-weight: bold;font-size: 14px;}
+.prompt-box .prompt-box-bottom .guodanlv{color:#FF0000;font-weight: bold;font-size: 20px;}
+.prompt-box .prompt-box-bottom  label{margin-left: 3px;}
+.prompt-box .prompt-box-bottom p{width:100%;height:30px;line-height: 30px;display: inline;}
+.prompt-box .prompt-box-bottom .real-img{float:left;margin-top: 8px;margin-left: 11px;margin-right: 5px;}

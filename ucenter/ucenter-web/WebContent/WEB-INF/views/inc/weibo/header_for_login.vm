@@ -1,0 +1,111 @@
+#set($weibo = "http://www.davcai.com")
+<link rel="shortcut icon" href="http://trade.davcai.com/df/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="$weibo/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="$weibo/css/home.css">
+<link rel="stylesheet" type="text/css" href="$weibo/css/emoticon.css">
+<link rel="stylesheet" type="text/css" href="$weibo/css/jquery.ias.css">
+<link rel="stylesheet" type="text/css" href="$weibo/css/jquery.ias.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/index.css" />
+<link type="text/css" rel="stylesheet" href="$weibo/css/widgets.css" />
+<link type="text/css" rel="stylesheet" href="$weibo/css/search.css" />
+
+<link type="text/css" rel="stylesheet" href="$weibo/css/base.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/header.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/body.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/cp_type.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/wb_list.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/footer.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/jquery.atwho.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/jquery.autocomplete.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/label-slide.css">
+
+<script language="javascript" type="text/javascript" src="$weibo/js/global-setting.js"></script>
+<script language="javascript" type="text/javascript" src="$weibo/js/jquery.js"></script>
+<script type="text/javascript" src="$weibo/js/web/plugins/cookie/jquery.cookie.js"></script>
+<script language="javascript" type="text/javascript" src="$weibo/js/widgets/jquery.matchurl.js?jsver=2"></script>
+<script type="text/javascript" src="$weibo/js/web/placeholder.js"></script>
+<script type="text/javascript" src="$weibo/js/web/bootstrap.min.js"></script>
+<script type="text/javascript" src="$weibo/js/ui.core.js"></script>
+<script type="text/javascript" src="$weibo/js/web/load-header.js"></script>
+<script type="text/javascript" src="$weibo/js/web/common.js"></script>
+<script type="text/javascript" src="$weibo/js/web/ye_dialog.js"></script>
+<script type="text/javascript" src="$weibo/js/web/jquery-ias.js"></script>
+<script type="text/javascript" src="$weibo/js/web/jquery.mustache.js"></script>
+<script type="text/javascript" src="$weibo/js/web/jquery.util.js"></script>
+<script type="text/javascript" src="$weibo/js/web/search.js"></script>
+<script type="text/javascript" src="$weibo/js/web/lottery.js"></script>
+
+<script type="text/javascript" src="$weibo/js/widgets/jquery.atwho.js"></script>
+<script type="text/javascript" src="$weibo/js/widgets/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="$weibo/js/web/atDemo.js"></script>
+<script type="text/javascript" src="$weibo/js/web/label-slide.js"></script>
+<script type="text/javascript" src="$weibo/js/web/jquery.dateFormat-1.0.js"></script>
+
+<script type="text/javascript" src="$weibo/js/web/daily_topics.js"></script>
+<script type="text/javascript" src="$weibo/js/web/recommend-user.js"></script>
+<script type="text/javascript" src="$weibo/js/web/login.js"></script>
+
+<div id="ajax_login_msg"  _weibouserId="$!user.weiboUserId">
+   <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+          <div class="container">
+              <h1 id="logo"><a href="http://www.davcai.com/"></a></h1>
+              <div class="nav_logined">
+                  <ul class="nav">
+                      <li id="navigatorEssence" class="dropdown">
+                          <a href="javascript:void(0);" class="dropdown-toggle out">精华<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+							  <li class=""><a href="$weibo/winningList">中奖喜报</a></li>
+                              <li class=""><a href="$weibo/hotDiscuss">热门讨论</a></li>
+                              <li class=""><a href="$weibo/latestPublish">最新发表</a></li>
+                          </ul>
+                      </li>
+                    <li id="navigatorRecommend"  class="dropdown">
+                      	<a href="javascript:void(0);" class="dropdown-toggle out">推荐<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+							  <li class=""><a href="http://www.davcai.com/recommend/category_JCZQ">竞彩足球推荐</a></li>
+                              <li class=""><a href="http://www.davcai.com/recommend/category_JCLQ">竞彩篮球推荐</a></li>
+                              <li class=""><a href="http://www.davcai.com/recommend/category_CTZC">传统足球推荐</a></li>
+                              <li class=""><a href="http://www.davcai.com/recommend/category_SSQ">双色球推荐</a></li>
+                              <li class=""><a href="http://trade.davcai.com/df/follow/index.html">晒单跟单</a></li>
+                              <li class=""><a href="http://trade.davcai.com/df/groupbuy/index.html">合买大厅</a></li> 
+                          </ul>
+                      </li>           
+                       <li id="navigatorBet"  class="guide_div_two guide_div dropdown">
+							<a href="javascript:void(0);" class="dropdown-toggle out">投注<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="http://trade.davcai.com/df/bet/jczq_01_zc_2.html">竞彩足球</a></li>
+                              <li><a href="http://trade.davcai.com/df/bet/jclq_06_lc_2.html">竞彩篮球</a></li>
+                              <li><a href="http://trade.davcai.com/df/bet/ctzc_24_zc_14.html">传统足彩</a></li>
+                              <li><a href="http://trade.davcai.com/df/bet/ssq_general.html">双色球</a></li>
+                          </ul>
+						</li>
+						<li id="navigatorLive" class="dropdown">
+                          <a href="javascript:void(0);" class="dropdown-toggle out">直播<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li class=""><a href="$weibo/JZscore">竞足比分</a></li>
+                              <li class=""><a href="$weibo/JLscore">竞篮比分</a></li>
+                              <li class=""><a href="$weibo/CTscore">14场比分</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <ul class="nav pull-right account" id="dropdown_menu">
+                      
+                  </ul>
+                </div>
+                <div class="search search-dropdown" id="search-dropdown">
+                   <form method="get" action="#">
+                      <input id="quick-search" name="q" type="text" autocomplete="off" placeholder="搜索 内容/用户" >
+                   </form>
+                  <label>
+                      <span class="icon"><i></i></span>
+                  </label>
+                    <ul class="dropdown-menu search-result" id="search-result">
+					    
+					</ul>
+              	</div>
+          </div>
+  	  </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+#set($layout="password.vm")
+#set($p_title="找回密码")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="mh">
+  <div class="tt">发送邮件</div>
+</div>
+<div class="mm">
+  <div class="formbox formbox-a formbox-a-b mp-b">
+    <form action="$base/getpwdsendemail.do" method="post">
+      <input type="hidden" name="uid" value="${uid}"/>
+      <input type="hidden" name="email" value="${email}"/>
+      <div class="row">
+        <label class="lbl fs14">邮箱：</label>
+        <div class="tips c-b">$!{email}</div>
+        <div class="tips c-i"></div>
+      </div>
+      <div class="row"><label class="lbl wh-a">&nbsp;</label></div>
+      <div class="row"><label class="lbl wh-a"></label><a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input class="iptbtn" type="submit" value="发送邮件"></span></a></div>
+      <span class="clear"></span>
+    </form>
+  </div>
+</div>
+  
+<script type="text/javascript">
+$(function(){
+});
+</script>

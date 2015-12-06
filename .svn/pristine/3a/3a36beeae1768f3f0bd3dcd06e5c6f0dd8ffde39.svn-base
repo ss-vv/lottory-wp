@@ -1,0 +1,70 @@
+#set($p_title = "我的定制")
+#set($pos = "mycus")
+
+<div class="lyr lyw-g fr">
+	<div class="mod mod-c mod-c-a">
+	 <div class="mh">
+      <div class="tabh tabh-e">
+        <a href="javascript:void(0);" class="cur"><span>我的定制</span></a>
+        <a href="$base/cmlist.do?type=1"><span>定制我的</span></a>
+      </div>
+    </div>
+    <div class="mm">
+    	<form id="qForm" action="$base/cmlist.do" method="post">
+    		<input type="hidden" name="type" value="$!{type}"/>
+    		<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+    	</form>
+    	<div class="mp-ma"></div>
+    	<div class="tblbox tblbox-c mp-f">
+    		<table cellspacing="0" cellpadding="0" border="0" class="tbl">
+         	<tr>
+            	<th class="thl"><div class="inth"><div class="hide">定制用户</div></div></th>
+            	<th style="width:100px;"><div class="inth"><div class="hide">每日总金额</div></div></th>
+            	<th style="width:110px;"><div class="inth"><div class="hide">每日跟单合买次数</div></div></th>
+            	<th style="width:100px;"><div class="inth"><div class="hide">开始时间</div></div></th>
+            	<th style="width:100px;"><div class="inth"><div class="hide">结束时间</div></div></th>
+            	<th class="thr"><div class="inth"><div class="hide">操作</div></div></th>
+          	</tr>
+          	#foreach($cm in $paging.results)
+          	<tr>
+            	<td class="tdl">${cm.followedUser.username}</td>
+            	<td>${cm.maxMoney}</td>
+            	<td>${cm.maxFollowCount}</td>
+            	<td>$date.format("yyyy-MM-dd", ${cm.startTime})</td>
+            	<td>$date.format("yyyy-MM-dd", ${cm.endTime})</td>
+            	<td class="tdr">
+            		<a href="$base/cm.do?fuid=${cm.followedUser.id}">编辑</a>
+            		<a href="$base/cmfbm.do?fuid=${cm.followedUser.id}">明细</a>
+            		<a href="$base/cmcancel.do?cmid=${cm.id}" id="cmcancel">删除</a>
+            	</td>
+          	</tr>
+          	#end
+          	<tr class="last">
+            	<td colspan="6" class="tdr" style="text-align:right;">
+              	<div class="pager fr">
+                	#pager($paging, 8, "pager")
+              	</div>
+            	</td>
+          	</tr>
+          	</table>
+    	</div>
+    	<span class="cb">&nbsp;</span>
+    </div>
+   </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+	function pager_reload(pn){
+	    $('#qForm').find(':input[name="pageNo"]').val(pn);
+	    $("#qForm").submit();
+	}
+	$(function(){
+	    $("#cmcancel").click(function(){
+    		if(confirm("如果确定删除，定制跟单与定制合买全失效！")==true){
+				return true;
+			}else{
+				return false;
+			}
+    	});
+	});
+</script>

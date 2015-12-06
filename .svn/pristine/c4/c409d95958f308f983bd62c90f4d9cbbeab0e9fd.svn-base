@@ -1,0 +1,98 @@
+/**
+by lei.li@unison.net.cn
+对于jquery-ui样式的订制
+*/
+.ui-widget-header {
+	background: #E74C3C !important;
+	border: none !important;
+	font-weight: normal !important;
+	color: #FFF !important;
+}
+
+.dialog-span {
+	display: inline-block;
+	width: 60px;
+	height: 28px;
+	line-height: 28px;
+	margin-left: 0px;
+}
+
+.dialog-define {
+	display: none;
+}
+
+.dialog-define .dialog-submit {
+	margin: 2px 0px 0px 60px;
+	border: 1px solid #E0E0E0;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 6px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.ui-dialog-buttonset button {
+	border: 1px solid #E0E0E0;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	border-radius: 6px;
+}
+
+input, textarea {
+	width: 85%;
+}
+
+.dialog-define .file-upload {
+	background-color:#fff;
+	height: 25px;
+	line-height: 25px;
+	border: 1px solid #E0E0E0;
+	border-radius: 6px;
+	width: 80px;
+}
+
+.dialog-define .upload-result {
+	color:red;
+	margin: 2px 0px 0px 60px;
+	display: inline-block;
+	display: none;
+}
+
+.data-image {
+	cursor: pointer;
+}
+
+.data-image a {
+	height: 40px;
+	width:70px;
+	display: inline-block;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+.main {
+	width: 1000px !important;
+	margin: 0 auto;
+	clear: both;
+}
+html {
+	font-family: sans-serif !important;
+	font-size: 62.5% !important;
+}
+body {
+	font: 12px/1 "Microsoft YaHei", Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif !important;
+	line-height: 2 !important;
+	background-color: #FFF !important;
+}
+.search span.icon {
+	padding-top: 11px !important;
+}
+.navbar .search {
+	top:7px;
+}
+.container ul.nav li a  {
+/* 	font-size: 14px; */
+}

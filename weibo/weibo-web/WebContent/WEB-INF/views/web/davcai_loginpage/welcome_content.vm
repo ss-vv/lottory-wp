@@ -1,0 +1,26 @@
+<div class="welcomepage-content">
+	<div class="welcomepage-contentleft">
+		<div class="today-some">
+		       #parse("web/davcai_loginpage/jczq_recommend_match.vm")
+               #parse("web/davcai_loginpage/jclq_recommend_match.vm")
+	  	   	   #parse("web/davcai_loginpage/bjdc_recommend_match.vm")	   	   	  	   	
+  	  	</div><!-------------today-some部分----------------------->
+  	  	<p class="more-content clear-both">
+  	  	  <a href="http://www.davcai.com/recommend/category_ALL">更多内容...</a>
+  	  	</p>
+  	<!------------下面开始晒单跟单welcome-follow-list部分--------------->
+	    #parse("web/davcai_loginpage/show_scheme.vm")
+  	 	<!----------------------下面开始是welcome-win-xibao中奖喜报部分----------------------->
+ 	    #parse("web/davcai_loginpage/show_win_scheme.vm")
+  	  	<div style="width: 100%;height: 100px;clear: both;margin: 0 auto;" ></div>
+    </div><!-------------welcomepage-contentleft部分----------------------->
+  	  	  
+  	  	<!--------------------------------------上面的是welcomepage-contentleft左边部分结束了-------------------------------------------------------------------------->
+  	 <div class="welcomepage-contentright">
+  	  	           #parse("web/davcai_loginpage/jczq_and_jclq_match_result.vm")
+                   #parse("web/davcai_loginpage/guodanlv.vm")
+	  	  	       #parse("web/davcai_loginpage/win_prize_list.vm")
+  	 </div>
+  	 <!-----------------welcomepage-contentright右边部分--------------->
+  	  	 	
+</div><!-----------------------welcomepage-content部分-------------------------------->

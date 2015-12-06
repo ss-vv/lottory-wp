@@ -1,0 +1,38 @@
+#set($layout="web/home_default.vm")
+#set($styles=[])
+#set($scripts=["js/web/publish-weibo.js",
+	"assets/js/cometd/match-push.js"])
+#set($p_title="我的首页")
+<div class="wrapper">
+	#parse("web/tmpl/bet/scheme.vm") ##赛事方案模板
+	#include("web/tmpl/bet/bet-record-scheme.vm")
+	#include("web/tmpl/bet/bet-record-panel.vm")
+	#include("web/tmpl/bet/bet-record.vm")
+	#parse("web/publish.vm")
+    <!-- status list -->
+    <div class="status-nav newTab_white">
+        <ul class="status-tab upper lotteryScheme">
+            <li id="allposts" _weibotab class="active"><a href="javascript:void(0);">全部 </a></li>
+            <li id="rec" _weibotab><a href="javascript:void(0);">推荐/实单</a></li>
+            <li id="discuss" _weibotab><a href="javascript:void(0);">讨论</a></li>
+            <li id="news" _weibotab><a href="javascript:void(0);">新闻</a></li>
+        </ul>
+    </div>
+    <div class="home-timeline processing" _allposts _weibopanel>
+		<ul class="status-list"></ul>
+    </div>
+    
+    <div class="home-timeline processing" _rec _weibopanel style="display:none;">
+    	<ul class="status-list"></ul>
+    </div>
+    <div class="home-timeline processing" _discuss _weibopanel style="display:none;">
+    	<ul class="status-list"></ul>
+    </div>
+    <div class="home-timeline processing" _news _weibopanel style="display:none;">
+    	<ul class="status-list"></ul>
+    </div>
+</div>
+
+
+<iframe src="http://trade.davcai.com/ac/login_notify.do" height="0px" width="0px">
+</iframe>

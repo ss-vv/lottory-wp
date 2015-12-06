@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Lottery - 星汇盛世（北京）科技有限公司 </title>
+<link type="text/css" rel="stylesheet" href="xhdesk/style/common.css" />
+<link type="text/css" rel="stylesheet" href="xhdesk/style/window.css" />
+<script type="text/javascript" src="js/jet/jet.core.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.browser.js"></script>
+<script type="text/javascript" src="js/xhcms/jooe.core.js"></script>
+<script type="text/javascript" src="js/xhcms/jooe.event.js"></script>
+<script type="text/javascript" src="js/xhcms/ui.base.js"></script>
+<script type="text/javascript" src="js/xhcms/ui.button.js"></script>
+<script type="text/javascript" src="js/xhcms/ui.panel.js"></script>
+<script type="text/javascript" src="js/xhcms/ui.message.js"></script>
+<script type="text/javascript" src="js/xhcms/ui.window.js"></script>
+<script type="text/javascript" src="js/xhcms/ui.menu.js"></script>
+<script type="text/javascript">
+    if(jQuery.browser.msie && jQuery.browser.version == "6.0"){
+        document.write('<link type="text/css" rel="stylesheet" href="/xhdesk/style/filter.css" />');
+    }
+</script>
+</head>
+<body>
+<div id="startingCover" style="position: absolute; height: 100%; width: 100%; z-index: 1000000; background-color: #ccc; " >
+    <div id="startingLogo" style="position: absolute; width: 193px; height: 61px;  top: 50%; left: 50%; margin: -30px 0 0 -96px; background: url(/images/logo.png) no-repeat scroll 0 0 transparent;"></div>
+    <div id="startingText" style="position: absolute; top: 50%; left: 50%; margin: 30px 0 0 -48px;">Starting ...</div>
+    <div id="startingBar"></div>
+</div>
+<div id="desktop" class="desktop">
+    <div id="topBar" class="topBar">
+        <div class="topBar_bg">
+            <div class="userBar">
+                <div class="inuserBar">
+                    <a href="javascript:void(0);"><span id="user_name" class="name" title="$!{admin_user.realName}">$!{admin_user.username}</span></a>
+                    <span class="splitterUser"><img src="images/message/splitter.png"/></span>
+                    <a href="logout.do"><span class="lcr_l"></span><span class="lcr_c">注销</span><span class="lcr_l"></span></a>
+                </div>
+            </div>
+            <div id="logo" class="logo">
+                <div class="lcr_bg"><div class="lcr_l"></div><div class="lcr_r"></div></div>
+                <div class="inlogo"><a href="http://www.xhcms.com" target="_blank" title="访问星汇盛世官网">星汇盛世</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="mainPanel" class="mainPanel" style="height:599px;"></div>
+    <div id="toolBar" class="toolBar">
+        <div class="toolBar_bg"></div>
+        <div class="watermark">星汇盛世</div>
+        <div id="quickBar" class="quickBar">
+            <div id="quickList" class="appL">
+            </div>
+            <cite class="splitter" title="">|</cite>
+        </div>
+        <div id="statusBar" class="statusBar">
+            <div id="statusList" class="appL">
+            </div>
+        </div>
+        <div id="taskBar" class="taskBar">
+            <div id="taskList" class="taskL">
+            </div>
+        </div>
+    </div>
+    <div class="launcherBar">
+        <div id="launcherBar" class="inlauncherBar">
+            <div class="lcr_bg"><div class="lcr_l"></div><div class="lcr_c"></div><div class="lcr_r"></div></div>
+            <div class="menuBar">
+                <div id="menuList" class="menuL" >
+                </div>
+                <cite title="" class="splitter">|</cite>
+            </div>
+            <div class="appBar">
+                <div id="appList" class="appL"></div>
+            </div>
+        </div>
+        <cite class="splitter" title="分隔栏，拖拽改变位置">分隔栏，拖拽改变位置</cite>
+    </div>
+</div>
+<script type="text/javascript" src="js/xhcms/desk.layout.js"></script>
+<script type="text/javascript" src="js/xhcms/desk.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

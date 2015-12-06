@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    default-autowire="byName">
+	<bean id="yuanChengChuPiaoOrderTicketClient" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoOrderTicketClientImpl" />	 
+	<bean id="yuanChengChuPiaoOrderTicketClientSupport" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoOrderTicketClientSupport" >	 
+		<property name="apiId" value="${yuanchengchupiao.apiId}"/>
+		<property name="secret" value="${yuanchengchupiao.secret}"/>
+		<property name="interfaceUrl" value="${yuanchengchupiao.interfaceUrl}"/>
+		<property name="contentKey" value="${yuanchengchupiao.contentKey}"/>
+	</bean>
+	<!-- bean id="yuanChengChuPiaoOrderTicketResultClient" class="com.davcai.lottery.platform.client.yuanchengchupiao." />  -->
+	<bean id="yuanChengChuPiaoOrderTicketResultClientSupport" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoOrderTicketResultClientSupport">
+	    <property name="apiId" value="${yuanchengchupiao.apiId}"/>
+		<property name="secret" value="${yuanchengchupiao.secret}"/>
+		<property name="interfaceUrl" value="${yuanchengchupiao.checkTicketStatusUrl}"/>
+		<property name="contentKey" value="${yuanchengchupiao.contentKey}"/>
+	</bean>
+	<!-- 获取中奖列表 
+	<bean id="yuanChengChuPiaoGetBonusListClient" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoGetBonusListClientImpl" />	
+	<bean id="yuanChengChuPiaoGetBonusListClientSupport" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoGetBonusListClientSupport">
+	    <property name="apiId" value="${yuanchengchupiao.apiId}"/>
+		<property name="secret" value="${yuanchengchupiao.secret}"/>
+		<property name="interfaceUrl" value="${yuanchengchupiao.getBonusListUrl}"/>
+		<property name="contentKey" value="${yuanchengchupiao.contentKey}"/>
+	</bean>-->
+	<!-- 获取中奖金额
+	<bean id="yuanChengChuPiaoQueryPrizeClient" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoQueryPrizeClientImpl" />	
+	<bean id="yuanChengChuPiaoQueryPrizeClientSupport" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoQueryPrizeClientSupport">
+	    <property name="apiId" value="${yuanchengchupiao.apiId}"/>
+		<property name="secret" value="${yuanchengchupiao.secret}"/>
+		<property name="interfaceUrl" value="${yuanchengchupiao.getBonusAllUrl}"/>
+		<property name="contentKey" value="${yuanchengchupiao.contentKey}"/>
+	</bean>-->
+	<!-- 查询票是否正常兑奖-->
+	<bean id="yuanChengChuPiaoCheckTicketsStatusClient" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoCheckTicketsStatusClientImpl" />	
+	<bean id="yuanChengChuPiaoCheckTicketsStatusClientSupport" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoCheckTicketsStatusClientSupport">
+	    <property name="apiId" value="${yuanchengchupiao.apiId}"/>
+		<property name="secret" value="${yuanchengchupiao.secret}"/>
+		<property name="interfaceUrl" value="${yuanchengchupiao.checkTicketsStatus}"/>
+		<property name="contentKey" value="${yuanchengchupiao.contentKey}"/>
+	</bean>
+	
+	<!-- 验证中奖金额-->
+	<bean id="yuanChengChuPiaoValidateAwardAmountClient" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoValidateAwardAmountImpl" />	
+	<bean id="yuanChengChuPiaoValidateAwardAmountSupport" class="com.davcai.lottery.platform.client.yuanchengchupiao.YuanChengChuPiaoValidateAwardAmountSupport">
+	    <property name="apiId" value="${yuanchengchupiao.apiId}"/>
+		<property name="secret" value="${yuanchengchupiao.secret}"/>
+		<property name="interfaceUrl" value="${yuanchengchupiao.checkTicketsUrl}"/>
+		<property name="contentKey" value="${yuanchengchupiao.contentKey}"/>
+	</bean>
+	
+</beans>

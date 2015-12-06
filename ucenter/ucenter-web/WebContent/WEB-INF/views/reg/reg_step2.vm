@@ -1,0 +1,48 @@
+#set($layout="regist.vm")
+#set($p_title="注册中心")
+
+<script>
+  $(function(){
+      var referer = '$!{referer}';
+      if(referer.indexOf('reg.do') > 0 || referer.indexOf('login.do') > 0 || referer == ''){
+          referer = 'http://trade.davcai.com/df/';
+      }
+      
+      $('#refererLink').bind('click', function(){
+          location.href = referer;
+      });
+      
+  });
+</script>
+<style type="text/css">
+.reg_ok{width:960px; border:1px solid #f4bf93; margin:auto; margin-top:15px;}
+.reg_ok a{text-decoration:underline;}
+.reg_bg{background:url(images/reg_ok.jpg) no-repeat; padding-left:50px; width:550px; margin:0px auto; margin-top:50px;}
+.reg_tip{width:580px; margin:0px auto; margin-top:50px; margin-bottom:20px; border-top:1px dashed #ccc; padding:30px 20px;}
+.paddL15{padding-left:15px;}
+.gray_01{color:#666;}
+.blue_01{color:#1e50a2;}
+.red_01{color:#af261a;}
+</style>
+<div class="box">
+	<div class="mod mod-e">
+		<div class="mh">
+			<div class="tt"><b class="icns"></b>注册中心</div>
+		</div>
+		<div class="mm">
+			<div class="stepbox-a wh-c">
+				<div class="last"><span>1</span><b>填写注册信息</b></div>
+				<div class="first"><span>2</span><b>注册成功</b></div>
+			</div>
+		<div class="reg_ok">
+		<div class="reg_bg">
+			<div class="fs14">恭喜您，注册成功，请查看注册时填写的邮箱，完成绑定</div>
+			<div class="fs12"><a href="http://trade.davcai.com/df/" class="gray_01">跳转到首页</a><span class="paddL15">您已注册成功！</span></div>
+		</div>
+		<div class="reg_tip">
+			<p>大V彩 2014年终超级给力优惠回馈新老会员！   </p>
+		</div>
+		</div>
+	</div>
+  <span class="clear"></span>
+</div>

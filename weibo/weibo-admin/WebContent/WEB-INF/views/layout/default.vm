@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>大V彩微博管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大V彩微博管理系统">
+    <meta name="author" content="大V彩">
+	#parse("layout/bootstrap-provide.vm")
+	#parse("layout/commonLeftMenu.vm")
+	<script type="text/javascript" href="$base/js/ad/commen-leftmenu-drop.js"></script>
+	#foreach($s in $styles)
+		<link href="$base/$s" rel="stylesheet"/>
+	#end
+	
+	#foreach($s in $weiboWebDomainStyles)
+		<link href="http://www.davcai.com/$s"  rel="stylesheet"/>
+	#end
+	
+	#foreach($s in $scripts)
+		<script src="$base/$s"></script>
+	#end
+	
+	#foreach($s in $weiboWebDomainScripts)
+		<script src="http://www.davcai.com/$s"></script>
+	#end
+</head>
+<body>
+    #parse("layout/topbar.vm") 
+	${screen_content}
+</body>
+</html>	

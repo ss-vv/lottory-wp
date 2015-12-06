@@ -1,0 +1,108 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="手机管理")
+#set($styles=["css/profile.css"])
+
+#set($scripts=["js/cities.js","js/web/profile/profile.js","js/web/login.js",
+	"js/imgareaselect/jquery.imgareaselect.pack.js",
+	"js/jquery.form.js",
+	"js/web/profile/phone.js"])
+
+<div id="mobile-manage">
+	  
+	  #parse("web/profile/inc/profile_header.vm")
+	  
+	   <div class="b-i-moblie">
+	  	      <ul class="b-i-moblie-tab">
+	  	      	   <li class="test b-i-moblie-tab-current"><a href="javascript:void(0);">手机号码验证</a></li>
+	  	      	   <li class="modify"><a href="javascript:void(0);">手机号码修改</a></li>
+	  	      </ul>
+	  	      
+	  	      <form class="b-i-moblie-test-form">
+	  	      	#if($user.mobile == "")
+	  	      		<ul>
+		  	      		<li>
+							<label>新手机号码</label>
+							<input id="new_phone"  class="short" type="text" value="">
+							<button id="new_send_code_btn" class="b-i-moblie-test-form-send-button">发送短信验证</button>
+						</li><li>
+							<label>验证码</label>
+		  	      	    	<input id="new_verify_code" type="text" />
+		  	      	    	<button id="new_verify_phone_btn"  class="b-i-moblie-test-button">验证</button>
+						</li>
+					</ul>
+	  	      	#else
+	  	      	    <ul>
+	  	      	    	<li>
+	  	      	    		<label style="width: 200px;">当前手机号:$user.mobile</label>
+	  	      	    		#if($user.verifyStatus == 2 || $user.verifyStatus == 3)
+	  	      	    			<span class="b-i-moblie-test-fork"><img src="/images/green-check-mark.png"/><i>已验证</i></span>
+	  	      	    		#else
+	  	      	    			<input type="hidden" value="$user.mobile" id="currentPhone">
+	  	      	    			<button id="send_code_btn" class="b-i-moblie-test-form-send-button">发送短信验证</button>
+	  	      	    			<span class="b-i-moblie-test-fork"><img src="/images/fork.png"/><i>未验证</i></span>
+	  	      	    		#end
+	  	      	    	</li>
+	  	      	    	
+	  	      	    	<li>
+	  	      	    		#if($user.verifyStatus == 2 || $user.verifyStatus == 3)
+	  	      	    		#else
+		  	      	    		<label>验证码</label>
+		  	      	    		<input id="verify_code"  type="text">
+		  	      	    		<button id="verify_phone_btn"  class="b-i-moblie-test-button">验证</button>
+	  	      	    		#end
+	  	      	    	</li>
+	  	      	    </ul>
+	  	      	#end
+	 	      </form><!---------b-i-moblie-test-form------------->
+	 	      #if($user.mobile == "")
+	 	      #else
+	 	      <form class="b-i-moblie-modify-form">
+	  	      	    <ul>
+	  	      	    	<li>
+	  	      	    		<label style="width: 200px;">当前手机号:$user.mobile</label>
+	  	      	    		#if($user.verifyStatus == 2 || $user.verifyStatus == 3)
+	  	      	    			<span class="b-i-moblie-modify-fork"><img src="/images/green-check-mark.png"/><i>已验证</i></span>
+	  	      	    		#else
+	  	      	    			<span class="b-i-moblie-modify-fork"><img src="/images/fork.png"/><i>未验证</i></span>
+	  	      	    		#end
+	  	      	    	</li>
+	  	      	    	
+	  	      	    	<li>
+	  	      	    		<label>新手机号码</label>
+	  	      	    		<input id="new_phone" type="text" />
+	  	      	    		<button  id="new_send_code_btn" class="b-i-moblie-modify-form-send-button">发送短信验证</button>
+	  	      	    	</li>
+	  	      	    	
+	  	      	    	<li>
+	  	      	    		<label>验证码</label>
+	  	      	    		<input id="new_verify_code"   type="text" />
+	  	      	    		<button id="new_verify_phone_btn" class="b-i-moblie-modify-button">验证</button>
+	  	      	    	</li>
+	  	      	    	
+	  	      	    </ul>
+	 	      </form><!---------b-i-moblie-modify-form------------->
+	 	      #end
+	  </div><!---------------b-i-moblie部分---------------------->
+	  
+		<p class="mobile-manage-line">&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;说明
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;
+		</p>
+			 
+		 <p class="mobile-manage-line-words">1.为了更好保护您的帐户，请务必确保您的手机信息填写正确。</p>
+		 <p class="mobile-manage-line-words">2.我们承诺不收取任何费用和发送垃圾短信，也不会向第三方提供您的手机号，请放心验证。</p>
+  
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#sjgl').addClass('active');
+		jQuery('.b-i-moblie-test-form').submit(function(){
+		   return false;
+	    })	
+	});
+</script>

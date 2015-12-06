@@ -1,0 +1,103 @@
+#if($pageResult.results)
+	<div class="welcome-win-xibao">
+		<h4 class="vertical-bar">
+			<img src="images/new-login/vertical-bar-blue-low.png"/>
+		</h4>
+		<h3 class="vertical-bar-title">中奖喜报</h3>
+		<p class="event"></p>
+		<!-------下面这段是一行晒单跟单里面的一张抽纸部分----->
+		#foreach($weibo in $pageResult.results)
+			<div class="welcome-win-xibao-content">
+				<ul class="welcome-win-xibao-content-nav">
+					<li class="list-paper-width01">赛事编号</li>
+					<li class="list-paper-width02">主队VS客队</li>
+					<li class="list-paper-width03">投注内容</li>
+					<li class="list-paper-width04">比分</li>
+				</ul>
+				#foreach($match in $weibo.betScheme.matchs)
+					#if($velocityCount <=2)
+						<ul class="welcome-win-xibao-content-details">
+							<li class="list-paper-width01">$match.cnCode</li>
+							<li class="list-paper-width02">
+								#getPlayId($weibo.betScheme, $match)
+									#set($s="")
+									#foreach($nameArr in ${match.name.split("VS")})
+										#if($velocityCount == 1)
+										   <i class="match-left">$nameArr
+											#if(${_playId} != '80_ZC_1' && ${_playId} != '80_ZC_2' )
+												#if($math.toInteger(${match.concedePoints}) > 0)
+													(+${match.concedePoints})
+												#else
+													(${match.concedePoints}) 
+												#end
+											#end
+										   </i>
+										#end
+										#if($velocityCount == 2)
+											<i class="match-vs">VS</i>
+											 <i class="match-right">$nameArr</i>
+										#end
+									#end
+							</li>
+							<li class="list-paper-width03">
+								$Result.rendBetMatchContent($match)
+							</li>
+							<li class="list-paper-width04">
+								$!{match.score}
+							</li>
+						</ul>
+				  	#end
+                 #end
+                 #if($weibo.betScheme.matchs.size() == 1)
+				 	<p class="welcome-win-xibao-content-more"></p>
+				 #end
+				 <p class="welcome-win-xibao-content-more">
+				  <a href="javascript:void(0);" onclick="detailClick($weibo.betScheme.id,this)">
+				  	#if($weibo.betScheme.matchs.size() >= 3)
+				  		更多...
+				  	#end
+				  </a>
+				 </p>
+				 <p class="welcome-win-xibao-content-pass">
+				 	<span>过关方式：</span>
+				 	<label>$status.getPlayName(${weibo.betScheme.playId})</label>
+				 	<label>#passType($!{weibo.betScheme.passTypeIds})</label>
+				 </p>
+				 <p class="welcome-win-xibao-content-multiple">
+				 	<span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span>
+				 	<label>${weibo.betScheme.multiple}倍</label>
+				 </p>
+				 <p class="welcome-win-xibao-content-money">
+				 	<span>方案金额：</span>
+				 	<label>￥ ${weibo.betScheme.totalAmount}</label>
+				 	<i>元</i>
+				 </p>
+				 <p class="welcome-win-xibao-content-bonus">
+				 	<span>奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金：</span>
+				 	<label>￥${weibo.betScheme.afterTaxBonus}</label>
+				 	<i>元</i>
+				 </p>
+				 <p class="welcome-win-xibao-content-item-data">
+					<span class="item-data-name" title="$!{weibo.user.nickName}">
+						<a href="http://www.davcai.com/$weibo.ownerId/profile">${weibo.user.nickName}</a>
+					</span>
+  	  	   	   	    #if(${weibo.betScheme.followedSchemeId} <= 0)
+  	  	   	   	     	<span class="welcome-follow-list" onclick="location.href='http://www.davcai.com/$weibo.ownerId/$weibo.id'"> 跟单(${weibo.betScheme.followingCount})</span>
+  	  	   	   	    #end
+  	  	   	   	    <em>|</em>
+  	  	   	   	    <span class="item-data-review"> 
+  	  	   	   	    	<a href="http://www.davcai.com/$weibo.ownerId/$weibo.id">评论（${weibo.commentCount}）</a>
+  	  	   	   	    </span>
+  	  	   	   	    <em>|</em>
+  	  	   	   	    <span class="item-data-zan"> 
+  	  	   	   	    	<a href="http://www.davcai.com/$weibo.ownerId/$weibo.id">赞（${weibo.likeCount}）</a>
+  	  	   	   	    </span>
+  	  	   	   	</p>
+				<img src="images/new-login/win-logo.png" class="win-logo"/>
+  	  	   	</div><!----------welcome-win-xibao-content单个抽纸部分结束--------------->
+ 	   	   		#end
+  	  	   	 <p class="more-content clear-both" >
+  	  	   	  	<a href="http://www.davcai.com/winningList">更多内容...</a>
+  	  	   	 </p>
+	</div><!---------welcome-win-xibao部分------------->
+#end

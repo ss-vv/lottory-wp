@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <package name="lottery-default" extends="struts-default" abstract="true">
+    <result-types>
+      <result-type name="layout" class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult" default="true" />
+      <result-type name="json" class="org.apache.struts2.json.JSONResult">
+        <param name="root">data</param>
+        <param name="contentType">text/html</param>
+        <param name="callbackParameter">jsonp</param>
+      </result-type>
+    </result-types>
+    
+    <interceptors>
+      <interceptor name="autoLoginInterceptor" class="com.unison.lottery.wap.interceptor.AutoLoginInterceptor" />
+      <interceptor name="loginValidateInterceptor" class="com.unison.lottery.wap.interceptor.LoginValidateInterceptor" />
+      <interceptor name="xhexception" class="com.unison.lottery.wap.interceptor.ExceptionInterceptor" />
+      <interceptor-stack name="lotteryStack">
+        <interceptor-ref name="xhexception" />
+        <interceptor-ref name="servletConfig" />
+        <interceptor-ref name="fileUpload" />
+        <interceptor-ref name="actionMappingParams" />
+        <interceptor-ref name="params">
+          <param name="excludeParams">dojo\..*,^struts\..*</param>
+        </interceptor-ref>
+        <interceptor-ref name="conversionError" />
+        <interceptor-ref name="workflow" />
+        <interceptor-ref name="validation">
+          <param name="excludeMethods">input,back,cancel,browse</param>
+        </interceptor-ref>
+      </interceptor-stack>
+      <interceptor-stack name="accessItctStack">
+        <!-- <interceptor-ref name="accessInterceptor" /> -->
+        <interceptor-ref name="lotteryStack" />
+      </interceptor-stack>
+      <interceptor-stack name="autoLoginStack">
+      	<interceptor-ref name="autoLoginInterceptor"/>
+      	<interceptor-ref name="lotteryStack"/> 
+      </interceptor-stack>
+      
+      <interceptor-stack name="loginDefaultStack">  
+      	<interceptor-ref name="loginValidateInterceptor"/>  
+        <interceptor-ref name="lotteryStack"/>  
+      </interceptor-stack>  
+    </interceptors>
+    <default-interceptor-ref name="accessItctStack" />
+    
+    <global-results>
+      <result name="login" type="redirect">/login.do</result>
+      <result name="input" type="velocity">/message.vm</result>
+      <result name="error" type="velocity">/message.vm</result>
+      <result name="exception" type="velocity">/exception.vm</result>
+    </global-results>
+  </package>
+  
+
+  <package name="global" extends="lottery-default" namespace="/">
+  
+  	<!-- wap首页 -->
+    <action name="home" class="com.unison.lottery.wap.action.IndexAction">
+      <!--  interceptor-ref name="autoLoginStack"/-->
+      <result type="velocity">index.vm</result>
+      
+    </action>
+    
+    <!-- wap网站用户访问引导到Web上 -->
+    <action name="index" class="com.unison.lottery.wap.action.WebUserGuide">
+  		<result name="success" type="velocity">forwordToWeb.vm</result>
+  	</action>
+    
+	<!-- 选择江西11选5 -->
+    <action name="jx11s5" class="com.unison.lottery.wap.action.JX11s5Action">
+      <result name="success" type="velocity">lottery/jx11s5.vm</result>
+    </action>
+    
+    <!-- 选择具体11选5 -->
+    <action name="playJX11s5" class="com.unison.lottery.wap.action.JX11s5Action" method="selectPlay">
+      <result name="input" type="velocity">play/playJX11s5.vm</result>
+    </action>
+    
+    <!-- 计算投注内容 -->
+    <action name="computeBet" class="com.unison.lottery.wap.action.JX11s5Action" method="computeBet">
+      <result name="input" type="velocity">play/playJX11s5.vm</result>
+      <result name="success" type="chain">
+      	<param name="actionName">buyLottery</param>
+      </result>
+    </action>
+    
+    <!-- 购买 -->
+   <action name="buyLottery" class="com.unison.lottery.wap.action.BuyJX11s5BetAction">
+   	  <interceptor-ref name="loginDefaultStack"/>
+      <result name="input" type="velocity">play/buyJX11s5.vm</result>
+      <result name="success" type="chain">
+      	<param name="actionName">betSuccess</param>
+      </result>
+    </action>
+    
+    <!-- 投注成功 -->
+   	<action name="betSuccess" class="com.unison.lottery.wap.action.BetSuccessAction">
+      <result name="input" type="velocity">play/betSuccess.vm</result>
+    </action>
+    
+    
+    
+    <!-- 具体玩法中选择胆拖 -->
+   <action name="selectTuo" class="com.unison.lottery.wap.action.JX11s5Action" method="selectTuo">
+      <result name="input" type="velocity">play/playJX11s5.vm</result>
+    </action>
+    
+    
+  	 <action name="login" class ="com.unison.lottery.wap.action.LoginAction">
+      <result name="login">login.vm</result>
+      <result name="referer" type="redirect">${referer}</result>
+      <result name="success" type="redirect">index.do</result>
+    </action>
+    
+    <action name="logout" class="com.unison.lottery.wap.action.LogoutAction">
+      <result name="success" type="redirect">index.do?exit=1</result>
+    </action>
+    
+    <!-- 江西十一选五开奖 -->
+    <action name="jx11_ballot_record" class="com.unison.lottery.wap.action.JX11BallotRecordAction" method="jx11Ballot">
+      <result type="velocity">lottery/jx11_ballot_record.vm</result>
+    </action>
+
+  </package>
+  
+  <package name="user" extends="lottery-default" namespace="/user">
+      
+       
+    <!-- charge -->
+   	<action name="charge" class="com.unison.lottery.wap.action.user.ChargeAction">
+      <result>charge.vm</result>
+    </action>
+
+   	<action name="alicharge" class="com.unison.lottery.wap.action.user.AliChargeAction" method="alicharge">
+      <result>alicharge.vm</result>
+    </action>  
+    <!-- 支付宝WAP充值 -->
+    <action name="aliaffirm" class="com.unison.lottery.wap.action.user.AliChargeAction" method="aliaffirm">
+      <result type="redirect">${redirectURL}</result>
+      <result name="login" type="redirect">/login.do</result>
+    </action>    
+    <!-- 支付宝WAP异步回调接口 -->
+    <action name="alipayNotify" class="com.unison.lottery.wap.action.user.NotifyAction">
+    	<result type="stream" />
+    </action>    
+    <!-- 支付宝WAP同步回调接口 -->
+    <action name="alipayReturn" class="com.unison.lottery.wap.action.user.ReturnAction">
+      <result>/message.vm</result>
+    </action>   
+    <action name="yeepayCharge" class="com.unison.lottery.wap.action.user.YeepayCardAction" method="yeepayCharge">
+		<result>yeepay_charge.vm</result>
+    </action>    
+    <!-- WAP易宝手机卡充值 -->
+    <action name="yeepayAffirm" class="com.unison.lottery.wap.action.user.YeepayCardAction" method="yeepayAffirm">
+		<result>yeepay_resp.vm</result>
+    </action>     
+    <!-- WAP易宝手机卡充值异步回调接口 -->
+    <action name="yeepayCardNotify" class="com.unison.lottery.wap.action.user.YeepayCardNotifyAction">
+    	<result type="stream" />
+    </action> 
+    <action name="yeepayResult" class="com.unison.lottery.wap.action.user.YeepayResultAction">
+		<result>yeepay_check.vm</result>
+    </action>     
+    
+    <action name="register" class="com.unison.lottery.wap.action.RegisterAction">
+      <result name="input" type="velocity">register.vm</result>
+      <result name="success" type="chain">
+      	<param name="actionName">myAccount</param>
+      </result>
+    </action>
+    
+    <action name="myAccount" class="com.unison.lottery.wap.action.AccountAction">
+      <result name="success" type="velocity">myAccount.vm</result>
+    </action>
+
+    <!-- 密码修改的请求输入页面 -->
+    <action name="input_newPassword">
+    	<result type="velocity">input_newPassword.vm</result>
+    </action>
+    
+    <!-- 更新支付密码的输入页面 -->
+    <action name="input_update_password_withdraw">
+    	<result type="velocity">input_update_password_withdraw.vm</result>
+    </action>
+    
+    <!-- 更新用户登录密码 -->
+    <action name="update_login_password" class="com.unison.lottery.wap.action.user.UpdatePasswordAction" method="updateLoginPassword">
+    	<result type="velocity">update_password_complete.vm</result>
+    </action>
+    
+    <!-- 更新用户提现密码 -->
+    <action name="update_withdraw_password" class="com.unison.lottery.wap.action.user.UpdatePasswordAction" method="updateWithdrawPassword">
+    	<result type="velocity">update_password_complete.vm</result>
+    </action>
+
+  </package>
+	  
+  <package name="record" extends="lottery-default" namespace="/record">
+  
+    <action name="accountRecord" class="com.unison.lottery.wap.action.AccountRecordListAction">
+      <result name="success" type="velocity">accountRecord.vm</result>
+    </action>
+    
+    <action name="winRecord" class="com.unison.lottery.wap.action.WinRecordListAction">
+      <result name="success" type="velocity">winRecord.vm</result>
+    </action>
+    
+    <action name="accountDetail" class="com.unison.lottery.wap.action.AccountDetailAction">
+      <result name="success" type="velocity">accountDetail.vm</result>
+    </action>
+
+    <action name="chargeRecord" class="com.unison.lottery.wap.action.ChargeRecordAction">
+      <result name="success" type="velocity">chargeRecord.vm</result>
+    </action>
+   
+    <action name="scheme-detail" class="com.unison.lottery.wap.action.SchemeDetailAction">
+      <result name="success" type="velocity">scheme-detail.vm</result>
+    </action>
+    
+  </package>
+  
+  <package name="security" extends="lottery-default" namespace="/security">
+  
+    <action name="mobile" class="com.unison.lottery.wap.action.BindMobileAction">
+      <result name="success" type="velocity">bind-mobile.vm</result>
+    </action>
+    
+    <action name="verify-code" class="com.unison.lottery.wap.action.BindMobileAction" method="verifyCode">
+      <result name="success" type="velocity">verify-code.vm</result>
+      <result name="input" type="velocity">bind-mobile.vm</result>
+    </action>
+    
+    <action name="bind-mobile" class="com.unison.lottery.wap.action.BindMobileAction" method="bindMobile">
+      <result name="input" type="velocity">verify-code.vm</result>
+      <result name="success" type="velocity">bind-result.vm</result>
+    </action>
+    
+    <action name="unbind" class="com.unison.lottery.wap.action.BindMobileAction">
+      <result name="success" type="velocity">unbind-mobile.vm</result>
+      
+    </action>
+    
+    <action name="unbind-mobile" class="com.unison.lottery.wap.action.BindMobileAction" method="unbindMobile">
+      <result name="input" type="velocity">unbind-mobile.vm</result>
+      <result name="success" type="velocity">unbind-result.vm</result>
+    </action>
+    
+  </package>
+  
+  <include file="struts-ssq.xml"></include>
+  <include file="struts-ballot.xml"></include>
+</struts>

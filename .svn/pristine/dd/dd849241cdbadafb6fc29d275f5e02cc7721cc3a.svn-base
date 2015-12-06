@@ -1,0 +1,57 @@
+<!-- left menu starts -->
+<div class="span2 main-menu-span">
+    <div class="well nav-collapse sidebar-nav">
+        <ul class="nav nav-tabs nav-stacked main-menu">
+            <li class="nav-header hidden-tablet">主功能区</li>
+            <li><a class="ajax-link" href="$base/introduce.do"><i class="icon-home"></i><span class="hidden-tablet">介绍</span></a></li>
+            <li><a class="ajax-link" href="$base/dailyTopic.do"><i class="icon-eye-open"></i><span class="hidden-tablet"> 今日话题</span></a></li>
+            <li><a class="ajax-link" href="$base/specialUsers.do"><i class="icon-eye-open"></i><span class="hidden-tablet"> 注册、绑定特殊用户</span></a></li>
+            <li><a class="ajax-link" href="$base/weiboNews.do?newsType=FootBall"><i class="icon-eye-open"></i><span class="hidden-tablet"> 审核足球新闻</span></a></li>
+            <li><a class="ajax-link" href="$base/weiboNews.do?newsType=BasketBall"><i class="icon-eye-open"></i><span class="hidden-tablet"> 审核篮球新闻</span></a></li>
+            <li><a class="ajax-link" href="$base/pushPrivateMsg.do?ownerId=619145310522368&page=1"><i class="icon-eye-open"></i><span class="hidden-tablet">群发私信</span></a></li>
+            <li class="accordion">
+            	<a href="#"><i class="glyphicon glyphicon-plus"></i><i class="icon-eye-open"></i><span>待推荐赛事</span></a>
+            	<ul class="nav nav-pills nav-stacked" style="display: none;">
+	                <li><a class="ajax-link" href="$base/fb/prepareMatchs.do"><span class="hidden-tablet">　　　竞彩足球</span></a></li>
+	                <li><a class="ajax-link" href="$base/bb/prepareMatchs.do"><span class="hidden-tablet">　　　竞彩篮球</span></a></li>
+	                <li><a class="ajax-link" href="$base/bjdc/prepareMatchs.do"><span class="hidden-tablet">　　　北京单场</span></a></li>
+	             </ul>
+            </li>
+             
+            <li class="accordion">
+                 <a href="#"><i class="glyphicon glyphicon-plus"></i><i class="icon-eye-open"></i><span>已推荐赛事</span></a>
+	             <ul class="nav nav-pills nav-stacked" style="display: none;">
+	                <li><a class="ajax-link" href="$base/fb/recommend.do"><span class="hidden-tablet">　　　竞彩足球</span></a></li>
+	                <li><a class="ajax-link" href="$base/bb/recommend.do"><span class="hidden-tablet">　　　竞彩篮球</span></a></li>
+	                <li><a class="ajax-link" href="$base/bjdc/recommend.do"><span class="hidden-tablet">　　　北京单场</span></a></li>
+	             </ul>
+	        </li>
+	        
+             <li><a class="ajax-link" href="$base/displayAd.do"><i class="icon-eye-open"></i><span class="hidden-tablet">活动广告</span></a></li>
+             <li><a class="ajax-link" href="$base/appActivity.do"><i class="icon-eye-open"></i><span class="hidden-tablet">benner活动管理_app</span></a></li>
+             <li><a class="ajax-link" href="$base/sendActivityApp.do"><i class="icon-eye-open"></i><span class="hidden-tablet">推送管理</span></a></li>
+             <li class="accordion">
+                 <a href="#"><i class="glyphicon glyphicon-plus"></i><i class="icon-eye-open"></i><span>比赛数据(竞足/竞篮)</span></a>
+	             <ul class="nav nav-pills nav-stacked" style="display: none;">
+	                <li><a class="ajax-link" href="$base/gameZQData.do"><span class="hidden-tablet">　　　竞彩足球</span></a></li>
+	                <li><a class="ajax-link" href="$base/gameLQData.do"><span class="hidden-tablet">　　　竞彩篮球</span></a></li>
+	             </ul>
+	         </li>
+	         
+	         <!-- 联赛数据 -->
+             <li class="accordion">
+                 <a href="#"><i class="glyphicon glyphicon-plus"></i><i class="icon-eye-open"></i><span>联赛数据</span></a>
+	             <ul class="nav nav-pills nav-stacked" style="display: none;">
+	                <li><a class="ajax-link" href="$base/footballLeagueMatch.do"><span class="hidden-tablet">　　　足球</span></a></li>
+	                <li><a class="ajax-link" href="$base/basketballLeagueMatch.do"><span class="hidden-tablet">　　　篮球</span></a></li>
+	             </ul>
+	        </li>
+	        <!-- 联赛数据 -->
+        
+        </ul>
+		<!--
+        <label id="for-is-ajax" class="hidden-tablet" for="is-ajax"><input id="is-ajax" type="checkbox"> Ajax 菜单效果</label>
+		-->
+    </div>
+</div>
+<!-- left menu ends -->

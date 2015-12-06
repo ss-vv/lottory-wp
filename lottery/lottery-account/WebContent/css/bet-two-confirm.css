@@ -1,0 +1,195 @@
+.bet-two-confirm {
+	width: 985px;
+	height: auto;
+	margin: -45px auto 0px;
+}
+.color-black {
+	color: #000;
+}
+.color-red {
+	color: #E22319;
+}
+.color-blue {
+	color: #42A4FF;
+}
+/*b-t-con-title头部部分*/
+
+.bet-two-confirm .b-t-con-title {
+	width: 100%;
+	height: 100px;
+}
+.b-t-con-title img {
+	width: 75px;
+	height: 76px;
+	float: left;
+	margin: 15px 6px 4px 170px;
+}
+.b-t-con-title h4 {
+	background: url(http://trade.davcai.com/ac/images/vertical-bar-red.png) no-repeat 0px -5px;
+	width: 128px;
+	height: 30px;
+	display: inline-block;
+	text-indent: 13px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	margin-top: 23px;
+	margin-bottom: 6px;
+}
+/*b-t-con-title头部部分*/
+/*****************b-t-con-box部分**************/
+
+.b-t-con-box {
+	width: 100%;
+	height: auto;
+	border: 1px #D8D8D8 solid;
+	border-top: 2px #D8D8D8 solid;
+}
+/*faxx方案信息*/
+.b-t-con-box .faxx {
+	width: 100%;
+	min-height: 100px;
+	height: auto;
+	border-bottom: 1px #DEDEDE dashed;
+	position: relative;
+}
+/*这下面是共用的左边的title部分*/
+
+.b-t-con-box .title {
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #000;
+	font-weight: bold;
+	position: absolute;
+	/*height: 20px;
+	line-height: 20px;*/
+	display: block;
+	width: 150px;
+	height: 100%;
+	/*top:50%;*/
+	/*left: 2%;*/
+	/*margin-top: -10px;*/
+	text-align: center;
+	background: #dedede;
+	line-height: 1em;
+}
+.b-t-con-box .title b {
+	display: inline-block;
+	top: 50%;
+	position: absolute;
+	left: 30%;
+	margin-top: -10px;
+}
+/*这上面是共用的左边的title部分*/
+
+.faxx .faxx-table {
+	border-collapse: collapse;
+	width: 750px;
+	/*position: absolute;
+	right: 2%;
+	top: 50%;
+	margin-top: -32px;*/
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.faxx-table tr {
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+}
+.faxx-table tr th {
+	background: #E5E5E5;
+	border: 1px #D2D2D2 solid;
+}
+.faxx-table tr td {
+	border: 1px #D2D2D2 solid;
+}
+/*faxx方案信息*/
+
+/*sdxy晒单宣言*/
+.b-t-con-box .sdxy {
+	width: 100%;
+	min-height: 140px;
+	height: auto;
+	clear: both;
+	border-bottom: 1px #DEDEDE dashed;
+}
+/*sdxy晒单宣言*/
+
+/*ljrg立即认购*/
+.b-t-con-box .ljrg {
+	width: 100%;
+	min-height: 150px;
+	height: auto;
+	position: relative;
+}
+.ljrg p {
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 75px;
+}
+.ljrg button {
+	width: 185px;
+	height: 60px;
+	display: inline-block;
+	background: url(http://trade.davcai.com/ac/images/subscription.png) no-repeat;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+	margin: 47px 60px 30px 180px;
+}
+.ljrg ul{
+	display: inline-block;
+}
+.ljrg ul li{
+	height: 22px;
+	line-height: 22px;
+}
+.ljrg ul li font{
+	font-size: 14px;
+}
+.ljrg ul li a{
+	color: #42A4FF;
+}
+/*ljrg立即认购*/
+
+/*fanr方案内容*/
+.b-t-con-box .fanr {
+	width: 100%;
+	min-height: 160px;
+	height: auto;
+	position: relative;
+	border-bottom: 1px #DEDEDE dashed;
+}
+.fanr .fanr-table {
+	border-collapse: collapse;
+	width: 750px;
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px #D2D2D2 solid;
+}
+.fanr-table tr {
+	height: 32px;
+	text-align: center;
+	line-height: 25px;
+}
+.fanr-table tr th {
+	background: #E5E5E5;
+	border: 1px #D2D2D2 solid;
+}
+.fanr-table tr td {
+	border: 1px #D2D2D2 solid;
+}
+.fanr-table .only {
+	text-align: left;
+	text-indent: 20px;
+	font-weight: bold;
+}
+/*fanr方案内容*/
+
+/******************b-t-con-box部分*************/

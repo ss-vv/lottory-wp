@@ -1,0 +1,37 @@
+.autocomplete-box {
+	position: relative;
+	margin: 3px 0px 0px 0px;
+	background-color: #fff;
+	-webkit-border-radius: 3px;
+	color: #fff;
+	display: none;
+	font-family: Helvetica;
+	font-size: 12px;
+	border: 1px solid #E0E0E0;
+	z-index: 9999;
+}
+
+.autocomplete-list {
+	margin: 0px;
+	padding: 0px;
+}
+
+.autocomplete-list li {
+	margin: 0px 0px 3px 0px;
+	padding: 3px;
+	cursor: pointer;
+	color: blue;
+	list-style: none;
+}
+
+.auto-complete-current-line {
+	background-color: #659CD8;
+}
+
+.auto-input {
+	width:310px
+}
+
+.ui-dialog {
+	z-index: 9999;
+}

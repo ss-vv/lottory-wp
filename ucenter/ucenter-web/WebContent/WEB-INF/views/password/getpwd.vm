@@ -1,0 +1,63 @@
+#set($layout="password.vm")
+#set($p_title="找回密码")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="mh">
+  <div class="tt">填写用户信息</div>
+</div>
+<div class="mm">
+  <div class="formbox formbox-a formbox-a-b mp-b">
+    <form id="pForm" action="$base/getpwd.do" method="post">
+      <div class="row">
+        <label class="lbl fs14">用户名：</label>
+        <div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="username" type="text" value="$!{username}"></div>
+        <div class="tips c-i"></div>
+        #if($!fieldErrors.username)
+          <div class="tips c-i">$!fieldErrors.username.get(0)</div>
+        #end
+      </div>
+      <div class="row">
+        <label class="lbl fs14">验证码：</label>
+        <div class="ipttxt ipttxt-b wh-txtb">
+          <input class="inipttxt" name="validCode" type="text" maxlength="4" size="4">
+        </div>
+        <div class="code">
+          <a><img id="validCodeImg" src="$base/water.do?t=$!{date.systemTime}" alt="验证码"></a>
+          <a id="changeCode" class="c-f" href="javascript:void(0);">看不清？换一张</a>
+        </div>
+        #if($!fieldErrors.validCode)
+          <div class="tips c-i">$!fieldErrors.validCode.get(0)</div>
+        #end
+      </div>
+      <div class="row"><label class="lbl wh-a">&nbsp;</label></div>
+      <div class="row"><label class="lbl wh-a"></label><a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input class="iptbtn" type="submit" value="找回密码"></span></a></div>
+      <span class="clear"></span>
+    </form>
+  </div>
+</div>
+  
+<script type="text/javascript">
+$(function(){
+    $('#changeCode').bind('click', function(){
+        $("#validCodeImg").attr("src", "$base/water.do?t=" + (new Date()).getTime());
+        return false;
+    });
+
+    $('#pForm').validate({
+        errorPlacement: function(error, element) { //验证消息放置的地方
+            error.appendTo(element.parent("div").next("div"));
+        },
+        rules: {
+            'username': {
+                required: true
+            }
+        },
+        messages: {
+            'username': {
+                required: '请输入用户名！'
+            }
+        }
+    });
+});
+</script>

@@ -1,0 +1,50 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="搜索")
+#set($styles=["css/search.css"])
+
+#set($scripts=["js/web/pager.js",
+				"js/web/login.js",
+				"js/web/search-page.js",
+				"js/web/search.js"])
+<div id="searching"  class="marp">
+	<div class="searching-content">
+  	
+  	<!------------下面开始searching-content-right右边部分------------->
+  	      <div class="searching-content-right">
+  	      	    <ul class="tab">
+  	      	    	<li id="searchType_weibo"><a href="javascript:void(0);">内容</a></li>
+  	      	    	<li class="active"><a href="javascript:void(0);">用户</a></li>
+  	      	    </ul>
+  	      	<p class="search-form">
+  	      		<input name="keys"  id="search_keys" value="$!keys" type="text"><button class="search-button" id="search_user_button">搜索</button>
+  	      	</p>
+  	      	<p class="search-result">
+  	      		<span id="totalResultsTip"></span>
+  	      	</p>
+  	      	
+  	      	     <!-----------上面是tab搜索框部分------------------>
+  	      	
+  	      	      <!--------------下面开始微博部分------------------>
+  	      	
+  	      	<!--------------下面开始用户部分------------------>
+  	      	    <div class="searching-user" style="display: block;">
+  	      	    	<ul class="list" id="search_user_list">
+	  	      	    	#if($keys)
+							<div class="loading" style="width:50px;height:50px"></div>
+						#else
+							<div class="loading" style="width:50px;height:50px;display:none"></div>
+						#end
+  	      	    	</ul>
+  	      	    	<div class="pager-wrapper" style="clear: both;">
+    				</div>
+  	      	    </div><!----用户部分------->
+  	      </div><!---------------searching-content-right部分结束----------------------->
+  	</div>
+</div>
+#if($keys)
+<script type="text/javascript">
+	$(document).ready(function (){
+		searchUser("",1);
+	});
+</script>
+#end

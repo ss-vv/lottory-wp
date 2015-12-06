@@ -1,0 +1,22 @@
+
+</div>
+<div class="topNavigationBar">常见问题</div>
+<div id="helpLnk">
+<a href="$base/static/reg.xhtml" rel="nofollow">如何注册&nbsp;&nbsp;&nbsp;</a>
+<a href="$base/static/refund.xhtml" rel="nofollow">如何充值&nbsp;&nbsp;&nbsp;</a>
+<a href="$base/static/withdraw.xhtml" rel="nofollow">如何提款</a><br/>
+<a href="$base/static/buy.xhtml" rel="nofollow">如何购彩&nbsp;&nbsp;&nbsp;</a>
+<a href="$base/static/claim.xhtml" rel="nofollow">如何兑奖&nbsp;&nbsp;&nbsp;</a>
+<a href="$base/static/checkbet.xhtml" rel="nofollow">投注查询</a><br/>
+<a href="$base/static/security.xhtml" rel="nofollow">购彩安全&nbsp;&nbsp;&nbsp;</a>
+<a href="$base/static/bookmark.xhtml" rel="nofollow">书签设置</a>
+</div>
+<div class="topNavigationBar" style="text-align:center">
+<a href="$base/static/about.xhtml">关于</a> | <a href="$base/static/coop.xhtml">合作</a>
+</div>
+<div>
+     #include("/inc/footer1.inc")
+    <div class="clear"></div>
+</div>	
+</body>
+</html>

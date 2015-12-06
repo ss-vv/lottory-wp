@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<title>最低投注限额20</title>
+		<link rel="stylesheet" href="css/basev1.css" />
+		<link rel="stylesheet" href="css/richPage.css" />
+	</head>
+   <style>
+   	div.padding-text{
+   		padding: 0.83rem;
+   		text-indent:2em;
+   	}
+   	body{
+   		background: #F8F7F2;
+   	}
+   </style>
+	<body>
+		<noscript>
+			<div id="noScript">请开启浏览器的Javascript功能，或使用支持javascript的浏览器访问</div>
+		</noscript>
+		<div id="_">
+			<div>
+				<div  class='content padding-text'>亲爱的大V彩客户：</div>
+				<div  class='content padding-text'>
+				尊敬的大V彩用户，由于政策限制，大V彩出票压力倍增，导致部分用户投注方案无法及时出票，
+				在此我们向您致以最深的歉意。为了保证出票成功率，大V彩目前暂停单倍投注低于20元的投注，
+				希望广大用户予以理解。我们也会尽快升级出票系统，优化投注体验。感谢您对大V彩的一贯支持！
+				</div>
+				<div  class='content padding-text' style="text-indent: 0;">大V彩客服运营团队
+					<br> 2015年4月7日
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

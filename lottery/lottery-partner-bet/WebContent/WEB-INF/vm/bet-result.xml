@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head msg="102" partnerId="$!partnerId" version="$!version" time="$!time" />
+  <body>
+  	#foreach($betResp in $betResps)
+	<betResp result="$!betResp.result" ticketId="$!betResp.ticketId"  lotteryType="$!betResp.lotteryType"
+		playType="$!betResp.playType" issueNumber="$!betResp.issueNumber" money="$!betResp.money"/>
+	#end
+  </body>
+</msg>

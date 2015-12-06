@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+<title>push demo</title>
+</head>
+<body>
+<input type="button" id="cl" value="dianji">
+<script type="text/javascript">
+$("#cl").click(function(){
+	$ .ajax({  
+		type : "post",  
+        url : "localhost:8080/weibo-web/odds/bbOddPushInit.do",  
+        dataType : 'json',
+        data:{
+        	corpIds:"1,2,3,8,9,4,12,15,16,17"
+        },
+        success : function(data){
+        	console.log(data);
+        }  
+    });
+});
+</script>
+	
+</body>
+</html>

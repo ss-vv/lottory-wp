@@ -1,0 +1,84 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD xHTML 1.0 Transitional//EN">
+<script src="$base/js/davcai/odds/odds-tip.js"></script>
+<script type="text/javascript">
+$(function(){
+$("#ajax_login_msg").remove();
+$(".foot").remove();
+$(".cbbfixed").remove();
+$(".bet-data-content").css("float","left");
+$("#center").css("margin","-80px auto");
+$("#corpName").text(window.opener.corpName+"  标准变化");
+$("#homeTeam").html(window.opener.homeTeam);
+$("#guestTeam").html(window.opener.guestTeam);
+});
+</script>
+<HTML>
+
+	<HEAD>
+		<TITLE>亚赔</TITLE>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</HEAD>
+	
+
+	<BODY>
+		<div id="bet-data-box">
+
+			<!-----下面开始bet-data-content------>
+		<div class="bet-data-content" id="odds-data">
+			<!-------europe-odds欧赔------>
+			<table class="asia-odds" cellpadding="0" cellspacing="0" border="0">
+				<tr style="font-weight:bold" height="28px" bgcolor="#FDF4E0">
+					<td colspan="4" id="corpName"></td>
+				</tr>
+				
+				<tr height="28px" bgcolor="#FDF4E0">
+					<td width="10%">
+						<a href="#" id="homeTeam"></a>
+					</td>
+					<td width="15%"><a href="#">盘口</a>
+					</td>
+					<td width="10%" ><a href="#" id="guestTeam"></a>
+					</td>
+					<td>变化时间</td>
+				</tr>
+				#foreach($odds in $!asianOdds)
+				<tr height="28px" bgcolor="#FFFFFF">
+					<td>$odds.homeWinOdds</td>
+					<td>
+					#if($!{odds.handicap}==0)
+						平手
+					#elseif($!{odds.handicap}>0 && $!{odds.handicap}<0.5)
+					平手/半球
+					#elseif($!{odds.handicap}==0.5)
+					半球
+					#elseif($!{odds.handicap}>0.5 && $!{odds.handicap}<1.0)
+					半球/一球
+					#elseif($!{odds.handicap}==1.0)
+					一球
+					#elseif($!{odds.handicap}>1.0 && $!{odds.handicap}<1.5)
+					一球/球半
+					#elseif($!{odds.handicap}==1.5)
+					球半
+					#elseif($!{odds.handicap}>1.5 && $!{odds.handicap}<2.0)
+					球半/两球
+					#else($!{odds.handicap}==2.0)
+					两球
+					#end
+					</td>
+					<td>$!odds.GuestWinOdds</td>
+					<td>$!date.format('yyyy-MM-dd HH:mm',$!odds.timestamp)
+						#if($!{velocityCount}==$!{asianOdds.size()})
+							<font color="blue">(初盘)</font>
+						#end
+					</td>
+				</tr>
+				#end
+			</table>	
+		</div>
+		<!------bet-data-content结束-------->
+	</div>
+		<!-------bet-data-box结束了---->
+	</BODY>
+
+</HTML>

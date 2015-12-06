@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>大V彩-个人中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="max-age=0" />
+    <link type="text/css" href="../css/buy.css" rel="stylesheet" />
+    <style>#divPNav{line-height: 1.6em; }
+        #divPNav a{display: inline-block;padding-right:10px; }</style>
+</head>
+<body>
+    <div class="mainDiv">
+       
+        
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" /><meta name="MobileOptimized" content="240" />
+ <div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+ > 我的账户</div>
+
+<div style="background-color:#EAEAEA; line-height:21px; padding-left:5px; border-bottom:dotted 1px #8d8d8d;">
+   您好，<a href="../user/myAccount.do" rel="nofollow">$account.username</a>#if($session.getAttribute("isNewUser"))，您已成功注册大V彩账号！<a href="$base/security/mobile.do">继续绑定手机号赢取三元礼金。</a>#end
+
+    <div><label>可用金额 <span style='color:red;font-weight:bolder;'>${account.free}</span>元</label></div>
+</div>
+
+        <form method="post" action="myAccount.do" id="form1">
+         <div id="divPNav">
+         <div style="background-color:#DBECFB;color:#3A4651;padding:2px 3px;font-weight:bold">投注管理</div>
+          &nbsp;<a href="/record/accountRecord.do?lotteryId=SSQ,JX11&duration=-1" rel="nofollow">投注记录</a>&nbsp;
+         <div style="background-color:#DBECFB;color:#3A4651;padding:2px 3px;font-weight:bold">账户管理</div>
+          &nbsp;<a href="$base/user/charge.do">账户充值</a>&nbsp;<a href="$base/record/chargeRecord.do">充值记录</a><br />
+          &nbsp;<a href="/record/accountDetail.do" rel="nofollow">账户明细</a>
+         <div style="background-color:#DBECFB;color:#3A4651;padding:2px 3px;font-weight:bold">帐户安全设置</div>
+          &nbsp;<a href="/security/mobile.do" rel="nofollow">绑定手机</a>&nbsp;<a href="input_newPassword.do" rel="nofollow">密码修改</a>
+        </div>
+        </form>
+    </div>
+    <div class='topNavigationBar' style='color: #FFF;'> <a href='../index.do'>首页</a> > 我的账户</div>
+	#include("inc/footer.inc")
+    <div class="clear">
+    </div>
+	</div>
+</body>
+</html>

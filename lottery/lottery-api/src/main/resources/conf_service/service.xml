@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
+
+
+	<!-- Service --> 
+
+	<bean name="initLeagueColor" init-method="init"
+		class="com.xhcms.lottery.conf.LeagueColorConfImpl" >
+		<property name="matchColorTimeout" value="${match_color_timeout}"/>
+	</bean>
+	
+	<bean name="userManager"
+		class="com.xhcms.ucenter.persistent.service.impl.UserManagerImpl" />
+	<bean name="iUserValidIdManager"
+		class="com.xhcms.ucenter.persistent.service.impl.UserValidIdManagerImpl" />
+
+	<bean name="userService"
+		class="com.xhcms.ucenter.persistent.service.impl.UserServiceImpl" />
+
+	<bean id="accountService"
+		class="com.xhcms.lottery.commons.persist.service.impl.AccountServiceImpl" />
+	<bean id="accountQueryService"
+		class="com.xhcms.lottery.commons.persist.service.impl.AccountQueryServiceImpl" />
+	<bean id="betResolver" class="com.xhcms.lottery.commons.util.BetResolver">
+		<property name="strategies">
+			<array>
+				<bean class="com.xhcms.lottery.commons.utils.internal.JCBetStrategy" />
+				<bean class="com.xhcms.lottery.commons.utils.internal.JX11BetStrategy" />
+				<bean class="com.xhcms.lottery.commons.utils.internal.CQSSBetStrategy" />
+				<bean class="com.xhcms.lottery.commons.utils.internal.SSQBetStrategy" />
+				<bean class="com.xhcms.lottery.commons.utils.internal.CTBetStrategy" />
+			</array>
+		</property>
+	</bean>
+
+	<bean id="winService"
+		class="com.xhcms.lottery.commons.persist.service.impl.WinServiceImpl" />
+	<bean id="registeService"
+		class="com.xhcms.ucenter.persistent.service.impl.RegisteServiceImpl" />
+
+	<bean id="systemConfImpl" class="com.xhcms.lottery.conf.SystemConfImpl" />
+	<bean id="issueService"
+		class="com.xhcms.lottery.commons.persist.service.impl.IssueServiceImpl" />
+	<bean id="verifyMobileService"
+		class="com.xhcms.ucenter.persistent.service.impl.MobileServiceImpl" />
+	<bean id="digitalBetService"
+		class="com.xhcms.lottery.commons.persist.service.impl.DigitalBetServiceImpl" />
+	<bean id="issueinfoPOChangeUtil"
+		class="com.xhcms.lottery.commons.util.IssueinfoPOChangeUtilImpl" />
+	<bean id="betSchemeService"
+		class="com.xhcms.lottery.commons.persist.service.impl.BetSchemeServiceImpl" />
+	<bean id="userScoreService"
+		class="com.xhcms.lottery.commons.persist.service.impl.UserScoreServiceImpl" />
+	<bean id="winListService"
+		class="com.xhcms.lottery.commons.persist.service.impl.WinListServiceImpl" />
+	<bean id="withdrawService" class="com.xhcms.lottery.service.impl.WithdrawServiceImpl" />
+	<bean id="matchService"
+		class="com.xhcms.lottery.commons.persist.service.impl.MatchServiceImpl" />
+	<bean id="playService"
+		class="com.xhcms.lottery.commons.persist.service.impl.PlayServiceImpl" />
+	<bean id="matchColorService"
+		class="com.xhcms.lottery.commons.persist.service.impl.MatchColorServiceImpl" />
+	<bean id="forgotPasswordService"
+		class="com.xhcms.ucenter.persistent.service.impl.ForgotPasswordServiceImpl" />
+	<bean id="userDetailQueryService"
+		class="com.xhcms.lottery.service.impl.UserDetailQueryServiceImpl" />
+	<bean id="phantomService"
+		class="com.xhcms.lottery.mc.persist.service.impl.PhantomServiceImpl" />
+	<bean id="ticketService"
+		class="com.xhcms.lottery.mc.persist.service.impl.TicketServiceImpl" />
+	<bean id="cacheUserScoreService"
+		class="com.xhcms.lottery.commons.persist.service.impl.CacheUserScoreServiceImpl" />
+	<bean id="shareUserScore" class="com.xhcms.lottery.commons.data.ShareUserScore" />
+	<!-- <bean id="orderService" class="com.xhcms.lottery.commons.persist.service.impl.OrderServiceImpl" 
+		/> <bean id="ticketService" class="com.xhcms.lottery.account.service.impl.TicketServiceImpl" 
+		/> <bean id="withdrawService" class="com.xhcms.lottery.account.service.impl.WithdrawServiceImpl" 
+		/> <bean id="userService" class="com.xhcms.lottery.account.service.impl.UserServiceImpl" 
+		/> <bean id="grantService" class="com.xhcms.lottery.account.service.impl.GrantServiceImpl" 
+		/> <bean id="customMadeService" class="com.xhcms.lottery.commons.persist.service.impl.CustomMadeServiceImpl"/> 
+		<bean id="playService" class="com.xhcms.lottery.commons.persist.service.impl.PlayServiceImpl"/> -->
+
+	<bean id="statusRepository" class="com.unison.lottery.api.protocol.status.StatusRepository"
+		init-method="init" />
+	<bean id="statusRepositoryService"
+		class="com.unison.lottery.api.protocol.status.service.StatusService" />
+	<!-- <bean id="userValidManager"
+		class="com.xhcms.ucenter.persistent.service.impl.UserValidIdManagerImpl" /> -->
+
+	<bean id="loginService" class="com.unison.lottery.api.login.service.LoginServiceImpl">
+	</bean>
+
+
+
+	<bean id="outputLoginFailXmlResponseService"
+		class="com.unison.lottery.api.protocol.response.xml.OutputLoginFailXmlResponseService">
+		<property name="statusRepository" ref="statusRepository" />
+	</bean>
+	<bean id="logManager" class="com.unison.lottery.api.framework.log.LogManager">
+		<property name="propertiesShouldEncodeByMD5">
+			<list>
+				<value>password</value>
+				<value>newPassword</value>
+				<value>oldPassword</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="jsonLogManager" class="com.unison.lottery.api.framework.log.JsonLogManager">
+		<property name="propertiesShouldEncodeByMD5">
+			<list>
+				<value>password</value>
+				<value>newPassword</value>
+				<value>oldPassword</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="ctMatchService"
+		class="com.xhcms.lottery.commons.persist.service.impl.CTMatchServiceImpl"></bean>
+	<bean id="ctfbMatchBaseService"
+		class="com.xhcms.lottery.commons.persist.service.impl.CTFBMatchBaseServiceImpl"></bean>
+	<bean id="ctBetService"
+		class="com.xhcms.lottery.commons.persist.service.impl.CTBetServiceImpl" />
+	<bean id="voucherUserService"
+		class="com.xhcms.lottery.commons.persist.service.impl.VoucherUserServiceImpl" />
+	<bean id="grantBaseService"
+		class="com.xhcms.lottery.commons.persist.service.impl.GrantServiceImpl" />
+
+
+	<bean id="presetAwardService"
+		class="com.xhcms.lottery.commons.persist.service.impl.PresetAwardServiceImpl" />
+
+	<bean id="prizesResolver" class="com.xhcms.lottery.commons.util.PrizesResolver">
+		<property name="prizesStrategys">
+			<array>
+				<bean class="com.xhcms.lottery.commons.utils.internal.JCPrizesStrategy" />
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="showSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.ShowSchemeServiceImpl">
+	</bean>
+	<bean id="getPresetSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.GetPresetSchemeServiceImpl">
+	</bean>
+	<bean id="hX_userService" 
+		class="com.xhcms.lottery.commons.persist.service.impl.HX_userServiceImpl"/>
+	<bean id="userAccountService" 
+		class="com.unison.lottery.weibo.uc.service.impl.UserAccountServiceImpl"/>
+	<bean id="daVGroupService" 
+		class="com.xhcms.lottery.commons.persist.service.impl.DaVGroupServiceImpl"/>
+	<bean id="publishBetSchemeService" 
+		class="com.xhcms.lottery.commons.persist.service.impl.PublishBetSchemeServiceImpl"/>
+	<bean id="betSchemeBaseService" 
+		class="com.xhcms.lottery.commons.persist.service.impl.BetSchemeBaseServiceImpl"/>
+	<bean id="matchPlatformService" 
+		class="com.xhcms.lottery.commons.persist.service.impl.MatchPlatformServiceImpl"/>
+	<bean id="pMWeekBonusService" 
+		class="com.xhcms.lottery.commons.persist.service.impl.PMWeekBonusServiceImpl"/>
+	<bean id="BonusCalculatorService" class="com.xhcms.lottery.commons.persist.service.impl.BonusCalculatorServiceImpl"/>
+	
+	<bean id="betMatchsResolver" class="com.xhcms.lottery.commons.util.BetMatchsResolver"/>
+	<bean id="BetCommonsSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.BetSchemeBaseServiceImpl"/>
+	<bean id="schemePrivacyUtil" class="com.unison.lottery.api.util.SchemePrivacyUtil"/>
+	<bean id="queryImmediateIndexInfoService" class="com.davcai.lottery.service.impl.QueryImmediateIndexInfoServiceImpl"></bean>
+	<bean id="hX_service" class="com.unison.lottery.api.login.service.HX_serviceImpl"/>
+	<bean id="playMatchModifyService" class="com.xhcms.lottery.commons.persist.service.impl.PlayMatchModifyServiceImpl"/>
+	<bean id="weixinService" class="com.unison.lottery.weibo.uc.service.impl.WeixinServiceImpl"/>
+	<bean id="matchComparator" class="com.davcai.lottery.service.impl.MatchComparator"></bean>
+	<bean id="CTFBMatchResultUtil" class="com.xhcms.lottery.commons.utils.CTFBMatchResultUtil"/>
+	<bean id="allowReturnResultService" class="com.unison.lottery.api.util.AllowReturnResultServiceImpl"/>
+	<bean id="userServiceInCommon" class="com.xhcms.lottery.commons.persist.service.impl.UserServiceImpl"/>
+    <bean id="matchNameService" class="com.davcai.lottery.service.impl.MatchNameServiceImpl"/>
+	<bean id="bbLeagueDao" class="com.unison.lottery.weibo.data.service.store.persist.dao.impl.BBLeagueDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="bbTeamDao" class="com.unison.lottery.weibo.data.service.store.persist.dao.impl.BBTeamDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="checkMatchService" class="com.xhcms.lottery.commons.persist.service.impl.CheckMatchServiceImpl"/>
+	<bean id="betOptionService" class="com.xhcms.lottery.commons.persist.service.impl.BetOptionServiceImpl"/>
+	<bean id="maxAndMinBonusUtil" class="com.xhcms.lottery.commons.util.bonus.MaxAndMinBonusUtil">
+	</bean>
+	<bean id="redEnvalopeRedisDao" class="com.unison.lottery.weibo.common.nosql.impl.RedEnvalopeRedisDaoImpl">
+	</bean>
+	
+	<bean id="goldSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.GoldSchemeServiceImpl">
+	</bean>
+	
+	
+</beans>

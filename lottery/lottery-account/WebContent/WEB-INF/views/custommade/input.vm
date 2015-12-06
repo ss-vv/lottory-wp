@@ -1,0 +1,243 @@
+#set($p_title = "编辑定制信息")
+#set($pos = "mycus")
+#set($styles = ["css/ui-lightness/jquery-ui"])
+#set($scripts = ["js/jquery.validate", "js/jquery.validate_cn", "js/jquery-ui", "js/date.format.js"])
+
+<div class="mod mod-c mod-c-a wh-mg">
+  <div class="mh">
+    <div class="tt">定制合买跟单信息</div>
+  </div>
+  <div class="mm">
+      <form id="iForm" method="post" action="$base/cm.do">
+        <div class="formbox formbox-a formbox-a-b mp-c">
+        	<table border="0" cellspacing="1" cellpadding="3" style="width:100%" class="tbl_editor">
+        		<tr>
+        			<td align="right" class="label" style="width:120px;"><span class="fwb">发起人:</span></td>
+        			<td class="text"  style="width:200px;">$!{weiboUser.nickName} <input type="hidden" name="fuid" value=${fuid}></td>
+        			<td align="right" class="label" style="width:120px;">定制次数:</td>
+        			<td class="text">$!{count}人次</td>
+        		</tr>
+        		<!--
+        		<tr>
+        			<td align="right" class="label" style="width:120px;">发起人战绩:</td>
+        			<td class="text" colspan="3">
+        				<table border="0" cellspacing="1" cellpadding="3" width="100%" class="tbl_list">
+        					<tr>
+        						<td width="150px;" align="center" bgcolor="#ea2020"><span style="color:white;">战绩类型</span> </td>
+        						<td width="150px;"  align="center" bgcolor="#ea2020"><span style="color:white;">战绩</span></td>
+        						<td width="150px;"  align="center" bgcolor="#ea2020"><span style="color:white;">中奖金额</span></td>
+        					</tr>
+        					<tr>
+        						<td class="text"  align="center">总战绩: </td>
+        						<td class="text"  align="center">战绩</td>
+        						<td class="text"  align="center">中奖金额</td>
+        					</tr>
+        					<tr>
+        						<td class="text"  align="center">竞彩足球战绩: </td>
+        						<td class="text"  align="center">战绩</td>
+        						<td class="text"  align="center">中奖金额</td>
+        					</tr>
+        					<tr>
+        						<td class="text"  align="center">竞彩篮球战绩 </td>
+        						<td class="text"  align="center">战绩</td>
+        						<td class="text"  align="center">中奖金额</td>
+        					</tr>
+        				</table>
+        			</td>
+        		</tr>
+        		-->
+        		<tr>
+        			<td align="right" class="label">每日最大金额:</td>
+        			<td class="text"><input id="maxMoney" name="maxMoney" type="text" value="$!{maxMoney}" size="6"/>元&nbsp;<span class="c-i"></span></td>
+        			<td align="right" class="label">每日最多次数:</td>
+        			<td class="text"><input id="maxFollowCount" name="maxFollowCount" type="text" value="$!{maxFollowCount}" size="6"/>次 &nbsp;<span class="c-i"></span></td>
+        		</tr>
+        		<tr>
+        			<td align="right" class="label">开始时间:</td>
+        			<td class="text"><input id="startTime" name="startTime" value="$date.format("yyyy-MM-dd", ${startTime})" size="10" maxlength="10"/>&nbsp;<span class="c-i"></span></td>
+        			<td align="right" class="label">结束时间:</td>
+        			<td class="text"><input id="endTime" name="endTime" value="$date.format("yyyy-MM-dd", ${endTime})" size="10"  maxlength="10"/>&nbsp;<span class="c-i"></span></td>
+        		</tr>
+        		<tr>
+        			<td align="right" class="label">定制跟单:</td>
+        			<td class="text">
+        				每次认购倍数:<input id="followMultiple" type="text" name="followMultiple" value="${followMultiple}" size="3" maxlength="3"/>倍
+        				<input type="checkbox" name="followBuyV" value="true" #if(${followBuy})checked#end/>&nbsp;<span class="c-i"></span>
+        				<input type="hidden" name="followBuy" #if(${followBuy}) value="true" #else value="false" #end/>
+        			</td>
+        			<td align="right" class="label">定制合买:</td>
+        			<td class="text">
+        				每次认购<input id="groupMoney" type="text" name="groupMoney" value="${groupMoney}" size="6"/>元 
+        				<input type="checkbox" name="groupBuyV" value="true" #if(${groupBuy})checked#end/>&nbsp;<span class="c-i"></span>
+        				<input type="hidden" name="groupBuy" #if(${groupBuy}) value="true" #else value="false" #end/>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td align="right" class="label">彩种玩法:</td>
+        			<td class="text" colspan="3">
+        				<div>
+        				<ul>
+        					#foreach($play in $!{allPlays})
+        					#if($play.lotteryId =='JCZQ' || $play.lotteryId =='JCLQ')
+        					<li style="width:190px;float:left">
+        					#if(${customMade.id}>0)
+        					<input type="checkbox" name="splayids" value="$play.id" #if($selectedPlayIds.contains($!{play.id})) checked="checked" #end/>#lotteryName($!{play.lotteryId})-$!{play.name}<br />
+        					#else
+        					<input type="checkbox" name="splayids" value="$play.id"  checked="checked"/>#lotteryName($!{play.lotteryId})-$!{play.name}<br />
+        					#end
+        					</li>
+        					#end
+							#end
+						</ul>
+						</div>
+						<div style="clear:both">
+							<input id="selectAll" name="selectAll" type="checkbox" #if($!{allPlays.size()}==$!{selectedPlayIds.size()})checked="checked"#end/><b>全选</b>
+						</div>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td class="text" colspan="4" align="center">
+        				#foreach($error in $actionErrors)
+        					<font color="red">$!error</font>
+        				#end
+        			</td>
+        		</tr>
+        		<tr class="btntr">
+        			<td align="center" colspan="4" class="text">
+        				<a class="btnx2 btnx2-b cb" href="javascript:void(0)"><span class="inbtn"><input class="iptbtn" type="submit" value="保存"></span></a>
+        				<br/>
+        			</td>
+        		</tr>
+        	</table>
+        </div>
+      </form>
+      <div class="tipsbox tipsbox-a mp-d bgbrr-a">
+        <div class="row">定制帮助信息：<br />
+        	<span style="margin-left:20px;">1.每日最大金额，指一个自然日定制生成方案金额限制，定制的方案金额超出设定的范围则不跟单，以上金额是合买跟单和晒单跟单共同累计限制。</span><br />
+        	<span style="margin-left:20px;">2.每日最多次数:，指一个自然日定制生成方案数限制，定制的方案次数超出设定的范围则不跟单，以上次数是合买跟单和晒单跟单共同累计限制。</span><br />
+        	<span style="margin-left:20px;">3.开始时间和结束时间: 	定制生成方案在此时间内有效。</span><br />
+        	<span style="margin-left:20px;">4.定制跟单，指定发起人的晒单，按照设定的每次跟单倍数定制生成方案，不选择复选框，不生效。</span><br />
+        	<span style="margin-left:20px;">5.定制合买，指定发起人的合买，按照设定的每次认购金额定制参与合买方案，不选择复选框，不生效。</span><br />
+        	<span style="margin-left:20px;">6.彩种玩法，指定发起人玩法生成定制方案。</span><br />
+       	</div>
+        <span class="clear"></span>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+	jQuery.validator.addMethod("lessThen", function(value, element, params){
+		var result = parseInt(value) < parseInt($(params).val());
+		return result;
+	}, "输入值不合法");
+	
+	jQuery.validator.addMethod("dateLessThen", function(value, element, params){
+		 return new Date(value.replace(/-/g,"/")) <= new Date($(params).val().replace(/-/g,"/"));
+		
+	}, "须小于结束日期");
+	
+	$("#iForm").validate({
+		errorPlacement: function(error, element) {
+        	error.appendTo($(element).parent("td").children("span"));
+        },
+        
+        rules: {
+        	maxMoney:{
+        		required:true,
+        		number:true,
+        		min:1
+        	},
+        	maxFollowCount:{
+        		required:true,
+        		number:true,
+        		min:1
+        	},
+        	startTime:{
+        		required:function(element) {
+        			return true;
+        		},
+        		dateISO:true,
+        		dateLessThen:"#endTime"
+        	},
+        	endTime:{
+        		required:function(element){
+        			return true;
+        		},
+        		dateISO:true
+        	},
+        	followMultiple:{
+        		required:true,
+        		min:1,
+        		max:9999
+        	},
+        	groupMoney: {
+        		lessThen:"#maxMoney",
+        		min:1
+        	}
+        },
+        messages: {
+        	maxMoney:{
+        		required:"必须需填",
+        		number:"必须输入整数",
+        		min:"必须大于0"
+        	},
+        	maxFollowCount:{
+        		required:"必须填写",
+        		number:"必须输入数字",
+        		min:"必须大于0"
+        	},
+        	startTime:{
+        		date:"必须输入时间"
+        	},
+        	endTime:{
+        		date:"必须输入时间"
+        	},
+        	followMultiple:{
+        		required:"必须输入跟单倍数",
+        		min:"必须大于0",
+        		max:"必须小于9999"
+        	},
+        	groupMoney:{
+        		lessThen:"合买金额必须小于当日总金额",
+        		min:"必须大于0"
+        	}
+        }
+	});
+
+	
+	$('#startTime, #endTime').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    
+    $("input[name=groupBuyV]").bind("change", function() {
+    	if($(this).attr("checked") == undefined) {
+			$("input[name=groupBuy]").val("false");
+    	} else {
+    		$("input[name=groupBuy]").val("true");
+    	}
+    });
+    
+    $("input[name=followBuyV]").bind("change", function() {
+    	if($(this).attr("checked") == undefined) {
+			$("input[name=followBuy]").val("false");
+    	} else {
+    		$("input[name=followBuy]").val("true");
+    	}
+    });
+    
+    $("#selectAll").click(function(){
+    	if($(this).attr("checked") != undefined) {
+    		$("[name='splayids']").attr("checked", "checked");
+    	} else {
+    		$("[name='splayids']").removeAttr("checked");
+    	}
+    });
+});
+
+</script>

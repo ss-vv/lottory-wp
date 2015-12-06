@@ -1,0 +1,36 @@
+<!-- share 窗口 -->
+<form id="shareForm">
+	<input type="hidden" name="postId" id="postId"/>
+	<div class="modal fade" id="shareModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title">分享至</h4>
+	        #if($user.sinaWeiboUid)
+				<input id="sinaWeiboCheck" name="sinaWeiboCheck" type="checkbox" checked="checked" style="margin:5px">新浪微博</input>
+			#else
+				<a href="http://www.davcai.com/to_bind_auth.do">绑定新浪微博</a>
+			#end
+			<label id="tipBindInfo" style="color:red"></label>	        
+	      </div>
+	      <div class="modal-body">
+	      <div class="editor">
+	      		<div class="editor-wrapper">
+			      		<div id="emotionAreaForShare"><textarea class="form-control" rows="5" id="shareContent" name="shareContent" placeholder="说点什么吧……"></textarea></div>
+			      		<div class="emotion">
+		                    <span title="插入表情" id="message_face_share" class="face"><s></s><span>表情</span></span>
+		                    <span title="过滤赛事" class="match"><s></s><span>赛事</span></span>
+		                    <span id="shareContentRemainingWords" style="float:right;clear:both;">还可输入<em style='color:red;'>140</em>字</span>
+		                </div>
+		          </div>
+		   </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="sharePostBtn">分享</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</form>

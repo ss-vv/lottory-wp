@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datas>
+	<name><![CDATA[用户登录验证接口]]></name>	
+	<data>
+		<result><![CDATA[$!{data.success}]]></result>
+		<uid><![CDATA[$!{user.id}]]></uid>
+		<username><![CDATA[$!{user.username}]]></username>
+		<nickname><![CDATA[$!{user.nickname}]]></nickname>
+	</data>
+	<desc><![CDATA[$!{data.data}]]></desc>
+</datas>

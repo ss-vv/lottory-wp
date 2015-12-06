@@ -1,0 +1,20 @@
+# message
+message.success = Successful operation
+message.fail = failure operation
+
+# error
+error.80013 = Illegal operation
+
+error.90000 = Capital account is frozen
+error.90001 = The balance of the funds shortage
+error.90002 = The operation amount more than the freezing of funds
+
+error.need.bankOrder = Lack of banking Order No
+error.80001 = Create user fails, the user already exists!
+grant.truename.mustInput = Please input your truth user name
+grant.username.mustInput = Please enter a member name
+grant.amount.mustInput = Please input the grant amount
+grant.userNotExist = User does not exist or the input information of a user error
+
+reset.pwd.Success = Reset password successfully, you can use the new password management background.
+create.admin.Success = Create user success

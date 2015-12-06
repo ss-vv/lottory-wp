@@ -1,0 +1,18 @@
+#parse("web/inc/header_for_new_login.vm")
+    <div id="center" class="container">
+        <div class="wrapper">
+			${screen_content}
+        </div>
+    </div>
+    <!-- 错误提示-->
+    <script type="text/javascript">
+        #if($errorMessage && $errorMessage != "")
+            alert("$errorMessage");
+            window.location.replace('http://www.davcai.com/welcome');
+        #end
+    </script>
+    
+    <script type="text/javascript">
+        var siteurl = "$base";
+    </script>
+#parse("web/inc/footer_not_login_new_with_topics.vm")

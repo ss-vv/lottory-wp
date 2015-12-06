@@ -1,0 +1,69 @@
+.profile_box{
+	width: 778px;
+	margin: 24px auto 0;
+	border: 1px solid #c0c0c0;
+	padding: 20px;
+	background: #ffffff;
+	margin-bottom: 24px;
+}
+
+.profile_box_info {
+	float: left;
+	display: inline;
+	width: 510px;
+}
+.profile_info_pic {
+	float: left;
+	display: inline;
+	border: 1px solid #e8e8e8;
+	position: relative;
+}
+.profile_info_content, .active_user .caption {
+	margin-left: 120px;
+}
+
+#my_profile .editBtn {
+	color: #000000;
+	font-weight: normal;
+	padding: 2px 6px;
+	border: 1px solid #DBDBDB;
+	font-size: 12px;
+	margin: 0 5px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+.profile_info_content ul li, .active_user .caption ul li, .profile_info .profile_info_content div.info_item, .active_user .caption div.info_item {
+	font-size: 12px;
+	line-height: 24px;
+	color: #888;
+}
+
+<!-- 用户资料设置-->
+
+div.tab_sub {
+	clear:both;
+	padding-bottom:20px;
+}
+
+div.tab_sub a,div.tab_sub span {
+	padding-right:6px;
+	margin-right:6px;
+	border-right:1px solid #888;
+}
+
+div.tab_sub a.last,div.tab_sub span.last {
+	border-right:0 none;	
+}
+
+div.tab_pw {
+	padding-left:12px;
+}
+
+div.tab_sub {
+	clear: both;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+.imgBlock {
+	margin-top: 10px;
+}

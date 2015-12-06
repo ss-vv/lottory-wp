@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head msg="105" partnerId="$!partnerId" version="$!version" time="$!time" />
+  <body>
+    <withdrawResp  transactionId="$!withdrawResp.transactionId" status="$!withdrawResp.status"/>
+  </body>
+</msg>

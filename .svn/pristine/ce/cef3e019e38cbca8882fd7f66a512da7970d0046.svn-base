@@ -1,0 +1,183 @@
+#macro(lotteryName $v)
+  #if($v == "JCZQ")竞彩足球
+  #elseif($v == "JCLQ")竞彩篮球
+  #elseif("JX11" == $v)江西11选5
+  #elseif("CTZC" == $v)传统足彩
+  #elseif("CQSS" == $v)重庆时时彩
+  #elseif("SSQ" == $v)双色球
+  #elseif("BJDC" == $v)北京单场
+  #end
+#end
+
+#macro(schemeType $type)
+  #if($type == -1) 全部类型
+  #elseif($type == 0) 代购
+  #elseif($type == 1) 合买
+  #elseif($type == 2) 跟单
+  #else 未知
+  #end
+#end
+
+#macro(planStatus $status)
+  #if($status == -1) 状态
+  #elseif($status == 0) 可执行
+  #elseif($status == 1) 被终止
+  #elseif($status == 2) 已完成
+  #else 未知
+  #end
+#end
+
+#macro (showUserScorePic $pic)
+	#foreach($s in $pic.split('#'))<img src="http://trade.davcai.com/df/images/score/${s}" style="width:18px;height:18px;" />#end
+#end
+
+#macro (userScore $scheme, $lotteryId)
+  #set($defaultValue = 0)
+  #foreach($score in $scheme.userScores)
+    #if($score.lotteryId==$lotteryId)
+    	#if($score.showPic)#showUserScorePic($score.showPic)#else${defaultValue}#end
+    #end
+  #end
+#end
+
+#macro (userScoreGroupbuy $scheme, $lotteryId)
+#set($defaultValue = 0)
+  #foreach($score in $scheme.userScores)
+    #if($score.lotteryId==$lotteryId)
+  	   #if($score.groupPic)#showUserScorePic($score.groupPic)#else${defaultValue}#end
+    #end
+  #end
+#end
+
+#macro(showScheme $showScheme)
+  #if($showScheme == -1) 晒单类型
+  #elseif($showScheme == 1) 晒单
+  #elseif($showScheme == 0) 不晒单
+  #else 未知
+  #end
+#end
+
+#macro(cnCode $code)#if($code == 1)周一#elseif($code == 2)周二#elseif($code == 3)周三#elseif($code == 4)周四#elseif($code == 5)周五#elseif($code == 6)周六#else 周日#end#end
+
+#macro(resultCN $playId $codes $result)#foreach($c in $Result.toCodeArray($playId, $codes))<b #if($c == $result)class="c-i"#end>$Result.cn($playId, $c, "")</b>#end#end
+
+#macro (pager $p $spans $pagerId)
+  #set($span = ($spans - 3)/2)
+  <span id="${pagerId}" class="r page inb_a">
+  #if($p.pageNo > 1)
+    <a class="btn_p" href="javascript:void(0);" _pn="${p.prevPageNo}" class="btn_p">上一页</a>
+  #end
+  #set($totalNo = ${span} * 2 + 3)
+  #set($totalNo1 = $totalNo - 1)
+  #if(${p.pageCount} > ${totalNo})
+    #if($p.pageNo <= $span + 2)
+      #foreach($i in [1..$totalNo1])
+        #link(${p.pageNo}, $i)
+      #end
+      #link(0, 0)
+      #link(${p.pageNo}, ${p.pageCount})
+    #elseif($p.pageNo > ($p.pageCount - (${span} + 2)))
+      #link(${p.pageNo}, 1)
+      #link(0, 0)
+      #set($num = ${p.pageCount} - ${totalNo} + 2)
+      #foreach($i in [$num..${p.pageCount}])
+        #link(${p.pageNo}, ${i})
+      #end
+    #else
+      #link(${p.pageNo}, 1)
+      #link(0, 0)
+      #set($x = ${p.pageNo}-${span})
+      #set($y = ${p.pageNo}+$span)
+      #foreach($i in [$x..$y])
+        #link($p.pageNo, $i)
+      #end
+      #link(0, 0)
+      #link($p.pageNo, $p.pageCount)
+    #end
+  #elseif ($p.pageCount > 1)
+    #foreach($i in [1..$p.pageCount])
+      #link(${p.pageNo}, $i)
+    #end
+  #else
+    #link(1, 1)
+  #end
+    
+  #if ($p.pageNo < $p.pageCount)
+    <a href="javascript:void(0);" _pn="${p.nextPageNo}" class="btn_p">下一页</a>
+  #end
+  <script type="text/javascript">
+    $(function(){
+        $('#${pagerId} a[_pn]').bind('click', function(){
+            pager_reload($(this).attr('_pn'));
+            return false;
+        });
+    });
+    </script>
+  </span>
+#end
+
+<#-- 分页链接 -->
+#macro (link $pageNo $i)
+  #if ($i == 0)
+    <span>...</span>
+    #elseif ($pageNo == $i)
+     <a href="javascript:void(0);"><b>${i}</b></a>
+    #else
+     <a href="javascript:void(0);" _pn="${i}">${i}</a>
+    #end
+#end
+
+#macro (umenu $url $cur $pos $text)
+  #if($cur == $pos)
+    <a href="javascript:void(0);" class="cur"><span class="bg_l"><span class="bg_r">$text 
+   #if($cur == 'myvoucher' || $cur == 'rh')<img src="http://trade.davcai.com/ac/images/bet/new.gif"/>
+    #elseif($cur == 'inbox')<span id="menuInboxCount"></span>
+    #end</span></span></a>
+  #else
+    <a href="$url"><span class="bg_l"><span class="bg_r">$text 
+    #if($cur == 'myvoucher'  || $cur == 'rh')<img src="http://trade.davcai.com/ac/images/bet/new.gif"/>
+    #elseif($cur == 'inbox')<span id="menuInboxCount"></span>
+    #end</span></span></a>
+  #end
+#end
+
+#macro (composeReferer)
+	#set($referer = $esc.url($request.getRequestURL().append("?").append($request.getQueryString()).append("&")))
+#end
+
+#macro (getPlayId $scheme $betMatch)
+	#if($betMatch.playId)
+		#set($_playId = $betMatch.playId)
+	#else
+		#set($_playId = $scheme.playId)
+	#end
+#end
+
+#macro(calBetAmount $issueCnt $issueBetAmount)
+	#set($cal = $issueCnt * $issueBetAmount)
+	$cal
+#end
+
+#macro(singleAmount $totalAmount $multiple)
+	#set($rs = $totalAmount / $multiple)
+	$rs
+#end
+
+<#-- 北单赛事名称 name表示赛事名称-->
+#macro(bdMatchName $m)
+	#foreach($nameArr in ${m.name.split("VS")})
+		#if($velocityCount == 1)
+			$nameArr 
+			#if(${_playId} == '91_BJDC_SPF' || ${_playId} == '96_BJDC_SF' )
+				#if($math.toInteger($!{m.concedePoints}) > 0)
+					(+$math.toInteger($!{m.concedePoints}))
+				#else
+					($math.toInteger($!{m.concedePoints})) 
+				#end
+			#end
+		#end
+		#if($velocityCount == 2)
+			&nbsp VS &nbsp   $nameArr
+		#end
+	#end
+#end

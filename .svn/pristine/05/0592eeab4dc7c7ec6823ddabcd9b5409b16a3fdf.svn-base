@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="utf-8" />
+    <meta name="robots" content="all" />
+    <meta name="author" content="星汇盛世" />
+    <meta name="copyright" content="rbc.cn 版权所有，未经授权禁止链接、复制或建立镜像。" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>北京广播网_用户中心_登录</title>
+    <link rel="icon" href="http://www.rbc.cn/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://www.rbc.cn/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript">
+        var basePath = "$!{base}";
+    </script>
+    <script type="text/javascript" src="$base/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="$base/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="$base/js/ucenter.js"></script>
+    <style>
+        html, body, div, p, form, h2{margin:0px 0px; padding:0px 0px; }
+        body, div, p, span, a {font-size:12px;}
+        cite{color: #999;}
+        .box{margin:0 auto; background:url("/images/login/sep.gif") no-repeat scroll 60% 0 transparent; height:225px;}
+        .box em, .box ul{font-size: 14px; font-style: normal;}
+        .box p{clear: both; line-height: 24px; margin: 0; overflow: hidden; padding: 5px 0 0;}
+        .box p a {float: left; margin-top: 12px;}
+        .title{background: url("/images/login/text.gif") no-repeat scroll 0 0 transparent; font-size: 0; height: 17px; line-height: 999999px; margin: 0 0 10px 25px; overflow: hidden; width: 254px;}
+        .form{display: inline; float: left; padding-left: 25px;}
+        .form p {width:256px;}
+        .input{border-color: #868686 #F3F1F1 #ECE9E9 #C3C2C2; border-style: solid; border-width: 1px; height: 20px; padding: 4px 0 0 4px; vertical-align: middle; width: 250px;}
+        .button {background: url("/images/login/login.gif") no-repeat scroll 0 0 transparent; border: medium none; cursor: pointer; float: left; font-size: 0; height: 26px; line-height: 999999px; margin: 10px 15px 0 0; overflow: hidden; text-align: center;width: 84px;}
+        .checkbox{float: left; line-height: normal; margin: 0;}
+        .line{ display: inline; float: left; margin: 12px 15px 0 0;}
+        .err{text-align:center; color:#F00;}
+        .reg{display: inline; float: right; padding-right: 25px;}
+        .reg a{ background: url("/images/login/reg.gif") 0 0; display: block; font-size: 0; height: 48px; line-height: 999999px; margin: 15px 0 0 5px; overflow: hidden; width: 141px;}
+        .reg a:hover{background-position: 0 -58px;}
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2 class="title"></h2>
+    <form class="form" method="post">
+        <input type="hidden" id="loginType" name="loginType" value="1" />
+        <p><em>登录名：</em><cite>用户名</cite></p>
+        <p><input type="text" class="input" maxlength="30" name="username" /></p>
+        <p><em>密　码：</em></p>
+        <p><input type="password" class="input" maxlength="20" name="password" /></p>
+        <p>
+            <input type="submit" class="button" value="登 录">
+            <label class="line">
+                <input name="rememberMe" type="checkbox" value="true" class="checkbox" /><span>自动登录</span>
+            </label>
+            <a target="_blank" href="http://uc.rbc.cn/pass/findpass.do">忘记密码</a>
+        </p>
+        <p class="err">
+        #if($!{actionErrors})
+            #foreach($ac in $actionErrors)
+            <span>${ac}</span>
+            #end
+        #end
+        </p>
+    </form>
+    <div class="reg">
+        <p>还未开通？赶快注册一个吧！</p>
+        <a target="blank" href="http://uc.rbc.cn/reg.do">立即注册</a>
+    </div>
+</div>
+
+</body>
+</html>

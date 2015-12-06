@@ -1,0 +1,150 @@
+* html .u0_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="导航-banner_files/u0_normal.png");
+}
+
+* html .u2_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="导航-链接_files/u2_normal.png");
+}
+
+* html .u15_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="导航-banner_files/u15_normal.png");
+}
+
+* html .u17_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="导航-banner_files/u17_normal.png");
+}
+
+* html .u20_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u20_normal.png");
+}
+
+* html .u29_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u29_normal.png");
+}
+
+* html .u32_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u32_normal.png");
+}
+
+* html .u34_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u34_line.png");
+}
+
+* html .u36_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u36_normal.png");
+}
+
+* html .u38_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u38_line.png");
+}
+
+* html .u45_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u36_normal.png");
+}
+
+* html .u47_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u47_line.png");
+}
+
+* html .u50_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u50_normal.png");
+}
+
+* html .u52_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u52_line.png");
+}
+
+* html .u53_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u53_line.png");
+}
+
+* html .u56_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u56_line.png");
+}
+
+* html .u57_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u57_line.png");
+}
+
+* html .u63_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u63_line.png");
+}
+
+* html .u69_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u69_normal.png");
+}
+
+* html .u71_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u71_line.png");
+}
+
+* html .u74_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="通用页脚_files/u74_normal.png");
+}
+
+* html .u78_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u78_normal.png");
+}
+
+* html .u80_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u80_line.png");
+}
+
+* html .u82_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u82_normal.png");
+}
+
+* html .u84_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u84_line.png");
+}
+
+* html .u87_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u87_line.png");
+}
+
+* html .u89_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u89_line.png");
+}
+
+* html .u92_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u92_line.png");
+}
+
+* html .u93_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u69_normal.png");
+}
+
+* html .u95_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="跟单详情_files/u95_line.png");
+}
+

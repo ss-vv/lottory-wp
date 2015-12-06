@@ -1,0 +1,45 @@
+#set($layout="web/score.vm")
+#set($styles=["css/base.css","css/scores.css"])
+#set($scripts=["js/web/jquery.mustache.js",
+ "js/web/login.js","js/web/home/home_relationship.js",  "js/web/home/announceAndWinning.js",
+	"js/web/home/interest_user.js","js/web/score/score.js","js/web/search.js"])
+#set($p_title="竞足比分")
+				<input type="hidden" id="url" value="http://www.davcai.com/loadJZscore"/>
+                <div class="red_t">竞彩足球比分直播</div>
+                <div class="pink_t clearfix">
+                    <div class="btn sprites" id="saveBtn">
+                        <span>保留所选</span>
+                        <i class="sprites"></i>
+                    </div>
+                    <div class="btn sprites" id="hideBtn">
+                        <span>隐藏所选</span>
+                        <i class="sprites"></i>
+                    </div>
+                    <div class="btn sprites" id="reSetBtn">
+                        <span>恢复</span>
+                        <i class="sprites"></i>
+                    </div>
+                    <div class="label">
+                        共<span class="b" id="totalMatchCount">0</span>场  已隐藏<span class="r" id="totalMatchHideCount">0</span>场
+                        &nbsp;&nbsp;&nbsp;距下次更新还剩<span style="color:red;" id="countdown">60</span>秒&nbsp;&nbsp;&nbsp;
+                        选择期信息<select id="issueselect"></select>
+                    </div>
+                </div>
+                <div class="scores_list">
+                    <table width="100%" cellspacing="0" cellpadding="0" class="list_table">
+                        <thead>
+                            <tr bgcolor="#dcdcdc">
+                                <td width="9%" align="center" height="33">序号</td>
+                                <td width="20%" align="center">赛事</td>
+                                <td width="21%" align="center">时间</td>
+                                <td width="10%" align="center">状态</td>
+                                <td align="center">主队</td>
+                                <td width="10%" align="center">比分</td>
+                                <td width="10%" align="center">客队</td>
+                                <td width="10%" align="center">半场</td>
+                            </tr>
+                        </thead>
+                        <tbody id="scoreTbody">
+                        </tbody>
+                    </table>
+                </div>

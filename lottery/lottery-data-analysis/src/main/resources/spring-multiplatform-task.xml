@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+	<context:annotation-config /> 
+	<context:component-scan base-package="
+		com.xhcms.lottery.dc.platform.task,
+		com.xhcms.lottery.dc.platform.parser,
+		com.davcai.lottery.platform.client.anruizhiying,
+		com.davcai.lottery.platform.client.anruizhiying.parser,
+		com.davcai.lottery.platform.client.chooser,
+		com.davcai.lottery.platform.client.zunao,
+		com.davcai.lottery.platform.client.util,
+		com.davcai.lottery.platform.client.qiutan,
+		com.davcai.lottery.platform.util,
+		"/>
+	
+	<bean id="runWS2" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Run2" />
+		<property name="maxSize" value="30" />
+	</bean>
+	
+	<!-- 竞彩足球赛事采集调度 -->
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Football Matches Task"/>
+        <property name="workspace" ref="runWS2" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="360" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.platform.task.FetchMatchesWithMultiPlatformTask">
+                <property name="lotteryId" value="JCZQ"/>
+                <property name="storeDataName" value="zc_match"/>
+           </bean>
+        </property>
+    </bean>
+	<!-- 竞彩篮球赛事采集调度 -->
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Basketball Matches Task"/>
+        <property name="workspace" ref="runWS2" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="360" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.platform.task.FetchMatchesWithMultiPlatformTask">
+                <property name="lotteryId" value="JCLQ"/>
+                <property name="storeDataName" value="lc_match"/>
+           </bean>
+        </property>
+    </bean>
+	<!-- 竞彩足球赔率采集调度 -->
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Football Matches Play Odds Task"/>
+        <property name="workspace" ref="runWS2" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="360" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.platform.task.FetchMatcheOddsWithMultiPlatformTask">
+                <property name="lotteryId" value="JCZQ"/>
+                <property name="storeDataName" value="zc_odds"/>
+                <property name="anRuiStoreDataName" value="anrui_zc_odds"></property>
+           </bean>
+        </property>
+    </bean>
+	<!-- 竞彩篮球赔率采集调度 -->
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+        <property name="name" value="Fetch Basketball Matches Play Odds Task"/>
+        <property name="workspace" ref="runWS2" />
+        <property name="time" value="2012-01-01 00:00:00" />
+        <property name="period" value="360" />
+        <property name="job">
+           <bean class="com.xhcms.lottery.dc.platform.task.FetchMatcheOddsWithMultiPlatformTask">
+                <property name="lotteryId" value="JCLQ"/>
+                <property name="storeDataName" value="lc_odds"/>
+                <property name="anRuiStoreDataName" value="anrui_lc_odds"></property>
+           </bean>
+        </property>
+    </bean>
+    <!-- 安瑞智赢中奖查询 -->
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Check AnRuiZhiYing Bonus Task" />
+		<property name="workspace" ref="runWS2" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.ticket.CheckAnRuiZhiYingBonusTask"/>
+		</property>
+	</bean>
+	
+    <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="fetch 310win CTZC matches task" />
+		<property name="workspace" ref="runWS2" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.platform.task.FetchIssueInfoWithMultiPlatformTask">
+				 <property name="playTypes">
+		         	<list>
+		         		<value>24_ZC_14</value>
+		         		<value>25_ZC_R9</value>
+		         		<value>26_ZC_BQ</value>
+		         		<value>27_ZC_JQ</value>
+		         	</list>
+		         </property>
+			</bean>
+		</property>
+	</bean>
+</beans> 

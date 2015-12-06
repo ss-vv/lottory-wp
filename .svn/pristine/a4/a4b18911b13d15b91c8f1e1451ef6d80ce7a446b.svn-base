@@ -1,0 +1,120 @@
+#set($title="查看投注方案详情")
+<div class="w">
+  <div class="tabH" id="tabLinks">
+    <span><a href="$base/scheme/view.do?id=${id}"><b>投注方案详情</b></a></span>
+    <span class="current"><b>投注赛事详情</b></span>
+    <span><a href="$base/scheme/lsissue.do?id=${id}&playId=${playId}"><b>投注期详情</b></a></span>
+    <span><a href="$base/scheme/lsticket.do?id=${id}&playId=${playId}"><b>出票详情</b></a></span>
+    <span><a href="$base/scheme/lspartner.do?id=${id}&playId=${playId}"><b>购买人详情</b></a></span>
+    #if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+    <span><a href="$base/gf/lsfollower.do?id=${id}&playId=${playId}&lotteryId=${lotteryId}"><b>跟单详情</b></a></span>
+    #end
+  </div>
+  <div class="bx_c">
+    #if("0" == $chooseType)
+    <table cellspacing="0" class="tab">
+      <tr>
+        <th style="width:60px;text-align:center;">赛事编号</th>
+        <th style="width:160px;text-align:center;">赛事</th>
+        <th style="width:80px;text-align:center;">赛果</th>
+        <th style="text-align:center;">投注内容</th>
+        <th style="width:80px;text-align:center;">开赛时间</th>
+        #if(${cTBetContents[0].playId} == "25_ZC_R9")
+        <th style="width:40px;text-align:center;">胆码</th>
+        #end
+      </tr>
+      #foreach($m in ${cTFBMatchs})
+      	#if(${m.playId} == "26_ZC_BQ" || ${m.playId} == "27_ZC_JQ")
+	      <tr>
+	        <td rowspan="2" style="text-align:center;">${m.matchId}</td>
+	        <td rowspan="2" style="text-align:center;">${m.homeTeamName}VS${m.guestTeamName}</td>
+	        #if($issueInfo.bonusCode.length() > 0)
+	        	<td style="text-align:center;">$Result.cn(${m.playId}, ${issueInfo.bonusCode.charAt($math.sub($math.mul(${m.matchId},2),2)).toString()}, ${m.odds})</td>
+	        #else
+	        	<td style="text-align:center;">&nbsp;</td>
+	        #end
+	        <td style="text-align:center;">$Result.cn(${m.playId}, ${cTBetContents[0].code.split(',').get($math.sub($math.mul(${m.matchId},2),2))}, ${m.odds})</td>
+	        <td rowspan="2" style="text-align:center;">$date.format("MM-dd HH:mm", ${m.playingTime})</td>
+	      </tr>
+		  <tr>
+		  	#if($issueInfo.bonusCode.length() > 0)
+		  		<td style="text-align:center;">$Result.cn(${m.playId}, ${issueInfo.bonusCode.charAt($math.add($math.sub($math.mul(${m.matchId},2),2),1)).toString()}, ${m.odds})</td>
+	        #else
+	        	<td style="text-align:center;">&nbsp;</td>
+	        #end
+	        <td style="text-align:center;">$Result.cn(${m.playId}, ${cTBetContents[0].code.split(',').get($math.add($math.sub($math.mul(${m.matchId},2),2),1))}, ${m.odds})</td>
+		  </tr>
+	    #else
+	      <tr>
+	        <td style="text-align:center;">${m.matchId}</td>
+	        <td style="text-align:center;">${m.homeTeamName}VS${m.guestTeamName}</td>
+	        #if($issueInfo.bonusCode.length() > 0)
+	        	<td style="text-align:center;">$Result.cn(${m.playId}, ${issueInfo.bonusCode.charAt($math.sub(${m.matchId},1)).toString()}, ${m.odds})</td>
+	        #else
+	        	<td style="text-align:center;">&nbsp;</td>
+	        #end
+	        <td style="text-align:center;">$Result.cn(${m.playId}, ${cTBetContents[0].code.split(',').get($math.sub(${m.matchId},1))}, ${m.odds})</td>
+	        <td style="text-align:center;">$date.format("MM-dd HH:mm", ${m.playingTime})</td>
+	        #if(${m.playId} == "25_ZC_R9")
+	        	#if($cTBetContents[0].seed.length() > 0)
+	        		<td style="text-align:center;">$Result.ctzcBetSeed(${m.matchId}, ${cTBetContents})</td>
+	        	#else
+	        		<td style="text-align:center;">&nbsp;</td>
+	        	#end
+	        #end
+	      </tr>
+	   #end
+      #end
+    </table>
+    #elseif("2" == $chooseType)
+    <table cellspacing="0" class="tab">
+      <tr>
+        <th style="width:60px;text-align:center;">赛事编号</th>
+        <th style="width:160px;text-align:center;">赛事</th>
+        <th style="width:80px;text-align:center;">赛果</th>
+        <th style="width:80px;text-align:center;">开赛时间</th>
+      </tr>
+      #foreach($m in ${cTFBMatchs})
+	      #if(${m.playId} == "26_ZC_BQ" || ${m.playId} == "27_ZC_JQ")
+		      <tr>
+		        <td rowspan="2" style="text-align:center;">${m.matchId}</td>
+		        <td rowspan="2" style="text-align:center;">${m.homeTeamName}VS${m.guestTeamName}</td>
+		        #if($issueInfo.bonusCode.length() > 0)
+		        	<td style="text-align:center;">$Result.cn(${m.playId}, ${issueInfo.bonusCode.charAt($math.sub($math.mul(${m.matchId},2),2)).toString()}, ${m.odds})</td>
+		        #else
+		        	<td style="text-align:center;">&nbsp;</td>
+		        #end
+		        <td rowspan="2" style="text-align:center;">$date.format("MM-dd HH:mm", ${m.playingTime})</td>
+		      </tr>
+		      <tr>
+		      	#if($issueInfo.bonusCode.length() > 0)
+		      		<td style="text-align:center;">$Result.cn(${m.playId}, ${issueInfo.bonusCode.charAt($math.add($math.sub($math.mul(${m.matchId},2),2),1)).toString()}, ${m.odds})</td>
+		      	#else
+		      		<td style="text-align:center;">&nbsp;</td>
+		      	#end
+		      </tr>
+	      #else
+		      <tr>
+		        <td style="text-align:center;">${m.matchId}</td>
+		        <td style="text-align:center;">${m.homeTeamName}VS${m.guestTeamName}</td>
+		        #if($issueInfo.bonusCode.length() > 0)
+		        	<td style="text-align:center;">$Result.cn(${m.playId}, ${issueInfo.bonusCode.charAt($math.sub(${m.matchId},1)).toString()}, ${m.odds})</td>
+		        #else
+		        	<td style="text-align:center;">&nbsp;</td>
+		        #end
+		        <td style="text-align:center;">$date.format("MM-dd HH:mm", ${m.playingTime})</td>
+		      </tr>
+	      #end
+      #end
+      <tr>
+      	<td colspan="6">机选投注内容</td> 
+      </tr>
+      #foreach($c in ${cTBetContents})
+      <tr>
+      	<td colspan="6">${c.code}</td> 
+      </tr>
+      #end
+    </table>
+    #end
+  </div>
+</div>

@@ -1,0 +1,29 @@
+#parse("web/publish.vm")
+<!-- status list -->
+<div class="status-nav newTab_white" style="width: 633px;">
+    <ul class="status-tab upper lotteryScheme">
+        <li id="match_allposts" match_weibotab class="active"><a href="javascript:void(0);">全部 </a></li>
+        <li id="match_rec" match_weibotab><a href="javascript:void(0);">推荐/实单</a></li>
+        <li id="match_discuss" match_weibotab><a href="javascript:void(0);">讨论</a></li>
+        <li id="match_news" match_weibotab><a href="javascript:void(0);">新闻</a></li>
+    </ul>
+</div>
+<div class="home-timeline processing" match_allposts match_weibopanel>
+	<ul class="status-list"></ul>
+</div>
+
+<div class="home-timeline processing" match_rec match_weibopanel style="display:none;">
+	<ul class="status-list"></ul>
+</div>
+<div class="home-timeline processing" match_discuss match_weibopanel style="display:none;">
+	<ul class="status-list"></ul>
+</div>
+<div class="home-timeline processing" match_news match_weibopanel style="display:none;">
+	<ul class="status-list"></ul>
+</div>
+
+<script>
+	jQuery(document).ready(function(){
+		renderMatchWeiboBlock("$!lotteryType", "$!matchId");
+	});
+</script>

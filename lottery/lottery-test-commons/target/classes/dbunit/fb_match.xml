@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="fb_match">
+    <column>id</column>
+    <column>cn_code</column>
+    <column>code</column>
+    <column>name</column>
+    <column>league_id</column>
+    <column>league_name</column>
+    <column>playing_time</column>
+    <column>offtime</column>
+    <column>entrust_deadline</column>
+    <column>home_team_id</column>
+    <column>home_team_name</column>
+    <column>guest_team_id</column>
+    <column>guest_team_name</column>
+    <column>status</column>
+    <column>concede_points</column>
+    <column>half_score</column>
+    <column>score</column>
+    <column>note</column>
+    <row>
+      <value>201211014002</value>
+      <value>周四002</value>
+      <value>4002</value>
+      <value><![CDATA[巴利亚多利德 VS 皇家贝蒂斯]]></value>
+      <value>0</value>
+      <value>西班牙国王杯</value>
+      <value><![CDATA[2012-11-02 00:00:00.0]]></value>
+      <value><![CDATA[2012-11-01 23:59:00.0]]></value>
+      <value><![CDATA[2012-11-01 23:54:00.0]]></value>
+      <value>0</value>
+      <value>巴利亚多利德</value>
+      <value>0</value>
+      <value>皇家贝蒂斯</value>
+      <value>5</value>
+      <value>0</value>
+      <value>1:0</value>
+      <value>1:0</value>
+      <null/>
+    </row>
+    <row>
+      <value>201211024003</value>
+      <value>周四003</value>
+      <value>4003</value>
+      <value><![CDATA[梅利利亚 VS 莱万特]]></value>
+      <value>0</value>
+      <value>西班牙国王杯</value>
+      <value><![CDATA[2012-11-02 01:00:00.0]]></value>
+      <value><![CDATA[2012-11-02 00:59:00.0]]></value>
+      <value><![CDATA[2012-11-01 23:54:00.0]]></value>
+      <value>0</value>
+      <value>梅利利亚</value>
+      <value>0</value>
+      <value>莱万特</value>
+      <value>5</value>
+      <value>0</value>
+      <value>1:0</value>
+      <value>1:0</value>
+      <null/>
+    </row>
+    <row>
+      <value>201211024005</value>
+      <value>周四005</value>
+      <value>4005</value>
+      <value><![CDATA[米亚尔比 VS 埃尔夫斯堡]]></value>
+      <value>0</value>
+      <value>瑞典超级联赛</value>
+      <value><![CDATA[2012-11-02 01:00:00.0]]></value>
+      <value><![CDATA[2012-11-02 00:59:00.0]]></value>
+      <value><![CDATA[2012-11-01 23:54:00.0]]></value>
+      <value>0</value>
+      <value>米亚尔比</value>
+      <value>0</value>
+      <value>埃尔夫斯堡</value>
+      <value>5</value>
+      <value>0</value>
+      <value>1:2</value>
+      <value>2:3</value>
+      <null/>
+    </row>
+  </table>
+</dataset>

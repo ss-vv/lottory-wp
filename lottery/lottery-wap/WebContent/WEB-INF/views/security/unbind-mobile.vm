@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1"><title>
+	大V彩-手机购彩-解除绑定手机
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<link type="text/css" href="../css/buy.css" rel="stylesheet" /></head>
+<body>
+    <form method="post" action="unbind-mobile.do" id="form1">
+
+    <div class="mainDiv">
+      
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" /><meta name="MobileOptimized" content="240" />
+ <div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+ > <a href="/user/myAccount.do">我的账户</a>  > 解除绑定手机</div>
+
+<div style="background-color:#EAEAEA; line-height:21px; padding-left:5px; border-bottom:dotted 1px #8d8d8d;">
+   您好，<a href="/user/myAccount.do" >$account.username</a>
+	<div><label>可用金额 <span style='color:red;font-weight:bolder;'>${account.free}</span>元</label></div>
+</div>
+
+        <div style="height:5px;" ></div>
+        &nbsp;<span style="color:#f00">解除手机绑定后，将无法继续使用手机短信服务</span><br />
+        &nbsp;您绑定的手机号码：<span id="lbMobile" style="color:Blue;font-size:Medium;">${user.mobile}</span><br/>
+		&nbsp;请输入您的验证码：<input id="txtVerifyCode" type="text" style="width:60px;" name="inputVerifyCode">
+		<input id="btnVfcRb" type="submit" onmouseover="this.style.cursor='pointer'" value="获取验证码" name="btnSumit" style="cursor: pointer;"><br/>
+		&nbsp;<input type="submit" name="btnSumit" value="确定解除" onclick="return confirm('真的要解除吗？');" id="btnSumit" onmouseover="this.style.cursor='pointer'" /> 
+       <div style="height:5px;" ></div>
+	   <span id="lbMsg">
+		#if($!{actionErrors})
+			#foreach($ac in $actionErrors)
+				<div class="divErrorMSG">$ac</div>
+            #end
+		#end
+		</span>
+    </div>
+    </form>
+       <div class='topNavigationBar' style='color: #FFF;'> <a href='../index.do'>首页</a> > <a href="/user/myAccount.do">我的账户</a>  > 解除绑定手机</div> 
+	   #include("inc/footer.inc")
+	<div class="clear">
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+#set($title="重置密码")
+
+#set($js = ["js/jquery.validate.js"])
+<div class="w">
+  <div class="tabH" id="tabList" >
+    <span class="current"><b>重置密码</b></span>
+  </div>
+  <div class="bx_c">
+  <form id="pForm" action="$base/admin/resetpwd.do" method="post">
+    <table cellspacing="0" class="tab">
+      <tr>
+        <td style="text-align:right; width:200px;">管理员名：</td><td style="width:400px;">$!{username}</td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">原始密码：</td>
+        <td>
+          <input id="oldpassword" type="password" size="20" maxlength="20" name="oldpassword" />
+          #if($fieldErrors.oldpassword)
+            <label for="oldpassword" generated="true" class="error" style="">  $fieldErrors.oldpassword.get(0)</label>
+          #end
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">新密码：</td><td><input id="password" type="password" size="20" maxlength="20" name="password" /></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">确认密码：</td><td><input type="password" size="20" maxlength="20" name="newpwd" /></td>
+      </tr>
+      <tr>
+        <td colspan="4" id="btnTd" style="text-align:center; padding: 5px 0px;">
+          <input type="submit" class="hand" value="提交"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+  </div>
+</div>
+<script language="javascript" type="text/javascript">
+$(function(){
+  $('#pForm').validate({
+    rules:{
+      'oldpassword': {
+        required: true,
+        rangelength: [5, 20]
+      },
+      'password': {
+        required: true,
+        rangelength: [5, 20]
+      },
+      'newpwd': {
+        required: true,
+        rangelength: [5, 20],
+        equalTo: '#password'
+      }
+    },
+    messages: {
+      'oldpassword': {
+        required: '  请输入原始密码',
+        rangelength: '  请输入{0}到{1}个字符',
+      },
+      'password': {
+        required: ' 请输入新密码',
+        rangelength: '  请输入{0}到{1}个字符',
+      },
+      'newpwd': {
+        required: '  请输入确认密码',
+        rangelength: '  请输入{0}到{1}个字符',
+        equalTo: '  两次输入必须一致'
+      }
+    }
+  });
+
+});
+</script>

@@ -1,0 +1,132 @@
+ <!----------------------下面开始是today-some-basketball竞猜篮球部分----------------------->
+#if($jclqMatchRecommendVo.size()>0)
+	#foreach($bb in $jclqMatchRecommendVo)   
+		<div class="today-some-basketball">
+			<h4 class="vertical-bar">
+				<img src="images/new-login/vertical-bar-yellow.png"/>
+			</h4>
+			<h3 class="vertical-bar-title">竞彩篮球</h3>
+			<p class="event">
+				今日赛事：$bb.countMatch
+			</p>
+			<div class="today-some-vs" style="background-color:$bb.color">
+				<h6 class="today-some-vs-name">$bb.leagueName</h6>
+					<h6 class="today-some-vs-time">
+						$!date.format('yyyy年MM月dd日',$!bb.playingTime) &nbsp;&nbsp; $!date.format('HH:mm',$!bb.playingTime)
+					</h6>
+					<p class="match">
+						<span class="match-left">
+							$bb.guestTeamName
+						</span>
+  	  	   	   	        <em>vs</em> 
+						<span class="match-right">
+							$bb.hostTeamName
+						</span>
+  	  	   	   	    </p>
+  	  	   	</div>
+			<h4 class="today-some-zjtd">
+				专家提点
+			</h4>
+			<span class="today-some-wf">
+				玩法：
+				#if($bb.betMatchRecPO.playId=="06_LC_1" ||$bb.betMatchRecPO.playId=="06_LC_2")
+					让球胜负 
+				#elseif($bb.betMatchRecPO.playId=="07_LC_1" || $bb.betMatchRecPO.playId=="07_LC_2") 
+					胜负
+				#end
+			</span>&nbsp;&nbsp;
+			<span class="today-some-tjjg">
+				推荐结果：
+				#bbPlayType($bb.betMatchRecPO.code)
+			</span>
+			<p class="today-some-introduction">
+					#if(${bb.betMatchRecPO.annotation})
+						${bb.betMatchRecPO.annotation} 
+					#end
+				<i>
+					<a #if($bb.weiboUserId)href="http://www.davcai.com/$bb.weiboUserId/$bb.weiboId" #end>详情>></a>
+				</i>
+			</p>
+			<p class="item-data">
+				<span class="item-data-name" title="$!bb.sponsor">
+					<a #if($bb.weiboUserId)href="http://www.davcai.com/$bb.weiboUserId/profile" #end>
+						$!{bb.sponsor}
+					</a>
+				</span>
+				<span class="item-data-review"> 
+					<a #if($bb.weiboUserId)href="http://www.davcai.com/$bb.weiboUserId/$bb.weiboId" #end>
+						评论（$bb.comment）
+					</a>
+				</span>
+				<em>|</em>
+				<span class="item-data-zan"> 
+					<a #if($bb.weiboUserId)href="http://www.davcai.com/$bb.weiboUserId/$bb.weiboId" #end>
+						赞（$bb.support）
+					</a>
+				</span>
+			</p>
+			<label class="welcome-to-the-right"></label>
+			<div class="today-some-bet-column">
+				<p class="cut-off-time">
+					投注截止时间 $!date.format('yyyy年MM月dd日  HH:mm',$bb.entrustDeadline)
+				</p>
+				<ul class="today-some-basketball-team">
+					#if($bb.option[0])
+						<li class="today-some-basketball-team-left">
+							<div class="#isChecked($bb.betMatchRecPO.code "2" "jclq")" id="bbsheng_$velocityCount" odd="$bb.oddsArr[0]">
+  								<p class="team-name">
+  									$bb.guestTeamName
+  								</p>
+  	  	   	   	     	       	<p class="score">
+  	  	   	   	     	       		胜
+  	  	   	   	     	       	</p>
+  	  	   	   	     	     </div>
+								<p>赔率：$bb.oddsArr[0]</p>
+  	  	   	   	     	 </li>
+  	  	   	   	   #end
+  	  	   	   	   #if($bb.option[2])
+  	  	   	   	     	<li class="today-some-basketball-team-right">
+  	  	   	   	     	     <div class="#isChecked($bb.betMatchRecPO.code "1" "jclq")" id="bbfu_$velocityCount" odd="$bb.oddsArr[2]">
+  	  	   	   	     	       	  <p class="team-name">
+  	  	   	   	     	       	  	$bb.hostTeamName
+  	  	   	   	     	       	  </p>
+  	  	   	   	     	       	   <p class="score">
+  	  	   	   	     	       	   	    胜
+  	  	   	   	     	       	   </p>
+  	  	   	   	     	     </div>
+  	  	   	   	     	     <p>赔率：$bb.oddsArr[2]</p>
+  	  	   	   	     	</li>
+  	  	   	   	   #end
+  	  	   	    </ul>
+  	  	   	   	<div class="today-some-investment">
+  	  	   	   	    <i>投入</i>
+  	  	   	   	    <p>
+  	  	   	   	     	<a href="javascript:void(0);" class="today-some-investment-minus" id="bbminus_$velocityCount"></a>
+  	  	   	   	     	<input type="text" value=#computeInitMoney($bb.betMatchRecPO.code "jclq") bbchoicenum=#computeChoiceNum($bb.betMatchRecPO.code "jclq")  id="bbmoney_$velocityCount"/>
+  	  	   	   	     	<a href="javascript:void(0);" class="today-some-investment-plus" id="bbplus_$velocityCount"></a>
+  	  	   	   	     	</p><em>元</em> <!------这个em要和P标签紧邻--------->
+  	  	   	   	</div>
+  	  	   	   	<p class="today-some-expected-bonus">
+  	  	   	   		<i>预计奖金：</i>
+  	  	   	   		<label id="bbprize_$velocityCount">
+  	  	   	   			#computeBBPrize($bb.betMatchRecPO.code $bb.oddsArr)元
+  	  	   	   		</label>
+  	  	   	   	    <a href="javascript:void(0);" class="welcome-question" id="jclq-welcome-question_$velocityCount">
+  	  	   	   	      <span class="poptip popspan" id="jclq-poptip_$velocityCount">
+						<em class="poptip-top"></em>
+						<em class="poptip-bottom"></em>
+						<i>
+							<em>说明</em><br/>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选定赛果后，系统会智能匹配一场进行全包2串1配对，
+							只需要您选定的赛果正确，100%中奖！<br/>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;竞猜90分钟内的赛果(含伤停补时，不含加时赛和点球)
+						</i>
+					  </span>
+  	  	   	   	    </a>
+  	  	   	   	</p>
+  	  	   	   	<button class="welcome-immediately-bet">立即投注</button>
+  	  	   	</div><!---------------today-some-bet-column部分-------------->
+  	  	   	   	     	 
+    </div><!------today-some-basketball部分结束-------->
+  #end
+#end

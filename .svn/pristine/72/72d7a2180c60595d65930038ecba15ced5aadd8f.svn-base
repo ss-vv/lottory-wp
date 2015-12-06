@@ -1,0 +1,86 @@
+.slabel {
+	position: relative;
+  	right: 250px;
+  	top: 30px;
+  	width: 50px
+	}
+.selectbox
+	{
+		position: relative;  								
+  		top: -20px;				
+	}
+	button.btn.btn-primary.btn-lg {
+  position: relative;
+  right: -244px;
+  top: -148px;
+  width: 100px;
+}
+	
+.img_text {
+  position: relative;
+  left: 85px;
+  top: 45px;
+}
+.img_text1 {
+  position: relative;
+  left: 103px;
+  top: 45px;
+}
+
+.img_text2 {
+  position: relative;
+  left: 120px;
+  top: 45px;
+}
+.img_size1 {
+  width: 152px;
+  height: 85px;
+  position: relative;
+  left: -8px;
+  top: -16px;
+}
+.img_size2 {
+  width: 154px;
+  height: 85px;
+  position: relative;
+  left: 20px;
+  top: -30px;
+}
+	.img_size
+	{
+		width:100px;
+		height: 60px;
+	}
+	.td_text
+	{
+		position: relative;
+		left: 30px;
+		top: 10px;
+		width 50px;
+		line-height: 30px; 
+	}
+	.td_text_right
+	{
+		position: relative;
+		left: 50px;
+		top: 10px;
+		width 50px;
+		line-height: 30px; 
+	}
+	.td_color
+	{
+		background-color: #663399;
+		color: #FFFFFF;
+	}
+	.div_icon
+	{	
+		position: relative;
+		left: 300px;
+		top: -220px;
+	}
+	.div_flag
+	{	
+		position: relative;
+		left: 300px;
+		top: -160px;
+	}

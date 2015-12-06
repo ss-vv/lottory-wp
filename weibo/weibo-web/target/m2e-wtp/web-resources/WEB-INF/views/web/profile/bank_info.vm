@@ -1,0 +1,52 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="银行卡信息")
+#set($styles=["css/profile.css","css/imgareaselect/imgareaselect-default.css"])
+
+#set($scripts=["js/cities.js","js/web/profile/profile.js","js/web/login.js",
+	"js/imgareaselect/jquery.imgareaselect.pack.js",
+	"js/jquery.form.js"])
+
+<div id="bank-card-information">
+	  #parse("web/profile/inc/profile_header.vm")
+	  
+	  		#if($account.bank && $account.accountNumber)
+	  		<ul class="bank-card-info">
+		    	<li>
+		    		<label>真实姓名：</label>
+		    		<span>$Text.hideString(${user.realname},1)</span>
+		    		<i>如果您填写有误，请联系客服</i>
+		    	</li>
+		    	<li>
+		    		<label>身份证号码：</label>
+		    		<span>$Text.hideString(${user.idNumber},12)</span>
+		    		<i>如果您填写有误，请联系客服</i>
+		    	</li>
+		    	<li>
+		    		<label>开户名：</label>
+		    		<span>$Text.hideString(${user.realname},1)</span>
+		    	</li>
+		    	<li>
+		    		<label>开户银行：</label>
+		    		<span>${account.bank}</span>
+		    	</li>
+		    	<li>
+		    		<label>银行卡号：</label>
+		    		<span>$Text.hideString(${account.accountNumber},8)</span>
+		    	</li>
+		    	<li>
+		    		<button class="modify-bank-card-info" 
+		    			onclick='window.location.href="/${user.weiboUserId}/to-edit-bank"'>修改银行卡信息</button>
+		    	</li>
+		    </ul>
+		    #else
+		    	<script type="text/javascript">
+	  				window.location.href="/${user.weiboUserId}/to-edit-bank";
+	  			</script>
+		    #end
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#yhkxx').attr('class','active');	
+	});
+</script>

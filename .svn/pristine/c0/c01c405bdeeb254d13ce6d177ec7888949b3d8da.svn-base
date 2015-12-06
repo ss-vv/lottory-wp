@@ -1,0 +1,62 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="修改头像")
+#set($styles=["css/profile.css","css/imgareaselect/imgareaselect-default.css"])
+
+#set($scripts=["js/cities.js","js/web/profile/profile.js","js/web/login.js",
+	"js/imgareaselect/jquery.imgareaselect.pack.js","js/jquery/jquery.uploadify.min.js",
+	"js/jquery.form.js","js/web/profile/headimg.js"])
+	
+<div id="modify-head">
+	#parse("web/profile/inc/profile_header.vm")
+    <style>label{ float:left } .uploadbar_r { float: left; padding-top: 4px; line-height: 24px; } .uploadbar img { float: left; margin-right: 10px; } #ferret{ margin: 0 auto; display: block; vertical-align: middle; } .preview{ overflow:hidden;zoom:1 } #previewImg{ display:block; } #bigPriview{ width:50px; height:50px; overflow:hidden; zoom:1 } #littlePriview{ width:30px; height:30px; overflow:hidden; zoom:1 } .previewBlock{ padding-left: 55px; overflow: hidden; zoom: 1; } .previewBlock h2{ font-weight: normal; line-height: 18px; margin-bottom: 10px; margin-left: 0; } .previewBlock p{ color:gray; clear:both; line-height:18px; font-size:12px } .imgBlock { margin-top:10px } .imgBlock img{ float:none; } .imgBlock .originImg{ float:left; } .previewBlock h2 { padding-left:0 } .originImg{ width: 202px; margin-top: 10px; } .originImg .zone{ margin: 0 auto; height: 180px; width: 180px; display: table-cell; font-size: 144px; vertical-align: middle; } .rotateLeft,.rotateRight{ display:block; height:24px; } .rotateLeft span,.rotateRight span{ float:left; } .rotateLeft .icon,.rotateRight .icon{ width:14px; height:24px; background:url(http://assets.xueqiu.com/images/icons.png) no-repeat -316px 0 } .rotateRight .icon{ background:url(http://assets.xueqiu.com/images/icons.png) no-repeat -336px 0 } /* * imgAreaSelect default style */ .imgareaselect-border1 { background: url(http://assets.xueqiu.com/images/border-v.gif) repeat-y left top; } .imgareaselect-border2 { background: url(http://assets.xueqiu.com/images/border-h.gif) repeat-x left top; } .imgareaselect-border3 { background: url(http://assets.xueqiu.com/images/border-v.gif) repeat-y right top; } .imgareaselect-border4 { background: url(http://assets.xueqiu.com/images/border-h.gif) repeat-x left bottom; } .imgareaselect-border1, .imgareaselect-border2, .imgareaselect-border3, .imgareaselect-border4 { filter: alpha(opacity=50); opacity: 0.5; } .imgareaselect-handle { background-color: #fff; border: solid 1px #000; filter: alpha(opacity=50); opacity: 0.5; } .imgareaselect-outer { background-color: #000; filter: alpha(opacity=20); opacity: 0.2; } p.info{ width:350px; line-height:20px; margin-top:0; margin-bottom:10px; color:#999; font-size:12px }</style>
+	<div class="modify-head-file">	    
+	    <span>上传头像</span>
+		<div style="margin-left: 77px;">
+			<div id="selectFaceImageFileBtn" style=""  _s="$session.id">
+			</div>
+			<span id="head_image_progress" style="padding-top: 4px;margin-left: 22px;font-size: 13px;color: #BBB;float: right;margin-right: 535px;margin-top: -21px;"></span>
+		</div>
+	</div>
+	<div class="imgBlock" id="modify-head-preview">
+        <div class="originImg newImg" style="width: 180px;margin-top: 0px;">
+			<div class="zone">
+				<form id="settingFaceForm" action="save_face" method="post" style="overflow:hidden;clear:both" class="formbox">
+				    <input id="headImageData_headImageURL" type="hidden" value="$user.headImageURL" name="headImageData.headImageURL"/>
+				    <input id="headImageData_x1" type="hidden" value="" name="headImageData.x1"/>
+				    <input id="headImageData_y1" type="hidden" value="" name="headImageData.y1"/>
+				    <input id="headImageData_x2" type="hidden" value="" name="headImageData.x2"/>
+				    <input id="headImageData_y2" type="hidden" value="" name="headImageData.y2"/>
+			    	<img id="headImage" style="width: 180px;height: 180px;" src="
+					    #if($user.headImageURL) 
+					    	$user.headImageURL
+					    #else
+					        images/default_face.jpg
+					    #end">
+			      		<div style="display:none;padding: 15px 15px 0;"></div>
+			    	</img>
+			  </form>
+			</div>
+		</div>
+	</div>
+	<div class="previewBlock newImg" id="modify-head-preview-small">
+	  	<div id="bigPriview">
+	    	<img id="previewImg" src="
+			    #if($user.headImageURL) 
+			    	$user.headImageURL
+			    #else
+			        images/default_image
+			    #end" 
+	    		style="width: 60px; height: 60px; margin-left: -5px; margin-top: -5px;">
+	    	</img>
+	  	</div>
+	  	<label style="margin-top: 15px;">头像预览</label>
+	</div>
+	<p class="modify-head-file-explain">支持JPG、JPEG、PNG格式图片，不超过2M。</p>
+	<p class="modify-head-file-explain">拖拽或缩放图中的虚线方格可调整头像，注意右侧小头像预览效果。</p>
+    <button id="submitFaceButton"  class="modify-head-save">保存</button>
+</div>	
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#xgtx').attr('class','active');	
+	});
+</script>

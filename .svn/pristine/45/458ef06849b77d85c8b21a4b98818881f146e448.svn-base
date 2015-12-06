@@ -1,0 +1,15 @@
+
+
+<div class="user-management">
+  <ul class="user-management-tab">
+  	 <li id="grzl" onclick="window.location.href='/$user.weiboUserId/edit'"><a href="javascript:void(0);">基本资料</a><span>|</span></li>
+  	 <li id="xgtx" onclick="window.location.href='/$user.weiboUserId/photo/edit'"><a href="javascript:void(0);">修改头像</a><span>|</span></li>
+  	 <li id="xgmm" onclick="window.location.href='/$user.weiboUserId/edit-pass'"><a href="javascript:void(0);">修改登录密码</a><span>|</span></li>
+  	 <li id="xgtxmm" onclick="window.location.href='/$user.weiboUserId/edit-txpass'"><a href="javascript:void(0);">修改提现密码</a><span>|</span></li>
+  	 <!-- 邮箱验证-->
+  	 <li id="yxyz" onclick="window.location.href='/$user.weiboUserId/edit-email'"><a href="javascript:void(0);">邮箱管理</a><span>|</span></li>
+  	 <li id="sjgl" onclick="window.location.href='/$user.weiboUserId/edit-phone'"><a href="javascript:void(0);">手机管理</a><span>|</span></li>
+  	 <li id="yhkxx" onclick="window.location.href='/$user.weiboUserId/bank-info'"><a href="javascript:void(0);">银行卡信息</a><span>|</span></li>
+  	 <li id="zhbd" onclick="window.location.href='/to_bind_auth'"><a href="javascript:void(0);">账号绑定</a><span>|</span></li>
+  </ul>
+</div>

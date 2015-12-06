@@ -1,0 +1,236 @@
+#set($p_title="投注记录")
+#set($pos = "bet")
+#set($scripts = ["js/jquery-ui", "js/jquery.blockUI"])
+#set($styles = ["css/ui-lightness/jquery-ui"])
+#set($keywords="足球方案,篮球方案,投注记录")
+#set($description="用户投注记录")
+
+<div class="lyr lyw-g fr">
+  <div class="mod mod-c mod-c-a">
+    <div class="mh">
+      <div class="tt">投注记录</div>
+    </div>
+    <div class="mm">
+      <div class="formbox formbox-a mp-e">
+        <div class="row">
+        <form id="qForm" action="$base/record/bet.do" method="post">
+          <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+          <input type="hidden" name="lotteryId" id="ltIpt" value="$!{lotteryId}"/>
+          <input type="hidden" name="type" id="ltypeIpt" value="$!{type}"/>
+          <input type="hidden" name="showScheme" id="lshowIpt" value="$!{showScheme}"/>
+          <div style="width:85px;" class="selectbox selectbox-b fl">
+            <div class="tt" id="ltText">#if(${lotteryId})#lotteryName(${lotteryId})#else 全部彩种#end</div>
+            <b class="icns" id="lt_popup_link"></b>
+            <div class="selectlst" style="display:none;" id="lt_popup">
+              <div class="option" _lid="">全部彩种</div>
+              <div class="option" _lid="JCZQ">竞彩足球</div>
+              <div class="option" _lid="JCLQ">竞彩篮球</div>
+              <div class="option" _lid="JX11">江西11选5</div>
+              <div class="option" _lid="CTZC">传统足彩</div>
+              <div class="option" _lid="BJDC">北京单场</div>
+              <div class="option" _lid="CQSS">重庆时时彩</div>
+              <div class="option" _lid="SSQ">双色球</div>
+            </div>
+          </div>
+          <div style="width:80px;" class="selectbox selectbox-b fl">
+            <div class="tt" id="ltypeText">#if(${type})#schemeType(${type})#else 全部类型#end</div>
+            <b class="icns" id="lt_type_link"></b>
+            <div class="selectlst" style="display:none;" id="lt_type">
+              <div class="option" _ltypeid="-1">全部类型</div>
+              <div class="option" _ltypeid="0">代购</div>
+              <div class="option" _ltypeid="1">合买</div>
+              <div class="option" _ltypeid="2">跟单</div>
+            </div>
+          </div>
+          <div style="width:80px;" class="selectbox selectbox-b fl">
+            <div class="tt" id="lshowText">#if(${showScheme})#showScheme(${showScheme})#else 晒单类型#end</div>
+            <b class="icns" id="lt_show_link"></b>
+            <div class="selectlst" style="display:none;" id="lt_show">
+              <div class="option" _lshowid="-1">晒单类型</div>
+              <div class="option" _lshowid="0">不晒单</div>
+              <div class="option" _lshowid="1">晒单</div>
+            </div>
+          </div>
+          <label class="lbl">起始日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="from" type="text" value='$date.format("yyyy-MM-dd", ${from})' class="inipttxt" id="fromDP"></div>
+          <label class="lbl">终止日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="to" type="text" value='$date.format("yyyy-MM-dd", ${to})' class="inipttxt" id="toDP"></div>
+          <a href="javascript:void(0);" class="btnx2 btnx2-b fl">
+            <span class="inbtn"><input type="button" value="查询" class="iptbtn" id="qBtn"></span>
+          </a>
+        </form>
+        </div>
+        <span class="clear"></span>
+      </div>
+      <div class="tblbox tblbox-c mp-f">
+        <table cellspacing="0" cellpadding="0" border="0" class="tbl">
+          <tr>
+            <th style="width:110px;" class="thl"><div class="inth"><div class="hide">玩法</div></div></th>
+            <th style="width:40px;"><div class="inth"><div class="hide">类型</div></div></th>
+            <th style="width:80px;"><div class="inth"><div class="hide">发起人</div></div></th>
+            <th style="width:70px;"><div class="inth"><div class="hide">认购金额</div></div></th>
+            <th style="width:40px;"><div class="inth"><div class="hide">进度</div></div></th>
+            <th style="width:70px;"><div class="inth"><div class="hide">状态</div></div></th>
+            <th style="width:70px;"><div class="inth"><div class="hide">我的奖金</div></div></th>
+            <th style="width:70px;"><div class="inth"><div class="hide">认购时间</div></div></th>
+            <th style="width:40px;"><div class="inth"><div class="hide">查看</div></div></th>
+            <th style="width:80px;" class="thr"><div class="inth"><div class="hide">操作</div></div></th>
+          </tr>
+          #foreach($b in $paging.results)
+          <tr>
+            <td class="tdl">#lotteryName($b.lotteryId) $status.getPlayName(${b.playId})
+			</td>
+            <td>$!status.type($!{b.type})</td>
+            <td>$!{weiboUser.nickName}</td>
+            <td>￥${b.betAmount}</td>
+            <td>#if($!status.type($!{b.type})=='合买' && ${b.progress}!=100)${b.progress}%#else$status.sale(${b.saleStatus})#end</td>
+            <td>$status.bet(${b.status})</td>
+            <td>#if($!{b.winAmount}>0)￥${b.winAmount}#else -- #end</td>
+            <td>$date.format("yyyy-MM-dd", ${b.createdTime})</td>
+            <td>
+            #if($!{b.type}==1)
+            	<a href="$base/groupbuy.do?id=$!{b.id}" target="_blank" style="margin-right:0px;">详情</a>
+            #elseif($!{b.showScheme}==1)
+            	<a href="$base/follow.do?id=$!{b.id}" target="_blank" style="margin-right:0px;">详情</a>
+            #elseif($!{b.type}==0 && $!{b.showScheme}==0 && ("JCZQ" == $b.lotteryId || "JCLQ" == $b.lotteryId || "CTZC" == $b.lotteryId || "SSQ"==$b.lotteryId))
+            	<a href="$base/betdetail.do?id=$!{b.id}" target="_blank" style="margin-right:0px;">详情</a>
+           	#end
+            #if($!{b.type}==2 && $!{b.showScheme}==0)
+            	<a href="$base/betdetail.do?id=$!{b.id}" target="_blank" style="margin-right:0px;">详情</a>
+           	#end
+            </td>
+			<td class="tdr">
+				#if(("JCZQ" == $!{b.lotteryId} || "JCLQ" == $!{b.lotteryId} || "BJDC" == $!{b.lotteryId}))
+					#if($!{b.isPublishShow} == 1 || $!{b.showScheme} == 1)
+						已晒
+					#end
+				#else
+					--
+				#end
+				#if($b.record)
+            		#if($b.record.status==0)
+            		<a href="javascript:void(0);" winRecord="$b.record.id" style="color:red;" title="单击领奖">&nbsp;|&nbsp;领奖</a>
+            		#elseif($!{b.record.status}==1)
+            		<span style="color:red;">|已领奖</span>
+            		#else
+            		<span style="color:gray;">|已过期</span>
+            		#end
+            	#end
+			</td>
+          </tr>
+          #end
+          <tr>
+            <td colspan="9" class="tdr" style="text-align:right;">
+              <div class="pager fr">
+                <span>累计投注次数：<b class="c-i">${paging.totalCount}</b> 次&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                #pager($paging, 8, "pager")
+              </div>
+            </td>
+          </tr>
+        </table>
+        #include("/inc/note.inc")
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    $('#lt_show_link').bind('click', function() {
+        $('#lt_show').toggle();
+    });
+	$('#lt_show div[_lshowid]').hover(function(){
+        $(this).addClass('hover');
+    }, function(){
+        $(this).removeClass('hover');
+    }).bind('click', function(){
+        $('#lshowText').text($(this).text());
+        $('#lshowIpt').val($(this).attr('_lshowid'));
+        $('#lt_show').hide();
+    });
+    
+    $('#lt_type_link').bind('click', function() {
+        $('#lt_type').toggle();
+    });
+	$('#lt_type div[_ltypeid]').hover(function(){
+        $(this).addClass('hover');
+    }, function(){
+        $(this).removeClass('hover');
+    }).bind('click', function(){
+        $('#ltypeText').text($(this).text());
+        $('#ltypeIpt').val($(this).attr('_ltypeid'));
+        $('#lt_type').hide();
+    });
+    
+    
+    $('#lt_popup_link').bind('click', function() {
+        $('#lt_popup').toggle();
+    });
+    $('#lt_popup div[_lid]').hover(function(){
+        $(this).addClass('hover');
+    }, function(){
+        $(this).removeClass('hover');
+    }).bind('click', function(){
+        $('#ltText').text($(this).text());
+        $('#ltIpt').val($(this).attr('_lid'));
+        $('#lt_popup').hide();
+    });
+    
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#qBtn').bind('click', query);
+	
+	//领取奖金
+	$("a[winRecord]").click(function(e){
+		e.preventDefault();
+	 	var thisobj = $(this), recordId=thisobj.attr("winRecord");
+	 	if(recordId < 1){
+	 		alert("数据不正确。");
+	 		return;
+	 	}
+	 	$.ajax("/ac/record/awardBonus.do", { 
+	 	    data: { 'recordId' :  recordId}, 
+	 	    success: function(result, e) {
+				if (result != null) {
+					if (result.success) {
+						thisobj.unbind("click");
+						thisobj.text("|正在处理");
+						alert("正在处理，请稍后到账户明细查询赠款！");			
+					} else {
+						alert("使用失败！");
+					}
+				}
+			},
+		dataType: 'json',
+		error: function(xhr, status, exp) {
+			alert("操作失败！"+exp);
+		},
+		complete: function(){
+		}
+		});
+	 });
+});
+</script>

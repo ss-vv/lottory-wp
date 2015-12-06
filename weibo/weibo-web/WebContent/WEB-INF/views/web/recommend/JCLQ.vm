@@ -1,0 +1,35 @@
+#set($layout="web/recommend.vm")
+#set($p_title="热门推荐")
+#set($styles=["css/recommend.css", 
+	"css/list-open.css"])
+
+<div class="recommendation-content-left">
+	<div class="recommendation-contentleft-top">
+ 	 	<p class="classify">
+ 	 		<span><a href="http://www.davcai.com/recommend/category_ALL">全部</a></span>
+	 		<span><a href="http://www.davcai.com/recommend/category_JCZQ">竞足</a></span>
+	 		<span><a href="javascript:void(0);" class="active">竞篮</a></span>
+	 		<span><a href="http://www.davcai.com/recommend/category_BJDC">北单</a></span>
+ 	 		<!--<span class="date-time">2014-11-07</span>-->
+ 	 	</p>
+ 	 	#parse("/web/recommend/sort.vm")
+ 	 	<ul class="status-list" jclq style="margin-left: 30px;margin-top: 21px;width: 640px;"></ul>
+    </div><!----------recommendation-contentleft-top部分结束------------->
+</div><!-----recommendation-content-left结束----->
+
+<script type="text/javascript">
+	jQuery(document).ready(function (){
+		var sort = {
+			time: jQuery('.sortText[time_sort]').attr("time_sort")
+		};
+		ajaxRendRecommendWeibo(1,LT.Settings.URLS.recommend.ajaxJCLQ,
+			"jclq",sort);
+	    jQuery('.sortText').click(function (){
+	    	var timeSort = jQuery('.sortText[time_sort]').attr("time_sort");
+	    	var sort = {
+				time: timeSort == "asc" ? "desc":"asc"
+			};
+	    	window.location.href="http://www.davcai.com/recommend/category_JCLQ?sortTime=" + sort.time;
+	    });
+	});
+</script>

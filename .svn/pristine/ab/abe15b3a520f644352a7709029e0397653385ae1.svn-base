@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <package name="lottery-default" extends="struts-default" abstract="true">
+
+    <result-types>
+      <result-type name="layout" class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult"
+        default="true" />
+      <result-type name="json" class="org.apache.struts2.json.JSONResult">
+        <param name="root">data</param>
+        <param name="contentType">text/html</param>
+        <param name="callbackParameter">jsonp</param>
+      </result-type>
+    </result-types>
+
+
+    <global-results>
+      <result name="input">/message.vm</result>
+      <result name="error">/message.vm</result>
+    </global-results>
+  </package>
+
+  <package name="global" extends="lottery-default" namespace="/">
+    <action name="grant" class="com.unison.lottery.grant.web.action.GrantAction">
+      <result type="stream" />
+    </action>
+  </package>
+
+</struts>

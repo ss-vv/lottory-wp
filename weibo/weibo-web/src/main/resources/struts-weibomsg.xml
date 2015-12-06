@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 微博新消息模块 -->
+	<package name="weibomsg" extends="weibo-web-default" namespace="/">
+		<!-- ajax获取新的微博消息 -->
+		<!-- methodName:posts/recommends/matchs/mews -->
+		<action name="weibo_new_{methodName}"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadNewPostAction" method="{1}">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="load_new_matchs_news"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadNewPostAction" method="loadNewMatchsNews">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="load_new_matchs_posts"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadNewPostAction" method="loadNewMatchsPosts">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="load_new_matchs_realMatch"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadNewPostAction" method="loadNewMatchsReal">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="load_new_matchs_discuss"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadNewPostAction" method="loadNewMatchsDiscuss">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msg>
+<head transcode="999" time="${returnTime}" version= "${config.version}"/>
+<body>
+<error transcode ="999" message="${errorMsg}"/>
+</body>
+</msg>

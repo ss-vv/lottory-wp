@@ -1,0 +1,7 @@
+#set($title="操作结果")
+#set($styles=["css/jqueryui/jquery-ui"])
+#set($u=$user)
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+#sactionmessage
+</div>

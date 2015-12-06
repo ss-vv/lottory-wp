@@ -1,0 +1,118 @@
+@CHARSET "UTF-8";
+
+body {
+    padding-top: 58px;
+}
+
+.search .dropdown-menu strong {
+    height: 12px;
+    line-height: 12px;
+}
+
+.my-nav ul li small {
+    font-size: 12px;
+}
+
+.tipstop,.tipstopic ul li {
+    font-size: 13px;
+    font-size: 12px;
+}
+
+.tipstopic-list {
+    margin-left: 12px;
+}
+
+.tipstopic-list li span a {
+/*  text-decoration: underline; */
+}
+
+.tipstopic-list li span a:HOVER {
+    text-decoration: underline;
+}
+
+.tipstopic {
+    padding-top: 6px;
+    border-top: 1px solid #F1F1F1;
+    margin-bottom: 15px;
+    margin-top: 4px;
+}
+
+.tipstop h2 {
+    font-size: 14px;
+}
+
+.tipstopic ul li {
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.tipstopic ul li span {
+    line-height: 22px;
+}
+
+.tipstopic a {
+    color: #000;
+    width: 225px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    float: right;
+}
+
+.tipstop a.more {
+    float: right;
+    line-height: 1.5;
+}
+
+.new-portfolio table.portfolio tr.odd td.right {
+    text-align: right;
+    cursor: pointer;
+}
+.new-portfolio table.portfolio tr.even td.right {
+    text-align: right;
+    cursor: pointer;
+}
+
+.index-color {
+    color: #E22319;
+}
+
+.index-bg {
+    background-color: #E22319;
+}
+
+.index-color-bold {
+    color: #CE211A;
+}
+
+.index-bg-bold {
+    background-color: #CE211A;
+}
+
+.lotteryButton {
+    background-color:#E22319 !important;
+    border-color: #E22319 !important;
+    color: #FFFFFF !important;
+}
+
+.scheme {
+    background-color:#EEEEEE !important;
+    border-color: #EEEEEE !important;
+    color: #FFFFFF !important;
+}
+
+.eventTitle {
+    color:#93140E !important;
+}
+
+.portfolio-wrapper .odd_data td span,.portfolio-wrapper .even_data td span {
+    color:#000;
+}
+
+.winColor {
+    color:red;
+}
+
+.matchDay {
+    margin-left: 10px;
+}

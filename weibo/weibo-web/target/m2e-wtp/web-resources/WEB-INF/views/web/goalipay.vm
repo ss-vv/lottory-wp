@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  <title>支付宝快捷登录</title>
+</head>
+<body>
+<form id="pForm" action="${alipayBean.url}" method="post">
+  <input type="hidden" name="sign" value="${alipayBean.sign}"/>
+  <input type="hidden" name="target_service" value="${alipayBean.target_service}"/>
+  <input type="hidden" name="_input_charset" value="${alipayBean.input_charset}"/>
+  <input type="hidden" name="sign_type" value="${alipayBean.sign_type}"/>
+  <input type="hidden" name="service" value="${alipayBean.service}"/>
+  <input type="hidden" name="partner" value="${alipayBean.parenter}"/>
+  <input type="hidden" name="return_url" value="${return_url}"/> 
+</form>
+<script language="javascript" type="text/javascript">   
+	document.getElementById('pForm').submit();
+</script>
+</body>
+</html>
+

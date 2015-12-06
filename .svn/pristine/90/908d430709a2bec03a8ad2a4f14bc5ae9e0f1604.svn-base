@@ -1,0 +1,1052 @@
+.davcai-header{
+	width: 100%;
+	height: 66px;
+	line-height: 66px;
+    background:url(../../../images/davcai/header/davcai-header-bg.png) repeat-x ;	
+    margin: 0 auto;
+    position: fixed; 
+    left: 0;
+    top: 0;            /*这段代码里面的 position: fixed;是为了使头部导航固定不变。*/
+    z-index:9999;
+}
+.davcai-header .davcai-header-content{
+	width: 985px;
+	height: 66px;
+	line-height: 66px;
+	margin: 0 auto;
+}
+#davcai-logo{
+	float: left;
+}
+#davcai-logo a{
+	width: 165px;
+	height: 110px;
+	background:url(../../../images/davcai/header/davcai-logo.png);
+    display: inline-block;
+ }
+.davcai-header-content .davcai-address{
+	width: 125px;
+	height: 55px;
+	float: left;
+	background:url(../../../images/davcai/header/dacom.png) 5px 18px no-repeat;
+	padding-top: 15px;
+	color: #FFF113;
+	padding-left: 2px;
+	margin-right: 15px;
+}
+.davcai-header-content .davcai-address a.huoban{
+ 	font-size: 11px;
+	font-family: "微软雅黑";
+	color:#FFF113;
+ }
+.davcai-header-menu li{
+	float: left;
+	height: 66px;
+	line-height: 66px;
+    margin-left: 0px;
+}
+.davcai-header-menu li a{
+	color: #ffffff;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	display: block;
+	width: 50px;
+	height: 64px;
+	text-align: center;
+}
+.davcai-header-menu li a:hover{
+	background-color:#CE2219 ;
+}
+.davcai-header-menu li a.current{
+	background-color:#CE2219 ;
+}
+.davcai-header-content .mail-box{
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin-left: 30px;
+}
+.davcai-header-content .mail-box > a{
+	background: url(http://www.davcai.com/assets/js/bet/images/mail.png) no-repeat left bottom;
+	width: 22px;
+	height: 14px;
+	display: block;
+	margin-top: 26px;
+}
+.mail-box-nullbg{
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin-left: 30px;
+	
+}
+.mail-box i.mail-tip{
+	width: 16px;
+	height: 16px;
+	background:url(../../../images/davcai/header/mail-tip.png) no-repeat;
+	display: block;
+	float: left;
+	margin-top: 15px;
+	margin-left: 13px;
+}
+.mail-box .mail-num{
+	float: left;       /*这个.mail-num使用的是障眼法，只能限制于两位数字，再议*/       
+	width: 16px;
+	height: 16px;
+	font-size: 11px;
+	font-family: arial;
+	display: inline-block;
+	margin-top: -40px;
+	margin-left: 14px;
+}
+.mail-box .mail-num a{
+	color: #000000;
+}
+/*.davcai-user{
+	width: 64px;
+	height: 28px;
+	line-height: 28px;
+	float: left;
+	margin-top: 19px;
+	margin-right: 10px;
+	background:url(../../../images/davcai/header/davcai-user-bg.png) no-repeat 55px 12px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #fff;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+} 
+.davcai-user:hover{
+	cursor: pointer;
+}*/
+.davcai-header-content form{
+	width: 185px;
+ 	height: 26px;
+ 	margin-top: 18px;
+ 	margin-left: 5px;
+ 	float: right;
+}
+.davcai-header-content form #head-search{
+ 	width: 185px;
+ 	height: 15px;
+ 	line-height: 15px;
+ 	padding: 7px 0;
+ 	/*background:url(../images/head-search-bg.png);*/
+ 	border: none;
+ 	text-indent: 10px;
+ 	font-size: 12px;
+ 	color: #A8A8A8;
+ 	font-family: "微软雅黑";
+ 	float: left;
+ 	margin-left:20px;
+ }
+ .davcai-header-content .magnifier a{
+ 	width: 16px;
+ 	height: 20px;
+ 	display: inline-block;
+ 	background:url(../../../images/davcai/header/magnifier.png);
+ 	float: right;
+ 	margin-top: -24px;
+ 	margin-right: -15px;
+ }
+ 
+ 
+ 
+ /*下面开始davcai-content-middle中间的部分*/
+.davcai-content .davcai-content-middle{
+	width: 588px;
+	height: auto;
+	float: left;
+}
+.davcai-content-middle .lottery-nav-tab{
+	margin-top: 20px;
+	margin-left: 18px;
+	height: 28px;
+}
+.davcai-content-middle .lottery-nav-tab li{
+	float: left;
+	width: 76px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #F2F2F2;
+	margin-left: 2px;
+	padding-top: 0px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	border: 1px #D2D2D2 solid;
+	border-bottom: none;
+}
+.davcai-content-middle .lottery-nav-tab li:hover{
+	background: #E22319;
+	border: 1px #E22319 solid;
+	border-bottom: none;
+}
+.davcai-content-middle .lottery-nav-tab li:hover a{
+	color: #ffffff;
+}
+.davcai-content-middle .lottery-nav-tab li.active{
+	background: #E22319;
+	border: 1px #E22319 solid;
+	border-bottom: none;
+}
+.davcai-content-middle .lottery-nav-tab li.active a{
+	color: #ffffff;
+}
+.davcai-content-middle .lottery-nav-tab li a{
+	color: #424242;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+/*lottery-nav-tab彩种分类切换导航结束了*/
+
+.davcai-content-middle .lottery-nav-outer{
+	width: 575px;
+	height: auto;
+	border: 4px #E7E7E7 solid;
+	margin: 0 auto; 
+	clear: both;
+}
+.lottery-nav-outer .width01{
+	width: 120px!important;
+}
+.lottery-nav-outer .width02{
+	width: 58px!important;
+}
+.lottery-nav-outer .width03{
+	width: 90px!important;
+}
+.lottery-nav-outer .width04{
+	width: 66px!important;
+}
+.lottery-nav-outer .width05{
+	width: 80px!important;
+}
+.lottery-nav-outer .width06{
+	width: 80px!important;
+}
+.lottery-nav-outer .width07{
+	width: 60px!important;
+}
+.lottery-nav-outer .lottery-nav-explain{
+	height: 26px;
+	margin-top: 5px;
+	margin-left: 3px;
+}
+.lottery-nav-outer .lottery-nav-explain li{
+	width: 50px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	float: left;
+	color: #000000;
+	font-weight: bold;
+	font-family: "微软雅黑";
+}
+/*下面开始lottery-sun部分*/
+.lottery-nav-outer .davcai-jz{
+	clear: both;
+	width: 568px;
+	height: auto;
+	margin: 10px auto 0;
+}
+.lottery-nav-outer .lottery-sun{
+	clear: both;
+	width: 568px;
+	height: auto;
+	margin: 10px auto 0;
+}
+.lottery-sun .lottery-sun-top{
+	width: 568px;
+	height: 37px;
+	cursor: pointer;
+	background:url(../../../images/davcai/header/lottery-sun-top-bg.png) no-repeat;
+}
+.lottery-sun .lottery-sun-top:hover{
+	background:url(../../../images/davcai/header/lottery-sun-top-bg-active.png) no-repeat;
+}
+.lottery-sun .lottery-sun-top li{
+	width: 568px;
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+	float: left;
+	color: #000000;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.lottery-sun .lottery-sun-top .color01{
+	color: #E22319;
+}
+.lottery-sun .lottery-sun-top .color02{
+	color: #B5B5B5;
+}.lottery-sun .lottery-sun-top .color03{
+	color: #63B5FF;
+}
+/*上面是lottery-sun-top结束*/
+.lottery-sun .lottery-sun-middle{
+	width: 566px;
+	height: auto;
+	padding-top: 15px;
+	border-left: 1px #CCCCCC solid ;
+	border-right: 1px #CCCCCC solid;
+	background:url(../../../images/davcai/header/lottery-sun-bg.png) repeat;
+}
+.lottery-sun-middle .lottery-sun-middle-nav{
+	width: 549px;
+	height: 29px;
+	margin: 0 auto 0;
+	background:url(../../../images/davcai/header/lottery-sun-middle-nav-bg.png) no-repeat;
+}
+.lottery-sun-middle .width11{
+	width: 90px;
+}
+.lottery-sun-middle .width12{
+	width: 154px;
+}
+.lottery-sun-middle .width13{
+	width: 90px;
+}
+.lottery-sun-middle .width14{
+	width: 40px;
+}
+.lottery-sun-middle .width15{
+	width: 70px;
+}
+.lottery-sun-middle .width16{
+	width: 65px;
+}
+.lottery-sun-middle .width17{
+	width: 30px;
+}
+.lottery-sun-middle .color11{
+	color: #E22319;
+}
+.lottery-sun-middle .lottery-sun-middle-nav li{
+	float: left;
+	height: 29px;
+	width: 60px;
+	line-height: 29px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #000000;
+	font-weight: bold;
+}
+.lottery-sun-middle .lottery-sun-middle-details{
+	margin: 0 auto;
+	width: 549px;
+}
+.lottery-sun-middle .lottery-sun-middle-details li{
+	float: left;
+	height: 38px;
+	width: 60px;
+	line-height: 38px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #000000;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+}
+.lottery-sun-middle-details li .color11{
+	color: #1B9BFF;
+}
+.lottery-sun-middle-details li.dan{
+	background:url(../../../images/davcai/header/dan.png) no-repeat 46px 7px;
+}
+
+.lottery-sun-middle .lottery-sun-middle-ggfs{
+	width: 538px;
+	height: 60px;
+	line-height: 85px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #000000;
+	font-weight: bold;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+    text-indent: 18px;
+    margin: 20px auto 0;
+}
+.lottery-sun-middle-ggfs span,.lottery-sun-middle-ggfs label{
+	margin-right: 20px;
+}
+.lottery-sun-middle .lottery-sun-middle-bj,.lottery-sun-middle-jjhb{
+	width: 538px;
+	height: 38px;
+	line-height: 38px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #000000;
+	font-weight: bold;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+    text-indent: 18px;
+    margin: 0 auto;
+}
+.lottery-sun-middle-jjhb{
+	border: none;
+}
+.lottery-sun-middle-bj span{
+	margin-right: 20px;
+}
+.lottery-sun-middle-jjhb span{
+	margin-right: 20px;
+}
+
+
+/*上面是lottery-sun-middle结束*/
+.lottery-sun-bottom{
+	width: 568px;
+	height: 11px;
+	background:url(../../../images/davcai/header/lottery-sun-bottom-bg.png) no-repeat ;
+	margin: 0 auto;
+}
+.lottery-nav-outer  p.ckgd{
+	width: 100px;
+	height: 35px;
+	margin-left: 470px;
+	margin-top: 20px;
+	background:url(../../../images/davcai/header/plus.png) no-repeat 0px 1px;
+	text-indent: 20px;
+	cursor: pointer;
+}
+.lottery-nav-outer  p.ckgd a{
+	color: #8D8D8D;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+
+/*上面结束了lottery-sun足球样式的部分*/
+
+.lottery-nav-outer .davcai-jl,.davcai-zc,.davcai-bd,.davcai-ssq{
+	clear: both;
+	width: 568px;
+	height: auto; 
+	/*height:auto;*/
+	margin: 10px auto 0;
+}
+
+.betup{
+	background:url(../../../images/davcai/header/red-right-triangle.png);
+}
+.betdown{
+	background:url(../../../images/davcai/header/red-bottom-triangle.png);
+}
+/* 头像距离头距离
+.container{
+
+   margin: 46px auto;
+ }*/
+
+/*上面部分结束了davcai-content-middle中间内容部分*/
+
+
+
+
+
+/*下面开始今日推荐部分*/
+.davcai-today-commend{
+	width: 243px;
+	height: auto;
+	margin: 0 auto;
+}
+.right-more,.change{
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+}
+.change a{
+	color: #63B5FF;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.right-more a{
+	color: #93130D;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	float:right;
+	margin-top:-15px;
+}
+.davcai-today-commend .today-commend-content{
+	width: 243px;
+	height: 174px;
+	border: 1px #D2D2D2 solid;
+	background: #F2F2F2;
+	padding: 8px 5px 8px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	margin: 12px auto 0;
+}
+.today-commend-content h6.name{
+	display: inline-block;
+	font-size: 12px;
+}
+.today-commend-content .time-end{
+	float: right;
+	margin-right: 0px;
+	color: #E22319;
+	font-size: 12px;
+}
+.today-commend-content ul.today-commend-content-team{
+	width:228px;
+	height: 32px;
+	margin: 15px auto 30px;
+	margin-left: 2px;
+}
+ul.today-commend-content-team li{
+	height: 32px;
+	text-align: center;
+	float: left;
+	margin-right: 3px;
+	border: 2px #BEBEBE solid;
+	cursor: pointer;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+ul.today-commend-content-team li.current{
+	border: 2px #E22319 solid;
+	background:url(../../../images/davcai/header/today-commend-match-selected.png) right bottom no-repeat ;
+}
+ul.today-commend-content-team li.today-commend-content-team-left,li.today-commend-content-team-right{
+	width: 81px;
+	height: 32px;
+}
+li.today-commend-content-team-right{
+	margin-right: 0;
+}
+ul.today-commend-content-team li .content-team-name{
+	font-weight: bold;
+	margin-top:2px;
+}
+ul.today-commend-content-team li .content-team-name i{
+	font-style: normal;
+	font-weight: 100;
+	color: #E22319;
+	margin-left: 5px;
+}
+ul.today-commend-content-team li .content-team-odds{
+	color: #E22319;
+	margin-top: 1px;
+}
+ul.today-commend-content-team li.today-commend-content-team-middle{
+	width: 45px;
+	height: 32px;
+	vertical-align: middle;
+	line-height: 32px;
+	color: #E22319;
+	font-weight: bold;
+}
+.today-commend-content .commend-content-money,.commend-content-highprize{
+	margin-left: 5px;
+	margin-top: 3px;
+}
+.today-commend-content .commend-content-money i{
+	color: #E22319;
+	font-weight: bold;
+}
+.today-commend-content .commend-content-highprize i{
+	color: #E22319;
+	font-weight: bold;
+}
+.today-commend-content .bet-button{
+    width: 96px;
+    height: 44px;
+    display: inline-block;
+    background:url(../../../images/davcai/header/bet-button.png) no-repeat ;
+    float: right;
+    margin-top: -40px;
+    margin-right: 4px;
+}
+/*上面结束今日推荐部分*/
+
+/*下面开始davcai-content-right部分*/
+.davcai-content .davcai-content-right{
+	width: 252px;
+	height: auto;
+	float: right;
+	margin-bottom: 15px;
+}
+.davcai-content-right .davcai-announcement{
+	width: 243px;
+	height: auto;
+	margin: 0 auto 15px;
+}
+.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	font-weight:bold;
+	display: inline-block;
+	margin-bottom:10px;
+}
+.davcai-today-commend .title{
+		font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	font-weight:bold;
+	display: inline-block;
+    margin-bottom:0px;
+	
+}
+.davcai-content-right .hr0{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+.davcai-announcement p.announcement-list{
+}
+.davcai-announcement p.announcement-list a{
+	display: inline-block;
+	width: 200px;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 3px;
+	color: #000000;
+	font-size: 12px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.davcai-announcement p.announcement-list a:hover{
+	color: #E63F36;
+}
+.davcai-announcement p.announcement-list span{
+	color: #BFBFBF;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	float: right;
+	margin-top: 2px;
+}
+.gonggao{
+	margin-left:30px;
+	width:250px;
+}
+/*右边的公告部分结束了*/
+
+/*下面开始最热讨论部分*/
+.davcai-hot-discuss{
+	width: 243px;
+	height: auto;
+	margin: 20px auto 30px;
+}
+.davcai-hot-discuss .hot-discuss-list{
+	width: 243px;
+	/*height:43px;*/
+	min-height:43px;
+	max-height:120px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin-bottom: 10px;
+}
+.hot-discuss-list .tag-name{
+	width: 44px;
+	height: 21px;
+	line-height: 21px;
+	text-align: center;
+	color: #fff;
+	float: left;
+}
+.hot-discuss-list .color01{
+	background: #81C248;
+}
+.hot-discuss-list .color02{
+	background: #AC6EDF;
+}
+.hot-discuss-list .color03{
+	background: #56B49C;
+}
+.hot-discuss-list .color04{
+	background: #FC861A;
+}
+.hot-discuss-list .color05{
+	background: #585858;
+}
+.hot-discuss-list .discuss-content{
+	line-height:21px;
+	padding-left:10px;
+	color: #63B5FF;
+}
+.davcai-hot-discuss .hot-discuss-operate a{
+	color: #949494;
+	font-size: 12px;
+}
+.davcai-hot-discuss .discuss-operate-bottom{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #000000 dotted;
+	margin-top: 10px; 
+	margin-bottom: 10px;
+}
+/*上面结束最热讨论部分*/
+
+/*下面开始头部投注下拉菜单*/
+.davcai-header-menu li.header-menu-bet{
+	position: relative;
+}
+li.header-menu-bet .bet-triangle{
+	float: right;
+	margin-top: -33px;
+	margin-right: -2px;
+	z-index: 99;
+}
+li.header-menu-bet .header-menu-bet-list{
+	width: 246px;
+	height: auto;
+	overflow: hidden;
+	position: absolute;
+	right: -43px;
+    top: 42px;
+	display:none;
+}
+.header-menu-bet-list .bet-list-top{
+	width: 246px;
+	height: 26px;
+	background:url(../../../images/davcai/header/header-menu-bet-top.png)  no-repeat;
+}
+.header-menu-bet-list .bet-list-middle{
+	width: 246px;
+	height: auto;
+	background:url(../../../images/davcai/header/header-menu-bet-middle.png) repeat;
+	clear: both;
+	overflow: hidden;
+}
+.bet-list-middle .bet-list-middle-son{
+	height: 64px;
+	width: 246px;
+	margin: 0 auto;
+}
+.bet-list-middle-son a{
+	display: inline!important;
+}
+.bet-list-middle-son .list-middle-son-logo{
+	width: 42px;
+	height: 43px;
+	float: left;
+	margin-left: 14px;
+	margin-top: 10px;
+	margin-right: 5px;
+}
+.list-middle-son-name{
+	width: 160px;
+	height: 17px;
+    float: left;
+	line-height: 17px;
+	margin-top: 5px;
+	font-size: 12px;
+}
+.bet-list-middle-son .list-middle-son-details{
+	width: 172px;
+	height: 17px;
+	float: left;
+	line-height: 17px;
+}
+.list-middle-son-details a{
+	color: #8C8C8C!important;
+	font-size: 12px!important;
+}
+.list-middle-son-details a:hover{
+	color: #E22319!important;
+	background-color: #fff!important;
+}
+.list-middle-son-details a.active{
+	color: #E22319!important;
+	background-color: #fff!important;
+}
+.header-menu-bet-list .bet-list-bottom{
+	width: 246px;
+	height: 28px;
+	background:url(../../../images/davcai/header/header-menu-bet-bottom.png)  no-repeat;
+}
+/*上面结束头部投注下拉菜单*/
+
+/*下面开始searching-dropdown-menu搜索下拉菜单部分*/
+.searching-dropdown-menu{
+	width: 185px;
+	min-height: 50px;
+	/*border: 1px #ffffff solid;开始的时候，添加上，好看，但是聚焦的时候，铺不满，显示白色边框，可以添加#ccc属性颜色，但是不好看。所以取消，退一步*/
+	border: 1px #cccccc\9 solid;/*针对IE写的*/
+	background: #fff;
+	float: left;
+	margin-top: 3px;
+	padding-bottom: 10px;
+	box-shadow: 0 0 6px rgba(0,0,0,.6);
+	-webkit-box-shadow:0 0 6px rgba(0,0,0,.6);
+	-moz-box-shadow: 0 0 6px rgba(0,0,0,.6);
+	display: none;
+	margin-left:20px
+}
+
+.searching-dropdown-menu li{
+	width: 185px;
+	height: 28px;
+	line-height: 28px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	padding-left: 5px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+}
+.searching-dropdown-menu li.no-menu{
+	margin-top: 16px;
+}
+.searching-dropdown-menu li:first-child{
+	margin-top: 5px;
+}
+.searching-dropdown-menu li.no-menu h3{
+	color: #020202;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.searching-dropdown-menu li a{
+	color: #999999;
+	max-width: 135px;
+	height: 28px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+i,em{
+	font-family: "微软雅黑";
+	font-style: normal;
+}
+.searching-dropdown-menu li em{
+	color: #2AA1FF;
+}
+.searching-dropdown-menu li label{
+	color: #DBDBDB;
+	float: right;
+	margin-right: 3px;
+}
+.searching-dropdown-menu li.dropdown-menu-user{
+	width: 185px;
+	height: 48px;
+}
+.searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-logo{
+	width: 36px;
+	height: 36px;
+	background:url(../images/dropdown-menu-user.png);
+	display: inline-block;
+	float: left;
+	margin-top: 6px;
+	margin-right: 7px;
+}
+.searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-logo img{
+	width: 36px;
+	height: 36px;
+}
+.searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-name{
+	width: 120px;
+	height: 26px;
+	margin-top: 10px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover{
+	background: #E22319;
+	border-left: 0px #E22319 solid;
+	border-right: 0px #E22319 solid;
+
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover a{
+	color: #ffffff;
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover a em{
+	color: #ffffff;
+}
+/*上面部分是搜索框下拉菜单部分*/
+
+.davcai-user {
+	width: 64px;
+	height: 28px;
+	float: left;
+	margin-top: px;
+	margin-right: 10px;
+	position: relative;
+} 
+.davcai-user .title{
+	width: 64px;
+	height: 28px;
+	line-height: 28px;
+	float: left;
+	margin-top: 19px;
+	margin-right: 10px;
+	background:url(../../../images/davcai/header/davcai-user-bg.png) no-repeat 55px 12px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #fff;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    cursor: pointer;
+} 
+.davcai-user-list{
+	width: 157px;
+	height: 155px;
+	padding-left: 0px;
+	position: absolute;
+	top:44px;
+	right: -28px;
+	background:url(../../../images/davcai/header/davcai-user-list-bg.png) no-repeat;
+	display:none;
+}
+.davcai-user-list .davcai-user-list-first{
+	height: 45px;
+	width: 142px;
+	margin-top: 22px;
+	
+}
+.davcai-user-list li{
+	height: 25px;
+	clear: left;
+	line-height: 25px;
+	width: 141px;
+	padding-left: 5px;
+}
+.davcai-user-list li:hover{
+	background: #E22319;
+}
+.davcai-user-list li:hover a{
+	color: #fff;
+}
+.davcai-user-list li.davcai-user-list-first:hover p{
+	color: #fff;
+}/*为了让省略号聚焦的时候，显示*/
+.davcai-user-list li a{
+	color: #0093FF;
+	display:block;
+}
+.davcai-user-list li .davcai-user-list-logo{
+	width: 36px;
+	height: 36px;
+	float: left;
+	margin: 5px 5px 5px 0px;
+}
+.davcai-user-list li .davcai-user-list-name{
+	height: 20px;
+	line-height: 20px;
+	width: 80px;
+	float: left;
+	margin-top: 2px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.davcai-user-list li .davcai-user-list-money{
+	height: 20px;
+	width: 80px;
+	line-height: 20px;
+	float: left;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+p.davcai-user:hover{
+	cursor: pointer;
+}
+/*下面开始直播下拉菜单*/
+.davcai-header-menu li.header-menu-live{
+	position: relative;
+}
+li.header-menu-live .live-triangle{
+	float: right;
+	margin-top: -33px;
+	margin-right: -2px;
+	z-index: 99;
+}
+.header-menu-live-list{
+	width: 157px;
+	height: 155px;
+	padding-left: 4px;
+	padding-top: 20px;
+	position: absolute;
+	top: 44px;
+	right: -28px;
+	background: url(../../../images/davcai/header/davcai-user-list-bg.png) no-repeat;
+	display:none;
+}
+.header-menu-live-list p{
+	width: 150px;
+	height: 25px!important;
+	line-height: 25px!important;
+	color: #000!important;
+	font-size: 12px!important;
+	text-align: left!important;
+}
+.header-menu-live-list p:hover a{
+	color: #fff!important;
+}
+.header-menu-live-list p a{
+	height: 25px!important;
+	line-height: 25px!important;
+	color: #0093FF!important;
+	font-size: 12px!important;
+	width: 142px!important;
+	text-align: left!important;
+	padding-left: 5px;
+}
+
+/*上面结束直播下拉菜单*/
+.bp_null{
+	
+	width:45px;
+	height:32px;
+	border:none;
+	display:inline-block;
+	float:left
+}
+ /*最热讨论下的图片大小设置*/
+.davcai-hot-discuss img{
+	/*width:50%;
+	height:50%;*/
+	max-width:100px;
+	max-height:100px;
+	min-width:20px;
+	min-height:20px;
+
+}
+a.discuss-content{
+	width: 243px;
+	line-height:21px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin-bottom: 10px;
+}
+.davcai-hot-discuss .right-more a{
+	
+	margin-top:-25px!important;
+}
+#hotdiscuss.title{
+	
+	margin-bottom:0px;
+}
+#lastpublish .title{
+	margin-bottom:10px;
+	
+}
+#lastpublish .right-more a{
+
+	margin-top:-24px!important;
+}

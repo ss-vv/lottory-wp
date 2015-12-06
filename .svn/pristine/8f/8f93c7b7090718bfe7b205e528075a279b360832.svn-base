@@ -1,0 +1,1154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD xHTML 1.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE>welcomepage </TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+  <link href="css/base.css" type="text/css" rel="stylesheet" />
+  <link href="css/welcomepage.css" type="text/css" rel="stylesheet" />
+  <script src="js/jquery-1.7.1.min.js"></script>
+  <script src="js/boot-screen.js"></script>
+  <script src="js/pop-layer.js"></script>
+  <script src="js/dropdown-menu2.js"></script>
+
+
+ </HEAD>
+
+ <BODY>
+  <div id="welcomepage">
+  	
+  	 <div class="welcomepage-head">
+  	 	 <div class="welcomepage-head-content">
+  	 	 	<h1 id="logo">
+  	 	 		<a href="http://weibo.lai310.com/"></a>
+  	 	 	</h1>
+  	 	 	   <form>
+		  	 	 	<input type="text" id="head-search"  value="搜索  彩种/比赛/讨论/用户" 
+		  	 	 	onfocus="this.value=''" onblur="if(this.value==''){this.value='搜索  彩种/比赛/讨论/用户'}"/>
+		  	 	 	<span class="magnifier"><a href="javascript:void(0);"></a></span>
+		
+					 <!--------------下面开始searching-dropdown-menu搜索下拉菜单部分---------------------> 	
+						<ul class="searching-dropdown-menu">
+							<li class="no-menu"><h3>比赛</h3></li>
+							<li data-value="" class="">
+								<a href="javascript:void(0);">竞足 &nbsp;007&nbsp; 利雅<em>希尔</em>VS多哈萨德12345678 </a>
+								<label>08/19</label>
+							</li>
+							<li data-value="" class="">
+								<a href="javascript:void(0);">竞足 &nbsp;007&nbsp; 利雅<em>希尔</em>VS多哈萨德12345678 </a>
+								<label>08/19</label>
+							</li>
+							<li class="no-menu"><h3>讨论</h3></li>
+							<li data-value="" class="">
+								<a href="javascript:void(0);">搜索&nbsp;&nbsp;<em>希尔</em>&nbsp;&nbsp;相关讨论 </a>
+							 </li>
+							 <li class="no-menu"><h3>用户</h3></li>
+							 <li class="dropdown-menu-user">
+								<a href="javascript:void(0);" class="dropdown-menu-user-logo">
+									<img src="images/dropdown-menu-user.png" />
+								</a>
+								<a href="javascript:void(0);" class="dropdown-menu-user-name"><em>希尔</em>&nbsp;七城而去</a>
+							 </li>
+							 <li class="dropdown-menu-user">
+								<a href="javascript:void(0);" class="dropdown-menu-user-logo">
+									<img src="images/dropdown-menu-user.png" />
+								</a>
+								<a href="javascript:void(0);" class="dropdown-menu-user-name"><em>希尔</em>&nbsp;七城而去</a>
+							 </li>
+							  <li data-value="" class="">
+								<a href="javascript:void(0);">搜索&nbsp;&nbsp;<em>希尔</em>&nbsp;&nbsp;相关用户</a>
+							 </li>
+					  </ul><!------searching-dropdown-menu搜索下拉菜单部分结束-------->
+  	 	   	   </form>
+  	 	   	   <!--<label><a href="javascript:void(0);">安卓客户端 </a></label>
+  	 	   	   <label><a href="javascript:void(0);">iPhone客户端 </a></label>-这两个客户端位置注意前后对调---->
+  	 	   	   
+  	 	   	   <ul class="welcome-client">
+  	 	   	   	   <li><a href="javascript:void(0);">iPhone客户端</a></li>
+  	 	   	   	   <li class="mainlevel"><a href="javascript:void(0);">安卓客户端</a>
+  	 	   	   	   	   <ul>
+  	 	   	   	   	   	   <li><a href="javascript:void(0);">安卓客户端01</a></li>
+  	 	   	   	   	   	   <li><a href="javascript:void(0);">安卓客户端02</a></li>
+  	 	   	   	   	   	   <li><a href="javascript:void(0);">安卓客户端03</a></li>
+  	 	   	   	   	   </ul>
+  	 	   	   	   	</li>
+  	 	   	   </ul><!--------welcome-client客户端----------->
+  	 	   	   
+  	 	   	   
+  	 	   	   
+  	 	   	   
+  	 	   	   
+  	 	   	   
+  	 	 </div>
+    </div><!-----------------------welcomepage-head部分-------------------------------->
+  
+  
+  
+  	   <div class="welcome-boot-screen">
+  	   	   <span class="welcome-close-screen"><a href="#"><img src="images/welcome-close-screen.png"/></a></span>
+  	   </div> <!--------这段是开机画面welcome-boot-screen部分---------->
+  	
+  	
+  	
+  	
+  	 <div class="welcomepage-loginform">
+  	 	 <span class="slogan">
+  	 	 	<em class="larger">彩&nbsp;票</em>
+  	 	 	是一种消遣<br/>交流能创造财富
+  	 	 </span>
+									
+			<ul class="loginform">
+				 <li><span class="register"><a href="#"></a></span></li>
+				 <li>
+				 	<input type="text"  value="用户名/邮箱" onfocus="this.value=''" 
+			  	    onblur="if(this.value==''){this.value='用户名/邮箱'}"/>
+			  	    <p>
+			  	    	 <span class="welcome-checkbox-selected"></span>
+ 	  	             	 <label class="remember-me">记住我</label> 
+			  	    </p>
+				 </li>
+				 <li>
+				 	<input type="password"  value="密码" onfocus="this.value=''" 
+			  	    onblur="if(this.value==''){this.value='密码'}"/>
+			  	    <p class="welcome-forget-password"><a href="javascript:void(0);">忘记密码</a></p>
+				 </li>
+				 <li class="last-child"><span class="login"><a href="#"></a></span>
+				 	<p class="cooperative-logging">合作账号登录
+				 		<span class="welcome-zhifubao fist-child"><a href="#"></a></span>
+				 		<span class="welcome-sina-weibo"><a href="#"></a></span>
+				 		<span class="welcome-qq"><a href="#"></a></span>
+				 		<span class="welcome-weixin"><a href="#"></a></span>
+				 	</p>
+				 </li>
+			</ul>														
+							  	 	
+  	 </div><!-----------------------welcomepage-loginform部分-------------------------------->
+  	
+  	
+  	
+  	
+  	
+  	
+  	      <div class="welcomepage-nav">
+  	      	   <div class="welcomepage-nav-box">
+	  	      	     <ul class="welcomepage-nav-tab">
+	  	      	     	<li class="active"><a href="javascript:void(0);" class="active">今日提点 </a></li>
+	  	      	     	<li><a href="javascript:void(0);">晒单跟单</a></li>
+	  	      	     	<li><a href="javascript:void(0);">热门讨论</a></li>
+	  	      	     	<li><a href="javascript:void(0);">最近发表</a></li>
+	  	      	     	<li><a href="javascript:void(0);">中奖喜报</a></li>
+	  	      	     </ul>
+	  	      	     
+	  	      	     <p class="welcomepage-nav-vicetab">
+	  	      	     	 <span class="vicetab-weixin"><a href="#"></a></span>
+	  	      	     	 <span class="vicetab-sinaweibo"><a href="#"></a></span>
+	  	      	     	 <span class="vicetab-rss"><a href="#"></a></span>
+	  	      	     	 <span class="vicetab-lottery"><a href="#">彩票导航</a> <em>|</em><a href="#">充值</a></span>
+	  	      	     </p>
+	  	        </div>
+  	   	   </div><!-------------------welcomepage-nav部分--------------------------->
+  	
+  	
+  	
+  	
+  	
+  	  <div class="welcomepage-content">
+  	  	   
+  	  	   <div class="welcomepage-contentleft">
+  	  	   	
+  	  	   	    <div class="today-some">
+  	  	   	    	
+  	  	   	    	<!----------------------下面开始是today-some-football竞猜足球部分----------------------->
+  	  	   	   	     <div class="today-some-football">
+  	  	   	   	     	 <h4 class="vertical-bar">
+  	  	   	   	     	 	<img src="images/vertical-bar-green.png"/>
+  	  	   	   	     	 </h4>
+  	  	   	   	     	<h3 class="vertical-bar-title">竞彩足球</h3>
+  	  	   	   	     	<p class="event">今日赛事：28场</p>
+  	  	   	   	     	   <div class="today-some-vs">
+  	  	   	   	     		    <h6 class="today-some-vs-name">瑞典超级联赛</h6>
+  	  	   	   	     		    <h6 class="today-some-vs-time">2014年8月3日 &nbsp;&nbsp; 04：00</h6>
+  	  	   	   	     		    <p class="match">
+  	  	   	   	     		    	 <span class="match-left">AIK索尔纳索尔纳索尔纳</span>
+  	  	   	   	     		    	 <em>vs</em> 
+  	  	   	   	     		    	 <span class="match-right">萨尔普茲堡堡堡堡堡堡</span>
+  	  	   	   	     		    </p>
+  	  	   	   	     	   </div>
+  	  	   	   	     	   
+  	  	   	   	     	       <h4 class="today-some-zjtd">专家提点</h4>
+  	  	   	   	     	       <span class="today-some-wf">玩法：胜平负 </span>&nbsp;&nbsp;
+  	  	   	   	     	       <span class="today-some-tjjg">推荐结果：胜、负 </span>
+  	  	   	   	     	       <p class="today-some-introduction">
+  	  	   	   	     	       	两队近况都一般，主队目前出于两连败，客队四场不胜，近期6场交锋也是胜平负各2场。
+  	  	   	   	     	       	但近两场在主队的主场交锋，主队都能轻松战胜对手。亚盘主队让平半球，优势不大，
+  	  	   	   	     	       <i><a href="javascript:void(0);">详情>></a></i>
+  	  	   	   	     	       </p>
+  	  	   	   	     	       <p class="item-data">
+  	  	   	   	     	       	  <span class="item-data-name" title="Hassan"><a href="javascript:void(0);">Hassan</a></span>
+  	  	   	   	     	       	  <span class="item-data-review"> <a href="javascript:void(0);">评论（332）</a></span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-zan"> <a href="javascript:void(0);">赞（29）</a></span>
+  	  	   	   	     	       </p>
+  	  	   	   	     	       <label class="welcome-to-the-right"></label>
+  	  	   	   	     	       
+  	  	   	   	     	          <div class="today-some-bet-column" >
+  	  	   	   	     	       	     <p class="cut-off-time">距投注截止时间  07小时 22分</p>
+  	  	   	   	     	       	     <ul class="today-some-football-team">
+  	  	   	   	     	       	     	 <li class="today-some-football-team-left">
+  	  	   	   	     	       	     	 	<div class="actice"><a odd_data="" href="javascript:void(0);">索尔纳胜</a></div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     	 <li class="today-some-football-team-middle ">
+  	  	   	   	     	       	     	 	<div><a href="javascript:void(0);">平局</a></div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     	 <li class="today-some-football-team-right">
+  	  	   	   	     	       	     	 	<div title="萨尔普茲堡胜"><a href="javascript:void(0);">萨尔普茲堡胜</a></div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     </ul>
+  	  	   	   	     	       	     
+  	  	   	   	     	       	       <div class="today-some-investment">
+  	  	   	   	     	       	             <i>投入</i>
+  	  	   	   	     	       	              <p>
+  	  	   	   	     	       	             	<a href="javascript:void(0);" class="today-some-investment-minus"></a>
+  	  	   	   	     	       	             	<input type="text"/>
+  	  	   	   	     	       	             	<a href="javascript:void(0);" class="today-some-investment-plus"></a>
+  	  	   	   	     	       	             </p><em>元</em> <!------这个em要和P标签紧邻--------->
+  	  	   	   	     	               </div>
+  	  	   	   	     	       	      <p class="today-some-expected-bonus">
+  	  	   	   	     	       	      	   <i>预计奖金：</i>
+  	  	   	   	     	       	      	   <label>34.55元</label>
+  	  	   	   	     	       	           <a href="javascript:void(0);" class="welcome-question">	
+									         <span class="poptip popspan">
+											       <em class="poptip-top"></em>
+											       <em class="poptip-bottom"></em>
+											           <i>
+											           	<em>说明</em><br/>
+											           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选定赛果后，系统会智能匹配一场进行全包2串1配对，只需要您选定的赛果正确，100%中奖！<br/>
+											            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;竞猜90分钟内的赛果(含伤停补时，不含加时赛和点球)
+
+											           </i>
+											 </span>
+										   </a>
+  	  	   	   	     	       	      </p>
+  	  	   	   	     	       	  
+  	  	   	   	     	       	     
+  	  	   	   	     	       	      <button class="welcome-immediately-bet">立即投注</button>
+  	  	   	   	     	          </div><!---------------today-some-bet-column部分-------------->
+  	  	   	   	     	 
+  	  	   	   	     </div><!------today-some-football部结束-------->
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	<!----------------------下面开始是today-some-basketball竞猜篮球部分----------------------->
+  	  	   	   	      
+  	  	   	   	    <div class="today-some-basketball">
+  	  	   	   	     	 <h4 class="vertical-bar">
+  	  	   	   	     	 	<img src="images/vertical-bar-yellow.png"/>
+  	  	   	   	     	 </h4>
+  	  	   	   	     	<h3 class="vertical-bar-title">竞彩篮球</h3>
+  	  	   	   	     	<p class="event">今日赛事：28场</p>
+  	  	   	   	     	   <div class="today-some-vs">
+  	  	   	   	     		    <h6 class="today-some-vs-name">NBA常规赛</h6>
+  	  	   	   	     		    <h6 class="today-some-vs-time">2014年8月3日 &nbsp;&nbsp; 04：00</h6>
+  	  	   	   	     		    <p class="match">
+  	  	   	   	     		    	 <span class="match-left">芝加哥公牛</span>
+  	  	   	   	     		    	 <em>vs</em> 
+  	  	   	   	     		    	 <span class="match-right">洛杉矶湖人</span>
+  	  	   	   	     		    </p>
+  	  	   	   	     	   </div>
+  	  	   	   	     	   
+  	  	   	   	     	       <h4 class="today-some-zjtd">专家提点</h4>
+  	  	   	   	     	       <span class="today-some-wf">玩法：胜平负 </span>&nbsp;&nbsp;
+  	  	   	   	     	       <span class="today-some-tjjg">推荐结果：胜、负 </span>
+  	  	   	   	     	       <p class="today-some-introduction">
+  	  	   	   	     	       	两队近况都一般，主队目前出于两连败，客队四场不胜，近期6场交锋也是胜平负各2场。
+  	  	   	   	     	       	但近两场在主队的主场交锋，主队都能轻松战胜对手。亚盘主队让平半球，优势不大，
+  	  	   	   	     	       <i><a href="javascript:void(0);">详情>></a></i>
+  	  	   	   	     	       </p>
+  	  	   	   	     	       <p class="item-data">
+  	  	   	   	     	       	  <span class="item-data-name" title="Hassan"><a href="javascript:void(0);">Hassan</a></span>
+  	  	   	   	     	       	  <span class="item-data-review"> <a href="javascript:void(0);">评论（332）</a></span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-zan"> <a href="javascript:void(0);">赞（29）</a></span>
+  	  	   	   	     	       </p>
+  	  	   	   	     	       <label class="welcome-to-the-right"></label>
+  	  	   	   	     	       
+  	  	   	   	     	          <div class="today-some-bet-column" >
+  	  	   	   	     	       	     <p class="cut-off-time">距投注截止时间  07小时 22分</p>
+  	  	   	   	     	       	     <ul class="today-some-basketball-team">
+  	  	   	   	     	       	     	 <li class="today-some-basketball-team-left">
+  	  	   	   	     	       	     	 	<div class="actice">
+  	  	   	   	     	       	     	 		<p class="team-name">芝加哥公牛加哥公牛加哥公牛</p>
+  	  	   	   	     	       	     	 		<p class="score">（-10.5）胜</p>
+  	  	   	   	     	       	     	 	</div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     	
+  	  	   	   	     	       	     	 <li class="today-some-basketball-team-right">
+  	  	   	   	     	       	     	 	<div>
+  	  	   	   	     	       	     	 		<p class="team-name">芝加哥公牛加哥公牛加哥公牛</p>
+  	  	   	   	     	       	     	 		<p class="score">（-10.5）胜</p>
+  	  	   	   	     	       	     	 	</div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     </ul>
+  	  	   	   	     	       	     
+  	  	   	   	     	       	       <div class="today-some-investment">
+  	  	   	   	     	       	             <i>投入</i>
+  	  	   	   	     	       	              <p>
+  	  	   	   	     	       	             	<a href="javascript:void(0);" class="today-some-investment-minus"></a>
+  	  	   	   	     	       	             	<input type="text"/>
+  	  	   	   	     	       	             	<a href="javascript:void(0);" class="today-some-investment-plus"></a>
+  	  	   	   	     	       	             </p><em>元</em> <!------这个em要和P标签紧邻--------->
+  	  	   	   	     	               </div>
+  	  	   	   	     	       	      <p class="today-some-expected-bonus"><i>预计奖金：</i><label>34.55元</label>
+  	  	   	   	     	       	      	<a href="javascript:void(0);"  class="welcome-question"></a></p>
+  	  	   	   	     	       	     
+  	  	   	   	     	       	      <button class="welcome-immediately-bet">立即投注</button>
+  	  	   	   	     	          </div><!---------------today-some-bet-column部分-------------->
+  	  	   	   	     	 
+  	  	   	   	     </div><!------today-some-basketball部分结束-------->
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   <!----------------------下面开始是today-some-beijingfield北京单场部分----------------------->
+  	  	   	   	      
+  	  	   	   	    <div class="today-some-beijingfield">
+  	  	   	   	     	 <h4 class="vertical-bar">
+  	  	   	   	     	 	<img src="images/vertical-bar-blue.png"/>
+  	  	   	   	     	 </h4>
+  	  	   	   	     	<h3 class="vertical-bar-title">北京单场</h3>
+  	  	   	   	     	<p class="event">今日赛事：28场</p>
+  	  	   	   	     	   <div class="today-some-vs">
+  	  	   	   	     		    <h6 class="today-some-vs-name">NBA常规赛</h6>
+  	  	   	   	     		    <h6 class="today-some-vs-time">2014年8月3日 &nbsp;&nbsp; 04：00</h6>
+  	  	   	   	     		    <p class="match">
+  	  	   	   	     		    	 <span class="match-left">芝加哥公牛</span>
+  	  	   	   	     		    	 <em>vs</em> 
+  	  	   	   	     		    	 <span class="match-right">洛杉矶湖人</span>
+  	  	   	   	     		    </p>
+  	  	   	   	     	   </div>
+  	  	   	   	     	   
+  	  	   	   	     	       <h4 class="today-some-zjtd">专家提点</h4>
+  	  	   	   	     	       <span class="today-some-wf">玩法：胜平负 </span>&nbsp;&nbsp;
+  	  	   	   	     	       <span class="today-some-tjjg">推荐结果：胜、负 </span>
+  	  	   	   	     	       <p class="today-some-introduction">
+  	  	   	   	     	       	两队近况都一般，主队目前出于两连败，客队四场不胜，近期6场交锋也是胜平负各2场。
+  	  	   	   	     	       	但近两场在主队的主场交锋，主队都能轻松战胜对手。亚盘主队让平半球，优势不大，
+  	  	   	   	     	       <i><a href="javascript:void(0);">详情>></a></i>
+  	  	   	   	     	       </p>
+  	  	   	   	     	       <p class="item-data">
+  	  	   	   	     	       	  <span class="item-data-name" title="Hassan"><a href="javascript:void(0);">Hassan</a></span>
+  	  	   	   	     	       	  <span class="item-data-review"> <a href="javascript:void(0);">评论（332）</a></span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-zan"> <a href="javascript:void(0);">赞（29）</a></span>
+  	  	   	   	     	       </p>
+  	  	   	   	     	       <label class="welcome-to-the-right"></label>
+  	  	   	   	     	       
+  	  	   	   	     	          <div class="today-some-bet-column" >
+  	  	   	   	     	       	     <p class="cut-off-time">距投注截止时间  07小时 22分</p>
+  	  	   	   	     	       	     <ul class="today-some-today-some-beijingfield-team">
+  	  	   	   	     	       	     	 <li class="today-some-today-some-beijingfield-team-son">
+  	  	   	   	     	       	     	 	<div class="actice">
+  	  	   	   	     	       	     	 		<p class="team-name">利兹联</p>
+  	  	   	   	     	       	     	 		<p class="score">（-1）胜</p>
+  	  	   	   	     	       	     	 	</div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     	
+  	  	   	   	     	       	     	 <li class="today-some-today-some-beijingfield-team-son">
+  	  	   	   	     	       	     	 	<div>
+  	  	   	   	     	       	     	 		<p class="team-name">利兹联</p>
+  	  	   	   	     	       	     	 		<p class="score">（-1）平</p>
+  	  	   	   	     	       	     	 	</div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     	 
+  	  	   	   	     	       	     	 <li class="today-some-today-some-beijingfield-team-son">
+  	  	   	   	     	       	     	 	<div>
+  	  	   	   	     	       	     	 		<p class="team-name">米尔沃尔</p>
+  	  	   	   	     	       	     	 		<p class="score">（+1）胜</p>
+  	  	   	   	     	       	     	 	</div>
+  	  	   	   	     	       	     	 	<p>赔率：1.62</p>
+  	  	   	   	     	       	     	 </li>
+  	  	   	   	     	       	     </ul>
+  	  	   	   	     	       	     
+  	  	   	   	     	       	       <div class="today-some-investment">
+  	  	   	   	     	       	             <i>投入</i>
+  	  	   	   	     	       	              <p>
+  	  	   	   	     	       	             	<a href="javascript:void(0);" class="today-some-investment-minus"></a>
+  	  	   	   	     	       	             	<input type="text"/>
+  	  	   	   	     	       	             	<a href="javascript:void(0);" class="today-some-investment-plus"></a>
+  	  	   	   	     	       	             </p><em>元</em> <!------这个em要和P标签紧邻--------->
+  	  	   	   	     	               </div>
+  	  	   	   	     	       	      <p class="today-some-expected-bonus"><i>预计奖金：</i><label>34.55元</label>
+  	  	   	   	     	       	      	<a href="javascript:void(0);"  class="welcome-question"></a></p>
+  	  	   	   	     	       	     
+  	  	   	   	     	       	      <button class="welcome-immediately-bet">立即投注</button>
+  	  	   	   	     	          </div><!---------------today-some-bet-column部分-------------->
+  	  	   	   	     	 
+  	  	   	   	     </div><!------today-some-beijingfield北京单场部分结束-------->
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	  </div><!-------------today-some部分----------------------->
+
+  	  	   	   	
+  	  	   	    	<p class="more-content clear-both">
+  	  	   	    		<a href="javascript:void(0);">更多内容...</a>
+  	  	   	    	</p>
+  	  	   	   	<!--这段是更多内容部分，可以通用--->
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	<!------------下面开始晒单跟单welcome-follow-list部分--------------->
+  	  	   	   	<div class="welcome-follow-list">
+  	  	   	   		  <h4 class="vertical-bar">
+  	  	   	   	     	 	<img src="images/vertical-bar-green-low.png"/>
+  	  	   	   	     </h4>
+  	  	   	   	     	<h3 class="vertical-bar-title">晒单跟单</h3>
+  	  	   	   	     	<p class="event"></p>
+  	  	   	   		
+  	  	   	   		   
+  	  	   	   		
+  	  	   	   		<!-------下面这段是一行晒单跟单里面的一张抽纸部分----->
+  	  	   	   		<div class="welcome-follow-list-content">
+  	  	   	   			<ul class="welcome-follow-list-content-nav">
+  	  	   	   				<li class="list-paper-width01">赛事编号</li>
+  	  	   	   				<li class="list-paper-width02">主队VS客队</li>
+  	  	   	   				<li class="list-paper-width03">玩法</li>
+  	  	   	   				<li class="list-paper-width04">投注内容</li>
+  	  	   	   			</ul>
+				  	   <ul class="welcome-follow-list-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+                        
+                        <ul class="welcome-follow-list-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+				  		<p class="welcome-follow-list-content-more"><a href="javascript:void(0);">更多...</a></p>
+				  		<p class="welcome-follow-list-content-pass"><span>过关方式：</span><label>胜平负</label><label>8串1</label></p>
+				  		<p class="welcome-follow-list-content-multiple"><span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label>2倍</label>
+				  	    <p class="welcome-follow-list-content-money"><span>方案金额：</span><label>￥56</label><i>元</i></p>
+				  	     
+				  	    <p class="welcome-follow-list-content-item-data">
+  	  	   	   	     	       	  <span class="item-data-name" title="Hassan"><a href="javascript:void(0);">Hassan555555555555555</a></span>
+  	  	   	   	     	       	  <button class="welcome-follow-list">跟单(45)</button>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-review"> <a href="javascript:void(0);">评论（332）</a></span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-zan"> <a href="javascript:void(0);">赞（29）</a></span>
+  	  	   	   	     	</p>
+  	  	   	   		</div><!-----------welcome-follow-list-content部分------------->
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		
+  	  	   	   	<!-------下面这段是一行晒单跟单里面的一张抽纸部分----->
+  	  	   	   		<div class="welcome-follow-list-content">
+  	  	   	   			<ul class="welcome-follow-list-content-nav">
+  	  	   	   				<li class="list-paper-width01">赛事编号</li>
+  	  	   	   				<li class="list-paper-width02">主队VS客队</li>
+  	  	   	   				<li class="list-paper-width03">玩法</li>
+  	  	   	   				<li class="list-paper-width04">投注内容</li>
+  	  	   	   			</ul>
+				  	   <ul class="welcome-follow-list-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+                        
+                        <ul class="welcome-follow-list-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+				  		<p class="welcome-follow-list-content-more"><a href="javascript:void(0);">更多...</a></p>
+				  		<p class="welcome-follow-list-content-pass"><span>过关方式：</span><label>胜平负</label><label>8串1</label></p>
+				  		<p class="welcome-follow-list-content-multiple"><span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label>2倍</label>
+				  	    <p class="welcome-follow-list-content-money"><span>方案金额：</span><label>￥56</label><i>元</i></p>
+				  	     
+				  	    <p class="welcome-follow-list-content-item-data">
+  	  	   	   	     	       	  <span class="item-data-name" title="Hassan"><a href="javascript:void(0);">Hassan</a></span>
+  	  	   	   	     	       	  <button class="welcome-follow-list">跟单(45)</button>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-review"> <a href="javascript:void(0);">评论（332）</a></span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-zan"> <a href="javascript:void(0);">赞（29）</a></span>
+  	  	   	   	     	</p>
+  	  	   	   		</div><!-----------welcome-follow-list-content部分------------->
+  	  	   	   		
+  	  	   	   		<p class="more-content clear-both" >
+  	  	   	    		<a href="javascript:void(0);">更多内容...</a>
+  	  	   	    	</p>
+  	  	   	   	<!--这段是更多内容部分，可以通用--->
+  	  	   	   	
+  	  	   	   		
+  	  	   	   	</div><!--------welcome-follow-list晒单跟单部分结束----------->
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	<!----------------------下面开始是welcome-win-xibao中奖喜报部分----------------------->
+  	  	   	   	
+  	  	   	   	<div class="welcome-win-xibao">
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		<h4 class="vertical-bar">
+  	  	   	   	     	 	<img src="images/vertical-bar-blue-low.png"/>
+  	  	   	   	     </h4>
+  	  	   	   	     	<h3 class="vertical-bar-title">中奖喜报</h3>
+  	  	   	   	     	<p class="event"></p>
+  	  	   	   		
+  	  	   	   	<!-------下面这段是一行晒单跟单里面的一张抽纸部分----->
+  	  	   	   		<div class="welcome-win-xibao-content">
+  	  	   	   			<ul class="welcome-win-xibao-content-nav">
+  	  	   	   				<li class="list-paper-width01">赛事编号</li>
+  	  	   	   				<li class="list-paper-width02">主队VS客队</li>
+  	  	   	   				<li class="list-paper-width03">玩法</li>
+  	  	   	   				<li class="list-paper-width04">投注内容</li>
+  	  	   	   			</ul>
+  	  	   	   			<ul class="welcome-win-xibao-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+                        
+                        <ul class="welcome-win-xibao-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+				  		<p class="welcome-win-xibao-content-more"><a href="javascript:void(0);">更多...</a></p>
+				  		<p class="welcome-win-xibao-content-pass"><span>过关方式：</span><label>胜平负</label><label>8串1</label></p>
+				  		<p class="welcome-win-xibao-content-multiple"><span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label>2倍</label>
+				  	    <p class="welcome-win-xibao-content-money"><span>方案金额：</span><label>￥56</label><i>元</i></p>
+				  	    <p class="welcome-win-xibao-content-bonus"><span>奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  	    	金：</span><label>￥2168</label><i>元</i></p>
+				  	    	
+				  	    	
+				  	      <p class="welcome-win-xibao-content-item-data">
+  	  	   	   	     	       	  <span class="item-data-name" title="Hassan"><a href="javascript:void(0);">Hassan</a></span>
+  	  	   	   	     	       	  <span class="welcome-follow-list"> 跟单(45)</span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-review"> <a href="javascript:void(0);">评论（332）</a></span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-zan"> <a href="javascript:void(0);">赞（29）</a></span>
+  	  	   	   	     	</p>
+				  	    <img src="images/win-logo.png" class="win-logo"/>
+				  	    	
+  	  	   	      </div><!----------welcome-win-xibao-content单个抽纸部分结束--------------->
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		
+  	  	   	   	<!-------下面这段是一行晒单跟单里面的一张抽纸部分----->
+  	  	   	   		<div class="welcome-win-xibao-content">
+  	  	   	   			<ul class="welcome-win-xibao-content-nav">
+  	  	   	   				<li class="list-paper-width01">赛事编号</li>
+  	  	   	   				<li class="list-paper-width02">主队VS客队</li>
+  	  	   	   				<li class="list-paper-width03">玩法</li>
+  	  	   	   				<li class="list-paper-width04">投注内容</li>
+  	  	   	   			</ul>
+  	  	   	   			<ul class="welcome-win-xibao-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+                        
+                        <ul class="welcome-win-xibao-content-details">
+				  	      	<li class="list-paper-width01">周五005</li>
+				  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+				  	      	<li class="list-paper-width03">让球胜平负</li>
+				  	      	<li class="list-paper-width04">平</li>
+				  		</ul>
+				  		<p class="welcome-win-xibao-content-more"><a href="javascript:void(0);">更多...</a></p>
+				  		<p class="welcome-win-xibao-content-pass"><span>过关方式：</span><label>胜平负</label><label>8串1</label></p>
+				  		<p class="welcome-win-xibao-content-multiple"><span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label>2倍</label>
+				  	    <p class="welcome-win-xibao-content-money"><span>方案金额：</span><label>￥56</label><i>元</i></p>
+				  	    <p class="welcome-win-xibao-content-bonus"><span>奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  	    	金：</span><label>￥2168</label><i>元</i></p>
+				  	    	
+				  	   <p class="welcome-win-xibao-content-item-data">
+  	  	   	   	     	       	  <span class="item-data-name" title="Hassan"><a href="javascript:void(0);">Hassan</a></span>
+  	  	   	   	     	       	  <span class="welcome-follow-list"> 跟单(45)</span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-review"> <a href="javascript:void(0);">评论（332）</a></span>
+  	  	   	   	     	       	  <em>|</em>
+  	  	   	   	     	       	  <span class="item-data-zan"> <a href="javascript:void(0);">赞（29）</a></span>
+  	  	   	   	     	</p>
+				  	    <img src="images/win-logo.png" class="win-logo"/>
+				  	    	
+  	  	   	      </div><!----------welcome-win-xibao-content单个抽纸部分结束--------------->
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		<p class="more-content clear-both" >
+  	  	   	    		<a href="javascript:void(0);">更多内容...</a>
+  	  	   	    	</p>
+  	  	   	   	<!--这段是更多内容部分，可以通用--->
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		
+  	  	   	   		
+  	  	   	   	</div><!---------welcome-win-xibao部分------------->
+  	  	   	   	
+  	  	   	   	
+  	  	   	   	
+  	  	   	   <div style="width: 100%;height: 100px;clear: both;margin: 0 auto;" ></div>
+  	  	   	   	
+  	  	  
+  	  	   </div><!-------------welcomepage-contentleft部分----------------------->
+  	  	
+  	  	<!--------------------------------------上面的是welcomepage-contentleft左边部分结束了-------------------------------------------------------------------------->
+  	  	
+  	  	
+  	  	
+  	  	<!-------------------------------下面开始welcomepage-contentright部分--------------------------------------------->
+  	  	
+  	  	    <div class="welcomepage-contentright">
+  	  	            <div class="game-result">
+  	  	            	<h4 class="vertical-bar">
+  	  	   	   	     	 	<img src="images/vertical-bar-red.png"/>
+  	  	   	   	       </h4>
+  	  	   	   	     	<h3 class="vertical-bar-title">比赛结果</h3>
+  	  	   	   	     	<p class="event"></p>
+  	  	   	   	     	
+  	  	   	   	     	<div class="game-line">&nbsp;&nbsp;&nbsp;足球</div>
+  	  	   	   	     	
+  	  	   	   	     	<ul class="game-result-event">
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+   	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+   	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+   	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+   	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+   	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     	  	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+  	  	   	   	     	
+  	  	   	   	     	</ul>
+  	  	   	   	     	
+  	  	   	   	     	<!------------上面是足球部分----------------->
+  	  	   	   	     	
+  	  	   	   	     	
+  	  	   	   	     	
+  	  	   	   	     	<div class="game-line">&nbsp;&nbsp;&nbsp;篮球</div>
+  	  	   	   	     	
+  	  	   	   	     	<ul class="game-result-event">
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">cha超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+   	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+   	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[13]</i><a href="javascript:void(0);">菲尔特</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">纽伦堡</a><i>[63]</i></span>
+  	  	   	   	     		</li>
+    	  	   	   	     	<li>
+  	  	   	   	     			<span class="game-result-event-match">瑞典超</span>
+  	  	   	   	     			<span class="game-result-event-team-left"><i>[3]</i><a href="javascript:void(0);">郝根</a></span>
+  	  	   	   	     			<label>0:2</label>
+  	  	   	   	     			<span class="game-result-event-team-right"><a href="javascript:void(0);">埃尔夫斯</a><i>[3]</i></span>
+  	  	   	   	     		</li>
+	  	   	   	     		
+  	  	   	   	     	</ul>
+  	  	   	   	     	
+  	  	   	   	     	<!------------上面是篮球部分----------------->
+  	  	   	   	     	
+  	  	   	   	     	
+  	  	   	   </div><!------------game-result比赛结果-------------->
+  	  	
+  	  	             
+  	  	             
+  	  	             
+  	  	             
+  	  	             
+	  	  	       <!-------------------------下面开始welcome-single-rate过单率排行榜部分---------------------------------------->      
+	  	  	              <div class="welcome-single-rate">
+	  	  	              	  <h4 class="vertical-bar">
+  	  	   	   	     	 	     <img src="images/vertical-bar-red.png"/>
+  	  	   	   	             </h4>
+  	  	   	   	     	    <h3 class="vertical-bar-title"> 过单率排行</h3>
+  	  	   	   	     	    <p class="event">
+  	  	   	   	     	    	<a href="javascript:void(0);"><img src="images/welcome-question-blue.png"></a>
+  	  	   	   	     	    </p>
+  	  	   	   	     	    
+  	  	   	   	     	    <ul class="welcome-single-rate-list">
+  	  	   	   	     	    	<li class="welcome-single-rate-list-son">
+  	  	   	   	     	    		<img src="images/welcome-user-logo.png"  class="welcome-user-logo"/>
+  	  	   	   	     	    		<span class="welcome-user-name">
+  	  	   	   	     	    			<a href="javascript:void(0);">玩转竞彩</a>
+  	  	   	   	     	    		</span>
+  	  	   	   	     	    		<span class="welcome-single-rate-list-details">开奖<i>1</i>单，盈利<em>1</em>单，过单率</span>
+  	  	   	   	     	    		<label class="percentage color-red">100%</label>
+  	  	   	   	     	    	</li>
+  	  	   	   	     	    	<li class="welcome-single-rate-list-son">
+  	  	   	   	     	    		<img src="images/welcome-user-logo.png"  class="welcome-user-logo"/>
+  	  	   	   	     	    		<span class="welcome-user-name">
+  	  	   	   	     	    			<a href="javascript:void(0);">玩转竞彩</a>
+  	  	   	   	     	    		</span>
+  	  	   	   	     	    		<span class="welcome-single-rate-list-details">开奖<i>1</i>单，盈利<em>1</em>单，过单率</span>
+  	  	   	   	     	    		<label class="percentage color-yellow">50%</label>
+  	  	   	   	     	    	</li>
+  	  	   	   	     	    	<li class="welcome-single-rate-list-son">
+  	  	   	   	     	    		<img src="images/welcome-user-logo.png"  class="welcome-user-logo"/>
+  	  	   	   	     	    		<span class="welcome-user-name">
+  	  	   	   	     	    			<a href="javascript:void(0);">玩转竞彩</a>
+  	  	   	   	     	    		</span>
+  	  	   	   	     	    		<span class="welcome-single-rate-list-details">开奖<i>1</i>单，盈利<em>1</em>单，过单率</span>
+  	  	   	   	     	    		<label class="percentage color-green">42%</label>
+  	  	   	   	     	    	</li>
+  	  	   	   	     	    	<li class="welcome-single-rate-list-son">
+  	  	   	   	     	    		<img src="images/welcome-user-logo.png"  class="welcome-user-logo"/>
+  	  	   	   	     	    		<span class="welcome-user-name">
+  	  	   	   	     	    			<a href="javascript:void(0);">玩转竞彩</a>
+  	  	   	   	     	    		</span>
+  	  	   	   	     	    		<span class="welcome-single-rate-list-details">开奖<i>1</i>单，盈利<em>1</em>单，过单率</span>
+  	  	   	   	     	    		<label class="percentage color-green">42%</label>
+  	  	   	   	     	    	</li>
+  	  	   	   	     	    	
+  	  	   	   	     	    </ul>
+	  	  	              	
+	  	  	              </div><!-----------welcome-single-rate-list部分结束--------->
+  	  	
+  	  	
+  	  	   
+  	  	   
+  	  	   
+  	  	   
+  	  	   
+  	  	               <!-------------------------下面开始welcome-win-bonus中奖奖金部分---------------------------------------->      
+	  	  	              <div class="welcome-win-bonus">
+	  	  	              	  <h4 class="vertical-bar">
+  	  	   	   	     	 	     <img src="images/vertical-bar-red.png"/>
+  	  	   	   	             </h4>
+  	  	   	   	     	    <h3 class="vertical-bar-title"> 中奖奖金排行</h3>
+  	  	   	   	     	    <p class="event">
+  	  	   	   	     	    	<a href="javascript:void(0);"><img src="images/welcome-question-blue.png" style="margin-left:40px;"></a>
+  	  	   	   	     	    </p>
+  	  	   	   	     	    
+  	  	   	   	     	    <ul class="welcome-win-bonus-list">
+  	  	   	   	     	    	<li class="welcome-win-bonus-list-son">
+  	  	   	   	     	    		<img src="images/welcome-user-logo.png"  class="welcome-user-logo"/>
+  	  	   	   	     	    		<span class="welcome-user-name">
+  	  	   	   	     	    			<a href="javascript:void(0);">玩转竞彩</a>
+  	  	   	   	     	    		</span>
+  	  	   	   	     	    		<span class="welcome-win-bonus-list-details">开奖<i>1</i>单，盈利<em>1</em>单，过单率</span>
+  	  	   	   	     	    		<label class="money color-red">1.04万元</label>
+  	  	   	   	     	    	</li>
+  	  	   	   	     	    	<li class="welcome-win-bonus-list-son">
+  	  	   	   	     	    		<img src="images/welcome-user-logo.png"  class="welcome-user-logo"/>
+  	  	   	   	     	    		<span class="welcome-user-name">
+  	  	   	   	     	    			<a href="javascript:void(0);">玩转竞彩</a>
+  	  	   	   	     	    		</span>
+  	  	   	   	     	    		<span class="welcome-win-bonus-list-details">开奖<i>1</i>单，盈利<em>1</em>单，过单率</span>
+  	  	   	   	     	    		<label class="money color-red">3663元</label>
+  	  	   	   	     	    	</li>
+  	  	   	   	     	    	<li class="welcome-win-bonus-list-son">
+  	  	   	   	     	    		<img src="images/welcome-user-logo.png"  class="welcome-user-logo"/>
+  	  	   	   	     	    		<span class="welcome-user-name">
+  	  	   	   	     	    			<a href="javascript:void(0);">玩转竞彩</a>
+  	  	   	   	     	    		</span>
+  	  	   	   	     	    		<span class="welcome-win-bonus-list-details">开奖<i>1</i>单，盈利<em>1</em>单，过单率</span>
+  	  	   	   	     	    		<label class="money color-red">5847元</label>
+  	  	   	   	     	    	</li>
+  	  	   	   	     	    </ul>
+	  	  	              	
+	  	  	              </div><!-----------welcome-win-bonus中奖奖金部分结束--------->
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	    </div><!-----------------welcomepage-contentright右边部分--------------->
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  	
+  	  </div><!-----------------------welcomepage-content部分-------------------------------->
+  	
+  	
+  	
+  	
+  	   <p class="welcome-bottom-line"></p>
+  	
+
+
+  	
+  	
+  	
+  	
+  	
+  </div><!-----------------------welcomepage部分-------------------------------->
+  
+   <!-------下面是为了弹出层新添加的------2014/09/03---lwc--->
+       <div id="all"></div>
+ 	   <div id="pop-layer">我这里是弹出层</div>
+  
+  
+  
+  
+   <!-------------下面开始upper-lower部分------------------------>
+  <div class="upper-lower">
+  	  <div class="upper-lower-topbg"></div>
+  	  <div class="upper-lower-middlebg">
+  	   	  <ul class="upper-lower-list-content-nav">
+   				<li class="list-paper-width01">赛事编号</li>
+   				<li class="list-paper-width02">主队VS客队</li>
+   				<li class="list-paper-width03">玩法</li>
+   				<li class="list-paper-width04">投注内容</li>
+   		  </ul>
+   		   <ul class="upper-lower-list-content-details">
+	  	      	<li class="list-paper-width01">周五005</li>
+	  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+	  	      	<li class="list-paper-width03">让球胜平负</li>
+	  	      	<li class="list-paper-width04">平</li>
+	  	   </ul>
+	  	  <ul class="upper-lower-list-content-details">
+	  	      	<li class="list-paper-width01">周五005</li>
+	  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+	  	      	<li class="list-paper-width03">让球胜平负</li>
+	  	      	<li class="list-paper-width04">平</li>
+	  	   </ul>
+	  	   <ul class="upper-lower-list-content-details">
+	  	      	<li class="list-paper-width01">周五005</li>
+	  	      	<li class="list-paper-width02">南锡 (-1)   VS   阿尔勒</li>
+	  	      	<li class="list-paper-width03">让球胜平负</li>
+	  	      	<li class="list-paper-width04">平</li>
+	  	   </ul>
+  	  </div><!---------upper-lower-middlebg部分结束----------->
+  	  <div class="upper-lower-bottombg"></div>
+
+  </div><!----------upper-lower部分结束------------>
+  
+  
+  
+  
+  
+  
+  
+  
+    <!------------下面开始弹出注册登录框-------------------------------->
+
+    <div id="pop-outer">
+	  	<div id="pop">
+	  		<p class="pop-title">
+	  			<span>登录</span>
+	  			<label><a href="javascript:void(0);" class="icon-close"></a></label>
+	  		</p>
+	  		<!----------下面开始左边登录部分----------------------->
+	  		<div class="poplogin-left">
+	  			<ul class="">
+	  				<li class="poplogin-name">登录大V彩</li>
+	  				<li>
+					 	<input type="text"  value="用户名/邮箱" onfocus="this.value=''" 
+				  	    onblur="if(this.value==''){this.value='用户名/邮箱'}"/>
+			  	   </li>
+			  	   <li>
+					 	<input type="password"  value="密码" onfocus="this.value=''" 
+				  	    onblur="if(this.value==''){this.value='密码'}"/>
+				  	    <a href="javascript:void(0);" class="lostpw">忘记密码？</a>
+			  	   </li>
+			  	   <li class="last-child">
+			  	   	   <span class="poplogin"><a href="#"></a></span>
+			  	   	  <p>
+			  	   	   <span class="pop-checkbox-selected"></span>
+			  	   	   <label class="auto-login">1个月内自动登录</label> 
+			  	   	  </p>
+			  	   </li>
+	  			</ul>
+	  			<p class="pop-cooperative-logging">或使用合作账号登录
+				 		<span class="pop-zhifubao fist-child"><a href="#">123</a></span>
+				 		<span class="pop-sina-weibo"><a href="#"></a></span>
+				 		<span class="pop-qq"><a href="#"></a></span>
+				 		<span class="pop-weixin"><a href="#"></a></span>
+				</p>
+	  		</div><!-----poplogin-left左边部分-------->
+	  		
+	  		<!----------下面开始右边登录部分----------------------->
+	  		<div class="poplogin-right">
+	  			 <p class="no-account">没有帐号？</p>
+	  			 <p class="login">加入大V彩，讨论共同关注的<br/>彩票和话题</p>
+	  			 <p class="pop-register"><a href="#"></a></p>
+	  		</div><!-----poplogin-right右边部分-------->
+	  		
+	  	</div><!------pop部分---------->
+	  	
+  	
+  </div><!------pop-outer部分---------->
+  
+  
+  <!---------------注册登录框结束--------------------------->
+         <div id="all-login"></div>
+
+  
+  
+  
+ </BODY>
+</HTML>

@@ -1,0 +1,19 @@
+	<div class="mod mod-c">
+		<div class="mh tac">$!{user_score}</div>
+		<div class="mm">
+			<div class="tblbox tblbox-topn">
+				<table cellspacing="0" cellpadding="0" border="0" class="tbl tac">
+				<tr>
+					<th><div class="inth"><div class="hide">用户名</div></div></th>
+					<th style="width:80px;"><div class="inth"><div class="hide">战绩</div></div></th>
+				</tr>
+				#foreach($s in $scoreTopList) 
+					<tr>
+						<td class="tdl"><div class="tdc"><a href="$base/follow/oss.do?uid=$!{s.userId}">${s.username}</a></div></td>
+			            <td style="text-align:center;"><a href="$base/follow/ws.do?uid=$!{s.userId}">#showUserScorePic($!{s.showPic})</a></td>
+			          </tr>
+			  	#end
+			  	</table>
+			</div>
+		</div>
+	</div>

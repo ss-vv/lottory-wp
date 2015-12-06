@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <!-- 跟单合买 -->
+  <package name="groupfollow" extends="global" namespace="/gf">
+  
+    <!-- 列出推荐用户 -->
+    <action name="list_rec_user" class="com.xhcms.lottery.admin.web.action.groupfollow.RecUserListAction">
+      <result>list_rec_user.vm</result>
+    </action>
+    
+    <!-- 搜索用户 -->
+    <action name="search_rec_user" class="com.xhcms.lottery.admin.web.action.groupfollow.RecUserSearchAction">
+      <result>search_rec_user.vm</result>
+    </action>
+    
+    <!-- 添加推荐用户 -->
+    <action name="setup_rec_user" class="com.xhcms.lottery.admin.web.action.groupfollow.RecUserSetupAction">
+      <result>setup_rec_user.vm</result>
+    </action>
+    
+    <!-- 保存推荐用户 -->
+    <action name="save_rec_user" class="com.xhcms.lottery.admin.web.action.groupfollow.RecUserSaveAction">
+      <result>operation_result.vm</result>
+    </action>
+    
+    <!-- 取消推荐用户 -->
+    <action name="cancel_rec_user" class="com.xhcms.lottery.admin.web.action.groupfollow.CancelRecUserAction">
+      <result type="redirectAction">
+        <param name="actionName">list_rec_user</param>
+        <param name="tab">${tab}</param>
+      </result>
+    </action>
+    
+    <!-- 推荐方案列表 -->
+    <action name="list_rec" class="com.xhcms.lottery.admin.web.action.groupfollow.RecSchemeListAction">
+      <result>list_rec_scheme.vm</result> <!-- 推荐模板 -->
+      <result name="showing">list_showing_scheme.vm</result> <!-- 晒单模板 -->
+    </action>
+    
+    <action name="rec_scheme" class="com.xhcms.lottery.admin.web.action.groupfollow.RecommendSchemeAction">
+      <result>operation_result.vm</result>
+    </action>
+    
+    <action name="cancel_rec_scheme" class="com.xhcms.lottery.admin.web.action.groupfollow.CancelRecommendSchemeAction">
+      <result>operation_result.vm</result>
+    </action>
+    
+    <action name="lsfollower" class="com.xhcms.lottery.admin.web.action.groupfollow.ListFollowingSchemeAction">
+      <result>list_following_scheme.vm</result>
+    </action>
+    
+    <action name="list_gb" class="com.xhcms.lottery.admin.web.action.groupfollow.GroupbuySchemeListAction">
+    	<result name="success">/gf/list_rec_gb_scheme.vm</result>
+    	<result name="groupbuy">/gf/list_gb_scheme.vm</result>
+    </action>
+  </package>
+
+</struts>

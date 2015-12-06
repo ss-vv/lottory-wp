@@ -1,0 +1,35 @@
+<div >
+	                  <table  cellpadding="0" cellspacing="0" border="0">
+						 <tr>
+		                    <th  style="width:242px;">投注列表</th>
+		                    <th style="width:242px;">开奖号</th>
+		                    <th class="thr">开奖信息</th>
+		                  </tr>
+			              <tr >
+			                <td >
+				                <div >
+				                #foreach($c in ${scheme.digitalBetContents})
+				                	#set($code=${c.code.split("\|")})
+				                	<b class="c-i">红</b>：$code[0].replaceAll("\,"," ") + <b class="c-c">蓝</b>：$code[1].replaceAll("\,"," ")<br/>
+				                #end
+				                </div>
+			                </td>
+			                <td ><div >
+			                	#if(${issueInfo.bonusCode} && ${issueInfo.bonusCode}!="") 
+			                		#set($bonusCode=${issueInfo.bonusCode.split("\|")})
+			                		<b class="c-i">$bonusCode[0].replaceAll("\,"," ")</b> <b class="c-c">$bonusCode[1].replaceAll("\,"," ")</b>
+			                	#else<b class="c-i">-- --</b>
+			                	#end
+			                </div></td>
+			                <td ><div >
+			                #if(${issueInfo.bonusInfo} && ${issueInfo.bonusInfo}!="")
+				                #set($bonus=${issueInfo.bonusInfo.split(";")})
+				                #foreach($b in ${bonus})
+				                	#set($prize=$b.split(" "))
+				                                                     开奖信息：$prize[0] 中奖注数：$prize[1] 每注金额：$prize[2]<br/>
+				                #end
+				            #end
+			            	</div></td>
+			              </tr>
+	                  </table>
+	                </div>

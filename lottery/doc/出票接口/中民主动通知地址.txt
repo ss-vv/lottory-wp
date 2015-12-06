@@ -1,0 +1,6 @@
+				中民主动通知地址
+1.2013-03-06上线“交易结果”主动通知接口：
+	目标服务器 58.83.235.134
+	应用位置：/app/rcv
+	日志文件位置：/data/logs/receiver.log和/data/logs/receiver-trade.log
+	提供给中民那边的主动推送地址：http://msg.davcai.com/rcv/order_result.do

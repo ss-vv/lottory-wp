@@ -1,0 +1,67 @@
+<style type="text/css">
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ }
+ #img-content {
+	width: 100%;
+	height: 850px;
+	margin: 5px auto 60px;
+	background: #9DDFD7;
+	position: relative;
+	overflow: hidden;
+}
+#img-content .cloud {
+	z-index: 0;
+	width: 1464px;
+	height: 1464px;
+	display: inline-block;
+	background: url(http://www.davcai.com/images/20150430/sun-plan.png) no-repeat center top;
+	position: absolute;
+	top: -73%;
+	left: 46%;
+	margin-left: -732px;
+}
+.img-content-center {
+	width: 1110px;
+	height: 100%;
+	margin: 0 auto;
+	vertical-align: middle;
+	position: relative;
+}
+.phone-flower{
+	float: left;
+	margin-top: 75px;
+}
+.scan-code{
+	position: absolute;
+	right: 20px;
+}
+.download-anriod {
+  width: 274px;
+  height: 82px;
+  display: inline-block;
+  background: url(http://www.davcai.com/images/20150430/download-andriod.png) no-repeat;
+  margin-top: -430px;
+  margin-left: 112px;
+  float: left;
+}
+.download-ios {
+  width: 274px;
+  height: 82px;
+  display: inline-block;
+  background: url(http://www.davcai.com/images/20150430/download-ios.png) no-repeat;
+  margin-top: -340px;
+  margin-left: 112px;
+  float: left;
+}
+</style>
+<div id="img-content">
+  	<span class="cloud"></span>
+  	<div class="img-content-center">
+  		<img src="http://www.davcai.com/images/20150430/phone-flower-bg-20150511.png" class="phone-flower">
+  		<img src="http://www.davcai.com/images/20150430/scan-code.png" class="scan-code">
+  		<a href="http://download.davcai.com/app/davcai.apk" class="download-anriod"></a>
+		<a href="itms-services://?action=download-manifest&amp;url=https://git.oschina.net/davcai/davcai/raw/master/davcai.plist" class="download-ios"></a>
+  	</div>
+  </div>

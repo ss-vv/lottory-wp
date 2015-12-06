@@ -1,0 +1,132 @@
+#set($styles = ["css/admin/common.css", "css/admin/table-patch.css",
+	"css/admin/jquery-ui-patch.css", "css/admin/TextboxList.css",
+	"css/admin/jquery-ui/jquery-ui-1.10.3.custom.min.css"])
+#set($scripts = ["js/admin/topic.js", "js/admin/TextboxList.js", 
+	"js/admin/GrowingInput.js", "js/admin/jquery-ui-1.10.3.custom.min.js",
+	"js/admin/commons.js", "js/admin/jquery.form.js","js/match/recommend.js"])
+	
+
+
+
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		#parse("layout/leftMenu.vm")
+		<!-- content starts -->
+		<div id="content" class="span10">
+			<div>
+				<ul class="breadcrumb">
+					<li><a href="#">首页</a> <span class="divider">/</span></li>
+					<li><a href="javascript:void(0)">
+					待推荐赛事/#if($matchType=="fb")&nbsp;竞彩足球 #elseif($matchType=="bb")&nbsp;竞彩篮球 #elseif($matchType=="bjdc")&nbsp;北京单场#end</a></li>
+				</ul>
+			</div>
+			<div class="user-opt-list">
+                <ul>
+                    <li><a href="javascript:void(0);" id="putOn">上架</a></li>
+                    <li><a href="javascript:void(0);" id="getOff">下架</a></li>
+				</ul>
+			</div>
+			<!--表格内容开始-->
+			<div class="row-fluid sortable ui-sortable">
+				<div class="box span12">
+					<div class="box-header well" data-original-title="">
+						<div class="box-icon">
+							<a href="#" class="btn btn-minimize btn-round">
+								<i class="icon-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div id="topic_table">
+						<form id="recommendForm" ftype="$matchType">
+							<table class="table table-striped table-bordered bootstrap-datatable">
+								<thead>
+									<tr>
+										<th style="width: 35px;">彩种</th>
+										<th style="width: 32px;">玩法</th>
+										<th style="width: 30px;">联赛名称</th>
+										<th style="width: 50px;">主队（让球数）</th>
+										<th style="width: 50px;">客队</th>
+										<th style="width: 50px;">比赛时间</th>
+										<th style="width: 40px;">截止投注时间</th>
+										<th style="width: 25px;">推荐选项</th>
+										<th style="width: 120px">推荐</th>
+										<th style="width: 20px">推荐人</th>
+										<th style="width: 50px">推荐时间</th>
+										<th style="width: 20px">状态</th>
+									</tr>
+								</thead>
+								<tbody>
+								  
+									#foreach($match in ${recommend.results})
+									
+									<tr class="odd">
+										<td>
+										 
+										    <input type="checkbox" name="reId" value="${match.reId}" rstatus="${match.reStatus}" ftype="$matchType"/>
+
+											#if($matchType=="fb")
+											         竞彩足球 
+											#elseif($matchType=="bb")
+											           竞彩篮球 
+											#elseif($matchType=="bjdc")
+											           北京单场
+											#end
+										
+										</td>
+										<td>#playtype($!{match.playId})</td>
+										<td>$!{match.leagueName}</td>
+										<td>$!{match.homeTeamName}（${match.concedePoints}）</td>
+										<td>$!{match.guestTeamName}</td>
+										<td>#if($match.playingTime)$date.format("yyyy-MM-dd HH:mm:ss", $match.playingTime) 
+											#else #end
+										</td>
+										<td>
+										   #if($match.reDeadlineTime)$date.format("yyyy-MM-dd HH:mm:ss", $match.reDeadlineTime) 
+											#else #end
+										</td>
+										<td>
+										#if($matchType=="bb")
+										   #bbPlayType($!{match.code}) 
+										#else
+										   #subPlayType($!{match.code},$matchType)
+										#end
+										 
+										</td>
+										<td>
+										   $!{match.annotation}
+										</td>
+										<td>
+										  $!{match.sponsor}
+										</td>
+										<td>
+										#if($match.reUpdateTime)$date.format("yyyy-MM-dd HH:mm:ss", $match.reUpdateTime) 
+											#else #end
+										</td>
+										<td>
+										  #if($match.reStatus==0)
+										         <span style="color:red">已上架</span>
+										  #elseif($match.reStatus==-1)
+										          已下架
+										  #end
+										</td>
+									</tr>
+									#end
+								</tbody>
+							</table>
+							</form>
+							<div class="pager-wrapper">
+						          #pagerHtml($recommend.pageNo $recommend.getPageCount())
+					        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--表格内容结束-->
+		</div>
+		<!-- content ends -->
+	</div>
+	<hr>
+	#include("layout/copyright.vm")
+</div>

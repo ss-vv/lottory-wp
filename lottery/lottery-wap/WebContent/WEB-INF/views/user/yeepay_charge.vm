@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+	<title>
+		大V彩-wap支付宝
+	</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" />
+<meta name="MobileOptimized" content="240" />
+<link type="text/css" href="$base/css/buy.css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="$base/js/jquery.js"></script> 
+</head>
+<body>
+<form method="post" action="$base/user/yeepayAffirm.do" id="form1">
+	<input name="amount" type="hidden" value="$!{amount}">
+	<input name="cardfee" type="hidden" value="$!{cardfee}">
+	<input name="pd_FrpId" type="hidden" value="$!{pd_FrpId}">
+	<div class="mainDiv">
+		<div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+			> <a href='/user/charge.do'>充值</a> > 支付宝充值
+		</div>
+		<div style="background-color:#EAEAEA; line-height:21px; padding-left:5px; border-bottom:dotted 1px #8d8d8d;">
+			您好，<a href="/user/myAccount.do">$account.username</a>
+	    <div><label>可用金额 <span style='color:red;font-weight:bolder;'>${account.free}</span>元</label></div>
+		</div>
+		
+		<div class="txtTitle" style="border-top:0px; color:Red;">
+			<span id="lbCardType">
+				#if($!{pd_FrpId}=="SZX")移动充值卡#elseif($!{pd_FrpId}=="UNICOM")联通充值卡#elseif($!{pd_FrpId}=="TELECOM")电信充值卡#end $!{amount}元
+			</span>
+		</div>
+        <div class="msgTitle"><span id="lbDesc"><span style='color:#8d8d8d'>(到账<span style='color:#f00'><b>$!{cardAmount}</b></span>元，手续费<span style='color:#f00'><b>$!{cardfee}</b></span>元）</span></span></div>
+        <div class="msgTitle">输入<span id="lbCNum">17</span>位充值卡序列号：
+        &nbsp;<input name="pa8_cardNo" type="text" id="pa8_cardNo" /></div>
+        <div id="dvMsg1" style="color:Red"></div>
+        <div class="msgTitle">输入<span id="lbCPwd">18</span>位充值卡密码：
+        &nbsp;<input name="pa9_cardPwd" type="text" id="pa9_cardPwd" /></div>
+        <div id="dvMsg2" style="color:Red"></div>
+       	<div class="msgTitle"><input type="button" name="btnSubmit" value="确 认" id="yeepay" /></div>
+       	<div class="msgTitle"><span id="lbDesc2"><span style='color:#00f'>温馨提示：请确保充值卡的面额是<span style='color:#f00'><b>$!{amount}</b></span>元</span></span>
+        </div>
+    	<div class="msgTitle"><a href="$base/user/charge.do">选择其它充值方式>></a></div>
+    </div>
+    
+	<div class="topNavigationBar" style="color: #FFF;"> 
+		<a href="$base/index.do">首页</a>
+	 	> <a href="$base/user/charge.do">充值</a> > 支付宝充值
+	</div>
+</form>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+    var J = jQuery;
+    $('#yeepay').bind('click', function(){
+        var cardNo = J.trim($('#pa8_cardNo').val());
+        if(cardNo == ''){
+            alert('请输入17位充值卡序列号！');
+            $('#pa8_cardNo').focus();
+            return false;
+        }else if(cardNo.length!=17){
+            alert('您输入的充值卡序列号长度有误，请您核实后再充值！');
+            $('#pa8_cardNo').focus();
+            return false;
+        }else if(!(/^\d+(\.\d{1,2})?$/.test(cardNo)) || cardNo <= 0){
+            alert('充值卡序列号请输入数字！');
+            $('#pa8_cardNo').focus();
+            return false;
+        }
+        
+        var cardPwd = J.trim($('#pa9_cardPwd').val());
+        if(cardPwd == ''){
+            alert('请输入18位充值卡密码！');
+            $('#pa9_cardPwd').focus();
+            return false;
+        }else if(cardPwd.length!=18){
+            alert('您输入的充值卡密码长度有误，请您核实后再充值！');
+            $('#pa9_cardPwd').focus();
+            return false;
+        }else if(!(/^\d+(\.\d{1,2})?$/.test(cardPwd)) || cardPwd <= 0){
+            alert('充值卡密码请输入数字！');
+            $('#pa9_cardPwd').focus();
+            return false;
+        }
+        
+        /**
+        if(parseFloat(amount) < 5.00){
+            alert('最小充值金额为5元');
+            $('#amount').focus();
+            return false;
+        } 
+        */ 
+        $('#form1').submit();
+        return true;
+     });
+});     
+</script>

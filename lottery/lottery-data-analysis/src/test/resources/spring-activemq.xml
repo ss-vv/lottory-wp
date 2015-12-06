@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+      <amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+    </property>
+  </bean>
+
+  <!-- 竞彩出票 -->
+  <bean id="jcBuyTicketProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="JC_BUY_QUEUE" physicalName="com.xhcms.lottery.queue.JC_BUY" />
+    </property>
+  </bean>
+  
+  <!-- 检查出票结果 -->
+  <bean id="jcCheckTicketProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="JC_CHECK_TICKET_QUEUE" physicalName="com.xhcms.lottery.queue.JC_CHECK_TICKET" />
+    </property>
+  </bean>
+  
+  <!-- 检查中奖结果 -->
+  <bean id="jcCheckBonusProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="JC_CHECK_BONUS_QUEUE" physicalName="com.xhcms.lottery.queue.JC_CHECK_BONUS" />
+    </property>
+  </bean>
+
+  <!-- 消息发送器 -->
+  <bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender" init-method="init" destroy-method="destroy">
+    <property name="threads" value="${amq.sender.threads}" />
+    <property name="producers">
+      <map>
+        <entry key="BuyTicketMessage" value-ref="jcBuyTicketProducer" />
+        <entry key="CheckTicketMessage" value-ref="jcCheckTicketProducer" />
+        <entry key="CheckBonusMessage" value-ref="jcCheckBonusProducer" />
+      </map>
+    </property>
+  </bean>
+</beans>

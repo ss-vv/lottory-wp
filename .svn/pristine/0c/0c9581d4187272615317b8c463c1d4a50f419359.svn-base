@@ -1,0 +1,2116 @@
+body{
+	padding-top: 30px;/*因为头部导航栏部分设定了fixed,这样才可以使得导航栏固定位置不变，而不是随着浏览器滚动条的滚动而变化。因为设置了fixed。所以导航栏脱离了文档流，
+	这个时候下面的就会视为导航栏不存在，而挤上去，这个时候，给body设置padding-top:30px.加上30px应该是给导航栏留的空白位置。这样挡住下边的元素不往上跑
+*/
+}
+#welcomepage{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+}
+#welcomepage .welcomepage-head{
+	width: 100%;
+	height: 58px;
+	line-height: 58px;
+    background:url(../images/welcomepage-head-bg.png) repeat-x ;	
+    margin: 0 auto;
+    position: fixed; 
+    left: 0;
+    top: 0;
+      /*这段代码里面的 position: fixed;是为了使头部导航固定不变。2014/08/26  lwc*/
+    z-index:999999;
+}
+
+
+
+#welcomepage .welcomepage-head .welcomepage-head-content{
+	width: 985px;
+	height: 58px;
+	line-height: 58px;
+	margin: 0 auto;
+}
+#logo{
+	float: left;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+#logo a{
+	width: 84px;
+	height: 48px;
+	background:url(../images/logo.png);
+    display: inline-block;
+    margin-top: 2px;
+  }
+  .welcomepage-head-content form{
+	width: 240px;
+ 	height: 29px;
+ 	display: inline-block;
+ 	margin-top: 14px;
+}
+ .welcomepage-head-content form #head-search{
+ 	width: 240px;
+ 	height: 16px;
+ 	line-height: 16px;
+ 	padding: 8px 0;
+ 	/*background:url(../images/head-search-bg.png);*/
+ 	border: none;
+ 	text-indent: 20px;
+ 	font-size: 12px;
+ 	color: #A8A8A8;
+ 	font-family: "微软雅黑";
+ 	float: left;
+ }
+ .welcomepage-head-content .magnifier a{
+ 	width: 16px;
+ 	height: 20px;
+ 	display: inline-block;
+ 	background:url(../images/magnifier.png);
+ 	float: right;
+ 	margin-top: -24px;
+ 	margin-right: 8px;
+ }
+.welcomepage-head-content label{
+	float: right;
+	margin-right: 50px;
+}
+.welcomepage-head-content label a{
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #ffffff;
+}
+
+
+.welcomepage-head .welcomepage-head-content .welcome-client{
+	float: right;
+	width: 250px;
+	height: 140px;
+	margin-right: -40px;
+	margin-top: 20px;
+}
+.welcome-client li{
+	float: left;
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+}
+.welcome-client li.mainlevel{
+	background:url(../images/welcome-client-bg.png) 70px 8px no-repeat;        /*70px  8px  左边  上边*/
+}
+.welcome-client li a{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #ffffff;
+}
+.welcome-client li ul{
+	width: 100px;
+	height: 80px;
+	display: none;
+	position: absolute;
+}
+.welcome-client li ul li{
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+}
+
+
+
+/*下面开始searching-dropdown-menu搜索下拉菜单部分*/
+.searching-dropdown-menu{
+	width: 238px;
+	min-height: 50px;
+	/*border: 1px #ffffff solid;开始的时候，添加上，好看，但是聚焦的时候，铺不满，显示白色边框，可以添加#ccc属性颜色，但是不好看。所以取消，退一步*/
+	border: 1px #cccccc\9 solid;/*针对IE写的*/
+	background: #fff;
+	float: left;
+	margin-top: 3px;
+	padding-bottom: 10px;
+	box-shadow: 0 0 6px rgba(0,0,0,.6);
+	-webkit-box-shadow:0 0 6px rgba(0,0,0,.6);
+	-moz-box-shadow: 0 0 6px rgba(0,0,0,.6);
+	display: none;
+}
+
+.searching-dropdown-menu li{
+	width: 238px;
+	height: 28px;
+	line-height: 28px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	padding-left: 10px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+}
+.searching-dropdown-menu li.no-menu{
+	margin-top: 16px;
+}
+.searching-dropdown-menu li:first-child{
+	margin-top: 5px;
+}
+.searching-dropdown-menu li.no-menu h3{
+	color: #020202;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.searching-dropdown-menu li a{
+	color: #999999;
+	width: 186px;
+	height: 28px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+i,em{
+	font-family: "微软雅黑";
+	font-style: normal;
+}
+.searching-dropdown-menu li em{
+	color: #2AA1FF;
+}
+.searching-dropdown-menu li label{
+	color: #DBDBDB;
+	float: right;
+	margin-right: 3px;
+}
+.searching-dropdown-menu li.dropdown-menu-user{
+	width: 238px;
+	height: 48px;
+}
+.searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-logo{
+	width: 36px;
+	height: 36px;
+	background:url(../images/dropdown-menu-user.png);
+	display: inline-block;
+	float: left;
+	margin-top: 6px;
+	margin-right: 7px;
+}
+.searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-logo img{
+	width: 36px;
+	height: 36px;
+}
+.searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-name{
+	width: 180px;
+	height: 26px;
+	margin-top: 10px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover{
+	background: #E22319;
+	border-left: 0px #E22319 solid;
+	border-right: 0px #E22319 solid;
+
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover a{
+	color: #ffffff;
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover a em{
+	color: #ffffff;
+}
+/*上面部分是搜索框下拉菜单部分*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*上面是welcomepage-head部分*/
+
+/*下面的是开机画面welcome-boot-screen部分*/
+#welcomepage .welcome-boot-screen{
+	width: 1400px;
+	height: 213px;
+	margin: 25px auto 0;
+	background:url(../images/welcome-boot-screen-bg.png) no-repeat ;	
+}
+
+#welcomepage .welcome-boot-screen span.welcome-close-screen{
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+	float: right;
+	margin-right: 149px;
+	margin-top: 155px;
+}
+/*上面的是开机画面welcome-boot-screen结束部分*/
+
+
+
+
+
+.welcomepage-loginform{
+	width: 985px;
+	height: 90px;
+	margin:40px auto 2px;
+}
+.welcomepage-loginform .slogan{
+	font-size: 16px;
+	color: #A5A5A5;
+	font-family: "微软雅黑";
+	float: left;
+	margin-left: 36px;
+	margin-right: 75px;
+}
+
+.welcomepage-loginform .slogan .larger{
+	font-size: 20px;
+	font-style:normal;
+	font-family: "微软雅黑";
+}
+.welcomepage-loginform .loginform li{
+	width: 190px;
+	height: 45px;
+	float: left;
+}
+.welcomepage-loginform .loginform li.last-child{
+	width: 160px;
+}
+.welcomepage-loginform .loginform li input{
+	width: 182px;
+	height: 16px;
+	line-height: 16px;                      /*这段paddin解决chrome和FF浏览器光标不一样的地方*/
+	padding: 10px 0;
+	text-indent: 10px;
+	border: 1px #C3C3C3 solid;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	color: #D0D0D0;
+	margin-bottom:3px;
+}
+@-moz-document url-prefix(){.welcomepage-loginform .loginform li input{margin-bottom:5px;}}
+
+ .loginform li .register a{
+ 	width: 126px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/welcome-register.png);
+ }
+.loginform li .register a:hover{
+	width: 126px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/welcome-register-active.png);
+}
+ .loginform li .login a{
+ 	width: 146px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/welcome-login.png);
+ }
+  .loginform li .login a:hover{
+ 	width: 146px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/welcome-login-active.png);
+ }
+ .loginform li p {
+ 	vertical-align: middle;
+    height: 28px;
+	line-height: 28px;
+ }
+ .loginform li p span.welcome-checkbox-selected{
+ 	width: 18px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	cursor: pointer;
+ 	background:url(../images/welcome-checkbox-selected.png) no-repeat ;
+ 	margin-top: 6px;
+ 	margin-right: 3px;
+ 	float: left;
+ }
+ .loginform li p span.welcome-checkbox-not-selected{
+ 	width: 18px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	cursor: pointer;
+ 	background:url(../images/welcome-checkbox-not-selected.png) no-repeat ;
+ 	margin-top: 15px;
+ 	margin-right: 3px;
+ 	float: left;
+ }
+.loginform li p label.remember-me{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #717171;
+	cursor: pointer;
+}
+.loginform li p.welcome-forget-password{
+	width: 80px;
+	height: 28px;
+	line-height: 28px;
+}
+.loginform li p.welcome-forget-password a{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #717171;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.loginform li p.cooperative-logging{
+	margin-left: -50px;
+	color: #717171;
+	height: 28px;
+	line-height: 28px;
+}
+.loginform li p.cooperative-logging  span.fist-child{
+	margin-left: 10px;
+}
+.loginform li p.cooperative-logging  span a{
+	margin-right: 4px;
+	vertical-align: middle;
+}
+.loginform li p.cooperative-logging  span.welcome-zhifubao a{
+	width: 22px;
+ 	height: 23px;
+ 	display: inline-block;
+ 	background:url(../images/zhifubao-logo.png);
+}
+.loginform li p.cooperative-logging  span.welcome-sina-weibo a{
+	width: 24px;
+ 	height: 19px;
+ 	display: inline-block;
+ 	background:url(../images/sina-weibo-logo.png);
+}
+.loginform li p.cooperative-logging  span.welcome-qq a{
+	width: 17px;
+ 	height: 19px;
+ 	display: inline-block;
+ 	background:url(../images/qq-logo.png);
+}
+.loginform li p.cooperative-logging  span.welcome-weixin a{
+	width: 21px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	background:url(../images/weixin-logo.png);
+}
+/*上面是loginform部分*/
+
+.welcomepage-nav{
+	width: 100%;
+	height: 40px;
+	border-bottom: 3px #EAEAEA solid;
+	margin: 0 auto;
+}
+.welcomepage-nav .welcomepage-nav-box{
+	width: 985px;
+	height: 40px;
+	margin: 0 auto;
+}
+.welcomepage-nav .welcomepage-nav-tab{
+	width:550px;
+	height: 40px;
+	float: left;
+}
+.welcomepage-nav .welcomepage-nav-tab li{
+	float: left;
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.welcomepage-nav .welcomepage-nav-tab li a{
+	color: #5F5F5F;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+}
+.welcomepage-nav .welcomepage-nav-tab li:hover a{
+	color: #000000;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+
+.welcomepage-nav .welcomepage-nav-tab li a.active{          /*相比较于之前的03版本，这段代码是聚焦当前默认的-2014/08/26 lwc*/
+	color: #000000;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+.welcomepage-nav .welcomepage-nav-tab li:hover{
+	 border-bottom:3px solid #E22319;
+	 margin-bottom:-3px;
+	 background: #fff;
+}
+.welcomepage-nav .welcomepage-nav-tab li.active{           /*相比较于之前的03版本，这段代码是聚焦当前默认的-2014/08/26 lwc*/
+	 border-bottom:3px solid #E22319;
+	 margin-bottom:-3px;
+	 background: #fff;
+}
+.welcomepage-nav .welcomepage-nav-vicetab{
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	float: right;
+	margin-right: 10px;
+	font-family: "微软雅黑";
+	padding-top: 9px;
+}
+ .welcomepage-nav-vicetab span a{
+ 	vertical-align: middle;
+ 	margin-right: 5px;
+ }
+ .welcomepage-nav-vicetab .vicetab-weixin a{
+ 	width: 19px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	background:url(../images/vicetab-weixin.png);
+ }
+ .welcomepage-nav-vicetab .vicetab-sinaweibo a{
+ 	width: 19px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	background:url(../images/vicetab-sinaweibo.png);
+ }
+  .welcomepage-nav-vicetab .vicetab-rss a{
+ 	width: 15px;
+ 	height: 14px;
+ 	display: inline-block;
+ 	background:url(../images/vicetab-rss.png);
+ }
+ .welcomepage-nav-vicetab span.vicetab-lottery{
+  	margin-left: 8px;
+  }
+ .welcomepage-nav-vicetab span.vicetab-lottery a{
+ 	color: #8B8B8B;
+ }
+ .welcomepage-nav-vicetab span.vicetab-lottery em{
+ 	font-style: normal;
+ 	color: #8B8B8B;
+ 	margin-right: 5px;
+ }
+/*上面是welcomepage-nav部分*/
+
+.welcomepage-content{
+	width: 990px;
+	height: 100%;
+	margin: 20px auto;
+}
+.welcomepage-content .welcomepage-contentleft{
+	width:730px;
+	height: auto;
+	float: left;
+}
+
+/*下面开始竞猜足球部分，与通用代码的部分*/
+.welcomepage-contentleft .today-some .today-some-football{
+	width: 730px;
+	height: 440px;
+	margin-top: 10px;
+}
+
+
+.welcomepage-contentleft h4.vertical-bar{
+	float: left;
+	margin-right: 7px;
+}
+.welcomepage-contentleft h3.vertical-bar-title{
+	font-size: 18px;
+	color: #000000;
+	font-family: "微软雅黑";
+}
+.welcomepage-contentleft .event{
+	width: 620px;
+	height: 20px;
+	line-height: 20px;
+	float: right;
+	margin-top: -20px;
+	margin-right: 15px;
+	font-size: 12px;
+	color: #878787;
+	font-family: "微软雅黑";
+	text-indent: 8px;
+    border-bottom: 2px #EFEFEF solid;
+    clear: both;
+  }
+.welcomepage-contentleft .today-some .today-some-vs{
+	width: 713px;
+	height: 70px;
+	clear: both;
+	border: 1px transparent solid;
+	margin: 10px 10px 10px 0;
+	background:url(../images/today-some-vsbg-blue.png);
+}
+.today-some .today-some-vs h6.today-some-vs-name,h6.today-some-vs-time{
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #ffffff;
+	margin:6px 40px 8px 20px;
+	margin-top: 12px;
+}
+.today-some .today-some-vs  p.match{
+	width: 400px;
+	height: 40px;
+	line-height: 40px;
+	float: right;
+	margin-top: -50px;
+	margin-right: 100px;
+	color: #ffffff;
+	font-family: "微软雅黑";
+}
+.today-some .today-some-vs em{
+	font-style: normal;
+	font-size: 28px;
+	font-family: "微软雅黑";
+	margin-left: 20px;
+	margin-right: 20px;
+	display: inline-block;
+	float: left;
+}
+.today-some .today-some-vs  p.match span{
+	font-size: 26px;
+    max-width: 160px;
+	height: 40px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    float: left;
+}
+/*以上的是today-some-vs部分及以上部分*/
+
+.today-some h4.today-some-zjtd{
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #B3B3B3;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
+.today-some span.today-some-wf,span.today-some-tjjg{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #000000;
+	font-weight: bold;
+	margin-left: 10px;
+}
+.today-some .today-some-introduction{
+	width: 220px;
+	height: 118px;
+	margin-left: 10px;
+	margin-top: 30px;
+	margin-bottom: 40px;
+	line-height: 165%;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #000000;
+	overflow: hidden;
+}
+.today-some .today-some-introduction i{
+	font-style: normal;
+}
+.today-some .today-some-introduction a{
+	color: #E22319;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	text-decoration: underline;
+	}
+.today-some p.item-data{
+	width: 230px;
+	height: 30px;
+	float: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.today-some p.item-data span.item-data-name{
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	margin-right:8px;
+	font-family: "微软雅黑";
+	display: inline-block;
+	background:url(../images/data-logo.png) 5px 5px no-repeat;
+	text-indent: 25px;
+	color: #808080;
+}
+.today-some p.item-data span.item-data-review,span.item-data-zan{
+	color: #949494;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+.today-some p.item-data em{
+	font-style: normal;
+	color: #949494;
+}
+.today-some p.item-data a{
+	color: #949494;
+}
+.today-some label.welcome-to-the-right{
+	width: 12px;
+	height: 251px;
+	display: inline-block;
+	margin-top: -210px;
+	margin-left: 10px;
+	background:url(../images/welcome-to-the-right.png) ;
+}
+/*以上是VS左边的部分*/
+.today-some .today-some-bet-column{
+	width:450px;
+	height: 260px;
+	clear: both;
+	float: right;
+	margin-top: -260px;
+	margin-right: 10px;
+}
+.today-some .today-some-bet-column p.cut-off-time{
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #949494;
+	float: right;
+	margin-right: 8px;
+	margin-bottom: 10px;
+}
+/*上面的样式可以通用在今日提点下面的三个分栏目当中today-some中*/
+.today-some .today-some-football-team{
+	width: 440px;
+	height: 130px;                                                                      
+	clear: both;
+	margin: 10px auto 20px;
+}
+.today-some .today-some-football-team li{
+	height: 110px;
+	float: left;
+	margin-right: 14px;
+}
+.today-some .today-some-football-team li.today-some-football-team-left{
+	width:154px ;
+}
+.today-some .today-some-football-team li.today-some-football-team-left div{
+	width: 148px;
+	height: 80px;
+	line-height: 80px;
+	border: 2px #BEBEBE solid;
+	-moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari 和 Chrome */
+    border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 26px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.today-some .today-some-football-team li a{
+	color: #000;
+}
+.today-some .today-some-football-team li.today-some-football-team-left div:hover{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+.today-some .today-some-football-team li.today-some-football-team-left div.actice{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+.today-some .today-some-football-team  li p{
+	text-align: center;
+	font-family: "微软雅黑";
+    font-size: 14px;
+    color: #9A9A9A;
+    margin-top: 12px;
+} 
+.today-some .today-some-football-team li.today-some-football-team-middle{
+	width:96px ;
+}
+.today-some .today-some-football-team li.today-some-football-team-middle div{
+	width: 96px;
+	height: 80px;
+	line-height: 80px;
+	border: 2px #BEBEBE solid;
+	-moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari 和 Chrome */
+    border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 26px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.today-some .today-some-football-team li.today-some-football-team-middle div:hover{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+
+.today-some .today-some-football-team li.today-some-football-team-middle div.actice{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+/*这样的actice添加上就有默认的红色样式*/
+
+.today-some .today-some-football-team li.today-some-football-team-right{
+	width:147px ;
+}
+.today-some .today-some-football-team li.today-some-football-team-right div{
+	width: 147px;
+	height: 80px;
+	line-height: 80px;
+	border: 2px #BEBEBE solid;
+	-moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari 和 Chrome */
+    border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 26px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.today-some .today-some-football-team li.today-some-football-team-right div:hover{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+
+.today-some .today-some-football-team li.today-some-football-team-right div.actice{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+/*上面的是足球选择胜负部分*/
+.today-some .today-some-investment{
+	width: 220px;
+	height: 40px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #838383;
+}
+.today-some .today-some-investment i{
+	font-style: normal;
+	float: left;
+	margin-top: 5px;
+}
+.today-some .today-some-investment em{
+	font-style: normal;
+	float: right;
+	margin-top: 5px;
+}
+.today-some .today-some-investment p{
+	display: inline-block;
+	width: 170px;
+	height: 28px;
+	line-height: 28px;
+
+}
+.today-some .today-some-investment p a.today-some-investment-minus{
+	width: 33px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	display: inline-block;
+	border: 1px #B1B1B1 solid;
+	border-right: none;
+	background:url(../images/today-some-investment-minus-bg.png) 12px 12px no-repeat;
+	float: left;
+	margin-left: 10px;
+}
+
+.today-some .today-some-investment p input{
+	display: inline-block;
+	width: 80px;
+	height: 28px;
+	border: 1px #B1B1B1 solid;
+	text-align: center;
+	font-size: 18px;
+	font-family: arial;
+	color: #000000;
+	float: left;
+}
+.today-some .today-some-investment p a.today-some-investment-plus{
+	width: 33px;
+	height: 28px;
+	margin-right: px;
+	line-height: 28px;
+	text-align: center;
+	display: inline-block;
+	border: 1px #B1B1B1 solid;
+	border-left: none;
+	background:url(../images/today-some-investment-plus-bg.png) 11px 9px no-repeat;
+}
+.today-some  p.today-some-expected-bonus{
+	width: 180px;
+	height: 32px;
+	line-height: 32px;
+	margin-left: 40px;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	color: #909090;
+	position: relative;
+}
+.today-some  p.today-some-expected-bonus a.welcome-question{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	float: right;
+	margin-top: 8px;
+	background:url(../images/welcome-question.png) no-repeat;
+	color:#000;
+}
+/*下面这两段是问号提示层*/
+/*这个span.poptip隐藏层放在了上面的a标签里面*/
+.today-some p.today-some-expected-bonus span.poptip{
+	position:absolute;
+	display:block;
+	width:330px;
+	height:90px;
+	background: #FFFFE1;
+	border: 1px #95A3AB solid;
+	border-radius:5px;
+	margin-left: -100px;
+	margin-top: 30px;
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: none;
+}
+.today-some p.today-some-expected-bonus span.poptip i{
+	font-size: 12px;
+    line-height: 160%;
+    padding: 4px;
+    padding-top: 3px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.today-some p.today-some-expected-bonus span.poptip i em{
+	font-weight: bold;
+	font-size: 14px;
+	display: inline-block;
+	margin-bottom: 4px;
+}
+.today-some p.today-some-expected-bonus span.poptip .poptip-top{
+	display:inline-block;
+	position:absolute;
+	left:90px;
+	top:-30px;
+	width:0;
+	height:0;
+	border-style:solid;
+	border-width:15px;
+    border-color:transparent  transparent #95A3AB  transparent;
+}
+.today-some p.today-some-expected-bonus span.poptip .poptip-bottom{
+	display:inline-block;
+	position:absolute;
+	left:90px;
+	top:-29px;
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:15px;
+    border-color:transparent  transparent #FFFFE1  transparent;
+}
+/*上面这两段是问号提示层*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+.today-some  p.today-some-expected-bonus label{
+	color: #E22319;
+	width: 75px;
+	height: 32px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.today-some  p.today-some-expected-bonus i{
+	font-style: normal;
+	float: left;
+}
+
+.today-some button.welcome-immediately-bet{
+	float: right;
+	margin-right: 20px;
+	margin-top: -68px;
+	padding: 3px 8px;
+	background:#E22319 ;
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    -moz-border-radius: 7px; /* Firefox */
+    -webkit-border-radius: 7px; /* Safari 和 Chrome */
+    border-radius: 7px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    cursor: pointer;
+    width: 155px;
+    height: 60px;
+    
+}
+
+/* 这些事今日热点通用的部分*/
+
+
+
+/*下面开始竞猜篮球部分*/
+.welcomepage-contentleft .today-some .today-some-basketball{
+	width: 730px;
+	height: 440px;
+	margin-top: 10px;
+}
+.welcomepage-contentleft .today-some .today-some-basketball .today-some-vs{
+	width: 713px;
+	height: 70px;
+	clear: both;
+	border: 1px transparent solid;
+	margin: 10px 10px 10px 0;
+	background:url(../images/today-some-vsbg-yellow.png);
+}
+.today-some .today-some-basketball-team{
+	width: 440px;
+	height: 130px;                                                                      
+	clear: both;
+	margin: 10px auto 20px;
+}
+.today-some .today-some-basketball-team li{
+	height: 110px;
+	float: left;
+	margin-right: 30px;
+}
+.today-some .today-some-basketball-team li.today-some-basketball-team-left ,li.today-some-basketball-team-right{
+	width:190px ;
+}
+.today-some .today-some-basketball-team li div{
+	width: 190px;
+	height: 80px;
+	border: 2px #BEBEBE solid;
+	-moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari 和 Chrome */
+    border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    text-align: center;
+    font-family: "微软雅黑";
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.today-some .today-some-basketball-team li div p.team-name{
+	 font-size: 22px;
+	 width: 170px;
+	 color: #000000;
+	 font-family: "微软雅黑";
+	 margin: 10px  auto 0;
+	 white-space: nowrap;
+     overflow:hidden;
+     text-overflow:ellipsis;
+     text-align: center;
+}
+.today-some .today-some-basketball-team li div p.score{
+	 font-size: 18px;
+	 color: #000000;
+	 margin-top: 3px;
+	 white-space: nowrap;
+     overflow:hidden;
+     text-overflow:ellipsis;
+}
+.today-some .today-some-basketball-team li div:hover{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+.today-some .today-some-basketball-team li.today-some-basketball-team-left div.actice{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+.today-some .today-some-basketball-team  li p{
+	text-align: center;
+	font-family: "微软雅黑";
+    font-size: 14px;
+    color: #9A9A9A;
+    margin-top: 12px;
+} 
+/*上面结束竞猜篮球部分*/
+
+
+
+
+/*下面开始北京单场部分*/
+.welcomepage-contentleft .today-some .today-some-beijingfield{
+	width: 730px;
+	height: 440px;
+	margin-top: 10px;
+}
+.welcomepage-contentleft .today-some .today-some-beijingfield .today-some-vs{
+	width: 713px;
+	height: 70px;
+	clear: both;
+	border: 1px transparent solid;
+	margin: 10px 10px 10px 0;
+	background:url(../images/today-some-vsbg-green.png);
+}
+.today-some .today-some-today-some-beijingfield-team{
+	width: 440px;
+	height: 130px;                                                                      
+	clear: both;
+	margin: 10px auto 20px;
+}
+.today-some .today-some-today-some-beijingfield-team li{
+	height: 110px;
+	float: left;
+	margin-right: 12px;
+}
+.today-some .today-some-today-some-beijingfield-team li.today-some-today-some-beijingfield-team-son{
+	width:132px ;
+}
+.today-some .today-some-today-some-beijingfield-team li div{
+	width: 132px;
+	height: 80px;
+	border: 2px #BEBEBE solid;
+	-moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari 和 Chrome */
+    border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    text-align: center;
+    font-family: "微软雅黑";
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.today-some .today-some-today-some-beijingfield-team li div p.team-name{
+	 font-size: 22px;
+	 width: 120px;
+	 color: #000000;
+	 font-family: "微软雅黑";
+	 margin: 10px  auto 0;
+	 white-space: nowrap;
+     overflow:hidden;
+     text-overflow:ellipsis;
+     text-align: center;
+}
+.today-some .today-some-today-some-beijingfield-team li div p.score{
+	 font-size: 18px;
+	 color: #000000;
+	 margin-top: 3px;
+	 white-space: nowrap;
+     overflow:hidden;
+     text-overflow:ellipsis;
+}
+.today-some .today-some-today-some-beijingfield-team li div:hover{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+.today-some .today-some-today-some-beijingfield-team li.today-some-basketball-team-left div.actice{
+	border: 4px #E22319 solid;
+	margin: -2px;
+	background:url(../images/welcome-match-selected.png) right bottom no-repeat ;
+}
+.today-some .today-some-today-some-beijingfield-team  li p{
+	text-align: center;
+	font-family: "微软雅黑";
+    font-size: 14px;
+    color: #9A9A9A;
+    margin-top: 12px;
+} 
+
+
+/*上面是结束北京单场部分*/
+
+ .more-content{
+	width: 704px;
+	height: 34px;
+	background: #F6F6F6;
+	border: 1px #E5E5E5 solid;
+	margin: 20px auto;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	padding-top: 4px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+ .more-content a{
+	color: #8C8C8C;
+}
+
+/*这段是更多内容部分，可以通用*/
+
+
+
+/*下面开始晒单跟单welcome-follow-list部分*/
+
+
+.welcomepage-contentleft .welcome-follow-list{
+	width: 730px;
+	height: auto;
+	margin-top: 10px;
+}
+.welcomepage-contentleft .welcome-follow-list-content{
+	width: 352px;
+	height: 340px;
+	float: left;
+	margin: 20px 0 10px 8px;
+	_margin-left: 0px;
+	background:url(../images/welcome-follow-list-content-bg.png) left top no-repeat ;
+}
+.welcome-follow-list-content .welcome-follow-list-content-nav{
+	width: 330px;
+	float: left;
+	margin-left: 11px;
+}
+.welcome-follow-list-content .welcome-follow-list-content-nav li{
+	float: left;
+	height: 40px;
+	width: 70px;
+	line-height: 40px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+.welcomepage-contentleft .welcome-follow-list-content .list-paper-width01{
+	width: 70px;
+}
+
+.welcomepage-contentleft .welcome-follow-list-content .list-paper-width02{
+	width: 130px;
+}
+.welcomepage-contentleft .welcome-follow-list-content .list-paper-width03{
+	width: 80px;
+}
+ .welcomepage-contentleft .welcome-follow-list-content .list-paper-width04{
+	width: 50px;
+}
+
+ .welcome-follow-list-content .welcome-follow-list-content-details{
+	width: 330px;
+	float: left;
+	margin-left: 11px;
+}
+.welcome-follow-list-content .welcome-follow-list-content-details li{
+	float: left;
+	height: 35px;
+	width: 70px;
+	line-height: 35px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+    
+}
+.welcome-follow-list-content .welcome-follow-list-content-details li.list-paper-width02{
+	color: #1B9BFF;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-more{
+	width: 330px;
+	height: 40px;
+	
+	clear: both;
+	margin-left: 10px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.welcome-follow-list-content p.welcome-follow-list-content-more a{
+	color: #828282;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-pass,p.welcome-follow-list-content-multiple,p.welcome-follow-list-content-money{
+	width: 330px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 10px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #000000;
+	font-weight: bold;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+    text-indent: 12px;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-pass span{
+	margin-right: 20px;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-pass label{
+	margin-right: 20px;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-multiple span{
+	margin-right: 20px;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-money span{
+	margin-right: 20px;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-money label{
+	color: #E22319;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-money i{
+	font-style: normal;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-money{
+	border-bottom: none;
+}/*上面是类似于抽纸方面的内容*/
+
+.welcome-follow-list-content p.welcome-follow-list-content-item-data{
+	width: 330px;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-item-data span.item-data-name{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	margin-right:10px;
+	font-family: "微软雅黑";
+	display: inline-block;
+	background:url(../images/data-logo.png) 5px 5px no-repeat;
+	text-indent: 25px;
+	color: #808080;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-top: 10px;
+	float: left;
+	
+}
+.welcome-follow-list-content p.welcome-follow-list-content-item-data a{
+	color: #808080;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-item-data span.item-data-review,span.item-data-zan{
+	color: #949494;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-item-data em{
+	font-style: normal;
+	color: #949494;
+}
+.welcome-follow-list-content p.welcome-follow-list-content-item-data  button.welcome-follow-list{
+	background:#E12319 ;
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";                                     /*这里的button跟单是个问题，抽空挖掘一下*/
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 75px;
+    height: 30px;
+}
+/*这段就是.welcome-follow-list-content最下面的点赞部分*/
+
+/*上面是晒单跟单elcome-follow-list部分*/
+
+.clear-both{
+	clear: both;
+}
+
+/*下面开始是welcome-win-xibao中奖喜报部分*/
+
+
+.welcomepage-contentleft .welcome-win-xibao{
+	width: 730px;
+	height: auto;
+	margin-top: 10px;
+}
+
+
+.welcomepage-contentleft .welcome-win-xibao-content{
+	width: 352px;
+	height: 340px;
+	float: left;
+	margin: 20px 0 10px 10px;
+	background:url(../images/welcome-follow-list-content-bg.png) left top no-repeat ;
+}
+
+.welcome-win-xibao-content .welcome-win-xibao-content-nav{
+	width: 330px;
+	float: left;
+	margin-left: 11px;
+}
+.welcome-win-xibao-content .welcome-win-xibao-content-nav li{
+	float: left;
+	height: 40px;
+	width: 70px;
+	line-height: 40px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+.welcomepage-contentleft .welcome-win-xibao-content .list-paper-width01{
+	width: 70px;
+}
+
+.welcomepage-contentleft .welcome-win-xibao-content .list-paper-width02{
+	width: 130px;
+}
+.welcomepage-contentleft .welcome-win-xibao-content .list-paper-width03{
+	width: 80px;
+}
+ .welcomepage-contentleft .welcome-win-xibao-content .list-paper-width04{
+	width: 50px;
+}
+.welcome-win-xibao-content .welcome-win-xibao-content-details{
+	width: 330px;
+	float: left;
+	margin-left: 11px;
+}
+.welcome-win-xibao-content .welcome-win-xibao-content-details li{
+	float: left;
+	height: 35px;
+	width: 70px;
+	line-height: 35px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+    
+}
+.welcome-win-xibao-content .welcome-win-xibao-content-details li.list-paper-width02{
+	color: #1B9BFF;
+}
+
+.welcome-win-xibao-content p.welcome-win-xibao-content-more{
+	width: 330px;
+	height: 40px;
+	clear: both;
+	margin-left: 10px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-more a{
+	color: #828282;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-pass,p.welcome-win-xibao-content-multiple,
+p.welcome-win-xibao-content-money,p.welcome-win-xibao-content-bonus{
+	width: 330px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #000000;
+	font-weight: bold;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+    text-indent: 12px;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-pass span{
+	margin-right: 20px;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-pass label{
+	margin-right: 20px;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-multiple span{
+	margin-right: 20px;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-money span{
+	margin-right: 20px;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-money label{
+	color: #E22319;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-money i{
+	font-style: normal;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-bonus{
+	border-bottom: none;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-bonus span{
+	margin-right: 20px;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-bonus label{
+	color: #E22319;
+}
+/*上面是类似于抽纸方面的内容*/
+
+i{
+font-style: normal;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-item-data{
+	width: 330px;
+	height: 40px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-item-data span.item-data-name{
+	width: 80px;
+	height: 40px;
+	line-height: 30px;
+	font-size: 16px;
+	margin-right:28px;
+	font-family: "微软雅黑";
+	display: inline-block;
+	background:url(../images/data-logo.png) 5px 5px no-repeat;
+	text-indent: 25px;
+	color: #808080;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-item-data a{
+	color: #808080;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-item-data span.item-data-review,span.welcome-follow-list,span.item-data-zan{
+	color: #949494;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+.welcome-win-xibao-content p.welcome-win-xibao-content-item-data em{
+	font-style: normal;
+	color: #949494;
+}
+.welcome-win-xibao-content .win-logo{
+	float: right;
+	margin-top: -200px;
+	margin-right: 10px;
+}
+
+/*上面是welcome-win-xibao中奖喜报单个抽纸结束的部分*/
+
+/*下面开始welcomepage-contentright部分*/
+.welcomepage-content .welcomepage-contentright{
+	width:250px;
+	height: auto;
+	float: right;
+}
+.welcomepage-contentright .game-result{
+	width: 250px;
+	height: auto;
+	margin-bottom: 160px;
+	margin-top: 10px;
+}
+
+.welcomepage-contentright h4.vertical-bar{
+	float: left;
+	margin-right: 7px;
+}
+.welcomepage-contentright h3.vertical-bar-title{
+	font-size: 18px;
+	color: #000000;
+	font-family: "微软雅黑";
+}
+.welcomepage-contentright .event{
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	float: right;
+	margin-top: -20px;
+	margin-right: 15px;
+	font-size: 12px;
+	color: #878787;
+	font-family: "微软雅黑";
+	text-indent: 8px;
+    border-bottom: 2px #EFEFEF solid;
+    clear: both;
+  }
+  .welcomepage-contentright .event img{
+  	margin-left: 20px;
+  }
+  .welcomepage-contentright .game-line{
+  	line-height:1px;
+  	border-left:100px solid #ccc;
+    border-right:100px solid #ccc;
+    margin-bottom:18px;
+    margin-top: 35px;            /*相比较于之前的03版本，修改的这个这一行.margin-top: 35px; 2014/08/26 lwc*/
+  	
+  }
+ .game-result .game-result-event li{
+  	height: 28px;
+  	line-height: 28px;
+  }
+ .game-result .game-result-event li a{
+    	color: #000;
+  }
+.game-result .game-result-event li span,label{
+ 	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+ }
+.game-result .game-result-event li span.game-result-event-match{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #8D8D8D;
+	width: 50px;
+	height: 25px;
+	display: inline-block;
+	
+}
+.game-result .game-result-event li span.game-result-event-team-left,span.game-result-event-team-right{
+	width: 75px;
+	height: 25px;
+	display: inline-block;
+	}
+.game-result .game-result-event li span.game-result-event-team-left{
+	text-align: left;
+}
+.game-result .game-result-event li span.game-result-event-team-right{
+	text-align: right;
+}
+.game-result .game-result-event li span.game-result-event-team-left i{
+	text-align: right;
+	width: 20px;
+	display: inline-block;
+	margin-right: 2px;
+}
+.game-result .game-result-event li span.game-result-event-team-right i{
+	text-align: left;
+	width: 20px;
+	display: inline-block;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.game-result .game-result-event li label{
+	color: #FF0000;
+	font-weight: bold;
+	width: 30px;
+	height: 25px;
+	display: inline-block;
+	text-align: center;
+}
+/*上面是比赛结果部分结束*/
+
+
+/*下面开始过单率排行部分*/
+.welcomepage-contentright .welcome-single-rate{
+	width: 250px;
+	height: auto;
+	margin-bottom: 82px;
+}
+.welcome-single-rate .welcome-single-rate-list{
+	width: 250px;
+}
+.welcome-single-rate-list  li.welcome-single-rate-list-son{
+	width: 250px;
+	height: 80px;
+	margin-top: 6px;
+}
+.welcome-single-rate-list-son img.welcome-user-logo{
+	float: left;
+	margin: 12px 10px 12px 18px;
+	width: 56px;
+	height: 54px;
+}
+.welcome-single-rate-list-son span.welcome-user-name{
+	margin-top: 8px;
+	width: 80px;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+}
+.welcome-single-rate-list-son span.welcome-user-name a{
+	color: #008FFF;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+i,em{
+	font-style: normal;
+}
+.welcome-single-rate-list-son span.welcome-single-rate-list-details{
+	display: block;
+	width: 160px;
+	height: 22px;
+	line-height: 22px;
+	float: left;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin-top: 19px;
+}
+
+.welcome-single-rate-list-son  label.percentage{
+	font-family: "微软雅黑";
+	font-size: 30px;
+	float: right;
+	margin-top: -66px;
+	margin-right: 12px;
+	text-align: right;
+}
+.welcome-single-rate-list-son .color-red{
+	color: #FF4040;
+}
+.welcome-single-rate-list-son .color-yellow{
+	color: #E4D82F;
+}
+.welcome-single-rate-list-son .color-green{
+	color: #56C462;
+}
+/*
+ 关于过单率排行榜的 百分比颜色
+ 50%档          颜色为  color-yellow
+ 50%往上档   颜色为  color-red
+ 50%往下档   颜色为  color-green
+ */
+
+/*上面是过单率排行部分结束*/
+
+
+/*下面是中奖奖金排行榜部分*/
+.welcomepage-contentright .welcome-win-bonus{
+	width: 250px;
+	height: auto;
+	margin-bottom: 100px;
+}
+.welcome-win-bonus .welcome-win-bonus-list{
+	width: 250px;
+}
+.welcome-win-bonus-list  li.welcome-win-bonus-list-son{
+	width: 250px;
+	height: 80px;
+	margin-top: 6px;
+}
+.welcome-win-bonus-list-son img.welcome-user-logo{
+	float: left;
+	margin: 12px 10px 12px 18px;
+}
+.welcome-win-bonus-list-son span.welcome-user-name{
+	margin-top: 8px;
+	width: 80px;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+}
+.welcome-win-bonus-list-son span.welcome-user-name a{
+	color: #008FFF;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+i,em{
+	font-style: normal;
+}
+.welcome-win-bonus-list-son span.welcome-win-bonus-list-details{
+	display: block;
+	width: 160px;
+	height: 22px;
+	line-height: 22px;
+	float: left;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin-top: 19px;
+}
+
+.welcome-win-bonus-list-son  label.money{
+	font-family: "微软雅黑";
+	font-size: 24px;
+	float: right;
+	width: 100px;
+	height: 30px;
+	margin-top: -66px;
+	margin-right: 5px;
+	text-align: right;
+}
+.welcome-win-bonus-list-son .color-red{
+	color: #FF4040;
+}
+
+/*上面是中奖奖金排行榜部分结束*/
+
+
+
+#welcomepage .welcome-bottom-line{
+	width: 985px;
+	height: 65px;
+	border-top: 1px #EAEAEA solid;
+	clear: both;
+	margin: 0 auto;
+}
+
+
+
+
+ /*-------下面是为了弹出层新添加的----------2014/09/03-----lwc -*/
+#pop-layer{
+	width:672px ;
+	height: 360px;
+	border: 1px red solid;
+	display: none;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-150px 0 0 -300px;
+	position: fixed;
+	background: #fff;
+}
+
+#all,#all-login{
+	background-color: #ccc;
+    display: none;
+	width: 100%;
+    height: 100%;
+	border: 1px solid red;
+    left: 0;
+	top: 0;
+    position: fixed;
+	opacity:0.5;
+	filter:Alpha(opacity=50);
+}
+
+
+
+
+/*下面开始upper-lower部分*/
+
+
+.upper-lower{
+	width: 352px;
+	height: auto;
+	margin: -113px -10px;
+	clear: both;
+	position:absolute;
+	display: none;
+}
+.upper-lower .upper-lower-topbg{
+	width: 352px;
+	height: 11px;
+	background:url(../images/upper-lower-topbg.png) no-repeat ;
+}
+.upper-lower .upper-lower-middlebg{
+	width: 352px;
+	height: auto;
+    overflow:hidden;
+	background:url(../images/upper-lower-middlebg.png) repeat ;
+}
+.upper-lower-list-content-nav{
+	width: 330px;
+	float: left;
+	margin-left: 11px;
+}
+.upper-lower-list-content-nav li{
+	float: left;
+	height: 40px;
+	width: 70px;
+	line-height: 40px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+.upper-lower .list-paper-width01{
+	width: 70px;
+}
+.upper-lower .list-paper-width02{
+	width: 130px;
+}
+.upper-lower .list-paper-width03{
+	width: 80px;
+}
+.upper-lower .list-paper-width04{
+	width: 50px;
+}
+.upper-lower-list-content-details{
+	width: 330px;
+	float: left;
+	margin-left: 11px;
+}
+.upper-lower-list-content-details li{
+	float: left;
+	height: 35px;
+	width: 70px;
+	line-height: 35px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px #D5D5D5 dashed;
+   }
+.upper-lower-list-content-details li.list-paper-width02{
+	color: #1B9BFF;
+}
+.upper-lower-bottombg{
+	clear: both;
+	width: 352px;
+	height: 29px;
+	margin-top: 0px;
+    background:url(../images/upper-lower-bottombg.png) no-repeat;
+}
+
+/*上面结束upper-lower部分*/
+
+
+
+
+
+
+/*下面开始注册登录框*/
+#pop-outer{
+	width: 672px;
+	height: 360px;
+	border: 1px transparent solid;
+	margin: 100px auto;
+	background: #C5C5C5;
+	/*background: #000000;*/
+	/*background:rgba(197,197,197,.5);*/
+    /*opacity: 0.5;*/
+    /*filter:Alpha(opacity=50);*/
+    position:absolute;
+	top:50%;
+	left:50%;
+	margin:-180px 0 0 -336px;
+	z-index: 9999;
+	position: fixed;
+	display: none;
+}
+#pop{
+	width: 657px;
+	height: 342px;
+	background: #fff;
+	margin: 9px auto;
+}
+#pop p.pop-title{
+	width: 657px;
+	height: 39px;
+	background: #E74C3C;
+	margin:0 auto;
+}
+#pop p.pop-title span{
+	color: #fff;
+	font-family: "微软雅黑";
+	font-size: 18px;
+	float: left;
+	margin-top: 7px;
+	margin-left: 20px; 
+}
+#pop p.pop-title label{
+	float: right;
+	margin-top: 9px;
+	margin-right: 12px;
+}
+#pop p.pop-title label a.icon-close{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+    background:url(../images/icon-close.png) no-repeat ;	
+}
+/*下面开始弹出框左边部分*/
+#pop .poplogin-left{
+	width: 388px;
+	height: 303px;
+	float: left;
+}
+#pop .poplogin-left ul{
+	width: 338px;
+	height: 210px;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+#pop .poplogin-left ul li{
+	width:330px;
+	height:45px;
+	line-height: 45px;
+	margin-top: 10px;
+}
+#pop .poplogin-left ul li.poplogin-name{
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #000000;
+	height: 35px;
+}
+#pop .poplogin-left ul li input[type="text"],input[type="password"]{
+	width: 262px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px #C3C3C3 solid;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #C3C3C3;
+	text-indent: 6px;
+	margin-right: 2px;
+}
+#pop .poplogin-left ul li a.lostpw{
+	color: #4063E6;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+#pop .poplogin-left ul li .poplogin a{
+ 	width: 114px;
+ 	height: 40px;
+ 	display: inline-block;
+ 	background:url(../images/pop-login.png);
+ 	float: left;
+ 	margin-right: 40px;
+ }
+ #pop .poplogin-left ul li .poplogin a:hover{
+ 	width: 114px;
+ 	height: 40px;
+ 	display: inline-block;
+ 	background:url(../images/pop-login-active.png);
+ }
+#pop .poplogin-left ul li p {
+ 	vertical-align: middle;
+    height: 28px;
+	line-height: 28px;
+	margin-top: 5px;
+	float: left;
+ }
+#pop .poplogin-left ul li span.pop-checkbox-selected{
+	background:url(../images/pop-checkbox-selected.png) no-repeat ;
+	width: 18px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	cursor: pointer;
+ 	margin-right: 3px;
+ 	float: left;
+ 	margin-top: 6px;
+}
+#pop .poplogin-left ul li span.pop-checkbox-not-selected{
+	background:url(../images/pop-checkbox-not-selected.png) no-repeat ;
+	width: 18px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	cursor: pointer;
+ 	margin-right: 3px;
+ 	float: left;
+ 	margin-top: 6px;
+}
+#pop .poplogin-left ul li label.auto-login{
+	margin-right: 60px;
+}
+#pop .poplogin-left ul li.last-child{
+	margin-top: 25px;
+}
+/*下面开始合作账号登录部分*/
+.poplogin-left p.pop-cooperative-logging{
+	color: #717171;
+	height: 28px;
+	line-height: 28px;
+	clear: both;
+	margin-left: 30px;
+	margin-top: 30px;
+}
+.poplogin-left p.pop-cooperative-logging span.fist-child{
+	margin-left: 10px;
+}
+.poplogin-left p.pop-cooperative-logging  span a{
+	margin-right: 4px;
+	vertical-align: middle;
+}
+.poplogin-left p.pop-cooperative-logging span.pop-zhifubao a{
+	width: 22px;
+ 	height: 23px;
+ 	display: inline-block;
+ 	background:url(../images/zhifubao-logo.png);
+}
+.poplogin-left p.pop-cooperative-logging  span.pop-sina-weibo a{
+	width: 24px;
+ 	height: 19px;
+ 	display: inline-block;
+ 	background:url(../images/sina-weibo-logo.png);
+}
+.poplogin-left p.pop-cooperative-logging  span.pop-qq a{
+	width: 17px;
+ 	height: 19px;
+ 	display: inline-block;
+ 	background:url(../images/qq-logo.png);
+}
+.poplogin-left p.pop-cooperative-logging span.pop-weixin a{
+	width: 21px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	background:url(../images/weixin-logo.png);
+}
+/*上面合作账号登录部分结束*/
+
+/*下面开始弹出框右边部分*/
+#pop .poplogin-right{
+	width: 264px;
+	height: 303px;
+	float: right;
+	background: #F5F5F5;
+}
+.poplogin-right p.no-account{
+	font-size: 16px;
+	color: #000000;
+	font-family: "微软雅黑";
+	margin-top: 34px;
+	margin-left: 35px;
+}
+.poplogin-right p.login{
+	font-size: 16px;
+	color: #8E8E8E;
+	font-family: "微软雅黑";
+	margin-top: 20px;
+	margin-left: 35px;
+}
+.poplogin-right p.pop-register a{
+ 	width: 126px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/pop-register.png);
+ 	margin-top: 20px;
+	margin-left: 35px;
+ }
+.poplogin-right p.pop-register a:hover{
+	width: 126px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/pop-register-active.png);
+ 	margin-top: 20px;
+	margin-left: 35px;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+/*上面结束注册登录框*/
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<script id="bet-record-tpl" type="text/x-jquery-tmpl">
+{{#scheme}}
+<div class="lottery-sun">
+	 <ul class="lottery-sun-top" data-type="{{type}}" data-show-scheme="{{showScheme}}_{{isPublishShow}}" 
+	 	data-scheme-id="{{id}}">
+	 	<li class="width01">
+	 		<i><img src="/assets/js/bet/images/red-right-triangle.png"></i>{{_lotteryName}} {{playName}}
+	 	</li>
+		<li class="width02">{{_type}}</li>
+		<li class="width03 color01">{{_buyAmount}}元</li>
+		<li class="width04">{{_status}}</li>
+		<li class="width05 color01">{{_winAmount}}</li>
+		<li class="width06 color02">{{_createdTime}}</li>
+		<li class="width07">
+			<a target="_blank" href="{{_detailSchemeUrl}}" class="color03" 
+				title="详情" type="detailScheme">详</a>
+    		{{^_isShowAction}}
+			<a target="_blank" href="javascript:void(0);" class="color03" 
+				title="晒单" type="showScheme" _schemeId="{{id}}" isShow="{{_showScheme}}">晒</a>
+    		{{/_isShowAction}}
+		</li>
+	 </ul>
+	 <div data-type="scheme-view" style="display:none;">
+	 </div>
+	<div class="lottery-sun-bottom"></div>
+</div>
+{{/scheme}}
+
+{{#tips}}
+<p class="ckgd"><a href="javascript:void(0);" title="近10天的投注记录" 
+	class="_seeMore" lotteryId="{{_lotteryId}}">查看更多</a></p>
+{{/tips}}
+
+{{^tips}}
+<div class="lottery-sun">
+	<ul class="lottery-sun-top">
+		<li>你还没有任何投注：<a target="_blank" href="{{betUrl}}">立即投注</a></li>
+	<ul>
+</div>
+{{/tips}}
+
+</script>

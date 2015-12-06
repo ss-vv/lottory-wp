@@ -1,0 +1,180 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="银行卡信息")
+#set($styles=["css/profile.css","css/imgareaselect/imgareaselect-default.css"])
+
+#set($scripts=["js/cities.js","js/web/profile/profile.js","js/web/login.js",
+	"js/imgareaselect/jquery.imgareaselect.pack.js",
+	"js/jquery.form.js",
+	"js/web/profile/email.js","js/web/profile/idcard.js",
+	"js/web/profile/profile_bank_acount.js"])
+
+<!--省市js代码-->
+<script>
+  var province = "$!{account.province}";
+  var city = "$!{account.city}";
+
+  //初始化城市和地区的选择框
+  function initPA(prov, area) {
+    jQuery("select[id='" + prov +"']").each(function(){
+      jQuery(this).empty();
+      for(var i = 0; i < arrCity.length; i++) {
+        if(i > 0) {
+          jQuery("<option value='" + arrCity[i]['name'] +"'>" + arrCity[i]['name'] + "</option>").appendTo(this);
+        } else {
+          jQuery("<option value=''>" + arrCity[i]['name'] + "</option>").appendTo(this);
+        }
+      }   
+    });
+    
+    jQuery("select[id='" + prov +"']").css('width', 'auto');
+    
+    jQuery("select[id='" + area +"']").each(function(){
+      jQuery(this).empty();
+      jQuery("<option value=''>" +  arrCity[0]['sub'][0]['name'] + "</option>").appendTo(this);
+    });
+    
+    jQuery("select[id='" + prov +"']").change(function(){
+      jQuery("select[id='" + area +"']").empty();
+      var selectedIndex = jQuery(this).find("option:selected")[0].index;
+      for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+        var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+        if(i > 0) {
+                jQuery("<option value='" + areaName +"'>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+        } else {
+          jQuery("<option value=''>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+        }
+      }
+    });
+    
+    if(province.length > 0){
+      setTimeout(function(){
+        jQuery("select[id='" + prov +"']").val(province);
+        var selectedIndex = jQuery("select[id='" + prov + "'] option[value='" + province +"']")[0].index;
+        
+        for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+          var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+          if(i > 0) {
+                jQuery("<option value='" + areaName +"'>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+          } else {
+            //jQuery("<option value=''>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+          }
+        }
+      }, 1);
+    }
+    
+    if(city.length > 0){
+      setTimeout(function(){
+        jQuery("select[id='" + area +"']").val(city);
+      }, 1);
+    }
+    
+  }
+
+  jQuery(function(){ 
+    initPA("province", "city");
+  });
+</script>
+
+<div id="modify-bank-card-information">
+	#parse("web/profile/inc/profile_header.vm")
+	<form id="setting_user_account_form" action="/ajax_save_bank_info" method="post" class="modify-bank-card-information-form">
+	    <ul>
+	    	#if($user.realname == '')
+	    	<li>
+	    		<label>真实姓名</label>
+	    		<input id="realname" type="text" name="newRealname" value="$!user.realname"/>
+	    		<i class="must-input-star">*</i>
+	    		<i class="err" id="realname_tip"></i>
+	    	</li>
+	    	#else
+	    	<li>
+	    		<label>真实姓名</label>
+	    		<input id="realname" type="text" name="newRealname" value="$!user.realname"  readonly="readonly" style="border: 0;"/>
+	    		<i class="must-input-star">*</i>
+	    	</li>
+	    	#end
+	    	#if($user.idNumber == '')
+	    	<li>
+	    		<label>身份证号</label>
+	    		<input id="idNumber" type="text" name="newIdNumber" value="$!user.idNumber"/>
+	    		<i class="must-input-star">*</i>
+	    		<i class="err" id="idNumber_tip"></i>
+	    	</li>
+	    	#else
+	    	<li>
+	    		<label>身份证号</label>
+	    		<input id="idNumber" type="text" name="newIdNumber" value="$!user.idNumber" readonly="readonly" style="border: 0;"/>
+	    		<i class="must-input-star">*</i>
+	    		<i class="err" id=""></i>
+	    	</li>
+	    	#end
+	    	
+	    	<li>
+	    		<label  class="in-the-city">所在城市</label>
+	    		<select id="province" name="newAccount.province"></select>
+				<select id="city" name="newAccount.city"></select>
+	    		<i class="must-input-star">*</i>
+	    		<i class="err" id="city_tip"></i>
+	    	</li>
+	    	<li>
+	    		<label>开户银行全称</label>
+	    		<input id="bank" type="text" name="newAccount.bank" value="$!{account.bank}"/>
+	    		<i class="must-input-star">*</i>
+	    		<i class="err" id="bank_tip"></i>
+	    	</li>
+	    	<li>
+	    		<label>银行卡号</label>
+	    		<input id="bank_number" type="text" name="newAccount.accountNumber" value="$!{account.accountNumber}"/>
+	    		<i class="must-input-star">*</i>
+	    		<i class="err" id="bank_number_tip"></i>
+	    	</li>
+	    	#if($account.bank && $account.accountNumber)
+		    	<li>
+		    		<label>提现密码</label>
+		    		<input id="tx_password" type="password" name="newAccount.password" value=""/>
+		    		<i class="must-input-star">*</i>
+		    		<i class="err" id="tx_password_tip"></i>
+		    	</li>
+	    	#else
+		    	<li>
+		    		<label>设置提现密码</label>
+		    		<input id="tx_password" type="password" name="newAccount.password" value=""/>
+		    		<i class="must-input-star">*</i>
+		    		<i class="err" id="tx_password_tip"></i>
+		    	</li>
+		    	<li>
+		    		<label>确认提现密码：</label>
+		    		<input id="tx_password2" type="password" name="" value=""/>
+		    		<i class="must-input-star">*</i>
+		    		<i class="err" id="tx_password2_tip"></i>
+		    	</li>
+	    	#end
+	    	
+	    	<li>
+	    		<label></label>
+    			<button id="submit_form_a"  class="modify-bank-card-information-form-submit">提交</button>
+    			<button id="goback" onclick="javascript:window.location.href='/${user.weiboUserId}/bank-info';return false;" class="modify-bank-card-information-form-back">返回</button>
+	    	</li>
+	    	
+	    	<li>
+	    		<label></label>
+	    		<div class="loading" style="height: 40px; display: none;" id="edit_bank_loading"></div>
+	    	</li>
+	    </ul>
+	</form>
+</div>
+<p class="bank-manage-line">−−−−−−−−−说明
+	−−−−−−−−−−−
+	−−−−−−−−−−−−−
+	−−−−−−−−−−−−
+	−−−−−−−−−−−−
+	−−−−−−−−−−−−
+	−−
+</p>
+<p class="bank-manage-line-words">开户银行全称格式为：xx银行xx分行xx支行；如果未正确填写开户银行全称，可能会使资金无法正常汇入您的银行卡内</p>
+		
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#yhkxx').attr('class','active');	
+	});
+</script>

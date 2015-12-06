@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <!-- 活动 -->
+  <package name="promote" extends="global" namespace="/promote">
+  
+    <!-- 查询足彩列表 -->
+    <action name="football_list" class="com.xhcms.lottery.admin.web.action.promote.ListJCZQAction">
+      <result>list_football.vm</result>
+    </action>
+    
+    <!-- 提交到赠款管理表 -->
+    <action name="ja_submit" class="com.xhcms.lottery.admin.web.action.promote.AjaxSubmitAction">
+      <result type="json" />
+    </action>
+    
+     <!-- 查询篮彩列表 -->
+    <action name="basketball_list" class="com.xhcms.lottery.admin.web.action.promote.ListJCLQAction">
+      <result>list_basketball.vm</result>
+    </action>
+    
+    <!-- 查询充值送彩金列表 -->
+    <action name="recharge_list" class="com.xhcms.lottery.admin.web.action.promote.ListRechargeAction">
+      <result>list_recharge.vm</result>
+    </action>   
+    
+    <!-- 充值送彩金提交到赠款管理表 -->
+    <action name="ra_submit" class="com.xhcms.lottery.admin.web.action.promote.AjaxSubmitAction" method="recharge_submit">
+      <result type="json" />
+    </action> 
+  </package>
+
+</struts>

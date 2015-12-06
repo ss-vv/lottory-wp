@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+	default-autowire="byName">
+
+	<context:annotation-config />
+	
+    <bean id="downloadService" class="com.unison.lottery.weibo.dataservice.commons.download.DownloadServiceImpl">
+    	<property name="urlMap">
+    		<map>
+    			<entry key="CurrentDayOdds">
+	           		<value>http://interface.win007.com/zq/odds.aspx</value>
+	           </entry>
+	           <entry key="HistoryPanKou">
+	           		<value>http://interface.win007.com/zq/historyOdds.aspx?date=yyyy-MM-dd</value>
+	           </entry>
+	           <entry key="ChangeOdds">
+	           		<value>http://interface.win007.com/zq/ch_odds.xml</value>
+	           </entry>
+	           <entry key="BFData">
+	           		<value>http://dxbf.bet007.com/vbsxml/bfdata.js</value>
+	           </entry>
+	           <entry key="BFChange">
+	           		<value> http://interface.win007.com/zq/change.xml</value>
+	           </entry> 
+	           <entry key="BFChange2">
+	           		<value>http://interface.win007.com/zq/change2.xml</value>
+	           </entry> 
+	           <entry key="BFDetail">
+	           		<value>http://interface.win007.com/zq/detail.aspx</value>
+	           </entry>
+	           <entry key="BFResult">
+	           		<value>http://interface.win007.com/zq/BF_XML.aspx</value>
+	           </entry> 
+	           <entry key="League">
+	           		<value>http://interface.win007.com/zq/League_XML.aspx</value>
+	           </entry>
+	           <entry key="Team">
+	           		<value>http://interface.win007.com/zq/Team_XML.aspx</value>
+	           </entry>
+	           <entry key="Event">
+	           		<value>http://interface.win007.com/zq/Event_XML.aspx</value>
+	           </entry>
+	           <entry key="Matchid">
+	           		<value>http://www.310win.com/handle/MatchidInterface.aspx</value>
+	           </entry>
+	           <entry key="Technic">
+	           		<value>http://interface.win007.com/zq/Technic_XML.aspx</value>
+	           </entry>
+	           <entry key="BF_XMLByID">
+	           		<value>http://interface.win007.com/zq/BF_XMLByID.aspx</value>
+	           </entry>
+	           <entry key="BJ_EUROPE_ODDS">
+                    <value>http://interface.win007.com/zq/1x2.aspx</value>
+               </entry>
+               <entry key="BBMatchInfo">
+                    <value>http://dxbf.titan007.com/nba_date.aspx</value>
+               </entry>
+               <entry key="BBMatchInfoToday">
+                    <value>http://dxbf.titan007.com/nba/today.xml</value>
+               </entry>
+               <entry key="BBMatchInfoRealtime">
+                    <value>http://dxbf.titan007.com/nba/change.xml</value>
+               </entry>
+               <entry key="BBTeam">
+                    <value>http://dxbf.titan007.com/LqTeam_Xml.aspx</value>
+               </entry>
+               <entry key="BBLeague">
+                    <value>http://dxbf.titan007.com/LqLeague_Xml.aspx</value>
+	           </entry>
+	           <entry key="BBCurrentDayOdds">
+                    <value>http://nba.titan007.com/odds/OddsData/oddsBsk.txt</value>
+               </entry>
+               <entry key="BBOddsHistory">
+                    <value>http://nba.titan007.com/odds/OddsData/overData.aspx</value>
+	           </entry>
+	           <entry key="BBChangeOdds30Sec">
+                    <value>http://nba.titan007.com/odds/OddsData/ch_oddsBsk.xml</value>
+	           </entry>
+	           <entry key="BBBjEuropeOdds">
+	           		<value>http://data.nowgoal.com/1x2/fbdatacn.aspx</value>
+	           </entry>
+               <!-- 新接口足球当天数据 -->
+               <entry key="FBBFDayOdds">
+               	 	<value>http://interface.win007.com/zq/today.aspx</value>
+               </entry>
+    		</map>
+    		
+    	</property>
+    	
+    </bean>
+    <bean id="charsetDecider" class="com.unison.lottery.weibo.dataservice.commons.util.CharSetDeciderImpl">
+    	<property name="charsetMap">
+    		<map>
+    			<entry key="BFDetail">
+	           		<value>GBK</value>
+	           </entry>
+	           <entry key="BFData">
+	           		<value>gb18030</value>
+	           </entry>
+    		</map>
+    	</property>
+    </bean>
+    <bean id="parseService" class="com.unison.lottery.weibo.dataservice.commons.parse.ParseServiceImpl"></bean>
+    <bean id="httpUtil" class="com.unison.lottery.weibo.dataservice.commons.crawler.util.HttpUtilImpl"/>
+</beans>

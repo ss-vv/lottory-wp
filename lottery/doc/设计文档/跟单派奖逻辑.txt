@@ -1,0 +1,21 @@
+* 根据ticket状态兑奖时，在 mc的TicketServiceImpl.preAward()中：
+    * 填写lt_bet_partner 表中的字段win_amount时，减掉佣金。
+    * 填写lt_bet_partner 表中的字段commission为要缴纳的佣金。
+    
+* 在admin中派奖时，在 BetSchemeServiceImpl.award()中：
+    * 当奖金大于本金才给佣金
+    * 给晒单者佣金
+        * 记录“加佣金”交易流水。
+        * 增加account相应字段值，total_commission、fund、free。
+
+实现：
+* 在 AccountService 中添加方法 giveCommission()
+
+说明：
+1、lt_win 表中记录的 win_amount 是扣税、减佣金后的（分成）奖金。不体现增加的佣金，即晒单、合买发起人所得佣金
+    不加入此字段。
+
+修改表：
+    lt_account 表 - 加字段 total_commission
+    lt_order 表 - 字段 type加类型 500: 加佣金.
+    lt_bet_partner 表 - 增加字段 commission.

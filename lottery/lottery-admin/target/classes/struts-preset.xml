@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 预兑奖管理 -->
+	<package name="preset" extends="global" namespace="/preset">
+	    <!-- 编辑竞彩足球赛果 -->
+		<action name="aj_editfb" class="com.xhcms.lottery.admin.web.action.match.AjaxEditFBMatchAction" method="update">
+      		<result type="json" />
+    	</action>
+    	
+    	<!-- 编辑竞彩篮球赛果 -->
+    	<action name="aj_editbb" class="com.xhcms.lottery.admin.web.action.match.AjaxEditBBMatchAction" method="update">
+      		<result type="json"/>
+    	</action>
+    	
+		<!-- 竞彩足球预兑奖 -->
+	    <action name="aj_presetFb" class="com.xhcms.lottery.admin.web.action.preset.AjaxPresetAction" method="presetFb">
+	      <result type="json"/>
+	    </action>
+	    
+		<!-- 竞彩篮球预兑奖 -->
+	    <action name="aj_presetBb" class="com.xhcms.lottery.admin.web.action.preset.AjaxPresetAction" method="presetBb">
+	      <result type="json"/>
+	    </action>
+	    
+		<!-- 传统足彩预兑奖 -->
+	    <action name="aj_preset_prize_ctzc" class="com.xhcms.lottery.admin.web.action.preset.AjaxPresetAction" method="presetCTZC">
+	      <result type="json"/>
+	    </action>
+	    
+		<!-- 撤销预兑奖 -->
+	    <action name="aj_cancel" class="com.xhcms.lottery.admin.web.action.preset.AjaxPresetAction" method="cancel">
+	      <result type="json"/>
+	    </action>
+	    <!-- 预设传统足球比分 -->
+	    <action name="aj_presetctzc" class="com.xhcms.lottery.admin.web.action.match.AjaxPresetCTZCMatchAction">
+	      <result type="json"/>
+	    </action>
+	    <action name="fblist" class="com.xhcms.lottery.admin.web.action.match.FBMatchListAction">
+      		<result>preset_fb.vm</result>
+    	</action>
+    	
+	    <action name="bblist" class="com.xhcms.lottery.admin.web.action.match.BBMatchListAction">
+      		<result>preset_bb.vm</result>
+    	</action>
+    	
+	    <action name="preset_ctzc" class="com.xhcms.lottery.admin.web.action.preset.IssueListAction" method="ctzc">
+      		<result>preset_ctzc.vm</result>
+    	</action>
+	    <action name="set_ctzc_bonus" class="com.xhcms.lottery.admin.web.action.preset.IssueListAction" method="setCTZCBonus">
+      		<result type="json">
+      			<param name="root">setBonusResult</param>
+      		</result>
+    	</action>
+    	
+    	<!-- 查询未派奖方案 -->
+	    <action name="lsnotaward" class="com.xhcms.lottery.admin.web.action.preset.ListPresetAction">
+	      <result>lsnotaward.vm</result>
+	    </action>
+    	
+	    <!-- 查询已派奖方案 -->
+	    <action name="lsawarded" class="com.xhcms.lottery.admin.web.action.preset.ListPresetAction" method="awarded">
+	      <result>lsawarded.vm</result>
+	    </action>
+	    
+	    <!-- 查询未中奖方案 -->
+	    <action name="lsnotwin" class="com.xhcms.lottery.admin.web.action.preset.ListPresetAction" method="notWin">
+	      <result>lsnotwin.vm</result>
+	    </action>
+	    
+	    <!-- 预派奖 -->
+	    <action name="aj_award" class="com.xhcms.lottery.admin.web.action.preset.AjaxPresetAwardAction">
+	      <result type="json" />
+	    </action>
+	    
+	    <!-- 查看详情 -->
+	    <action name="view" class="com.xhcms.lottery.admin.web.action.scheme.ViewAction" method="view">
+	      <result>view.vm</result>
+	    </action>
+	    
+	    <!-- 查看投注赛事 -->
+	    <action name="lsmatch" class="com.xhcms.lottery.admin.web.action.scheme.ListMatchAction">
+	      <result>match.vm</result>
+	    </action>
+	    
+	    <!-- 查看出票详情 -->
+	    <action name="lsticket" class="com.xhcms.lottery.admin.web.action.scheme.ListTicketAction" method="lsticket">
+	      <result>ticket.vm</result>
+	    </action>
+	     
+	    <!-- 查看投注合买人 -->
+	    <action name="lspartner" class="com.xhcms.lottery.admin.web.action.scheme.ListPartnerAction" method="lspartner">
+	      <result>partner.vm</result>
+	    </action>
+	    
+	    <!-- 查看跟单人 -->
+		 <action name="lsfollower" class="com.xhcms.lottery.admin.web.action.groupfollow.ListFollowingSchemeAction" method="lsfollower">
+	      <result>list_following_scheme.vm</result>
+	    </action>
+	    <!-- 传统足球列表 -->
+	    <action name="ctzcmatchlist" class="com.xhcms.lottery.admin.web.action.match.CTFBMatchForPresetResultAction">
+	      <result>ctfb_preset_list.vm</result>
+	    </action>
+    </package>
+</struts>

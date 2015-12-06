@@ -1,0 +1,159 @@
+#set($title="足彩中奖加奖")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b style="color:blue;">足彩中奖加奖</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/promote/football_list.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel" style="height:auto;clear:both;overflow:hidden;">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">
+		            创建日期：从 <input type="text" id="fromDP" name="from" #if($from)value="$date.format('yyyy-MM-dd', $from)"#end readonly="readonly" size="10"/>
+		            至 <input type="text" id="toDP" name="to" #if($to)value="$date.format('yyyy-MM-dd', $to)"#end readonly="readonly" size="10"/>
+          			用户名称：<input type="text" name="winGrant.username" value="$!{winGrant.username}" maxlength="18" size="8"/>
+          			方案ID：<input type="text" name="schemeId" value="#if(${schemeId} == 0)#else${schemeId}#end" maxlength="18" size="8"/>
+            		操作人：<input type="text" name="winGrant.operatorName" value="$!{winGrant.operatorName}" maxlength="30" size="8"/>
+		            状态：<select name="state" value="${state}" id="stateSel">
+		              <option value="-1">不限</option>
+		              <option value="0">未处理</option>
+		              <option value="1">已提交</option>
+		            </select>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+            <input type="submit" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+      <div class="tabH tabH02 panel">
+        <span class="current"><b>批量操作</b></span>
+        <div style="margin: 4px 4px 0 10px;">
+          <input type="button" class="hand btn" value="批量提交" id="openBtn"/>
+        </div>
+      </div>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+        <th style="width:25px;text-align:center;"><span><input type="checkbox" id="checkAll" /></span></th>
+				<th style="width:25px;text-align:center;"><span>UID</span></th>
+        		<th style="width:80px;text-align:center;"><span>用户名称</span></th>
+				<th style="width:40px;text-align:center;"><span>方案ID</span></th>
+				<th style="width:50px;text-align:center;"><span>税后奖金</span></th>
+				<th style="width:40px;text-align:center;"><span>赠款</span></th>
+				<th style="width:80px;text-align:center;"><span>创建日期</span></th>
+				<th style="width:60px;text-align:center;"><span>操作人</span></th>
+				<th style="width:80px;text-align:center;"><span>操作时间</span></th>
+				<th style="width:35px;text-align:center;"><span>状态</span></th>
+				<th style="width:50px;text-align:center;"><span>操作</span></th>
+			</tr>
+			#foreach($u in $paging.results)
+			<tr>
+        <td style="text-align:center;"><input type="checkbox" name="id" value="${u.id}" _s="${u.status}" #if(${u.status} != 0)disabled="disabled"#end/></td>
+        		<td style="text-align:center;">${u.userId}</td>
+				<td style="text-align:center;">${u.username}</td>
+				<td style="text-align:center;"><a href="javascript:void(0);" _action="view" _sid="$!{u.scheme.id}">$!{u.scheme.id}</a></td>
+				<td style="text-align:right;">￥$!{u.scheme.afterTaxBonus}</font></td>
+				<td style="text-align:right;"><font color="red">￥$!{u.amount}</font></td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${u.grantTime})</td>
+				<td style="text-align:center;">$!{u.operatorName}</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${u.operatorTime})</td>
+				<td style="text-align:center;">#if(${u.status} == 0)<font color="red">未处理 #else<font color="#99cc33">已提交#end</td>
+				<td style="text-align:center;">#if(${u.status} == 0)<a href="javascript:void(0);"onclick="return submitone('${u.id}');">提交</a>#else <font color="#99cc33">#end&nbsp;&nbsp;<a href="javascript:void(0);" _action="view" _sid="$!{u.scheme.id}">详情</a></td>
+        </td>
+			</tr>
+			#end
+		</table>
+    </form>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+function submitone(wid){
+     if(confirm('确定要提交选中的用户？')){
+            jQuery.getJSON('$base/promote/ja_submit.do', 'id='+wid, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                	alert('未知错误。');
+                	$('#qForm').submit();
+                }
+            });
+        }
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(f != null && t != null){
+            if(t.getTime() < f.getTime()){
+                alert('终止日期不能早于开始日期');
+                return false;
+            }
+            if((t.getTime() - f.getTime()) / 86400000 > 90){
+                alert('查询日期区间不能超过90天');
+                return false;
+            }
+        }
+        $('#qForm').submit();
+    }
+    // 查看详情
+    $('#dataGrid td a[_action="view"]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        xhOpenWindow('../scheme/view.do?id=' + sid, {
+            id: 's_' + sid,
+            title: '查看投注方案详情',
+            height: 600,
+            width: 900
+        });
+        
+        return false;
+    });
+   $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="id"]:enabled').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="id"]:enabled').removeAttr('checked');
+        }
+    });
+    
+    $('#openBtn').bind('click', function(){
+        var _chks = $('#dataGrid :checkbox[name="id"]:checked');
+        if(_chks.length == 0){
+            alert('请选择要提交的用户');
+            return false;
+        }
+        if(_chks.filter('[_s="0"]').length == 0){
+            alert('所选择的用户已提交,不需要提交。');
+            return false;
+        }
+        
+        if(confirm('确定要提交选中的用户？')){
+            jQuery.getJSON('$base/promote/ja_submit.do', $('#pForm').serialize(), function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                	alert('所选择的用户包含已提交,等刷新后重新提交。');
+                	$('#qForm').submit();
+                }
+            });
+        }
+    });   
+});
+</script>

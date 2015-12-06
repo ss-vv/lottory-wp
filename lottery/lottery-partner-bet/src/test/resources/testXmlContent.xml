@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+	<head msg="001" partnerid="youyuanwang" version="1.0" time="20140903101259" />
+	<body>
+		<issueInfoReq  lotteryType="SSQ" />
+	</body>
+</msg>

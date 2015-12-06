@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<methodRequest name="bindBank" validId="用户身份id字符串（md5）" clientVersion="客户端版本号" channel="渠道号" deviceId="sim卡序列号" modelName="机型信息" province="银行所在省" city="银行所在市" accountBank="开户行名称" bankID="银行账号" withdrawPassword="提现密码"/>

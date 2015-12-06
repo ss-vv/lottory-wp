@@ -1,0 +1,84 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="交战历史")
+#set($styles=["css/match.css", 
+	"css/list-open.css"])
+#set($scripts=["js/web/match/weiboMatch.js", 
+	"js/web/match/chart.js",
+	"js/web/match/query-util.js",
+	"js/web/match/match-score.js",
+	"js/web/match/fighting-history.js",
+	"js/web/match/match-league-cup.js",
+	"js/web/match/fill-match-string.js",
+	"js/web/publish-weibo.js"])
+<!-- body -->
+<div class="main_body clearfix">
+    <div class="slide_box">
+        <div class="title">
+            <span><b>赛事数据</b></span>
+        </div>
+        <ul>
+		    <li><a href="/matches/$!lotteryType/$!matchId">赛事概览</a></li>
+		    <li><a href="/europe_odds?matchId=$!matchId&lotteryType=$!lotteryType">欧赔指数</a></li>
+		    <li><a href="/asian_odds?matchId=$!matchId&lotteryType=$!lotteryType">亚洲盘口</a></li>
+			#if(${lotteryType} == "JCLQ")
+            <li><a href="/bigSmall_odds?matchId=$!matchId&lotteryType=$!lotteryType">大小分盘口</a></li>
+        	#end
+		    <li class="active-bg"><a  style="color:white" href="/fighting_history?matchId=$!matchId&lotteryType=$!lotteryType">交战历史</a></li>
+		    <li><a href="/recent_match?matchId=$!matchId&lotteryType=$!lotteryType">近期赛事</a></li>
+		    <li><a href="/future_matchs?matchId=$!matchId&lotteryType=$!lotteryType">未来赛事</a></li>
+		</ul>
+    </div>
+    <div class="main_content">
+        <div class="inner_content">
+           <!-- 比分 -->
+            <div class="game_tip clearfix">
+            </div>
+            <!-- 比分 -->
+            <div class="hr"></div>
+			<input type="hidden" value="${matchId}" id="matchId"/>
+			<input type="hidden" value="${lotteryType}" id="lotteryType"/>
+            <!-- 交战历史 -->
+            <div class="t1 clearfix">
+                <div class="title"><span><b>交战历史</b></span></div>
+            </div>
+            <div class="t2 clearfix" style="background-color: #fcecec;">
+				<!--缓存主客队ID-->
+				<input type="hidden" id="homeTeamId" value="$!match.homeTeamId"/>
+				<input type="hidden" id="guestTeamId" value="$!match.guestTeamId"/>
+                <i class="sprites" style="background-position: 0px -121px;"></i>
+                <span><b id="homeTeamName">$!match.homeTeam</b><b class="red"> VS </b><b id="guestTeamName">$!match.guestTeam</b></span>
+            </div>
+            <div class="t3 clearfix">
+                <ul id="matchCheckboxUL">
+                    
+                </ul>
+            </div>
+            <div class="kj_box">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <td width="13%">赛事</td>
+                            <td width="12%">日期</td>
+                            <td width="45%">对阵</td>
+                            <td>盘口</td>
+                            <td>胜负</td>
+                            <td>盘路</td>
+                            <td class="no_right_border">大小</td>
+                        </tr>
+                    </thead>
+                    <tbody id="historyMatchTBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <!-- 交战历史 -->
+            <!-- 列表 -->
+            #parse("web/match/match_weibo.vm")
+            <!-- 列表 -->
+        </div>
+    </div>
+    #include("web/match/match_right_comm.vm")
+</div>
+<!-- body -->
+
+

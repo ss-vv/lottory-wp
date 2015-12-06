@@ -1,0 +1,371 @@
+#set($title="投注方案管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH">
+		<span #if("JCZQ" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=JCZQ"><b>竞彩足球</b></a></span>
+		<span #if("JCLQ" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=JCLQ"><b>竞彩篮球</b></a></span>
+		<span #if("JX11" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=JX11"><b>江西十一选五</b></a></span>
+		<span #if("CTZC" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=CTZC"><b>传统足彩</b></a></span>
+		<span #if("CQSS" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=CQSS"><b>重庆时时彩</b></a></span>
+		<span #if("SSQ" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=SSQ"><b>双色球</b></a></span>
+		<span #if("BJDC" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=BJDC"><b>北京单场</b></a></span>
+		<span #if("FC3D" == $lotteryId) class="current" #end><a href="$base/scheme/lsbet.do?lotteryId=FC3D"><b>福彩3D</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in">
+			<form id="qForm" action="$base/scheme/lsbet.do" method="post">
+			<input type="hidden" name="lotteryId" value="${lotteryId}"/>
+			<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			<div class="tabH tabH02 panel">
+        <span class="current"><b>查询条件</b></span>
+        <div class="l">
+          从 <input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+         至 <input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+          <select name="state" value="${state}" id="stateSel">
+            <option value="-1">不限状态</option>
+            <option value="0">未出票</option>
+            <option value="1">可出票</option>
+            <option value="2">已请求出票</option>
+            <option value="5100">出票成功</option>
+            <option value="5101">出票失败</option>
+            <option value="5202">未中奖</option>
+            <option value="5203">中奖未派奖</option>
+            <option value="12">已派奖</option>
+            <option value="99">流标</option>
+            <option value="100">撤单</option>
+          </select>
+          <select name="playId" value="$!{playId}" id="pSel">
+            <option value="">不限玩法</option>
+          #if("JCZQ" == $lotteryId)
+            <option value="01_JC_1">让球胜平负单关</option>
+            <option value="01_JC_2">让球胜平负过关</option>
+            <option value="80_JC_1">胜平负单关</option>
+            <option value="80_JC_2">胜平负过关</option>
+            <option value="02_JC_1">比分单关</option>
+            <option value="02_JC_2">比分过关</option>
+            <option value="03_JC_1">总进球数单关</option>
+            <option value="03_JC_2">总进球数过关</option>
+            <option value="04_JC_1">胜负半全单关</option>
+            <option value="04_JC_2">胜负半全过关</option>
+            <option value="05_ZC_2">混合过关</option>
+          #elseif("JCLQ" == $lotteryId)
+            <option value="06_LC_1">让分胜负单关</option>
+            <option value="06_LC_2">让分胜负过关</option>
+            <option value="07_LC_1">胜负单关</option>
+            <option value="07_LC_2">胜负过关</option>
+            <option value="08_LC_1">胜分差单关</option>
+            <option value="08_LC_2">胜分差过关</option>
+            <option value="09_LC_1">大小分单关</option>
+            <option value="09_LC_2">大小分过关</option>
+			<option value="10_LC_2">混合过关</option>
+          #elseif("JX11" == $lotteryId)
+	        <option value="11_J5_R1">任选一</option>
+	        <option value="12_J5_R2">任选二</option>
+	        <option value="13_J5_R3">任选三</option>
+	        <option value="14_J5_R4">任选四</option>
+	        <option value="15_J5_R5">任选五</option>
+	        <option value="16_J5_R6">任选六</option>
+	        <option value="17_J5_R7">任选七</option>
+	        <option value="18_J5_R8">任选八</option>
+	        <option value="19_J5_D2">前二直选</option>
+	        <option value="20_J5_D3">前三直选</option>
+	        <option value="21_J5_G2">前二组选</option>
+	        <option value="22_J5_G3">前三组选</option>
+	      #elseif("CTZC" == $lotteryId)
+	        <option value="24_ZC_14">14场胜负</option>
+	        <option value="25_ZC_R9">胜负任9</option>
+	        <option value="26_ZC_BQ">6场半全</option>
+	        <option value="27_ZC_JQ">4场进球</option>
+		  #elseif("CQSS" == $lotteryId)
+	        <option value="30_CQSS_5X_TX">五星通选</option>
+	        <option value="31_CQSS_5X_DS">五星单式</option>
+	        <option value="32_CQSS_5X_FS">五星复式</option>
+	        <option value="33_CQSS_5X_ZH">五星组合</option>	        
+	        <option value="34_CQSS_3X_DS">三星单式</option>
+	        <option value="35_CQSS_3X_FS">三星复式</option>
+	        <option value="36_CQSS_3X_ZH">三星组合</option>
+	        <option value="37_CQSS_3X_ZH_FS">三星组合复式</option>	       
+	        <option value="38_CQSS_3X_HZ">三星直选和值</option>
+	        <option value="39_CQSS_3X_Z3_FS">三星组三复式</option>
+	        <option value="40_CQSS_3X_Z6_FS">三星组六复式</option>
+	        <option value="41_CQSS_3X_ZX_HZ">三星组选合值</option>	       
+	        <option value="42_CQSS_3X_ZX_BD">三星组选包胆</option>
+	        <option value="43_CQSS_2X_DS">二星直选单式</option>
+	        <option value="44_CQSS_2X_FS">二星直选复式</option>
+	        <option value="45_CQSS_2X_ZH">二星组合</option>	       
+	        <option value="46_CQSS_2X_HZ">二星直选和值</option>
+	        <option value="47_CQSS_2X_ZX_DS">二星组选单式</option>
+	        <option value="48_CQSS_2X_ZX_ZH">二星组选组合</option>
+	        <option value="49_CQSS_2X_ZX_FZ">二星组选分组</option>	       
+	        <option value="50_CQSS_2X_ZX_HZ">二星组选和值</option>
+	        <option value="51_CQSS_2X_ZX_BD">二星组选包胆</option>
+	        <option value="52_CQSS_1X_DS">一星单式</option>
+	        <option value="53_CQSS_DXDS">大小单双</option>	       
+	        <option value="54_CQSS_3X_Z3_DS">三星组三单式</option>
+	        <option value="55_CQSS_3X_Z6_DS">三星组六单式</option>
+		#elseif("SSQ" == $lotteryId)
+			<option value="70_SSQ_DS">单式</option>
+			<option value="71_SSQ_FS">复式</option>
+			<option value="72_SSQ_DT">胆拖</option>
+		#elseif("BJDC" == $lotteryId)
+			<option value="91_BJDC_SPF">让球胜平负</option>
+			<option value="92_BJDC_JQS">进球数</option>
+			<option value="93_BJDC_SXDS">上下单双</option>
+			<option value="94_BJDC_BF">比分</option>
+			<option value="95_BJDC_BQC">半全场</option>
+			<option value="96_BJDC_SF">胜负过关</option>
+		#elseif("FC3D" == $lotteryId)
+			<option value="97_FC3D_ZXDS">直选单式</option>
+			<option value="98_FC3D_ZXFS">直选复式</option>
+			<option value="99_FC3D_ZXHZ">直选和值</option>
+			<option value="100_FC3D_ZX_DS">组选单式</option>
+			<option value="101_FC3D_Z3FS">组三复式</option>
+			<option value="102_FC3D_Z3HZ">组三和值</option>
+			<option value="103_FC3D_Z6FS">组六复式</option>
+			<option value="104_FC3D_Z6HZ">组六和值</option>
+			<option value="105_FC3D_DXBH">单选包号</option>
+    	 #end
+          </select>
+          #if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+         <select name="passType" value="$!{passType}" id="ptSel">
+                  <option value="">不限过关方式</option>
+                  <option value="1@1">单关</option>
+                  <option value="2@1">2串1</option>
+                  <option value="2@3">2串3</option>
+                  <option value="3@1">3串1</option>
+                  <option value="3@3">3串3</option>
+                  <option value="3@4">3串4</option>
+                  <option value="3@7">3串7</option>
+                  <option value="4@1">4串1</option>
+                  <option value="4@4">4串4</option>
+                  <option value="4@5">4串5</option>
+                  <option value="4@6">4串6</option>
+                  <option value="4@11">4串11</option>
+                  <option value="4@15">4串15</option>
+                  <option value="5@1">5串1</option>
+                  <option value="5@5">5串5</option>
+                  <option value="5@6">5串6</option>
+                  <option value="5@10">5串10</option>
+                  <option value="5@16">5串16</option>
+                  <option value="5@20">5串20</option>
+                  <option value="5@26">5串26</option>
+                  <option value="5@31">5串31</option>
+                  <option value="6@1">6串1</option>
+                  <option value="6@6">6串6</option>
+                  <option value="6@7">6串7</option>
+                  <option value="6@15">6串15</option>
+                  <option value="6@20">6串20</option>
+                  <option value="6@22">6串22</option>
+                  <option value="6@35">6串35</option>
+                  <option value="6@42">6串42</option>
+                  <option value="6@50">6串50</option>
+                  <option value="6@57">6串57</option>
+                  <option value="6@63">6串63</option>
+                  <option value="7@1">7串1</option>
+                  <option value="7@7">7串7</option>
+                  <option value="7@8">7串8</option>
+                  <option value="7@21">7串21</option>
+                  <option value="7@35">7串35</option>
+                  <option value="7@120">7串120</option>
+                  <option value="8@1">8串1</option>
+                  <option value="8@8">8串8</option>
+                  <option value="8@9">8串9</option>
+                  <option value="8@28">8串28</option>
+                  <option value="8@56">8串56</option>
+                  <option value="8@70">8串70</option>
+                  <option value="8@247">8串247</option>
+                </select>
+		   #elseif("BJDC" == $lotteryId)
+				<select name="passType" value="$!{passType}" id="ptSel">
+                  <option value="">不限过关方式</option>
+                  <option value="1@1">单关</option>
+                  <option value="2@1">2串1</option>
+                  <option value="2@3">2串3</option>
+                  <option value="3@1">3串1</option>
+                  <option value="3@4">3串4</option>
+                  <option value="3@7">3串7</option>
+                  <option value="4@1">4串1</option>
+                  <option value="4@5">4串5</option>
+                  <option value="4@11">4串11</option>
+                  <option value="4@15">4串15</option>
+                  <option value="5@1">5串1</option>
+                  <option value="5@6">5串6</option>
+                  <option value="5@16">5串16</option>
+                  <option value="5@26">5串26</option>
+                  <option value="5@31">5串31</option>
+                  <option value="6@1">6串1</option>
+                  <option value="6@7">6串7</option>
+                  <option value="6@22">6串22</option>
+                  <option value="6@42">6串42</option>
+                  <option value="6@57">6串57</option>
+                  <option value="6@63">6串63</option>
+                  <option value="7@1">7串1</option>
+                  <option value="8@1">8串1</option>
+				  <option value="8@1">9串1</option>
+				  <option value="8@1">10串1</option>
+				  <option value="8@1">11串1</option>
+				  <option value="8@1">12串1</option>
+				  <option value="8@1">13串1</option>
+				  <option value="8@1">14串1</option>
+				  <option value="8@1">15串1</option>
+                </select>
+           #end
+          发起人：<input type="text" name="sponsor" value="$!{sponsor}" maxlength="30" size="9"/>
+                方案编号：<input type="text" name="schemeId" value="$!{schemeId}" maxlength="10" size="9"/>
+				  </div>
+        <div class="r" style="margin: 4px 4px 0 0">
+          <input type="submit" class="hand btn" value="查询">
+        </div>
+			</div>
+			</form>
+		</div>
+		<table cellspacing="0" id="dataGrid" class="tab">
+			<tr>
+        <th style="width:50px;text-align:center;"><span>方案编号</span></th>
+				<th style="width:70px;text-align:center;"><span>玩法</span></th>
+				<th style="width:40px;text-align:center;"><span>类型</span></th>
+				<th style="width:100px;text-align:center;"><span>发起人</span></th>
+				<th style="width:50px;text-align:right;"><span>投注倍数</span></th>
+				<th style="width:60px;text-align:right;"><span>金额（元）</span></th>
+				<th style="width:70px;text-align:center;"><span>投注时间</span></th>
+				<th style="width:70px;text-align:center;"><span>截止时间</span></th>
+				<th style="width:70px;text-align:center;"><span>投注状态</span></th>
+				<th style="width:70px;text-align:center;"><span>状态</span></th>
+        <th style="width:70px;text-align:center;">操作</th>
+			</tr>
+		
+			#foreach($s in $paging.results)
+			<tr>
+				<td style="text-align:center;">${s.id}</td>
+				<td style="text-align:center;">$status.playName($s.playId)</td>
+				<td style="text-align:center;">#schemeType($s.type)</td>
+				<td style="text-align:center;">${s.sponsor}</td>
+				<td style="text-align:right;">${s.multiple}</td>
+        		<td style="text-align:right;">￥${s.totalAmount}</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.createdTime})</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.offtime})</td>
+				<td style="text-align:center;">#saleStatus($s.saleStatus)</td>
+				<td style="text-align:center;">$status.bet($s.status)</td>
+		        <td style="text-align:center;">
+		          <a href="javascript:void(0);" _action="view" _sid="${s.id}" title="查看详情">详情</a>
+		          #if($s.status == 1 || $s.status == 0)
+		          <a href="javascript:void(0);" _action="cancel" _sid="${s.id}" title="撤销该方案"><span class="red">撤单</span></a>
+		          #end
+		          #if($s.status == 21)
+		          <a href="javascript:void(0);" _action="set_allow_buy" _sid="${s.id}" title="重置为可出票"><span class="red">重新出票</span></a>
+		          &nbsp;
+		          <a href="javascript:void(0);" _action="set_ticket_fail" _sid="${s.id}" title="强制未出票为失败"><span class="red">强制失败</span></a>
+		          #end
+		        </td>
+			</tr>
+			#end
+		</table>
+
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    $('#pSel option[value="$!{playId}"]').attr('selected', 'selected');
+    $('#ptSel option[value="$!{passType}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+	$('#qForm').submit(function() {
+		var schemeId = $(':input[name="schemeId"]').val();
+		var digital = /^\d*$/g;
+		if(!schemeId.match(digital)) {
+			alert("无效的方案编号");
+			return false;
+		}
+	});
+	
+    // 查看详情
+    $('#dataGrid td a[_action="view"]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        xhOpenWindow('$base/scheme/view.do?id=' + sid, {
+            id: 's_' + sid,
+            title: '查看投注方案详情',
+            height: 600,
+            width: 900
+        });
+        
+        return false;
+    });
+    
+    // 撤单
+    $('#dataGrid td a[_action="cancel"]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        
+        if(confirm('你确定要撤单吗，有可能此方案正在出票中？')){
+            J.getJSON('$base/scheme/aj_cancel.do', {sid: sid}, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                    alert(json.data);
+                }
+            });            
+        }
+        return false;
+    });
+    
+    // 重置为可出票
+    $('#dataGrid td a[_action="set_allow_buy"]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        
+        if(confirm('你确定要重置本方案为可出票状态吗，会重新出票一次？')){
+            J.getJSON('$base/scheme/aj_set_allow_buy.do', {sid: sid}, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                    alert(json.data);
+                }
+            });            
+        }
+        return false;
+    });
+
+    // 强制未出票为失败
+    $('#dataGrid td a[_action="set_ticket_fail"]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        
+        if(confirm('你确定要设置本方案中未出票的状态为“失败”，并返还冻结款吗？')){
+            J.getJSON('$base/scheme/aj_set_ticket_fail.do', {sid: sid}, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                    alert(json.data);
+                }
+            });            
+        }
+        return false;
+    });
+});
+</script>

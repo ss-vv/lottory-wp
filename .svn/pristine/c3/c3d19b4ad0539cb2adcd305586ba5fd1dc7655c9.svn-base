@@ -1,0 +1,52 @@
+
+# name
+project.displayname = weibo-web
+
+# database
+db.url = jdbc:mysql://182.92.191.193:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = test_lottery
+db.password = test77
+
+# database
+db2.url = jdbc:mysql://182.92.191.193:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = test_account
+db2.password = test77
+
+debugMode=true
+advancedMinute=10
+
+# redis
+redis.url = 182.92.191.193
+redis.port = 22122
+
+#image.weibo.directory=d:\\data\\weibo\\images\\weibo\\
+image.weibo.directory=/data/weibo/images/weibo/
+
+# active mq
+amq.brokerURL=tcp://182.92.191.193:61616
+
+solrUrl = http://182.92.191.193:28080/solr/collection1/
+
+#thrift.port
+thrift.port = 32100
+
+#thrift.address
+thrift.address = 10.172.241.76
+
+#scheme time to live
+scheme.timeToLive=86400
+scheme.final.timeToLive=604800
+
+#alipay login
+alipay.service = alipay.auth.authorize
+alipay.parenter = 2088611118242558
+alipay.input_charset = utf-8
+alipay.return_url = http://login.davcai.com/alipay_login_back.do
+#alipay.return_url = http://www.davcai.com/alipayback.do
+alipay.target_service = user.auth.quick.login
+alipay.sign_type = MD5
+alipay.url = https://mapi.alipay.com/gateway.do
+alipay.key = 6sdvs4ky77wtb4x8es5wtaoj77b56w0d
+
+#赛事颜色超时时间(毫秒)
+match_color_timeout = 60000

@@ -1,0 +1,63 @@
+<div class="commentContainer display_textarea" style="display: block;">
+	<div class="commentPostArea">
+		<div class="arrow-top">
+			<span class="arrow-top-out"></span>
+			<span class="arrow-top-in"></span>
+		</div>
+		<div class="inputArea">
+			<textarea class="commentEditor"
+				style="min-height: 50px; height: 60.21875px;"></textarea>
+		</div>
+		<p class="forbidden" style="display: none">由于用户的设置，你不能对主贴进行评论</p>
+		<span class="showFaceButton">&nbsp;</span>
+		<span class="addStock">&nbsp;</span>
+		<label><input type="checkbox" name="forward">同时转发到我的首页 </label>
+		<form class="replyForm" action="" method="get">
+			<input type="submit" class="commentSubmit button" value="发布">
+		</form>
+		<div class="fixit"></div>
+	</div>
+	<div class="loading" style="display: none;"></div>
+	<div class="goodCommentInfo" data_limit="1" style="display: none">
+		<h4 class="hd">精彩评论</h4>
+		<ul class="commentList"></ul>
+	</div>
+	<div class="commentInfo" style="">
+		<div class="hd">
+			<span class="sort"><span>排序：</span>
+			<a href="javascript:;" sort="false" class="active" title="最近">最近</a>
+			<a href="javascript:;" sort="true" title="最早">最早</a>
+			<a href="javascript:;" sort="like" title="赞" class="last">赞</a>
+			</span>
+			<span class="commentNum">全部评论<span class="counts">（1）</span></span>
+		</div>
+		<div class="loading" style="display: none;"></div>
+		<ul class="commentList">
+			<li id="comment_23689427" class="last"><div class="headpic">
+					<a href="http://xueqiu.com/maohaojie" data-name="一路有我">
+					<img width="30px" height="30px" src="http://photo.xueqiu.com/community/201310/1383831522387-1383831528516.png!30x30.png">
+					</a>
+				</div>
+				<div class="content" style="display: block;">
+					<div class="comment">
+						<a href="http://xueqiu.com/maohaojie" data-name="一路有我">一路有我<span
+							class="user_remark" data-name="一路有我" style="display: none">()</span></a>：
+					</div>
+					<div class="cmt_con">
+						<span><img
+							src="http://js.xueqiu.com/images/face/05woshou.png" title="[赞成]"
+							alt="[赞成]" height="24">是的，就是这个理。 &nbsp;还加一个，正品！！</span>
+					</div>
+					<div class="ops">
+						<div class="infos">
+							<span class="createAt" createdat="1386135652000">今天 13:41</span><a
+								href="#" class="reportSpam_comment last">举报</a>
+						</div>
+						<a href="#" class="like" like_count="0">赞</a><a href="#"
+							class="reply last">回复</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

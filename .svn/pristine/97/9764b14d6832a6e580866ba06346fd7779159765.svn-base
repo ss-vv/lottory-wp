@@ -1,0 +1,147 @@
+
+#foreach($bet in $betScheme)
+<div id="$bet.id" style="display:none">
+	<span class="dialog_close">
+      <a href="javascript:void(0);" class="red-close"></a>
+    </span>
+	<div class="upper-lower-top">
+		<ul class="upper-lower-list-content-nav">
+        	<li class="list-paper-width01">赛事编号</li>
+   			<li class="list-paper-width02">主队VS客队</li>
+   			<li class="list-paper-width03">玩法</li>
+   			<li class="list-paper-width04">投注内容</li>
+   		</ul>
+	</div>
+	<div class="upper-lower-middle">
+		#foreach($match in $bet.matchs)
+			<ul class="upper-lower-list-content-details">
+				<li class="list-paper-width01">$match.cnCode</li>
+	  	    	<li class="list-paper-width02">
+	  	    	   #getPlayId($bet, $match)
+	  	      	   #set($s="")
+				   #foreach($nameArr in ${match.name.split("VS")})
+        			  #if($velocityCount == 1)
+        				 $nameArr 
+        				 #if(${_playId} != '80_ZC_1' && ${_playId} != '80_ZC_2' )
+        					 #if($math.toInteger(${match.concedePoints}) > 0)
+        						(+${match.concedePoints})
+        					 #else
+        						(${match.concedePoints}) 
+        					 #end
+        				 #end
+        			   #end
+        			   #if($velocityCount == 2)
+        				  &nbsp; VS &nbsp;$nameArr
+        			   #end
+        	        #end
+	  	       </li>
+	  	       <li class="list-paper-width03">
+	  	      	   $status.getPlayName(${match.playId})
+	  	       </li>
+	  	       <li class="list-paper-width04">
+	  	      	#if(${match.betCode} && ${match.betCode} !="")
+		  		    #if($Result.isMatchWin(${match},${bet}))
+	            	   $Result.cn(${_playId}, ${match.betCode}, ${match.odds})
+	                #else
+	            	   $Result.cn(${_playId}, ${match.betCode}, null)
+	                #end
+	             #else
+	        	    #set($baomi="baomi")
+	        	                            保密
+	             #end
+	  	       </li>
+	  </ul>
+	#end
+   <p class="upper-lower-list-paper-pass">
+   	  <span class="upper-lower-ggfs">过关方式：</span>
+   	  <label class="upper-lower-spf">$status.getPlayName(${bet.playId})</label>
+   	  <label class="upper-lower-chuan">#passType($!{bet.passTypeIds})</label>
+   </p>
+	<p class="upper-lower-list-paper-multiple">
+	   <span class="upper-lower-bei">倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span>
+	   <label class="moneymuti">${bet.multiple}倍</label>
+	</p>
+	<p class="upper-lower-list-paper-money">
+	   <span class="upper-lower-faje">方案金额：</span>
+	   <label class="upper-lower-qian">￥$math.mul(${bet.betNote}, 2)</label>
+	   <i>元</i>
+	</p>
+</div>
+</div>
+#end
+
+#foreach($weibo in $pageResult.results)
+	<div id="$weibo.betScheme.id" style="display:none">
+  	    <span class="dialog_close">
+  	  	   <a href="javascript:void(0);" class="red-close"></a>
+        </span>
+        <div class="upper-lower-top">
+           <ul class="upper-lower-list-content-nav">
+              <li class="list-paper-width01">赛事编号</li>
+   		      <li class="list-paper-width02">主队VS客队</li>
+   		      <li class="list-paper-width03">玩法</li>
+   		      <li class="list-paper-width04">投注内容</li>
+           </ul>
+        </div>
+        <div class="upper-lower-middle">
+  	  	   	#foreach($match in $weibo.betScheme.matchs)
+  	  	   	   	<ul  class="upper-lower-list-content-details">
+				  	<li class="list-paper-width01">$match.cnCode</li>
+				  	<li class="list-paper-width02">
+				  	   #getPlayId($weibo.betScheme, $match)
+				  	      #set($s="")
+				 	      #foreach($nameArr in ${match.name.split("VS")})
+        			          #if($velocityCount == 1)
+        				          $nameArr 
+        				          #if(${_playId} != '80_ZC_1' && ${_playId} != '80_ZC_2' )
+        					         #if($math.toInteger(${match.concedePoints}) > 0)
+        						       (+${match.concedePoints})
+        					         #else
+        						       (${match.concedePoints}) 
+        					          #end
+        				          #end
+        			          #end
+        			          #if($velocityCount == 2)
+        				       &nbsp; VS &nbsp;$nameArr
+        			          #end
+        		          #end
+				  	 </li>
+				  	 <li class="list-paper-width03">
+				  	     $status.getPlayName(${match.playId})
+				  	  </li>
+				  	  <li class="list-paper-width04">
+				  	     #if(${match.betCode} && ${match.betCode} !="")
+		  		             #if($Result.isMatchWin(${match},${bet}))
+	            	            $Result.cn(${_playId}, ${match.betCode}, ${match.odds})
+	                         #else
+	            	            $Result.cn(${_playId}, ${match.betCode}, null)
+	                         #end
+	                     #else
+	        	             #set($baomi="baomi")
+	        	                                                 保密
+	                     #end
+				  	   </li>
+			     </ul>
+			  #end
+			 <p class="upper-lower-list-paper-pass">
+			    <span class="upper-lower-ggfs">过关方式：</span>
+			    <label class="upper-lower-spf">$status.getPlayName(${weibo.betScheme.playId})</label>
+			    <label class="upper-lower-chuan">#passType($!{weibo.betScheme.passTypeIds})</label>
+			 </p>
+			 <p class="upper-lower-list-paper-multiple">
+			    <span class="upper-lower-bei">倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span>
+			    <label>${weibo.betScheme.multiple}倍</label>
+			 </p>
+			 <p class="upper-lower-list-paper-money">
+				  <span class="upper-lower-faje">方案金额：</span>
+				  <label>￥ ${weibo.betScheme.totalAmount}</label>
+				  <i>元</i>
+			 </p>
+			 <p class="upper-lower-list-paper-money">
+			     <span class="upper-lower-faje">奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金：</span>
+			     <label>￥${weibo.betScheme.afterTaxBonus}</label>
+			     <i>元</i>
+			 </p>	
+     </div>
+   </div> 
+#end

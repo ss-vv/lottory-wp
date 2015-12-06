@@ -1,0 +1,253 @@
+#someone-page{width: 960px;margin:20px auto;}
+.someone-page-rate{width:450px;float: left;}
+.someone-page-rate h2{font-family: "微软雅黑";color: #333333;font-weight:regular;}
+.someone-page-rate .someone-page-rate-prompt{margin-left:10px;margin-top:-5px;}
+.someone-page-rate .chart-wide-line{margin-top:12px;}
+.someone-page-rate .someone-page-rate-key-attention{
+	padding: 5px 7px;
+	background: #E22319;
+	border: none;
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+    margin-top: -20px;
+    margin-right: 1px;
+}
+.someone-page-rate .someone-page-rate-question-prompt-bg{
+	width:326px;
+	height:116px;
+	background:url(../images/question-prompt-bg.png) no-repeat;
+	padding: 15px;
+    -moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	line-height: 230%;
+	position: absolute;
+}
+.single-rate-list .order-number{
+	font-family: arial;
+	color: #D3D3D3;
+	font-size:40px;
+	float: left;
+	width:42px;
+	height:42px;
+	line-height:42px;
+	text-align:left;
+	vertical-align:middle;
+	margin-top:25px;
+	margin-left:3px;
+	}
+.single-rate-list li{
+	width: 450px;
+	height: 96px;
+	border-bottom: 1px #ECECEC dashed;
+	clear: both;
+	line-height: 100%;
+} 
+.single-rate-list .single-rate-list-details{
+	width: 388px;
+	height: 66px;
+	float: right;
+	margin-top: 15px;
+
+}
+.single-rate-list .single-rate-list-details .single-rate-list-details-head-img{
+	margin-top: 6px;
+	float: left;
+	margin-right: 14px;
+	width:54px;
+	height:54px;
+}
+.single-rate-list .single-rate-list-details .single-rate-list-details-head-name{
+	display: inline-block;
+	font-family: "微软雅黑";
+	font-size:14px;
+	font-weight: bold;
+	margin-right: 10px;
+	margin-top: 3px;
+	width:70px;
+	height:20px;
+	line-height:20px;
+	white-space:nowrap; 
+    overflow: hidden;
+}
+.single-rate-list .single-rate-list-details  button{
+	padding: 0px 7px;
+	background: #E22319;
+	border: none;
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 3px;
+   
+}
+.single-rate-list .single-rate-list-details  .single-rate-list-details-bet{
+	display: block;
+	margin-top: 25px;
+	font-family: "微软雅黑";
+}
+i,em{font-style: normal;font-weight: normal;}
+.single-rate-list .single-rate-list-details  .single-rate-list-details-bet label{
+	float: right;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	margin-top: -20px;
+	margin-right: 3px;
+	width:167px;
+	height:38px;
+	line-height:38px;
+	text-align:right;
+	white-space:nowrap; 
+    overflow: hidden;
+}
+.color-red{color: #FF0000;}
+
+
+.color-a{color:#FF0000;}
+.color-b{color:#FFA200;}
+.color-c{color:#E3D642;}
+.color-d{color:#5BC367;}
+/*
+90-100   color-a
+70-89    color-b
+50-69    color-c
+50以下             color-d
+*/
+/*左边部分，过单率*/
+.someone-page-win-bouns{
+	width:450px;float: right;margin-bottom: 50px;
+}
+.someone-page-win-bouns .someone-page-win-bouns-prompt{
+	margin-left:10px;margin-top:-5px;
+}
+.someone-page-win-bouns .someone-page-win-bouns-question-prompt-bg{
+	width:326px;
+	height:116px;
+	background:url(../images/question-prompt-bg.png) no-repeat;
+	padding: 15px;
+    -moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	line-height: 230%;
+	position: absolute;
+}
+.someone-page-win-bouns .someone-page-win-bouns-key-attention{
+    padding: 5px 7px;
+	background: #E22319;
+	border: none;
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+    margin-top: -20px;
+    margin-right: 1px;
+}
+.someone-page-win-bouns .chart-wide-line{margin-top:12px;}
+.someone-page-win-bouns .single-rate-list-details .single-rate-list-details-bet {
+	display: block;
+	margin-top: 25px;
+}
+.someone-page-win-bouns .single-rate-list-details .single-rate-list-details-bet .money{
+	float: right;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	margin-top: -32px;
+	margin-right: 3px;
+	width:167px;
+	height:38px;
+	line-height:38px;
+	text-align:right;
+	white-space:nowrap; 
+    overflow: hidden;
+}
+
+/*右边部分*/
+.someone-page-active-user{width: 960px;height:350px;margin:100px auto 0;
+clear: both;font-family: "微软雅黑";}
+.someone-page-active-user .chart-wide-long-line{margin-top:12px;}
+
+.someone-page-active-user .someone-page-active-user-change a{
+	font-family: "微软雅黑";
+	color: #0076CE;
+	font-weight: bold;
+	float: left;
+	margin-left: 150px;
+	margin-top: -10px;
+}
+.someone-page-active-user .someone-page-active-user-key-attention{
+    padding: 5px 7px;
+	background: #E22319;
+	border: none;
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+    margin-top: -20px;
+    margin-right: 11px;
+}
+.someone-page-active-user .someone-page-active-user-content li{
+	width: 310px;
+	height: 96px;
+	line-height: 100%;
+	border: 1px #E9E9E9 solid;
+	float: left;
+	margin-left:6px;
+	margin-top: 15px;
+}
+.someone-page-active-user .someone-page-active-user-content .someone-page-active-user-content-head-img{
+	float: left;
+	margin:18px 15px 0 12px ;
+	width:54px;
+	height:54px;
+}
+.someone-page-active-user-content-head-name{
+	display: block;
+	font-family: "微软雅黑";
+	font-size:14px;
+	font-weight: bold;
+	margin-right: 20px;
+	margin-top: 17px;
+	width:160px;
+	height:20px;
+	line-height:20px;
+	margin-left:75px;
+	white-space:nowrap; 
+    overflow: hidden;
+}
+.someone-page-active-user-content-attention{
+    padding: 0px 7px;
+	background: #E22319;
+	border: none;
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+    margin-top: -24px;
+    margin-right: 5px;
+}
+.someone-page-active-user-content-details{
+	font-family: "微软雅黑";
+	display: block;
+	margin-top: 27px;
+}
+.someone-page-active-user-content-details em{
+	margin-right: 8px;
+	margin-left: 8px;
+	font-family: "微软雅黑";
+}
+.someone-page-active-user-content-details i{
+	color: #0076CE;
+	font-weight: bold;
+	font-family: "微软雅黑";
+}

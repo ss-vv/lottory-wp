@@ -1,0 +1,7 @@
+namespace java com.unison.thrift.scheme.service.gen
+
+include "BetSchemeData.idl"
+
+service RecoSchemeHandlerGen {
+	BetSchemeData.BetSchemeData viewScheme(1:i64 schemeId)
+}

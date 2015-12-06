@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 新版竞彩足球分析页面 -->
+	<package name="fbAnalyse-page" extends="weibo-web-default" namespace="/analyse">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="fbAnalyse" class="com.unison.lottery.weibo.web.action.analyse.JCZQAnalyseAction">
+			<result name="success" type="layout">/web/analyse/zq_match_analyse.vm</result>
+		</action>
+		<action name="bbAnalyse" class="com.unison.lottery.weibo.web.action.analyse.JCLQAnalyseAction">
+			<result name="success" type="layout">/web/analyse/lq_match_analyse.vm</result>
+		</action>
+		<action name="ajax_twoSideAgainstHistory" class="com.unison.lottery.weibo.web.action.analyse.JCZQAnalyseAction" method="twoSideAgainstHistory">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 球队近期战绩 -->
+		<action name="ajax_teamRecentRecord" class="com.unison.lottery.weibo.web.action.analyse.JCZQAnalyseAction" method="teamRecentRecord">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 联赛积分榜 -->
+		<action name="ajax_leagueScoreRank" class="com.unison.lottery.weibo.web.action.analyse.JCZQAnalyseAction" method="leagueScoreRank">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 篮球联赛积分榜 -->
+		<action name="ajax_bb_leagueScoreRank" class="com.unison.lottery.weibo.web.action.analyse.JCLQAnalyseAction" method="leagueScoreRank">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="ajax_lq_twoSideAgainstHistory" class="com.unison.lottery.weibo.web.action.analyse.JCLQAnalyseAction" method="twoSideAgainstHistory">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 竞彩足球主客队排名 -->
+		<action name="ajax_jczq_matchTeam_position" class="com.unison.lottery.weibo.web.action.analyse.JCZQAnalyseAction" method="ajaxJczqMatchTeamPosition">
+			<result type="json"></result>
+		</action>
+	</package> 
+	 
+	<!-- 新版竞彩足球赔率页面 -->
+	<package name="fbOdds-page" extends="weibo-web-default" namespace="/odds">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="fbEuroOdds" class="com.unison.lottery.weibo.web.action.odds.JCZQOddsAction">
+			<result name="success" type="layout">/web/analyse/zq_match_euro_odds.vm</result>
+		</action>
+		<action name="oneCompanyEuroOdds" >
+			<result>/web/analyse/zq_match_euro_odds_one_company.vm</result>
+		</action>
+		<action name="fbAsianOdds" class="com.unison.lottery.weibo.web.action.odds.JCZQOddsAction" method="asianOddsList">
+			<result name="success" type="layout">/web/analyse/zq_match_asian_odds.vm</result>
+		</action>
+		<action name="oneCompanyAsianOdds" class="com.unison.lottery.weibo.web.action.odds.JCZQOddsAction" method="oneCompanyAsianOdds">
+			<result name="success">/web/analyse/zq_match_asian_odds_one_company.vm</result>
+		</action>
+		<action name="bbOddPushInit" class="com.unison.lottery.weibo.web.action.odds.JCLQOddsAction" method="bbOddsPushInit">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="fbOddsPushInit" class="com.unison.lottery.weibo.web.action.odds.JCZQOddsAction" method="fbOddsPushInit">
+			<result name="success" type="json"></result>
+		</action> 
+	</package>
+</struts>

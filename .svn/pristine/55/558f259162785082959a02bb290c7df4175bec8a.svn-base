@@ -1,0 +1,190 @@
+#set($p_title="追号记录")
+#set($pos = "repeat")
+#set($scripts = ["js/jquery-ui"])
+#set($styles = ["css/ui-lightness/jquery-ui"])
+#set($keywords="追号记录")
+#set($description="用户追号记录")
+
+<div class="lyr lyw-g fr">
+  <div class="mod mod-c mod-c-a">
+    <div class="mh">
+      <div class="tt">追号记录</div>
+    </div>
+    <div class="mm">
+      <div class="formbox formbox-a mp-e">
+        <div class="row">
+        <form id="qForm" action="$base/record/myRepeat.do" method="post">
+          <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+          <input type="hidden" name="lotteryId" id="ltIpt" value="$!{lotteryId}"/>
+          <input type="hidden" name="planStatus" id="lshowIpt" value="$!{planStatus}"/>
+		  
+          <div style="width:85px;" class="selectbox selectbox-b fl">
+            <div class="tt" id="ltText">#if($lotteryId && "" != $lotteryId)#lotteryName(${lotteryId})#else 全部彩种#end</div>
+            <b class="icns" id="lt_popup_link"></b>
+            <div class="selectlst" style="display:none;" id="lt_popup">
+              <div class="option" _lid="">全部彩种</div>
+              <div class="option" _lid="SSQ">双色球</div>
+            </div>
+          </div>
+		  <div style="width:80px;" class="selectbox selectbox-b fl">
+            <div class="tt" id="lshowText">#if($planStatus && "" != $planStatus)#planStatus(${planStatus})#else 状态#end</div>
+            <b class="icns" id="lt_show_link"></b>
+            <div class="selectlst" style="display:none;" id="lt_show">
+              <div class="option" _lshowid="-1">状态</div>
+              <div class="option" _lshowid="0">可执行</div>
+              <div class="option" _lshowid="1">被终止</div>
+              <div class="option" _lshowid="2">已完成</div>
+            </div>
+          </div>
+          <label class="lbl">起始日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="from" type="text" value='$date.format("yyyy-MM-dd", ${from})' class="inipttxt" id="fromDP"></div>
+          <label class="lbl">终止日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="to" type="text" value='$date.format("yyyy-MM-dd", ${to})' class="inipttxt" id="toDP"></div>
+          <a href="javascript:void(0);" class="btnx2 btnx2-b fl">
+            <span class="inbtn"><input type="button" value="查询" class="iptbtn" id="qBtn"></span>
+          </a>
+        </form>
+        </div>
+        <span class="clear"></span>
+      </div>
+      <div class="tblbox tblbox-c mp-f">
+        <table cellspacing="0" cellpadding="0" border="0" class="tbl">
+          <tr>
+            <th style="width:70px;" class="thl"><div class="inth"><div class="hide">彩种</div></div></th>
+            <th style="width:260px;"><div class="inth"><div class="hide">投注内容</div></div></th>
+            <th style="width:80px;"><div class="inth"><div class="hide">总追号期数</div></div></th>
+            <th style="width:100px;"><div class="inth"><div class="hide">完成追号期数</div></div></th>
+            <th style="width:80px;"><div class="inth"><div class="hide">状态</div></div></th>
+            <th style="width:120px;"><div class="inth"><div class="hide">创建时间</div></div></th>
+            <th style="width:50px;" class="thr"><div class="inth"><div class="hide">操作</div></div></th>
+          </tr>
+          #foreach($b in $repeatResultList)
+          <tr>
+            <input type="hidden" value="$b.id">
+            <td class="tdl">#lotteryName($b.lotteryId)</td>
+            <td>
+				#foreach($e in $b.betContentList)
+					${e}<br/>
+				#end
+			</td>
+            <td>$b.repeatTotal</td>
+            <td>$b.completeRepeatTotal</td>
+            <td>#planStatus($b.status)</td>
+            <td>$date.format("yyyy-MM-dd", ${b.createdTime})</td>
+			<td>
+				#if("0" == $b.status)
+    				<a href="javascript:void(0);" target="_blank" style="color:#3273D8" _pid="$b.id" class="stopRepeatPlan">停止</a>
+				#else
+					--
+				#end
+            </td>
+          </tr>
+          #end
+          <tr>
+            <td colspan="9" class="tdr" style="text-align:right;">
+              <div class="pager fr">
+                <span>累计追号计划数：<b class="c-i">${paging.totalCount}</b> 次&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                #pager($paging, 8, "pager")
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    $('#lt_show_link').bind('click', function() {
+        $('#lt_show').toggle();
+    });
+	$('#lt_show div[_lshowid]').hover(function(){
+        $(this).addClass('hover');
+    }, function(){
+        $(this).removeClass('hover');
+    }).bind('click', function(){
+        $('#lshowText').text($(this).text());
+        $('#lshowIpt').val($(this).attr('_lshowid'));
+        $('#lt_show').hide();
+    });
+    
+    $('#lt_type_link').bind('click', function() {
+        $('#lt_type').toggle();
+    });
+	$('#lt_type div[_ltypeid]').hover(function(){
+        $(this).addClass('hover');
+    }, function(){
+        $(this).removeClass('hover');
+    }).bind('click', function(){
+        $('#ltypeText').text($(this).text());
+        $('#ltypeIpt').val($(this).attr('_ltypeid'));
+        $('#lt_type').hide();
+    });
+    
+    
+    $('#lt_popup_link').bind('click', function() {
+        $('#lt_popup').toggle();
+    });
+    $('#lt_popup div[_lid]').hover(function(){
+        $(this).addClass('hover');
+    }, function(){
+        $(this).removeClass('hover');
+    }).bind('click', function(){
+        $('#ltText').text($(this).text());
+        $('#ltIpt').val($(this).attr('_lid'));
+        $('#lt_popup').hide();
+    });
+    
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#qBtn').bind('click', query);
+	//停止追号计划
+	$(".stopRepeatPlan").click(function() {
+		var confirm = window.confirm("确定要停止追号计划吗？");
+		if(true !== confirm) {
+			return;
+		}
+		var planId = $(this).attr("_pid");
+		$.ajax({
+    		url:"stopRepeatPlan.do",
+    		data: {'planId': planId},
+    		dataType: 'json',
+    		cache: false,
+    		error: function(){
+    			alert("ERROR,无法停止追号计划...");
+    		},
+    		success: function(ret,staus,xhr){
+				if(true === ret.data) {
+        			$('#qBtn').click();
+				} else {
+					alert("停止追号计划失败");
+				}
+    		}
+		});
+	});
+});
+</script>

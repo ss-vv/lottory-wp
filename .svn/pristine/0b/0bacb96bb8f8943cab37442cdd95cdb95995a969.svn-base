@@ -1,0 +1,10 @@
+INSERT INTO `lt_voucher_pm` (`id`, `name`, `grant_type_id`, `valid_time_type`, `from_create_day`, `effect_time`, 
+`dead_time`, `pm_begin_time`, `pm_end_time`, `create_time`) VALUES 
+(5, '八月新用户充值50送10奖金', 47, 'fromCreate', 31, NULL, NULL, '2013-08-01 00:00:00', '2013-08-31 23:59:59', '2013-07-29 18:10:10');
+
+INSERT INTO `lt_voucher_pm` (`id`, `name`, `grant_type_id`, `valid_time_type`, `from_create_day`, `effect_time`, 
+`dead_time`, `pm_begin_time`, `pm_end_time`, `create_time`) VALUES 
+(6, '八月客户端充20送10奖金', 48, 'fromCreate', 31, NULL, NULL, '2013-08-01 00:00:00', '2013-08-31 23:59:59', '2013-07-29 18:10:10');
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (47, '八月新用户充值50送10奖金');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (48, '八月客户端充20送10奖金');

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core-5.5.0.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+      <amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+    </property>
+  </bean>
+  
+  <!-- 出票 -->
+  <bean id="jcBuyProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="JC_BUY_QUEUE" physicalName="com.xhcms.lottery.queue.JC_BUY" />
+    </property>
+  </bean>
+  
+  <!-- 异步发推荐微博 -->
+  <bean id="asyncRecommendWeibo" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_PUBLISH_RECOM_SCHEME" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_PUBLISH_RECOM_SCHEME" />
+    </property>
+  </bean>
+  
+  <!-- 根据方案发晒单微博 -->
+  <bean id="sendPostWithScheme" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_PUBLISH_FULL_CMD" physicalName="com.unison.weibo.queue.WB_LAICAI_PUBLISH_FULL_CMD" />
+    </property>
+  </bean>
+  
+  <!-- 投注行为发消息 -->
+  <bean id="betMessageProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_DAVCAI_BET_MSG_CMD" physicalName="com.unison.weibo.queue.WB_DAVCAI_BET_MSG_CMD" />
+    </property>
+  </bean>
+
+  <!-- 用户申请“中奖加奖”消息发送 -->
+  <bean id="addBonusWithUserWin" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="PM_WEEK_BONUS_QUEUE" physicalName="com.xhcms.lottery.queue.PM_WEEK" />
+    </property>
+  </bean>
+	
+  <!-- 消息发送器 -->
+  <bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender" init-method="init" destroy-method="destroy">
+    <property name="threads" value="${amq.sender.threads}" />
+    <property name="producers">
+      <map>
+        <entry key="BuyTicketMessage" value-ref="jcBuyProducer" />
+        <entry key="RecommendSchemeMessage" value-ref="asyncRecommendWeibo" />
+        <entry key="SchemeHandle" value-ref="sendPostWithScheme" />
+        <entry key="BetMessage" value-ref="betMessageProducer" />
+        <entry key="BonusHandle" value-ref="addBonusWithUserWin" />
+      </map>
+    </property>
+  </bean>
+</beans>

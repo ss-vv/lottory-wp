@@ -1,0 +1,62 @@
+#set($title="邀请码管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript" src="$base/js/lottery/regcode.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>邀请码管理</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="gForm" action="$base/user/geneRegCode.do" method="post">
+        		<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			    <div class="tabH tabH02 panel">
+			    	为：<select name="genvid" id="genvid">
+			    		#foreach($u in $davusers)
+			    		<option value="$u.id">$u.nickName</option>
+			    		#end
+			    	</select> 大V用户 生成
+			    	<select type="text" name="codeMaxSize" id="codeMaxSize">
+			    	</select>
+			    	个邀请码,有效期为：
+			    	<select type="text" name="expiryDay" id="expiryDay">
+			    	</select>天
+			    	<input type="button" id="generateCode" value="确认生成邀请码"/>
+			    </div>
+			 </form>
+		</div>
+	    <form id="pForm" action="$base/user/regCode.do">
+	    	<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			<table cellspacing="0" class="tab" id="dataGrid">
+				<tr>
+					<th style="width:60px;text-align:center;"><span>id</span></th>
+	        		<th style="width:80px;text-align:center;"><span>code</span></th>
+	       			<th style="width:80px;text-align:center;"><span>状态</span></th>
+					<th style="width:80px;text-align:center;"><span>注册用户</span></th>
+					<th style="width:80px;text-align:center;"><span>大V ID</span></th>
+					<th style="width:80px;text-align:center;"><span>创建时间</span></th>
+					<th style="width:80px;text-align:center;"><span>失效时间</span></th>
+					<th style="width:80px;text-align:center;"><span>使用时间</span></th>
+				</tr>
+				#foreach($codes in $paging.results)
+				<tr>
+					<td style="width:60px;text-align:center;"><span>$codes.id</span></td>
+	        		<td style="width:80px;text-align:center;"><span>$codes.code</span></td>
+	       			<td style="width:80px;text-align:center;"><span>#if($codes.status==1) 可用 #elseif($codes.status==2) 失效 #elseif($codes.status==3) 已使用 #end</span></td>
+					<td style="width:80px;text-align:center;"><span>$codes.userId</span></td>
+					<td style="width:80px;text-align:center;"><span>$codes.vid</span></td>
+					<td style="width:80px;text-align:center;"><span>$codes.createTime</span></td>
+					<td style="width:80px;text-align:center;"><span>$codes.endTime</span></td>
+					<td style="width:80px;text-align:center;"><span>$!codes.usedTime</span></td>
+				</tr>
+				#end
+			</table>
+	    </form>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#pForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+</script>

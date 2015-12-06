@@ -1,0 +1,33 @@
+#set($p_title="关于我们")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="晒单推荐,跟单推荐,中奖排行榜")
+#set($styles = ["css/hack-bootstrap", "css/about"])
+
+<div class="wrapper">
+    <div class="slide_box">
+        <ul>
+		    <li><a href="http://trade.davcai.com/df/about/about">关于我们</a></li>
+		    <li class="active-bg"><a href="http://trade.davcai.com/df/about/client">大V彩客户端</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/contact">联系我们</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/legal">法律声明</a></li>
+		    <li id="faq">
+				<img src="$base/images/fup.png">
+				<a href="http://trade.davcai.com/df/about/faq">常见问题</a>
+			</li>
+		</ul>
+    </div>
+	<div class="main_about">
+		<div class="img"><img src="/images/app_image.png" width="300" height="420"></div>
+		<div class="download_wrapper">
+            <ul class="mobile">
+    			<img src="/images/qrcode.png">
+				<li class="android">
+					<img src="/images/about_icon_Android.png">
+					<a href="http://www.davcai.com/download/davcai/davcai_2.0.1_davcai.apk" target="_blank">
+						下载 Android 客户端
+					</a>
+				</li>
+            </ul>
+	</div>
+    </div>
+</div>

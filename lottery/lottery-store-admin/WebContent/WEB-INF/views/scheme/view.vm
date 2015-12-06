@@ -1,0 +1,115 @@
+#set($title="查看投注方案详情")
+<div class="w">
+	<div class="tabH" id="tabLinks">
+		<span class="current"><b>投注方案详情</b></span>
+		#if("CTZC" == $s.lotteryId)
+			<span><a href="$base/scheme/lsmatch.do?id=${s.id}&playId=${s.playId}"><b>投注赛事详情</b></a></span>
+			<span><a href="$base/scheme/lsissue.do?id=${s.id}&playId=${s.playId}"><b>投注期详情</b></a></span>
+		#else
+			#if("JX11" == $s.lotteryId)
+				<span><a href="$base/scheme/lsissue.do?id=${s.id}&playId=${s.playId}"><b>投注期详情</b></a></span>
+			#elseif("JCZQ" == $s.lotteryId || "JCLQ" == $s.lotteryId)
+				<span><a href="$base/scheme/lsmatch.do?id=${s.id}&playId=${s.playId}"><b>投注赛事详情</b></a></span>
+			#end
+		#end
+		<span><a href="$base/scheme/lsticket.do?id=${s.id}&playId=${s.playId}"><b>出票详情</b></a></span>
+        <span><a href="$base/scheme/lspartner.do?id=${s.id}&playId=${s.playId}"><b>购买人详情</b></a></span>
+        #if("JX11" != ${s.lotteryId})
+        <span><a href="$base/../gf/lsfollower.do?id=${s.id}&playId=${s.playId}&lotteryId=${s.lotteryId}"><b>跟单详情</b></a></span>
+        #end
+	</div>
+	<div class="bx_c">
+		<table cellspacing="0" class="tab">
+			<tr>
+				<td style="text-align:right;width:110px;">方案编号：</td><td>${s.id}</td>
+				<td style="text-align:right;width:110px;">发起人ID：</td><td>${s.sponsor}</td>
+      </tr>
+			<tr>
+				<td style="text-align:right;">方案类型：</td><td>#schemeType(${s.type})</td>
+				<td style="text-align:right;">方案票数：</td>
+        <td>${s.ticketCount}张</b></td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">发起时间：</td><td>$date.format("yyyy-MM-dd HH:mm", ${s.createdTime})</td>
+				<td style="text-align:right;">停售时间：</td><td>$date.format("yyyy-MM-dd HH:mm", ${s.offtime})</td>
+			</tr>
+      #if($s.status == 12)
+        <tr>
+          <td style="text-align:right;">派奖时间：</td><td>$!date.format("yyyy-MM-dd HH:mm", ${s.awardTime})</td>
+          <td style="text-align:right;">&nbsp;</td><td>&nbsp;</td>
+        </tr>
+      #end
+      #if("JCZQ" == $s.lotteryId || "JCLQ" == $s.lotteryId)
+			<tr>
+				<td style="text-align:right;">过关方式：</td><td colspan="3">${s.passTypeIds}</td>
+			</tr>
+	  #end
+			<tr>
+				<td style="text-align:right;">投注金额：</td><td><b class="red">￥${s.totalAmount}元</b></td>
+				<td style="text-align:right;">方案倍数：</td><td>${s.multiple}倍</td>
+			</tr>
+      #if(${s.type} == 1)
+			<tr>
+				<td style="text-align:right;">参与合买人数：</td>
+        <td colspan="3">${s.partnerCount}人</b></td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">发起人分成比例：</td><td>${s.shareRatio}%</td>
+				<td style="text-align:right;">已认购金额：</td><td>￥${s.purchasedAmount}元</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">发起人认购金额：</td><td>￥${s.buyAmount}元</td>
+				<td style="text-align:right;">发起人保底金额：</td><td>￥${s.floorAmount}元</td>
+			</tr>
+      #end
+			<tr>
+				<td style="text-align:right;">理论最高奖金：</td><td>￥${s.maxBonus}元</td>
+				<td style="text-align:right;">估算税前奖金：</td><td>￥${s.expectBonus}元</td>
+			</tr>
+      #if(${s.status} == 5203 || ${s.status} == 12)
+			<tr>
+				<td style="text-align:right;">税前奖金：</td><td>￥${s.preTaxBonus}元</td>
+				<td style="text-align:right;">税后奖金：</td><td><b class="red">￥${s.afterTaxBonus}元</b></td>
+			</tr>
+      #end
+			<tr>
+				<td style="text-align:right;">方案注数：</td><td>${s.betNote}注</td>
+				<td style="text-align:right;">中奖注数：</td><td>${s.winNote}注</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">出票成功注数：</td><td>${s.ticketNote}注</td>
+				<td style="text-align:right;">撤单注数：</td><td>${s.cancelNote}注</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">投注状态：</td><td>$status.sale(${s.saleStatus})</td>
+				<td style="text-align:right;">方案状态：</td><td colspan="3"><b class="red">$status.bet(${s.status})</b></td>
+			</tr>
+      #if(${s.status} == 5203)
+			<tr>
+				<td colspan="4" id="btnTd" style="text-align:center; padding: 5px 0px;">
+				  <input type="button" class="hand btn" value="派奖" id="awardBtn"/>
+				</td>
+			</tr>
+      #end
+		</table>
+  </div>
+</div>
+
+#if(${s.status} == 5203)
+<script language="javascript" type="text/javascript">
+$(function(){
+	  $('#awardBtn').bind('click', function(){
+        if(confirm('将向相关用户账户派发税后奖金，确定要继续？')){
+            jQuery.getJSON('$base/scheme/aj_award.do', {id: '${s.id}'}, function(json){
+                if(json.success){
+					$("#awardBtn").attr("disabled","disabled");
+                    alert(json.data);
+					window.location.reload();
+                }
+            });
+        }
+        return false;
+    });
+});
+</script>
+#end

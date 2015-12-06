@@ -1,0 +1,1201 @@
+.profile_box{
+	width: 778px;
+	margin: 24px auto 0;
+	border: 1px solid #c0c0c0;
+	padding: 20px;
+	background: #ffffff;
+	margin-bottom: 24px;
+}
+
+.profile_box_info {
+	float: left;
+	display: inline;
+	width: 510px;
+}
+.profile_info_pic {
+	float: left;
+	display: inline;
+	border: 1px solid #e8e8e8;
+	position: relative;
+}
+.profile_info_content, .active_user .caption {
+	margin-left: 120px;
+}
+
+#my_profile .editBtn {
+	color: #000000;
+	font-weight: normal;
+	padding: 2px 6px;
+	border: 1px solid #DBDBDB;
+	font-size: 12px;
+	margin: 0 5px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+.profile_info_content ul li, .active_user .caption ul li, .profile_info .profile_info_content div.info_item, .active_user .caption div.info_item {
+	font-size: 12px;
+	line-height: 24px;
+	color: #888;
+}
+
+.profile_box_behaviour {
+	float: right;
+	position: relative;
+	display: inline;
+	width: 254px;
+}
+
+.profile_box_behaviour .profile_box_operations {
+	margin-bottom: 20px;
+}
+
+.statuses_container {
+	width: 788px;
+	padding: 10px 20px 20px 10px;
+	border: 1px solid #c0c0c0;
+	background: #ffffff;
+}
+
+ul.operations li {
+	display: inline-block;
+	height: 22px;
+	margin-right: 10px;
+	line-height: 22px;
+	font-size: 12px;
+}
+
+.addFriendBtn:hover {
+	background: #E22319;
+}
+
+.profile_setting_box{
+	width: 778px;
+	margin: 24px auto 0;
+	padding: 20px;
+	background: #ffffff;
+	margin-bottom: 24px;
+}
+div.tab_sub {
+	clear:both;
+	padding-bottom:20px;
+}
+
+div.tab_sub a,div.tab_sub span {
+	padding-right:6px;
+	margin-right:6px;
+	border-right:1px solid #888;
+}
+
+div.tab_sub a.last,div.tab_sub span.last {
+	border-right:0 none;	
+}
+
+div.tab_pw {
+	padding-left:12px;
+}
+
+div.tab_sub {
+	clear: both;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+.imgBlock .originImg {
+	float: left;
+}
+.originImg {
+	width: 202px;
+	margin-top: 10px;
+}
+
+.third_bind.setcontent, .box_weiboUsers .third_bind {
+	margin: 0;
+}
+
+.list-item {
+	margin-top: 10px;
+}
+.setcontent .tips {
+	color: #999;
+}
+
+.third_bind .icon_connect {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin-right: 8px;
+	background: url('../images/icon_16px-fea0b7.png') no-repeat;
+}
+.third_bind .sina_isbinded {
+	background-position: -16px 1px;
+}
+.sina_notbinded {
+	background-position: 0 1px;
+}
+.third_bind .qq_isbinded {
+	background-position: -16px -16px;
+}
+.qq_notbinded {
+	background-position: 0 -16px;
+}
+.formblock.tiny .bd li input {
+	width: 220px;
+}
+
+.formblock .bd li input {
+	display: inline-block;
+	padding: 4px 6px 4px 6px;
+	border: 1px solid #999;
+	font-size: 12px;
+	vertical-align: middle;
+}
+.formblock .bd li {
+	margin-top: 12px;
+}
+input:-webkit-autofill {
+	background-color: rgb(250, 255, 189);
+	background-image: none;
+	color: rgb(0, 0, 0);
+}
+
+.formblock.tiny .bd .button {
+	width: auto;
+	margin-left: 80px;
+}
+.formblock .bd .button {
+	border-radius: 3px;
+	color: #000;
+	padding: 4px 12px;
+	border: 1px solid #dbdbdb;
+	font-size: 13px;
+	margin: 0 5px;
+	cursor: pointer;	
+}
+.formblock .bd li label {
+	display: inline-block;
+	width: 80px;
+	text-align: right;
+	height: 30px;
+	line-height: 30px;
+}
+
+form .err {
+	display: inline-block;
+	line-height: 22px;
+	padding-left: 8px;
+	color: #C00;
+}
+
+table.account {
+	font-size: 14px;
+	margin-left: 10px;
+	margin-top: 15px;
+}
+
+table.account tr{
+	height:30px;
+}
+table.account tr td.tip{
+	color: #999!important;
+	font-size:10px;
+	width:300px;
+}
+
+table.account tr td.err{
+	color: red!important;
+	font-size:10px;
+}
+table.account tr td.must{
+	color: red!important;
+	font-size:10px;
+}
+
+td.account{
+	text-align: right;
+	font-weight: normal;
+}
+
+.tab-active {
+	border-bottom: none;
+	border-radius: 8px 8px 0 0;
+	background: #EEE;
+	display: inline-block;width: 120px;
+	color: black;
+	text-align: center;
+	font-size: 12px;
+}
+.tab-not-active{
+	border-bottom: none;
+	border-radius: 8px 8px 0 0;
+	background: #FFF;
+	display: inline-block;width: 120px;
+	color: black;
+	text-align: center;
+	font-size: 12px;
+}
+
+table.email tr{
+	height:45px;
+}
+table.email tr td.tip{
+	color: #999!important;
+	font-size:10px;
+	width:300px;
+}
+td.email{
+	text-align: right;
+	font-weight: normal;
+}
+table.email tr td.err{
+	color: red!important;
+	font-size:10px;
+}
+
+/* 重构个人账户管理页面UI*/
+
+.user-management{
+	width: 849px;
+	height: 45px;
+	margin: 0px auto;
+}
+.user-management-tab{
+	width: 850px;
+	height: 45px;
+	background:url(../images/user-management-tab-bg.png) repeat-x ;
+}
+.user-management-tab li{
+	float: left;
+	font-size: 14px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	
+}
+.user-management-tab li:hover{
+	 border-top:3px solid #E22319;
+	 margin-top:-3px;
+	 background: #fff;
+}
+.user-management-tab li.active{
+	 border-top:3px solid #E22319;
+	 margin-top:-3px;
+	 background: #fff;
+	 font-weight: bold;
+}
+.user-management-tab li:hover a{
+	font-weight: bold;
+	padding:0 18px;
+}
+.user-management-tab li a{
+	color: #333333;
+	text-align: center;
+	display:inline-block;
+	padding:0 18px;
+
+}
+.user-management-tab li span {
+	color:#777777;
+	font-size:15px;
+	height: 33px;
+}
+#mobile-manage{
+	width: 850px;
+	height: 470px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+#mobile-manage .b-i-moblie{
+	width: 700px;
+	height: 250px;
+	margin: 42px auto 0;
+}
+.b-i-moblie .b-i-moblie-tab{
+	width: 300px;
+	height:32px;
+	border-bottom: 2px #F6F6F6 solid ;
+}
+.b-i-moblie .b-i-moblie-tab li{
+	float: left;
+	font-size: 14px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+}
+.b-i-moblie .b-i-moblie-tab li:hover{
+	border-bottom: 2px #E22319 solid ;
+}
+.b-i-moblie .b-i-moblie-tab li:hover a{
+	font-weight: bold;
+	padding:0 16px;
+}
+.b-i-moblie .b-i-moblie-tab li.active{
+	border-bottom: 2px #E22319 solid ;
+	font-weight: bold;
+	padding:0 16px;
+}
+.b-i-moblie .b-i-moblie-tab li a{
+	color: #777777;
+	text-align: center;
+	display:inline-block;
+	padding:0 16px;
+}
+.b-i-moblie .b-i-moblie-tab .b-i-moblie-tab-current{
+	
+}.b-i-moblie-test-form{
+	margin-top: 50px;
+}
+.b-i-moblie-test-form li{
+	height: 60px;
+	line-height: 60px;
+}
+.b-i-moblie-test-form li label{
+	float:left;
+	width:100px;
+	height: 36px;
+	line-height:36px;
+	text-align:right;
+	font-size:14px;
+
+}
+.b-i-moblie-test-form li input{
+	float:left;
+	margin-left: 10px;
+	width:277px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/b-i-moblie-test-form-input-bg.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+}
+.b-i-moblie-test-form li input.short{
+	width:130px ;
+	color: #2886D5;
+}
+.b-i-moblie-test-form .b-i-moblie-test-form-send-button{
+	padding: -10px 8px;
+	background:#F7F7F7 ;
+	/*url(../images/b-i-moblie-test-form-send-button-bg.png) repeat-x*/
+	border: none;
+    color: #333333;
+    font-weight: bold;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 110px;
+    height: 34px;
+    margin-left: 30px;
+    margin-top: 3px;
+    float: left;
+}
+.b-i-moblie-test-form  span.b-i-moblie-test-fork {
+	float: left;
+	margin-top: -10px;
+	margin-left:15px;
+}
+.b-i-moblie-test-form  span.b-i-moblie-test-fork img{
+    float: left;
+    margin-top: 22px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+i{
+	font-style: normal;
+}
+
+.b-i-moblie-test-form .b-i-moblie-test-button{
+	padding: -10px 8px;
+	background:#E12319 ;
+	/*url(../images/b-i-moblie-test-form-send-button-bg.png) repeat-x*/
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 84px;
+    height: 38px;
+    margin-left: 30px;
+    margin-top: 0px;
+    float: left;
+}
+/*以上部分是验证*/
+.b-i-moblie-modify-form{
+	display: none;
+	margin-top: 50px;
+}
+.b-i-moblie-modify-form li{
+	height: 60px;
+	line-height: 60px;
+}
+.b-i-moblie-modify-form li label{
+	float:left;
+	width:100px;
+	height: 36px;
+	line-height:36px;
+	text-align:right;
+	font-size:14px;
+
+}
+.b-i-moblie-modify-form li input{
+	float:left;
+	margin-left: 10px;
+	width:277px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/b-i-moblie-test-form-input-bg.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+}
+.b-i-moblie-modify-form li input.short{
+	width:130px ;
+	color: #2886D5;
+}
+.b-i-moblie-modify-form  span.b-i-moblie-modify-fork {
+	float: left;
+	margin-top: -10px;
+	margin-left:165px;
+}
+.b-i-moblie-modify-form  span.b-i-moblie-modify-fork img{
+    float: left;
+    margin-top: 22px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.b-i-moblie-modify-form .b-i-moblie-modify-form-send-button{
+	padding: -10px 8px;
+	background:#F7F7F7 ;
+	/*url(../images/b-i-moblie-test-form-send-button-bg.png) repeat-x*/
+	border: none;
+    color: #333333;
+    font-weight: bold;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 110px;
+    height: 34px;
+    margin-left: 30px;
+    margin-top: 3px;
+    float: left;
+}
+
+.b-i-moblie-modify-form .b-i-moblie-modify-button{
+	padding: -10px 8px;
+	background:#E12319 ;
+	/*url(../images/b-i-moblie-test-form-send-button-bg.png) repeat-x*/
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 84px;
+    height: 38px;
+    margin-left: 30px;
+    margin-top: 0px;
+    float: left;
+}
+/*以上部分是修改*/
+
+.mobile-manage-line{
+	width: 692px;
+	height: 10px;
+	margin:30px auto 30px;
+	color: #777777;
+}
+.mobile-manage-line-words{
+	color: #777777;
+	margin:0 auto;
+	width: 692px;
+	height: 20px;
+	line-height: 20px;
+	margin-left:154px;
+}
+
+/* 修改头像  ---------------------------------*/
+#modify-head{
+	width: 850px;
+	height: 470px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+
+#modify-head .modify-head-file{
+	margin-top:60px;
+	margin-left: 30px;
+	margin-bottom: 50px;
+}
+#modify-head .modify-head-file .modify-head-file-index{
+	display: inline-block;
+	width: 102px;
+	height: 40px;
+	overflow: hidden;
+	background:url(../images/select-file.png) no-repeat;
+}
+#modify-head .modify-head-file input{
+	filter:alpha(opacity=0.5); 
+	-moz-opacity:0.5;              /* 老版Mozilla */
+    -khtml-opacity:0.5;              /* 老版Safari */
+    opacity: 0.5;
+    width: 100px;
+	height: 38px;
+	font-size:1000px;
+}
+#modify-head .modify-head-file span{
+	margin-right: 10px;
+	color: #333333;
+	font-size: 14px;
+	display: inline-block;
+	float: left;
+	margin-top: 10px;
+	}
+#modify-head-preview{
+	width:180px;
+	height:180px;
+	border:1px solid #fff;
+	overflow:hidden;
+	float: right;
+	margin-top: -65px;
+	margin-right: 144px;
+	}
+#modify-head-preview img{
+	
+}	
+#modify-head-preview-small{
+	width: 80px;
+	height: 80px;
+	clear: both;
+	float: right;
+	margin-top: -171px;
+	margin-right: 30px;
+	text-align: center;
+	
+}
+#modify-head-preview-small label{
+	color: #333333;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+}
+#modify-head-preview-small img{
+	width: 50px;
+	height: 50px;
+	margin-bottom: 8px;
+}
+#imghead {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image); 
+	font-size:1px; 
+	text-indent:-9999px;
+	}
+
+
+
+#modify-head .modify-head-file-explain{
+	margin-left: 30px;
+	height: 22px;
+	line-height: 22px;
+	color: #333333;
+	font-size: 14px;
+}
+#modify-head .modify-head-save{
+	padding: 3px 8px;
+	background:#E12319 ;
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 82px;
+    height: 32px;
+    margin-left: 30px;
+    margin-top: 115px;
+}
+/*修改登录密码*/
+#modify-login-password{
+	width: 850px;
+	height: 470px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+#modify-login-password .modify-login-password-title{
+	text-align: center;
+	font-size: 14px;
+	margin: 50px auto;
+	color: #333333;
+}
+#modify-login-password .modify-login-password-title span{
+	color: #E12319;
+}
+.login-password-form {
+	width: 600px;
+	height: 290px;
+	margin: 0 auto;
+	margin-left:185px;
+}
+.login-password-form li{
+	height: 60px;
+	line-height: 60px;
+}
+.login-password-form li span{
+	float: left;
+	text-indent: 10px;
+	text-align: left;
+	line-height: 35px;
+}
+.login-password-form li label{
+	float:left;
+	width:100px;
+	height: 36px;
+	line-height:36px;
+	text-align:right;
+	font-size:14px;
+	margin-right: 10px;
+}
+.login-password-form li input{
+	float:left;
+	margin-left: 10px;
+	width:277px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:12px;
+	color: #777777;
+	text-indent: 10px;
+	
+}
+.login-password-form  .login-password-form-li{
+	height: 32px;
+	line-height: 32px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.login-password-form li .login-password-form-confirm{
+	padding: 3px 8px;
+	background:#E12319 ;
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 82px;
+    height: 32px;
+}
+/*银行卡信息*/
+#bank-card-information{
+	width: 850px;
+	height: 470px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+
+#bank-card-information .bank-card-info{
+	width: 620px;
+	height: 300px;
+	margin: 60px auto 0;
+}
+#bank-card-information .bank-card-info li{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #333333;
+}
+#bank-card-information .bank-card-info li label{
+	width:100px;
+	height: 30px;
+	display: inline-block;
+	line-height:30px;
+	text-align:right;
+	margin-right: 10px;
+	vertical-align: top;
+	
+}
+#bank-card-information .bank-card-info li span{
+	margin-left: 5px;
+	width:180px;
+	height:30px;
+	display: inline-block;
+	line-height:30px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#bank-card-information .bank-card-info li i{
+	font-style: normal;
+	font-size: 12px;
+	color: #999999;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	float: right;
+	margin-right: 120px;
+
+}
+#bank-card-information .bank-card-info li a{
+	color: #2886D5;
+}
+#bank-card-information .bank-card-info  .modify-bank-card-info{
+	padding: 3px 8px;
+	background:#F8F8F8 ;
+	border: none;
+    color: #2886D5;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 134px;
+    height: 36px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+/*基本资料*/
+#modify-data{
+	width: 850px;
+	height: 470px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+
+.modify-data-form {
+	width: 650px;
+	height: 360px;
+	margin: 50px auto 0;
+	margin-left:85px;
+}
+.modify-data-form li{
+	height: 60px;
+	line-height: 60px;
+}
+.modify-data-form li.long{
+	height: 90px;
+	margin-top: 15px;
+}
+.modify-data-form li label{
+	float:left;
+	width:100px;
+	height: 36px;
+	line-height:36px;
+	text-align:right;
+	font-size:14px;
+	margin-right: 10px;
+}
+.modify-data-form li input{
+	float:left;
+	margin-left: 10px;
+	width:190px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+	color: #999999;
+	text-indent: 10px;
+	
+}
+.modify-data-form  .modify-data-form-li{
+	height: 32px;
+	line-height: 32px;
+	margin-top: 45px;
+	margin-left: 10px;
+}
+.modify-data-form li .modify-data-form-confirm{
+	padding: 3px 8px;
+	background:#E12319 ;
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 82px;
+    height: 32px;
+    }
+.modify-data-form li .modify-data-form-redstar{
+	color: #F00;
+    font-family: "SimSun";
+    width:11px;
+    height: 14px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    margin-top:-13px;
+    float: left;
+    margin-left: 10px;
+}
+.modify-data-form li .place{
+	margin-top: 10px;
+	margin-right: 18px;
+}
+.modify-data-form li .gender{
+	margin-top: 10px;
+	margin-right: 18px;
+}
+.modify-data-form li .person-profile{
+	margin-top: 10px;
+	margin-right: 18px;
+}
+.modify-data-form li #province{
+	min-width:90px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+	color: #333333;
+	margin-right: 22px;
+	
+}
+.modify-data-form li #city{
+	min-width:90px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+	color: #333333;
+	
+}
+
+.modify-data-form li #gender{
+	min-width:90px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+	color: #333333;
+}
+.modify-data-form li textarea{
+	width: 490px;
+	height: 90px;
+    background:url(../images/textarea-bg.png) repeat;
+    padding: 10px 10px 10px 10px;
+}
+/*邮箱管理*/
+#mail-management{
+	width: 850px;
+	height: 470px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+
+.mail-management-form{
+	width: 500px;
+	height: 200px;
+	margin: 50px auto 0;
+}
+
+.mail-management-form li{
+	height: 60px;
+	width: 700px;
+	line-height: 60px;
+}
+.mail-management-form li span{
+	width:210px;
+	height:34px;
+	line-height:34px;
+	display: inline-block;
+	font-size:14px;
+    color: #2886D5;	
+    font-family: "微软雅黑";
+    font-weight: bold;
+    margin-top: 13px;
+    margin-left: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+	
+}
+.mail-management-form li i{
+	font-style: normal;
+	font-size: 14px;
+	color: #777777;
+	margin-left: 10px;
+	margin-top: -10px;
+    background:url(../images/green-check-mark.png) no-repeat 0px 8px;
+    padding-left: 30px;
+    width:75px;
+    height: 34px;
+    line-height: 34px;
+    display: inline-block;
+    float: right;
+    margin-right: 240px;
+    margin-top: 13px;
+
+}
+
+.mail-management-form li label{
+	float:left;
+	width:100px;
+	height: 60px;
+	line-height:60px;
+	text-align:right;
+	font-size:14px;
+	margin-right: 10px;
+	color: #333333;
+}
+.mail-management-form li input{
+	float:left;
+	margin-left: 10px;
+	width:280px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:12px;
+    color: #333333;	
+    text-indent: 10px;
+    font-family: "微软雅黑";
+    margin-top: 13px;
+	
+}
+.mail-management-form li .mail-management-form-submit{
+	padding: 0px 8px;
+	background:#E12319 ;
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 138px;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 15px;
+    margin-top: 45px;
+}
+.mail-management-line{
+	width: 692px;
+	height: 10px;
+	margin:30px auto 30px;
+	color: #777777;
+}
+.mail-management-line-words{
+	color: #777777;
+	margin:0 auto;
+	width: 692px;
+	height: 24px;
+	line-height: 24px;
+	margin-left:154px;
+}
+/*修改银行卡信息*/
+#modify-bank-card-information{
+	width: 850px;
+	height: 580px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+.modify-bank-card-information-form {
+	width: 700px;
+	height: 390px;
+	margin: 50px auto 0;
+	margin-left:150px;
+}
+
+.modify-bank-card-information-form li{
+	height: 60px;
+	width: 700px;
+	line-height: 60px;
+}
+.modify-bank-card-information-form li span{
+	width:190px;
+	height:34px;
+	line-height:34px;
+	display: inline-block;
+	font-size:14px;
+    color: #333333;	
+    font-family: "微软雅黑";
+    margin-top: 13px;
+    margin-left: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+	
+}
+.modify-bank-card-information-form li i{
+	font-style: normal;
+	font-size: 12px;
+	color: #666666;
+	height: 22px;
+	line-height: 22px;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.modify-bank-card-information-form li label{
+	float:left;
+	width:100px;
+	height: 60px;
+	line-height:60px;
+	text-align:right;
+	font-size:14px;
+	margin-right: 10px;
+	color: #333333;
+}
+.modify-bank-card-information-form li input{
+	float:left;
+	margin-left: 10px;
+	width:190px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+    color: #333333;	
+    text-indent: 10px;
+    font-family: "微软雅黑";
+    margin-top: 13px;
+	
+}
+.modify-bank-card-information-form li .in-the-city{
+	margin-top: 0px;
+	margin-right: 18px;
+}
+.modify-bank-card-information-form li #province{
+	min-width:90px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+	color: #333333;
+	margin-right: 22px;
+	margin-top: 13px;
+	font-family: "微软雅黑";
+}
+.modify-bank-card-information-form li #city{
+	min-width:90px;
+	border:1px #D2D2D2 solid;
+	background:url(../images/login-password.png) repeat-x ;
+	height:34px;
+	line-height:34px;
+	margin-top: 13px;
+	font-size:14px;
+	color: #333333;
+	font-family: "微软雅黑";
+}
+.modify-bank-card-information-form li .modify-bank-card-information-form-submit{
+	padding: -2px 8px;
+	background:#E12319 ;
+	border: none;
+    color: #ffffff;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 88px;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 15px;
+    margin-top: 45px;
+}
+.modify-bank-card-information-form li .modify-bank-card-information-form-back{
+	padding: -2px 8px;
+	background:#F8F8F8 ;
+	border: none;
+    color: #333333;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 88px;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 15px;
+    margin-top: 45px;
+
+}
+.modify-bank-card-information-form li i.must-input-star{
+	color: #F00;
+	font-size: 14px;
+	font-family: "SimSun";
+}
+.modify-bank-card-information-form li i.err{
+	color: #C00;	
+}
+.bank-manage-line{
+	width: 692px;
+	height: 10px;
+	margin: 30px auto 30px;
+	color: #777777;
+}
+.bank-manage-line-words{
+	color: #777777;
+	margin: 0 auto;
+	width: 692px;
+	height: 20px;
+	line-height: 20px;
+}
+/*绑定第三方帐号*/
+#account-bound{
+	width: 850px;
+	height: 565px;
+	border: 1px #F5F5F5 solid;/*#F5F5F5*/
+	margin: 50px auto;
+}
+#account-bound .account-bound-title{
+	text-align: center;
+	width: 700px;
+	height: 30px;
+	line-height: 30px;
+	margin: 50px auto;
+	font-size: 14px;
+	color: #333333;
+}
+
+#account-bound .account-bound-title a{
+	font-weight: bold;
+	color: #333333;
+}
+#account-bound .account-bound-list{
+	width: 500px;
+	height: 250px;
+	margin: 0 auto;
+}
+#account-bound .account-bound-list li{
+    width: 330px;
+    height: 52px;
+    line-height: 52px;
+    background: #F8F8F8;
+    border: 1px #F5F5F5 solid;
+    font-size: 14px;
+    color: #333333;
+    margin-top: 18px;
+}
+#account-bound .account-bound-list li img{
+	float: left;
+	margin-left: 20px;
+	margin-top: 2px;
+	margin-right: 35px;
+}
+#account-bound .account-bound-list li a{
+	color: #333333;
+}
+#account-bound .account-bound-list li a.active{
+	color: #2886D5;
+}
+#account-bound .account-bound-list li .unbind{
+	float: right;
+	margin-right: -120px;
+}
+#account-bound .account-bound-list li .unbind a{
+	color: #2886D5;
+}
+
+.account-bound-line{
+	width: 692px;
+	height: 10px;
+	margin:66px auto 30px;
+	color: #777777;
+}
+.account-bound-line-words{
+	color: #777777;
+	margin:0 auto;
+	width: 692px;
+	height: 24px;
+	line-height: 24px;
+	margin-left:154px;
+}

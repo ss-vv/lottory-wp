@@ -1,0 +1,17 @@
+#set($httpPath="http://login.davcai.com")
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户中心</title>
+</head>
+<body>
+	<div style='font-size: 16px; font-weight: bold; padding: 8px 0;'>亲爱滴<a style='color: #0B98C0; text-decoration: none;' href="http://trade.davcai.com/df">$!{username}</a>，您好！</div>
+	<div style='padding: 9px 0;'>您于$!{currentTime}您已提交了绑定邮箱申请。</div>
+	<div style='padding: 9px 0;'>请点击以下链接确认更改：<br /><a style='color: #0B98C0; text-decoration: none;' href="#if($weibo)$httpPath/weiboConfirmEmail.do?code=$!{code}#else$httpPath/verify/confirmEmail.do?code=$!{code}#end" title="">#if($weibo)$httpPath/weiboConfirmEmail.do?code=$!{code}#else$httpPath/verify/confirmEmail.do?code=$!{code}#end</a></div>
+	<div style='padding: 9px 0;'>如果点击上面的链接后不能跳转，您可以将链接复制并粘贴到浏览器的地址栏中直接访问，完成邮箱绑定</div>
+	<div style='padding: 9px 0;'>请保管好您的邮箱，避免大V彩账户被其他人盗用</div>
+    <div style='padding: 9px 0;'>如有任何疑问，欢迎您随时联系我们。客服邮箱：<a style='color: #0B98C0;text-decoration: none;' href="mailto:service@davcai.com" title="">service@davcai.com</a></div>
+</body>
+</html>

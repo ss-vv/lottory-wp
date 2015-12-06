@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, target-densitydpi=high-dpi, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<title>重新调整竞彩足球投注规则的通知</title>
+		<link rel="stylesheet" href="css/basev1.css" />
+		<link rel="stylesheet" href="css/richPage.css" />
+	</head>
+   <style>
+   	div.padding-text{
+   		padding: 0.83rem;
+   		text-indent:2em;
+   	}
+   	body{
+   		background: #F8F7F2;
+   	}
+   </style>
+	<body>
+		<noscript>
+			<div id="noScript">请开启浏览器的Javascript功能，或使用支持javascript的浏览器访问</div>
+		</noscript>
+		<div id="_">
+			<div>
+				<div  class='content padding-text'>亲爱的大V彩客户：</div>
+				<div  class='content padding-text'>
+					<p>由于目前出票压力较大，大V彩即日起对竞彩足球投注规则进行调整，具体规则如下：</p>
+					<p>1、投注截止时间比开赛时间提前1小时;单笔投注额不得低于20元</p>
+				    <p>方案截止前3小时内，只允许符合M串1、M串N出票规则的投注；（仅限竞彩足球）</p>
+				    <p> 例如：  你选择4场比赛，最早的一场比赛18:00开始，17:00截止投注，那么从14:00开始你仅能选择 4串1、4串4、4串5、4串6、4串11，这几种方式进行投注。</p>
+				    <p>2、方案截止前3小时内，对同一场比赛的不同玩法进行混合投注中，只允许使用M串1方式的投注；（仅限竞彩足球）</p>
+				    <p> 例如：你选择3场比赛，有其中一场，选择了两种玩法，让球胜负和比分。最早的一场比赛18:00开始，17:00截止投注，那么从14:00开始你仅能选择 3串1一种方式进行投注。</p>
+				    <p>3、方案截止前3小时内，不符合M串1、M串N方式的晒单，将无法再跟单。</p>
+				    <p>4、合买方案任何时间只允许进行符合M串1、M串N出票规则的投注。</p>
+				    <p>附：M串N对照表</p>
+				<img src="mxn.jpg" style="margin-top:30px;margin-bottom:30px"/>
+				</div>
+				
+				<div  class='content padding-text' style="text-indent: 0;">大V彩客服运营团队
+					<br> 2015年4月24日
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

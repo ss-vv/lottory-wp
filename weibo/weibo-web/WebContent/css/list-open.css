@@ -1,0 +1,20 @@
+.list-open{width:560px;overflow:hidden;border:1px #E4E4E4 solid;margin: 10px 62px;background: #F8F8F8;padding-top: 13px;}
+.list-open .list-open-detail{line-height:170%;margin-left: 10px;}
+.list-open .list-open-form .head_pic{width: 54px;height: 54px;float:left;margin-left: 10px;margin-right: 9px;}
+.list-open .list-open-form{margin-top: 0px;}
+.list-open .list-open-form .list-open-form-son{margin-top: 22px;}
+.list-open .list-open-form .list-open-form-son-name,.list-open-form-son-with,.list-open-form-son-bonus{
+	display: block;line-height: 150%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.list-open .list-open-form div {float:left;width:80px;height:54px;}
+.list-open .list-open-form .list-open-form-son-name{width: 84px;}
+.list-open .list-open-form .list-open-form-son-name a{color: #0092FF;}
+.list-open .list-open-form .list-open-form-son-bonus i{color: #FF0000;} 
+i{font-style: normal;}
+.list-open .list-open-form .list-open-form-son{float:left;width: 163px;border-bottom:none;margin-top: 3px;padding-left:0px;padding-right:0px;}
+.list-open-page{clear:both;width: 81px;height: 41px;float: right;margin-top: 20px;text-align: center;}
+
+/*点赞*/
+.list-open-praise{clear:both;width:550px;background: #F8F8F8;border:1px #E4E4E4 solid;
+display: table;padding: 3px 5px 3px 5px;margin: 10px 62px 0;text-align: left;text-indent: 10px;height: 26px;line-height: 26px; vertical-align:middle;
+padding-top: 1px;}
+.list-open-praise a{color: #0092FF;}

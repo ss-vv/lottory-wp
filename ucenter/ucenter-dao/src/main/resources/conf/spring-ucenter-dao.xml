@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- user -->
+    <bean id="userDao" class="com.xhcms.lottery.commons.persist.dao.impl.UserDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    <bean id="idCardDao" class="com.xhcms.lottery.commons.persist.dao.impl.IdCardDaoImpl">
+      <property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    
+    <!-- message -->
+    <bean id="sysMessageDao" class="com.xhcms.ucenter.persist.dao.hibernate.SysMessageDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    <bean id="messageDao" class="com.xhcms.ucenter.persist.dao.hibernate.MessageDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    <!-- sso -->
+    <bean id="registSSOServiceDao" class="com.xhcms.ucenter.persist.dao.hibernate.RegistSSOServiceDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    <!-- verify -->
+    <bean id="verifyDao" class="com.xhcms.ucenter.persist.dao.hibernate.VerifyDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    <!-- play -->
+    <bean id="playDao" class="com.xhcms.lottery.commons.persist.dao.impl.PlayDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory"/>
+    </bean>
+    
+    <bean id="systemConfDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.SystemConfDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+    
+    <!-- accountDao -->
+    <bean id="accountDao" class="com.xhcms.lottery.commons.persist.dao.impl.AccountDaoImpl">
+		<property name="sessionFactory" ref="accountSessionFactory" />
+	</bean>
+	
+	<bean id="orderDao" class="com.xhcms.lottery.commons.persist.dao.impl.OrderDaoImpl">
+		<property name="sessionFactory" ref="accountSessionFactory" />
+	</bean>
+	
+	<bean id="rechargeDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.RechargeDaoImpl">
+		<property name="sessionFactory" ref="accountSessionFactory" />
+	</bean>
+	
+	<bean id="withdrawDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.WithdrawDaoImpl">
+		<property name="sessionFactory" ref="accountSessionFactory" />
+	</bean>
+    
+    <bean id="syncUserDao"
+    	class="com.xhcms.ucenter.persist.dao.jdbc.SyncUserDaoImpl">
+    	<property name="dataSource" ref="bbsDS"></property>
+    </bean>
+    
+    <!-- redis -->
+    <bean id="openUserDao" class="com.xhcms.ucenter.persist.redis.dao.OpenUserDaoImpl"/>
+</beans>

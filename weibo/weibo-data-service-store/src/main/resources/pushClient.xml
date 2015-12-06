@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:annotation-config></context:annotation-config>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:qt-init.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="redisClient" class="com.davcai.lottery.push.common.redis.RedisClientImpl"></bean>
+	<bean id="pushMessageDao" class="com.davcai.lottery.push.common.redis.dao.PushMessageDaoImpl">
+		<property name="propertyNamesOfDate">
+			<set>
+				<value>scheduleMatchTime</value>
+				<value>halfStartTime</value>
+			</set>
+		</property>
+	</bean>
+	<bean id="redisTemplate" class="com.unison.lottery.weibo.common.redis.RedisTemplate">
+		<constructor-arg index="0"><value>${redis.url}</value></constructor-arg>
+		<constructor-arg index="1"><value>${redis.port}</value></constructor-arg>
+	</bean>
+	<bean id="idGenerator" class="com.unison.lottery.weibo.common.service.impl.IdGeneratorImpl"></bean>
+	<bean id="pushClient" class="com.davcai.lottery.push.client.PushClientCometdImpl">
+		<property name="pushServerUrl" ><value>${pushServerUrl}</value></property>
+		<property name="pushHXServerUrl" ><value>${pushHXServerUrl}</value></property>
+		<property name="appId" ><value>${appID}</value></property>
+		<property name="appkey" ><value>${appKey}</value></property>
+		<property name="master" ><value>${masterSecret}</value></property>
+		<property name="host" ><value>${ge.tui}</value></property>
+	</bean>
+	<bean id="newPushMessageHandler" class="com.davcai.lottery.push.client.NewPushMessageHandlerRedisImpl"></bean>
+</beans>

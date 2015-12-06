@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="lottery-default" extends="struts-default"
+		abstract="true">
+
+		<result-types>
+			<result-type name="layout"
+				class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult"
+				default="true" />
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+				<param name="root">data</param>
+				<param name="contentType">text/html</param>
+				<param name="callbackParameter">jsonp</param>
+			</result-type>
+		</result-types>
+
+		<interceptors>
+			<interceptor name="postValidation"
+				class="com.xhcms.lottery.account.web.validation.PostAnnotationValidationInterceptor" />
+			<interceptor name="accessInterceptor"
+				class="com.xhcms.lottery.account.web.interceptor.AccessInterceptor" />
+			<interceptor name="ajaxAccessInterceptor"
+				class="com.xhcms.lottery.account.web.interceptor.AjaxAccessInterceptor" />
+			<interceptor name="exception"
+				class="com.xhcms.commons.web.struts2.interceptor.ExceptionInterceptor" />
+			<interceptor name="workflow"
+				class="com.xhcms.commons.web.struts2.interceptor.AjaxWorkflowInterceptor" />
+
+			<interceptor-stack name="lotteryStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="postValidation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow" />
+			</interceptor-stack>
+
+			<interceptor-stack name="accessItctStack">
+				<interceptor-ref name="accessInterceptor" />
+				<interceptor-ref name="lotteryStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="ajaxAccessItctStack">
+				<interceptor-ref name="ajaxAccessInterceptor" />
+				<interceptor-ref name="lotteryStack" />
+			</interceptor-stack>
+			<interceptor-stack name="formPostStack">
+				<interceptor-ref name="accessItctStack" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="accessItctStack" />
+
+		<global-results>
+			<result name="input">/message.vm</result>
+			<result name="error">/message.vm</result>
+			<result name="login" type="redirect">${ssoLogin}</result>
+		</global-results>
+	</package>
+
+	<package name="global" extends="lottery-default" namespace="/">
+		<!-- 账户明细 -->
+		<action name="balance"
+			class="com.xhcms.lottery.account.web.action.my.AccountAction">
+			<result>balance.vm</result>
+		</action>
+		<!-- 申请充值 -->
+		<action name="recharge"
+			class="com.xhcms.lottery.account.web.action.my.AccountAction" method="recharge">
+			<result>recharge.vm</result>
+		</action>
+		<!-- 易宝申请充值 -->
+		<action name="yeepayRecharge"
+			class="com.xhcms.lottery.account.web.action.my.AccountAction" method="yeepayRecharge">
+			<result>yeepay_recharge.vm</result>
+		</action>
+		<!-- 申请提现 -->
+		<action name="withdraw"
+			class="com.xhcms.lottery.account.web.action.my.AccountAction" method="withdraw">
+			<result>withdraw.vm</result>
+		</action>
+		<!-- 查看银行信息 -->
+		<action name="bank"
+			class="com.xhcms.lottery.account.web.action.my.BankInfoAction">
+			<result>bank.vm</result>
+			<result name="add" type="redirect">tobank.do</result>
+		</action>
+		<!-- 跳至修改银行信息 -->
+		<action name="tobank"
+			class="com.xhcms.lottery.account.web.action.my.BankInfoAction"
+			method="toAdd">
+			<result name="input">editbank.vm</result>
+			<result>editbank.vm</result>
+		</action>
+		<!-- 修改银行信息 -->
+		<action name="editbank"
+			class="com.xhcms.lottery.account.web.action.my.ModifyBankAction"
+			method="modify">
+			<result>message.vm</result>
+			<result name="input">editbank.vm</result>
+		</action>
+		<!-- 修改密码 -->
+		<action name="passwd"
+			class="com.xhcms.lottery.account.web.action.my.ToPasswdAction">
+			<result>passwd.vm</result>
+		</action>
+		<!-- 提交修改密码 -->
+		<action name="editpasswd"
+			class="com.xhcms.lottery.account.web.action.my.PasswdAction">
+			<result>message.vm</result>
+			<result name="input">passwd.vm</result>
+		</action>
+		<!-- 投注 -->
+		<action name="bet"
+			class="com.xhcms.lottery.account.web.action.bet.BetAction">
+			<interceptor-ref name="lotteryStack" />
+			<result>/bet/confirm.vm</result>
+			<result name="error">/bet/stopBet.vm</result>
+		</action>
+		<action name="newBet"
+			class="com.xhcms.lottery.account.web.action.bet.BetAction" method="executeConfirm">
+			<interceptor-ref name="lotteryStack" />
+			<result name="newBetConfirm">/bet/new_bet_confirm.vm</result>
+			<result name="error">/bet/stopBet.vm</result>
+		</action>
+		<!-- 双色球投注 -->
+		<action name="bet_ssq"
+			class="com.xhcms.lottery.account.web.action.bet.ssq.BetAction">
+			<interceptor-ref name="lotteryStack" />
+			<result>/bet/confirm.vm</result>
+		</action>
+		<!-- 跟单 -->
+		<action name="follow"
+			class="com.xhcms.lottery.account.web.action.bet.BetFollowAction">
+			<interceptor-ref name="defaultStack" />
+			<result name="betView" type="redirect">
+				<param name="location">follow.do</param>
+				<param name="id">${id}</param>
+			</result>
+			<result>/bet/detail_follow.vm</result>
+		</action>
+		
+		<!-- 竞猜世界杯冠军投注 -->
+    <action name="bet_jcsjbgj"
+	class="com.xhcms.lottery.account.web.action.bet.cgj.BetAction">
+      <interceptor-ref name="lotteryStack"/>
+      <result>/bet/confirm.vm</result>
+    </action>
+		
+		<!-- 微博内容嵌入投注详情 -->
+		<action name="follow_in_weibo"
+			class="com.xhcms.lottery.account.web.action.bet.BetFollowAction">
+			<interceptor-ref name="defaultStack" />
+			<result name="betView" type="redirect">
+				<param name="location">follow_in_weibo.do</param>
+				<param name="id">${id}</param>
+			</result>
+			<result>/bet_weibo/detail_follow.vm</result>
+		</action>
+		<!-- 微博内容嵌入推荐详情 -->
+		<action name="recommend_in_weibo"
+			class="com.xhcms.lottery.account.web.action.bet.BetRecomendAction">
+			<interceptor-ref name="defaultStack" />
+			<result>/recommend_weibo/detail_recommend.vm</result>
+		</action>
+
+
+		<!-- 合买 -->
+		<action name="groupbuy"
+			class="com.xhcms.lottery.account.web.action.bet.BetGroupbuyAction">
+			<interceptor-ref name="accessItctStack" />
+			<result name="betView" type="redirect">
+				<param name="location">groupbuy.do</param>
+				<param name="id">${id}</param>
+			</result>
+			<result>/bet/detail_groupbuy.vm</result>
+		</action>
+		<!-- 投注确认 -->
+		<action name="betconfirm"
+			class="com.xhcms.lottery.account.web.action.bet.BetConfirmAction">
+			<result name="betView" type="redirect">bet.do</result>
+			<result name="betViewSSQ" type="redirect">bet_ssq.do</result>
+			<result type="redirect">betsuccess.do?sid=${schemeId}&amp;showScheme=${showScheme}&amp;type=${type}
+			</result>
+		</action>
+		<action name="newBetconfirm"
+			class="com.xhcms.lottery.account.web.action.bet.BetConfirmAction">
+			<result name="betView" type="redirect">newBet.do</result>
+			<result type="redirect">betsuccess.do?sid=${schemeId}&amp;showScheme=${showScheme}&amp;type=${type}
+			</result>
+		</action>
+
+		<!-- 在微博界面投注确认 -->
+		<action name="betconfirm_in_weibo"
+			class="com.xhcms.lottery.account.web.action.bet.BetConfirmInWeiboAction">
+			<result name="betView" type="json"></result>
+			<result name="betViewSSQ" type="json"></result>
+			<result type="json"></result>
+			<result name="input" type="json"></result>
+			<result name="error" type="json"></result>
+		</action>
+		<!-- 在微博界面投注成功 -->
+		<action name="betsuccess_in_weibo"
+			class="com.xhcms.lottery.account.web.action.bet.BetSuccessAction">
+			<result>/bet_weibo/success.vm</result>
+		</action>
+
+		<!-- 投注成功 -->
+		<action name="betsuccess"
+			class="com.xhcms.lottery.account.web.action.bet.BetSuccessAction">
+			<result>/bet/success.vm</result>
+		</action>
+		<!-- 方案详情 -->
+		<action name="betdetail"
+			class="com.xhcms.lottery.account.web.action.bet.DetailAction">
+			<result>/bet/detail.vm</result>
+		</action>
+		<!-- 合买跟单定制 custom_made -->
+		<action name="cm"
+			class="com.xhcms.lottery.account.web.action.custommade.CustomMadeAction">
+			<interceptor-ref name="formPostStack" />
+			<result name="input">/custommade/input.vm</result>
+			<result name="success" type="redirect">cmlist.do</result>
+		</action>
+		<action name="cmcancel"
+			class="com.xhcms.lottery.account.web.action.custommade.CustomMadeCancelAction">
+			<result name="success" type="redirect">cmlist.do</result>
+		</action>
+		<action name="cmlist"
+			class="com.xhcms.lottery.account.web.action.custommade.CustomMadeListAction">
+			<result name="mycmlist">/custommade/mycmlist.vm</result>
+			<result name="cmmelist">/custommade/cmmelist.vm</result>
+		</action>
+		<action name="cmflm"
+			class="com.xhcms.lottery.account.web.action.custommade.CustomMadeDetailListAction">
+			<result name="success">/custommade/followmelist.vm</result>
+		</action>
+		<action name="cmfbm"
+			class="com.xhcms.lottery.account.web.action.custommade.CustomMadeDetailListAction"
+			method="followed">
+			<result name="success">/custommade/followbyme.vm</result>
+		</action>
+		<!-- 优惠卷 -->
+		<action name="voucher"
+			class="com.xhcms.lottery.account.web.action.voucher.ListValidVoucherAction">
+			<result name="success">/voucher/my_voucher.vm</result>
+		</action>
+		<action name="usedVoucher"
+			class="com.xhcms.lottery.account.web.action.voucher.ListUsedVoucherAction">
+			<result name="success">/voucher/used_voucher.vm</result>
+		</action>
+		<action name="invalidVoucher"
+			class="com.xhcms.lottery.account.web.action.voucher.ListInvalidVoucherAction">
+			<result name="success">/voucher/invalid_voucher.vm</result>
+		</action>
+		<action name="useGrantVoucher"
+			class="com.xhcms.lottery.account.web.action.voucher.AjaxUseGrantVoucherAction">
+			<result type="json" />
+		</action>
+		<action name="inbox"
+			class="com.xhcms.lottery.account.web.action.inbox.InboxAction">
+			<result>/inbox/inbox.vm</result>
+		</action>
+		<action name="read"
+			class="com.xhcms.lottery.account.web.action.inbox.InboxAction"
+			method="read">
+			<result>/inbox/detail.vm</result>
+		</action>
+		<action name="remove"
+			class="com.xhcms.lottery.account.web.action.inbox.InboxAction"
+			method="remove">
+			<result>/inbox/inbox.vm</result>
+		</action>
+		<action name="inboxCount"
+			class="com.xhcms.lottery.account.web.action.inbox.AjaxInboxAction">
+			<result type="json" />
+		</action>
+	</package>
+
+	<package name="callback" extends="lottery-default" namespace="/callback">
+		<default-interceptor-ref name="lotteryStack" />
+		<!-- 验证充值信息 -->
+		<action name="affirm"
+			class="com.xhcms.lottery.account.web.action.yeepay.PayAction">
+			<result type="velocity">/yeepay/goto.vm</result>
+			<result name="login" type="redirect">http://login.davcai.com/login.do
+			</result>
+		</action>
+
+		<!-- 易宝回调接口 -->
+		<action name="yeepay"
+			class="com.xhcms.lottery.account.web.action.yeepay.CallbackAction">
+			<result type="stream" />
+		</action>
+
+		<!-- 支付宝验证充值信息 -->
+		<action name="aliaffirm"
+			class="com.xhcms.lottery.account.web.action.alipay.PayAction">
+			<result type="velocity">/alipay/goto.vm</result>
+			<result name="login" type="redirect">http://login.davcai.com/login.do
+			</result>
+		</action>
+
+		<!-- 支付宝异步回调接口 -->
+		<action name="alipayNotify"
+			class="com.xhcms.lottery.account.web.action.alipay.NotifyAction">
+			<result type="stream" />
+		</action>
+
+		<!-- 支付宝同步回调接口 -->
+		<action name="alipayReturn"
+			class="com.xhcms.lottery.account.web.action.alipay.ReturnAction">
+			<result>/message.vm</result>
+		</action>
+
+		<!-- 客户端支付宝异步回调接口 -->
+		<action name="clientAlipayNotify"
+			class="com.xhcms.lottery.account.web.action.alipay.ClientNotifyAction">
+			<result type="stream" />
+		</action>
+
+		<!-- 客户端易宝手机卡充值异步回调接口 -->
+		<action name="clientYeepayCardNotify"
+			class="com.xhcms.lottery.account.web.action.yeepay.ClientCardNotifyAction">
+			<result type="stream" />
+		</action>
+
+		<!-- 出票回调接口 -->
+		<action name="ticket"
+			class="com.xhcms.lottery.account.web.action.ticket.CallbackAction">
+			<result type="velocity">/ticket/callback.vm</result>
+		</action>
+	</package>
+
+	<!-- 资金记录 -->
+	<package name="record" extends="lottery-default" namespace="/record">
+		<!-- 周周送奖金 活动 -->
+		 <action name="getBonusPool" class="com.xhcms.lottery.account.web.action.bonusWeek.AjaxCheckBonusPoolAction">
+		 	<interceptor-ref name="basicStack"></interceptor-ref>
+	    	<result type="json"/>
+	    </action>
+	    <action name="awardBonus" class="com.xhcms.lottery.account.web.action.bonusWeek.AjaxExpiryAction">
+	    	<result type="json"/>
+	    </action>
+		<!-- 流水记录 -->
+		<action name="journal"
+			class="com.xhcms.lottery.account.web.action.journal.ListAction">
+			<result>journal.vm</result>
+		</action>
+		<!-- 充值记录 -->
+		<action name="recharge"
+			class="com.xhcms.lottery.account.web.action.recharge.ListAction">
+			<result>recharge.vm</result>
+		</action>
+		<!-- 提现记录 -->
+		<action name="withdraw"
+			class="com.xhcms.lottery.account.web.action.withdraw.ListAction">
+			<result>withdraw.vm</result>
+		</action>
+		<!-- 中奖记录 -->
+		<action name="win"
+			class="com.xhcms.lottery.account.web.action.win.ListAction">
+			<result>win.vm</result>
+		</action>
+		<!-- 赠款记录 -->
+		<action name="grant"
+			class="com.xhcms.lottery.account.web.action.grant.ListAction">
+			<result>grant.vm</result>
+		</action>
+		<!-- 佣金支出记录 -->
+		<action name="commissionout"
+			class="com.xhcms.lottery.account.web.action.commission.ListOutAction">
+			<result>commission_out.vm</result>
+		</action>
+		<!-- 佣金收入记录 -->
+		<action name="commissionin"
+			class="com.xhcms.lottery.account.web.action.commission.ListInAction">
+			<result>commission_in.vm</result>
+		</action>
+		<!-- 投注记录 -->
+		<action name="bet"
+			class="com.xhcms.lottery.account.web.action.bet.ListAction">
+			<result>bet.vm</result>
+		</action>
+		<!-- 跟单记录 -->
+		<action name="mylaunchfollow"
+			class="com.xhcms.lottery.account.web.action.bet.ListMyLaunchFollowAction">
+			<result>launchfollow.vm</result>
+		</action>
+		<action name="myjoinfollow"
+			class="com.xhcms.lottery.account.web.action.bet.ListMyJoinFollowAction">
+			<result>joinfollow.vm</result>
+		</action>
+		<!-- 合买记录 -->
+		<action name="myjoingroupbuy"
+			class="com.xhcms.lottery.account.web.action.bet.ListMyJoinGroupbuyAction">
+			<result>joingroupbuy.vm</result>
+		</action>
+		<action name="mylaunchgroupbuy"
+			class="com.xhcms.lottery.account.web.action.bet.ListMyLaunchGroupbuyAction">
+			<result>launchgroupbuy.vm</result>
+		</action>
+		<!-- 追号记录 -->
+		<action name="myRepeat"
+			class="com.xhcms.lottery.account.web.action.repeat.RepeatRecordAction">
+			<result>repeatRecord.vm</result>
+		</action>
+		<!-- 停止追号计划 -->
+		<action name="stopRepeatPlan"
+			class="com.xhcms.lottery.account.web.action.repeat.RepeatRecordAction"
+			method="stopRepeatPlan">
+			<result type="json" />
+		</action>
+
+		<!-- 方案异步晒单 -->
+		<action name="aj_showSchemeWeibo"
+			class="com.xhcms.lottery.account.web.action.showscheme.ShowSchemeWeiboAction">
+			<result type="json" />
+		</action>
+	</package>
+
+	<package name="withdraw" extends="lottery-default" namespace="/withdraw">
+		<!-- 提交提现 -->
+		<action name="apply"
+			class="com.xhcms.lottery.account.web.action.withdraw.WithdrawAction">
+			<result>/message.vm</result>
+			<result name="input">/withdraw.vm</result>
+		</action>
+	</package>
+
+	<!-- 奖金评测管理 -->
+	<package name="bonus" extends="lottery-default" namespace="/bonus">
+		<default-interceptor-ref name="lotteryStack" />
+		<default-class-ref
+			class="com.xhcms.lottery.account.web.action.bonus.BonusEvalAction" />
+		<action name="bonusEval">
+			<result type="json" />
+		</action>
+		<action name="bonusEvalDetail" method="bonusEvalDetail">
+			<result>bonusEvalDetail.vm</result>
+		</action>
+	</package>
+
+	<!-- 发推荐 -->
+	<package name="post-recommend" extends="lottery-default"
+		namespace="/recommend">
+		<action name="ajax_post_recom"
+			class="com.xhcms.lottery.account.web.action.recommend.PublishRecommendAction"
+			method="post">
+			<result type="json" />
+		</action>
+	</package>
+
+	<!-- 通知登录 -->
+	<package name="login-notify" extends="lottery-default"
+		namespace="/">
+		<action name="login_notify"
+			class="com.xhcms.lottery.account.web.action.BaseAction">
+			<result type="json" />
+		</action>
+	</package>
+</struts>

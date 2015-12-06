@@ -1,0 +1,59 @@
+#set($layout = "weibo/scheme_info.vm")
+#set($p_title = "微博晒单详情")
+#set($scripts=["js/weibo_detail_follow.min"])
+			   
+#parse("/bet_weibo/scheme.vm")
+
+<div style="display:none"><!-- 添加div去掉跟单功能-->
+#if($offtime == 0)
+<div class="panel panel-danger" style="display:none" id="follow_panel">
+  <div class="panel-heading" >
+    <h3 class="panel-title">跟单</h3>
+  </div>
+  <div class="panel-body">
+  	<form id="betForm" action="betconfirm_in_weibo.do" method="post">
+  			#if($!{user.id}<=0)
+					<div>
+						温馨提示： 您尚未登录，请先<a href="http://www.davcai.com/welcome" target="_blank" style="color:red;">【登录】</a>
+					</div>
+				#end
+				#if($!{user.id}>0)
+					<div>
+						晒单提成：<b class="c-i">$!{scheme.followedRatio} %</b><br/>
+					</div>
+					<div>
+						方案单倍：<b class="c-i">￥$math.div(${scheme.totalAmount},${scheme.multiple})元</b>&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+					<input type="hidden" name="type" value="2"/>
+					<input type="hidden" name="schemeId" value="$!{scheme.id}"/>
+					<div>
+						方案总额：<b class="c-i"><span id="followtotalmoney">￥$math.div(${scheme.totalAmount},${scheme.multiple})元</span></b>
+					</div>
+					<div>
+						理论最高奖金：<b class="c-i"><span id="followmaxmoney">￥$math.toInteger($math.div(${scheme.maxBonus},${scheme.multiple}))元 </span></b>
+					</div>
+		    	<div class="input-group"  >
+					  <span class="input-group-addon" >我要跟：</span>
+				  		<input type="text" name="multiple" id="follow_multiple" class="form-control" style="display:inline;" placeholder="倍数">
+				  	  <span class="input-group-addon" style="height:34px;">倍</span>
+				  	  <button style="margin-left:5px" name="follow_schema_confirm_btn" type="button" class="btn btn-default" id="follow_schema_confirm_btn">确定</button>
+				</div>
+				#end
+	</form>
+  </div>
+</div>
+#end
+</div>
+<div #if($offtime == 0)	style="float: right;display: none;" #else style="display: none;" #end>
+	<div class="btn-group">
+	  <button name="follow_schema_btn" schemaId="$!{scheme.id}" type="button" class="btn btn-default" id="follow_schema_btn" _status="follow">跟单</button>
+	</div>
+</div>
+
+<div  style="display:none"><!--去掉-->
+	<span id="total_followers"></span> 
+	<span id="total_follow_money"></span>
+	<span id="total_follow_win"></span>
+</div>
+#parse("/bet_weibo/user_list_follow.vm")	
+	

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    default-autowire="byName">
+	<bean id="changChunShiTiDianOrderTicketClient" class="com.davcai.lottery.platform.client.shitidian.ChangChunShiTiDianLotteryPlatformOrderTicketClient" ></bean> 
+	<bean id="changChunShiTiDianOrderTicketClient2" class="com.davcai.lottery.platform.client.shitidian.ChangChunShiTiDianLotteryPlatformOrderTicketClient2" ></bean> 
+	<bean id="changChunShiTiDian60005" class="com.davcai.lottery.platform.client.shitidian.ChangChunShiTiDian60005TicketClient" ></bean> 
+	<bean id="shanxiShitiDian00001" class="com.davcai.lottery.platform.client.shitidian.BasicShiTiDianTicketClient" >
+		<property name="lotteryPlatformId" value="shanxi00001"></property>
+	</bean> 
+	<bean id="changchunShitiDian02857" class="com.davcai.lottery.platform.client.shitidian.BasicShiTiDianTicketClient" >
+		<property name="lotteryPlatformId" value="changchun02857"></property>
+	</bean> 
+	<bean id="kuaisuchupiao" class="com.davcai.lottery.platform.client.shitidian.BasicShiTiDianTicketClient" >
+		<property name="lotteryPlatformId" value="kuaisuchupiao"></property>
+	</bean> 
+</beans>

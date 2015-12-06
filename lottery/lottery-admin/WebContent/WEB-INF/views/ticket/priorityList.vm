@@ -1,0 +1,102 @@
+#set($title="分票管理")
+#set($styles=["css/jqueryui/jquery-ui", "css/style"])
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js", "js/lottery/priority.editor.js"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<script type="text/javascript" src="$base/js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="$base/js/lottery/priorityList.js?v=0.2"></script>
+
+<div class="w">
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/ticket/lsPriority.do" method="post">
+				<div class="tabH tabH02 panel">
+	       			<span class="current"><b>查询条件</b></span>
+	        		<div class="l">
+	        			彩种：
+	        			<select name="lotteryId" id="lotteryIdSel" value="">
+	        			  	 #foreach($m in $lotteryNameList)
+	        			  	 	#if(${lotteryId} && ${lotteryId}==${m.value})
+	        			  	 		<option value="${m.value}" selected="selected">${m.name}</option>
+	        			  	 	#else
+	        			  	 		<option value="${m.value}">${m.name}</option>
+	        			  	 	#end
+	        			  	 #end
+					            
+					        
+				        </select>
+				               实体店名称：
+	        			<select name="lotteryPlatformId"  id="lotteryPlatformIdSel">
+	        				#foreach($m in $lotteryPlatformAliasNameList)
+	        					#if( ${lotteryPlatformId} && ${lotteryPlatformId}==${m.value})
+	        						<option value="${m.value}" selected="selected">${m.name}</option>
+	        					#else
+	        						<option value="${m.value}">${m.name}</option>
+	        						
+								#end
+							#end
+	        			</select>
+	        			 <input type="button" id="batchEditBtn" style="margin-left: 150px;" value="批量编辑分票比例">
+	        			 <input type="button" id="cacelBatchEditBtn" style="margin-left: 150px;display:none" value="停止批量编辑分票比例">
+	        			 <input type="button" id="batchEditSaveBtn" style="margin-left: 150px;display:none" value="批量保存">
+	        			
+	        		</div>
+	        	</div>
+			</form>
+		</div>
+		<form id="batchEditForm">
+			<table cellspacing="0" class="tab" id="dataGrid">
+				<tr class="">
+					<th style="width:60px;text-align:center;display:none;" batchEditOpt="true"><input type="checkbox" id="selectAll"><label>全选</label></th>
+					<th style="width:60px;text-align:center;display:none;"><span>id</span></th>
+        			<th style="width:60px;text-align:center;"><span>实体店名称</span></th>
+					<th style="width:70px;text-align:center;"><span>彩种</span></th>
+					<th style="width:140px;text-align:center;"><span>小额票权重</span></th>
+					<th style="width:140px;text-align:center;"><span>大额票权重</span></th>
+        			<th style="width:40px;text-align:center;" batchEditOpt="false">操作</th>
+				</tr>
+				#foreach($m in $priorityList)
+					<tr id="$m.id">
+			    		<td style="text-align:center;display:none;" batchEditOpt="true">
+							<input type="checkbox" value="${m.id}" name="selectedPriorityIds" priority-checkbox="true" checkbox4Tr="true" />
+						</td>
+						<td style="text-align:center;display:none;">${m.id}</td>
+						<td style="text-align:center;">${m.lotteryPlatformAliasName}</td>
+						<td style="text-align:center;">#lotteryName(${m.lotteryId})</td>
+						<td style="text-align:center;"><input type="text" name="priority"  value="${m.priority}" readOnly="true" style="border:none;text-align:center;" priority-checkbox="true" orignValue="${m.priority}" /></td>
+						<td style="text-align:center;"><input type="text" name="priorityOfBigTicket"  value="${m.priorityOfBigTicket}" readOnly="true" style="border:none;text-align:center;" priority-checkbox="true" orignValue="${m.priorityOfBigTicket}"/></td>
+						<td style="text-align:center;" batchEditOpt="false"><a href="javascript:void(0);" _op="edit" >编辑分票比例</a></td>
+					</tr>
+				#end
+			</table>
+		</form>
+		
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+$(function(){
+    var J = jQuery;
+    
+    $('#dataGrid a[_op="edit"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+        new priorityEditor({
+            width: 380,
+            height: 300,
+            data: {
+                id: $('td', _tr).eq(1).text(),
+                lotteryPlatformAliasName: $('td', _tr).eq(2).text(),
+                lotteryId: $('td', _tr).eq(3).text(),
+                priority: $('td', _tr).eq(4).find("input").attr("value"),
+                priorityOfBigTicket: $('td', _tr).eq(5).find("input").attr("value"),
+            },
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+
+        return false;
+    });
+    
+});
+</script>
+<div id="dialog">
+</div>

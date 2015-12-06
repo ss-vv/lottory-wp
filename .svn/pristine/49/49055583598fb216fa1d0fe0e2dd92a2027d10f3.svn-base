@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<methodRequest name="getVerifyCode" validId="388c1a68-e575-47df-9ad5-be82b891a4a4" clientVersion="客户端版本号" channel="渠道号" deviceId="sim卡序列号" modelName="机型信息"  phoneNumber="13811073816" type="forgotPassword"/>

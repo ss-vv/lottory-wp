@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+th {
+	text-align: center !important;
+}
+
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.hide {
+	display: block !important;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    line-height: normal;
+    margin: 0px 0 0;
+}

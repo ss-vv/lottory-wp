@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+  default-autowire="byName">
+
+  <context:annotation-config />
+  
+    <!-- 运营数据库连接池 -->
+    <bean id="mainDS" class="bitronix.tm.resource.jdbc.PoolingDataSource" init-method="init" destroy-method="close">
+        <property name="className" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
+        <property name="uniqueName" value="jdbc/mainDS" />
+        <property name="minPoolSize" value="1" />
+        <property name="maxPoolSize" value="50" />
+        <property name="driverProperties">
+            <props>
+                <prop key="url">jdbc:mysql://182.92.191.193:3306/db_lottery</prop>
+                <prop key="user">test_lottery</prop>
+                <prop key="password">test77</prop>
+            </props>
+        </property>
+    </bean>
+    
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <property name="dataSource" ref="mainDS"/>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+        <prop key="hibernate.jdbc.fetch_size">20</prop>
+        <prop key="hibernate.jdbc.batch_size">20</prop>
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.order_updates">true</prop>
+        <prop key="hibernate.cache.use_second_level_cache">false</prop>
+      </props>
+    </property>
+    <property name="packagesToScan" value="com.xhcms.lottery.commons.persist.entity"/>
+  </bean>
+
+      <!-- JTA事务配置 -->
+    <bean id="btmConfig" factory-method="getConfiguration" class="bitronix.tm.TransactionManagerServices">
+       <property name="logPart1Filename" value="/data/logs/test-btm1.log" />
+       <property name="logPart2Filename" value="/data/logs/test-btm2.log" />
+       <property name="defaultTransactionTimeout" value="600"/>
+    </bean>
+    <bean id="btm" factory-method="getTransactionManager" class="bitronix.tm.TransactionManagerServices" destroy-method="shutdown" depends-on="btmConfig"/>
+    <bean id="txManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager" ref="btm" />
+        <property name="userTransaction" ref="btm" />
+    </bean>
+    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager" ref="btm" />
+        <property name="userTransaction" ref="btm" />
+    </bean> 
+    
+  <tx:annotation-driven transaction-manager="txManager" />
+  
+  <bean id="userDao" class="com.xhcms.lottery.commons.persist.dao.impl.UserDaoImpl"></bean>
+  
+  <bean id="userService" class="com.xhcms.lottery.commons.persist.service.impl.UserServiceImpl"></bean>
+  
+</beans>

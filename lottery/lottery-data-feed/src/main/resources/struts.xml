@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="lottery-default" extends="struts-default" abstract="true">
+
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+				<param name="root">data</param>
+				<param name="contentType">text/html</param>
+				<param name="callbackParameter">jsonp</param>
+			</result-type>
+		</result-types>
+
+		<interceptors>
+			<interceptor-stack name="lotteryStack">
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="actionMappingParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+			</interceptor-stack>
+
+			<interceptor-stack name="ajaxAccessItctStack">
+				<interceptor-ref name="lotteryStack" />
+			</interceptor-stack>
+		</interceptors>
+    
+		<default-interceptor-ref name="lotteryStack" />
+
+		<global-results>
+			<result name="input" type="velocity">/message.vm</result>
+			<result name="error" type="velocity">/message.vm</result>
+		</global-results>
+	</package>
+	
+	<package name="fbmatch" extends="lottery-default" namespace="/">
+		<!-- 足球赛事 -->
+		<action name="aj_fblist" class="com.xhcms.lottery.dc.feed.web.action.matchplay.AjaxListAction">
+			<result type="json"/>
+		</action>
+		<!-- 篮球赛事 -->
+		<action name="aj_bblist" class="com.xhcms.lottery.dc.feed.web.action.matchplay.AjaxListAction" method="basketball">
+			<result type="json"/>
+		</action>
+		<!-- 传统足球赛事 -->
+		<action name="aj_ctfblist" class="com.xhcms.lottery.dc.feed.web.action.matchplay.AjaxListAction" method="ctFootball">
+			<result type="json"/>
+		</action>
+		<!-- 猜冠军：世界杯赛事 -->
+		<action name="aj_jcsjbgj" class="com.xhcms.lottery.dc.feed.web.action.cgj.AjaxSJBAction" method="jcsjbgj">
+			<result type="json"/>
+		</action>
+		
+		<!-- 足球赛果 -->
+		<action name="aj_fbresult" class="com.xhcms.lottery.dc.feed.web.action.result.AjaxListAction">
+			<result type="json">
+				<param name="root">paging</param>
+			</result>
+		</action>
+		<!-- 篮球赛果 -->
+		<action name="aj_bbresult" class="com.xhcms.lottery.dc.feed.web.action.result.AjaxListAction" method="basketball">
+			<result type="json">
+				<param name="root">paging</param>
+			</result>
+		</action>
+		<!-- passtype -->
+		<action name="aj_lspasstype" class="com.xhcms.lottery.dc.feed.web.action.passtype.AjaxListAction">
+             <result type="json"/>
+        </action>
+		<!-- 竞彩足球赛事颜色 -->
+		<action name="aj_matchcolor" class="com.xhcms.lottery.dc.feed.web.action.matchplay.AjaxColorListAction">
+             <result type="json"/>
+        </action>
+		<!-- 文件上传 -->
+		<action name="aj_upload" class="com.xhcms.lottery.dc.feed.web.action.upload.AjaxUploadAction">
+             <result type="json"/>
+        </action>
+	</package>
+	
+	<!-- 双色球 -->
+    <package name="ssq" extends="lottery-default" namespace="/ssq">
+        <!-- 双色球当前期信息 -->
+        <action name="aj_issue" class="com.xhcms.lottery.dc.feed.web.action.ssq.AjaxIssueAction">
+            <result type="json"/>
+        </action>
+        <!-- 开奖信息 -->
+        <action name="aj_results" class="com.xhcms.lottery.dc.feed.web.action.ssq.AjaxResults">
+            <result type="json"></result>
+        </action>
+    </package>
+    
+    <!-- 北单 -->
+    <package name="bdMatch" extends="lottery-default" namespace="/">
+		<action name="aj_bdlist" class="com.xhcms.lottery.dc.feed.web.action.matchplay.AjaxBJDCMatchListAction">
+			<result type="json"/>
+		</action>
+	</package>
+    
+	<include file="struts-follow.xml"></include>
+	<include file="struts-bet.xml"></include>
+	<include file="struts-footer.xml"></include>
+</struts>

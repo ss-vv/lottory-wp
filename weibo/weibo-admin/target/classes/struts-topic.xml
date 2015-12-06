@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="topic" extends="weibo-admin-default" namespace="/topic">
+		<action name="addTopic" class="com.unison.weibo.admin.action.topic.TopicAction"
+			method="createTopic">
+			<result name="success" type="json"/>
+		</action>
+		<action name="topicQuery" class="com.unison.weibo.admin.action.topic.TopicAction"
+			method="topicQuery">
+			<result name="success" type="json"/>
+		</action>
+		<action name="getTopic" class="com.unison.weibo.admin.action.topic.TopicAction"
+			method="getTopicById">
+			<result name="success" type="json"/>
+		</action>
+		<action name="deleteTopic" class="com.unison.weibo.admin.action.topic.TopicEditAction"
+			method="deleteTopic">
+			<result name="success" type="json"/>
+		</action>
+		<action name="updateTopic" class="com.unison.weibo.admin.action.topic.TopicEditAction"
+			method="updateTopic">
+			<result name="success" type="json"/>
+		</action>
+		<action name="ajax_upload_image" class="com.unison.weibo.admin.action.topic.UploadAction">
+			<result name="success" type="json"/>
+			<result name="input" type="json"/>
+		</action>
+	</package>
+</struts>

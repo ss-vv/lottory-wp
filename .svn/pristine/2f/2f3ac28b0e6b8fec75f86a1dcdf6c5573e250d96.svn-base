@@ -1,0 +1,46 @@
+<assembly>
+	<id>bin</id>
+	<formats>
+		<format>tar.bz2</format>
+	</formats>
+	<dependencySets>
+		<dependencySet>
+			<useProjectArtifact>true</useProjectArtifact>
+			<outputDirectory>lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<fileSet>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>README.txt</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>deploy</directory>
+			<outputDirectory>/bin</outputDirectory>
+			<includes>
+				<include>*.sh</include>
+				<include>*.bat</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/resources</directory>
+			<outputDirectory>/conf</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+			<excludes>
+		        <exclude>init.properties</exclude>
+            </excludes>
+		</fileSet>
+	</fileSets>
+	<!-- 过滤配置文件 -->
+	<files>
+		<file>
+			<source>src/filter/init.properties</source>
+			<outputDirectory>conf/</outputDirectory>
+			<filtered>true</filtered>
+		</file>
+	</files>
+</assembly>

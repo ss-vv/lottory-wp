@@ -1,0 +1,70 @@
+#set($layout="weibo/head_foot.vm")
+#set($p_title="找回密码")
+
+#set($scripts = [])
+
+<div id="lostpw_block" class="formblock" style="margin: 40px auto;width: 700px;">
+	<h2 style="margin: 5px 90px; font-weight: 700;">设置大V彩帐号新密码</h2>
+	<p style="margin-top: 20px;">现在为账户$!{username}设置新的登录密码</p>
+	<form id="setPwdForm" method="post" action="setnewpwd.do">
+		<input type="hidden" name="uid" value="$!{uid}"/>
+      	<input type="hidden" name="code" value="$!{code}"/>
+		<div style="margin-top:6px;">
+			<ul>
+				<li style="margin-top:6px;">
+					<label class="t">新密码：</label>
+					<input id="pwd" type="password" name="password" null_text="请输入密码" style="margin-left: 16px;">
+					<span id="pwd-err" style="color:red;"></span>
+				</li>
+				<li style="margin-top:6px;">
+					<label class="t">再次输入：</label>
+					<input id="pwd1" type="password" name="password1" null_text="请输入密码" >
+					<span id="pwd1-err" style="color:red;"></span>
+				</li>
+			</ul>
+		</div>
+		<input type="button" name="submit-newpwd-btn" id="submit-newpwd-btn" value="确定" class="button_red" style="margin-top:6px;margin-left: 95px;">
+		<div id="message" style="color:red;margin-top:10px;margin-left:95px;"></div>
+		<div class="loading" style="display:none;"></div>
+	</form>
+</div>
+  
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('#submit-newpwd-btn').click(function(event){
+		var this_btn = jQuery(this); 
+		
+		var pwd_input = jQuery('#pwd');
+		var pwd_input1 = jQuery('#pwd1');
+		var password = pwd_input.val();
+		var password1 = pwd_input1.val();
+		
+		var message = jQuery('#message');
+		
+		var pwderr = jQuery('#pwd-err');
+		var pwderr1 = jQuery('#pwd1-err');
+		
+		if(password.length < 5 || password.length > 15){
+			pwderr.html('密码长度为5至15个字符');
+			return false;
+		}
+		if(password1 != password){
+			pwderr1.html('两次密码不一致');
+			return false;
+		}
+		this_btn.attr("disabled",true);
+		$(".loading").attr("style","width: 50px;height: 50px;margin-left:90px;display:true");
+		jQuery('#setPwdForm').submit();
+	});
+	
+	jQuery('#pwd').click(function(event){
+		jQuery('#pwd-err').html("");
+		jQuery('#pwd1-err').html("");
+	});
+	
+	jQuery('#pwd').click(function(event){
+		jQuery('#pwd-err').html("");
+		jQuery('#pwd1-err').html("");
+	});
+});
+</script>

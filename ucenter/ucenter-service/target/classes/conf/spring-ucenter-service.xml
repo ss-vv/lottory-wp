@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	<bean name="accountService" class="com.xhcms.lottery.commons.persist.service.impl.AccountServiceImpl"/>
+	<bean name="bindEmailService" class="com.xhcms.ucenter.service.verify.impl.BindEmailServiceImpl"/>
+	<bean name="findPasswordService" class="com.xhcms.ucenter.service.verify.impl.FindPasswordServiceImpl"/>
+	<bean name="idCardService" class="com.xhcms.lottery.commons.persist.service.impl.IdCardServiceImpl"/>
+	<bean name="messageService" class="com.xhcms.ucenter.service.message.impl.MessageServiceImpl" />
+	<bean name="messageServiceCache" class="com.xhcms.ucenter.service.message.cache.MessageServiceCache" />
+	<bean name="userManager" class="com.xhcms.ucenter.service.user.impl.UserManagerImpl"/>
+	<bean name="userService" class="com.xhcms.ucenter.service.user.impl.UserServiceImpl"/>
+	<bean name="verifyMobileService" class="com.xhcms.ucenter.service.verify.impl.MobileServiceImpl"/>
+	
+	
+	<!-- velocity模板引擎 -->
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="/WEB-INF/views/"/>
+	</bean>
+	
+	<bean id="emailService" class="com.xhcms.ucenter.service.mail.impl.EmailService">
+		<property name="defaultTemplateFile" value="${template.location}"/>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="host">${host}</prop>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+				<prop key="username">${username}</prop>
+				<prop key="password">${password}</prop>
+				<prop key="from">${from}</prop>
+				<prop key="encoding">${encoding}</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>

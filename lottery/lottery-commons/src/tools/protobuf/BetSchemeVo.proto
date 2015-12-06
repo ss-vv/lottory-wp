@@ -1,0 +1,184 @@
+package com.xhcms.lottery.commons.data.proto;
+message BetScheme {
+     optional int64 id = 1;
+     optional string lotteryId = 2;
+     optional string playId = 3;
+     optional string passTypeIds = 4;
+     optional int64 sponsorId = 6;
+     optional string sponsor = 7;
+     optional int32 status = 8;
+     optional int32 type = 9;
+     optional int32 showScheme = 10;
+     optional string showSchemeSlogan = 11;
+     optional int32 isPublishShow = 12;
+     optional int64 createdTime = 13;
+     optional int64 offtime = 14;
+     optional int32 totalAmount = 15;
+     optional int32 shareRatio = 16;
+     optional int32 buyAmount = 17;
+     optional int32 floorAmount = 18;
+     optional int32 purchasedAmount = 19;
+     optional int32 betNote = 20;
+     optional int32 matchNumber = 21;
+     optional int32 multiple = 22;
+     optional int32 privacy = 23;
+     optional int32 followSchemePrivacy = 24;
+     optional int32 winNote = 25;
+     optional int64 awardTime = 26;
+     optional string maxBonus = 27;
+     optional string expectBonus = 28;
+     optional string preTaxBonus = 29;
+     optional string afterTaxBonus = 30;
+     optional int32 ticketNote = 31;
+     optional int32 cancelNote = 33;
+     optional int32 ticketCount = 34;
+     optional int32 partnerCount = 35;
+     optional int32 saleStatus = 36;
+     optional int64 followedSchemeId = 37;
+     optional int32 followingCount = 38;
+     optional int32 followedRatio = 39;
+     optional int32 recommendation = 40;
+     optional int32 singleAmount = 41;
+     optional int32 afterTaxBonusReturnRatio = 42;
+     optional int32 maxBonusReturnRatio = 43;
+     optional string issueNumber = 44;
+     repeated string passTypes = 45;
+     message BetMatch {
+         required int64 id = 1;
+         optional int64 schemeId = 2;
+         optional int64 matchId = 3;
+         optional string code = 4;
+         optional string cnCode = 5;
+         optional string odds = 6;
+         optional int64 entrustDeadline = 7;
+         optional bool seed = 8;
+         optional float defaultScore = 9;
+         optional string playId = 10;
+         optional string annotation = 11;
+         optional string name = 12;
+         optional string concedePoints = 13;
+         optional string score = 14;
+         optional string score1 = 15;
+         optional string score2 = 16;
+         optional string score3 = 17;
+         optional string score4 = 18;
+         optional string result = 19;
+         optional string resultOdd = 20;
+         optional string betCode = 21;
+         optional int64 playingTime = 22;
+         optional int32 status = 23;
+     }
+     repeated BetMatch matchs = 46;
+     message CGJTeam {
+         optional int64 matchId = 1;
+         optional string cnCode = 2;
+         optional string code = 3;
+         optional string league = 4;
+         optional string name = 5;
+         optional string longLeagueName = 6;
+         optional string homeTeam = 7;
+         optional string guestTeam = 8;
+         optional int64 homeTeamId = 9;
+         optional int64 guestTeamId = 10;
+         optional int64 offtime = 11;
+         optional int64 playingTime = 12;
+         optional int64 entrustDeadline = 13;
+         optional int32 concedePoints = 14;
+         optional float concedeScore = 15;
+         optional float concedeScorePass = 16;
+         optional float guestScore = 17;
+         optional float guestScorePass = 18;
+         required int64 teamId = 19;
+         optional string teamName = 20;
+         optional string odds = 21;
+         optional string groupName = 22;
+         optional int32 status = 23;
+         optional string teamLogo = 24;
+         optional int32 rank = 25;
+         optional string season = 26;
+         optional string odd = 27;
+         optional string result = 28;
+     }
+     repeated CGJTeam cgjTeams = 47;
+     message Play {
+         optional string id = 1;
+         optional string lotteryId = 2;
+         optional string name = 3;
+         optional int32 floorRatio = 4;
+         repeated PassType passTypes = 5;
+     }
+     message PassType {
+         optional string id = 1;
+         optional string name = 2;
+         optional int32 note = 3;
+     }
+     optional Play play = 48;
+     optional int32 followTotalAmount = 49;
+     optional string followTotalBonus = 50;
+     optional int32 isPresetAward = 51;
+     optional string matchAnnotation = 52;
+     optional int64 publicTime = 53;
+     repeated BetScheme followSchemes = 54;
+     message BetPartner {
+        optional int64 id = 1;
+        optional int64 schemeId = 2;
+        optional BetScheme betScheme = 3;
+        optional int64 userId = 4;
+        optional string username = 5;
+        optional int32 betAmount = 6;
+        optional string winAmount = 7;
+        optional int64 createdTime = 8;
+        optional string commission = 9;
+     }
+     repeated BetPartner groupbuyPartners = 55;
+     message DigitalBetContent {
+		optional int64 id=1;
+		optional string lotteryId=2;
+		optional string playId=3;
+		optional int64 schemeId=4;
+		optional int64 issueId=5;
+		optional string issueNumber=6; 
+		optional string code=7;		
+		optional int32 chooseType=8;		
+		optional int32 note=9;
+		optional int32 multiple=10;
+		optional int32 money=11;
+		optional string bonusCode=12;
+     }
+    repeated  DigitalBetContent digitalBetContents=56;
+    message CTBetContent {
+    	optional int64 id=1;
+		optional string lotteryId=2;
+	    optional string playId=3;
+	    optional int64 schemeId=4;
+	    optional int64 issueId=5;
+		optional string issueNumber=6;
+	    optional string code=7;
+	    optional string seed=8;
+	    optional int32 chooseType=9;
+    }
+    repeated CTBetContent ctBetContents=57;
+    message CTFBMatch{
+    	optional string id=1;
+		optional string issueNumber=2;
+	    optional string playId=3;
+	    optional int64 matchId=4;
+		optional string leagueName=5;
+		optional int64 playingTime=6;
+		optional int64 offtime=7;
+		optional int64 entrustDeadline=8;
+		optional string homeTeamName=9;
+		optional string guestTeamName=10;
+		optional int32 status=11;
+		optional string halfScore=12;
+		optional string score=13;
+		optional string winOption=14;
+		optional string options=15;
+		optional string odds=16;
+		optional string name=17;
+		optional string color=18;
+		optional string code=19;
+		optional float defaultScore=20;
+    }
+    repeated CTFBMatch ctFBMatchs=58;
+}

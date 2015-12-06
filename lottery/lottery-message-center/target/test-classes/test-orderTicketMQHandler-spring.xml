@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+	
+	<import resource="test-db-spring.xml" />
+	<bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:init.properties" />
+    </bean>
+	
+	<bean name="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	
+
+	<bean id="zmClient" class="com.unison.lottery.mc.uni.ZMClient"
+		abstract="true">
+		<property name="key" value="${zm.ticket.key}" />
+		<property name="partnerId" value="${zm.ticket.partnerId}" />
+		<property name="version" value="${zm.ticket.version}" />
+		<property name="url" value="${zm.ticket.url}" />
+	</bean>
+
+	
+
+  <bean id="interfaceConfig" class="com.unison.lottery.mc.uni.InterfaceConfig">
+      <property name="version" value="${zm.ticket.version}" />
+      <property name="partnerId" value="${zm.ticket.partnerId}" />
+      <property name="key" value="${zm.ticket.key}" />
+  </bean>
+
+  <bean id="messageParser" abstract="true" class="com.unison.lottery.mc.uni.parser.MessageParser">
+      <property name="config" ref="interfaceConfig"/>
+  </bean>
+
+  <!-- 出票 -->
+  <bean id="orderTicketHandler" class="com.unison.lottery.mc.uni.handler.OrderTicketMQHandler">
+    <property name="client">
+      <bean class="com.unison.lottery.mc.uni.client.OrderTicketClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_order_ticket.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.OrderTicketResponseParser" parent="messageParser"/>
+        </property>
+      </bean>
+    </property>
+  </bean>
+  
+
+  <bean id="ticketService" class="com.xhcms.lottery.mc.persist.service.impl.TicketServiceImpl"/>
+  <bean id="userScoreService" class="com.xhcms.lottery.commons.persist.service.impl.UserScoreServiceImpl" />
+  <bean id="winListService" class="com.xhcms.lottery.commons.persist.service.impl.WinListServiceImpl" />
+  <bean id="accountService" class="com.xhcms.lottery.commons.persist.service.impl.AccountServiceImpl" />
+  <bean id="betSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.BetSchemeServiceImpl"/>
+  <bean id="orderTicketService" class="com.xhcms.lottery.mc.persist.service.impl.OrderTicketServiceImpl" />
+</beans>

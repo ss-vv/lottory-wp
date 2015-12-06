@@ -1,0 +1,50 @@
+#set($p_title="彩票投注")
+<link href="http://trade.davcai.com/df/css/widgets.css" rel="stylesheet" type="text/css" />
+<link href="http://www.davcai.com/css/emoticon.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jquery.mustache.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jquery.util.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/jquery.emoticons.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/load-header-background.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/plugins/cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/matchRecommend.js?ver=4.0"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jet.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/notification.js"></script>
+<link href="http://trade.davcai.com/df/css/hack-bootstrap.css" rel="stylesheet" type="text/css" />
+
+#set($name = "/bet/lottery_tpl/" + $!lottery + "_" + $!playId + ".html")
+
+<script type="text/javascript" src="http://www.davcai.com/js/web/load-header.js"></script>
+
+<script type="text/javascript">
+	var sTime = '$date.get('yyyy-M-d H:m:s')';
+	var sNow = new Date(sTime);
+	
+	var type = '$!{lottery}';
+	var lottery = type.toUpperCase();
+	var _playId = '$!{playId}';
+	var _playType = '$!{lottery}' + '_' + '$!{playId}';
+	var _passTypeIds = '$!{passTypeIds}';
+	var _multiple = '$!{multiple}';
+	var _issueNumber = '$!{issueNumber}';
+		
+	#*方案赛事选项解析.*#
+	var _betMatchList = [];
+	#foreach($betMatch in $!{betMatchList})
+		var _bet = {};
+		_bet.code = '$!{betMatch.code}';
+		_bet.matchId = '$!{betMatch.matchId}';
+		_bet.playId = '$!{betMatch.playId}';
+		_bet.seed = '$!{betMatch.seed}';
+		_betMatchList.push(_bet);
+	#end
+	
+	
+</script>
+
+#if($!{lottery} == "jczq" || $!{lottery} == "jclq" || $!{lottery} == "bjdc")
+	#include("/bet/lottery_tpl/recommend_dialog.html")
+#end
+#include($name)
+
+##奖池活动
+##include("/active/bonus_pool.html")

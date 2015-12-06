@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" name="requestParser"
+    	class="com.unison.lottery.weibo.web.upload.progress.LaicaiMultiPartRequest" scope="default" optional="true" />
+	<constant name="struts.multipart.parser" value="requestParser"/>
+	<package name="upload" extends="weibo-web-default" namespace="/">
+		<action name="ajax_upload_head_image"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.AjaxUploadHeadImageAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		
+		<action name="upload-head-img"
+			class="com.unison.lottery.weibo.web.action.pc.UploadAction" method="uploadImageAfterRegist">
+			<result name="input">/web/add_head_image.vm</result>
+		</action>
+		<action name="save_face_after_regist"
+			class="com.unison.lottery.weibo.web.action.pc.UserProfileAction" method="saveHeadImageAfterRegist">
+			<result name="success" type="redirect">http://www.davcai.com/add_lottery_user</result>
+		</action>
+		
+		<action name="upload_progress"
+			class="com.unison.lottery.weibo.web.upload.progress.UploadProgressAction" method="getProgress">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+				<param name="root">resourceFileUploadStatus</param>
+			</result>
+		</action>
+		<action name="del_upload_progress"
+			class="com.unison.lottery.weibo.web.upload.progress.UploadProgressAction" method="delProgress">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+				<param name="root">delete</param>
+			</result>
+		</action>
+	</package>
+</struts>

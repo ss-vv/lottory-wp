@@ -1,0 +1,79 @@
+<style type="text/css">
+	.clipinner {position:relative;}
+	.clipboardswf {position:absolute; left:0; top:0px;}
+	
+	.page { width:100%;margin:10px auto;line-height:1.7em;}
+	/*内容模块 */
+	.tab_mo{border:0px 0px 0px 0px solid #ccc; border-top:none; padding:0px;}
+	/*菜单模块 */
+	.tab{border-bottom:1px solid #ccc;list-style:none;padding:4px 5px 3px 5px;}
+	.tab li{ display:inline;font-size:12px;}
+	.tab li a{padding:7px 10px;border:1px solid #ccc;color:#888;border-bottom:none;text-decoration:none;background:#fff}
+	/*鼠标经过时的样式 */
+	.tab li a:hover{background:#fff;}
+	/*选中时的样式 */
+	.tab li.no a{background:#eee; border-bottom:none;position:relative;top:1px;color:#000000;font-weight:bold}
+</style>
+<tr>
+        <th class="thl"><div class="inth">合买用户信息</div></th>
+        <td>
+        	<div class="page">
+				<ul class="tab">
+					<li id="tab_to_1" class="no"><a href="javascript:void(0);" onmouseover="tab('tab',2,1)">全部合买用户</a></li>
+					<li id="tab_to_2"><a href="javascript:void(0);" onmouseover="tab('tab',2,2)">我的合买记录</a></li>
+				</ul>
+				<div class="tab_mo">
+					<div  id="tab_mo_1" class="intd">
+						<div class="tblbox tblbox-c" style="border-top-width: 0px;">
+					    	<table cellspacing="0" class="tbl">
+					        	<tr>
+					                  <th style="width:23px;"><div class="inth"><div class="hide">序号</div></div></th>
+					                  <th style="width:110px;"><div class="inth"><div class="hide">用户名</div></div></th>
+					                  <th style="width:40px;"><div class="inth"><div class="hide">认购金额</div></div></th>
+					                  <th style="width:50px;"><div class="inth"><div class="hide">认购比例</div></div></th>
+					                  <th style="width:50px;"><div class="inth"><div class="hide">中奖金额</div></div></th>
+					                  <th style="width:70px;"><div class="inth"><div class="hide">认购时间</div></div></th>
+					            </tr>
+					          	#foreach($groupbuy in ${scheme.groupbuyPartners})
+					           	<tr _userlist>
+					                  <td style="text-align:center;">$velocityCount</td>
+							            <td style="text-align:center;">${groupbuy.username}</td>
+							            <td style="text-align:right;padding:0 3px;">￥${groupbuy.betAmount}元</td>
+							            <td style="text-align:right;padding:0 3px;">$math.roundTo(2,$math.mul($math.div(${groupbuy.betAmount},${scheme.totalAmount}),100))%</td>
+							            <td style="text-align:right;padding:0 3px;">#if(!${groupbuy.winAmount} || $!{groupbuy.winAmount}=='0.00')--#else￥${groupbuy.winAmount}元#end</td>
+							            <td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm:ss", ${groupbuy.createdTime})</td>
+					            </tr>
+					          	#end
+					     	</table>
+					   	</div>
+					</div>
+					<div id="tab_mo_2" style="display:none"  class="intd">
+					    	<div class="tblbox tblbox-c" style="border-top-width: 0px;">
+					         	<table cellspacing="0" class="tbl">
+					                <tr>
+					                  <th style="width:23px;"><div class="inth"><div class="hide">序号</div></div></th>
+					                  <th style="width:110px;"><div class="inth"><div class="hide">用户名</div></div></th>
+					                  <th style="width:40px;"><div class="inth"><div class="hide">认购金额</div></div></th>
+					                  <th style="width:50px;"><div class="inth"><div class="hide">认购比例</div></div></th>
+					                  <th style="width:50px;"><div class="inth"><div class="hide">中奖金额</div></div></th>
+					                  <th style="width:70px;"><div class="inth"><div class="hide">认购时间</div></div></th>
+					                </tr>
+					                #foreach($groupbuy in ${scheme.groupbuyPartners})
+					                #if($groupbuy.username == ${user.username})
+							        <tr _userlist>
+										<td style="text-align:center;">$velocityCount</td>
+							            <td style="text-align:center;">${groupbuy.username}</td>
+							            <td style="text-align:right;padding:0 3px;">￥${groupbuy.betAmount}元</td>
+							            <td style="text-align:right;padding:0 3px;">$math.roundTo(2,$math.mul($math.div(${groupbuy.betAmount},${scheme.totalAmount}),100))%</td>
+							            <td style="text-align:right;padding:0 3px;">#if(!${groupbuy.winAmount} || $!{groupbuy.winAmount}=='0.00')--#else￥${groupbuy.winAmount}元#end</td>
+							            <td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm:ss", ${groupbuy.createdTime})</td>
+							       	</tr>
+							        #end
+					                #end
+					              </table>
+					       	</div>
+					</div>
+				</div>
+			</div><!--page -->
+        </td>
+      </tr>

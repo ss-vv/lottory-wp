@@ -1,0 +1,55 @@
+# 新增玩法
+insert into lt_play(id,lottery_id,name,floor_ratio) values("80_ZC_1", "JCZQ", "胜平负单关",0);
+insert into lt_play(id,lottery_id,name,floor_ratio) values("80_ZC_2", "JCZQ", "胜平负过关",0);
+update lt_play set name="让球胜平负单关" where id="01_ZC_1";
+update lt_play set name="让球胜平负过关" where id="01_ZC_2";
+
+# 新增玩法选项
+INSERT INTO `lt_play_option` (`id`, `play_id`, `value`, `name`, `status`, `note`) VALUES (141, '80_ZC_1', '3', '胜', 0, '');
+INSERT INTO `lt_play_option` (`id`, `play_id`, `value`, `name`, `status`, `note`) VALUES (142, '80_ZC_1', '1', '平', 0, '');
+INSERT INTO `lt_play_option` (`id`, `play_id`, `value`, `name`, `status`, `note`) VALUES (143, '80_ZC_1', '0', '负', 0, '');
+INSERT INTO `lt_play_option` (`id`, `play_id`, `value`, `name`, `status`, `note`) VALUES (144, '80_ZC_2', '3', '胜', 0, '');
+INSERT INTO `lt_play_option` (`id`, `play_id`, `value`, `name`, `status`, `note`) VALUES (145, '80_ZC_2', '1', '平', 0, '');
+INSERT INTO `lt_play_option` (`id`, `play_id`, `value`, `name`, `status`, `note`) VALUES (146, '80_ZC_2', '0', '负', 0, '');
+
+# 新增玩法过关方式
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_1', '1@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '2@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '3@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '3@3');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '3@4');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '4@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '4@11');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '4@4');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '4@5');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '4@6');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '5@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '5@10');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '5@16');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '5@20');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '5@26');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '5@5');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '5@6');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@15');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@20');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@22');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@35');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@42');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@50');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@57');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@6');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '6@7');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '7@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '7@120');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '7@21');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '7@35');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '7@7');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '7@8');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '8@1');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '8@247');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '8@28');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '8@56');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '8@70');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '8@8');
+INSERT INTO `lt_play_pass_type` (`play_id`, `pass_type_id`) VALUES ('80_ZC_2', '8@9');

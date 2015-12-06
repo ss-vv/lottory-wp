@@ -1,0 +1,2 @@
+/**期信息表增加记录创建和更新字段*/
+ALTER TABLE `lt_issueinfo`  ADD COLUMN `created_time` DATETIME NULL DEFAULT NULL COMMENT '创建时间' AFTER `bonus_info`,  ADD COLUMN `update_time` DATETIME NULL DEFAULT NULL COMMENT '更新时间' AFTER `created_time`;

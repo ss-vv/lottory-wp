@@ -1,0 +1,52 @@
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, `play_ids`, 
+`scheme_status`, `buy_amount`, `after_tax_bonus`, `scheme_types`, `show`, `pass_type_ids`, `pass_type_ids_logic`, `everyone_join_count`, 
+`count_relevance_granType_ids`, `join_count_type`) VALUES 
+(32, '定购彩铃赠送购彩金', 36, '2013-04-20 00:00:00', '2013-12-31 23:59:59', 1, '定购彩铃赠送购彩金', '2013-04-23 14:07:10', NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, 0);
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (36, '订购彩铃赠送购彩金赠款');
+
+CREATE TABLE `pm_colorring_grant` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id',
+	`trade_no` VARCHAR(80) NOT NULL COMMENT '交易流水号',
+	`mobile` VARCHAR(20) NOT NULL COMMENT '手机号',
+	`grant_amount` INT(10) UNSIGNED NOT NULL COMMENT '赠送金额（分）',
+	`order_time` DATETIME NOT NULL COMMENT '订购彩铃成功时间',
+	`created_time` DATETIME NOT NULL COMMENT '创建时间',
+	`status` VARCHAR(10) NOT NULL DEFAULT '0' COMMENT '是否赠送（0未赠款，1已赠款）',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `tradeNo` (`trade_no`)
+)
+COMMENT='订购彩铃送购彩金';
+
+
+--5月份活动
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (37, '5月新注册送3元彩金');
+
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, 
+`play_ids`, `scheme_status`, `buy_amount`, `after_tax_bonus`, `scheme_types`, `show`, `pass_type_ids`, `pass_type_ids_logic`, 
+`everyone_join_count`, `count_relevance_granType_ids`, `join_count_type`) VALUES (33, '5月新注册送3元彩金', 37, '2013-05-01 00:00:00', 
+'2013-05-31 23:59:59', 1, '5月新注册送3元彩金', '2013-04-27 14:07:10', NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, 0);
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (38, '5月充值优惠券周周送');
+
+INSERT INTO `lt_voucher_pm` (`id`, `name`, `grant_type_id`, `valid_time_type`, `from_create_day`, `effect_time`, `dead_time`, 
+`pm_begin_time`, `pm_end_time`, `create_time`) VALUES (2, '5月充值优惠券周周送', 38, 
+'fromCreate', 31, NULL, NULL, '2013-04-29 00:00:00', '2013-06-02 23:59:59', '2013-04-28 14:56:19');
+
+CREATE TABLE `pm_grant_voucher` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id',
+	`user_id` BIGINT(20) UNSIGNED NOT NULL COMMENT '用户id',
+	`voucher_pm_id` BIGINT(11) UNSIGNED NOT NULL COMMENT '活动id',
+	`granttype_id` SMALLINT(5) UNSIGNED NOT NULL COMMENT '赠款类型id',
+	`voucher_type` VARCHAR(100) NOT NULL COMMENT '优惠券类型',
+	`voucher_id` VARCHAR(100) NOT NULL COMMENT '优惠券id',
+	`pm_week` INT(11) UNSIGNED NOT NULL COMMENT '第几周',
+	`created_time` DATETIME NOT NULL COMMENT '创建时间',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `user_id_pm_week` (`user_id`, `pm_week`)
+)
+COMMENT='送优惠券活动';
+
+
+
+

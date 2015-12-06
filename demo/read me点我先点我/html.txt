@@ -1,0 +1,10 @@
+<span class="poptip popspan">
+	   <em class="poptip-top"></em>
+		<em class="poptip-bottom"></em>
+                  <i>
+	           <em>说明</em><br/><br/>
+		        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选定赛果后，系统会智能匹配一场进行全包2串1配对，只需要您选定的赛果正确，100%中奖！<br/>
+	               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;竞猜90分钟内的赛果(含伤停补时，不含加时赛和点球)
+ 
+                  </i>
+</span>

@@ -1,0 +1,153 @@
+#set($layout="weibo/head_foot.vm")
+#set($p_title="注册大V彩帐号")
+#set($wucstyles = ["css/web_regist.css","css/openId.css"])
+#set($wucscripts = ["js/web/regist-bind.js"])
+	<div id="center" class="container">
+		<div class="wrapper">
+			<div class="main" style="border-left: 1px solid rgb(255, 255, 255);float: none;">
+				<ul>
+					<li><h2 style="border-bottom:none">加入大V彩，讨论共同关注的彩票和话题</h2></li>
+					
+					<div class="hd tabTitle" style="height: 30px;line-height: 30px;border-bottom: 1px solid #DDD; margin-top:10px">
+						<a id="applyTab" href="javascript:;" style="color: black;">新用户</a>
+						
+						<a id="loginTab" href="javascript:;" style="color: black;">已有大V彩账号</a>
+					</div>
+					<div id="regist_form">
+						<form method="post" action="regist.do" id="registForm">
+							<input id="portraitImgURL" name="weiboUser.headImageURL" type="hidden"
+								value='$!WeiboUser.headImageURL' /> 
+							<input
+								id="openRegist" name="openRegist" type="hidden"
+								value='openRegist' /> 
+							<input
+								id="referer" name="referer" type="hidden"
+								value='$!referer' /> 
+							<input
+								id="failReturnURL" name="failReturnURL" type="hidden"
+								value='$!failReturnURL' /> 
+							#if($WeiboUser.headImageURL)
+								<div class="head_image_container" style="margin-left: 190px;margin-top: 16px;">
+							        <img src="$!WeiboUser.headImageURL" alt="image">
+							    </div>
+							#end
+							<table class="regist-table">
+								<tr class="reg_sep">
+									<td class="first">昵称：</td>
+									<td><input type="text" tabindex="1" id="nickname" name="weiboUser.nickName" 
+										placeholder="你在大V彩的名字" class="placeholderHack" value="$!WeiboUser.nickName"/></td>
+									<td><label for="mail">*</label></td>
+									<td><label class="tip_label" id="nickname_tip"></label></td>
+								</tr>
+							#if($needInviteCode)
+								<tr class="reg_sep">
+									<td class="first">邀请码：</td>
+									<td><input type="text" tabindex="6" id="inviteCode" name="inviteCode"
+										placeholder="" class="placeholderHack" value=""/></td>
+									<td><label for="mail">*</label></td>
+									<td><label class="tip_label" id="inviteCode_tip" style=""></label></td>
+								</tr>
+							#end
+							##	<tr class="reg_sep">
+							##		<td class="first">用户名：</td>
+							##		<td><input type="text" tabindex="2" id="username" name="username" 
+							##			placeholder="登录时使用" class="placeholderHack" value="$!username"/></td>
+							##		<td><label for="mail">*</label></td>
+							##		<td><label class="tip_label" id="username_tip" style=""></label></td>
+							##	</tr>
+							##	
+							##	<tr class="reg_sep">
+							##		<td class="first">密码：</td>
+							##		<td><input type="password" tabindex="3" id="password" name="password"
+							##			placeholder="" class="placeholderHack"/></td>
+							##		<td><label for="mail">*</label></td>
+							##		<td><label class="tip_label" id="password_tip"></label></td>
+							##	</tr>
+							##	
+							##	<tr class="apply reg_sep">
+							##		<td class="first">确认密码：</td>
+							##		<td><input type="password" tabindex="4" id="apply_pws"
+							##			placeholder="" class="placeholderHack"/></td>
+							##		<td><label for="mail">*</label></td>
+							##		<td><label class="tip_label" id="apply_pws_tip" style=""></label></td>
+							##	</tr>
+							##	
+							##	<tr class="reg_sep">
+							##		<td class="first">邮箱：</td>
+							##		<td><input type="text" tabindex="5" id="mail" name="weiboUser.email"
+							##			placeholder="用于找回密码" class="placeholderHack" value="$!WeiboUser.email"/></td>
+							##		<td><label for="mail">*</label></td>
+							##		<td><label class="tip_label" id="mail_tip" style=""></label></td>
+							##	</tr>
+							</table>
+							
+							<div class="reg_sep">
+								<input id="agree" type="checkbox" checked="checked" tabindex="8"/>
+								<label for="agree">我已阅读并同意<a class="agree-support" href="http://trade.davcai.com/df/about/terms" target="_blank">《大V彩服务协议》</a></label>
+							</div>
+							<label style="color:red" id="agree_tip"></label>
+							<div class="reg_sep">
+								<input id="regist_button" type="button" tabindex="6" value="注册" class="button_red regbtn" onclick="regist()"/>
+							</div>
+							<div id="regist_loading" class="loading" style="display:none;"></div>
+							#if($resultMessage.success == false)
+							##<div class="reg_sep">
+							##	<label for="errorMessage" style="color:#1923E2">$resultMessage.desc</label>
+							##</div>
+							<script type="text/javascript">
+								jQuery(document).ready(function (){
+									alert('$resultMessage.desc');
+								});
+							</script>
+							#end
+						</form>
+					</div>
+					<div id="bind_form" style="display:none">
+						<form method="post" action="bind_account.do" id="bindForm">
+							<input id="bind_portraitImgURL" name="weiboUser.headImageURL" type="hidden"
+								value='$!WeiboUser.headImageURL' />
+							<input
+								id="bind_referer" name="referer" type="hidden"
+								value='$!bindReferer' /> 
+							<input
+								id="bind_failReturnURL" name="failReturnURL" type="hidden"
+								value='$!failReturnURL' /> 
+							#if($WeiboUser.headImageURL)
+								<!--
+								<div class="head_image_container">
+							        <img src="$!WeiboUser.headImageURL" alt="image">
+							    </div> -->
+							#end
+							<!--
+							<li class="reg_sep">
+								<label for="nickname">昵称：</label>
+								<input type="text" tabindex="1" id="bind_nickname" name="weiboUser.nickName" 
+									placeholder="昵称" class="placeholderHack" value="$!WeiboUser.nickName"/>
+							</li> 	-->
+							<li class="reg_sep">
+								<label for="username" style="margin-left: -15px;">用户名：</label>
+								<input type="text" tabindex="3" id="bind_username" name="username" 
+									placeholder="用户名" class="placeholderHack" value=""/>
+							</li>
+							<label class="tip_label" id="bind_username_tip" style="margin-right: -15px;"></label>
+							<li class="reg_sep">
+								<label for="password">密码：</label>
+								<input type="password" tabindex="3" id="bind_password" name="password"
+									placeholder="密码" class="placeholderHack"/>
+							</li>
+							<label class="tip_label" id="bind_password_tip" style="margin-right: -15px;"></label>
+							<div class="reg_sep">
+								<input id="bind_button" type="button" tabindex="6" value="绑定" class="button_red regbtn" onclick="bind()"/>
+							</div>
+							<div id="bind_loading" class="loading" style="display:none;"></div>
+							#if($accountDealResult.success == false)
+							<div class="reg_sep">
+								<label for="errorMessage" style="color:#1923E2">$accountDealResult.desc</label>
+							</div>
+							#end
+						</form>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>

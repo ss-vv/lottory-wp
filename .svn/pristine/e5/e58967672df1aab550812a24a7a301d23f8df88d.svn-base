@@ -1,0 +1,208 @@
+#set($p_title="修改银行信息")
+#set($pos = "bank")
+
+#set($scripts=["js/cities", "js/jquery.validate", "js/jquery.validate_cn"])
+
+<div class="mod mod-c mod-c-a wh-mh">
+	<div class="mh">
+		<div class="tt">银行卡信息</div><div class="tt c-i fwn">温馨提醒：银行卡信息必须与账户实名信息一致，否则无法提现</div>
+	</div>
+	<form id="pForm" action="editbank.do" method="post">
+    	<div class="mm">
+    		<div class="formbox formbox-a formbox-a-b mp-c">
+    			<div class="row">
+    				<label class="lbl wh-a">所在城市：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+  						<select name="province"></select>
+  					</div>
+            <div class="tips c-i"></div>
+            <div class="tips">省</div>
+  					<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+  						<select name="city"></select>
+  					</div>
+            <div class="tips c-i"></div>
+            <div class="tips">市</div>
+    			</div>
+    			<div class="row">
+    				<label class="lbl wh-a">开户行全称：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+  						<input class="inipttxt" type="text" name="bank" value="$!{acc.bank}"/>
+  					</div>
+            <div class="tips c-i"></div>
+    			</div>
+    			<div class="row">
+    				<label class="lbl wh-a">&nbsp;</label>
+    				<div class="tips c-f">开户银行全称格式为：xx银行xx分行xx支行；如果未正确填写开户银行全称，可能会使资金无法正常汇入您的银行卡内</div>
+    			</div>
+    			<div class="row">
+    				<label class="lbl wh-a">银行卡号：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+    					<input class="inipttxt" type="text" maxlength="19" name="accountNumber" value=""/>
+    				</div>
+            <div class="tips c-i"></div>
+    				<div class="tips c-f">持卡人姓名必须和您在本平台填写的真实姓名一致</div>
+    			</div>
+          #if(${acc.accountNumber})
+      			<div class="row">
+      				<label class="lbl wh-a">提现密码：</label>
+      				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a" style="width:150px;">
+    						<input class="inipttxt" type="password" name="passwd" maxlength="20"/>
+    					</div>
+              <div class="tips c-i"></div>
+              #if($!fieldErrors.passwd)
+                <div class="tips c-i">$!fieldErrors.passwd.get(0)</div>
+              #end
+            </div>
+          #else
+            <div class="row">
+              <label class="lbl wh-a">设置提现密码：</label>
+              <div class="ipttxt ipttxt-b wh-txtb wh-txtb-a" style="width:150px;">
+                <input id="password" class="inipttxt" type="password" name="passwd" maxlength="20"/>
+              </div>
+              <div class="tips c-i"></div>
+            </div>
+            <div class="row">
+              <label class="lbl wh-a">确认提现密码：</label>
+              <div class="ipttxt ipttxt-b wh-txtb wh-txtb-a" style="width:150px;">
+                <input class="inipttxt" type="password" name="confirmPasswd" maxlength="20"/>
+              </div>
+              <div class="tips c-i"></div>
+              #if($!fieldErrors.passwd)
+                <div class="tips c-i">$!fieldErrors.passwd.get(0)</div>
+              #end
+            </div>
+          #end
+    			<div class="row">
+    				<label class="lbl wh-a"></label>
+    				<a class="btnx2 btnx2-b fl" href="javascript:void(0);">
+              <span class="inbtn"><input class="iptbtn" type="submit" value="确认" /></span>
+            </a>
+    			</div>
+    			<span class="clear"></span>
+    		</div>
+    	</div>
+    </form>
+</div>
+
+<script type="text/javascript">
+	var province = "$!{acc.province}";
+	var city = "$!{acc.city}";
+
+	//初始化城市和地区的选择框
+	function initPA(prov, area) {
+		$("select[name='" + prov +"']").each(function(){
+			$(this).empty();
+			for(var i = 0; i < arrCity.length; i++) {
+				if(i > 0) {
+					$("<option value='" + arrCity[i]['name'] +"'>" + arrCity[i]['name'] + "</option>").appendTo(this);
+				} else {
+					$("<option value=''>" + arrCity[i]['name'] + "</option>").appendTo(this);
+				}
+			}		
+		});
+		
+		$("select[name='" + prov +"']").css('width', 'auto');
+		
+		$("select[name='" + area +"']").each(function(){
+			$(this).empty();
+			$("<option value=''>" +  arrCity[0]['sub'][0]['name'] + "</option>").appendTo(this);
+		});
+		
+		$("select[name='" + prov +"']").change(function(){
+			$("select[name='" + area +"']").empty();
+			var selectedIndex = $(this).find("option:selected")[0].index;
+			for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+				var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+				if(i > 0) {
+            		$("<option value='" + areaName +"'>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+				} else {
+					$("<option value=''>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+				}
+			}
+		});
+		
+		if(province.length > 0){
+			setTimeout(function(){
+				$("select[name='" + prov +"']").val(province);
+				var selectedIndex = $("select[name='" + prov + "'] option[value='" + province +"']")[0].index;
+				
+				for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+					var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+					if(i > 0) {
+			       		$("<option value='" + areaName +"'>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+					} else {
+						//$("<option value=''>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+					}
+				}
+			}, 1);
+		}
+		
+		if(city.length > 0){
+			setTimeout(function(){
+				$("select[name='" + area +"']").val(city);
+			}, 1);
+		}
+		
+	}
+
+	$(function(){	
+  		initPA("province", "city");
+      
+      $('#pForm').validate({
+          errorPlacement: function(error, element) { //验证消息放置的地方
+              error.appendTo(element.parent("div").next('div'));
+          },
+          rules: {
+              'province': {
+                  required: true
+              },
+              'city': {
+                  required: true
+              },
+              'bid': {
+                  required: true
+              },
+              'bank': {
+                  required: true
+              },
+              'accountNumber': {
+                  required: true,
+                  number: true
+              },
+              'passwd': {
+                  required: true,
+                  rangelength: [6, 15]
+              },
+              'confirmPasswd': {
+                  required: true,
+                  rangelength: [6, 15],
+                  equalTo: '#password'
+              }
+          },
+          messages: {
+              'province': {
+                  required: '请选择省份'
+              },
+              'city': {
+                  required: '请选择城市'
+              },
+              'bid': {
+                  required: '请选择开户银行'
+              },
+              'bank': {
+                  required: '请填写开户行全称'
+              },
+              'accountNumber': {
+                  required: '请填写银行卡号',
+                  number: '请输入正确的银行卡号'
+              },
+              'passwd': {
+                  required: '请填写提现密码'
+              },
+              'confirmPasswd': {
+                  required: '请填写确认提现密码'
+              }
+          }
+      });
+	});
+</script>

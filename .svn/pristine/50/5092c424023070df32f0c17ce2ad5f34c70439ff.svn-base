@@ -1,0 +1,9 @@
+#Redis
+redis.url=${redis.url}
+redis.port=${redis.port}
+pushServerUrl=${pushServerUrl}
+appID = ${appID}
+appSecret = ${appSecret}
+appKey = ${appKey}
+masterSecret = ${masterSecret}
+ge.tui=${ge.tui}

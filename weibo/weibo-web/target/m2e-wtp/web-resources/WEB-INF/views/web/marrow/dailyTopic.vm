@@ -1,0 +1,38 @@
+#set($layout="web/topic.vm")
+#set($p_title="今日话题")
+#set($styles=["css/topic.css"])
+
+#set($scripts=["js/web/jquery.emoticons.js", "js/web/jquery.form.min.js", 
+	"js/web/at.js", "js/web/login.js", "js/web/share.js", 
+	  "js/web/mlellipsis.js",
+	"js/web/comments.js", "js/web/jquery.mustache.js", 
+	"js/web/ajax-render.js", "js/web/marrow.js", 
+	"js/web/jquery.dateFormat-1.0.js", "js/web/pager.js", "js/web/feature-list.js",
+	"js/jet.js", "js/web/home/announceAndWinning.js",
+	"js/web/home/interest_user.js"])
+	
+<script type="text/javascript">
+	$(function() {
+    	ajaxDailyTopic();
+	});
+</script>
+<!--精华标签-->
+<div id="marrowTab" class="newTab_white upper">
+    <ul class="top">
+      <li class="topic"><a class="active" href="javascript:void(0)">今日话题</a></li>
+      <li class="notice"><a href="javascript:void(0)">热门讨论</a></li>
+      <li class="latest"><a href="javascript:void(0)">最新发表</a></li>
+    </ul>
+</div>
+<!--话题列表开始-->
+<div class="main_content">
+	<div class="hots">
+		<div class="hot-list" id="contentList">
+		</div>
+		<div class="loading"></div>
+		#parse("web/marrow/pager.vm")
+	</div>
+</div>
+<!--话题列表结束-->
+
+

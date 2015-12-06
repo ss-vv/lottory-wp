@@ -1,0 +1,31 @@
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db.url = jdbc:mysql://182.92.191.193:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = test_lottery
+db.password = test77
+
+db2.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db2.url = jdbc:mysql://182.92.191.193:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = test_account
+db2.password = test77
+
+# ActiveMQ
+amq.brokerURL = tcp://182.92.191.193:61616
+
+ucenter.hibernate.memcached.Servers=182.92.191.193\:11211
+
+#alipay
+alipay.partner = 2088701998923444
+alipay.seller = ligeng.tian@unison.net.cn
+alipay.rsaPrivate = MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKJKO92t3aPrtBlSFyXUoI4a/Aif/jOiRcBGPbckMq7SkyDB5568ESEnSheOZlxuVMDkpJISGlldlSXm2p1YG3E0BtKlvnJ6WeUCyWsNXcGAz2y0cYj+/s/L0spc5IZFHScRzIhKtaf68RGIanfYHZsE7Oz+9smbayk//QtiPWlPAgMBAAECgYEAl9wY6tV/2Zx8WVk8edTeLDtJ7ZQw3QYSeNoBc/c2SeqXbAamAx3+dWR7a1F/rSw8uIb7DAhOiaMNJns/xA4nFifKt83XKoavr/ZTp7QTPr2OWkqTtWZMswV5jgQdPJj/Vy6kHuRSN4pmw7x4L8WuyUYieFZc3kDCCrVchzsALrkCQQDXYS8A7Ud58/u2wRHPzfvSruNdSqtY9DpLKQOGV3zLvYjgf3XS/7Z0ZvYZg1HT6iis33R6w9kl8y0sRKmQBBz7AkEAwOXPn7HyDLuYD8JGkKJMnv+Wg/CX70tyG0AI+t0Zvsl6U1WXDBm7FnY2BP4VA6j96fKVzAHtpqfFrX2LZZTMvQJBAM5KHA4kNoi9QsPJarkBzwf9UHJDmZiq28avctvSogo28IouKvk8yVH2aBMJr29s4SarJFKNkUgDAapb3Zi+B88CQDI1Hr9wL5JE2aVwabGHrO3NlL2ux70PJBoXpr61Adh41JAQPQp3QAzuo8zU3V9ggwZ7j6XT8qloDbnEbZ35BvkCQQDKo76xNvPFHmA+4VCHPcBzEL1SIcUksdmVbim0jEiSWwMPp1dQBYBGNey5w1T2+CwubmklbzCHfYQTXjY7O+b4
+alipay.rsaAlipayPublic = MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCRgbq8NLDiQC5TvYDz/JqelyftrzfLxHsQ+8Z3gaHl/8hyTbvHGMlIEAscYOERo3sXj+XZHpvKrskbbesyMMrcHhSfn5+18tfTAWHomgGZ5VxScNbBVdTuQWAke94oJ7a75TM/Z1sDmJL6n38J279f61rnvobMVZOzG0IKbDb+OwIDAQAB
+alipay.key = 13c6n152ldh4smkxsxwnf38kkxnh0g16
+alipay.notifyUrl = http://test.wap.lai310.com/user/alipayNotify.do
+alipay.callbackUrl = http://test.wap.lai310.com/user/alipayReturn.do
+alipay.merchantUrl = http://test.wap.lai310.com/user/alicharge.do
+
+# Yeepay
+yeepay.url = https://www.yeepay.com/app-merchant-proxy/command.action
+yeepay.memberId = 10011536868
+yeepay.keyValue = X495l1P7s174Q6du618mxp0ZnL5vhX8sZvJADbMnY9w3EJ0022m21r13X971
+yeepay.callback = http://test.wap.lai310.com/user/yeepayCardNotify.do
+

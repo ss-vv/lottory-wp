@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<methodRequest name="registe" username="testUser321" password="testUser321" realName="测试用户321" phoneNumber="11111111111" clientVersion="客户端版本号" channel="渠道号" deviceId="test" modelName="机型信息" />

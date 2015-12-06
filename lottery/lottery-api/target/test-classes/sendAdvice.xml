@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<methodRequest name="sendAdvice" validId="用户身份id字符串（md5）" clientVersion="客户端版本号" channel="渠道号" deviceId="sim卡序列号" modelName="机型信息" advice="意见">
+</methodRequest>

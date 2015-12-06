@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<methodRequest name="login" username="c0yne" password="chenyanok" clientVersion="A2-TL-HN-12-01" channel="test" deviceId="test" modelName="test" />

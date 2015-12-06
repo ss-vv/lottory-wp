@@ -1,0 +1,4 @@
+#bbs database
+db_bbs.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_bbs?useUnicode=true&characterEncoding=utf8
+db_bbs.username = bbs
+db_bbs.password = bbs321

@@ -1,0 +1,24 @@
+#set($schemePlayId="")
+#if($schemeView)
+	#set($schemePlayId=$schemeView.playId)
+#elseif($scheme)
+	#set($schemePlayId=$scheme.playId)
+#else
+	
+#end
+
+#if($schemePlayId && $schemePlayId=='24_ZC_14')
+	<img src="$base/images/ctzc-14sfc.gif" alt="">
+#elseif($schemePlayId && $schemePlayId=='25_ZC_R9')
+	<img src="$base/images/ctzc-rx9c.gif" alt="">
+#elseif($schemePlayId && $schemePlayId=='26_ZC_BQ')
+	<img src="$base/images/ctzc-6cbq.gif" alt="">
+#elseif($schemePlayId && $schemePlayId=='27_ZC_JQ')
+	<img src="$base/images/ctzc-4cjq.gif" alt="">
+#elseif($schemePlayId && $schemePlayId.contains('LC'))
+	<img src="$base/images/jclq-a.gif" alt="">
+#elseif($schemePlayId && $schemePlayId.contains('SSQ'))
+	<img src="$base/images/ssq_lottery.png" alt="">
+#else
+	<img src="$base/images/jczq-a.gif" alt="">
+#end

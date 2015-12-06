@@ -1,0 +1,42 @@
+#set($p_title="商户合作")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="晒单推荐,跟单推荐,中奖排行榜")
+#set($styles = ["css/hack-bootstrap", "css/about"])
+
+<div class="wrapper">
+    <div class="slide_box">
+        <ul>
+		    <li><a href="http://trade.davcai.com/df/about/about">关于我们</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/contact">联系我们</a></li>
+		    <li class="active-bg"><a href="http://trade.davcai.com/df/about/coop">商务合作</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/legal">法律声明</a></li>
+		    <li id="faq">
+				<img src="$base/images/fup.png">
+				<a href="http://trade.davcai.com/df/about/faq">常见问题</a></li>
+		</ul>
+    </div>
+    <div class="main_about">
+		<div class="detailbox" style="font-size:14px;">
+    		<h3 style="color:red;">
+    		<span style="font-size: 14px;"><big>交换链接</big></span></h3>
+            <span style="font-size:14px;">与大V彩主题相关或互补的网站，Alexa排名在100000以内，PR值≥5，就可以和大V彩交换友情链接.具体操作流程如下：<br>
+            1. 将您的资料包括网站名称、网站地址、网站logo、联系人姓名和Email、网站的简介等发Email至<br>
+            2. 大V彩的工作人员会在3个工作日内完成对贵站的审核，并会通知贵站是否成为乐和彩的友情链接伙伴。<br>
+            3. 同时请在您的网站主页加上大V彩的图片链接或文字链接。</span>
+            <h3 style="color:red;">
+            	<span style="font-size:14px;">联合推广工作</span></h3>
+            <span style="font-size:14px;">主要针对线上合作伙伴各自的推广计划进行资源互换形式的互助推广合作。</span>
+            <h3 style="color:red;">
+            	<span style="font-size:14px;">栏目合作</span></h3>
+            <span style="font-size:14px;">主要针对网站类的合作伙伴，如果您想建立一个彩票栏目，大V彩可以帮您全方位、多模式定制合作页面，让您的彩票栏目与您的网站融为一体，满足合作方针对自身用户的增值开发。</span><br>
+            <br>
+             <style type="text/css">
+            .pager .cur:hover,
+            .pager .cur{background:#cbcbcb;}
+            .pager span,
+            .pager a{margin:2px 4px 0px 0px; float:left; height:18px; line-height:18px; background:#f1f1f1; border:#c5ddf1 1px solid; padding:0px 7px; text-decoration:none;}
+            .pager .pagerNum{background:none;border:0}
+            </style>
+		</div>
+	</div>
+</div>

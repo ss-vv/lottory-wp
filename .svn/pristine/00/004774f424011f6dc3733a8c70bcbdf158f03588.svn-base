@@ -1,0 +1,24 @@
+#set($layout="web/hotDiscussAndLastestPublish.vm")
+#set($p_title="热门讨论")
+#set($styles=["css/topic.css", "js/web/jquery-ui/jquery-ui.css", "css/autocomplete.css", 
+	"css/list-open.css"])
+
+#set($scripts=[])
+<script type="text/javascript" src="$base/js/davcai/recommend/recommend_match.js"></script>	
+<script type="text/javascript">
+	$(function() {
+		ajaxLoadHotDiscuss(1);
+	});
+</script>
+ <div class="hot-content-left">
+   	    <div class="davcai-nav" id="whl">
+      	   <div class="davcai-nav-box" >
+  	      	     <ul class="davcai-nav-tab">
+  	      	     	<li _type="winningList"><a href="http://www.davcai.com/winningList">中奖喜报</a></li>
+  	      	     	<li class="active" _type="notice"><a href="javascript:void(0);">热门讨论</a></li>
+  	      	     	<li _type="latest"><a href="http://www.davcai.com/latestPublish">最近发表</a></li>
+  	      	     </ul>
+  	       </div>
+   	     </div><!-------------------davcai-nav部分--------------------------->
+		<ul class="status-list" all style="margin-left: 55px;margin-right: 10px;"></ul>   	   	     	
+   </div><!-------hot-content-left部分结束------>

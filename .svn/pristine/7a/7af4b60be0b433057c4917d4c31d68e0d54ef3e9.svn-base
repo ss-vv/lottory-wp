@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>大V彩-手机购彩-手机短信服务</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="max-age=0" /><link type="text/css" href="../css/buy.css" rel="stylesheet" />
+</head>
+<body>
+<div class="mainDiv">
+	
+	
+<form id="form1" method="post" action="
+	#if($user.verifyStatus==2||$user.verifyStatus==3) 
+		unbind.do
+	#else	
+		verify-code.do
+	#end" >
+         
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" /><meta name="MobileOptimized" content="240" />
+ <div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+ > <a href="/user/myAccount.do" rel="nofollow">我的账户</a>  > 绑定手机</div>
+
+<div style="background-color:#EAEAEA; line-height:21px; padding-left:5px; border-bottom:dotted 1px #8d8d8d;">
+   您好，<a href="../user/myAccount.do" rel="nofollow">$account.username</a>
+	<div><label>可用金额 <span style='color:red;font-weight:bolder;'>${account.free}</span>元</label></div>
+</div>
+
+	<div id="divBindingNot">
+		<div id="divBindingNotStep1"> 
+			#if($user.verifyStatus==2||$user.verifyStatus==3)
+				<div class="msgTitle3"><span style="color:#00f">【您已绑定手机】</span></div>   
+				<div class="msgTitle">&nbsp;绑定的手机号码为：<span id="lbMobile"><span style="color:#f00">${user.mobile}</span></span>&nbsp;&nbsp;
+				<input name="btnRel" value="解除绑定" id="btnRel" type="submit"></div>
+				
+			#else	
+				<div class="msgTitle3"><span style="color:#00f">【绑定手机】</span></div>
+				<div class="msgTitle">输入您要绑定的手机号码：</div>
+				<div class="msgTitle">手机号码：<input name="phoneNum" type="text" maxlength="11" id="txtMobileBinding" style="height:18px;width:128px;" value="${user.mobile}"/></div>
+				<div class="msgTitle"><span id="msgVerifyCode"></span>
+					#if($!{actionErrors})
+                      	#foreach($ac in $actionErrors)
+                    		<div class="divErrorMSG">$ac</div>
+                    	#end
+                    #end
+				&nbsp;<input type="submit" name="btnVerifyCode" value="获取验证码" id="btnVerifyCode"/></div>
+			#end
+        </div>
+           
+          </div>
+         
+         
+           <div class="msgTitle"> <b>说明：</b><br/>
+            &nbsp;1、用于找回密码和接收提款、中奖等短信。<br/>
+            &nbsp;2、一个手机号码只能绑定一个大V彩账号。<br/>
+            &nbsp;3、绑定手机不收取任何费用。<br/>
+            &nbsp;4、部分手机需先退出网页再查看短信验证码。
+            </div>
+  <div style="height:5px;" ></div>
+       </form>  
+     </div>
+     <div class='topNavigationBar' style='color: #FFF;'> <a href='../index.do'>首页</a> > <a href="/user/myAccount.do" rel="nofollow">我的账户</a>  > 绑定手机</div> 
+	 #include("inc/footer.inc")
+<div class="clear"></div>
+</body>
+</html>

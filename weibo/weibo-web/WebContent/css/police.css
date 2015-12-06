@@ -1,0 +1,39 @@
+.police-icon {
+	width: 900px;
+	height: 100px;
+	margin: 30px auto;
+	text-align: center;
+}
+
+.police-icon a {
+	display: inline-block;
+	height: 42px;
+	margin-right: 20px;
+	margin-top: 30px;
+}
+
+.police-icon>a>img {
+	height: 42px;
+	max-width: 155px;
+}
+
+.police-icon b {
+	display: inline-block;
+	width: 220px;
+	height: 37px;
+	line-height: 37px;
+	color: #51b0aa;
+	font-size: 30px;
+	float: right;
+	margin-top: 30px;
+	margin-left: -40px;
+}
+
+.copyright_box {
+	border: 1px solid #dcd9e2;
+	color: #333;
+	padding: 1px;
+	width: 985px;
+	margin: 0 auto 8px;
+	overflow: hidden;
+}

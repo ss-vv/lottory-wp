@@ -1,0 +1,3 @@
+<script id="loading-tmpl" type="text/x-jquery-tmpl">
+	<div class="loading" style="height: 40px; display: none;"></div>
+</script>

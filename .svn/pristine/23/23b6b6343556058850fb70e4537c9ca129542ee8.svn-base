@@ -1,0 +1,88 @@
+#set($layout = "bet.vm")
+#set($p_title = "投注详情")
+#set($styles = ["css/bet-two-confirm"])
+#set($scripts = ["js/new-bet-confirm"])
+<script type="text/javascript" src="http://www.davcai.com/js/web/plugins/cookie/jquery.cookie.js"></script>
+<style type="text/css">
+	.main{
+		border-left:none;
+	}
+</style>
+<div class="bet-two-confirm">
+	<div class="b-t-con-title">
+		<img src="images/jc-logo.png" />
+		<h4>第 $date.format("yyyyMMdd", ${schemeView.createdTime}) 期</h4>
+		<p>认购截止时间：$date.format("yyyy-MM-dd HH:mm", ${schemeView.offtime})</p>
+	</div>
+	<!------b-t-con-title结束-------->
+	<div class="b-t-con-box">
+		<div class="faxx">
+			<label class="title"><b>方案信息</b>
+			</label>
+			<table class="faxx-table" cellspacing="0" cellpadding="0">
+				<tr>
+					<th>彩种玩法</th>
+					<th>总金额</th>
+					<th>投注倍数</th>
+				</tr>
+				<tr>
+					<td>#lotteryName(${schemeView.lotteryId}) &nbsp;&nbsp;$status.getPlayName($schemeView.playId)</td>
+					<td>￥${schemeView.totalAmount}元</td>
+					<td>${schemeView.multiple}倍</td>
+				</tr>
+			</table>
+			<div style="clear: both;"></div>
+		</div>
+		<!---faxx方案信息--->
+		<div class="fanr">
+			<label class="title"><b>方案内容</b>
+			</label>
+			#if(${schemeView.lotteryId} == "JCZQ")
+				#parse('/bet/newJCZQSchemeView.vm')
+			#else
+				#parse('/bet/newJCLQSchemeView.vm')
+			#end
+			<div style="clear: both;"></div>
+		</div>
+	 	<div class="sdxy">
+			<label class="title" style="height: 139px;"><b>晒单宣言</b>
+			</label>
+			<div style="margin-left: 160px;padding-top: 12px;">
+				#parse("/bet/publish.vm")
+			</div>
+		</div>
+		
+		<div class="ljrg">
+			<label class=""></label>
+            <form id="betconfirm" method="post" action="newBetconfirm.do">
+				<input type="hidden" name="type" value="$!{schemeView.type}"/>
+				<input type="hidden" name="multiple" value="$!{schemeView.multiple}"/>
+				<input type="hidden" name="showScheme" value="1"/>
+				<input type="hidden" name="showSchemeSlogan" value=""/>
+				#if($!{schemeView.type} == 0)
+				<!--晒单-->
+				<input type="hidden" name="followSchemePrivacy" value="$!{schemeView.followSchemePrivacy}"/>
+				<input type="hidden" name="followedRatio" value="$!{schemeView.followedRatio}"/>
+				#end
+				
+				#if($!{schemeView.type} == 1)
+				<!--合买-->
+				<input type="hidden" name="buyAmount" value="$!{schemeView.buyAmount}"/>
+				<input type="hidden" name="privacy" value="$!{schemeView.privacy}"/>
+				<input type="hidden" name="floorAmount" value="$!{schemeView.floorAmount}"/>
+				<input type="hidden" name="groupbuyRatio" value="$!{schemeView.shareRatio}"/>
+				#end
+			</form>
+			<button id="confirmOrder"></button>
+			<ul>
+				<li id="balance"><a href="http://trade.davcai.com/ac/recharge.do" target="_blank">【账户充值】</a></li>
+				<li></li>
+				<li>注：点击下方按钮表明您同意 <a href="http://trade.davcai.com/df/about/terms" target="_blank">《大V彩络服务协议》</a> 并已认可投注详情。</li>
+				<li class="color-red">重要提示：您投注时的竞彩奖金指数有可能在出票时发生变化，实际数值以票样信息为准。</li>
+			</ul>
+		</div>
+		<!----ljrg立即认购---->
+	</div>
+	<!-------b-t-con-box结束了--------->
+</div>
+<!------bet-two-confirm了--------->

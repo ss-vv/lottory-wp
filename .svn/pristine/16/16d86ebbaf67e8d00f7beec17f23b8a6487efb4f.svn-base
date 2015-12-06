@@ -1,0 +1,13 @@
+<p class="sort" style="display:none">
+	<i class="sortText"><text>排序：</text></text></i>
+	<!--
+	<span class="sortText"><text class="fontGray current">跟单人气</text><img src="http://www.davcai.com/images/davcai/post/sort-up.png"/></span>
+	<span class="sortText"><text class="fontGray">方案金额</text><img src="http://www.davcai.com/images/davcai/post/blank.png"/></span>
+	<span class="sortText"><text class="fontGray">回报率</text><img src="http://www.davcai.com/images/davcai/post/blank.png"/></span>
+	-->
+	#if($sortTime == "asc")
+		<span class="sortText" time_sort="asc"><text class="fontGray fontRed">时间</text><img src="http://www.davcai.com/images/davcai/post/sort-up.png"/></span>
+	#else
+		<span class="sortText" time_sort="desc"><text class="fontGray fontRed">时间</text><img src="http://www.davcai.com/images/davcai/post/sort-down.png"/></span>
+	#end
+ </p>

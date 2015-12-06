@@ -1,0 +1,50 @@
+
+# database
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+# database
+db2.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db2.url = ${db2.url}
+db2.username = ${db2.username}
+db2.password = ${db2.password}
+
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+# btm
+btm.log.1 = /data/logs/btm-lottery-alarm1.log
+btm.log.2 = /data/logs/btm-lottery-alarm2.log
+
+debugMode=${debugMode}
+
+# ActiveMQ
+amq.brokerURL = ${amq.brokerURL}
+amq.sender.threads = 3
+
+#Email
+mail.host = smtp.163.com
+mail.smtp.auth = true
+mail.smtp.timeout = 25000
+mail.username = davcaiservice
+mail.password = IAN6F4g9
+mail.from = davcaiservice@163.com
+mail.encoding = utf-8
+
+#mail.host = smtp.davcai.com
+#mail.smtp.auth = true
+#mail.smtp.timeout = 25000
+#mail.username = service@davcai.com
+#mail.password = dvm@M4W7rQdXNUKG
+#mail.from = service@davcai.com
+#mail.encoding = utf-8
+
+email.receiver = ${email.receiver}
+phone.receiver = ${phone.receiver}
+
+sms.url = ${sms.url}
+sms.corpid = ${sms.corpid}
+sms.corppwd = ${sms.corppwd}
+sms.corpservice = ${sms.corpservice}

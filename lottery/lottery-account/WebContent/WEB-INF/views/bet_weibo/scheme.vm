@@ -1,0 +1,29 @@
+#if(${scheme.status} == 5203 || ${scheme.status} == 12)
+	#set($trLength = (${scheme.matchs.size()} - 1) * 35 )
+	#set($top = $trLength + "px")
+	<div class="tie-mark-recommand" style="top:$top">
+	</div>
+#end
+<div class="list-paper">
+	<div class="list-paper-content">
+        #if(${scheme.matchs} || ${scheme.cgjTeams})
+          #if(${scheme.lotteryId} == "JCZQ")
+          	#if(${scheme.playId} != "jcsjbgj")
+	            #parse("/bet_weibo/scheme_jczq.vm")
+	         #else
+	         	#parse("/bet_weibo/scheme_jczq_cgj.vm")
+	         #end
+          #elseif(${scheme.lotteryId} == "JCLQ")
+            #parse("/bet_weibo/scheme_jclq.vm")
+		  #elseif(${scheme.lotteryId} == "BJDC")
+            #parse("/bet_weibo/scheme_bjdc.vm")
+          #end
+        #elseif(${scheme.ctBetContents} && ${scheme.ctFBMatchs})
+        	#parse("/bet_weibo/scheme_ctzc.vm")
+        #elseif(${scheme.digitalBetContents})
+            #parse("/bet_weibo/scheme_digital.vm")
+        #else
+         #if($!{p_title}=="合买详情")$status.privacy(${scheme.privacy})#else$status.privacy(${scheme.followSchemePrivacy})#end
+        #end
+	</div>
+</div>

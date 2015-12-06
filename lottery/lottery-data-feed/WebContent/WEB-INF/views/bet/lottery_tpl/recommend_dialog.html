@@ -1,0 +1,78 @@
+<!-- 加注释对话框 -->
+<form id="addCommentForm">
+	<div class="modal fade" id="commentModal">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h1 class="modal-title">写注释</h1>
+				</div>
+				<div class="modal-body">
+					<div class="editor">
+						<div class="editor-wrapper">
+							<div>
+								<textarea class="form-control" rows="5" id="commentContent"
+									placeholder="说一下你选择它们的理由..."></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="text-align: right;"><span id="modal-tips" style="margin-right: 5px;color: #aaa;"></span></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary"
+						data-loading-text="正在加载..." id="commentPostBtn">写好了</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<!-- 发推荐对话框 -->
+<form id="postRecomForm">
+	<div class="modal fade" id="recommendModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h1 class="modal-title">发推荐</h1>
+				</div>
+				<div class="modal-body">
+					<div class="editor">
+						<div class="editor-wrapper">
+							<iframe id="recomdFrame" frameborder="1" border="1" scrolling="yes" 
+								height="100%" width="100%" style="min-height: 200px;">
+							</iframe>
+							<div style="margin-top:20px;">
+								<textarea class="form-control" rows="4" id="recommendContent" placeholder="我发起了比赛推荐，速来围观"></textarea>
+							</div>
+						</div>
+						<div class="emotion">
+							<span title="插入表情" id="message_face_recommend" class="face"><s></s><span>表情</span></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary" _n="postRecommend"
+						data-loading-text="正在加载..." id="recommendPostBtn">发布</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+<!-- 提示框 -->
+<div class="modal fade" id="statusModel">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="tipsCont"></div>
+			</div>
+		</div>
+	</div>
+</div>

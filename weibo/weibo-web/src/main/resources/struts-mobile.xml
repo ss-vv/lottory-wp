@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.ui.theme" value="simple" />
+
+	<package name="login" extends="weibo-web-default" namespace="/mobile">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="sinaWeiboLogin"
+			class="com.unison.lottery.weibo.web.action.mobile.SinaWeiboLoginAction">
+			<result name="success" type="redirect">mobile/home</result>
+			<!-- <result name="success">/mobile/index.vm</result> -->
+
+			<result name="LOGINING_BY_SINA_NOT_BIND">/mobile/regist.vm</result>
+		</action>
+		<action name="qqWeiboLogin"
+			class="com.unison.lottery.weibo.web.action.mobile.QQWeiboLoginAction">
+			<result name="success">/mobile/index.vm</result>
+			<result name="LOGINING_BY_QQ_NOT_BIND">/mobile/regist.vm</result>
+		</action>
+		<action name="toRegistPage"
+			class="com.unison.lottery.weibo.web.action.mobile.RegistAction"
+			method="toRegistPage">
+			<result name="success">/mobile/regist.vm</result>
+		</action>
+		<action name="regist"
+			class="com.unison.lottery.weibo.web.action.mobile.RegistAction">
+			<result name="success">/mobile/index.vm</result>
+		</action>
+		
+		<action name="addUserInfo"
+			class="com.unison.lottery.weibo.web.action.mobile.AddUserInfoAction">
+			<result name="success" type="redirect">mobile/home</result>
+			<result name="error">/mobile/add_user_info.vm</result>
+		</action>
+		
+	</package>
+
+	<package name="relationship" extends="weibo-web-default"
+		namespace="/mobile">
+		<action name="unFollowing"
+			class="com.unison.lottery.weibo.web.action.mobile.FollowingAction"
+			method="unFollowing">
+			<result type="json">
+			</result>
+		</action>
+		<action name="following"
+			class="com.unison.lottery.weibo.web.action.mobile.FollowingAction"
+			method="following">
+			<result type="json">
+			</result>
+		</action>
+		<action name="followList"
+			class="com.unison.lottery.weibo.web.action.mobile.FollowingAction"
+			method="followList">
+			<result name="success">/mobile/relationship/follow_list.vm</result>
+		</action>
+		<action name="comment" class="com.unison.lottery.weibo.web.action.pc.ajax.PostCommentAction">
+		  <interceptor-ref name="defaultStack"></interceptor-ref>
+		  <result>/mobile/comment.vm</result>
+		</action>
+	</package>
+
+	<!-- 手机微博 -->
+	<package name="mobile" extends="weibo-web-default"
+		namespace="/mobile">
+		<!-- 微博主页 -->
+		<action name="home"
+			class="com.unison.lottery.weibo.web.action.mobile.HomeAction">
+			<result  name="success"  type="velocity">/mobile/index.vm</result>
+		</action>
+		<!-- 微博详情 -->
+		<action name="detail"
+			class="com.unison.lottery.weibo.web.action.mobile.DetailAction">
+			<result  name="success" type="velocity">/mobile/detail.vm</result>
+		</action>
+		<!-- 准备发布微博 -->
+		<action name="toPublish"
+			class="com.unison.lottery.weibo.web.action.mobile.PublishAction"  method="toPublish">
+			<result name="success" type="velocity">/mobile/publish.vm</result>
+		</action>
+		<!-- 准备转发微博 -->
+		<action name="toForward"
+			class="com.unison.lottery.weibo.web.action.mobile.PublishAction"  method="toForward">
+			<result name="success" type="velocity">/mobile/publish.vm</result>
+		</action>
+		<!-- 发布微博 -->
+		<action name="publish"
+			class="com.unison.lottery.weibo.web.action.mobile.PublishAction" method="publish">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+</struts>

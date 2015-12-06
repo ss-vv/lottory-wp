@@ -1,0 +1,75 @@
+# database
+db.driver = ${db.driver}
+
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+#jishibifen
+driverClassName = ${driverClassName}
+userName=${userName}
+password=${password}
+url=${url}
+#//pool size
+minPoolSize=${minPoolSize}
+maxPoolSize=${maxPoolSize}
+#jing cai bifen
+zqJishiUrl=${zqJishiUrl}
+lqjingcaiJishiUrl=${lqjingcaiJishiUrl}
+
+#DES key
+DES_KEY=xe6tRoFz
+#jishi odds
+#?ID=956976&lang=0&ran=1415011336639
+QtFbJingcaiMatchJishiOpOdds=${QtFbJingcaiMatchJishiOpOdds}
+#?OddsID=43803748&ran=1418117949765
+QtFbJingcaiMatchHistoryOpOdds=${QtFbJingcaiMatchHistoryOpOdds}
+#?ID=956976&lang=0&ran=1415011296996
+QtFbJingcaiMatchJishiYpOdds=${QtFbJingcaiMatchJishiYpOdds}
+#?OddsID=4370784&ran=1418117918247
+QtFbJingcaiMatchHistoryYpOdds=${QtFbJingcaiMatchHistoryYpOdds}
+#?ID=956976&lang=0&ran=1415011226522
+QtFbJingcaiMatchJishiOuOdds=${QtFbJingcaiMatchJishiOuOdds}
+#?OddsID=3906261&ran=1418118066735
+QtFbJingcaiMatchHistoryOuOdds=${QtFbJingcaiMatchHistoryOuOdds}
+#?ID=956976&lang=0&ran=1415011073668
+QtFbMatchLiveEvent=${QtFbMatchLiveEvent}
+#
+basketMatchPlayerStatistic=${basketMatchPlayerStatistic}
+#
+qtBasketMatchTeamStatistics=${qtBasketMatchTeamStatistics}
+#zq jishi oddsChange
+zqEuroOddsChange=${zqEuroOddsChange}
+zqAsianOddsChange=${zqAsianOddsChange}
+zqOuOddsChange=${zqOuOddsChange}
+#
+lqJishiOuOdds=${lqJishiOuOdds}
+lqJishiAsianOdds=${lqJishiAsianOdds}
+lqJishiEuroOdds=${lqJishiEuroOdds}
+#\u5B58\u653E\u4E0A\u6B21\u6293\u53D6\u7684\u8DB3\u7403\u8D54\u7387\u5185\u5BB9\u7684\u6587\u4EF6\u540D\u79F0
+euroFile=${euroFile}
+asianFile=${asianFile}
+ouFile=${ouFile}
+lqEuroFile=${lqEuroFile}
+lqAsianFile=${lqAsianFile}
+lqOuFile=${lqOuFile}
+# Hibernate
+hibernate.dialect = ${hibernate.dialect}
+
+#Redis
+redis.url=${redis.url}
+redis.port=${redis.port}
+pushServerUrl=${pushServerUrl}
+pushHXServerUrl=${pushHXServerUrl}
+pushConnectionTimeOutInMs=${pushConnectionTimeOutInMs}
+
+#header
+headerList=${headerList}
+# btm
+btm.log.1 = ${btm.log.1}
+btm.log.2 = ${btm.log.2}
+
+#des key
+DES_KEY=${DES_KEY}
+#\u6293\u53D6\u6570\u636E\u540E\u8981\u53D1\u9001\u7684\u5230\u7684\u670D\u52A1\u5668
+serverSend_base_url=${serverSend_base_url}

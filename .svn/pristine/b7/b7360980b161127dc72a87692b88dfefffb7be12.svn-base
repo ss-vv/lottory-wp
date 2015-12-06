@@ -1,0 +1,66 @@
+#set($layout = "bet.vm")
+#set($p_title = "投注详情")
+
+<div class="mod mod-d">
+  <div class="imglst imglst-b bgbrr-c">
+    <div class="row">
+      <span class="img">
+        #parse("/bet/playImg.vm")
+      </span>
+      <b class="phases fl">第 #if(${scheme.lotteryId}=='CTZC') 20${scheme.ctFBMatchs[0].issueNumber} #elseif(${scheme.lotteryId}=='SSQ') ${issueInfo.issueNumber} #else  $date.format("yyyyMMdd", ${scheme.createdTime})#end 期</b>
+      <span class="tips">方案发起时间：$date.format("yyyy-MM-dd HH:mm", ${scheme.createdTime})　　认购截止时间：$date.format("yyyy-MM-dd HH:mm", ${scheme.offtime})</span>
+    </div>
+    <span class="clear"></span>
+  </div>
+  <div class="tblbox tblbox-d">
+    <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+      <tbody><tr>
+        <th class="thl" style="width:160px;">
+          <div class="inth">发起人信息</div>
+        </th>
+        <td>
+          <div class="intd">
+            <b>$!{scheme.sponsor}</b>&nbsp;&nbsp;&nbsp;战绩：0<br>总中奖金额：<b class="c-i">￥${sponsorAward}</b>
+          </div>
+        </td>
+      </tr>
+      #parse("/bet/schemeinfo.vm")
+	  #parse("/bet/new-scheme.vm")
+      <tr>
+        <th class="thl"><div class="inth">认购详情</div></th>
+        <td><div class="intd">我的认购金额：<b class="c-i">￥${sumBetAmount}元</b></div></td>
+      </tr>
+      <tr>
+        #if($scheme.status == 5203 || $scheme.status == 12)
+        <th class="thl"><div class="inth">中奖详情</div></th>
+        <td>
+        	<div class="intd">
+        	中奖情况：$status.bet(${scheme.status}) ，税后奖金：<b class="c-i">￥${scheme.afterTaxBonus}元</b><br/>
+       		 给晒单发起人佣金(<b class="c-i">$math.round($math.mul($math.div($math.sub(${scheme.afterTaxBonus},${sumBonus}),${scheme.afterTaxBonus}),100))%</b>):
+       		<b class="c-i"><span id="commission"></span></b> 实际派奖：<b class="c-i">￥${sumBonus}元</b>
+        	</div>
+        </td>
+        #else
+        <th class="thl"><div class="inth">方案状态</div></th>
+        <td><div class="intd">$status.bet(${scheme.status})</div></td>
+        #end
+      </tr>
+	  #if(${scheme.playId} != "jcsjbgj")
+		#parse("/bet/schemeSplit.vm")
+	  #else
+		#parse("/bet/cgjSchemeSplit.vm")
+	  #end
+    </tbody></table>
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	var commissions=($math.sub(${scheme.afterTaxBonus},${sumBonus})).toFixed(2);
+		
+	$("#commission").html("￥"+commissions+"元");
+    
+    $('#showTicketBtn').bind('click', function(){
+       	$('#ticketGrid').toggle();
+    });
+})
+</script>

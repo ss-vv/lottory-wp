@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>[#xh:document field="title"/]双色球投注-双色球-竞彩老吴-大V彩</title>
+        <link href="http://trade.davcai.com/df/style/layout.css" rel="stylesheet" type="text/css" />
+        <link href="http://trade.davcai.com/df/style/style.css" rel="stylesheet" type="text/css" />
+        <link href="http://trade.davcai.com/df/style/ssq_index.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="http://trade.davcai.com/df/js/jquery.js"></script>
+        <script type="text/javascript" src="http://trade.davcai.com/df/js/core.js"></script> 
+        <script type="text/javascript" src="http://trade.davcai.com/df/js/jet.js"></script>
+        <script type="text/javascript" src="http://trade.davcai.com/df/js/bet/bet-ct.js?jsversion=1"></script>
+        <script type="text/javascript" src="http://trade.davcai.com/df/js/bet/ajaxfileupload.js?jsversion=1"></script>
+        <script type="text/javascript" src="http://trade.davcai.com/df/js/bet/bet-ct-ui.js?jsversion=1"></script>
+        <script type="text/javascript" src="http://trade.davcai.com/df/js/bet/bet-cms.js"></script>
+</head>
+    <body>
+        <div id="info" nav="" style="display:none">
+             </div>
+<!-- top -->        
+            [#xh:template id="9" /]
+        <div class="wrap">
+            <div class="inwrap">
+                <div class="head">
+                    <div class="head_l">
+                        <div class="head_r">
+                            <a class="logo fl"><img alt="logo" src="http://trade.davcai.com/df/images/logo.gif" /></a>
+                            <div class="banner fl">
+                                <a target="_blank" href="http://trade.davcai.com/df/prom/12/"><img alt="banner" src="http://res.davcai.com/resources/resources/picture/1/2012/11/30/20121130144152912.jpg" /></a></div>
+                            <div class="service fr">
+                                <div class="tt">
+                                    <b><a href="#" onclick="window.open('http://www.53kf.com/company.php?arg=laicai310&style=1','_blank','height=473,width=703,fullscreen=3,top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=no,scrollbars=no,location=no,titlebar=no,fullscreen=no');"><img alt="在线客服" border="0" src="http://res.davcai.com/resources/resources/picture/1/2012/06/01/2012060114107246.gif" /></a></b></div>
+                                <div class="tt">&nbsp;</div>
+                                <a href="http://sighttp.qq.com/authd?IDKEY=e9aa8005fa20e738c0e27ecf8a43104c51e1e34b9960d08c" target="_blank" title="大V彩客服">
+<img alt="大V彩客服" border="0" src="http://trade.davcai.com/df/images/qq_button.png" />
+</a></div>
+
+                        </div>
+                    </div>
+                </div>
+
+[#xh:template id="38" /]
+
+[#xh:template id="14" /]
+
+[#xh:document field="htmlcontent" /]
+
+</div>
+        </div>
+<p>
+[#xh:template id="10"/]
+</p>
+    </body>
+<script type="text/javascript">
+$(function(){
+    $('#_shortcut_popup_link').bind('click', function() {
+        $('#_shortcut_popup').toggle();
+    });
+    $('#_shortcut_popup').hide();
+$('.log_reg').hide();
+});
+</script></html>

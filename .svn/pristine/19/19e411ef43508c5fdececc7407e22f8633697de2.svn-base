@@ -1,0 +1,92 @@
+#parse("/ssq/inc/header.vm")
+	<form id="form" method="post" action="order_confirm.do">
+		<div class="list_lottory">
+			&nbsp;第&nbsp;$!{issueInfo.issueNumber}&nbsp;期热售 #if ($issueInfo.prizeTime)，${issueInfo.prizeTime}开奖#end<br/> 
+		</div>
+		<div class="list_lottory">&nbsp;截止投注时间： $!date.format('yyyy-MM-dd HH:mm',$!{issueInfo.stopTimeForUser}) </div>
+		
+		#if($actionErrors && $actionErrors.size()>0)
+			<div class="divErrorMSG">
+		    #foreach($error in $actionErrors)
+				$error <br />
+		    #end
+		    </div>
+		#end
+		
+		<div class="list_lottory" style="border-bottom:0px; line-height:10px;">
+		投注：<a href='$base/ssq/buy_fs.do'>手选</a> | <a href='$base/ssq/buy_ds.do'>机选</a> | 胆拖
+		<input type="hidden"  name="playId" value="72">
+		<input type="hidden"  name="selectType" value="1">
+		</div>
+		
+		<div class="divErrorMSG">选择红球胆码: $selectDanBalls</div>
+		<div class="curLotteryTerm" style="border-bottom:0px;"><span class="red">红球拖码</span> 胆码+拖码≥7</div>
+		<div class="list_lottory" style="border-bottom:0px;">
+			#foreach($danBall in $selectDanBalls)
+				<input type="hidden" value="$!StringUtils.trim($danBall)" name="redDanBalls" />
+			#end
+			
+			<span class="red">
+			#foreach($index in [1..33])
+				#set($select4Dan = false)
+				#set($currentBall = $!number.format("00", $index))
+				#foreach($danBall in $selectDanBalls)
+					#if($currentBall == $!StringUtils.trim($danBall))
+						#set($select4Dan = true)
+						#break
+					#end
+				#end
+				#if($select4Dan == false)
+					#set($select4Tuo = false)
+					#foreach($tuoBall in $selectTuoBalls)
+						#if($currentBall == $!StringUtils.trim($tuoBall))
+							#set($select4Tuo = true)
+							#break
+						#end
+					#end
+					
+					#if($select4Tuo == false)
+						<label><input type="checkbox" value="$currentBall" name="redTuoBalls" />$currentBall</label>
+					#else
+						<label><input type="checkbox" value="$currentBall" name="redTuoBalls" checked="true" />$currentBall</label>
+					#end
+				#end
+			#end
+			</span>
+		</div>
+		
+		<div class="curLotteryTerm" style="border-bottom:0px;">请选择蓝球(1－16个)</div>
+		<div class="list_lottory" style="border-bottom:0px;">
+			<span class="blue">
+			#foreach($index in [1..16])
+				#set($select = false)
+				#set($currentBall = $!number.format("00", $index))
+				#if($!{selectBlueBalls})
+					#foreach($blueBall in $selectBlueBalls)
+						#if($currentBall == $!StringUtils.trim($blueBall))
+							#set($select = true)
+							#break
+						#end
+					#end
+				#end
+				#if($select == false)
+					<label><input type="checkbox" value="$currentBall" name="blueBalls" />$currentBall</label>
+				#else
+					<label><input type="checkbox" value="$currentBall" name="blueBalls" checked="true" />$currentBall</label>
+				#end
+			#end
+			</span>
+		</div>
+		<div class="msgTitle">
+			倍数：<input name="Times" style="-wap-input-format: '*N'" value="$times"  size="4" maxlength="2"/>&nbsp;倍 [≤99]<br/>
+		</div>
+		<div class="msgTitle" style="line-height:18px; padding:5px">
+			<input type="submit" name="buy" value="提交" id="buttonSubmit" title="提交" />
+		</div>
+	</form>
+	
+	<div class="topNavigationBar">【双色球】[最近5期开奖号码]&nbsp;&nbsp;<a href="$base/ssq/ssq_ballot_record.do">历史开奖</a></div>
+	#foreach($record in $list)
+		<div class="#if($record.id%2 == 0)ni1 #else ni2 #end" style="padding-left:8px">$record.issueNumber&nbsp;期&nbsp;&nbsp;<span>$date.format("yyyy-MM-dd HH:mm", $record.stopTime)&nbsp;&nbsp;</span> $!lotteryFormat.format4SSQ($record.bonusCode)</div>
+	#end
+#parse("/ssq/inc/tail.vm")

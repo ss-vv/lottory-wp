@@ -1,0 +1,117 @@
+#set($p_title="彩票投注")
+<link href="http://trade.davcai.com/df/css/widgets.css" rel="stylesheet" type="text/css" />
+<link href="http://www.davcai.com/css/emoticon.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jquery.mustache.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jquery.util.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/jquery.emoticons.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/load-header-background.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/plugins/cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jet.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/notification.js"></script>
+<link href="http://trade.davcai.com/df/css/hack-bootstrap.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://www.davcai.com/js/web/load-header.js"></script>
+
+<link href="http://trade.davcai.com/df/css/bet/jc.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://www.davcai.com/js/pop.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/davcai/general_pop.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/assets/js/cometd/lib/cometd.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/assets/js/cometd/jquery/jquery.cometd.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/atDemo.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/message/at-window.js"></script>
+
+<script type="text/javascript" src="http://trade.davcai.com/df/js/core.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/cometd/core.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/cometd/bet-match-odds.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/match-rec/recommend.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/matchUtil.js"></script>
+
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jczq/jc-option-view.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jczq/count-bet-notes.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jclq/jclq-option-combination.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jclq/jclq-bet-panel.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jclq/match.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jclq/jclq.js"></script>
+<div class="davcai-bet">
+	<div class="davcai-bet-left">
+		<div  class="davcai-bet-nav">
+			<ul class="davcai-bet-nav-tab">
+				 <li><a href="http://trade.davcai.com/df/bet/jclq_06_lc_2.html">让分胜负</a></li>
+				 <li><a href="http://trade.davcai.com/df/bet/jclq_07_lc_2.html">胜负</a></li>
+				 <li><a href="http://trade.davcai.com/df/bet/jclq_08_lc_2.html">胜负差</a></li>
+				 <li><a href="http://trade.davcai.com/df/bet/jclq_09_lc_2.html">大小分</a></li>
+				 <li class="current"><a href="javascript:void(0);">混合过关</a></li>
+			</ul>
+		</div>
+		<div class="davcai-bet-left-title">
+			#include("/bet/jczq/filter-match.vm")
+			#include("/bet/jclq/history-match-select.vm")
+		</div>
+		<!--davcai-bet-left-title结束--->
+	
+		<!----下面开始basketball-bet-box"部分----------------------->
+		<table class="basketball-bet-box basketball-bet-head-fixed" cellspacing="0" cellpadding="0" border="0">
+			<tbody>
+				<tr class="basketball-bet-box-nav">
+					<td style="width: 44px;">赛事
+						<br>编号</td>
+					<td class="section-sale-td" style="width: 48px;">
+						<a href="javascript:void(0);" class="section-sale">截售</a>
+						<i class="down-arrow"></i>
+						<div class="section-sale-list" style="display: none;">
+							<a href="javascript:void(0);"  data="offsale"  class="section-sale current">截售</a>
+							<i class="up-arrow"></i>
+							<br>
+							<a href="javascript:void(0);" data="palytime"  class="kick-off">开赛</a><i class="up-arrow-no"></i>
+						</div>
+					</td>
+					<td style="width: 100px;">客VS主</td>
+					<td style="width: 68px;">玩法</td>
+					<td style="width: 190px;">
+						<span style="margin-top: 6px;display: block;margin-bottom: 6px;">投注区</span>
+						<table style="table-layout: fixed;">
+							<tbody><tr style="height: 23px;">
+								<td style="width: 94px;border-left: none;border-bottom: none;">客</td>
+								<td style="width: 96px;border-right: none;border-bottom: none;">主</td>
+							</tr></tbody>
+						</table>
+					</td>
+					<td colspan="2" class="instant-index-td" style="">
+						<a href="javascript:void(0);" class="instant-index">即时指数</a>
+						<i class="down-arrow"></i>
+						<div class="instant-index-list" style="display: none;">
+							<a href="javascript:void(0);" class="instant-index current">即时指数</a>
+							<i class="up-arrow"></i>
+							<br>
+							 <ul class="instant-index-list-content">
+	  	    	 	      	 <li>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="1">澳门</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="2">易胜博</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="3">皇冠</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="8">Bet365</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="9">韦德</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="4">Macauslot</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="12">BWin</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="15">Coral</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="16">easybets</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="17">Expekt</a></span>
+	  	    	 	      	 </li>
+	  	    	 	      </ul>
+						</div>
+					</td>
+					<td style="width: 68px;">参考</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="margin-top: 114px;"></div>
+	</div>
+</div>
+#parse("/bet/jczq/right-bet-content.vm")
+#include("/bet/jclq/match.vm")
+#parse("/bet/inc/match-rec.vm")
+#include("/bet/inc/at-window.vm")
+<div style="position: absolute; z-index: 5;">
+	<table id="OddsChangeTable" cellspacing="1" cellpadding="0" width="280" align="center" bgcolor="#aaaaaa" border="0" style="font-size:12px;border-collapse: separate;border-spacing: 1px;border-color: gray;display:none"><tbody>
+	</tbody></table>
+</div>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head msg="003" partnerId="$!partnerId" version="$!version" time="$!time" />
+  <body>
+  	#foreach($ticketReq in $ticketReqs)
+    <ticketReq id="$!ticketReq.id" status="$!ticketReq.status"/>
+    #end
+  </body>
+</msg>

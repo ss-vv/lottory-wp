@@ -1,0 +1,8 @@
+#set($p_title="验证邮箱")
+#set($pos = "vemail")
+
+<div class="box">
+  <div class="formbox formbox-a formbox-a-b mp-c bgbrr-a">
+    <div class="row"><div class="tips">＃＃＃，邮箱验证成功</div></div>
+  </div>
+</div>

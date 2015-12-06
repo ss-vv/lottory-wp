@@ -1,0 +1,126 @@
+/*下面开始davcai-plus-interest加关注部分*/
+.davcai-plus-outer{
+	width: 243px;
+	height: auto;
+	margin: 15px auto 20px;
+}
+.davcai-plus-outer h4.title{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #93130D;
+	display: inline-block;
+}
+.davcai-plus-outer h6.change{
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+}
+.davcai-plus-outer h6.change a{
+	color: #63B5FF;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+.davcai-plus-outer .hr-solid{
+	height: 1px;
+	width: 100%;
+	border:none;
+	border-top:1px #EAEAEA solid;
+	margin-top: 5px; 
+	margin-bottom: 5px;
+}
+.davcai-plus-outer .davcai-plus-interest{
+	width: 243px;
+}
+/*------ clean:both 新加-------*/
+.davcai-plus-interest li.davcai-plus-interest-son{
+	width: 243px;
+	height: 82px;
+    border-bottom: 1px #000000 dotted;
+    clear:both;
+}
+.davcai-plus-interest-son .interest-user{
+	width: 56px;
+	height: 54px;
+	float: left;
+	margin-left: 6px;
+	margin-top: 14px;
+	margin-right: 6px;
+}
+.davcai-plus-interest-son .interest-name{
+	width: 100px;
+	height: 18px;
+	line-height: 18px;
+	display: inline-block;
+	margin-top: 12px;
+	color: #008FFF;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.davcai-plus-interest-son .interest-guanzhu{
+	/*margin-top: 20px;*/
+	display: block;
+}
+.plus-interest-button{
+	width: 92px;
+	height: 23px;
+	display: inline-block;
+	/*background:url(../../../images/davcai/interest/plus-interest-button.png)  no-repeat ;*/
+	float: right;
+	margin-top: -50px;
+	margin-right: -41px;
+}
+.winning-bet{
+	width: 140px;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin-top: 2px;
+}
+.winning-prize{
+	color: #E41F02;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	display: inline-block;
+	width: 140px;
+	height: 18px;
+	line-height: 18px;
+}
+
+.davcai-ranking-list-son .ranking-rate{
+	color: #FF0000;
+	font-size: 24px;
+	width: 90px;
+	height: 20px;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+	text-align: right;
+}
+
+/*  排行版  百分比使用  新加*/
+.ranking-rate-percent{
+color: #FF0000;
+font-size: 24px;
+width: 90px;
+height: 20px;
+display: inline-block;
+/* position: absolute; */
+/* right: 0; */
+/* bottom: 6px; */
+text-align: right;
+/* background: #000; */
+float: right;
+/* margin-right: -18px; */
+margin-top: -17px;
+	
+}

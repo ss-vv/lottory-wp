@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+  <bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+	<property name="connectionFactory">
+		<amq:connectionFactory id="mqFactoryCn" brokerURL="${amq.brokerURL}" />
+	</property>
+  </bean>
+
+ 
+ 
+  
+
+ 
+
+  <!-- 出票 -->
+  <bean id="orderTicketHandler" class="com.unison.lottery.mc.uni.handler.OrderTicketMQHandler"></bean>
+  
+  <bean id="orderTicketListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="JC_BUY_QUEUE" physicalName="com.xhcms.lottery.queue.JC_BUY" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="orderTicketHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="1"/>
+  </bean>
+
+  <!-- 出票情况查询消息处理器  -->
+  <bean id="queryOrderResultHandler" class="com.unison.lottery.mc.uni.handler.QueryOrderResultMQHandler">
+    <property name="client">
+      <bean class="com.unison.lottery.mc.uni.client.QueryOrderResultClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_query_order_result.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.QueryOrderResultParser" parent="messageParser"/>
+        </property>
+      </bean>
+    </property>
+  </bean>
+  <!-- 远程出票情况查询消息处理器 -->
+  <bean id="queryRemoteOrderResultHandler" class="com.unison.lottery.mc.uni.handler.QueryRemoteOrderResultMQHandler">
+     <property name="queryRemoteTicketResultClient">
+       <bean class="com.davcai.lottery.platform.client.QueryRemoteTicketResultClientImpl"></bean>
+     </property>
+    <!-- <property name="client">
+      <bean class="com.unison.lottery.mc.uni.client.QueryOrderResultClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_query_order_result.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.QueryOrderResultParser" parent="messageParser"/>
+        </property>
+      </bean>
+    </property> -->
+  </bean>
+  
+  <bean id="queryOrderResultListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="JC_CHECK_TICKET_QUEUE" physicalName="com.xhcms.lottery.queue.JC_CHECK_TICKET" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="queryOrderResultHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="5"/>
+  </bean>
+  <!-- 远程检查出票情况 -->
+  <bean id="queryRemoteOrderResultListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="JC_CHECK_REMOTE_TICKET_QUEUE" physicalName="com.xhcms.lottery.queue.JC_CHECK_REMOTE_TICKET" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="queryRemoteOrderResultHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="5"/>
+  </bean>
+ 
+  <!-- 中奖查询消息处理器 -->
+  <bean id="queryPrizeHandler" class="com.unison.lottery.mc.uni.handler.QueryPrizeMQHandler">
+  </bean>
+  
+  <bean id="queryPrizeListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="JC_CHECK_BONUS_QUEUE" physicalName="com.xhcms.lottery.queue.JC_CHECK_BONUS" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="queryPrizeHandler" />
+      </bean>
+    </property>
+  </bean>
+  
+  <!-- 短信发送处理器 -->
+  <bean id="smsSendHandler" class="com.xhcms.lottery.mc.sms.handler.SMSSendWithAspireHandler">
+  </bean>
+  
+  <bean  id="smsSendWithAspirePlatformClient" class="com.xhcms.lottery.mc.sms.client.SMSSendWithAspirePlatformClient">
+  </bean>
+  
+  <bean  id="aspireSmsPlatform" class="com.xhcms.lottery.mc.sms.platform.AspireSmsPlatform">
+  	<property name="requestUrl" value="${sms.url}"/>
+    <property name="userId" value="${sms.corpid}"/>
+    <property name="password" value="${sms.corppwd}"/>
+    <property name="signature" value="【大V彩】"/>
+    <property name="templateId" value="${sms.templateId}"/>
+  </bean>
+  
+  <bean id="smsSendListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="SMS_SEND_MESSAGE_QUEUE" physicalName="com.unison.weibo.queue.SMS_SEND_MESSAGE_QUEUE" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="smsSendHandler" />
+      </bean>
+    </property>
+  </bean>
+	
+	<!-- 派奖通知 -->
+	<bean id="awardProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="WB_LAICAI_AWARD_CMD"
+				physicalName="com.unison.weibo.queue.WB_LAICAI_AWARD_CMD" />
+		</property>
+	</bean>
+		
+	<!-- 喜报通知 -->
+	<bean id="winningProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="WB_LAICAI_WINNING_CMD"
+				physicalName="com.unison.weibo.queue.WB_LAICAI_WINNING_CMD" />
+		</property>
+	</bean>
+	
+	<!-- 方案缓存更新的通知 -->
+	<bean id="schemeCacheUpdateProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="WB_LAICAI_SCHEME_CACHE_UPDATE_CMD"
+				physicalName="com.unison.weibo.queue.WB_LAICAI_SCHEME_CACHE_UPDATE_CMD" />
+		</property>
+	</bean>
+
+	<!-- 消息发送器 -->
+	<bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender"
+		init-method="init" destroy-method="destroy">
+		<property name="threads" value="${amq.sender.threads}" />
+		<property name="producers">
+			<map>
+				<entry key="AwardMessageHandler" value-ref="awardProducer" />
+				<entry key="WinningMessageHandler" value-ref="winningProducer" />
+				<entry key="SchemeCacheUpdateMessageHandler" value-ref="schemeCacheUpdateProducer" />
+			</map>
+		</property>
+	</bean>
+</beans>

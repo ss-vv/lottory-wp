@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>个人主页</title>
+  <meta name="keywords" content="我的主页 - 大V彩微博" />
+  <meta name="description" content="我的主页 - 大V彩微博" />
+  <link rel="shortcut icon" href="http://www.davcai.com/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/home.css" />
+  <link rel="stylesheet" type="text/css" href="css/emoticon.css" />
+  <link rel="stylesheet" type="text/css" href="css/profile.css" />
+  <script type="text/javascript" src="js/jquery.js">
+  </script>
+  <script type="text/javascript" src="js/home.js">
+  </script>
+  <script type="text/javascript" src="js/jquery.emoticons.js">
+  </script>
+</head>
+
+<body id="profile_setting">
+
+  
+    <div class="set_profile_box" style="margin-left: 5%;">
+    	<div id="portfolioTab" class="tab portfolio">
+            <ul class='groups'>
+                <li id="grzl" class='active'><a title="个人资料">个人资料</a></li>
+                <li id="xgmm" title='修改密码'>修改密码</a></li>
+				<li id="xxtx"><a title='消息提醒'>消息提醒</a></li>
+				<li id="yjtx"><a title='邮件提醒'>邮件提醒</a></li>
+				<li id="yssz"><a title='隐私设置'>隐私设置</a></li>
+				<li id="hmd"><a title='黑名单'> 黑名单</a></li>
+				<li id="cpsz"><a title='彩票设置'>彩票设置</a></li>
+				<li id="zhbd"><a title='帐号绑定'>帐号绑定</a></li>
+            </ul>
+        </div>
+      <div class="portfolio-wrapper grzl" id="profile_grzl">
+        <div class="tab_sub tab_user">
+          <span>个人简介</span>
+          <a href="/setting/face">修改头像</a>
+          <a href="/setting/domain" class="last">个性网址</a>
+        </div>
+        <form id="settingUserForm" action="/service/setting_user" method="post" class="formbox userInfoForm">
+          <p>
+            <label><span class="txt_impt">*</span>昵称：</label>
+            <input id="nickname" type="text" name="screenName" value="hassan小翔">
+              <span class="err"></span>
+              <p>
+                <label for="province">
+                <span class="txt_impt"></span>居住地：</label>
+                <select id="province" name="province">
+                  <option value="省/直辖市">省/直辖市</option>
+                  <option value="安徽">安徽</option>
+                  <option value="北京" selected="selected">北京</option>
+                </select>
+                <select id="city" name="city">
+                  <option>城市/地区</option>
+                </select>
+                <span class="err"></span>
+                <input id="region" type="hidden" value="北京:东城区">
+                  <input id="gender" type="hidden" value="n">
+                    <p class="gender">
+                      <label for="gender">性别：</label>
+                      <select id="gender">
+                        <option id="genderN" value="n" name="gender">保密</option>
+                        <option id="genderMale" value="m" name="gender">男</option>
+                        <option id="ge nderFemale" value="f" name="gender">女</option>
+                      </select>
+                    </p>
+                    <p class="desc">
+                      <label>个人简介：</label>
+                      <span class="watermark_container" style="display: inline-block; position: relative;">
+                        <span class="watermark" style="position: absolute; display: none; font-family: monospace; font-size: 14px; color: rgb(204, 204, 204); left: 10px; top: 10px; height: 20px; text-align: left; pointer-events: none;">
+                        	请填写一段与投资相关的个人简介，可包括你对关注股票及相关行业的理解，或是过去投资经历的感受和思考等，全长不超过200字，简介将公开显示在你的雪球个人主页上。
+                        </span>
+                        <textarea id="desc" cols="60" rows="5" name="description" max_num="200" optional="1" null_text="" over_text="个人简介请控制在200个字以内" class="jq_watermark" data-jq-watermark="processed">-</textarea>
+                      </span>
+                      <span class="err"></span>
+                    </p>
+                    <input type="submit" value="确定" class="button"/>
+                  </input>
+                </input>
+              </p>
+            </input>
+          </p>
+        </form>
+      </div>
+
+      <div class="portfolio-wrapper xgmm" id="profile_xgmm" style="display: none;">
+      	修改密码
+      </div>
+      <div class="portfolio-wrapper xxtx" id="profile_xxtx" style="display: none;">
+      	消息提醒
+      </div>
+      <div class="portfolio-wrapper yjtx" id="profile_yjtx" style="display: none;">
+      	邮件提醒
+      </div>
+      <div class="portfolio-wrapper yssz" id="profile_yssz" style="display: none;">
+      	隐私设置
+      </div>
+      <div class="portfolio-wrapper hmd" id="profile_hmd" style="display: none;">
+      	黑名单
+      </div>
+      <div class="portfolio-wrapper cpsz" id="profile_cpsz" style="display: none;">
+      	彩票设置
+      </div>
+      <div class="portfolio-wrapper zhbd" id="profile_zhbd" style="display: none;">
+      	帐号绑定
+      </div>
+    </div>
+
+
+</body>
+</html>

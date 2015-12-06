@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head msg="002" partnerId="exampleId" version="1.0" time="20140901175541" />
+  <body>
+  <betReq  lotteryType="SSQ" playType="DS" issueNumber="2014104" betMoney="8"
+     betContent="01,02,03,04,05,06|07" multiple="4" partnerUserId="f1s2a3fsa" uuid="550e8400-e29b-41d4-a716-446655441111"/>
+  </body>
+</msg>

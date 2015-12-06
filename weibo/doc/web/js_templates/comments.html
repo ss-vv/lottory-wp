@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<style type="text/css">
+ol,ul {
+    list-style: none
+}
+.commentInfo,.goodCommentInfo {
+    padding: 22px 10px 4px 8px
+}
+
+.commentInfo .hd,.goodCommentInfo .hd {
+    border-bottom: 1px dotted #CCC;
+    line-height: 24px;
+    padding: 0 10px 0 0
+}
+
+.commentInfo .sort,.goodCommentInfo .sort {
+    float: right;
+    font-size: 12px
+}
+
+.commentInfo .sort a,.goodCommentInfo .sort a {
+    font-size: 12px;
+    padding-right: 6px
+}
+
+.commentInfo .sort a.last,.goodCommentInfo .sort a.last {
+    padding-right: 0
+}
+
+.commentInfo .sort a.active,.goodCommentInfo .sort a.active {
+    color: #000000
+}
+
+.commentInfo .commentNum,.goodCommentInfo .commentNum,.commentInfo h4,.goodCommentInfo h4
+    {
+    font-size: 14px;
+    font-weight: bold
+}
+
+.goodCommentInfo .pager-wrapper {
+    display: none
+}
+
+.commentInfo .ops,.goodCommentInfo .ops,.talkList .ops {
+    margin-top: 9px;
+    text-align: right
+}
+
+.commentInfo .ops span,.goodCommentInfo .ops span,.talkList .ops span {
+    margin-top: 4px
+}
+
+.commentInfo .ops input,.goodCommentInfo .ops input,.talkList .ops input
+    {
+    margin-right: -6px
+}
+
+.commentContainer,.searchComment {
+    display: none;
+    font-size: 13px;
+    line-height: 1.5
+}
+
+.commentContainer .loading,.searchComment .loading {
+    height: 50px
+}
+
+.commentContainer .commentList .content,.searchComment .commentList .content
+    {
+    margin-left: 40px;
+    color: #999999
+}
+
+.commentContainer .editarea,.searchComment .editarea {
+    margin-left: 40px;
+    font-size: 12px
+}
+
+.commentContainer .editarea textarea,.searchComment .editarea textarea {
+    width: 99%
+}
+
+.commentContainer .cmt_con,.searchComment .cmt_con {
+    padding: 2px 0;
+    font-size: 13px;
+    color: #191919;
+    word-wrap: break-word
+}
+
+.commentContainer .cmt_con div,.searchComment .cmt_con div {
+    text-align: left
+}
+
+.commentContainer .content .ops,.searchComment .content .ops {
+    text-align: right;
+    margin-top: 3px;
+    overflow: hidden;
+    zoom: 1
+}
+
+.commentContainer .content .ops .infos,.searchComment .content .ops .infos
+    {
+    float: left;
+    display: inline
+}
+
+.commentContainer .content .ops .infos span.createAt,.searchComment .content .ops .infos span.createAt
+    {
+    padding-right: 6px
+}
+
+.commentContainer .content .ops a,.searchComment .content .ops a {
+    margin-right: 6px;
+    border-right: 1px solid #888;
+    padding-right: 6px
+}
+
+.commentContainer .content .ops a.last,.searchComment .content .ops a.last
+    {
+    padding: 0;
+    border: 0 none
+}
+
+.comment_received .commentInfo {
+    display: none
+}
+
+.searchComment {
+    display: block;
+    margin: 0 0 0 65px
+}
+
+.searchComment .commentList li {
+    border-top: 1px dashed #DDD
+}
+
+.searchComment .commentList li .ops {
+    text-align: right;
+    margin-top: 3px;
+    overflow: hidden;
+    zoom: 1
+}
+
+.searchComment .commentList li .ops a {
+    padding-left: 6px;
+    margin-right: 6px
+}
+
+.searchComment .commentList li.moreComments {
+    padding: 6px 0 6px 40px;
+    border-top: 2px solid #ffffff
+}
+
+.commentList .content .comment {
+    font-size: 13px;
+    word-wrap: break-word;
+    line-height: 20px;
+    color: #181818
+}
+
+.commentList .vipicon {
+    vertical-align: text-bottom
+}
+
+.commentList .noComment {
+    color: #888;
+    border-bottom: 0 none;
+    padding: 20px 0
+}
+
+.commentList .headpic {
+    padding-left: 0
+}
+
+.commentList li.last {
+    border-bottom: 0 none
+}
+
+.comments-list .replyText {
+    color: #181818
+}
+
+.comments-list .ops a {
+    margin: 0 6px
+}
+
+.status-list .commentContainer {
+    margin: 0 0 0 65px
+}
+
+.status .commentContainer {
+    margin: 10px 0 0 0
+}
+
+.commentPostArea {
+    margin-top: 2px;
+    *zoom: 1
+}
+
+.commentPostArea .inputArea {
+    border: 1px solid #DBDBDB;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 9px;
+    background: #fff
+}
+
+.commentPostArea .inputArea .ueditor-wrapper,.commentPostArea .inputArea .commentEditor
+    {
+    width: 97%;
+    *width: 96%;
+    padding: 1.5%;
+    border: 0 none;
+    background: #ffffff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 0
+}
+
+.commentPostArea .inputArea .commentEditor {
+    display: block;
+    height: 60px;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    resize: none;
+    font: 12px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #ffffff;
+    outline: none
+}
+
+.commentPostArea .inputArea.notlogined {
+    position: relative
+}
+
+.commentPostArea .inputArea.notlogined .commentEditor {
+    display: block
+}
+
+.commentPostArea .inputArea.notlogined .ueditor-wrapper {
+    display: none
+}
+
+.commentPostArea .inputArea.notlogined .loginDialog {
+    position: absolute;
+    top: 30px;
+    left: 160px
+}
+
+.commentPostArea .replyForm {
+    display: block;
+    margin-top: -20px
+}
+
+.commentPostArea input[type="checkbox"] {
+    margin-left: 0;
+    vertical-align: top
+}
+
+.commentPostArea .commentSubmit,.commentPostArea .submit_reply,.commentPostArea .reply_search_comment
+    {
+    float: right;
+    margin-right: 0
+}
+
+#jade-single .commentEditor,#search .commentEditor {
+    overflow-y: hidden
+}
+
+</style>
+</head>
+<body>
+
+<!-- 评论编辑块 -->
+<div class="comment">
+    <form action="comments.do" method="POST">
+        <div id="emotionArea">
+            <textarea class="text comment_txt_area" name="comment"></textarea>
+        </div>
+        <div class="emotion">
+            <span title="插入表情" class="face"><s></s><span>表情</span></span>
+            <span title="过滤赛事" class="match"><s></s><span>赛事</span></span>
+            <span class="to-home">
+                <input type="checkbox" checked="checked"></input>同时转发到我的首页
+            </span>
+        </div>
+        <input type="button" value="发布" class="cmt_btn_publish"></input>
+    </form>
+    <div class="cmt_list">
+		<!-- 全部评论列表 -->
+		<div class="commentInfo">
+		    <div class="hd">
+		        <span class="sort">
+		          <span>排序：</span>
+		              <a href="javascript:;" sort="false" class="active" title="最近">最近</a>
+		              <a href="javascript:;" sort="true" title="最早">最早</a>
+		              <a href="javascript:;" sort="like" title="赞" class="last">赞</a></span>
+		          <span class="commentNum">全部评论<span class="counts">（{{totalComments}}）</span></span>
+		    </div>
+		    <div class="loading" style="display: none;"></div>
+		    <ul class="commentList">
+		        <!-- 一条评论 -->
+		        {{#comments}}
+		        <li id="{{comment_id}}">
+		          <div class="headpic">
+		            <a href="{{commtor.homeUrl}}" data-name="{{commtor.nickName}}">
+		            <img width="30px" height="30px" src="{{commtor.headImageURL}}"></a>
+		            </div>
+		            <div class="content" style="display: block;">
+		                <div class="comment">
+		                    <a href="{{commtor.homeUrl}}" data-name="{{commtor.nickName}}">{{commtor.nickName}}</a>
+                                                                                    回复 <a href="{{repliedUser.homeUrl}}" target="_blank">{{repliedUser.nickName}}</a>：
+		                </div>
+		                <div class="cmt_con">
+		                    <span>{{content}}</span>
+		                </div>
+		                <div class="ops">
+		                    <div class="infos">
+		                        <span class="createAt" createdat="{{createdTime}}">{{createdTimeText}}</span><a
+		                            href="#" class="reportSpam_comment last">举报</a>
+		                    </div>
+		                    <a href="#" class="talk">查看对话</a>
+		                    <a href="#" class="like" like_count="0">赞</a>
+		                    <a href="#" class="reply last">回复</a>
+		                </div>
+		            </div>
+		        </li>
+		        {{/comments}}
+		    </ul>
+		</div>
+		<!-- 全部评论列表 结束 -->
+    </div>
+</div>
+
+
+</body>
+</html>

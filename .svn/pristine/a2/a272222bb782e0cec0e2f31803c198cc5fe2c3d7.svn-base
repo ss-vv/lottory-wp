@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>竞彩足球胜平负单关竞彩足球投注-竞彩足球-竞彩老吴-大V彩</title>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/core.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jet.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/plugins/cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/matchUtil.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/match-analysis.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/bet.js?jsversion=2"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/bitset.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/bet-ui.js?jsversion=2"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/bet-cms.js"></script>
+
+</head>
+<body>
+	<div class="wrap">
+		<div class="inwrap">
+			<div class="main">
+				<div class="box">
+					<div class="mod mod-d">
+						<div class="tabh tabh-b">
+							<a href="http://trade.davcai.com/df/bet/jczq_01_zc_2.html"><span>让球胜平负</span></a>
+							<a class="cur" href="javascript:void(0);"><span>胜平负</span></a> <a
+								href="http://trade.davcai.com/df/bet/jczq_03_zc_2.html"><span>总进球数</span></a>
+							<a href="http://trade.davcai.com/df/bet/jczq_02_zc_2.html"><span>比分</span></a>
+							<a href="http://trade.davcai.com/df/bet/jczq_04_zc_2.html"><span>半全场</span></a>
+							<a href="http://trade.davcai.com/df/bet/jczq.do"><span>混合过关</span></a>
+						</div>
+						<div class="tabh tabh-c">
+							<a class="cur" href="javascript:void(0);"><span>单关投注</span></a> <a
+								href="http://trade.davcai.com/df/bet/jczq_80_zc_2.html"><span>过关投注</span></a>
+							<div class="tips c-h">赛前15分钟截止</div>
+						</div>
+						<div class="tabm tabm-c">
+							<div class="modh modh-a">选择比赛场次</div>
+							<div class="tblbox tblbox-b">
+								<table border="0" cellpadding="0" cellspacing="0" class="tbl">
+									<thead>
+										<tr>
+											<th class="thl" style="width: 80px">
+												<div class="inth">
+													<div>赛事编号</div>
+												</div>
+											</th>
+											<th style="width: 167px">
+												<div class="inth">
+													<div>赛事</div>
+												</div>
+											</th>
+											<th style="width: 100px">
+												<div class="inth" id="timeTabs">
+													<div class="row bgbrr-i">
+														<div _n="0" class="mp-p">
+															<span>截止</span> <a class="btnx2 btnx2-b"
+																href="javascript:void(0);" style="display: none"><span
+																class="inbtn">截止</span></a>
+														</div>
+													</div>
+													<div class="row bgbrr-j">
+														<div _n="1" class="mp-p">
+															<span style="display: none">开赛</span> <a
+																class="btnx2 btnx2-b" href="javascript:void(0);"><span
+																class="inbtn">开赛</span></a>
+														</div>
+													</div>
+												</div>
+											</th>
+											<th style="width: 421px">
+												<div class="inth">
+													<div class="row bgbrr-i">投注区</div>
+													<div class="row bgbrr-j">
+														<span class="cl" style="width: 160px">主队让球</span><span
+															class="cc" style="width: 100px">平</span><span class="cr"
+															style="width: 160px">客队</span>
+													</div>
+												</div>
+											</th>
+											<th class="thr" style="width: 30px">
+												<div class="inth">包</div>
+											</th>
+											<th class="thr" style="width: 70px">
+												<div class="inth">分析</div>
+											</th>
+											<th class="thr" style="width: 130px">
+												<div class="inth">注释</div>
+											</th>
+										</tr>
+									</thead>
+									<tbody id="matchGrid">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="orderbox" id="betPanel">
+						<span class="bg_l">&nbsp;</span><span class="bg_r">&nbsp;</span>
+						<div class="inorderbox">
+							<div _n="mGrid" class="moreorder">
+								<a _n="mKnob" class="btn-a" href="javascript:void(0)"><span
+									class="fs16 shadow">已选<b _n="mc" class="c-i">0</b>场
+								</span> </a>
+								<div class="posbox-a"
+									style="position: absolute; width: 600px; bottom: 54px; left: 2px">
+									<div class="tblbox tblbox-e">
+										<table border="0" cellpadding="0" cellspacing="0" class="tbl">
+											<thead>
+												<tr>
+													<th class="thl" style="width: 56px">
+														<div class="inth">
+															<div >序号</div>
+														</div>
+													</th>
+													<th style="width: 220px">
+														<div class="inth">
+															<div >主队 VS 客队</div>
+														</div>
+													</th>
+													<th>
+														<div class="inth">
+															<div >选单</div>
+														</div>
+													</th>
+													<th class="thr" style="width: 32px">
+														<div class="inth">
+															<div >
+																<a _n="clear" class="c-k fwn" href="javascript:void(0);">全删</a>
+															</div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<a _n="clear" class="delall c-k" href="javascript:void(0)">全删</a>
+							<div class="info">
+								<div _n="pRow" class="row">
+									<label class="lbl">过关方式：</label> <label _n="pTip" class="lbl"><input
+										checked="checked" disabled="disabled" type="checkbox" />单关</label>
+								</div>
+								<div class="row">
+									<form _n="form" action="http://trade.davcai.com/ac/bet.do"
+										method="post">
+										<input name="matchs" type="hidden" /> <input name="passTypes"
+											type="hidden" value="1@1" /> <input name="playId"
+											type="hidden" />
+											<input name="matchAnnotation" type="hidden" />
+											<label class="lbl">投注倍数：</label>
+										<div class="ipttxt ipttxt-b wh-txtb">
+											<input class="inipttxt" maxlength="4" name="multiple"
+												size="4" type="text" value="1" />
+										</div>
+										<label class="lbl">金额：</label>
+										<div class="tips">
+											<b _n="money" class="c-h">0</b>元
+										</div>
+										<label class="lbl">理论最高奖金：</label>
+										<div class="tips">
+											<a title="点击查看奖金评测"
+												style="text-decoration: underline !important; color: #F00 !important; cursor: pointer !important;">
+												<b _n="bonus" class="c-h">0</b>
+											</a>元 <img src="http://trade.davcai.com/df/images/bonusTips.png" class="bonus-tips"
+												title="实际奖金指数请以出票后的票样信息为准。" />
+										</div>
+										<a class="c-h" style="cursor: pointer" _n="bonusDetailForword">
+											<img src="http://trade.davcai.com/df/images/bonusDetail.png"
+											class="bonus-detail" />
+										</a>
+
+									</form>
+									<!-- 奖金评测开始 -->
+									<div class="pingce" id="jjtips" style="display: none;">
+										<form target="_blank"
+											action="http://trade.davcai.com/ac/bonus/bonusEvalDetail.do"
+											method="post" id="bonusDetailForm">
+											<input type="hidden" name="playId" value="" /> <input
+												type="hidden" name="matchs" value="" /> <input
+												type="hidden" name="passTypes" value="" /> <input
+												type="hidden" name="multiple" value="" /> <input
+												type="hidden" name="totalAmount" value="" /> <input
+												type="hidden" name="maxBonus" value="" />
+										</form>
+										<div class="pingce_title">
+											<b style="float: left">奖金评测</b> <span
+												style="display: block; overflow: hidden; width: 280px; height: 30px;"
+												id="betPass"></span> <a href="javascript:void(0);"
+												id="betBonusDetail">详情</a> <em id="closebtn">关闭</em>
+										</div>
+										<div class="pingce_list" style="display: block;">
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0" class="jjtipstable" id="jjtipstable">
+												<tr>
+													<th align="center">命中场次</th>
+													<th align="right">最小奖金</th>
+													<th align="center">～</th>
+													<th align="left">最大奖金</th>
+												</tr>
+											</table>
+										</div>
+										<div id="loadingAnimation"
+											style="width: 208px; height: 13px; margin: 1px 0px 2px 121px;">
+											<img src="http://trade.davcai.com/df/images/loadingAnimation.gif" alt="数据加载中"
+												title="数据加载中..." />
+										</div>
+									</div>
+									<!-- 奖金评测结束 -->
+
+								</div>
+							</div>
+							<a _n="disable-bet" style="cursor:default" class="btn-b" href="javascript:void(0)">立即投注</a>
+							<a _n="show_recom" class="btn-recom" href="javascript:void(0)">发推荐</a>
+							<a class="backtop" href="javascript:void(0);"
+								onclick="window.scrollTo(0,0);">回顶部</a>
+						</div>
+					</div>
+					<div class="tipsbox tipsbox-b">
+						<div class="row c-g">
+							过关(固定奖金)投注提示<br />
+							<strong><a
+								href="http://www.davcai.com/notice/2798.html" target="_blank"><span
+									style="color: #ff0000;">大V彩常见问题解决途径索引</span></a></strong><br />
+							1.让球只适合"胜平负"玩法，主队右侧的数字表示让球，"-"为主队让客队，"+"为客队让主队。<br />
+							2.投注区过关赔率仅供参考，实际派彩奖金以出票时刻为准，详情请点击查看方案内容里的出票过关赔率。<br />
+							3.选择2-3串1过关投注，单注最高奖金20万元；4-5串1过关投注，单注最高奖金50万元；<br />
+							&nbsp;&nbsp;6-8串1过关投注，单注最高奖金100万元。<br />
+							4.单注彩票保底奖金：如中奖者的单注奖金不足2元，将补足至2元。<br /> 5.投注区显示的过关赔率=每1元对应中奖奖金。<br />
+							&nbsp;
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(function() {
+					new UI({
+						time : $('#timeTabs'),
+						grid : $('#matchGrid'),
+						panel : $('#betPanel'),
+						maxMc : 6,
+						minBetMc : 1,
+						strategy : new JCBetStrategy(),
+						renderer : new ZC80Renderer({'playId':'胜平负'}),
+						url : 'http://trade.davcai.com/df/aj_fblist.do',
+						playId : '80_ZC_1'
+					});
+				});
+			</script>
+		</div>
+	</div>
+</body>
+</html>

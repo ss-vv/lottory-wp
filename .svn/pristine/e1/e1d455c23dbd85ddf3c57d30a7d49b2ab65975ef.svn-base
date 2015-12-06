@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="about-default" extends="struts-default"
+		abstract="true">
+
+		<result-types>
+			<result-type name="layout"
+				class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult"
+				default="true" />
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+				<param name="root">data</param>
+				<param name="contentType">text/html</param>
+				<param name="callbackParameter">jsonp</param>
+			</result-type>
+		</result-types>
+		<global-results>
+			<result name="input" type="velocity">/message.vm</result>
+			<result name="error" type="velocity">/message.vm</result>
+		</global-results>
+	</package>
+	
+	<!-- about -->
+	<package name="about" extends="about-default" namespace="/about">
+		<action name="about"
+			class="com.xhcms.lottery.dc.feed.web.action.about.AboutAction">
+			<result type="layout">/about/aboutUs.vm</result>
+		</action>
+		<action name="contact"
+			class="com.xhcms.lottery.dc.feed.web.action.about.AboutAction">
+			<result type="layout">/about/contactUs.vm</result>
+		</action>
+		<action name="coop"
+			class="com.xhcms.lottery.dc.feed.web.action.about.AboutAction">
+			<result type="layout">/about/cooperation.vm</result>
+		</action>
+		<action name="legal"
+			class="com.xhcms.lottery.dc.feed.web.action.about.AboutAction">
+			<result type="layout">/about/legal.vm</result>
+		</action>
+		<action name="client"
+			class="com.xhcms.lottery.dc.feed.web.action.about.AboutAction">
+			<result type="layout">/about/client.vm</result>
+		</action>
+		<action name="faq"
+			class="com.xhcms.lottery.dc.feed.web.action.about.AboutAction">
+			<result type="layout">/about/faq.vm</result>
+		</action>
+		<action name="terms"
+			class="com.xhcms.lottery.dc.feed.web.action.about.AboutAction">
+			<result type="layout">/about/terms.vm</result>
+		</action>
+	</package>
+</struts>

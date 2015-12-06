@@ -1,0 +1,52 @@
+#set($p_title="账户明细")
+#set($pos = "bal")
+
+<div class="lyr lyw-g fr">
+  
+  <div class="mod mod-c mod-c-a wh-mh">
+    <div class="mh">
+      <div class="tabh tabh-e">
+        <a href="javascript:void(0);" class="cur"><span>账户明细</span></a>
+        <a href="$base/record/journal.do"><span>流水明细</span></a>
+        <a href="$base/record/recharge.do"><span>充值记录</span></a>
+        <a href="$base/record/withdraw.do"><span>提现记录</span></a>
+        <a href="$base/record/win.do"><span>中奖记录</span></a>
+        <a href="$base/record/grant.do"><span>赠款记录</span></a>
+        <a href="$base/record/commissionin.do"><span>佣金收入</span></a>
+		<a href="$base/record/commissionout.do"><span>佣金支出</span></a>
+      </div>
+    </div>
+    <div class="mm">
+      <div class="mp-ma"></div>
+      <div class="tblbox tblbox-c mp-f">
+        <table cellspacing="0" cellpadding="0" border="0" class="tbl">
+         <tr>
+            <th class="thl"><div class="inth"><div class="hide">可用金额</div></div></th>
+            <th style="width:150px;"><div class="inth"><div class="hide">现金余额</div></div></th>
+            <th style="width:100px;"><div class="inth"><div class="hide">赠款余额</div></div></th>
+            <th style="width:150px;"><div class="inth"><div class="hide">冻结现金</div></div></th>
+            <th class="thr"><div class="inth"><div class="hide">冻结赠款</div></div></th>
+          </tr>
+          <tr>
+            <td class="tdl">￥${account.free}</td>
+            <td>￥${account.fund}</td>
+            <td>￥${account.grant}</td>
+            <td>￥${account.frozenFund}</td>
+            <td class="tdr">￥${account.frozenGrant}</td>
+          </tr>
+          <tr>
+            <td colspan="5" class="tdr">
+              <div class="intd">
+                <div class="mp-e">
+                  <b>累计充值：<span class="c-i">￥${account.totalRecharge}</span>元&nbsp;&nbsp;提现：<span class="c-i">￥${account.totalWithdraw}</span>元&nbsp;&nbsp;投注：<span class="c-i">￥${account.totalBet}</span>元&nbsp;&nbsp;中奖：<span class="c-i">￥${account.totalAward}</span>元&nbsp;&nbsp;佣金：<span class="c-i">￥#if(${account.totalCommission})${account.totalCommission}#else 0.0 #end</span>元</b>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        #include("/inc/note.inc")
+      </div>
+      <br/>
+    </div>
+  </div>
+</div>

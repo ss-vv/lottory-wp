@@ -1,0 +1,257 @@
+@CHARSET "UTF-8";
+
+body {
+	padding-top: 58px;
+}
+
+.search .dropdown-menu strong {
+	height: 12px;
+	line-height: 12px;
+}
+
+.my-nav ul li small {
+	font-size: 12px;
+}
+
+.tipstop,.tipstopic ul li {
+	font-size: 13px;
+	font-size: 12px;
+}
+
+.tipstopic-list {
+	margin-left: 12px;
+}
+
+.tipstopic-list li span a {
+	
+}
+
+.tipstopic-list li span a:HOVER {
+	text-decoration: underline;
+}
+
+.tipstopic {
+	padding-top: 6px;
+	border-top: 1px solid #F1F1F1;
+	margin-bottom: 15px;
+	margin-top: 4px;
+}
+
+.tipstop h2 {
+	font-size: 14px;
+}
+
+.tipstopic ul li {
+	line-height: 22px;
+	white-space: nowrap;
+}
+
+.tipstopic ul li span {
+	line-height: 22px;
+}
+
+.tipstopic a {
+	color: #000;
+	width: 225px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	float: right;
+}
+
+.tipstop a.more {
+	float: right;
+	line-height: 1.5;
+}
+
+.new-portfolio table.portfolio tr.odd td.right {
+	text-align: right;
+	cursor: pointer;
+}
+.new-portfolio table.portfolio tr.even td.right {
+	text-align: right;
+	cursor: pointer;
+}
+
+.index-color {
+	color: #E22319;
+}
+
+.index-bg {
+	background-color: #E22319;
+}
+
+.index-color-bold {
+	color: #CE211A;
+}
+
+.index-bg-bold {
+	background-color: #CE211A;
+}
+
+.lotteryButton {
+	background-color:#E22319 !important;
+	border-color: #E22319 !important;
+	color: #FFFFFF !important;
+}
+
+.scheme {
+	background-color:#EEEEEE !important;
+	border-color: #EEEEEE !important;
+	color: #FFFFFF !important;
+}
+
+.eventTitle {
+	color:#93140E !important;
+}
+
+.portfolio-wrapper .odd_data td span,.portfolio-wrapper .even_data td span {
+	color:#000;
+}
+
+.winColor {
+	color:red;
+}
+
+.matchDay {
+	margin-left: 10px;
+}
+
+#logo span a {
+	color: #fff !important;
+}
+
+.widget .rightSider-list {
+	margin-top: 1px;
+}
+
+.widget .rightSider-list li {
+	padding: 5px 0 5px 4px;
+}
+.widget .rightSider-list li.title {
+	float: left;
+	background-color: #FAFAFA;
+}
+
+.widget .rightSider-list .matchContent {
+	clear: both;
+}
+
+.widget .rightSider-list li.title {
+	width: 100%;
+	font-weight: bold;
+}
+
+.widget .rightSider-list li.title span,
+.widget .rightSider-list li.matchContent span {
+	display: inline-block;
+}
+
+.widget .rightSider-list li.title span.match-sort {
+	width: 11%;
+	text-align: left;
+}
+
+.widget .rightSider-list li.matchContent span.match-sort {
+	width: 11%;
+	text-align: center;
+	clear: both;
+}
+
+.widget .rightSider-list li.title span.match-lottery,
+.widget .rightSider-list li.matchContent span.match-lottery {
+	width: 11%;
+	text-align: left;
+}
+.widget .rightSider-list li.title span.match-match,
+.widget .rightSider-list li.matchContent span.match-match {
+	width: 58%;
+	text-align: center;
+}
+.widget .rightSider-list li.title span.match-hot,
+.widget .rightSider-list li.matchContent span.match-hot {
+	width: 11%;
+	text-align: right;
+}
+
+.widget .rightSider-list li.odd {
+	border-bottom: 1px dotted black;	
+}
+
+.widget .rightSider-list li.even {
+	background-color: #FCECEC;
+	border-bottom: 1px dotted black;	
+}
+
+.widget .shai-he {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	width: 100%;
+	padding-top: 10px;
+	border-top: 1px solid #F1F1F1;
+}
+
+.widget .shai-he li {
+	width: 30%;
+	text-align: center;
+	display: inline-block;
+	color:#fff;
+	cursor: pointer;
+}
+
+.widget .shai-he .shai {
+	background-color: #EE7970;
+	float: left;
+	margin-right: 5px;
+}
+
+.widget .shai-he .he {
+	background-color: #F2F2F2;
+	color: #AFAFAF;
+}
+
+.widget .shai-he .curr {
+	background-color: #EE7970;
+	color: #FFF;
+}
+
+.widget .shai-he .no-curr {
+	background-color: #F2F2F2;
+	color: #AFAFAF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

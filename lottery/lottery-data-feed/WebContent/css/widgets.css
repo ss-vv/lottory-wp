@@ -1,0 +1,36 @@
+.msgbox {
+	display: block;
+	position: absolute;
+	height: auto;
+	width: auto;
+	outline: 0px;
+	z-index: 2003;
+	padding: 5px;
+	overflow: hidden;
+	background-color: #dddddd;
+    border-radius: 2px;
+}
+
+.msgbox .box_content {
+	line-height: 22px;
+	background-color: #ffffff;
+	position: relative;
+	border: 0;
+	padding: 0;
+	overflow: auto;
+	zoom: 1;
+	font-size: 13px;
+}
+
+.msgbox .successtip {
+	background: transparent
+		url('http://assets.xueqiu.com/images/saved-dfb651.png') no-repeat;
+	padding-left: 30px;
+	display: block;
+	margin: 10px
+}
+
+.msgbox .failtip {
+    display: block;
+    margin: 10px
+}

@@ -1,0 +1,13 @@
+福彩3D投注格式：
+
+lottery_id:FC3D
+betContent:0,0,0;9,9,9
+multiple:1
+play_id:97_FC3D_ZXDS
+issue:2014102
+
+lottery_id:彩种Id
+betContent:投注内容
+multiple:倍数
+play_id：玩法Id
+issueNumber:期号

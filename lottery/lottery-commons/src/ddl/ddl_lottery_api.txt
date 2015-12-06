@@ -1,0 +1,274 @@
+#	lottery-api分支添加  ===========================
+# 用户id与validId关联表
+CREATE TABLE `lt_user_validid` (
+	`user_id` BIGINT(20) NOT NULL,
+	`valid_id` VARCHAR(256) NOT NULL,
+	`create_time` DATETIME NOT NULL,
+	`expired_time` DATETIME NOT NULL,
+	PRIMARY KEY (`user_id`)
+)
+COMMENT=' 用户id与validId关联表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
+# 系统返回状态表
+CREATE TABLE `lt_return_status` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`system_key` VARCHAR(100) NOT NULL COMMENT '系统内部使用的键值',
+	`status_code_for_client` VARCHAR(50) NOT NULL COMMENT '给客户端用的状态码',
+	`desc_for_client` VARCHAR(50) NOT NULL COMMENT '给客户端用的状态描述消息',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `system_key` (`system_key`),
+	UNIQUE INDEX `status_code_for_client` (`status_code_for_client`)
+)
+COMMENT='给彩票客户端使用的返回状态表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (1, 'login_succ', '1010', '登录成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (2, 'login_fail', '1111', '登录失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (3, 'login_fail_password_wrong', '1011', '密码错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (4, 'login_fail_login_name_wrong', '1012', '用户名错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (5, 'login_fail_login_name_or_pawword_wrong', '1013', '用户名或密码为空');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (6, 'should_login', '1888', ' 需要重新登录');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (7, 'registe_succ', '1000', '注册成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (8, 'registe_fail_not_new_user', '1004', '用户名重复');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (9, 'registe_fail_realname_and_phonenumber_should_not_blank', '1002', '真实姓名和手机号码不能为空');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (10, 'registe_fail_username_and_password_should_not_blank', '1003', '用户名和密码不能为空');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (14, 'registe_fail', '1001', '注册失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (15, 'bind_id_card_succ', '1020', '绑定身份证成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (16, 'bind_id_card_fail', '1021', ' 绑定身份证失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (17, 'bind_bank_fail', '1061', '绑定银行卡失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (18, 'bind_bank_succ', '1060', '绑定银行卡成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (19, 'bind_bank_fail_password_is_blank', '1062', '提现密码不能为空');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (20, 'bind_bank_fail_password_is_wrong', '1063', '提现密码错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (21, 'get_verify_code_fail', '1051', '获取验证码失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (22, 'get_verify_code_succ', '1050', '已往您的手机发送验证码，请注意查收');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (23, 'get_verify_code_fail_phone_number_is_blank', '1052', '手机号为空');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (24, 'query_onsale_lottery_succ', '3000', '查询在售彩票成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (25, 'query_onsale_lottery_fail', '3001', '查询在售彩票失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (26, 'query_jczq_match_succ', '3070', '查询在售竞彩足球成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (27, 'query_jczq_match_fail', '3071', '查询在售竞彩足球失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (29, 'bind_mobile_succ', '1040', '绑定手机号成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (30, 'bind_mobile_fail', '1041', '绑定手机号失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (31, 'bind_mobile_fail_phone_number_is_blank', '1042', '手机号为空');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (32, 'bind_mobile_fail_verify_code_is_wrong', '1043', '验证码错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (33, 'bind_mobile_fail_phone_number_is_bind_to_other', '1044', '待绑定手机号已由其他用户绑定');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (34, 'bind_mobile_fail_phone_number_is_wrong', '1045', '待绑定手机号与该验证码不匹配');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (35, 'query_jclq_match_succ', '3080', '查询在售竞彩篮球成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (36, 'query_jclq_match_fail', '3081', '查询在售竞彩篮球失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (37, 'modify_password_succ', '1030', '修改密码成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (38, 'modify_password_fail', '1031', '修改密码失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (39, 'modify_password_fail_old_password_is_wrong', '1032', '旧密码错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (40, 'modify_password_fail_new_password_is_blank', '1033', '新密码为空');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (41, 'bet_scheme_succ', '6000', '投注成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (42, 'bet_scheme_fail', '6001', '投注失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (43, 'bet_scheme_balance', '6002', '余额不足');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (44, 'bet_scheme_error', '6003', '方案不存在');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (45, 'bet_scheme_outdate', '6004', '方案过期');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (46, 'withdraw_succ', '1090', '提交取现请求成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (47, 'withdraw_fail', '1091', '提交取现请求失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (48, 'withdraw_fail_password_is_wrong', '1092', '提现密码错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (49, 'withdraw_fail_bank_not_bind', '1093', '银行账号未绑定');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (50, 'withdraw_fail_amount_too_small', '1094', '提现金额过小，需要最少10元');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (51, 'withdraw_fail_found_not_enough', '1095', '现金余额不足');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (52, 'bet_scheme_frozen', '6005', '资金账户被冻结');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (53, 'bet_scheme_invalid_amount', '6006', '无效金额');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (54, 'check_update_succ', '5010', '需要更新');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (55, 'check_update_not_need_update', '5011', '已经是最新版本，不需要更新');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (56, 'send_advice_succ', '5020', '发送意见成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (57, 'send_advice_fail', '5021', '发送意见失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (58, 'scheme_detail_succ', '7000', '查看方案详情成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (59, 'scheme_detail_fail', '7001', '查看方案详情失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (60, 'scheme_detail_out_date', '7002', '方案已停售');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (61, 'activity_notify_succ', '5030', '活动公告获取成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (62, 'activity_notify_fail', '5031', '活动公告获取失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (63, 'forgot_password_succ', '1100', '重置密码成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (64, 'forgot_password_fail', '1101', '重置密码失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (65, 'forgot_password_user_not_found', '1131', '用户名不存在');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (66, 'forgot_password_user_not_bind_mobile', '1121', '手机号没绑定');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (67, 'forgot_password_verify_code_wrong', '1141', '验证码错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (68, 'forgot_password_mobile_bind_to_other', '1151', '手机号已绑定其他用户');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (69, 'user_detail_succ', '3040', '获取成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (70, 'user_detail_fail', '3041', '获取失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (71, 'scheme_ticket_succ', '7010', '查看方案拆票成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (72, 'scheme_ticket_fail', '7011', '查看方案拆票失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (73, 'show_and_follow_succ', '3050', '显示晒单跟单成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (74, 'show_and_follow_fail', '3051', '显示晒单跟单失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (76, 'bonusResult_succ', '3010', '开奖信息查询成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (77, 'bonusResult_fail', '3011', '开奖信息查询失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (78, 'lotteryResult_succ', '3020', '彩种开奖详情查询成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (79, 'lotteryResult_fail', '3021', '彩种开奖详情查询失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (80, 'get_verify_code_fail_phone_number_is_not_verify', '1053', '手机号未绑定');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (81, 'buy_history_succ', '2050', '购彩记录成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (82, 'buy_history_fail', '2051', '购彩记录失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (83, 'selectFollow_succ', '2060', '查询跟单用户成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (84, 'selectFollow_fail', '2061', '查询跟单用户失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (86, 'query_alipay_rsa_key_succ', '8100', '查询成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (87, 'query_alipay_rsa_key_fail', '8101', '查询失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (88, 'recharge_card_succ', '8200', '点卡充值请求成功');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (89, 'recharge_card_fail', '8201', '点卡充值请求失败');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (90, 'scheme_detail_invalid', '7003', '无效方案');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (91, 'signature_failed_or_unknown_error', '8202', '签名较验失败或未知错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (92, 'processed_or_too_frequent', '8203', '卡密成功处理过或者提交卡号过于频繁');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (93, 'card_number_to_much', '8204', '卡数量过多，目前最多支持10张卡');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (94, 'order_number_repetition', '8205', '订单号重复');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (95, 'amount_of_payment_error', '8206', '支付金额有误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (96, 'payment_does_not_open', '8207', '支付方式未开通');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (97, 'not_have_opened_business', '8208', '业务状态不可用，未开通此类卡业务');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (98, 'card_denomination_error', '8209', '卡面额组填写错误');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (99, 'password_empty_or_unequal_numbers', '8210', '卡号密码为空或者数量不相等（使用组合支付时）');
+REPLACE INTO `lt_return_status` (`id`, `system_key`, `status_code_for_client`, `desc_for_client`) VALUES (100, 'bind_id_card_fail_id_card_have_binded', '1022', '身份证已绑定过，不能再绑定');
+
+REPLACE INTO `lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('query_ctzc_match_succ', '3090', '查询在售传统足彩成功');
+REPLACE INTO `lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('query_ctzc_match_fail', '3091', '查询在售传统足彩失败');
+
+
+
+# 初始化赛事颜色表
+DROP TABLE `lt_match_color`;
+CREATE TABLE `lt_match_color` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`league_name` VARCHAR(64) NOT NULL,
+	`league_name_for_short` VARCHAR(8) NOT NULL,
+	`lottery_id` VARCHAR(16) NOT NULL,
+	`color` VARCHAR(7) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `league_name` (`league_name`),
+	UNIQUE INDEX `league_name_for_short` (`league_name_for_short`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+
+
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (1, '苏格兰超级联赛', '苏超', 'JCZQ', '#57A87B');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (2, '英格兰超级联赛', '英超', 'JCZQ', '#FF3333');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (3, '英格兰冠军联赛', '英冠', 'JCZQ', '#CC3300');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (4, '英格兰甲级联赛', '英甲', 'JCZQ', '#FF850B');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (5, '法国乙级联赛', '法乙', 'JCZQ', '#5BC992');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (6, '德国乙级联赛', '德乙', 'JCZQ', '#DB31EE');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (7, '日本乙级联赛', '日乙', 'JCZQ', '#22C126');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (8, '日本职业联赛', '日职联', 'JCZQ', '#009900');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (9, '巴西甲级联赛', '巴甲', 'JCZQ', '#DDDD00');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (10, '英格兰联赛杯', '英联杯', 'JCZQ', '#808080');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (11, '美国职业大联盟', '美职联', 'JCZQ', '#660033');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (12, '挪威超级联赛', '挪超', 'JCZQ', '#666666');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (13, '瑞典超级联赛', '瑞超', 'JCZQ', '#004488');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (14, '国际赛', '国际赛', 'JCZQ', '#005E5E');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (15, '澳大利亚超级联赛', '澳超', 'JCZQ', '#FF7000');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (16, '荷兰乙级联赛', '荷乙', 'JCZQ', '#BE2B8F');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (17, '荷兰甲级联赛', '荷甲', 'JCZQ', '#FF6699');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (18, '葡萄牙超级杯', '葡超', 'JCZQ', '#008888');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (19, '葡萄牙超级联赛', '葡超联', 'JCZQ', '#008888');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (20, '欧罗巴联赛', '欧罗巴', 'JCZQ', '#CC9933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (21, '欧洲冠军联赛', '欧冠', 'JCZQ', '#F75000');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (22, '法国甲级联赛', '法甲', 'JCZQ', '#6B2B2B');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (23, '德国杯', '德国杯', 'JCZQ', '#A05CA0');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (24, '挪威杯', '挪威杯', 'JCZQ', '#666666');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (25, '德国甲级联赛', '德甲', 'JCZQ', '#990099');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (26, '意大利甲级联赛', '意甲', 'JCZQ', '#0066FF');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (27, '西班牙甲级联赛', '西甲', 'JCZQ', '#006633');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (28, '阿根廷甲级联赛', '阿甲', 'JCZQ', '#0CB9E4');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (29, '世界杯预选赛', '世预赛', 'JCZQ', '#660000');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (30, '日本天皇杯', '日皇杯', 'JCZQ', '#003306');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (31, '葡萄牙联赛杯', '葡联杯', 'JCZQ', '#CB194C');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (32, '亚洲冠军联赛', '亚冠', 'JCZQ', '#1a0be0');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (33, '奥运会女篮', '奥女篮', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (34, '奥运会女篮落选赛', '奥女篮落赛', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (35, '奥运会男篮', '奥男篮', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (36, '奥运会男篮落选赛', '奥男篮落赛', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (37, '欧洲篮球联盟杯', '欧篮联盟杯', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (38, '欧洲篮球联赛', '欧篮联赛', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (39, '美国大学篮球联盟', '美大篮联', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (40, '美国女子篮球联盟', '美女篮联', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (41, '美国职业篮球联盟', '美职篮', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (42, '美职篮联盟季前赛', '美职篮季前', 'JCLQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (43, '中北美冠军联赛', '中北美冠军', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (44, '俱乐部友谊赛', '友谊赛', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (45, '南美优胜者杯', '南美优胜杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (46, '南美俱乐部杯', '南美俱杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (47, '南美解放者杯', '南美解放杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (48, '奥运会女足', '奥运女足', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (49, '奥运会男足', '奥运男足', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (50, '巴西杯', '巴西杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (51, '德国超级杯', '德国超级杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (52, '意大利杯', '意大利杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (53, '意大利超级杯', '意超级杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (54, '日本联赛杯', '日本联赛杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (55, '日本超级杯', '日本超级杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (56, '杯赛', '杯赛', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (57, '欧洲U21预选赛', '欧U21预赛', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (58, '欧洲杯', '欧洲杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (59, '欧洲超级杯', '欧洲超级杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (60, '法国杯', '法国杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (61, '法国联赛杯', '法国联赛杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (62, '法国超级杯', '法国超级杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (63, '美国公开赛杯', '美公开赛杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (64, '苏格兰联赛杯', '苏联杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (65, '苏格兰足总杯', '苏足总杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (66, '英格兰乙级联赛', '英乙', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (67, '英格兰社区盾杯', '英社区盾杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (68, '英格兰足总杯', '英足总杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (69, '英格兰锦标赛', '英锦赛', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (70, '荷兰杯', '荷兰杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (71, '荷兰超级杯', '荷超杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (72, '葡萄牙杯', '葡杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (73, '西班牙国王杯', '西国王杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (74, '西班牙超级杯', '西超级杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (75, '非洲杯', '非洲杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (76, '世界俱乐部杯', '世俱杯', 'JCZQ', '#339933');
+REPLACE INTO `lt_match_color` (`id`, `league_name`, `league_name_for_short`, `lottery_id`, `color`) VALUES (77, '东南亚锦标赛', '东南亚锦赛', 'JCZQ', '#339933');
+
+
+
+# 客户端更新
+CREATE TABLE `lt_client_update` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`newest_version` VARCHAR(50) NOT NULL COMMENT '最新版本号',
+	`platform` VARCHAR(30) NOT NULL COMMENT '平台，如android,ios',
+	`download_url` VARCHAR(50) NOT NULL COMMENT '最新版本客户端下载地址',
+	`update_type` VARCHAR(50) NOT NULL DEFAULT '0' COMMENT '更新类型，0为可选；1为强制更新',
+	`update_desc` VARCHAR(1000) NOT NULL COMMENT '更新描述信息',
+	PRIMARY KEY (`id`)
+)
+COMMENT='客户端版本更新'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2;
+
+alter table lt_client_update add column channel varchar(30);
+
+REPLACE INTO `lt_client_update` (`id`, `newest_version`, `platform`, `download_url`, `update_type`, `update_desc`) VALUES (1, 'android-lc-1.0.0', 'android', 'http://localhost:8080/lottery-api/download/lc.apk', '0', '1、新增了"铃声"功能TAGBR2、调整界面UITAGBR3、修改BUG');
+
+# 用户意见反馈
+CREATE TABLE `lt_user_advice` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`user_id` VARCHAR(50) NULL DEFAULT NULL COMMENT '用户id',
+	`client_version` VARCHAR(100) NULL DEFAULT NULL COMMENT '客户端版本号',
+	`channel` VARCHAR(100) NULL DEFAULT NULL COMMENT '渠道',
+	`device_id` VARCHAR(100) NULL DEFAULT NULL COMMENT '设备id',
+	`model_name` VARCHAR(100) NULL DEFAULT NULL COMMENT '机型信息',
+	`advice` TEXT NOT NULL COMMENT '用户反馈意见',
+	`create_time` DATETIME NOT NULL COMMENT '创建的时间',
+	PRIMARY KEY (`id`)
+)
+COMMENT='用户意见反馈表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=4;
+
+
+# 活动表
+CREATE TABLE `lt_activity_notify` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`activityName` VARCHAR(100) NOT NULL COMMENT '活动名称',
+	`activityDesc` TEXT NOT NULL COMMENT '活动描述',
+	`promotionId` BIGINT(20) NOT NULL COMMENT '活动实体对应id',
+	`status` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '是否有效，0为无效；1为有效',
+	`sequenceNumber` BIGINT(20) NOT NULL DEFAULT '0' COMMENT '排序字段',
+	PRIMARY KEY (`id`)
+)
+COMMENT='为客户端准备的活动公告表'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=4;

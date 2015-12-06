@@ -1,0 +1,68 @@
+CREATE TABLE IF NOT EXISTS `lt_voucher` (
+  `id` varchar(100) NOT NULL COMMENT '类型id',
+  `name` varchar(100) NOT NULL COMMENT '优惠卷名称',
+  `price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '基础金额',
+  `grant` decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '面值',
+  `type` varchar(50) NOT NULL COMMENT '类型：recharge,充值类',
+  `imgUrl` varchar(500) NOT NULL COMMENT '图片地址',
+  `instructions` varchar(500) NOT NULL COMMENT '使用说明',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='优惠卷类型';
+
+
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) VALUES
+	('CZS_100_8', '充100送8', 100.00, 8.00, 'recharge', 'http://ac.davcai.com/images/bet/voucher.png', '充值100元送8元；本金与赠金均须购彩后方可提现。', '2013-02-25 14:28:51'),
+	('CZS_1000_100', '充1000送100', 1000.00, 100.00, 'recharge', 'http://ac.davcai.com/images/bet/voucher.png', '充值1000元送100元；本金与赠金均须购彩后方可提现。', '2013-02-25 14:28:51'),
+	('CZS_5000_500', '充5000送500', 5000.00, 500.00, 'recharge', 'http://ac.davcai.com/images/bet/voucher.png', '充值5000元送500元；本金与赠金均须购彩后方可提现。', '2013-02-25 14:28:51'),
+	('CZS_10000_1000', '充10000送1000', 10000.00, 1000.00, 'recharge', 'http://ac.davcai.com/images/bet/voucher.png', '充值10000元送1000元；本金与赠金均须购彩后方可提现。', '2013-02-25 14:28:51'),
+	('CZS_50000_5058', '充50000送5058', 50000.00, 5058.00, 'recharge', 'http://ac.davcai.com/images/bet/voucher.png', '充值50000元送5058元；本金与赠金均须购彩后方可提现。', '2013-02-25 14:28:51'),
+	('CZS_2_1', '充2送1', 2.00, 1.00, 'recharge', 'http://ac.davcai.com/images/bet/voucher.png', '充值2元送1元；本金与赠金均须购彩后方可提现。', '2013-02-25 14:28:51');
+
+
+CREATE TABLE IF NOT EXISTS `lt_voucher_type` (
+  `type` varchar(100) NOT NULL COMMENT '类型id',
+  `name` varchar(200) NOT NULL COMMENT '类型名称',
+  PRIMARY KEY (`type`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='优惠卷类型';
+
+INSERT INTO `lt_voucher_type` (`type`, `name`) VALUES
+	('recharge', '充值');
+
+CREATE TABLE IF NOT EXISTS `lt_voucher_user` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '优惠卷id',
+  `voucher_id` varchar(100) NOT NULL COMMENT '优惠卷类型',
+  `user_id` bigint(20) unsigned NOT NULL COMMENT '用户id',
+  `granttype_id` bigint(20) unsigned NOT NULL COMMENT '赠款类型id',
+  `recharge_id` bigint(20) unsigned DEFAULT NULL COMMENT '充值流水id',
+  `effect_time` datetime NOT NULL COMMENT '生效时间',
+  `dead_time` datetime NOT NULL COMMENT '失效时间',
+  `service_time` datetime DEFAULT NULL COMMENT '使用时间',
+  `lock_time` datetime DEFAULT NULL COMMENT '锁定时间',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '状态  0,未使用  1,锁定 2,已使用 ',
+  `version` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '版本号',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `recharge_id` (`recharge_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='优惠卷';
+
+
+CREATE TABLE IF NOT EXISTS `lt_voucher_pm` (
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL COMMENT '活动名称',
+  `grant_type_id` bigint(11) unsigned NOT NULL COMMENT '赠款类型id',
+  `valid_time_type` varchar(50) NOT NULL COMMENT '有效时间类型 limit,范围有效 fromCreate从现在开始',
+  `from_create_day` int(10) unsigned DEFAULT NULL COMMENT '从创建开始多少天内有效',
+  `effect_time` datetime DEFAULT NULL COMMENT '范围生效时间',
+  `dead_time` datetime DEFAULT NULL COMMENT '范围结束时间',
+  `pm_begin_time` datetime NOT NULL COMMENT '活动开始时间',
+  `pm_end_time` datetime NOT NULL COMMENT '活动结束时间',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='优惠卷活动';
+
+INSERT INTO `lt_voucher_pm` (`id`, `name`, `grant_type_id`, `valid_time_type`, `from_create_day`, `effect_time`, `dead_time`, `pm_begin_time`, `pm_end_time`, `create_time`) VALUES
+	(1, '2013.3月充值送奖金活动', 32, 'fromCreate', 31, NULL, NULL, '2013-03-10 00:00:00', '2013-03-31 23:59:59', '2013-03-04 16:56:19');
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES
+	(32, '2013.3月充值送奖金活动赠款');

@@ -1,0 +1,7 @@
+1、weibo-web
+2、ac
+3、weibo-task
+4、weibo-statistic
+
+部署顺序：
+先部署weibo-task，再部署其他模块

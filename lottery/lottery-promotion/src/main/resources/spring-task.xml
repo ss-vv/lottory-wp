@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+
+    <!-- 中奖活动线程池 -->
+	<bean id="winPromoteWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Win-Promote" />
+		<property name="maxSize" value="20" />
+	</bean>
+
+    <!-- 订购彩铃赠送彩票活动线程池 -->
+	<bean id="orderColorWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Order-Promote" />
+		<property name="maxSize" value="3" />
+	</bean>
+	
+	<!-- 注册活动线程池 -->
+	<bean id="registerWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Register-Promote" />
+		<property name="maxSize" value="6" />
+	</bean>
+	
+	<!-- 购彩返彩金活动线程池 -->
+	<bean id="buyReturnWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Buy-Promote" />
+		<property name="maxSize" value="3" />
+	</bean>
+	
+	<!-- 充值赠款活动线程池 -->
+	<bean id="rechargeGrantWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Recharge-Grant" />
+		<property name="maxSize" value="3" />
+	</bean>
+	
+	<!-- 更新数据线程池 -->
+	<bean id="updateWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Update-Data" />
+		<property name="maxSize" value="3" />
+	</bean>
+	
+	<!-- 中奖加奖活动调度配置 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="2014_01 Win Task" />
+		<property name="workspace" ref="winPromoteWS" />
+		<property name="period" value="90" />
+		<property name="job">
+			<bean class="com.unison.lottery.pm.jms.task.BonusTask">
+				<!-- 配置可参与活动的方案创建时间（如果不配置默认往前推30天的方案） -->
+				<property name="beginTime" value="2015-01-16 00:00:00"/>
+				<property name="endTime" value="2015-01-30 23:59:59"/>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

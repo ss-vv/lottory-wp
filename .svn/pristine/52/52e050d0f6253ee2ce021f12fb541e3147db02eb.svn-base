@@ -1,0 +1,55 @@
+#parse("/ssq/inc/header.vm")
+		<div class="list_lottory">
+			&nbsp;第&nbsp;$!{issueInfo.issueNumber}&nbsp;期热售 #if ($issueInfo.prizeTime)，${issueInfo.prizeTime}开奖#end<br/> 
+		</div>
+		<div class="list_lottory">&nbsp;截止投注时间： $!date.format('yyyy-MM-dd HH:mm',$!{issueInfo.stopTimeForUser}) </div>
+		
+		#if($actionErrors && $actionErrors.size()>0)
+			<div class="divErrorMSG">
+		    #foreach($error in $actionErrors)
+				$error <br />
+		    #end
+		    </div>
+		#end
+		
+		<div class="list_lottory" style="border-bottom:0px; line-height:10px;">
+		投注：<a href='$base/ssq/buy_fs.do'>手选 </a> | 机选 | <a href='$base/ssq/buy_dt.do'>胆拖</a>
+		</div>
+		
+		<form method="post" action="buy_ds.do">
+		<div style="border:1px solid #CCCCCC; background-color:#EEEEEE; padding:5px; margin:5px;">
+			<strong>机选:</strong>
+			<select name="inputRandomNum" size="1">
+				#foreach($index in [1..10])
+					#if($index == $inputRandomNum)
+						<option value="$index" selected="selected">$index</option>
+					#else
+						<option value="$index">$index</option>
+					#end
+				#end
+			</select>&nbsp;注<input type="submit" value="试试手气" />
+		</div>
+		</form>
+		
+		<form method="post" action="order_confirm.do" id="mainForm">
+		#foreach($betContent in $resultList)
+			<input type="hidden"  name="resultList" value="$betContent">
+			<div class='msgTitle' style='padding:3px;'>$!lotteryFormat.format4SSQ($betContent)</div>
+	    #end
+		<div class='msgTitle'>$betCount 注，$times倍，共$!Result.mul($!Result.mul($betCount, $times), 2)元</div>
+			<input type="hidden"  name="betCount" value="$betCount">
+			倍数：<input name="Times" style="-wap-input-format: '*N'" value="$times"  size="4" maxlength="2"/>&nbsp;倍 [≤99]<br/>
+    		<div style="line-height:20px;">
+    	</div>
+		<div class="msgTitle" style="line-height:18px; padding:5px">
+			<input type="hidden"  name="playId" value="70">
+			<input type="hidden"  name="selectType" value="2">
+			<input type="submit" name="buy" value="提交" id="buttonSubmit" title="提交" />
+		</div>
+		</form>
+	
+	<div class="topNavigationBar">【双色球】[最近5期开奖号码]&nbsp;&nbsp;<a href="$base/ssq/ssq_ballot_record.do?lotteryId=SSQ">历史开奖</a></div>
+	#foreach($record in $list)
+		<div class="#if($record.id%2 == 0)ni1 #else ni2 #end" style="padding-left:8px">$record.issueNumber&nbsp;期&nbsp;&nbsp;<span>$date.format("yyyy-MM-dd HH:mm", $record.stopTime)&nbsp;&nbsp;</span> $!lotteryFormat.format4SSQ($record.bonusCode)</div>
+	#end
+#parse("/ssq/inc/tail.vm")

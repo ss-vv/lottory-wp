@@ -1,0 +1,167 @@
+#set($styles=["css/repeat_scheme"])
+#set($scripts=["js/repeat_scheme"])
+<script type="text/javascript">
+repeat_user_profile.buyAmount = $!{schemeView.totalAmount};
+repeat_user_profile.singleAmount = #singleAmount($!{schemeView.totalAmount}, ${schemeView.multiple});
+repeat_user_profile.issueNumber = ${schemeView.issueNumber};
+repeat_user_profile.nextIssueNumber = parseInt(repeat_user_profile.issueNumber) + 1;
+repeat_user_profile.betNote = ${schemeView.multiple};
+</script>
+<tr id="repeat_scheme">
+    <th class="thl"><div class="inth">追号设置</div></th>
+    <td>
+    <div class="intd">
+        <div class="formbox formbox-a formbox-a-b">
+            <div class="row" id="repeat_switch">
+                <div class="iptchk"><label title="不追号"/>
+                    <input type="radio" class="iniptchk" id="no_repeat" name="repeat_type" value="0" checked="checked"/><span class="fs14 fwb">不追号</span></label>
+                </div>
+                <div class="iptchk"><label title="追号就是连续多期购买同一个(组)号码"/>
+                    <input type="radio" class="iniptchk" name="repeat_type" value="1"/><span class="fs14 fwb">追号</span></label>
+                </div>
+                <div class="iptchk"><label title="追号套餐"/>
+                    <input type="radio" class="iniptchk" name="repeat_type" value="3"/><span class="fs14 fwb">追号套餐</span></label>
+                </div>
+            </div>
+            <div class="row" id="stop_settings" style="display:none">
+                <div class="iptchk">
+                    <label title="中奖后停止">
+                        <input _op="stop_when_win" class="iniptchk" type="checkbox"/>
+                        <span>中奖后停止：</span>
+                    </label>
+                </div>
+                <div class="iptchk">
+                    <label title="中奖即停">
+                    <input type="radio" name="stop_type" value="stop_by_win" class="iniptchk" disabled="true" checked="checked"/><span>中奖即停</span></label>
+                </div>
+                <div class="iptchk">
+                    <label title="盈利">
+                    <input type="radio" name="stop_type" value="stop_by_money" class="iniptchk" disabled="true"/><span>盈利</span>
+                    </label>
+                </div>
+                <div class="ipttxt ipttxt-b wh-txtb">
+                 <input type="text" size="5" name="profitStandardStop" class="inipttxt positiveNum" maxlength="7" style="width:55px; color:black;text-align:center;" disabled="true"/>
+                </div>
+                <div class="tips">元（提示：中奖盈利累计达到该点才停止追号）</div>
+            </div>
+            
+            <div id="issue_settings" class="row" style="display:none;background-color: #eeeeee; padding-left: 5px;">
+				<div class="seq">序号</div>
+                <div class="tips">期号，追</div>
+                <div class="ipttxt ipttxt-b wh-txtb">
+                    <input type="text" size="2" value="10" maxlength="2" id="repeatIssueCount" style="width:30px;text-align:center;color:black;" class="inipttxt positiveNum" />
+                </div>
+				<div class="selectedIssue">期(可选13期)</div>
+                <div class="tips" style="margin-left:25px;">
+					倍投：<a href="javascript:void(0);" id="noteIncrease" style="color:red;text-decoration:underline;">倍数递增</a>
+                <a href="javascript:void(0);" id="noteDouble" style="color:red;text-decoration:underline;">倍数翻倍</a>
+                </div>
+                <div class="issueBetAmount_title">当期投入</div>
+            </div>
+            <input name="betNoteList" type="hidden" value=""/>
+            <div id="issue_list" style="display:none">
+				<!--
+                <div class="row">
+                    <div class="iptchk"><span>1.&nbsp;</span></div>
+                    <div class="iptchk issueNum">
+						<label title="2013076">
+							<input type="checkbox" checked="checked" class="iniptchk"/><span>2013076</span>
+                        </label>
+                    </div>
+                    <div class="ipttxt ipttxt-b wh-txtb issueMultiple">
+                        <input type="text" size="2" value="1" maxlength="2" class="inipttxt positiveNum betNote" style="width:30px;text-align:center;color:black;"/>
+                    </div>
+					<div class="tips">倍</div>
+					<div class="issueBetAmount">￥<label>aaa</label></div>
+                </div>
+				-->
+            </div>
+            <div id="repeatTotal" class="repeatTotal">您选择了追号<span id="totalBetIssue"></span>期，总投入共：<span id="totalBetMount"></span>元</div>
+			<div id="repeatPrivilege" style="display:none;" style="border-top: 1px solid #F3B18C;">
+				<span class="follow-set" style="margin-top:10px"><b>跟单保密设置</b></span>
+				<div class="iptchk"><label><input class="iniptchk" type="radio" name="repeatPrivacy" value="0" checked/><span>完全公开</span></label></div>
+				<div class="iptchk"><label><input class="iniptchk" type="radio" name="repeatPrivacy" value="3"/><span>截止公开（销售截止后公开）</span></label></div>
+				<div class="iptchk"><label><input class="iniptchk" type="radio" name="repeatPrivacy" value="1"/><span>开奖后公开</span></label></div>
+				<span style="clear:both;display:block"></span>
+			</div>
+			
+			<!--追号套餐显示-->
+            <div id="repeatMeal" style="display:none;" class="repeatMeal">
+                <div id="mealType">
+                    <span style="float:left;margin-right:20px;display:block;"><b>套餐类型</b></span>
+                    <ul>
+						<li>
+							<label style="cursor:pointer;color:Red;">
+								<input name="mealType" type="radio" value="1" onclick="setProgram(this);" checked="checked"/><span>包月套餐</span>
+                            </label>
+						</li>
+						<li>
+							<label style="cursor:pointer;">
+								<input name="mealType" type="radio" value="3" onclick="setProgram(this);"/><span>季度套餐</span>
+                            </label>
+						</li>
+						<li>
+							<label style="cursor:pointer;">
+								<input name="mealType" type="radio" value="6" onclick="setProgram(this);"/><span>半年套餐</span>
+                            </label>
+						</li>
+						<li>
+							<label style="cursor:pointer;">
+								<input name="mealType" type="radio" value="12" onclick="setProgram(this);"/><span>包年套餐</span>
+                            </label>
+						</li>
+					</ul>
+					<span style="clear:both;display:block"></span>
+				</div>
+                <div class="sep_top">
+					<span style="display:block;float:left;margin-right:20px;"><b>套餐说明</b></span>
+                    <div>约 <span class="hlsearch_show_red mealMonth">1</span> 个月，投注期数：<span class="hlsearch_show_red mealBetIssue">14</span> 期</div>
+				</div>
+				<div class="sep_top">
+					<span style="display:block;float:left;margin-right:20px;"><b>方案金额</b></span>
+                    <div>注数：<span class="hlsearch_show_red">$!{schemeView.betNote}</span> 注，单期投入金额：<span class="hlsearch_show_red currIssueBetAmount">$!{schemeView.buyAmount}</span> 元，
+						总投入金额：<span class="hlsearch_show_red mealTotalAmount">#calBetAmount($!{schemeView.totalAmount}, 14)</span>元</div>
+				</div>
+				<div id="meal_stop_settings" class="sep_top">
+					<span style="display:block;float:left;margin-right:20px;"><b>终止条件</b></span>
+                    <div>
+						<div class="iptchk">
+                            <label title="中奖后停止">
+                                <input _op="stop_when_win" class="iniptchk" type="checkbox"/><span>中奖后停止：</span>
+                            </label>
+                        </div>
+                        <div class="iptchk">
+                            <label title="中奖即停">
+                            <input type="radio" name="stop_type_meal" value="stop_by_win" class="iniptchk" disabled="true" checked="checked"/><span>中奖即停</span></label>
+                        </div>
+                        <div class="iptchk">
+                            <label title="盈利">
+                            <input type="radio" name="stop_type_meal" value="stop_by_money" class="iniptchk" disabled="true"/><span>盈利</span>
+                            </label>
+                        </div>
+                        <div class="ipttxt ipttxt-b wh-txtb">
+							<input type="text" size="5" name="profitStandardStopMeal" class="inipttxt positiveNum" maxlength="7" style="width:55px; color:black;text-align:center;" disabled="true"/>
+                        </div>
+						<div class="tips">元（提示：中奖盈利累计达到该点才停止追号）</div>
+					</div>
+					<span style="clear:both;display:block"></span>
+				</div>
+				<div class="sep_top">
+					<span class="follow-set"><b>跟单保密设置</b></span>
+					<div class="iptchk"><label><input class="iniptchk" type="radio" name="mealPrivacy" value="0" checked/><span>完全公开</span></label></div>
+					<div class="iptchk"><label><input class="iniptchk" type="radio" name="mealPrivacy" value="3"/><span>截止公开（销售截止后公开）</span></label></div>
+					<div class="iptchk"><label><input class="iniptchk" type="radio" name="mealPrivacy" value="1"/><span>开奖后公开</span></label></div>
+					<span style="clear:both;display:block"></span>
+				</div>
+				<div class="sep_top">
+					<span style="display:block;float:left;margin-right:20px;clear:both;"><b>备注&nbsp;&nbsp;&nbsp;</b></span>
+                    <div>
+						追号套餐为分期扣款，分期购买。如果方案终止，则退还未购买期号的资金到用户帐户中。
+					</div>
+				</div>
+			</div>
+			
+        </div>
+    </div>
+    </td>
+</tr>

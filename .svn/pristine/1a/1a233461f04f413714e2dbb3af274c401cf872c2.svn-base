@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+     default-autowire="byName" >
+     
+ 	<!-- 运营数据库Dao -->
+  <bean id="bbMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BBMatchDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="bbMatchPlayDao" class="com.xhcms.lottery.commons.persist.dao.impl.BBMatchPlayDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="betMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetMatchDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="betPartnerDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetPartnerDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="betSchemeDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSchemeDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="fbMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.FBMatchDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="fbMatchPlayDao" class="com.xhcms.lottery.commons.persist.dao.impl.FBMatchPlayDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="ticketDao" class="com.xhcms.lottery.commons.persist.dao.impl.TicketDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="playDao" class="com.xhcms.lottery.commons.persist.dao.impl.PlayDaoImpl">
+  	<property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="userDao" class="com.xhcms.lottery.commons.persist.dao.impl.UserDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="matchColorDao" class="com.xhcms.lottery.commons.persist.dao.impl.MatchColorDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+
+  <bean id="grantDao" class="com.xhcms.lottery.commons.persist.dao.impl.GrantDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <!-- 用户战绩Dao -->
+  <bean id="userScoreDao" class="com.xhcms.lottery.commons.persist.dao.impl.UserScoreDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <bean id="clientUpdateInfoDao" class="com.xhcms.lottery.commons.persist.dao.impl.ClientUpdateInfoDaoImpl">
+  	<property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+
+  <!-- 账务数据库Dao -->
+  <bean id="accountDao" class="com.xhcms.lottery.commons.persist.dao.impl.AccountDaoImpl">
+    <property name="sessionFactory" ref="accountSessionFactory" />
+  </bean>
+  <bean id="orderDao" class="com.xhcms.lottery.commons.persist.dao.impl.OrderDaoImpl">
+    <property name="sessionFactory" ref="accountSessionFactory" />
+  </bean>
+  <bean id="rechargeDao" class="com.xhcms.lottery.commons.persist.dao.impl.RechargeDaoImpl">
+    <property name="sessionFactory" ref="accountSessionFactory" />
+  </bean>
+  <bean id="withdrawDao" class="com.xhcms.lottery.commons.persist.dao.impl.WithdrawDaoImpl">
+    <property name="sessionFactory" ref="accountSessionFactory" />
+  </bean>
+  <!-- 跟单Dao -->
+  <bean id="recUserDao" class="com.xhcms.lottery.commons.persist.dao.impl.RecommendUserDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  <!-- 定制Dao -->
+  <bean id="customMadeDetailDao" class="com.xhcms.lottery.commons.persist.dao.impl.CustomMadeDetailDaoImpl">
+  	<property name="sessionFactory" ref="mainSessionFactory"></property>
+  </bean>
+  <bean id="customMadeDao" class="com.xhcms.lottery.commons.persist.dao.impl.CustomMadeDaoImpl">
+  	<property name="sessionFactory" ref="mainSessionFactory"></property>
+  </bean>
+  <bean id="customMadeAvaiableSchemeDao" class="com.xhcms.lottery.commons.persist.dao.impl.CustomMadeAvaiableSchemeDaoImpl">
+  	<property name="sessionFactory" ref="mainSessionFactory"></property>
+  </bean>
+  
+  <!--江西11选5 -->
+  <bean id="issueinfoDao" class="com.xhcms.lottery.commons.persist.dao.impl.IssueinfoDaoImpl">
+  	<property name="sessionFactory" ref="mainSessionFactory"></property>
+  </bean>
+  <bean id="hfBetContentDao" class="com.xhcms.lottery.commons.persist.dao.impl.HfBetContentDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory"></property>
+  </bean>
+  
+  <bean id="winDao" class="com.xhcms.lottery.commons.persist.dao.impl.WinDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  
+  <bean id="verifyDao" class="com.xhcms.ucenter.persistent.dao.impl.VerifyDaoImpl">
+   	<property name="sessionFactory" ref="mainSessionFactory"/>
+  </bean>
+  
+	<bean id="systemConfDao" class="com.xhcms.lottery.commons.persist.dao.impl.SystemConfDaoImpl">
+  		<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	
+  	  <bean id="showWinListDao" class="com.xhcms.lottery.commons.persist.dao.impl.ShowWinListDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+  </bean>
+  
+    <bean id="followWinListDao" class="com.xhcms.lottery.commons.persist.dao.impl.FollowWinListDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+     <bean id="winDaoWithBetScheme" class="com.xhcms.lottery.commons.persist.dao.impl.WinDaoWithBetSchemeImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>  
+    
+    <bean id="statusDao" class="com.xhcms.lottery.commons.persist.dao.impl.StatusDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    
+    <bean id="validIdDao" class="com.xhcms.lottery.commons.persist.dao.impl.ValidIdDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    
+	<bean id="ctFBMatchDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.CTFBMatchDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+	<bean id="ctBetContentDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.CTBetContentDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+
+   </beans>

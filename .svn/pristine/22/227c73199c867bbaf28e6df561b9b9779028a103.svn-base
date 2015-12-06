@@ -1,0 +1,51 @@
+
+1、“平均欧赔”作为公司看待，id设为：avg_europe_odd
+
+2、推送渠道ID格式：lotteryId+oddType+cropId
+
+	lotteryId取值:"JCLQ"|"JCZQ";
+	oddType取值:"europe"|"aisa"|"bigsmall"
+	eg:"JCLQeurope281"/"JCZQaisa4"/"JCZQbigsmall8"/"JCZQeuropeavg_europe_odd"
+
+3、足球推送内容格式：
+	[{
+		playingCodeId："赛事开始时间"+"-"+"赛事code",
+		data:[初盘胜赔率,初盘平赔率/盘口,初盘负赔率,即时盘胜赔率,即时盘平赔率/盘口,即时盘负赔率]
+	},{
+		playingCodeId："赛事开始时间"+"-"+"赛事code",
+		data:[初盘胜赔率,初盘平赔率/盘口,初盘负赔率,即时盘胜赔率,即时盘平赔率/盘口,即时盘负赔率]
+	},{
+		playingCodeId："赛事开始时间"+"-"+"赛事code",
+		data:[初盘胜赔率,初盘平赔率/盘口,初盘负赔率,即时盘胜赔率,即时盘平赔率/盘口,即时盘负赔率]
+	},......]
+	
+	eg:
+	[{
+		playingCodeId："20150214013000-5002",
+		data:[2.65,2.00,2.65,1.85,3.10,6.23]
+	},{
+		playingCodeId："20150214013000-5003",
+		data:[2.65,2.00,2.65,1.85,3.10,6.23]
+	}]
+	
+4、篮球推送格式：
+	[{
+		playingCodeId："赛事开始时间"+"-"+"赛事code",
+		data:[即时盘胜赔率,盘口,即时盘负赔率]
+	},{
+		playingCodeId："赛事开始时间"+"-"+"赛事code",
+		data:[即时盘胜赔率,盘口,即时盘负赔率]
+	},{
+		playingCodeId："赛事开始时间"+"-"+"赛事code",
+		data:[即时盘胜赔率,盘口,即时盘负赔率]
+	},......]
+	
+	eg:
+	[{
+		playingCodeId："20150214013000-5002",
+		data:[1.85,3.5,6.23]
+	},{
+		playingCodeId："20150214013000-5003",
+		data:[1.85,-9.5,6.23]
+	}]
+	

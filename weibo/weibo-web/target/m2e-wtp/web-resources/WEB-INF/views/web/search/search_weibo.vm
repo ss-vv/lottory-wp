@@ -1,0 +1,57 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="搜索")
+#set($styles=["css/jquery.atwho.css","css/jquery.autocomplete.css","css/wb_list.css"])
+#set($scripts=[
+		"js/web/search-page.js",
+		"js/web/search.js"])
+<div id="searching">
+	<div class="searching-content">
+  	<!---------------下面开始searching-content-left左边菜单部分----------------------------->
+  	      <!--<div class="searching-content-left">
+  	      	    <ul class="left-menu">
+  	      	    	<li class="active"><a href="javascript:void(0);">全部</a></li>
+  	      	    	<li><a href="javascript:void(0);">推荐/实单</a></li>
+  	      	    	<li><a href="javascript:void(0);">讨论</a></li>
+  	      	    	<li><a href="javascript:void(0);">新闻</a></li>
+  	      	    </ul>
+  	     </div>--><!---------------searching-content-left部分结束----------------------->
+  	<!------------下面开始searching-content-right右边部分------------->
+  	      <div class="searching-content-right">
+  	      	    <ul class="tab">
+  	      	    	<li class="active"><a href="javascript:void(0);">内容</a></li>
+  	      	    	<li id="searchType_user"><a href="javascript:void(0);">用户</a></li>
+  	      	    </ul>
+  	      	<p class="search-form">
+  	      		<input id="search_keys" type="text" value="$!keys"><button class="search-button" id="search_weibo_button">搜索</button>
+  	      	</p>
+  	      	
+  	      	<p class="search-result">
+  	      		<span id="totalResultsTip"></span>
+  	      		<!--
+  	      		<label class="more"><a href="javascript:void(0);">评论最多</a></label>
+  	      		<label>|</label>
+  	      		<label class="new"><a href="javascript:void(0);" class="active">最新</a></label>
+  	      		-->
+  	      	</p>
+  	      	   <!-----------上面是tab搜索框部分------------------>
+  	      	   <div class="searching-shaidan" style="">
+  	      	        #if($keys)
+			 	 		<div class="loading" style="width:50px;height:50px"></div>
+			 	 	#else
+			 	 		<div class="loading" style="width:50px;height:50px;display:none"></div>
+			 	 	#end
+  	      	        <ul class="status-list" id="search_weibo_list">
+		    
+					</ul>
+					<div class="pager-wrapper"></div>
+  	      	   </div><!----晒单部分------->
+  	      </div><!---------------searching-content-right部分结束----------------------->
+	</div>
+</div>
+#if($keys)
+<script type="text/javascript">
+	$(document).ready(function (){
+		searchWeibo("",1);
+	});
+</script>
+#end

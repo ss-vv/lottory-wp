@@ -1,0 +1,120 @@
+#if($jczqMatchRecommendVo.size()>0)
+<!----------------------下面开始是today-some-football竞猜足球部分----------------------->
+	#foreach($recommend in $jczqMatchRecommendVo)
+		<div class="today-some-football">
+			<h4 class="vertical-bar">
+				<img src="images/new-login/vertical-bar-green.png"/>
+  	  	   	</h4>
+  	  	   	<h3 class="vertical-bar-title">竞彩足球</h3>
+  	  	   	<p class="event">今日赛事：$recommend.countMatch</p>
+  	  	   	<div class="today-some-vs" style="background-color:$recommend.color">
+  	  	   		<h6 class="today-some-vs-name">$recommend.leagueName</h6>
+  	  	   	   	<h6 class="today-some-vs-time">
+  	  	   	   		$!date.format('yyyy年MM月dd日',$!recommend.playingTime) &nbsp;&nbsp; 
+  	  	   	   		$!date.format('HH:mm',$!recommend.playingTime)
+  	  	   	   	</h6>
+  	  	   	   	<p class="match">
+  	  	   	   		<span class="match-left">$recommend.hostTeamName</span>
+  	  	   	   	    <em>vs</em> 
+  	  	   	   	    <span class="match-right">$recommend.guestTeamName</span>
+  	  	   	   	</p>
+  	  	   	 </div>
+  	  	   	 <h4 class="today-some-zjtd">专家提点</h4>
+  	  	   	 	<span class="today-some-wf">
+  	  	   	 		玩法：#if($recommend.betMatchRecPO.playId=="01_ZC_1")
+  	  	   	 			让球胜平负 
+  	  	   	 		#elseif($recommend.betMatchRecPO.playId=="01_ZC_2") 
+  	  	   	 			胜平负
+  	  	   	 		#end
+				</span>&nbsp;&nbsp;
+  	  	   	   	<span class="today-some-tjjg">
+  	  	   	   		推荐结果：#subPlayType($recommend.betMatchRecPO.code,'fb') 
+  	  	   	   	</span>
+  	  	   	   	<p class="today-some-introduction">
+  	  	   	   		#if(${recommend.betMatchRecPO.annotation})
+  	  	   	   			${recommend.betMatchRecPO.annotation}
+  	  	   	   		#end
+  	  	   	   	    <i>
+  	  	   	   	    	<a #if($recommend.weiboUserId)href="http://www.davcai.com/$recommend.weiboUserId/$recommend.weiboId" #end>
+  	  	   	   	    		详情&gt&gt
+  	  	   	   	    	</a>
+  	  	   	   	    </i>
+  	  	   	   	</p>
+  	  	   	   	<p class="item-data">
+  	  	   	   	    <span class="item-data-name" title="$!recommend.sponsor">
+  	  	   	   	    	<a #if($recommend.weiboUserId)href="http://www.davcai.com/$recommend.weiboUserId/profile" #end>
+  	  	   	   	    		$!{recommend.sponsor}
+  	  	   	   	    	</a>
+  	  	   	   	    </span>
+  	  	   	   	    <span class="item-data-review"> 
+  	  	   	   	    	<a #if($recommend.weiboUserId)href="http://www.davcai.com/$recommend.weiboUserId/$recommend.weiboId"#end>
+  	  	   	   	    		评论（$recommend.comment）
+  	  	   	   	    	</a>
+  	  	   	   	    </span>
+  	  	   	   	    <em>|</em>
+  	  	   	   	    <span class="item-data-zan">
+  	  	   	   	    	 <a #if($recommend.weiboUserId)href="http://www.davcai.com/$recommend.weiboUserId/$recommend.weiboId"#end>
+  	  	   	   	    	 	赞（$recommend.support）
+  	  	   	   	    	 </a>
+  	  	   	   	    </span>
+  	  	   	   	 </p>
+  	  	   	   	 <label class="welcome-to-the-right"></label>
+  	  	   	   	 <div class="today-some-bet-column" >
+  	  	   	   	  <p class="cut-off-time">
+  	  	   	   	  	投注截止时间 $!date.format('yyyy年MM月dd日  HH:mm',$recommend.entrustDeadline)
+  	  	   	   	  </p>
+  	  	   	   	  <ul class="today-some-football-team">
+  	  	   	   	  	#if($recommend.option[0])
+  	  	   	   	     	<li class="today-some-football-team-left">
+  	  	   	   	     	 	<div class="#isChecked($recommend.betMatchRecPO.code "3" "jczq")" odd="$recommend.oddsArr[0]" id="fbsheng_$velocityCount">
+  	  	   	   	     	 		<a href="javascript:void(0);">$recommend.hostTeamName</a>
+  	  	   	   	     	 	</div>
+  	  	   	   	     	    <p>赔率：$recommend.oddsArr[0]</p>
+  	  	   	   	     	</li>
+  	  	   	   	   #end
+  	  	   	   	   #if($recommend.option[1])
+  	  	   	   	     	<li class="today-some-football-team-middle ">
+  	  	   	   	     	     <div class="#isChecked($recommend.betMatchRecPO.code "1" "jczq")" odd="$recommend.oddsArr[1]" id="fbping_$velocityCount">
+  	  	   	   	     	     	<a href="javascript:void(0);">平局</a>
+  	  	   	   	     	     </div>
+  	  	   	   	     	     <p>赔率：$recommend.oddsArr[1]</p>
+  	  	   	   	     	</li>
+  	  	   	   	   #end
+  	  	   	   	   #if($recommend.option[2])
+  	  	   	   	     	<li class="today-some-football-team-right">
+  	  	   	   	     	    <div class="#isChecked($recommend.betMatchRecPO.code "0" "jczq")" odd="$recommend.oddsArr[2]" id="fbfu_$velocityCount">
+  	  	   	   	     	    	<a href="javascript:void(0);">$recommend.guestTeamName</a>
+  	  	   	   	     	    </div>
+  	  	   	   	     	    <p>赔率：$recommend.oddsArr[2]</p>
+  	  	   	   	     	</li>
+  	  	   	   	   #end
+  	  	   	   	 </ul>
+  	  	   	   	 <div class="today-some-investment">
+  	  	   	   	     <i>投入</i>
+  	  	   	   	     <p>
+  	  	   	   	     	<a href="javascript:void(0);" class="today-some-investment-minus" id="fbminus_$velocityCount"></a>
+  	  	   	   	     	<input type="text" value=#computeInitMoney($recommend.betMatchRecPO.code "jczq") fbchoicenum=#computeChoiceNum($recommend.betMatchRecPO.code "jczq")  id="fbmoney_$velocityCount"/>
+  	  	   	   	     	<a href="javascript:void(0);" class="today-some-investment-plus" id="fbplus_$velocityCount"></a>
+  	  	   	   	     </p><em>元</em> <!------这个em要和P标签紧邻--------->
+  	  	   	   	 </div>
+  	  	   	   	  <p class="today-some-expected-bonus">
+  	  	   	   	  	<i>预计奖金：</i>
+  	  	   	   	  	<label id="fbprize_$velocityCount">#computePrize($recommend.betMatchRecPO.code $recommend.oddsArr "jczq")元</label>
+  	  	   	   	    <a href="javascript:void(0);"  class="welcome-question" id="jczq-welcome-question_$velocityCount">
+  	  	   	   	       <span class="poptip popspan" id="jczq-poptip_$velocityCount">
+						<em class="poptip-top" ></em>
+						<em class="poptip-bottom"></em>
+						<i>
+							<em>说明</em><br/>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选定赛果后，系统会智能匹配一场进行全包2串1配对，只需要您选定的赛果正确，100%中奖！<br/>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;竞猜90分钟内的赛果(含伤停补时，不含加时赛和点球)
+						</i>
+					  </span>
+  	  	   	   	     </a>
+  	  	   	   	  </p>
+  	  	   	   	 <button class="welcome-immediately-bet">立即投注</button>
+  	  	   	 </div><!---------------today-some-bet-column部分-------------->
+  	  	   	   	     	 
+  	 </div><!------today-some-football部结束-------->
+  	 #end
+#end

@@ -1,0 +1,37 @@
+#set($p_title="关于我们")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="晒单推荐,跟单推荐,中奖排行榜")
+#set($styles = ["css/hack-bootstrap", "css/about"])
+
+<div class="wrapper">
+    <div class="slide_box">
+        <ul>
+		    <li class="active-bg"><a href="http://trade.davcai.com/df/about/about">关于我们</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/contact">联系我们</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/legal">法律声明</a></li>
+		    <li id="faq">
+				<img src="$base/images/fup.png">
+				<a href="http://trade.davcai.com/df/about/faq">常见问题</a>
+			</li>
+		</ul>
+    </div>
+	
+    <div class="main_about">
+		<div class="detailbox" style="font-size:14px;">
+			<strong>关于大V彩</strong><br>
+            &nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                          大V彩(davcai.com)创立于2014年，从一家彩票代购网站发展而来，现在是一个关于彩票的社交网络。
+                       “彩票是一种消遣”，我们秉承轻松快乐理念，将复杂的彩票投注网站变成一个休闲娱乐的互联网产品。我们希望通过大V彩，让专家、高手、普通彩民平等沟通，信息共享，交流使人智慧，沟通带来财富！<br>
+            <br>
+     
+            <style type="text/css">
+            .pager .cur:hover,
+            .pager .cur{background:#cbcbcb;}
+            .pager span,
+            .pager a{margin:2px 4px 0px 0px; float:left; height:18px; line-height:18px; background:#f1f1f1; border:#c5ddf1 1px solid; padding:0px 7px; text-decoration:none;}
+            .pager .pagerNum{background:none;border:0}
+            </style>
+		</div>
+	</div>
+</div>

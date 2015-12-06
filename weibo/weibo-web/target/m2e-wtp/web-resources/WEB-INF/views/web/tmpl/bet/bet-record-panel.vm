@@ -1,0 +1,25 @@
+<div id="betRecord" class="davcai-content-middle">
+    <ul class="lottery-nav-tab">
+    	<li id="tab-lottery-qb" class="active"><a href="javascript:void(0);">全部</a></li>
+    	<li id="tab-lottery-jz"><a href="javascript:void(0);">竞足</a></li>
+    	<li id="tab-lottery-jl"><a href="javascript:void(0);">竞篮</a></li>
+    	<li id="tab-lottery-zc"><a href="javascript:void(0);">足彩</a></li>
+    	<li id="tab-lottery-bd"><a href="javascript:void(0);">北单</a></li>
+    </ul>
+  	<div class="lottery-nav-outer">
+		<ul class="lottery-nav-explain">
+			<li class="width01">玩法</li>
+			<li class="width02">类型</li>
+			<li class="width03">认购金额</li>
+			<li class="width04">状态</li>
+			<li class="width05">我的奖金</li>
+			<li class="width06">认购时间</li>
+			<li class="width07">操作</li>
+		</ul>
+		<div id="data-lottery-qb"></div>
+    	<div id="data-lottery-jz" style="display:none;"></div>
+    	<div id="data-lottery-jl" style="display:none;"></div>
+    	<div id="data-lottery-zc" style="display:none;"></div>
+    	<div id="data-lottery-bd" style="display:none;"></div>
+	</div>
+</div>

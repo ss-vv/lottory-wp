@@ -1,0 +1,138 @@
+
+/*下面开始导航部分*/
+.navigation-header{
+	width: 985px;
+	height: 70px;
+	margin: 30px auto ;
+	border-bottom: 1px #F1F1F1 solid;
+	margin-top: 60px;
+}
+.navigation-header h1{
+	float: left;
+	margin-top: 15px;
+}
+.navigation-header a.siteName{
+	color: #000000;
+	font-family: "微软雅黑";
+	font-size: 28px;
+	font-weight: normal;
+}
+.navigation-share{
+	width: 216px;
+	height: 30px;
+	float: right;
+	margin-top: 22px;
+}
+.navigation-share h3{
+	display: inline-block;
+	padding: 0 ;
+	font-family: "微软雅黑";
+	font-weight: normal;
+	height: 30px;
+}
+.navigation-share li{
+	cursor: pointer;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+    margin-bottom: 0;
+    margin-left: 8px;
+}
+.navigation-share li a{
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	vertical-align: text-bottom;
+	background-position: 0 3px;
+}
+.navigation-share li.sina a{
+	background:url(../../images/navigation/n-sinaweibo-logo.png) no-repeat;
+}
+.navigation-share li.qqzone a{
+	background:url(../../images/navigation/n-qqzone-logo.png) no-repeat;
+}
+.navigation-share li.qqweibo a{
+	background:url(../../images/navigation/n-qqweibo-logo.png) no-repeat;
+}
+.navigation-share li.douban a{
+	background:url(../../images/navigation/n-douban-logo.png) no-repeat;
+}
+.navigation-share li.renren a{
+	background:url(../../images/navigation/n-renren-logo.png) no-repeat;
+}
+
+/*上面是navigation-header部分结束*/
+
+/*navigation-content开始了*/
+.navigation-content{
+	width: 985px;
+	height: auto;
+	margin: 12px auto 0;
+}
+.navigation-content h4{
+	padding-bottom: 8px;
+	padding-left:10px;
+	border-bottom: 1px solid #f1f1f1;
+	font-size: 16px;
+	margin-bottom: 12px;
+}
+/*下面是navigation-left部分*/
+.navigation-left{
+	width: 233px;
+	height: auto;
+	float: left;
+}
+
+.navigation-left li{
+	margin-bottom: 11px;
+}
+.navigation-left li span{
+	display: inline-block;
+	width: 102px;
+	padding: 2px 0 2px 10px;
+	font-size: 12px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.navigation-left li span a{
+	color: #909090;
+}
+.navigation-left li span a.current{
+	color: #E22319;
+}
+
+/*下面是navigation-right部分*/
+.navigation-right{
+	width: 725px;
+	height: auto;
+	float: left;
+	margin-left: 12px;
+	padding-left: 13px;
+	border-left: 1px solid #f1f1f1;
+}
+.navigation-right li{
+	margin-bottom: 15px;
+}
+.navigation-right li 
+span{
+	display: inline-block;
+	width: 90px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+	font-size: 12px;
+	padding: 1px 0 6px 10px;
+}
+.navigation-right li span a{
+	color: #909090;
+	
+}
+
+.cut-off-line{
+	clear: both;
+	width: 990px;
+	height: 80px;
+	border-bottom: 1px #EAEAEA solid;
+	margin: 100px auto 30px;
+}

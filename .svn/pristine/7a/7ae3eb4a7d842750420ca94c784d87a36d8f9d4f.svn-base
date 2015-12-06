@@ -1,0 +1,22 @@
+# database
+db.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = lottery
+db.password = 8DFy4unX
+
+# database
+db2.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = account
+db2.password = C2g5GL4m
+
+debugMode=false
+
+# ActiveMQ
+amq.brokerURL = tcp://10.171.46.81:61616
+
+email.receiver = 18601944885@139.com,13436510122@139.com,18515207618@139.com,18500225134@139.com,13671091297@139.com,8308899@qq.com
+phone.receiver = 18601944885,13436510122
+
+sms.url = http://211.103.155.246:8080/sms_send2.do
+sms.corpid = 523021
+sms.corppwd = xt021
+sms.corpservice = 106td

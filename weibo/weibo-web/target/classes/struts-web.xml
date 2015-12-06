@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.ui.theme" value="simple" />
+
+	<!-- 网页微博 -->
+	<package name="web" extends="weibo-web-default" namespace="/">
+		<!-- 微博主页 -->
+		<action name="home"
+			class="com.unison.lottery.weibo.web.action.pc.HomeAction">		
+			<result name="success">/web/home.vm</result>
+		</action>
+		
+		<!-- ajax获取我的所有微博 -->
+		<action name="loadPost"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction" method="load">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax获取我的所有微博推荐 -->
+		<action name="loadRecommends"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction" method="loadRecommends">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax获取我的所有微博推荐 -->
+		<action name="loadMatchs"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction" method="loadMatch">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax获取我的所有新闻微博 -->
+		<action name="loadNews"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction" method="loadNews">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- ajax获取我的所有讨论 -->
+		<action name="loadDiscussWeibo"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction" method="loadDiscussWeibo">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 准备转发微博 -->
+		<action name="showForward"
+			class="com.unison.lottery.weibo.web.action.pc.PublishAction" method="toForward">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 发微博 -->
+		<action name="publish"
+			class="com.unison.lottery.weibo.web.action.pc.PublishAction" method="publish">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- 上传微博图片 -->
+        <action name="upload-wb-image"
+            class="com.unison.lottery.weibo.web.action.pc.PublishAction" method="ajaxUploadImage">
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="root">fileUploadResult</param>
+            </result>
+        </action>
+		
+		<action name="publishOfMatchTimeline"
+			class="com.unison.lottery.weibo.web.action.pc.PublishOfMatchAction" method="publish">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 修改(长)微博 -->
+		<action name="editLong"
+			class="com.unison.lottery.weibo.web.action.pc.PublishAction" method="editLong">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 检查新微博数量 -->
+		<action name="newPostTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 检查新推荐数量 -->
+		<action name="newRecTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction" method="newRecTimer">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 检查新赛事数量 -->
+		<action name="newMatchTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction" method="newMatchTimer">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- 检查新讨论数量 -->
+		<action name="newDiscussWeiboTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction" method="newDiscussTimer">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- 检查新讨论数量 -->
+		<action name="newNewsTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction" method="newNewsTimer">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax采纳微博 -->
+		<action name="like"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.PraiseAction"
+			method="like">
+			<result name="success" type="json" />
+		</action>
+		
+		<!-- ajax取消采纳微博 -->
+		<action name="unLike"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.PraiseAction"
+			method="unLike">
+			<result name="success" type="json" />
+		</action>
+
+		<!-- ajax获取微博 -->
+		<action name="ajaxLoadPost"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- ajax删除微博 -->
+		<action name="ajaxDelPost"
+			class="com.unison.lottery.weibo.web.action.pc.PublishAction" method="delete">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- ajax收藏微博 -->
+		<action name="addFavoriate"
+			class="com.unison.lottery.weibo.web.action.pc.FavoriateAction"
+			method="favoriate">
+			<result name="success" type="json" />
+		</action>
+
+		<!-- ajax删除收藏 -->
+		<action name="delFavoriate"
+			class="com.unison.lottery.weibo.web.action.pc.FavoriateAction"
+			method="delete">
+			<result name="success" type="json" />
+		</action>
+
+		<!-- 我的收藏 -->
+		<action name="favoriateList"
+			class="com.unison.lottery.weibo.web.action.pc.FavoriateAction">
+			<result name="success">/web/favoriate.vm</result>
+		</action>
+		
+		<!-- ajax获取微博 -->
+		<action name="ajaxLoadFavoriate"
+			class="com.unison.lottery.weibo.web.action.pc.FavoriateAction" method="load">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- ajax提到我的列表 -->
+		<action name="ajaxLoadAtMe"  class="com.unison.lottery.weibo.web.action.pc.AtMeAction" method="load">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- 提到我的 -->
+		<action name="atMeList"
+			class="com.unison.lottery.weibo.web.action.pc.AtMeAction">
+			<result name="success">/web/atMe.vm</result>
+		</action>
+
+		<!-- 微博详情 -->
+		<action name="/{weiboUserId:\d+}/{postId:\d+}"
+			class="com.unison.lottery.weibo.web.action.pc.DetailAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/web/detail.vm</result>
+		</action>
+		
+		<!-- 微博详情 -->
+		<action name="ajaxLoadDetail"
+			class="com.unison.lottery.weibo.web.action.pc.DetailAction" method="load">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 登陆后的首页 -->
+		<action name="index" class="com.unison.lottery.weibo.web.action.IndexAction">
+			<result name="mobile_index" type="redirect">mobile/home</result>
+			<result name="notMobile_index" type="redirect">home</result>
+		</action>
+
+		<!-- 个人帐号 -->
+		<action name="balance">
+			<result name="success">/web/balance.vm</result>
+		</action>
+
+        <!-- 发表评论 -->
+        <action name="post_cmnt"
+            class="com.unison.lottery.weibo.web.action.pc.ajax.PostCommentAction">
+            <interceptor-ref name="defaultStack" />
+            <result type="json"></result>
+        </action>
+
+        <!-- 发表评论 -->
+        <action name="del_cmnt"
+            class="com.unison.lottery.weibo.web.action.pc.ajax.DeleteCommentAction">
+            <interceptor-ref name="defaultStack" />
+            <result type="json"></result>
+        </action>
+
+		<!-- 获取评论列表 -->
+		<action name="list_cmnts"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.ListCommentsAction">
+			<interceptor-ref name="defaultStack" />
+			<result type="json"></result>
+		</action>
+
+		<!-- 赞一个评论 -->
+		<action name="prs_cmnt"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.CommentPraiseAction"
+			method="praiseComment">
+			<interceptor-ref name="defaultStack" />
+			<result type="json">
+				<param name="root">prsCmntResult</param>
+			</result>
+		</action>
+		
+		<!-- 评论我的 -->
+		<action name="cmnt_me"
+            class="com.unison.lottery.weibo.web.action.pc.CommentMeAction">
+            <result>/web/cmnt_me.vm</result>
+        </action>
+		<!-- 我的私信 -->
+		<action name="private_msg"
+            class="com.unison.lottery.weibo.web.action.pc.PrivateMsgAction">
+            <result>/web/private_msg.vm</result>
+        </action>
+        
+        <!-- 微博通知 -->
+        <action name="notification"
+			class="com.unison.lottery.weibo.web.action.pc.NotificationAction">
+			<interceptor-ref name="defaultStack" />
+			<result type="json"/>
+		</action>
+	</package>
+
+	<package name="login_on_web" extends="weibo-web-default"
+		namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="sina_weibo_login"
+			class="com.unison.lottery.weibo.web.action.pc.SinaWeiboLoginAction">
+		</action>
+		<action name="qq_weibo_login"
+			class="com.unison.lottery.weibo.web.action.pc.QQWeiboLoginAction">
+		</action>
+		<action name="qq_connect_login"
+			class="com.unison.lottery.weibo.web.action.pc.QQConnectLoginAction">
+			<result name="input">/web/qq_login.vm</result>
+		</action>
+		<action name="weixin_login"
+			class="com.unison.lottery.weibo.web.action.pc.WeixinLoginAction">
+		</action>
+		<!-- 支付宝 -->
+        <action name="alipay_login" class="com.unison.lottery.weibo.web.action.pc.AlipayConnectLoginAction">
+         <result type="redirect">
+                 alipay_user_login?access_token=${access_token}
+         </result>
+         <result name="input" type="redirect">
+                welcome
+         </result>
+        </action>
+        <action name="alipay_user_login" class="com.unison.lottery.weibo.web.action.pc.AlipayLoginAction"> 
+        </action>
+		<action name="add_nickname"
+			class="com.unison.lottery.weibo.web.action.pc.AddNicknameAction">
+			<result name="success" type="redirect">upload-head-img</result>
+			<result name="error">/web/add_nickname.vm</result>
+		</action>
+	</package>
+
+	<package name="relationship" extends="weibo-web-default"
+		namespace="/">
+		<action name="rltship_findFollowings"
+			class="com.unison.lottery.weibo.web.action.pc.RelationshipAction"
+			method="findFollowings">
+			<result name="success">/web/relationship/followings.vm</result>
+		</action>
+		<action name="rltship_findFollowers"
+			class="com.unison.lottery.weibo.web.action.pc.RelationshipAction"
+			method="findFollowers">
+			<result name="success">/web/relationship/followers.vm</result>
+		</action>
+		<action name="add_lottery_user"
+			class="com.unison.lottery.weibo.web.action.pc.AddRecUserAction" method="addLotteryUser">
+			<result name="success" >/web/add_lottery_user.vm</result>
+		</action>
+		<action name="add_rec_user"
+			class="com.unison.lottery.weibo.web.action.pc.AddRecUserAction" method="addRecUser">
+			<result name="success" >/web/add_rec_user.vm</result>
+		</action>
+		<action name="find_people"
+			class="com.unison.lottery.weibo.web.action.pc.AddRecUserAction">
+			<result name="success" >/web/find_people.vm</result>
+		</action>
+		<action name="active_users"
+			class="com.unison.lottery.weibo.web.action.pc.AddRecUserAction" method="getActiveUsersByPage">
+			<result type="json" name="success" >
+				<param name="root">pageResult</param>
+			</result>
+		</action>
+		<action name="aj_rec_user_list"
+			class="com.unison.lottery.weibo.web.action.pc.AddRecUserAction" method="userList">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="aj_get_followingsids"
+			class="com.unison.lottery.weibo.web.action.pc.RelationshipAction" method="getFollowingId">
+			<result name="success" type="json">
+				<param name="root">followingsIds</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="relationship_not_login" extends="weibo-web-default"
+		namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="ajax_rltship_{methodName}"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.RelationshipAction"
+			method="{1}">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 比分直播 -->
+	<package name="score" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<!-- 竞足比分页 -->
+		<action name="JZscore"
+			class="com.unison.lottery.weibo.web.action.pc.ScoreAction" method="JCZQ">
+			<result name="success">/web/score/jzscore.vm</result>
+		</action>
+		
+		<!-- ajax获取竞足比分 -->
+		<action name="loadJZscore"
+			class="com.unison.lottery.weibo.web.action.pc.ScoreAction" method="loadJZ">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- 竞篮比分页 -->
+		<action name="JLscore"
+			class="com.unison.lottery.weibo.web.action.pc.ScoreAction" method="JCLQ">
+			<result name="success">/web/score/jlscore.vm</result>
+		</action>
+		
+		<!-- 14场比分页 -->
+		<action name="CTscore"
+			class="com.unison.lottery.weibo.web.action.pc.ScoreAction" method="CTZC">
+			<result name="success">/web/score/14score.vm</result>
+		</action>
+		
+		<!-- ajax获取14场比分 -->
+		<action name="loadCTscore"
+			class="com.unison.lottery.weibo.web.action.pc.ScoreAction" method="loadCT">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- Ajax 服务, 不要求登录的 -->
+	<package name="ajax_free_access" extends="weibo-web-default"
+		namespace="/ajax">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="tp_list"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.DailyTopicAction">
+			<result type="json" />
+		</action>
+		
+		<!-- 异步加载公告-->
+		<action name="ajaxLoadAnnounce"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.AnnounceAction">
+			<result name="success" type="json"/>
+		</action>
+        <!-- 异步加载中奖喜报-->
+		<action name="ajaxLoadWinningNews"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WinningNewsAction">
+			<result name="success" type="json"/>
+		</action>
+	</package>
+
+	<!-- 用户设置 -->
+	<package name="user-setting" extends="weibo-web-default"
+		namespace="/user-setting">
+		<action name="ajax_save_lotterySet"
+			class="com.unison.lottery.weibo.web.action.pc.UserLotterySetAction">
+			<result type="json" />
+		</action>
+		<action name="ajax_load_lotterySet"
+			class="com.unison.lottery.weibo.web.action.pc.UserLotterySetAction"
+			method="loadLotterySet">
+			<result type="json" />
+		</action>
+	</package>
+
+	<package name="search" extends="weibo-web-default" namespace="/">
+		<!-- 不需要登录既可使用搜索功能 -->
+		<default-interceptor-ref name="defaultStack" />
+		<action name="ajax_search_user"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.SearchAction" method="searchUser">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="toSearchUserPage">/web/search/search_user.vm</result>
+		</action>
+		<action name="ajax_search_weibo"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.SearchAction" method="searchWeibo">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="toSearchWeiboPage">/web/search/search_weibo.vm</result>
+		</action>
+		<action name="search"
+			class="com.unison.lottery.weibo.web.action.pc.SearchAction">
+			<result name="success">/web/search/search_user.vm</result>
+		</action>
+		<action name="search_user"
+			class="com.unison.lottery.weibo.web.action.pc.SearchAction" method="searchUser">
+			<result name="success">/web/search/search_user.vm</result>
+		</action>
+		<action name="search_weibo"
+			class="com.unison.lottery.weibo.web.action.pc.SearchAction" method="searchWeibo">
+			<result name="success">/web/search/search_weibo.vm</result>
+		</action>
+		
+		<action name="ajax_search_match"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.SearchMatchAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="/matches/{lotteryType}/{matchId}"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction">
+			<result name="success">/web/match/match_overview.vm</result>
+		</action>
+
+		<action name="recent_match"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction" method="toRecentMatchPage">
+			<result name="success">/web/match/recent_match.vm</result>
+		</action>
+		<!-- 欧赔指数 -->
+		<action name="europe_odds"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction">
+			<result name="success">/web/match/europe_odds.vm</result>
+		</action>
+		<!-- 亚赔盘口 -->
+		<action name="asian_odds"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction">
+			<result name="success">/web/match/asian_odds.vm</result>
+		</action>
+		<!-- 大小球盘口 -->
+		<action name="bigSmall_odds"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction">
+			<result name="success">/web/match/bigSmall_odds.vm</result>
+		</action>
+		<!-- 交战历史 -->
+		<action name="fighting_history"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction" method="toFightHistoryPage">
+			<result name="success">/web/match/fighting_history.vm</result>
+		</action>
+		<!-- 未来赛事 -->
+		<action name="future_matchs"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction" method="toFutureMatchPage">
+			<result name="success">/web/match/future_matchs.vm</result>
+		</action>
+		
+		<!-- 获取近期赛事数据 -->
+		<action name="ajax_recent_match"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.RecentMatchAction">
+			<result type="json"/>
+		</action>
+		<!-- 获取交战历史数据 -->
+		<action name="ajax_fighting_history"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.FightHistoryAction">
+			<result type="json"/>
+		</action>
+		<!-- 获取未来赛事数据 -->
+		<action name="ajax_future_match"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.FutureMatchAction">
+			<result type="json"/>
+		</action>
+		
+		
+		<!-- 检查新赛事相关微博数量 -->
+		<action name="newMatchPostTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewMatchPostTimerAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- ajax获取所有赛事相关的微博 -->
+		<action name="loadMatchPost"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadMatchPostAction" method="load">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax获取赛事微博 -->
+		<action name="ajaxLoadMatchPost"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadMatchPostAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- ajax获取赛事讨论微博 -->
+		<action name="loadMatchsDiscuss"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadMatchPostAction" method="loadMatchsDiscuss">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax获取所有实单赛事相关的微博 -->
+		<action name="loadRealMatchPost"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadRealMatchPostAction" method="load">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax获取实单赛事微博 -->
+		<action name="ajaxLoadRealMatchPost"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadRealMatchPostAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+	<package name="share" extends="weibo-web-default" namespace="/">
+		<action name="share"
+			class="com.unison.lottery.weibo.web.action.pc.ShareAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="to_home" type="redirect">home</result>
+		</action>
+	</package>
+	
+	<package name="account" extends="weibo-web-default" namespace="/">
+		<!-- 不需要登录既可使用搜索功能 -->
+		<default-interceptor-ref name="defaultStack" />
+		<action name="forget"
+			class="com.unison.lottery.weibo.web.action.pc.ForgetAction">
+			<result name="success" >/web/get_password.vm</result>
+		</action>
+	</package>
+	
+	<package name="profile_not_login" extends="weibo-web-default" namespace="/">
+		<!-- 用户首页 ，无需登录既可访问 -->
+		<default-interceptor-ref name="defaultStack" />
+		
+		<!-- 用户资料浮动卡片 -->
+        <action name="/{weiboUserId}/card"
+            class="com.unison.lottery.weibo.web.action.pc.UserProfileAction" method="userCard">
+            <result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+				<param name="root">weiboUserStatis</param>
+			</result>
+        </action>
+		<!-- 用昵称显示用户资料 -->
+        <action name="/name/{weiboNickName}/profile"
+            class="com.unison.lottery.weibo.web.action.pc.UserProfileAction">
+            <result name="success">/web/profile/profile.vm</result>
+            <result name="to_home" type="redirect">home</result>
+        </action>
+        
+        <action name="/{weiboUserId}/profile/followings"
+            class="com.unison.lottery.weibo.web.action.pc.UserProfileAction">
+            <result name="success">/web/profile/profile.vm</result>
+            <result name="to_home" type="redirect">home</result>
+        </action>
+        <action name="/{weiboUserId}/profile/followers"
+            class="com.unison.lottery.weibo.web.action.pc.UserProfileAction">
+            <result name="success">/web/profile/profile.vm</result>
+            <result name="to_home" type="redirect">home</result>
+        </action>
+        
+        <action name="/{weiboUserId}/profile"
+            class="com.unison.lottery.weibo.web.action.pc.UserProfileAction">
+            <result name="success">/web/profile/profile.vm</result>
+            <result name="to_home" type="redirect">home</result>
+        </action>
+        
+		<action name="profile_weibos"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WeiboContentAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="to_home" type="redirect">home</result>
+		</action>
+		<action name="profile_comments"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.CommentAction" method="myComments">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="to_home" type="redirect">home</result>
+		</action>
+		
+		<action name="ajax_get_weibouser_by_username"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WeiboUserBaseInfo" method="getUserInfo">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="ajax_get_weibouser_by_usernames"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WeiboUserBaseInfo" method="getUserInfos">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<action name="ajax_get_weibouserstatis"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.WeiboUserBaseInfo" method="getWeibouserStatisData">
+			<result name="success" type="json">
+				<param name="root">weibouserStatis</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<action name="last_win_weibo"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LastWinWeibo">
+			<result name="success" type="json">
+				<param name="root">weiboMsgVOs</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- 感兴趣的人 -->
+	<package name="interest_user" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="interest_user"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.InterestUserAction">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="to_home" type="redirect">home</result>
+		</action>
+		
+	</package>
+</struts>

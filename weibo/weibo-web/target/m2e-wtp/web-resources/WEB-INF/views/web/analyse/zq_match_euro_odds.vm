@@ -1,0 +1,34 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="足球欧赔")
+<div id="bet-data-box">
+	<!-----下面开始bet-data-left部分-------->
+	<div class="bet-data-left">
+		<ul class="bdl-menu">
+			<li>
+				<a href="$base/analyse/fbAnalyse?daVCaiMatchId=$!{daVCaiMatchId}">分析</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);" class="current">欧赔</a>
+			</li>
+			<li>
+				<a href="$base/odds/fbAsianOdds?daVCaiMatchId=$!{daVCaiMatchId}">亚赔</a>
+			</li>
+		</ul>
+	</div>
+	<!----bet-data-left结束--->
+	<!-----下面开始bet-data-content------>
+	<div class="bet-data-content" id="odds-data">
+		
+		<!-------europe-odds欧赔------>
+	</div>
+	
+	<!------bet-data-content结束-------->
+</div>
+<!-------bet-data-box结束了---->
+<!----下面odds-tip--->
+
+<script src="$base/js/davcai/odds/odds-tip.js"></script>
+<script type="text/javascript">
+var oddJson = $!{euroOdds};
+init(oddJson);
+</script>

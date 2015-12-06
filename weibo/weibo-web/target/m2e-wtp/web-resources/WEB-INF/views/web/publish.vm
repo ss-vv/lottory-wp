@@ -1,0 +1,59 @@
+<!-- 发布主帖 -->
+    <form id="publishForm">
+    <div id="main-editor" class="guide_div_three guide_div">
+        <div class="editor">
+            <div class="editor-wrapper" id="publish">
+                <div id="emotionArea">
+					<script id="weiboContent" name="weiboMsg.content" type="text/plain"></script>
+					<div id="filter_dialog_publish" style="display:none;"></div>
+				</div>
+                <div class="emotion">
+                    <span title="插入表情" class="face"  id="message_face"><s></s><span>表情</span></span>
+                    <span title="过滤赛事" class="match matchFilter game_show_btn"><s></s><span>赛事</span></span>
+                    <span title="上传图片" class="upload">
+                        <div id="uploadImage" _s="$session.id"></div>
+                    </span>
+                    <span id="weibo_image_progress" style="padding-top: 4px;margin-left: 22px;font-size: 13px;color: #BBB;"></span>
+                </div>
+                <div class="editor-footer">
+                    <div class="submit-container">
+                        <input type="button" value="发布" class="btn btn-primary" style="width:100px;" id="publishBtn" />
+                    </div>
+                    <div class="back-container"></div>
+                    <div class="footer-controller"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div id="match_team_data" style="display:none" 
+	homeTeamName="$!match.homeTeam"  
+	guestTeamName="$!match.guestTeam" 
+	lotteryType="$!lotteryType" 
+	matchId="$!matchId">
+</div>
+<script type="text/javascript">
+	var _wbEditor = UE.getEditor(
+			'weiboContent',{
+				toolbars : [],
+				contextMenu : [],
+				maximumWords : 1000,
+				wordCountMsg : '还可以输入{#leave}个字符',
+				wordOverFlowMsg : '<span style="color:red;">字数已超，请删减</span>',
+				// autoClearinitialContent: true,
+				elementPathEnabled : false,
+				customDomain : true,
+				autocomplete : {
+					// $
+					52 : function(editor, keyChar) {
+						WB_API.showMatchWrapUEditor($('.game_show_btn'));
+					}
+				},
+				pasteplain : true
+			});
+	
+	// 设置焦点
+	_wbEditor.ready(function() {
+		_wbEditor.focus(true);
+	});
+</script>

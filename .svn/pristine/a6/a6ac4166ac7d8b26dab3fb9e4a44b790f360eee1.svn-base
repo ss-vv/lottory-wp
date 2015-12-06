@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    default-autowire="byName">
+    <bean id="lotteryPlatformAllocator" class="com.davcai.lottery.platform.util.LotteryPlatformTicketAllocatorImpl"></bean>
+    <bean id="lotteryPlatformPriorityService" class="com.davcai.lottery.platform.util.LotteryPlatformPriorityServiceImpl"></bean>
+    <bean id="orderTicketTask" class="com.davcai.orderticket.task.OrderTicketTask" scope="prototype"/>
+    <bean id="orderTicketClientWithMultiPlatform" class="com.davcai.lottery.platform.client.OrderTicketClientWithMultiPlatformImpl"/>
+    <bean id="chooser" class="com.davcai.lottery.platform.client.chooser.LotteryPlatformChooserImpl">
+    	<property name="map4Clients">
+                <map>
+                        <entry key="zunao_orderTicket">
+                                <ref bean="zunAoOrderTicketClient"/>
+                        </entry>
+                        
+                        <entry key="zunao_queryPrize">
+                                <ref bean="zunAoQueryPrizeClient"/>
+                        </entry>
+                        
+                        <entry key="yuanchengchupiao_orderTicket">
+                                <ref bean="yuanChengChuPiaoOrderTicketClient"/>
+                        </entry>
+                        
+                        <entry key="yuanchengchupiao_checkTicketsStatus">
+                                <ref bean="yuanChengChuPiaoCheckTicketsStatusClient"/>
+                        </entry>
+                        
+                        <entry key="yuanchengchupiao_checkTickets">
+                                <ref bean="yuanChengChuPiaoValidateAwardAmountClient"/>
+                        </entry>
+                        
+                        <entry key="anruizhiying_orderTicket">
+                                <ref bean="anRuiZhiYingOrderTicketClient"/>
+                        </entry>
+                        
+                        <entry key="anruizhiying_queryPrize">
+                                <ref bean="anRuiZhiYingQueryPrizeClient"/>
+                        </entry>
+                        
+                        <entry key="changchunshitidian_orderTicket">
+                                <ref bean="changChunShiTiDianOrderTicketClient"/>
+                        </entry>
+                        
+                        <entry key="changchunshitidian2_orderTicket">
+                                <ref bean="changChunShiTiDianOrderTicketClient2"/>
+                        </entry>
+                        
+                        <entry key="changchun60005_orderTicket">
+                                <ref bean="changChunShiTiDian60005"/>
+                        </entry>
+                        
+                        <entry key="shanxi00001_orderTicket">
+                                <ref bean="shanxiShitiDian00001"/>
+                        </entry>
+                        
+                        <entry key="changchun02857_orderTicket">
+                                <ref bean="changchunShitiDian02857"/>
+                        </entry>
+                        
+                        <entry key="kuaisuchupiao_orderTicket">
+                                <ref bean="kuaisuchupiao"/>
+                        </entry>
+                        
+                        
+                </map>
+        </property>
+    </bean>
+    <bean id="queryPrizeClientWithMultiPlatform" class="com.davcai.lottery.platform.client.QueryPrizeClientWithMultiPlatformImpl"></bean>
+</beans>

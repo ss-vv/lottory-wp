@@ -1,0 +1,113 @@
+#set($layout="weibo/head_foot.vm")
+#set($p_title="注册大V彩帐号")
+#set($wucstyles = ["css/web_regist.css"])
+#set($wucscripts = ["js/web/regist.js"])
+
+<div id="center" class="container">
+	<div class="wrapper">
+		<div class="main" style="border-left: 1px solid rgb(255, 255, 255);float: none;">
+			<ul>
+				<li><h2 style="border-bottom:none">加入大V彩，讨论共同关注的彩票和话题</h2></li>
+				<li class="comm">用合作网站帐号注册（以后可一键登录）</li>
+				<ul class="fconnect-link" style="margin-left: 99px;">
+					<li class="sina"><a id="sina_login" href="#" onclick="loginBySina('http://www.davcai.com/sina_weibo_login.do')"><i></i>新浪微博登录</a></li>
+					<li class="qq"><a id="qq_login" href="#" onclick="loginByQQ('http://www.davcai.com/qq_connect_login')"><i></i>QQ&nbsp;登录</a></li>
+				</ul>
+				<form method="post" action="regist.do" id="registForm">
+					<input
+						id="referer" name="referer" type="hidden"
+						value='$!referer' /> 
+					<input
+						id="failReturnURL" name="failReturnURL" type="hidden"
+						value='$!failReturnURL' /> 
+					
+					<li class="mail-reg">或者，注册新账户&nbsp &nbsp （* 为必填项）</li>
+					<table class="regist-table">
+						<tr class="reg_sep">
+							<td class="first">昵称：</td>
+							<td><input type="text" tabindex="1" id="nickname" name="weiboUser.nickName" 
+								placeholder="你在大V彩网的名字" class="placeholderHack" value="$!WeiboUser.nickName"/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="nickname_tip"></label></td>
+						</tr>
+						
+						<tr class="reg_sep">
+							<td class="first">用户名：</td>
+							<td><input type="text" tabindex="2" id="username" name="username" 
+								placeholder="登录时使用" class="placeholderHack" value="$!username"/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="username_tip" style=""></label></td>
+						</tr>
+						
+						<tr class="reg_sep">
+							<td class="first">密码：</td>
+							<td><input type="password" tabindex="3" id="password" name="password"
+								placeholder="" class="placeholderHack"/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="password_tip"></label></td>
+						</tr>
+						
+						<tr class="apply reg_sep">
+							<td class="first">确认密码：</td>
+							<td><input type="password" tabindex="4" id="apply_pws"
+								placeholder="" class="placeholderHack"/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="apply_pws_tip" style=""></label></td>
+						</tr>
+						
+						<tr class="reg_sep">
+							<td class="first">邮箱：</td>
+							<td><input type="text" tabindex="5" id="mail" name="weiboUser.email"
+								placeholder="用于找回密码" class="placeholderHack" value="$!WeiboUser.email"/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="mail_tip" style=""></label></td>
+						</tr>
+						#if($needInviteCode)
+						<tr class="reg_sep">
+							<td class="first">邀请码：</td>
+							<td><input type="text" tabindex="6" id="inviteCode" name="inviteCode"
+								placeholder="" class="placeholderHack" value=""/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="inviteCode_tip" style=""></label></td>
+						</tr>
+						#end
+						<!--	
+						<tr class="reg_sep">
+							<td class="first">手机号码：</td>
+							<td><input type="text" tabindex="5" id="mobile" name="weiboUser.mobile"
+								placeholder="用于提现等账户安全操作" class="placeholderHack" value="$!WeiboUser.mobile"/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="mobile_tip" style=""></label></td>
+						</tr>	
+						<tr class="reg_sep">
+							<td class="first">短信验证码：</td>
+							<td><input type="text" tabindex="5" id="smsCode" name="smsCode"
+								placeholder="" class="placeholderHack" value=""/></td>
+							<td><label for="mail">*</label></td>
+							<td><label class="tip_label" id="smsCode_tip" style=""></label></td>
+						</tr>-->	
+					</table>
+					<div class="reg_sep">
+						<input id="agree" type="checkbox" checked="checked" tabindex="8"/>
+						<label for="agree">我已阅读并同意<a class="agree-support" href="http://trade.davcai.com/df/about/terms" target="_blank">《大V彩服务协议》</a></label>
+					</div>
+					<label style="color:red" id="agree_tip"></label>
+					<div class="reg_sep">
+						<input id="regist_button" type="button" tabindex="9" value="注册" class="button_red regbtn" onclick="regist()"/>
+					</div>
+					<div id="regist_loading" class="loading" style="display:none;"></div>
+					#if($resultMessage.success == false)
+					##<div class="reg_sep">
+					##	<label for="errorMessage" style="color:#1923E2">$resultMessage.desc</label>
+					##</div>
+					<script type="text/javascript">
+						jQuery(document).ready(function (){
+							alert('$resultMessage.desc');
+						});
+					</script>
+					#end
+				</form>
+			</ul>
+		</div>
+	</div>
+</div>

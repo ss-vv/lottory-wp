@@ -1,0 +1,25 @@
+#set($layout="web/real-and-follow.vm")
+#set($p_title="北单晒单")
+#set($styles=["css/list-open.css","css/davcai/real-and-follow/real-and-follow.css"])
+
+#set($scripts=[])
+<div class="post-content-left">
+	<div class="post-contentleft-top">
+	 	<p class="classify">
+	 		<span><a href="http://www.davcai.com/realfollow/category_ALL">全部</a></span>
+	 		<span><a href="http://www.davcai.com/realfollow/category_JCZQ">竞足</a></span>
+	 		<span><a href="http://www.davcai.com/realfollow/category_JCLQ">竞篮</a></span>
+	 		<span><a href="javascript:void(0);" class="active">北单</a></span>
+	 		<!--<span class="date-time">2014-11-07</span>-->
+	 	</p>
+	 	#parse("/web/realfollow/sort.vm")
+	 	<ul class="status-list" bjdc style="margin-left: 30px;margin-top: 21px;width: 640px;"></ul>
+	</div><!----------post-contentleft-top部分结束------------->
+ </div><!-----post-content-left结束----->
+<script type="text/javascript">
+ 	jQuery(document).ready(function (){
+		realWeiboPageReadyFunction(LT.Settings.URLS.realfollow.ajaxBJDC,
+			"http://www.davcai.com/realfollow/category_BJDC",
+			"bjdc"); 
+	});
+</script>

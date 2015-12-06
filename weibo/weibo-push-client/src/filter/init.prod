@@ -1,0 +1,11 @@
+# redis
+redis.url = 10.171.13.215
+redis.port = 33133
+pushServerUrl=http://push.davcai.com/push-server/comet
+# getui
+appID = VyQlMW52Fy8eqjzNcJfS02
+appSecret = ErgOuD8xMN9kYrsXncJVJ
+appKey = tfJ1BbBf3W5vvtsBbYnVC
+masterSecret = KfryGt6ZqK6O51rW2vfR82
+
+ge.tui = http://sdk.open.api.igexin.com/apiex.htm

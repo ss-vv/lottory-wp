@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+	default-autowire="byName">
+
+	<bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+	<amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+	<bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="mqFactory" />
+	</bean>
+
+	<!-- 消息发送器 -->
+	<bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender"
+		init-method="init" destroy-method="destroy">
+		<property name="threads" value="${amq.sender.threads}" />
+		<property name="producers">
+			<map>
+				<entry key="BonusHandle" value-ref="bonusPool" />
+				<entry key="WinAddBonus" value-ref="userWinAddBonusPostWeibo" />
+			</map>
+		</property>
+	</bean>
+	<bean id="bonusHandler" class="com.unison.lottery.pm.jms.handle.BonusHandler" />
+	<bean id="bonusPool" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="PM_WEEK_BONUS_QUEUE" physicalName="com.xhcms.lottery.queue.PM_WEEK" />
+		</property>
+	</bean>
+
+	<!-- 中奖加奖微博推送 -->
+	<bean id="userWinAddBonusPostWeibo" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="PM_WIN_ADD_BONUS_WEIBO_QUEUE"
+				physicalName="com.xhcms.lottery.queue.PM_WIN_ADD_BONUS_WEIBO_QUEUE" />
+		</property>
+	</bean>
+
+	<!-- ‘中奖加奖’活动消息处理类 -->
+	<bean id="winAddBonusListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="mqFactory" />
+		<property name="destination">
+			<amq:queue name="PM_WEEK_BONUS_QUEUE_receive" physicalName="com.xhcms.lottery.queue.PM_WEEK" />
+		</property>
+		<property name="messageListener">
+			<bean
+				class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+				<property name="defaultListenerMethod" value="handle" />
+				<constructor-arg ref="bonusHandler" />
+			</bean>
+		</property>
+		<property name="concurrency" value="1" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,220 @@
+#set($p_title="彩票导航") 
+#set($layout="default_with_new_topics_footer.vm")
+    <div class="navigation-header">
+    	<h1>
+    		<a href="#" class="siteName">彩票网站导航</a>
+    	</h1>
+    	<ul class="navigation-share" style="display:none">
+    		<h3>分享:</h3>
+    		<li class="sina"><a href="#"></a></li>
+    		<li class="qqzone"><a href="#"></a></li>
+    		<li class="qqweibo"><a href="#"></a></li>
+    		<li class="douban"><a href="#"></a></li>
+    		<li class="renren"><a href="#"></a></li>
+    	</ul>
+    </div><!----------navigation-header结束------------->
+    
+    
+    
+    <div class="navigation-content"><!-------navigation-content开始---------->
+    	  <div class="navigation-left">
+    	  	  <ul>
+    	  	  	<li> 
+    	  	  		<h4>常用工具</h4>
+    	  	  		<span><a href="http://1x2.win007.com" target="_blank">欧洲赔率</a></span>
+    	  	  		<span><a href="http://am.7m.cn/big/winodds.shtml" target="_blank">亚洲盘口</a></span>
+    	  	  		<span><a href="http://sfc.cpdyj.com" target="_blank">足彩过滤</a></span>
+    	  	  		<span><a href="http://www.icaile.com/modules/digitfilter/index.php" target="_blank">数字彩过滤</a></span>
+    	  	  		<span><a href="http://info.win007.com/info/index_cn.htm" target="_blank">足球资料库</a></span>
+    	  	  		<span><a href="http://nba.win007.com" target="_blank">篮球资料库</a></span>
+    	  	  		<span><a href="http://www.tianqi.com/worldcity.html" target="_blank">天气查询</a></span>
+    	  	  		<span><a href="http://www.shijiemap.com" target="_blank">世界地图</a></span>
+    	  	  		<span><a href="http://kjh.cailele.com/kj_sports.aspx" target="_blank">竞技彩开奖</a></span>
+    	  	  		<span><a href="http://www.aibo123.com/kaijiang/szc/" target="_blank">数字彩开奖</a></span>
+    	  	  		<span><a href="http://datachart.500.com/fucai.shtml" target="_blank">福彩走势图</a></span>
+    	  	  		<span><a href="http://datachart.500.com/ticai.shtml" target="_blank">体彩走势图</a></span>
+    	  	  		<span><a href="http://www.dfic.cn" target="_blank">精彩图集</a></span>
+    	  	  		<span><a href="http://www.jj20.com/bz/tyyd" target="_blank">壁纸下载</a></span>
+                 </li>
+                 <li> 
+    	  	  		<h4>应用推荐</h4>
+    	  	  		<span><a href="http://www.davcai.com">大V彩</a></span>
+    	  	  		<span><a href="http://www.500.com/wap/index.php" target="_blank">500</a></span>
+    	  	  		<span><a href="http://www.okooo.com/shoujigoucai/huodong" target="_blank">澳客</a></span>
+    	  	  		<span><a href="http://www.win007.com/app" target="_blank">球探</a></span>
+    	  	  		<span><a href="http://www.wozhongla.com/lottery/mobile/index.shtml" target="_blank">我中啦</a></span>
+    	  	  		<span><a href="http://www.lecai.com/mobile" target="_blank">乐彩</a></span>
+    	  	  		<span><a href="http://www.aicai.com/pages/mobile/mobileIndex.jsp" target="_blank">新浪彩票</a></span>
+    	  	  		<span><a href="http://888.qq.com/m.html" target="_blank">QQ彩票</a></span>
+    	  	  		<span><a href="http://caipiao.163.com/outside/getclient_cp.html" target="_blank">网易彩票</a></span>
+    	  	  		<span><a href="http://lottery.taobao.com" target="_blank">淘宝彩票</a></span>
+    	  	  		<span><a href="http://mobile.hupu.com" target="_blank">虎扑</a></span>
+    	  	  		<span><a href="http://www.kanqiu.la" target="_blank">看球啦</a></span>
+    	  	  		<span><a href="http://www.zuitiyu.com/client" target="_blank">最体育</a></span>
+    	  	  		<span><a href="http://m.huanhuba.com/home/index/redirectWX" target="_blank">欢呼吧</a></span>
+                 </li>
+                  <li> 
+    	  	  		<h4>名站导航</h4>
+    	  	  		<span><a href="http://www.hao123.com" target="_blank">hao123</a></span>
+    	  	  		<span><a href="http://www.114la.com" target="_blank">114啦</a></span>
+    	  	  		<span><a href="http://live.pptv.com/list/sports_program" target="_blank">PPTV体育</a></span>
+    	  	  		<span><a href="http://sports.cntv.cn/football/index.shtml" target="_blank">央视弦足球</a></span>
+    	  	  		<span><a href="http://sports.cntv.cn" target="_blank">CNTV体育</a></span>
+    	  	  		<span><a href="http://live.sports.ifeng.com/index.shtml" target="_blank">凤凰体育直播</a></span>
+    	  	  		<span><a href="http://sports.mop.com" target="_blank">猫扑体育</a></span>
+    	  	  		<span><a href="http://sports.yahoo.com" target="_blank">雅虎体育</a></span>
+    	  	  		<span><a href="http://www.etzuqiu.com" target="_blank">ET足球</a></span>
+    	  	  		<span><a href="http://www.ballpure.com" target="_blank">爆棚</a></span>
+    	  	  		<span><a href="http://www.dongqiudi.com" target="_blank">懂球帝</a></span>
+    	  	  		<span><a href="http://www.ept-team.com/forum-29-1.html" target="_blank">EPT实况论坛</a></span>
+    	  	  		<span><a href="http://www.baballs.com" target="_blank">巴布网</a></span>
+    	  	  		<span><a href="http://www.kitstown.com" target="_blank">球衫堂</a></span>
+                 </li>
+    	  	  </ul>
+    	  </div><!-------navigation-left部分-------->
+    	
+    	
+    	
+    	
+    	  <div class="navigation-right">
+    	  	 <ul> 
+	    	  	  <li>
+	    	  	  	<h4>常用网站</h4>
+	    	  	  	<span><a href="http://www.zhcw.com" target="_blank">中彩网</a></span>
+	    	  	  	<span><a href="http://www.lottery.gov.cn" target="_blank">中国体彩网</a></span>
+    	  	  		<span><a href="http://www.sporttery.cn" target="_blank">中国竞彩网</a></span>
+    	  	  		<span><a href="http://www.500.com" target="_blank">500彩票网</a></span>
+    	  	  		<span><a href="http://www.okooo.com" target="_blank">人民澳客</a></span>
+    	  	  		<span><a href="http://lottery.sina.com.cn" target="_blank">新浪彩票</a></span>
+    	  	  		<span><a href="http://www.310win.com" target="_blank">彩客网</a></span>
+    	  	  		<span><a href="http://bf2.7m.cn" target="_blank">7m比分</a></span>
+	    	  	  	<span><a href="http://live.win007.com" target="_blank">球探比分</a></span>
+    	  	  		<span><a href="http://live.nowscore.com" target="_blank">捷报比分</a></span>
+    	  	  		<span><a href="http://live.xunying.com" target="_blank">迅盈比分</a></span>
+    	  	  		<span><a href="http://www.titan24.com" target="_blank">体坛网</a></span>
+    	  	  		<span><a href="http://www.tuijie.cc" target="_blank">推介网</a></span>
+    	  	  		<span><a href="http://www.1soccer.com" target="_blank">第一足球网</a></span>
+    	  	  		<span><a href="http://www.touzhu.cn" target="_blank">投注网</a></span>
+	    	  	  	<span><a href="http://www.sodasoccer.com" target="_blank">搜达足球</a></span>
+    	  	  		<span><a href="http://c.spdex.com" target="_blank">必发数据</a></span>
+    	  	  		<span><a href="http://www.cnball.net" target="_blank">中国足球信息网</a></span>
+    	  	  		<span><a href="http://www.90vs.com" target="_blank">90WIN</a></span>
+	    	  	  </li>
+	    	  	  <li>
+	    	  	  	<h4>官方网站</h4>
+	    	  	  	<span><a href="http://www.zhcw.com" target="_blank">中彩网</a></span>
+	    	  	  	<span><a href="http://www.lottery.gov.cn" target="_blank">中国体彩网</a></span>
+    	  	  		<span><a href="http://www.sporttery.cn" target="_blank">中国竞彩网</a></span>
+    	  	  		<span><a href="http://www.500.com" target="_blank">500彩票网</a></span>
+    	  	  		<span><a href="http://www.fa.org.cn" target="_blank">中国足协</a></span>
+    	  	  		<span><a href="http://www.cba.gov.cn" target="_blank">中国篮协</a></span>
+    	  	  		<span><a href="http://www.uefa.com" target="_blank">欧足联</a></span>
+    	  	  		<span><a href="http://www.the-afc.tv" target="_blank">亚足联</a></span>
+	    	  	  </li>
+	    	  	  <li>
+	    	  	  	<h4>投注推介</h4>
+	    	  	  	<span><a href="http://www.zgzcw.com" target="_blank">中国足彩网</a></span>
+	    	  	  	<span><a href="http://www.caipiaokong.com" target="_blank">彩票控</a></span>
+    	  	  		<span><a href="http://www.888win.cn" target="_blank">章鱼彩票</a></span>
+    	  	  		<span><a href="http://www.touzhu.cn" target="_blank">投注网</a></span>
+    	  	  		<span><a href="http://www.tuijie.cc" target="_blank">推介网</a></span>
+    	  	  		<span><a href="http://bbs.jc258.cn" target="_blank">竞彩258</a></span>
+    	  	  		<span><a href="http://www.qiupan.com" target="_blank">球盘体育</a></span>
+    	  	  		<span><a href="http://www.okdfw.com" target="_blank">足彩大富翁</a></span>
+	    	  	  	<span><a href="http://www.likeball.com" target="_blank">乐球网</a></span>
+    	  	  		<span><a href="http://www.spbo.com" target="_blank">体球网</a></span>
+    	  	  		<span><a href="http://www.jcbao.com" target="_blank">竞彩报</a></span>
+    	  	  		<span><a href="http://www.90oo.com" target="_blank">90分钟</a></span>
+	    	  	  </li>
+	    	  	   <li>
+	    	  	  	<h4>足球资讯</h4>
+	    	  	  	<span><a href="http://www.1soccer.com" target="_blank">第一足球网</a></span>
+	    	  	  	<span><a href="http://www.miqiu.com" target="_blank">迷球</a></span>
+    	  	  		<span><a href="http://www.okdfw.com" target="_blank">足彩大富翁</a></span>
+    	  	  		<span><a href="http://www.goalchina.net" target="_blank">足球报社</a></span>
+    	  	  		<span><a href="http://www.zucai310.com/modules/enews" target="_blank">足彩310</a></span>
+    	  	  		<span><a href="http://www.goal.com/hk" target="_blank">Goal中文网</a></span>
+    	  	  		<span><a href="http://www.totochina.com" target="_blank">中国足彩在线</a></span>
+    	  	  		<span><a href="http://www.boti.cn" target="_blank">博体球讯</a></span>
+	    	  	  	<span><a href="http://sports.sina.com.cn/global" target="_blank">新浪足球</a></span>
+    	  	  		<span><a href="http://sports.163.com/world" target="_blank">网易足球</a></span>
+    	  	  		<span><a href="http://sports.qq.com/isocce" target="_blank">腾讯足球</a></span>
+    	  	  		<span><a href="http://sports.sohu.com/guojizuqiu.shtml" target="_blank">搜狐足球</a></span>
+	    	  	  </li>
+	    	  	   <li>
+	    	  	  	<h4>篮球资讯</h4>
+	    	  	  	<span><a href="http://nba.hupu.com" target="_blank">虎扑NBA</a></span>
+	    	  	  	<span><a href="http://www.tbba.com.cn" target="_blank">TBBA中文网</a></span>
+    	  	  		<span><a href="http://sports.tom.com" target="_blank">TOM-NBA</a></span>
+    	  	  		<span><a href="http://www.nba.com" target="_blank">NBA官网</a></span>
+    	  	  		<span><a href="http://sports.sina.com.cn/nba" target="_blank">新浪NBA</a></span>
+    	  	  		<span><a href="http://sports.sohu.com/nba.shtml" target="_blank">搜狐NBA</a></span>
+    	  	  		<span><a href="http://sports.qq.com/nba" target="_blank">腾讯NBA</a></span>
+    	  	  		<span><a href="http://www.macauslot.com/nba/html" target="_blank">澳彩NBA</a></span>
+	    	  	  </li>
+	    	  	   <li>
+	    	  	  	<h4>综合资讯</h4>
+	    	  	  	<span><a href="http://www.titan24.com" target="_blank">体坛</a></span>
+	    	  	  	<span><a href="http://e.titan24.com" target="_blank">体坛周报</a></span>
+    	  	  		<span><a href="http://www.singpao.com/ty" target="_blank">成报</a></span>
+    	  	  		<span><a href="http://sports.tom.com" target="_blank">TOM体育</a></span>
+    	  	  		<span><a href="http://www.sports.cn" target="_blank">华奥星空</a></span>
+    	  	  		<span><a href="http://lottery.sina.com.cn" target="_blank">新浪彩票</a></span>
+    	  	  		<span><a href="http://sports.qq.com/lottery" target="_blank">腾讯彩票</a></span>
+    	  	  		<span><a href="http://caipiao.163.com" target="_blank">网易彩票</a></span>
+	    	  	  	<span><a href="http://caipiao.sohu.com" target="_blank">搜狐彩票</a></span>
+    	  	  		<span><a href="http://www.totalsportsasia.cn" target="_blank">全能体育</a></span>
+    	  	  		<span><a href="http://sports.qianlong.com" target="_blank">千龙体育</a></span>
+    	  	  		<span><a href="http://www.dfsports.com.cn" target="_blank">东方体育</a></span>
+    	  	  		<span><a href="http://www.miqiu.com" target="_blank">迷球</a></span>
+    	  	  		<span><a href="http://www.xunying.com" target="_blank">迅盈</a></span>
+    	  	  		<span><a href="http://www.b310.com" target="_blank">博球</a></span>
+	    	  	  	<span><a href="http://www.goal.com/hk" target="_blank">Goal</a></span>
+    	  	  		<span><a href="http://www.hupu.com" target="_blank">虎扑</a></span>
+    	  	  		<span><a href="http://www.macauslot.com" target="_blank">澳门彩票</a></span>
+    	  	  		<span><a href="http://www.1soccer.com" target="_blank">第一足球网</a></span>
+    	  	  		<span><a href="http://sports.163.com" target="_blank">网易体育</a></span>
+    	  	  		<span><a href="http://sports.sina.com.cn" target="_blank">新浪体育</a></span>
+	    	  	  </li>
+	    	  	   <li>
+	    	  	  	<h4>比分直播</h4>
+	    	  	  	<span><a href="http://www.zhibo8.cc" target="_blank">直播吧</a></span>
+	    	  	  	<span><a href="http://www.tiyu8.com" target="_blank">体育吧</a></span>
+    	  	  		<span><a href="http://live.win007.com" target="_blank">球探网</a></span>
+    	  	  		<span><a href="http://www.gooooal.com" target="_blank">雪缘园</a></span>
+    	  	  		<span><a href="http://www.nowscore.com" target="_blank">捷报</a></span>
+    	  	  		<span><a href="http://tiantian.tv" target="_blank">天天直播</a></span>
+    	  	  		<span><a href="http://www.ccav5.com" target="_blank">足球直播</a></span>
+    	  	  		<span><a href="http://www.iveboo.com" target="_blank">我爱足球</a></span>
+	    	  	  	<span><a href="http://bf2.7m.cn" target="_blank">7m比分</a></span>
+    	  	  		<span><a href="http://bf.90vs.com" target="_blank">90比分</a></span>
+    	  	  		<span><a href="http://www.258zb.com" target="_blank">258直播</a></span>
+    	  	  		<span><a href="http://www.8bo.com" target="_blank">8波比分</a></span>
+	    	  	  </li>
+	    	  	   <li>
+	    	  	  	<h4>资料查询</h4>
+	    	  	  	<span><a href="http://www.sodasoccer.com" target="_blank">搜达足球</a></span>
+	    	  	  	<span><a href="http://www.huanhuba.com" target="_blank">欢呼吧</a></span>
+    	  	  		<span><a href="http://c.spdex.com" target="_blank">必发数据</a></span>
+    	  	  		<span><a href="http://data.b310.com" target="_blank">博球</a></span>
+    	  	  		<span><a href="http://www.cnball.net" target="_blank">中国足球信息网</a></span>
+    	  	  		<span><a href="http://info.nowscore.com" target="_blank">捷报资料库</a></span>
+    	  	  		<span><a href="http://www.90vs.com" target="_blank">90WIN</a></span>
+    	  	  		<span><a href="http://info.win007.com" target="_blank">球探数据库</a></span>
+	    	  	  </li>
+	    	  	   <li>
+	    	  	  	<h4>国外名站</h4>
+	    	  	  	<span><a href="http://www.soccerway.com" target="_blank">Soccerway</a></span>
+	    	  	  	<span><a href="http://www.oddsportal.com" target="_blank">Odds Portal</a></span>
+    	  	  		<span><a href="http://www.fourfourtwo.com" target="_blank">442</a></span>
+    	  	  		<span><a href="http://www.goals365.com" target="_blank">Goals365</a></span>
+    	  	  		<span><a href="http://www.cbssports.com" target="_blank">CBSsports</a></span>
+    	  	  		<span><a href="http://www.betrescue.com" target="_blank">BetRescue</a></span>
+    	  	  		<span><a href="http://www.goalzz.com" target="_blank">GOALZZ</a></span>
+    	  	  		<span><a href="http://www.txodds.com" target="_blank">TXODDS</a></span>
+	    	  	  </li>
+    	  	  </ul>
+    	  </div><!-------navigation-right部分-------->
+	
+    </div><!-----------navigation-content结束----------->
+     <p class="cut-off-line"></p>

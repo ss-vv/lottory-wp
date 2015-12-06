@@ -1,0 +1,162 @@
+#set($layout="web/regist-guide.vm")
+#set($p_title="上传头像")
+#set($styles=["css/regist-guide.css"])
+#set($scripts=["js/jquery.form.js","js/cities.js","js/jquery/jquery.uploadify.min.js",
+			   "js/imgareaselect/jquery.imgareaselect.pack.js",
+			   "js/web/profile/upload_head_after_regist.js"])
+
+<div class="regist-guide-progress-bar">
+	<span class="span01">完善个人资料</span>
+	<span class="span02">关注你感兴趣的彩种</span>
+	<span class="span03">关注其他彩票人</span>
+	<p><img src="images/step-1.png"/></p>
+</div><!---------progress-bar部分----------->
+<div id="personal-data">
+	<p class="personal-data-title">欢迎来到大V彩，请完善以下信息，以获得更好的服务</p>
+	<form id="profile-form" action="save_face_after_regist" method="post" class="personal-data-form">
+	    <input id="headImageData_headImageURL" type="hidden" value="$user.headImageURL" name="headImageData.headImageURL">
+	    <input id="headImageData_x1" type="hidden" value="" name="headImageData.x1">
+	    <input id="headImageData_y1" type="hidden" value="" name="headImageData.y1">
+	    <input id="headImageData_x2" type="hidden" value="" name="headImageData.x2">
+	    <input id="headImageData_y2" type="hidden" value="" name="headImageData.y2">
+	    <ul>
+          	<li>
+            	<label>居住地</label>
+            	<select id="province" name="newUserProfile.province"></select>
+				<select id="city" name="newUserProfile.city"></select>
+            </li>
+            <li>
+  	    		<label>性别</label>
+                <select id="gender" name="newUserProfile.gender">
+                    <option id="genderN" value="0" name="gender" #if(${user.gender} == 0) selected='selected' #end>不详</option>
+                    <option id="genderMale" value="1" name="gender" #if(${user.gender} == 1) selected='selected' #end>男</option>
+                	<option id="genderFemale" value="2" name="gender" #if(${user.gender} == 2) selected='selected' #end>女</option>
+                </select>
+			</li>
+			<li>
+  	    		<label class="upload-picture">上传头像</label>
+  	    		<div style="margin-left: 109px;">
+	  	    		<div id="selectFaceImageFileBtn"  _s="$session.id">
+				    </div>
+				    <span id="head_image_progress" style="padding-top: 4px;margin-left: 22px;font-size: 13px;color: #BBB;margin-right: 390px;margin-top: -30px;float: right;"></span>
+			    </div>
+  	    	</li>
+  	    	<li class="personal-data-form-explain margin-top">
+  	    		<label></label>
+  	    		<p>支持JPG、JPEG、PNG格式图片，不超过2M。拖拽或缩放图中的虚线</p>
+  	    	</li>
+  	    	
+  	    	<li class="personal-data-form-explain">
+  	    		<p>方格可调整头像，注意右侧小头像预览效果。</p>
+  	    	</li>
+			<li class="personal-data-form-preview">
+		    	  <style>label{ float:left } .uploadbar_r { float: left; padding-top: 4px; line-height: 24px; } .uploadbar img { float: left; margin-right: 10px; } #ferret{ margin: 0 auto; display: block; vertical-align: middle; } .preview{ overflow:hidden;zoom:1 } #previewImg{ display:block; } #bigPriview{ width:50px; height:50px; overflow:hidden; zoom:1 } #littlePriview{ width:30px; height:30px; overflow:hidden; zoom:1 } .previewBlock{ padding-left: 55px; overflow: hidden; zoom: 1; } .previewBlock h2{ font-weight: normal; line-height: 18px; margin-bottom: 10px; margin-left: 0; } .previewBlock p{ color:gray; clear:both; line-height:18px; font-size:12px } .imgBlock { margin-top:10px } .imgBlock img{ float:none; } .imgBlock .originImg{ float:left; } .previewBlock h2 { padding-left:0 } .originImg{ width: 202px; margin-top: 10px; } .originImg .zone{ margin: 0 auto; height: 180px; width: 180px; display: table-cell; font-size: 144px; vertical-align: middle; } .rotateLeft,.rotateRight{ display:block; height:24px; } .rotateLeft span,.rotateRight span{ float:left; } .rotateLeft .icon,.rotateRight .icon{ width:14px; height:24px; background:url(http://assets.xueqiu.com/images/icons.png) no-repeat -316px 0 } .rotateRight .icon{ background:url(http://assets.xueqiu.com/images/icons.png) no-repeat -336px 0 } /* * imgAreaSelect default style */ .imgareaselect-border1 { background: url(http://assets.xueqiu.com/images/border-v.gif) repeat-y left top; } .imgareaselect-border2 { background: url(http://assets.xueqiu.com/images/border-h.gif) repeat-x left top; } .imgareaselect-border3 { background: url(http://assets.xueqiu.com/images/border-v.gif) repeat-y right top; } .imgareaselect-border4 { background: url(http://assets.xueqiu.com/images/border-h.gif) repeat-x left bottom; } .imgareaselect-border1, .imgareaselect-border2, .imgareaselect-border3, .imgareaselect-border4 { filter: alpha(opacity=50); opacity: 0.5; } .imgareaselect-handle { background-color: #fff; border: solid 1px #000; filter: alpha(opacity=50); opacity: 0.5; } .imgareaselect-outer { background-color: #000; filter: alpha(opacity=20); opacity: 0.2; } p.info{ width:350px; line-height:20px; margin-top:0; margin-bottom:10px; color:#999; font-size:12px }</style>
+	              <div class="imgBlock" style="margin-left: 111px;margin-top:25px">
+		                <div class="originImg newImg">
+						  <div class="zone">
+						  	<img id="headImage" style="width: 180px;height: 180px;" src="
+						    #if($user.headImageURL) 
+						    	$user.headImageURL
+						    #else
+						        /images/default_face.jpg
+						    #end">
+						    </img>
+						  </div>
+						</div>
+						<div class="previewBlock newImg">
+						  <h2>头像预览：</h2>
+						  <div id="bigPriview">
+						    <img id="previewImg" src="
+						    #if($user.headImageURL) 
+						    	$user.headImageURL
+						    #else
+						        images/default_image
+						    #end" 
+						    style="width: 60px; height: 60px; margin-left: -5px; margin-top: -5px;"></img>
+						  </div>
+						</div>
+						<div class="progress progress-striped" style="margin: 68px;width: 120px;display:none" id="progress_bar">
+					  		<div class="progress-bar" style="width:0%" id="progress_bar_value">0%</div>
+						</div>
+	              </div>
+			</li>
+			<li style="margin-top:30px;">
+                <label class="person-profile">个人简介</label>
+                <textarea id="desc" name="newUserProfile.individualResume" style="font-size: 14px;height: 100px;width: 430px;padding: 10px 10px 10px 10px;">$!{user.individualResume}</textarea>
+			</li>
+			<li>
+				<label></label>
+				<div style="margin-top:115px;">
+					<input type="button" value="下一步" class="btn btn-primary" style="width:100px;" id="submitFaceButton" onclick="" >
+				</div>
+			</li>
+		</ul>
+	</form>
+</div>
+
+<!--省市js代码-->
+<script>
+  var province = "$!{user.province}";
+  var city = "$!{user.city}";
+
+  //初始化城市和地区的选择框
+  function initPA(prov, area) {
+    jQuery("select[id='" + prov +"']").each(function(){
+      jQuery(this).empty();
+      for(var i = 0; i < arrCity.length; i++) {
+        if(i > 0) {
+          jQuery("<option value='" + arrCity[i]['name'] +"'>" + arrCity[i]['name'] + "</option>").appendTo(this);
+        } else {
+          jQuery("<option value=''>" + arrCity[i]['name'] + "</option>").appendTo(this);
+        }
+      }   
+    });
+    
+    jQuery("select[id='" + prov +"']").css('width', 'auto');
+    
+    jQuery("select[id='" + area +"']").each(function(){
+      jQuery(this).empty();
+      jQuery("<option value=''>" +  arrCity[0]['sub'][0]['name'] + "</option>").appendTo(this);
+    });
+    
+    jQuery("select[id='" + prov +"']").change(function(){
+      jQuery("select[id='" + area +"']").empty();
+      var selectedIndex = jQuery(this).find("option:selected")[0].index;
+      for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+        var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+        if(i > 0) {
+                jQuery("<option value='" + areaName +"'>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+        } else {
+          jQuery("<option value=''>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+        }
+      }
+    });
+    
+    if(province.length > 0){
+      setTimeout(function(){
+        jQuery("select[id='" + prov +"']").val(province);
+        var selectedIndex = jQuery("select[id='" + prov + "'] option[value='" + province +"']")[0].index;
+        
+        for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+          var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+          if(i > 0) {
+                jQuery("<option value='" + areaName +"'>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+          } else {
+            //jQuery("<option value=''>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+          }
+        }
+      }, 1);
+    }
+    
+    if(city.length > 0){
+      setTimeout(function(){
+        jQuery("select[id='" + area +"']").val(city);
+      }, 1);
+    }
+    
+  }
+
+  jQuery(function(){ 
+    initPA("province", "city");
+  });
+</script>

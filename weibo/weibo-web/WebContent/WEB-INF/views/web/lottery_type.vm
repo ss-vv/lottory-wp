@@ -1,0 +1,236 @@
+ <div class="davcai-content-middle">
+  	  	    	<ul class="lottery-nav-tab">
+  	  	    		<li id="davcai-qb" class="active"><a href="javascript:void(0);">全部</a></li>
+  	  	    		<li id="davcai-jz"><a href="javascript:void(0);">竞足</a></li>
+  	  	    		<li id="davcai-jl"><a href="javascript:void(0);">竞篮</a></li>
+  	  	    		<li id="davcai-zc"><a href="javascript:void(0);">足彩</a></li>
+  	  	    		<li id="davcai-bd"><a href="javascript:void(0);">北单</a></li>
+  	  	    		<li id="davcai-ssq"><a href="javascript:void(0);">双色球</a></li>
+  	  	    	</ul><!--lottery-nav-tab结束了--->
+  	  	    	
+  	  	    	<div class="lottery-nav-outer">
+  	  	    		<ul class="lottery-nav-explain">
+  	  	    			<li class="width01">玩法</li>
+  	  	    			<li class="width02">类型</li>
+  	  	    			<li class="width03">认购金额</li>
+  	  	    			<li class="width04">状态</li>
+  	  	    			<li class="width05">我的奖金</li>
+  	  	    			<li class="width06">认购时间</li>
+  	  	    			<li class="width07">操作</li>
+  	  	    		</ul>
+  	  	    		
+  	  	    	<div class="davcai-jz">	<!-------竞足------->
+  	  	    		<div class="lottery-sun">
+  	  	    			 <ul class="lottery-sun-top">
+  	  	    			 	<li class="width01">
+  	  	    			 		<i><img src="../../../images/davcai/header/red-bottom-triangle.png" def="1"></i>
+  	  	    			 		竞足 混合投注
+  	  	    			 	</li>
+	  	  	    			<li class="width02">跟单</li>
+	  	  	    			<li class="width03 color01">234元</li>
+	  	  	    			<li class="width04">未出票</li>
+	  	  	    			<li class="width05 color01">--</li>
+	  	  	    			<li class="width06 color02">2014-10-14</li>
+	  	  	    			<li class="width07"><a href="javascript:void(0);" class="color03">晒 详</a></li>
+  	  	    			 </ul><!--lottery-sun-top结束-->
+  	  	    			 
+  	  	    			<div class="lottery-sun-middle">
+  	  	    				<ul class="lottery-sun-middle-nav">
+  	  	    					<li class="width11">赛事编号</li>
+		  	  	    			<li class="width12">主队VS客队</li>
+		  	  	    			<li class="width13">玩法</li>
+		  	  	    			<li class="width14">让球</li>
+		  	  	    			<li class="width15">投注内容</li>
+		  	  	    			<li class="width16">比分</li>
+		  	  	    			<li class="width17">赛果</li>
+  	  	    				</ul>
+  	  	    				<ul class="lottery-sun-middle-details">
+  	  	    					<li class="width11">周五005</li>
+  	  	    					<li class="width12" >
+  	  	    						<a href="javascript:void(0);" class="color11">南锡&nbsp;VS&nbsp;阿尔勒</a>
+  	  	    					</li>
+  	  	    					<li class="width13">让球胜平负</li>
+  	  	    					<li class="width14">-1</li>
+  	  	    					<li class="width15 dan">负</li>
+  	  	    					<li class="width16">上 0:0</li>
+  	  	    					<li class="width17">胜</li>
+  	  	    				</ul>
+  	  	    				<ul class="lottery-sun-middle-details">
+  	  	    					<li class="width11">周五005</li>
+  	  	    					<li class="width12" >
+  	  	    						<a href="javascript:void(0);" class="color11">南锡&nbsp;VS&nbsp;阿尔勒</a>
+  	  	    					</li>
+  	  	    					<li class="width13">让球胜平负</li>
+  	  	    					<li class="width14">-1</li>
+  	  	    					<li class="width15">负</li>
+  	  	    					<li class="width16">上 0:0</li>
+  	  	    					<li class="width17">胜</li>
+  	  	    				</ul>
+  	  	    				<p class="lottery-sun-middle-ggfs">
+  	  	    					<span>过关方式：</span>
+  	  	    					<label>混合过关</label>
+  	  	    					<label>8串1</label>
+  	  	    				</p>
+                           <p class="lottery-sun-middle-bj">
+                           	    <span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数：</span>
+  	  	    					<label><i class="color11">21</i>倍</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  	  	    					<span>方案金额：</span>
+  	  	    					<label><i class="color11">56</i>元</label>
+                           </p>
+                           <p class="lottery-sun-middle-jjhb">
+                           	    <span>理论最高奖金：</span>
+  	  	    					<label><i class="color11">1300</i>元</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  	  	    					<span>回报率： </span>
+  	  	    					<label><i class="color11">56</i>倍</label>
+                           </p>
+  	  	    			</div><!--lottery-sun-middle结束--->
+  	  	    	    <div class="lottery-sun-bottom"></div><!---lottery-sun-bottom结束---->
+  	  	    	    </div><!---第一条lottery-sun--->
+  	  	    		
+  	  	    		
+  	  	    		<div class="lottery-sun">
+  	  	    			 <ul class="lottery-sun-top">
+  	  	    			 	<li class="width01">
+  	  	    			 		<i><img src="../../../images/davcai/header/red-right-triangle.png" def="0"></i>
+  	  	    			 		竞足 混合投注
+  	  	    			 	</li>
+	  	  	    			<li class="width02">跟单</li>
+	  	  	    			<li class="width03 color01">234元</li>
+	  	  	    			<li class="width04">未出票</li>
+	  	  	    			<li class="width05 color01">--</li>
+	  	  	    			<li class="width06 color02">2014-10-14</li>
+	  	  	    			<li class="width07"><a href="javascript:void(0);" class="color03">晒 详</a></li>
+  	  	    			 </ul><!--lottery-sun-top结束-->
+  	  	    			 
+  	  	    			<div class="lottery-sun-middle">
+  	  	    				<ul class="lottery-sun-middle-nav">
+  	  	    					<li class="width11">赛事编号</li>
+		  	  	    			<li class="width12">主队VS客队</li>
+		  	  	    			<li class="width13">玩法</li>
+		  	  	    			<li class="width14">让球</li>
+		  	  	    			<li class="width15">投注内容</li>
+		  	  	    			<li class="width16">比分</li>
+		  	  	    			<li class="width17">赛果</li>
+  	  	    				</ul>
+  	  	    				<ul class="lottery-sun-middle-details">
+  	  	    					<li class="width11">周五005</li>
+  	  	    					<li class="width12" >
+  	  	    						<a href="javascript:void(0);" class="color11">南锡&nbsp;VS&nbsp;阿尔勒</a>
+  	  	    					</li>
+  	  	    					<li class="width13">让球胜平负</li>
+  	  	    					<li class="width14">-1</li>
+  	  	    					<li class="width15 dan">负</li>
+  	  	    					<li class="width16">上 0:0</li>
+  	  	    					<li class="width17">胜</li>
+  	  	    				</ul>
+  	  	    				<ul class="lottery-sun-middle-details">
+  	  	    					<li class="width11">周五005</li>
+  	  	    					<li class="width12" >
+  	  	    						<a href="javascript:void(0);" class="color11">南锡&nbsp;VS&nbsp;阿尔勒</a>
+  	  	    					</li>
+  	  	    					<li class="width13">让球胜平负</li>
+  	  	    					<li class="width14">-1</li>
+  	  	    					<li class="width15">负</li>
+  	  	    					<li class="width16">上 0:0</li>
+  	  	    					<li class="width17">胜</li>
+  	  	    				</ul>
+  	  	    				<p class="lottery-sun-middle-ggfs">
+  	  	    					<span>过关方式：</span>
+  	  	    					<label>混合过关</label>
+  	  	    					<label>8串1</label>
+  	  	    				</p>
+                           <p class="lottery-sun-middle-bj">
+                           	    <span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数：</span>
+  	  	    					<label><i class="color11">21</i>倍</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  	  	    					<span>方案金额：</span>
+  	  	    					<label><i class="color11">56</i>元</label>
+                           </p>
+                           <p class="lottery-sun-middle-jjhb">
+                           	    <span>理论最高奖金：</span>
+  	  	    					<label><i class="color11">1300</i>元</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  	  	    					<span>回报率： </span>
+  	  	    					<label><i class="color11">56</i>倍</label>
+                           </p>
+  	  	    			</div><!--lottery-sun-middle结束--->
+  	  	    	    <div class="lottery-sun-bottom"></div><!---lottery-sun-bottom结束---->
+  	  	    	    </div><!---第二条lottery-sun结束了--->
+  	  	    	    
+  	  	    	    <div class="lottery-sun">
+  	  	    			 <ul class="lottery-sun-top">
+  	  	    			 	<li class="width01">
+  	  	    			 		<i><img src="../../../images/davcai/header/red-right-triangle.png" def="0"></i>
+  	  	    			 		竞足 混合投注
+  	  	    			 	</li>
+	  	  	    			<li class="width02">跟单</li>
+	  	  	    			<li class="width03 color01">234元</li>
+	  	  	    			<li class="width04">未出票</li>
+	  	  	    			<li class="width05 color01">--</li>
+	  	  	    			<li class="width06 color02">2014-10-14</li>
+	  	  	    			<li class="width07"><a href="javascript:void(0);" class="color03">晒 详</a></li>
+  	  	    			 </ul><!--lottery-sun-top结束-->
+  	  	    			 
+  	  	    			<div class="lottery-sun-middle">
+  	  	    				<ul class="lottery-sun-middle-nav">
+  	  	    					<li class="width11">赛事编号</li>
+		  	  	    			<li class="width12">主队VS客队</li>
+		  	  	    			<li class="width13">玩法</li>
+		  	  	    			<li class="width14">让球</li>
+		  	  	    			<li class="width15">投注内容</li>
+		  	  	    			<li class="width16">比分</li>
+		  	  	    			<li class="width17">赛果</li>
+  	  	    				</ul>
+  	  	    				<ul class="lottery-sun-middle-details">
+  	  	    					<li class="width11">周五005</li>
+  	  	    					<li class="width12" >
+  	  	    						<a href="javascript:void(0);" class="color11">南锡&nbsp;VS&nbsp;阿尔勒</a>
+  	  	    					</li>
+  	  	    					<li class="width13">让球胜平负</li>
+  	  	    					<li class="width14">-1</li>
+  	  	    					<li class="width15 dan">负</li>
+  	  	    					<li class="width16">上 0:0</li>
+  	  	    					<li class="width17">胜</li>
+  	  	    				</ul>
+  	  	    				<ul class="lottery-sun-middle-details">
+  	  	    					<li class="width11">周五005</li>
+  	  	    					<li class="width12" >
+  	  	    						<a href="javascript:void(0);" class="color11">南锡&nbsp;VS&nbsp;阿尔勒</a>
+  	  	    					</li>
+  	  	    					<li class="width13">让球胜平负</li>
+  	  	    					<li class="width14">-1</li>
+  	  	    					<li class="width15">负</li>
+  	  	    					<li class="width16">上 0:0</li>
+  	  	    					<li class="width17">胜</li>
+  	  	    				</ul>
+  	  	    				<p class="lottery-sun-middle-ggfs">
+  	  	    					<span>过关方式：</span>
+  	  	    					<label>混合过关</label>
+  	  	    					<label>8串1</label>
+  	  	    				</p>
+                           <p class="lottery-sun-middle-bj">
+                           	    <span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数：</span>
+  	  	    					<label><i class="color11">21</i>倍</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  	  	    					<span>方案金额：</span>
+  	  	    					<label><i class="color11">56</i>元</label>
+                           </p>
+                           <p class="lottery-sun-middle-jjhb">
+                           	    <span>理论最高奖金：</span>
+  	  	    					<label><i class="color11">1300</i>元</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  	  	    					<span>回报率： </span>
+  	  	    					<label><i class="color11">56</i>倍</label>
+                           </p>
+  	  	    			</div><!--lottery-sun-middle结束--->
+  	  	    	    <div class="lottery-sun-bottom"></div><!---lottery-sun-bottom结束---->
+  	  	    	    </div><!---第三条lottery-sun结束了--->
+  	  	    	</div><!--davcai-jz结束--->	
+  	  	    		
+  	  	    		<div class="davcai-jl">我是竞赛篮球</div>
+  	  	    		<div class="davcai-zc">我是足彩</div>
+  	  	    		<div class="davcai-bd">我是北京单场</div>
+  	  	    		<div class="davcai-ssq">我是双色球</div>
+  	  	    		
+  	  	    		
+  	  	    		<p class="ckgd"><a href="javascript:void(0);">查看更多</a></p>
+  	  	    		
+  	  	    	</div><!--lottery-nav-outer结束--->
+  	  	    		
+  	  	    </div> <!------davcai-content-middle左边部分结束------>

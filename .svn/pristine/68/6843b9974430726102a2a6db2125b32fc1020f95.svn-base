@@ -1,0 +1,74 @@
+<script id="favourite-weibo-msg-tmpl" type="text/x-jquery-tmpl">
+	{{#posts}}<li _id="post_{{id}}" class="item" weiboMsgLi>
+		<input type="hidden" name="timeLine" value="{{timeLine}}"/>
+		<p class="favAt">收藏于:{{favouriteTimeFmt}}</p>
+		<div class="headpic" _userid="{{ownerId}}">
+			<a href="http://www.davcai.com/{{ownerId}}/profile"><img width="50px" height="50px" src="{{headImageURL}}" /></a>
+		</div>
+		<div class="content status_content">
+			<div class="status expandable">
+				<p><a href="http://www.davcai.com/{{ownerId}}/profile" _id="{{ownerId}}" _nickname_block="_nickname_block" _userid="{{ownerId}}">{{nickName}}</a>{{{certificationView}}}
+					<span class="tag-left">{{#tags}}
+						<span class="tag-style" style="background-color:{{bgcolor}};color:{{color}};{{tagDisplay}}" _tagId="{{id}}">{{name}}{{value}}</span>{{/tags}}
+					</span>
+				</p>
+				<h4><a href="/{{ownerId}}/{{id}}" target="_blank" _n="title"  title="查看详情"  _postId="{{id}}">{{title}}</a></h4>
+				<div class="summary" style="margin-top: 10px;" _n="content" _hideDiv weiboType="{{type}}" schameId="{{schameId}}">
+					{{{content}}}
+				</div>
+				<div class="summary"  _n="content" _sourceDiv style="display:none;margin-top: 10px;">
+					{{{content}}}
+				</div>
+				{{#srcwb}}
+				<div  class="statusforward expandable" style="width: 500px;">
+					<p><a href="http://www.davcai.com/{{srcwb.ownerId}}/profile" _id="{{srcwb.ownerId}}"  _nickname_block="_nickname_block" _userid="{{srcwb.ownerId}}">{{srcwb.nickName}}</a>{{{srcCertificationView}}}</p>
+					<h4><a href="/{{srcwb.ownerId}}/{{srcwb.id}}" target="_blank"  title="查看详情"  _postId="{{srcwb.id}}">{{srcwb.title}}</a></h4>
+					<div class="summary" _hideDiv>
+						{{{srcwb.content}}}
+					</div>
+					<div class="summary"  _sourceDiv style="display:none;">
+						{{{srcwb.content}}}
+					</div>
+					<div data-type="source-scheme-view">
+					</div>
+					{{{sourceFollowRealBtn}}}
+					{{{sourceAcceptRecBtn}}}
+					<div class="meta" style="margin-top: 12px;">
+						<div class="infos">
+							<a href="/{{srcwb.ownerId}}/{{srcwb.id}}" target="_blank"  title="查看详情" class="time">{{shortCreateTime}}</a>
+							<span>&nbsp;<a href="http://www.davcai.com/{{srcwb.ownerId}}/{{srcwb.id}}" style="color:#0092FF;" target="_blank"  _postId="{{srcwb.id}}">相关讨论({{commentCount}})</a></span>{{{srcFromUrl}}}
+						</div>
+					</div>
+				</div>
+				{{/srcwb}}
+				<div data-type="scheme-view">
+				</div>
+				<div class="meta"  style="padding-top:10px;">
+					<div class="infos">
+						<a href="/{{ownerId}}/{{id}}"  target="_blank" class="time" title="查看详情">{{shortCreateTime}}</a>{{{fromUrlPosi}}}
+					</div>
+					<div class="ops">
+						{{#isCurrentUser}}
+							<a href="javascript:void(0);" class="repost" data-toggle="modal"  data-target="#modal"  _n="edit" _postId="{{id}}" target="_blank" style="display:none;">修改</a>
+							<a href="javascript:void(0);" class="repost" data-toggle="modal"  data-target="#modal"  _n="delete" _postId="{{id}}" target="_blank">删除</a>
+						{{/isCurrentUser}}
+						<a href="javascript:void(0);" class="repost" data-toggle="modal"  data-target="#modal"  _s="{{forwardCount}}"  _n="forward" _postId="{{id}}" target="_blank">{{forward}}</a>
+						<a href="javascript:void(0);" class="share"  _n="share" _postId="{{id}}" _share_link="/{{ownerId}}/{{id}}">{{share}}</a>
+						<a href="javascript:void(0);" class="addFav" _n="favoriate" _s="{{isfavoriated}}" _count="{{favoriateCount}}"  _postId="{{id}}">{{favoriate}}</a>
+						<a href="javascript:void(0);" class="statusComment" _n="comment" _postId="{{id}}">{{comment}}</a>
+						<a href="javascript:void(0);" class="statusComment last" _n="like"  _s="{{isliked}}"  _count="{{likeCount}}" _postId="{{id}}">{{like}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div _id="weibo-footer-container">
+			<div class="commentContainer display_textarea" comment-container-div weibo-footer-element style="display: block;">
+			</div>
+		</div>
+		<div _id="real-follower-div">
+			<div id="real_post_{{id}}_my_followers" realPostMyFollowers>{{{myRealFollowersView}}}</div>
+			<div id="real_post_{{id}}_followers" style="display:none" realPostFollowers>{{{realFollowersView}}}</div>
+		</div>
+		{{{likeUserView}}}
+	</li>{{/posts}}
+</script>

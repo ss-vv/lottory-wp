@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1">
+	<title>
+	大V彩手机购彩_手机投注、手机彩票，用手机就能买彩票！
+	</title>
+	<meta name="Keywords" content="手机购彩,手机彩票,手机买彩票,手机投注,手机在线购彩" />
+	<meta name="Description" content="大V彩手机购彩平台（wap.davcai.com）为您提供福利彩票、体育彩票和足球彩票手机投注、手机购彩服务。随时随地用手买彩票，手机买彩票，So easy！" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="max-age=0" />
+	<link type="text/css" href="css/buy.css" rel="stylesheet" />
+    <style type="text/css">.kjNum{color:#D20000;padding-left: 12px;}#kjDiv b{color:#CCC;}#helpLnk{padding-left:5px;line-height:20px;}</style>
+</head>
+<body>
+<div class="mainDiv">
+	<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" />
+	<meta name="MobileOptimized" content="240" />
+	<table cellpadding="0" cellspacing="0" style="width:100%">
+		<tr>
+			<td style="background-color:#FFF; width:100px;">
+				<a href="index.do"><img src="images/logo.jpg" alt="大V彩" height="30px" width="100px" /></a>
+			</td>
+		</tr>
+	</table>
+	<div class="topNavigationBar">
+		#if($session.getAttribute("uc_user_session"))
+			<a href="user/myAccount.do" rel="nofollow">我的账户</a>
+			<a href="logout.do" rel="nofollow">退出</a>
+		#else
+            <a href="login.do" rel="nofollow">登录</a>
+            <a href="user/register.do" rel="nofollow">&nbsp;注册</a>
+		#end	
+        <a href="user/charge.do">&nbsp;充值</a>
+        <a href="static/newbie.xhtml" rel="nofollow">&nbsp;新手</a>
+        <a href="http://bbs.davcai.com/forum-56-1.html" rel="nofollow">&nbsp;论坛</a>
+		<a href="$base/ballot/index.do?lottery=wf">&nbsp;开奖</a>
+	</div>
+	
+	<div style="border-bottom:0px;padding-top:5px;padding-bottom:5px;">
+        <a href="http://www.davcai.com/download/davcai/davcai_client.apk" style="color:red;font-weight:bold;font-size:16px;">下载“大V彩手机客户端”，随时随地中大奖</a>
+	</div>
+	
+		<!--
+	<div style="line-height:18px; padding:5px">
+		<a href='static/notice.xhtml'><span class="red">公告：网站升级 江西11选5暂停销售</span></a><br/>
+		<a href='static/adv.xhtml'>注册送3元</a>
+	</div>
+		-->
+	
+	<div class="topNavigationBar">数字彩投注</div>
+	<div class="list_lottory" style="border-bottom:0px; line-height:10px;">
+		[双色球]&nbsp;<a href='$base/ssq/buy_fs.do'>手选 </a>
+		<a href='$base/ssq/buy_ds.do'>机选</a>
+		<a href='$base/ssq/buy_dt.do'>胆拖</a>
+		<a href='$base/ssq/ssq_ballot_record.do?lotteryId=SSQ'>开奖</a>
+	</div>
+	
+	<form method="post" action="
+		#if($selectType != 1)
+			computeBet.do?
+		#else
+			#if($danContent)
+				computeBet.do?danContent=$danContent&
+			#else
+				selectTuo.do?
+			#end
+		#end
+		selectType=$selectType&selectNum=5&playId=15&lotteryId=JX11" id="form1">
+		
+		<div class="topNavigationBar">高频彩投注&nbsp;&nbsp;<a href="static/intro11x5.xhtml">11选5怎么玩</a></div>
+		<div class="list_lottory" style="border-bottom:0px;">
+			开奖时间：9-22点<br/>开奖频率：10分钟一期，投注时间8分钟<br/>每日期数：78期<br/>
+			<span style='color:#A1A1A1'>$!{issueInfo.issueNumber}</span>期截止:<span style='color:#A1A1A1'>$!date.format('HH:mm',$!{issueInfo.stopTimeForUser})</span><br/>
+			<div class="curLotteryTerm" style="border-bottom:0px;">
+				江西11选5 任选五&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:#A1A1A1'>中5码奖金540元 </span>	
+			</div>	
+		</div> 
+		<div class="list_lottory" style="border-bottom:0px; line-height:10px;">
+			#if($selectType==0)
+				手选 |
+			#else	
+				<a href='index.do?selectType=0'>手选</a> |
+			#end
+			
+			#if($selectType==1)
+				胆拖 |
+			#else
+				<a href='index.do?selectType=1'>胆拖</a> |
+			#end
+			
+			#if($selectType==2)
+				机选
+			#else	
+				<a href='index.do?selectType=2'>机选</a>
+			#end		
+		</div>
+		<div class="list_lottory" style="border-bottom:0px;">
+			#if($selectType==2)	
+				<div class="msgTitle">机选：
+					<input type="radio" name="randomCount" value="1" />1 
+					<input type="radio" name="randomCount" value="5" checked="checked" />5
+					<input type="radio" name="randomCount" value="10" />10
+					<input type="radio" name="randomCount" value="11" />
+					<input name="inputRandomNum" style="-wap-input-format: '*N'" maxlength="2" size="4" />注
+				</div>			
+			#else
+				#if($selectType==1)
+					#if($danContent)
+						已选胆码：<span style="color:Red">$danContent</span>
+						<div class="redHead">胆码+拖码大于等于$math.add($selectNum,1)</div>
+					#else
+						<div class="redHead">胆码(至多$selectNum-1个)</div>
+					#end
+				#end
+				<span class="red">
+		    		<label><input type="checkbox" value="01" name="firstGroup" />01</label>
+					<label><input type="checkbox" value="02" name="firstGroup" />02</label>
+					<label><input type="checkbox" value="03" name="firstGroup" />03</label>
+					<label><input type="checkbox" value="04" name="firstGroup" />04</label>
+					<label><input type="checkbox" value="05" name="firstGroup" />05</label>
+					<label><input type="checkbox" value="06" name="firstGroup" />06</label><br/>
+					<label><input type="checkbox" value="07" name="firstGroup" />07</label>
+					<label><input type="checkbox" value="08" name="firstGroup" />08</label>
+					<label><input type="checkbox" value="09" name="firstGroup" />09</label>
+					<label><input type="checkbox" value="10" name="firstGroup" />10</label>
+					<label><input type="checkbox" value="11" name="firstGroup" />11</label>
+			
+				</span>
+			#end
+		</div>
+		<div class="msgTitle">
+			倍数：<input name="Times" style="-wap-input-format: '*N'" value="$times"  size="4" maxlength="2"/>倍<br/>
+		</div>
+		<div class="msgTitle" style="line-height:18px; padding:5px">
+			#if($selectType==1)
+				<input type="submit" name="buy" value="下一步：选择拖码" id="Button1" title="下一步：选择拖码" />&nbsp;
+			#else
+				<input type="submit" name="buy" value="立即代购" id="Button1" title="立即代购" />&nbsp;
+			#end
+			<a href="lottery/jx11s5.do?lotteryId=JX11">>>更多玩法</a>
+		</div>
+	</form>
+	<div class="topNavigationBar">【江西十一选五】最新开奖号码&nbsp;&nbsp;&nbsp;&nbsp;<a href="$base/jx11_ballot_record.do">历史开奖</a></div>
+	#foreach($record in $ballotRecordList)
+		<div style="line-height:10px; padding:5px">$record.issueNumber&nbsp;期开奖&nbsp;&nbsp;<span>$date.format("HH:mm:ss",$record.stopTime)&nbsp;&nbsp;</span><span style="color:red">$record.bonusCode</span></div>
+	#end
+	<div class="topNavigationBar">彩票资讯</div>
+	<div style="line-height:18px; padding:5px">
+            <a href='static/intro11x5.xhtml'>[玩法]&nbsp;江西11选5玩法介绍</a><br>
+            <a href='static/news6.xhtml' >[技巧]&nbsp;教你稳赚玩转任选八</a><br>
+            <a href='static/news7.xhtml' >[专家]&nbsp;11选5推荐(10.29):下午精选</a><br>
+            <a href='static/news8.xhtml' >[关注]&nbsp;10.29日前一推荐:关注01</a><br>
+            <a href='static/news5.xhtml' >[技巧]&nbsp;江西11选5比例杀号法</a><br>
+	</div>
+	<div class="topNavigationBar">最新中奖</div>
+	#foreach($scheme in $newestBetSchemes)
+		<div style="line-height:10px; padding:5px"><span style='color:#0066FF'>$scheme.sponsor&nbsp;&nbsp;$scheme.play.name&nbsp;&nbsp;</span>￥$scheme.afterTaxBonus</div>
+	#end
+</div>
+<div class="topNavigationBar">常见问题</div>
+<div id="helpLnk">
+<a href="static/reg.xhtml" rel="nofollow">如何注册&nbsp;&nbsp;&nbsp;</a>
+<a href="static/refund.xhtml" rel="nofollow">如何充值&nbsp;&nbsp;&nbsp;</a>
+<a href="static/withdraw.xhtml" rel="nofollow">如何提款</a><br/>
+<a href="static/buy.xhtml" rel="nofollow">如何购彩&nbsp;&nbsp;&nbsp;</a>
+<a href="static/claim.xhtml" rel="nofollow">如何兑奖&nbsp;&nbsp;&nbsp;</a>
+<a href="static/checkbet.xhtml" rel="nofollow">投注查询</a><br/>
+<a href="static/security.xhtml" rel="nofollow">购彩安全&nbsp;&nbsp;&nbsp;</a>
+<a href="static/bookmark.xhtml" rel="nofollow">书签设置</a>
+</div>
+<div class="topNavigationBar" style="text-align:center">
+<a href="static/about.xhtml">关于</a> | <a href="static/coop.xhtml">合作</a>
+</div>
+<div>
+     #include("inc/footer1.inc")
+    <div class="clear"></div>
+</div>	
+</body>
+</html>

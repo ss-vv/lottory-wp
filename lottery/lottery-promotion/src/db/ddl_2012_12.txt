@@ -1,0 +1,58 @@
+ALTER TABLE `pm_promotion` ADD COLUMN `play_ids`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '玩法id列表' AFTER `lottery_id`;
+ALTER TABLE `pm_promotion` ADD COLUMN `scheme_status`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '方案状态列表' AFTER `play_ids`;
+ALTER TABLE `pm_promotion` ADD COLUMN `buy_amount`  int(11) NOT NULL DEFAULT 0 COMMENT '认购金额' AFTER `scheme_status`;
+ALTER TABLE `pm_promotion` ADD COLUMN `after_tax_bonus`  decimal(12,2) NULL DEFAULT NULL COMMENT '税后奖金' AFTER `buy_amount`;
+ALTER TABLE `pm_promotion` ADD COLUMN `scheme_types`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '方案类型列表' AFTER `after_tax_bonus`;
+ALTER TABLE `pm_promotion` ADD COLUMN `pass_type_ids`  varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '过关类型列表' AFTER `scheme_types`;
+ALTER TABLE `pm_promotion` ADD COLUMN `pass_type_ids_logic`  varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '过关类型逻辑' AFTER `pass_type_ids`;
+ALTER TABLE `pm_promotion` ADD COLUMN `everyone_join_count`  int(11) NOT NULL DEFAULT 0 COMMENT '每人参与次数' AFTER `pass_type_ids_logic`;
+ALTER TABLE `pm_promotion` ADD COLUMN `count_relevance_granType_ids`  varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '与此活动同时计算次数的活动。' AFTER `everyone_join_count`;
+ALTER TABLE `pm_promotion` ADD COLUMN `join_count_type`  int(11) NOT NULL DEFAULT 0 COMMENT '参与次数类型：0不计次数,1每天，2每月' AFTER `count_relevance_granType_ids`;
+
+CREATE TABLE `pm_promotion_detail` (
+`id`  bigint(20) NOT NULL AUTO_INCREMENT COMMENT '活动详情id' ,
+`promotion_id`  bigint(20) NOT NULL COMMENT '活动id' ,
+`pass_type_ids`  varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '过关方式列表' ,
+`pass_type_ids_logic`  varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '过关方式逻辑' ,
+`min_value`  decimal(12,2) NOT NULL COMMENT '最小值' ,
+`max_value`  decimal(12,2) NULL DEFAULT NULL COMMENT '最大值' ,
+`grant`  decimal(12,2) NULL DEFAULT NULL COMMENT '赠款金额' ,
+`percent`  int(11) NULL DEFAULT NULL COMMENT '赠款百分比' ,
+PRIMARY KEY (`id`)
+)
+ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+CHECKSUM=0
+ROW_FORMAT=Dynamic
+DELAY_KEY_WRITE=0
+;
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES
+	(20, '12月新注册送3元彩金'),
+	(21, '2012年12月晒单跟单中奖有赏金'),
+	(22, '12月充值送彩金活动赠送'),
+	(23, '2012.12竞彩足彩2@1未中奖赠款'),
+	(24, '2012.12竞彩篮彩2@1未中奖赠款'),
+	(25, '2012.12竞彩足彩中奖加奖赠款'),
+	(26, '2012.12竞彩篮彩中奖加奖赠款');
+
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES
+	(1, 23, ',2@1,', 'eq', 100.00, 1000.00, NULL, 4),
+	(8, 24, ',2@1,', 'eq', 10000.00, 100000.00, NULL, 8),
+	(2, 23, ',2@1,', 'eq', 1000.00, 10000.00, NULL, 6),
+	(9, 24, ',2@1,', 'eq', 100000.00, NULL, NULL, 10),
+	(6, 24, ',2@1,', 'eq', 100.00, 1000.00, NULL, 4),
+	(10, 24, ',2@1,', 'ne', 100.00, NULL, NULL, 4),
+	(4, 23, ',2@1,', 'eq', 100000.00, NULL, NULL, 10),
+	(5, 23, ',2@1,', 'ne', 100.00, NULL, NULL, 4),
+	(3, 23, ',2@1,', 'eq', 10000.00, 100000.00, NULL, 8),
+	(7, 24, ',2@1,', 'eq', 1000.00, 10000.00, NULL, 6);
+
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, `play_ids`, `scheme_status`, `buy_amount`, `after_tax_bonus`, `scheme_types`, `pass_type_ids`, `pass_type_ids_logic`, `everyone_join_count`, `count_relevance_granType_ids`, `join_count_type`) VALUES
+	(18, '12月新注册送3元彩金', 20, '2012-11-01 00:00:00', '2012-12-31 23:59:59', 1, '12月新注册送3元彩金', '2012-11-22 10:07:10', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, NULL, 0),
+	(19, '2012年12月晒单跟单中奖有赏金', 21, '2012-12-01 00:00:00', '2012-12-31 23:59:59', 1, '2012年12月晒单跟单中奖有赏金', '2012-11-22 10:07:10', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, NULL, 0),
+	(20, '12月充值送彩金活动赠送', 22, '2012-11-01 00:00:00', '2012-12-31 23:59:59', 1, '12月充值送彩金活动赠送', '2012-11-22 10:07:10', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, NULL, 0),
+	(21, '2012.12竞彩足彩2@1未中奖赠款', 23, '2012-12-01 00:00:00', '2012-12-31 23:59:59', 1, '2012.12竞彩足彩2@1未中奖赠款', '2012-11-22 10:07:10', 'JCZQ', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, NULL, 0),
+	(22, '2012.12竞彩篮彩2@1未中奖赠款', 24, '2012-12-01 00:00:00', '2012-12-31 23:59:59', 1, '2012.12竞彩篮彩2@1未中奖赠款', '2012-11-22 10:07:10', 'JCLQ', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, NULL, 0),
+	(23, '2012.12竞彩足彩中奖加奖赠款', 25, '2012-12-01 00:00:00', '2012-12-31 23:59:59', 1, '2012.12竞彩足彩中奖加奖赠款', '2012-11-22 10:07:10', 'JCZQ', NULL, '12', 0, 100.00, '0,2', ',1@1,', 'ne', 5, '25,26', 1),
+	(24, '2012.12竞彩篮彩中奖加奖赠款', 26, '2012-12-01 00:00:00', '2012-12-31 23:59:59', 1, '2012.12竞彩篮彩中奖加奖赠款', '2012-11-22 10:07:10', 'JCLQ', NULL, '12', 0, 100.00, '0,2', ',1@1,', 'ne', 5, '25,26', 1);

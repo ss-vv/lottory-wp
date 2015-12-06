@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<toolbox>   
+    <tool>   
+        <key>date</key>   
+        <scope>application</scope>   
+        <class>org.apache.velocity.tools.generic.DateTool</class>   
+    </tool>  
+    
+    <tool>   
+        <key>Text</key>   
+        <scope>application</scope>   
+        <class>com.xhcms.lottery.utils.TextTool</class>
+    </tool> 
+    
+    <tool>   
+        <key>ServletUtils</key>   
+        <scope>application</scope>   
+        <class>com.unison.lottery.weibo.web.util.ServletUtils</class>
+    </tool>
+     
+    <tool>   
+        <key>dateUtil</key>   
+        <scope>application</scope>   
+        <class>com.unison.lottery.weibo.utils.DateUtil</class>
+    </tool> 
+    
+    <tool>   
+        <key>Pager</key>   
+        <scope>application</scope>   
+        <class>com.xhcms.lottery.commons.tools.Pager</class>
+    </tool> 
+      <tool>
+    <key>math</key>
+    <scope>application</scope>
+    <class>org.apache.velocity.tools.generic.MathTool</class>
+  </tool>
+  <tool>
+      <key>status</key>
+    <scope>application</scope>
+    <class>com.xhcms.lottery.utils.StatusTool</class>
+  </tool>
+    <tool>
+    <key>Result</key>
+    <scope>application</scope>
+    <class>com.xhcms.lottery.utils.ResultTool</class>
+  </tool>
+</toolbox> 

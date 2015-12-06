@@ -1,0 +1,98 @@
+.box {
+	/* width: 800px; */
+	/* height: auto; */
+	/* margin: 100px auto; */
+}
+.davcai-sun-list {
+	width: 568px;
+	height: auto;
+	/* margin: 20px auto 0; */
+}
+.davcai-sun-list .davcai-sun-list-width01 {
+	width: 90px;
+}
+.davcai-sun-list .davcai-sun-list-width42 {
+	width: 100px;
+}
+.davcai-sun-list .davcai-sun-list-width43 {
+	width: 300px;
+}
+.davcai-sun-list .davcai-sun-list-width44 {
+	width: 70px;
+}
+
+/*42-44是一组共用上面的020304*/
+.davcai-sun-list .davcai-sun-list-top {
+	width: 568px;
+	height: 37px;
+	background: url(http://www.davcai.com/assets/js/bet/images/davcai-sun-list-top.png) no-repeat;
+}
+.davcai-sun-list .davcai-sun-list-middle {
+	width: 566px;
+	height: auto;
+	border-left: 1px #CCCCCC solid;
+	border-right: 1px #CCCCCC solid;
+	background: url(http://www.davcai.com/assets/js/bet/images/davcai-sun-list-middle.png) repeat;
+}
+.davcai-sun-list-bottom {
+	width: 568px;
+	height: 11px;
+	background: url(http://www.davcai.com/assets/js/bet/images/davcai-sun-list-bottom-bg.png) no-repeat;
+	margin: 0 auto;
+}
+.color-red {
+	color: #E22319;
+}
+.color-gray {
+	color: #BCBCBC;
+}
+/*下面开始davcai-sun-table投注页面列表部分*/
+
+.davcai-sun-table {
+	width: 98%;
+	border-collapse: collapse;
+	border: none;
+	text-align: center;
+	margin: -36px auto 0;
+	table-layout: fixed;
+}
+.color-gray {
+	color: #BCBCBC;
+}
+.davcai-sun-table tr {
+	border-bottom: 1px #D5D5D5 dashed;
+	height: auto;
+	padding-bottom: 10px;
+	height: 35px;
+}
+.davcai-sun-table tr.bottom{
+	text-align: left;
+	text-indent: 15px;
+	border-bottom: none;
+}
+.davcai-sun-table td {
+	border: none;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.davcai-sun-table td a {
+	color: #1B9BFF;
+}
+.davcai-sun-table td span,
+.davcai-sun-table td label {
+	font-family: "微软雅黑";
+	font-weight: bold;
+	font-size: 12px;
+}
+.davcai-sun-table td .bet-follow{
+	width: 125px;
+	height: 50px;
+	display: inline-block;
+	background: url(http://www.davcai.com/assets/js/bet/images/bet-follow-button.png) no-repeat;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	color: #fff;
+	line-height: 45px;
+	text-align: center;
+}
+/*上面结束davcai-sun-table投注页面列表部分*/

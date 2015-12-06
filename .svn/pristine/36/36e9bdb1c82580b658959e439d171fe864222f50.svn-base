@@ -1,0 +1,20 @@
+#set($p_title="添加昵称")
+#set($scripts=["js/web/login.js"])
+<div class="main" style='margin-top: 65px;float: none;margin-left: auto;margin-right: auto;text-align: center;font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;'>
+	<ul>
+		<li><h2>您是第一次登录新版大V彩，给自己取一个响亮的昵称吧~</h2></li>
+		<form method="post" action="add_nickname" id="add_nickname_form">
+			<li class="reg_sep" style="margin-top:20px">
+				<label for="mail">昵称：</label>
+				<input type="text" tabindex="2" id="nickname" name="nickname" 
+					placeholder="昵称" class="placeholderHack" value="$!nickname"/>
+				#if($accountDealResult.success == false)
+					<label for="errorMessage" style="color:#1923E2;font-size: 14px;">$!accountDealResult.desc</label>
+				#end
+			</li>
+			<div class="reg_sep" style="margin-top:20px">
+				<input type="button" tabindex="6" value="确定" class="button_red regbtn" onclick="addNickname()"/>
+			</div>
+		</form>
+	</ul>
+</div>

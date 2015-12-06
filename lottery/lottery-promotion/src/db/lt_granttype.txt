@@ -1,0 +1,17 @@
+--2012-10-18 增加赠款类型
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (12, '大V彩wap网首次充值赠款');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (13, '2012.10竞彩足彩2@1未中奖赠款');
+
+--2012-10-25 增加/修改赠款类型
+UPDATE `lt_granttype` SET `name`='2012.10-11竞彩足彩2@1未中奖赠款' WHERE `id`=13 LIMIT 1;
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (14, '迎NBA充值送10元彩金');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (15, '2012年10月晒单跟单中奖有赏金');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (16, '2012年11月晒单跟单中奖有赏金');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (17,'2012.11竞彩篮彩2@1未中奖赠款');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (18,'2012.11竞彩足彩2@1中奖加奖活动赠送');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (19,'2012.11竞彩篮彩2@1中奖加奖活动赠送');
+
+--2012-11-22 增加活动类型
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (20,'12月新注册送3元彩金');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (21,'2012年12月晒单跟单中奖有赏金');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (22,'12月充值送彩金活动赠送');

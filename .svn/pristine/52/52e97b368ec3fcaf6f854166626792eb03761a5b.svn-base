@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="uc_verify">
+    <column>id</column>
+    <column>uid</column>
+    <column>code</column>
+    <column>target</column>
+    <column>created_time</column>
+    <column>expiry_time</column>
+    <column>status</column>
+    <column>type</column>
+    <row>
+      <value>38</value>
+      <value>75</value>
+      <value>f139a36b-6266-458b-a07d-eb9cc64d6460</value>
+      <value>michael1983.chen@gmail.com</value>
+      <value><![CDATA[2012-11-03 11:57:02.0]]></value>
+      <value><![CDATA[2012-11-03 12:27:02.0]]></value>
+      <value>1</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>7237</value>
+      <value>75</value>
+      <value>qkSOzf</value>
+      <value>13811073816</value>
+      <value><![CDATA[2012-11-03 11:59:09.0]]></value>
+      <value><![CDATA[2012-11-03 12:29:09.0]]></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>7238</value>
+      <value>3905</value>
+      <value>qkSOze</value>
+      <value>18601944885</value>
+      <value><![CDATA[2012-11-03 11:59:09.0]]></value>
+      <value><![CDATA[2012-11-03 12:29:09.0]]></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>7239</value>
+      <value>2</value>
+      <value>qkSOzg</value>
+      <value>13811073816</value>
+      <value><![CDATA[2012-11-03 11:59:09.0]]></value>
+      <value><![CDATA[2012-11-03 12:29:09.0]]></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+  </table>
+</dataset>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.action.extension" value="do"></constant>
+
+	<package name="main">
+		<result-types>
+			<result-type name="velocity" class="com.unison.struts2.result.XmlVelocityResult" default="true" />
+		</result-types>
+		
+        <interceptors>
+            <interceptor name="servletConfig" class="org.apache.struts2.interceptor.ServletConfigInterceptor"/>
+            <interceptor-stack name="simpleStack">
+                <interceptor-ref name="servletConfig"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="simpleStack"/>
+        
+		<!-- 交易结果接收器 -->
+		<action name="order_result" class="orderResultAction">
+			<result>
+				<param name="location">zm_response.vm</param>
+			</result>
+		</action>
+		
+		
+		<!-- 中奖结果接收器 -->
+		<!-- 
+		<action name="query_prize_result" class="queryPrizeResultAction">
+			<result>
+				<param name="location">zm_blank_response.vm</param>
+			</result>
+		</action>
+		 -->
+	</package>
+	<package name="anrui"  namespace="/anrui">
+		<result-types>
+			<result-type name="velocity" class="com.unison.struts2.result.XmlVelocityResult" default="true" />
+		</result-types>
+		
+        <interceptors>
+            <interceptor name="servletConfig" class="org.apache.struts2.interceptor.ServletConfigInterceptor"/>
+            <interceptor-stack name="simpleStack">
+                <interceptor-ref name="servletConfig"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="simpleStack"/>
+		<!-- 安瑞出票结果通知 -->
+		<action name="anrui_order_result"  class="anRuiOrderNotifyAction" >
+			<result>
+				<param name="location">anrui_order_notify_response.vm</param>
+			</result>
+		</action>
+	</package>
+</struts>

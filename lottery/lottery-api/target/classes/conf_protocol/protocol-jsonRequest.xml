@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:lang="http://www.springframework.org/schema/lang"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+				http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd" >
+				
+	<bean id="requestParserForJson" class="com.unison.lottery.api.protocol.request.json.parser.JsonRequestParser">
+		<property name="methodRequestParsersMap">
+			<map>				
+				<entry key="queryGroupInfo" value-ref="queryGroupInfoMethodRequestParser"/>
+				<entry key="queryGroupMembers" value-ref="queryGroupMembersMethodRequestParser"/>
+				<entry key="publishScheme" value-ref="publishSchemeMethodRequestParser"/>
+				<entry key="querySysScheme" value-ref="querySysSchemeMethodRequestParser"/>
+				<entry key="queryUserInfo" value-ref="queryUserInfoMethodRequestParser"/>
+				<entry key="queryScoreLiveInfo" value-ref="queryScoreLiveInfoRequestParser"/>
+				<entry key="queryImmediateIndexInfo" value-ref="queryImmediateIndexInfoRequestParser"/>
+				<entry key="queryImmediateIndexDetails" value-ref="queryImmediateIndexDetailsRequestParser"/>
+				<entry key="grabRedEnvalope" value-ref="grabRedEnvalopeRequestParser"/>
+				<entry key="sendRedEnvalope" value-ref="sendRedEnvalopeRequestParser"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="queryGroupInfoMethodRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.QueryGroupInfoMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryGroupMembersMethodRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.QueryGroupMembersMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="publishSchemeMethodRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.PublishSchemeMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="querySysSchemeMethodRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.QuerySysSchemeMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryUserInfoMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.QueryUserInfoMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryScoreLiveInfoRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.QueryScoreLiveInfoRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryImmediateIndexInfoRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.QueryImmediateIndexInfoRequestParser">
+		<property name="userParser" ref="userParser"></property>
+	</bean>	
+	<bean id="queryImmediateIndexDetailsRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.QueryImmediateIndexDetailsRequestParser">
+		<property name="userParser" ref="userParser"></property>
+	</bean>
+	<bean id="sendRedEnvalopeRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.SendRedEnvalopeRequestParser">
+		<property name="userParser" ref="userParser"></property>
+	</bean>
+	<bean id="grabRedEnvalopeRequestParser" class="com.unison.lottery.api.protocol.request.json.methodparser.GrabRedEnvalopeRequestParser">
+		<property name="userParser" ref="userParser"></property>
+	</bean>
+</beans>

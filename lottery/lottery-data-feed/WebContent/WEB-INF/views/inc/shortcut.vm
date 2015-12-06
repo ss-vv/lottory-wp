@@ -1,0 +1,88 @@
+<div class="posbox">
+			<div class="mod-a">
+				<div class="mh" id="_shortcut_popup_link">
+					<div class="tt">
+						选择彩票
+					</div>
+					<b class="icns"> </b>
+				</div>
+				<div class="mm" id="_shortcut_popup"  style="display:none;">
+					<div class="mmh">
+						 
+					</div>
+					<div class="mmb">
+						<div class="choosebox">
+							<div class="row">
+								<div class="sort">
+									<a class="img" href="javascript:void(0);"><img alt="竞彩足球" src="http://trade.davcai.com/df/images/jczq.gif" /></a>
+									<div class="name">
+										<a href="http://trade.davcai.com/df/bet/zc/189.html" target="_blank">竞彩足球</a>
+									</div>
+								</div>
+								<div class="tagbox">
+									<div class="row">
+										<span><b><a href="http://trade.davcai.com/df/bet/zc/5622.html" target="_blank" style="color:red;">胜平负</a></b> </span><span><a href="http://trade.davcai.com/df/bet/zc/189.html" target="_blank">让球胜平负</a> </span> <span> <a href="http://trade.davcai.com/df/bet/zc/186.html" target="_blank">总进球数</a> </span> <span> <a href="http://trade.davcai.com/df/bet/zc/182.html" target="_blank">比分</a> </span> <span> <a href="http://trade.davcai.com/df/bet/zc/184.html" target="_blank">半场</a> </span><span> <b><a href="http://trade.davcai.com/df/bet/zc/4081.html" target="_blank" style="color:red;">混合过关</a></b> </span>
+									</div>
+									<span class="clear"> </span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="sort">
+									<a class="img" href="javascript:void(0);"><img alt="竞彩篮球" src="http://trade.davcai.com/df/images/jclq.gif" /></a>
+									<div class="name">
+										<a href="http://trade.davcai.com/df/bet/lc/193.html" target="_blank">竞彩篮球</a>
+									</div>
+								</div>
+								<div class="tagbox">
+									<div class="row">
+										<span><a href="http://trade.davcai.com/df/bet/lc/191.html" target="_blank">胜负</a> </span> <span> <a href="http://trade.davcai.com/df/bet/lc/193.html" target="_blank">让分胜负</a> </span> <span> <a href="http://trade.davcai.com/df/bet/lc/197.html" target="_blank">胜分差</a> </span> <span> <a href="http://trade.davcai.com/df/bet/lc/195.html" target="_blank">大小分</a> </span> <span> <b><a href="http://trade.davcai.com/df/bet/lc/4082.html" target="_blank" style="color:red;">混合过关</a></b> </span>
+									</div>
+									<span class="clear"> </span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="sort">
+									<a class="img" href="javascript:void(0);"><img alt="双色球" src="http://trade.davcai.com/df/images/ssq_logo.png" style="width:35px;height:35px;" /></a>
+									<div class="name">
+									<a href="http://trade.davcai.com/df/bet/ssq/5759.html" target="_blank">双色球</a>
+								</div>
+							</div>
+								<div class="tagbox">
+									<div class="row">
+										<span><a href="http://trade.davcai.com/df/bet/ssq/5759.html" target="_blank">普通投注</a> </span> <span> <a href="http://trade.davcai.com/df/bet/ssq/5760.html" target="_blank">单式投注</a> </span> <span> <a href="http://trade.davcai.com/df/bet/ssq/5761.html" target="_blank">胆拖投注</a> </span>
+									</div>
+									<span class="clear"> </span>
+								</div>
+							</div>
+							<div class="row bgn">
+								<div class="sort">
+									<a class="img" href="javascript:void(0);"><img alt="传统足彩" src="http://trade.davcai.com/df/images/ctzc.gif" /></a>
+									<div class="name">
+										<a href="http://trade.davcai.com/df/bet/ctzc/3745.html" target="_blank">传统足彩</a>
+									</div>
+								</div>
+								<div class="tagbox">
+									<div class="row">
+										<span><a href="http://trade.davcai.com/df/bet/ctzc/3745.html" target="_blank">14场胜负彩</a> </span> <span> <a href="http://trade.davcai.com/df/bet/ctzc/3746.html" target="_blank">任选9场</a> </span> <span> <a href="http://trade.davcai.com/df/bet/ctzc/3747.html" target="_blank">6场半全</a> </span> <span> <a href="http://trade.davcai.com/df/bet/ctzc/3748.html" target="_blank">4场进球</a> </span>
+									</div>
+									<span class="clear"> </span>
+								</div>
+							</div>
+							<span class="clear"> </span>
+						</div>
+					</div>
+					<div class="mmf">
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+<script type="text/javascript">
+$(function(){
+
+  $('#_shortcut_popup_link').bind('click', function() {
+      $('#_shortcut_popup').toggle();
+  });
+  
+});
+</script>

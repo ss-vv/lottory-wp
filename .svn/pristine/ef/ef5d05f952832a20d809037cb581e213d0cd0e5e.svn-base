@@ -1,0 +1,42 @@
+#set($title="查看用户账户信息")
+<div class="w">
+	<div class="tabH" id="tabLinks">
+		<span class="current"><b>用户账户信息</b></span>
+	</div>
+	<div class="bx_c">
+		<table cellspacing="0" class="tab">
+			<tr>
+				<td style="text-align:right;width:110px;">用户ID：</td><td style="width:160px;">${a.id}</td>
+				<td style="text-align:right;width:110px;">用户登录名：</td><td style="width:200px;">${a.username}</td>
+      </tr>
+			<tr>
+				<td style="text-align:right;">可用余额：</td><td><b>${a.free}</b></td>
+				<td style="text-align:right;">对账时间：</td><td>$date.format("yyyy-MM-dd HH:mm", ${a.checkedTime})</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">现金余额：</td><td>${a.fund}</td>
+				<td style="text-align:right;">赠款余额：</td><td>${a.grant}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">冻结现金：</td><td><b>${a.frozenFund}</b></td>
+				<td style="text-align:right;">冻结赠款：</td><td><b>${a.frozenGrant}</b></td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">累计充值金额：</td><td>${a.totalRecharge}</td>
+				<td style="text-align:right;">累计提现金额：</td><td>${a.totalWithdraw}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">累计投注金额：</td><td>${a.totalBet}</td>
+				<td style="text-align:right;">累计中奖金额：</td><td>${a.totalAward}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">开户银行：</td>
+        <td colspan="3">$!{a.province} $!{a.city} $!{a.bank}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">银行账户：</td>
+        <td colspan="3">$!{a.accountNumber}</td>
+			</tr>
+		</table>
+  </div>
+</div>

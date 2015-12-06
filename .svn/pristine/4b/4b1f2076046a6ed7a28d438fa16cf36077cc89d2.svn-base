@@ -1,0 +1,78 @@
+#set($layout="web/home_default.vm")
+#set($p_title="通知")
+
+#set($styles=["css/private-msg.css","css/analyze-user.css"])
+
+#set($scripts=["js/web/jquery.emoticons.js","js/web/home/home_relationship.js", 
+"js/web/login.js",  
+ "js/web/home/announceAndWinning.js",
+"js/web/home/interest_user.js", "js/web/label-slide.js",
+"js/web/home/analyze_user.js"])
+
+
+<div class="wrapper">
+	<div>
+		<h2>通知</h2>
+		<ul class="">
+		 #foreach($privateMsg in $pageResult.results)
+		 	#if($privateMsg.type == 2) <!--提款-->
+			 	 <li class="odd" style="clear:both;"> 
+	                <a class="user ui-link" href="http://www.davcai.com/$privateMsg.ownerUser.weiboUserId/profile"  target="_blank"><img style="width:53px;height:53px;" class="img-responsive avatar_" src="$privateMsg.ownerUser.headImageURL" alt=""><span class="user-name">$privateMsg.ownerUser.nickName</span></a>
+	                <div class="reply-content-box" style="float:left;margin-left: 70px;margin-top: -65px;">
+	                	<span class="reply-time">#format_date($privateMsg.createTime)</span>
+	                    <div class="reply-content pr" style="margin-top: 8px;background-color:#FFEBCD;">
+	                    	<span class="arrow">&nbsp;</span>
+	                    	$privateMsg.content <a href="http://trade.davcai.com/ac/record/withdraw.do" target="_blank">查看</a>
+	                    </div>
+	                </div>
+	            </li>
+            #elseif($privateMsg.type == 3)<!--派奖-->
+	            <li class="odd" style="clear:both;">
+	                <a class="user ui-link" href="http://www.davcai.com/$privateMsg.ownerUser.weiboUserId/profile"  target="_blank"><img style="width:53px;height:53px;" class="img-responsive avatar_" src="$privateMsg.ownerUser.headImageURL" alt=""><span class="user-name">$privateMsg.ownerUser.nickName</span></a>
+	                <div class="reply-content-box" style="float:left;margin-left: 70px;margin-top: -65px;">
+	                	<span class="reply-time">#format_date($privateMsg.createTime)</span>
+	                    <div class="reply-content pr" style="margin-top: 8px;background-color:#FFEBCD;">
+	                    	<span class="arrow">&nbsp;</span>
+	                    	$privateMsg.content <a href="http://trade.davcai.com/ac/record/bet.do" target="_blank">查看</a>
+	                    </div>
+	                </div>
+	            </li>
+            #elseif($privateMsg.type == 5)<!-- 新用户推荐分析达人 -->
+            	<li class="odd" style="clear:both;">
+	                <a class="user ui-link" href="http://www.davcai.com/$privateMsg.ownerUser.weiboUserId/profile"  target="_blank"><img style="width:53px;height:53px;" class="img-responsive avatar_" src="$privateMsg.ownerUser.headImageURL" alt=""><span class="user-name">$privateMsg.ownerUser.nickName</span></a>
+	                <div class="reply-content-box" style="float:left;margin-left: 70px;margin-top: -65px;">
+	                	<span class="reply-time">#format_date($privateMsg.createTime)</span>
+	                    <div class="reply-content pr" style="margin-top: 8px;background-color:#FFEBCD;">
+	                    	<span class="arrow">&nbsp;</span>
+	                    	<div id="niu">
+	                    		<p class="niu_welcome">$privateMsg.content</p>
+		                    	<ul _id="analyze_user_ul_id" class="niuqi">
+		                    	</ul>
+		                    	<p class="niu_p"><button title="一键关注" _id="oneKeyFollow" class="niu_yijian">一键关注</button></p>
+		                    </div>
+	                    </div>
+	                </div>
+	            </li>
+            #else
+	            <li class="odd" style="clear:both;">
+	                <a class="user ui-link" href="http://www.davcai.com/$privateMsg.ownerUser.weiboUserId/profile"  target="_blank"><img style="width:53px;height:53px;" class="img-responsive avatar_" src="$privateMsg.ownerUser.headImageURL" alt=""><span class="user-name">$privateMsg.ownerUser.nickName</span></a>
+	                <div class="reply-content-box" style="float:left;margin-left: 70px;margin-top: -65px;">
+	                	<span class="reply-time">#format_date($privateMsg.createTime)</span>
+	                    <div class="reply-content pr" style="margin-top: 8px;background-color:#FFEBCD;">
+	                    	<span class="arrow">&nbsp;</span>
+	                    	#if($privateMsg.content.trim().length() > 6 && $privateMsg.content.trim().substring(0,6) == "【加奖通知】")
+	                    		$privateMsg.content <a href="http://trade.davcai.com/ac/balance.do" target="_blank">查看</a>
+	                    	#else
+	                    		$privateMsg.content
+	                    	#end
+	                    </div>
+	                </div>
+	            </li>
+            #end
+		 #end
+		</ul>
+	</div>
+	<div class="pager-wrapper">
+        #pagerHtml($page $pageResult.pageRequest.pageCount)
+    </div>
+</div>

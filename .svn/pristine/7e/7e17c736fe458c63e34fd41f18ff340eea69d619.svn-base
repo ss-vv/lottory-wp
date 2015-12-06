@@ -1,0 +1,240 @@
+#set($p_title ="充值")
+#set($pos = "rh")
+#set($styles = ["css/jquery.fancybox-1.3.4"])
+#set($scripts = ["js/jquery.fancybox-1.3.4","js/recharge"])
+
+#parse("inc/balance.vm")
+<form id="pForm" action="$base/callback/aliaffirm.do" method="post" target="_blank">
+<div class="mod mod-c mod-c-a wh-mh">
+  <div class="mh">
+    <div class="tt">充值</div>
+  </div>
+  <div class="mm" style="height:auto;">
+    <div class="formbox formbox-a formbox-a-b mp-c">
+    #if($actionErrors && $actionErrors.size() > 0)
+	    <div class="row">
+	      <span class="fl"><b class="c-i">#foreach($ae in $actionErrors)$!{ae}#end</b></span>
+	    </div>
+    #end       
+      <div class="row">
+      	  <input type="hidden" name="isUseVoucher" />
+          <input type="hidden" name="voucherId"/>
+        <label class="lbl wh-a">充值金额：</label>
+        <div class="ipttxt ipttxt-b wh-txtb">
+          <input type="text" name="amount" id="aIpt" class="inipttxt" maxlength="6"/>
+        </div>
+        <div class="tips">元</div>
+      </div>
+      <div class="row">
+      	<a href="javascript:void(0)" onclick="$.toggenDiv()" class="font_red"><span id="sign">(-)</span><span id="signSum" style="display:none;">(+)</span>我要使用充值劵获得充值优惠</a>
+      	<div id="voucherListDiv">
+      		<div class="coupon_list">
+      			<h3 style="font-size:12px;" name="readTips">请选择要使用的优惠券
+	      			<a class="close" onclick="$.toggenDiv()" href="javascript:void(0)">[关闭]</a>
+					<div class="clear"></div>
+				</h3>
+				<div class="voucher_tips" name="readTips">提示，每次充值只能使用一张优惠券。</div>
+				<div class="font_red" style="display:none;" name="readTips">你准备使用的优惠券</div>
+				<table class="voucher_table" id="viewVoucher">
+					#if($!{vouchers} && ${vouchers.size()}>0)
+						#foreach($v in $vouchers)
+						<tr>
+							<td><span class="voucher_s"><span class="voucher_number_s" _v="$math.toInteger(${v.voucher.price})">$math.toInteger(${v.voucher.grant})</span></span></td>
+							<td style="color:red;">${v.voucher.name}</td>
+							<td style="font-family: verdana;">(还剩 $Result.computeRemainingTime(${v.deadTime}) 天过期)</td>
+							<td style="width:290px;" class="buy_date">$v.voucher.instructions</td>
+							<td>#if($v.status==0 || $v.status==1)<span class="btn_voucher" _n="useVoucher" _price="${v.voucher.price}" _grant="${v.voucher.grant}" _id="$v.id" _limit="$!{v.voucher.limit}">确定使用</span>#end</td>
+						</tr>
+						#end
+					#else
+						<tr>
+							<td>没有符合当前充值条件的充值券</td>
+						</tr>
+					#end
+				</table>
+				<table class="voucher_table" id="selectedVoucher" style="display:none;">
+				</table>
+				<a class="r_font_blue" href="/ac/voucher.do" id="viewAll">查看所有优惠券</a>
+				<div class="clear"></div>
+      		</div>
+      		<div class="help_box_tips" id="help_box_tips">本次充值的总金额为：<span class="font_red" id="rechargePrice"></span>元 + 优惠券赠送：<span class="font_red" id="grantPrice">元</span> = <span class="font_red" name="totalPrice"></span>元(<span name="totalPrice"></span>元投注后方可提现)</div>
+      	</div>
+      </div>
+      <div class="row">
+        <label class="lbl wh-a">充值渠道：</label>
+      </div>
+      <div class="row">
+        <div class="mp-h">
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="BOCB2C" class="iniptchk" checked="checked"/>
+            <img title="中国银行" src="${base}/images/bank/bank_01.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CCB" class="iniptchk"/>
+            <img title="中国建设银行" src="${base}/images/bank/bank_02.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="ABC" class="iniptchk"/>
+            <img title="中国农业银行" src="${base}/images/bank/bank_03.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CMB" class="iniptchk"/>
+            <img title="招商银行" src="${base}/images/bank/bank_04.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="ICBCB2C" class="iniptchk"/>
+            <img title="中国工商银行" src="${base}/images/bank/bank_05.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="COMM" class="iniptchk" />
+            <img title="交通银行" src="${base}/images/bank/bank_06.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="GDB" class="iniptchk"/>
+            <img title="广发银行" src="${base}/images/bank/bank_07.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CMBC" class="iniptchk"/>
+            <img title="中国民生银行" src="${base}/images/bank/bank_08.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="SPABANK" class="iniptchk"/>
+            <img title="平安银行" src="${base}/images/bank/bank_18.png"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="SPDB" class="iniptchk"/>
+            <img title="浦发银行" src="${base}/images/bank/bank_10.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CIB" class="iniptchk" />
+            <img title="兴业银行" src="${base}/images/bank/bank_11.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="BJBANK" class="iniptchk"/>
+            <img title="北京银行" src="${base}/images/bank/bank_12.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="POSTGC" class="iniptchk"/>
+            <img title="中国邮政储蓄银行" src="${base}/images/bank/bank_13.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CITIC" class="iniptchk"/>
+            <img title="中信银行" src="${base}/images/bank/bank_14.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CEBBANK" class="iniptchk"/>
+            <img title="中国光大银行" src="${base}/images/bank/bank_15.jpg"/>
+          </label>
+        </div>
+      </div>
+     <div class="row">
+        <label class="lbl wh-a">第三方支付：</label>
+     </div>
+     <div class="row">
+        <div class="mp-h">
+          <label class="iptchk alipay">
+            <input type="radio" name="frpId" value="ALIPAY" class="iniptchk" />
+            <img title="支付宝" src="${base}/images/bank/alipay.jpg"/>
+          </label>
+        </div>
+     </div>  
+      <div class="row" style="margin-top:20px;">
+        <label class="lbl wh-a"></label>
+        <a href="javascript:void(0);" class="btnx2 btnx2-c fl" >
+          <span class="inbtn"><input id="payLink" type="button" value="下一步" class="iptbtn"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <space>&nbsp;</space>
+</div>
+
+<div style="display:none;" >
+	<div id="lockid">
+		<h2>请您在新打开的网上银行页面上完成充值</h2>
+		<div class="lblogin">
+		 充值完成前请不要关闭此窗口<br>
+		  完成充值后请跟根据您的情况点击下面的按钮
+		</div>
+		<div>
+	 	 <span class="inbtn">
+	  	 	<input type="button" id="btnCompleted" style="color:#FF0000;" class="iptbtn" value="已完成充值，查看账号明细"> 
+	     </span>
+	     <a id="repay" href="javascript:void(0);" style="color:#FF0000;">返回重新充值</a>
+	    </div>
+    </div>
+</div>
+</form>
+
+<script language="javascript">
+$(function(){
+	$('#rePromo').bind('mouseover', function(){
+		$('#promoDiv').show();
+	});
+	$('#rePromo').bind('mouseout', function(){
+		$('#promoDiv').hide();
+	});
+	
+	$('#promoDiv').bind('mouseover', function(){
+		$('#promoDiv').show();
+	});
+	$('#promoDiv').bind('mouseout', function(){
+		$('#promoDiv').hide();
+	});
+	
+    var J = jQuery;
+    $('#payLink').bind('click', function(){
+        var amount = J.trim($('#aIpt').val());
+        if(amount == ''){
+            alert('请输入充值金额');
+            $('#aIpt').focus();
+            return false;
+        }
+        if(!(/^\d+(\.\d{1,2})?$/.test(amount)) || amount <= 0){
+            alert('请输入有效充值金额：如123或1.23');
+            $('#aIpt').focus();
+            return false;
+        }
+		
+        if(parseFloat(amount) < 2.00){
+            alert('最小充值金额为2元');
+            $('#aIpt').focus();
+            return false;
+        } 
+        
+        if($(':radio[name="frpId"]:checked').length == 0){
+            alert('请选择银行');
+            return false;
+        }
+        
+        if($("[name='isUseVoucher']").val() == 'true'){
+        	var price = $("#selectedVoucher").find(".voucher_number_s").attr("_v");
+	        if( amount < parseFloat(price) ){
+	            alert('充值金额小于优惠劵限制金额，不能使用！');
+	            $('#aIpt').focus();
+	            return false;
+	        }
+        }
+               
+       	if($(':radio[name="frpId"]:checked').val()=='YEEPAY'){
+       		$('#pForm').attr("action", "${base}/yeepayRecharge.do");
+       		$('#pForm').removeAttr("target");
+		} else {
+			jQuery.fancybox({
+				'href':'#lockid'
+			});
+		}
+		
+		$('#pForm').submit();
+		
+		return true;
+    });
+    
+     $('#btnCompleted').bind('click', function(){
+     	window.location.href='$base/balance.do';
+     });
+     $('#repay').bind('click', function(){
+     	jQuery.fancybox.close();
+     });
+});
+</script>

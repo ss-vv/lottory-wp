@@ -1,0 +1,110 @@
+<script id="bet-record-scheme-tmpl" type="text/x-jquery-tmpl">
+{{#scheme}}
+	<div class="lottery-sun-middle">
+		<ul class="lottery-sun-middle-nav">
+			<li class="width11">赛事编号</li>
+			<li class="width12">{{switchHomeGuest}}</li>
+			{{^isMixPlay}}
+			<li class="width13">玩法</li>
+			{{/isMixPlay}}
+			{{^_showConcede}}
+			<li class="width14">让球</li>
+			{{/_showConcede}}
+			<li class="width15 {{formatCss}}">投注内容</li>
+			<li class="width16">比分</li>
+			<li class="width17">赛果</li>
+		</ul>
+		{{#matchs}}
+		<ul class="lottery-sun-middle-details">
+			<li class="width11">{{cnCode}}</li>
+			<li class="width12">
+				<a target="_blank" href="http://www.davcai.com/matches/{{lotteryId}}/{{matchId}}">
+					<em class="match-left" title="{{homeName}}">{{homeName}}</em>
+					<em class="match-vs">vs</em>
+					<em class="match-right" title="{{guestName}}">{{guestName}}</em>
+				</a>
+			</li>
+			{{^isMixPlay}}
+			<li class="width13">{{playName}}</li>
+			{{/isMixPlay}}
+			{{^_showConcede}}
+			<li class="width14">{{_concedePoints}}</li>
+			{{/_showConcede}}
+			<li class="width15 {{throughResult}} {{bravery}} {{formatCss}}" title="{{_betContent}}">
+				{{_betContent}}
+			</li>
+			<li class="width16 davcai-sun-list-width-mg" title="{{_score}}" 
+				channelIdentifer="match_{{_pushMatchType}}_{{matchId}}">
+				<em class="pgs"></em>
+				<span {{^_resetScoreCss}} class="score-reset" {{/_resetScoreCss}}>{{_score}}</span>
+			</li>
+			<li class="width17" title="{{resultView}}">{{resultView}}</li>
+		</ul>
+		{{/matchs}}
+		{{^realScheme}}
+			<p class="davcai-sun-list-middle-white"></p>
+		{{/realScheme}}
+		
+		{{^_realScheme}}
+			<p class="lottery-sun-middle-ggfs">
+				<span>过关方式：</span> <label>{{playName}}</label>
+				<label>{{passTypeIds}}</label>
+			</p>
+			<p class="lottery-sun-middle-bj">
+				<span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span>
+                <label><ew class="color11">{{multiple}}</ew>倍</label>
+				<span>方案金额：</span><label><ew class="color11">{{totalAmount}}</ew>元</label>
+			</p>
+			{{^_theoryBonus}}
+			<p class="lottery-sun-middle-jjhb">
+				<span>理论最高奖金：</span>
+				<label><ew class="color11">{{maxBonus}}</ew>元</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>回报率： </span> <label><ew class="color11">{{returnRation}}</ew>倍</label>
+			</p>
+			{{/_theoryBonus}}
+			{{#sumBonus}}
+			<p class="davcai-sun-list-middle-multiple">
+				<span>奖金：</span><label><ew class="color11">{{sumBonus}}</ew>元</label>
+			</p>
+			{{/sumBonus}}
+			{{#winprize}}
+			<img src="/assets/js/bet/images/winprize-logo.png" class="winprize">
+			{{/winprize}}
+		{{/_realScheme}}
+	</div>
+{{/scheme}}
+</script>
+<script id="show-scheme-dialog-tmpl" type="text/x-jquery-tmpl">
+	<!-- 投注记录晒单窗口 -->
+	<form _id="shareDialog">
+		<div class="modal fade" _id="shareModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">晒单宣言：</h4>
+		      </div>
+		      <div class="modal-body">
+		      <div class="editor">
+		      		<div class="editor-wrapper">
+				      		<div id="emotionAreaForShare">
+								<textarea class="form-control" rows="5" id="shareContent" name="shareContent" placeholder="说点什么吧……"></textarea>
+								<div id="filter_dialog_share" style="display:none;"></div>
+							</div>
+				      		<div class="emotion limitWeiboLen">
+			                    <span title="插入表情" _id="message_face_share" class="face"><s></s><span>表情</span></span>
+			                    <span title="过滤赛事" class="match matchFindShare game_show_btn"><s></s><span>赛事</span></span>
+			                    <span id="shareContentRemainingWords" style="float:right;clear:both;">还可输入<em style='color:red;'>140</em>字</span>
+			                </div>
+			          </div>
+			   </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="showPostBtn">提交</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</form>
+</script>

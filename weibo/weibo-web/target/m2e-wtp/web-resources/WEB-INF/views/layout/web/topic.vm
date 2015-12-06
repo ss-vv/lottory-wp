@@ -1,0 +1,13 @@
+#if($user)
+ #parse("web/inc/header_login.vm")
+#else
+ #parse("web/inc/header_not_login.vm")
+#end
+
+<div id="winner">
+	<div class="winner-content">
+		${screen_content}
+		#parse("web/marrow/winninglist_right.vm")
+	</div>
+</div>
+#parse("web/inc/footer_login.vm")

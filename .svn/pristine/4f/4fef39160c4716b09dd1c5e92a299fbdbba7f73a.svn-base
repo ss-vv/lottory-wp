@@ -1,0 +1,699 @@
+<html>
+<head>
+    <title>晒单跟单首页</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet">
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet">
+    <link href="晒单跟单首页_files/axurerp_pagespecificstyles.css" type="text/css" rel="stylesheet">
+<!--[if IE 6]>
+    <link href="晒单跟单首页_files/axurerp_pagespecificstyles_ie6.css" type="text/css" rel="stylesheet">
+<![endif]-->
+    <script src="data/sitemap.js"></script>
+    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="resources/scripts/axutils.js"></script>
+    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="resources/scripts/axurerp_beforepagescript.js"></script>
+    <script src="resources/scripts/messagecenter.js"></script>
+<script src='晒单跟单首页_files/data.js'></script>
+</head>
+<body>
+<div id="main_container">
+
+<div id="u0" class="u0_container"   >
+<div id="u0_img" class="u0_normal detectCanvas"></div>
+<div id="u1" class="u1" style="visibility:hidden;"  >
+<div id="u1_rtf"></div>
+</div>
+</div>
+<div id="u2" class="u2_container"   >
+<div id="u2_img" class="u2_normal detectCanvas"></div>
+<div id="u3" class="u3" style="visibility:hidden;"  >
+<div id="u3_rtf"></div>
+</div>
+</div>
+<div id="u4" class="u4"  >
+<div id="u4_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">首页</span></p></div>
+</div>
+<div id="u5" class="u5"  >
+<div id="u5_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">竞彩足球</span></p></div>
+</div>
+<div id="u6" class="u6"  >
+<div id="u6_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">竞彩篮球</span></p></div>
+</div>
+<div id="u7" class="u7"  >
+<div id="u7_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">赛果开奖</span></p></div>
+</div>
+<div id="u8" class="u8"  >
+<div id="u8_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球资讯</span></p></div>
+</div>
+<div id="u9" class="u9"  >
+<div id="u9_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">专家推荐</span></p></div>
+</div>
+<div id="u10" class="u10"  >
+<div id="u10_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">帮助中心</span></p></div>
+</div>
+<div id="u11" class="u11"  >
+<div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">晒单跟单</span></p></div>
+</div>
+<div id="u12" class="u12"  >
+<div id="u12_rtf"><p style="text-align:left;"><a id="u13" ><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">合买广场</span></a></p></div>
+</div>
+<DIV id="u14" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:160px; top:136px; width:790px; height:40px;;" ></div>
+<div id="u15" class="u15_container"   >
+<div id="u15_img" class="u15_normal detectCanvas"></div>
+<div id="u16" class="u16" style="visibility:hidden;"  >
+<div id="u16_rtf"></div>
+</div>
+</div>
+<div id="u17" class="u17_container"   >
+<div id="u17_img" class="u17_normal detectCanvas"></div>
+<div id="u18" class="u18" style="visibility:hidden;"  >
+<div id="u18_rtf"></div>
+</div>
+</div>
+<DIV id="u19" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:10px; top:36px; width:940px; height:140px;;" ></div>
+<div id="u20" class="u20_container"   >
+<div id="u20_img" class="u20_normal detectCanvas"></div>
+<div id="u21" class="u21"  >
+<div id="u21_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">选择彩票</span></p></div>
+</div>
+</div>
+<div id="u22" class="u22_container"   >
+<div id="u22_img" class="u22_normal detectCanvas"></div>
+<div id="u23" class="u23" style="visibility:hidden;"  >
+<div id="u23_rtf"></div>
+</div>
+</div>
+<div id="u24" class="u24_container"   >
+<div id="u24_img" class="u24_normal detectCanvas"></div>
+<div id="u25" class="u25"  >
+<div id="u25_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩榜</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">TOP10</span></p></div>
+</div>
+</div>
+<div id="u26" class="u26_container"   >
+<div id="u26_img" class="u26_normal detectCanvas"></div>
+<div id="u27" class="u27" style="visibility:hidden;"  >
+<div id="u27_rtf"></div>
+</div>
+</div>
+<div id="u28" class="u28_container"   >
+<div id="u28_img" class="u28_normal detectCanvas"></div>
+<div id="u29" class="u29" style="visibility:hidden;"  >
+<div id="u29_rtf"></div>
+</div>
+</div>
+<div id="u30" class="u30_container"   >
+<div id="u30_img" class="u30_normal detectCanvas"></div>
+<div id="u31" class="u31"  >
+<div id="u31_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2</span></p></div>
+</div>
+</div>
+<div id="u32" class="u32_container"   >
+<div id="u32_img" class="u32_normal detectCanvas"></div>
+<div id="u33" class="u33"  >
+<div id="u33_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩头衔</span></p></div>
+</div>
+</div>
+<div id="u34" class="u34_container"   >
+<div id="u34_img" class="u34_normal detectCanvas"></div>
+<div id="u35" class="u35" style="visibility:hidden;"  >
+<div id="u35_rtf"></div>
+</div>
+</div>
+<div id="u36" class="u36_container"   >
+<div id="u36_img" class="u36_normal detectCanvas"></div>
+<div id="u37" class="u37"  >
+<div id="u37_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">页脚</span></p></div>
+</div>
+</div>
+<div id="u38" class="u38"  >
+<div id="u38_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球方案</span></p></div>
+</div>
+<div id="u39" class="u39"  >
+<div id="u39_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">篮球方案</span></p></div>
+</div>
+<div id="u40" class="u40"  >
+<div id="u40_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">欢迎你, xxx</span></p></div>
+</div>
+<div id="u41" class="u41"  >
+<div id="u41_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">我的账户</span></p></div>
+</div>
+<div id="u42" class="u42"  >
+<div id="u42_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">充值</span></p></div>
+</div>
+<div id="u43" class="u43"  >
+<div id="u43_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">提现</span></p></div>
+</div>
+<div id="u44" class="u44"  >
+<div id="u44_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">我的投注</span></p></div>
+</div>
+<div id="u45" class="u45"  >
+<div id="u45_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">退出</span></p></div>
+</div>
+<DIV id="u46" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:10px; top:10px; width:320px; height:16px;;" ></div>
+<div id="u47" class="u47"  >
+<div id="u47_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">热门</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">推荐</span></p></div>
+</div>
+<div id="u48" class="u48_container"   >
+<div id="u48_img" class="u48_normal detectCanvas"></div>
+<div id="u49" class="u49" style="visibility:hidden;"  >
+<div id="u49_rtf"></div>
+</div>
+</div>
+<SELECT id="u50" class="u50"   >
+<OPTION selected value="全部">全部</OPTION>
+<OPTION  value="稳健型">稳健型</OPTION>
+<OPTION  value="激进型">激进型</OPTION>
+</SELECT>
+
+<div id="u51" class="u51"  >
+<div id="u51_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">策略</span></p></div>
+</div>
+<div id="u52" class="u52"  >
+<div id="u52_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">保密</span></p></div>
+</div>
+<SELECT id="u53" class="u53"   >
+<OPTION selected value="全部">全部</OPTION>
+<OPTION  value="公开">公开</OPTION>
+<OPTION  value="跟单后公开">跟单后公开</OPTION>
+<OPTION  value="截止后公开">截止后公开</OPTION>
+</SELECT>
+
+<div id="u54" class="u54_container"   >
+<div id="u54_img" class="u54_normal detectCanvas"></div>
+<div id="u55" class="u55" style="visibility:hidden;"  >
+<div id="u55_rtf"></div>
+</div>
+</div>
+<div id="u56" class="u56"  >
+<div id="u56_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">发起人</span></p></div>
+</div>
+<div id="u57" class="u57"  >
+<div id="u57_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩</span></p></div>
+</div>
+<div id="u58" class="u58"  >
+<div id="u58_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">玩法</span></p></div>
+</div>
+<div id="u59" class="u59"  >
+<div id="u59_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">单注</span></p></div>
+</div>
+<div id="u60" class="u60"  >
+<div id="u60_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">倍数</span></p></div>
+</div>
+<div id="u61" class="u61"  >
+<div id="u61_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">截止时间</span></p></div>
+</div>
+<div id="u62" class="u62"  >
+<div id="u62_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">回报率</span></p></div>
+</div>
+<div id="u63" class="u63"  >
+<div id="u63_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">提成</span></p></div>
+</div>
+<div id="u64" class="u64"  >
+<div id="u64_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">人气</span></p></div>
+</div>
+<div id="u65" class="u65"  >
+<div id="u65_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">操作</span></p></div>
+</div>
+<div id="u66" class="u66"  >
+<div id="u66_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">bitlon**</span></p></div>
+</div>
+<div id="u67" class="u67" style="visibility:hidden;"  >
+<div id="u67_rtf"></div>
+</div>
+<div id="u68" class="u68"  >
+<div id="u68_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">过关</span></p></div>
+</div>
+<div id="u69" class="u69"  >
+<div id="u69_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2元</span></p></div>
+</div>
+<div id="u70" class="u70"  >
+<div id="u70_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">12倍</span></p></div>
+</div>
+<div id="u71" class="u71"  >
+<div id="u71_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">06-05 23</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">59</span></p></div>
+</div>
+<div id="u72" class="u72"  >
+<div id="u72_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2倍</span></p></div>
+</div>
+<div id="u73" class="u73"  >
+<div id="u73_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5%</span></p></div>
+</div>
+<div id="u74" class="u74"  >
+<div id="u74_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">808</span></p></div>
+</div>
+<div id="u75" class="u75"  >
+<div id="u75_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">跟单</span></p></div>
+</div>
+<div id="u76" class="u76"  >
+<div id="u76_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">定制</span></p></div>
+</div>
+<div id="u77" class="u77"  >
+<div id="u77_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">xx**</span></p></div>
+</div>
+<div id="u78" class="u78"  >
+<div id="u78_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">**</span></p></div>
+</div>
+<div id="u79" class="u79"  >
+<div id="u79_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">过关</span></p></div>
+</div>
+<div id="u80" class="u80"  >
+<div id="u80_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2元</span></p></div>
+</div>
+<div id="u81" class="u81"  >
+<div id="u81_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">12倍</span></p></div>
+</div>
+<div id="u82" class="u82"  >
+<div id="u82_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">06-05 23</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">59</span></p></div>
+</div>
+<div id="u83" class="u83"  >
+<div id="u83_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2倍</span></p></div>
+</div>
+<div id="u84" class="u84"  >
+<div id="u84_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5%</span></p></div>
+</div>
+<div id="u85" class="u85"  >
+<div id="u85_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">808</span></p></div>
+</div>
+<div id="u86" class="u86"  >
+<div id="u86_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">跟单</span></p></div>
+</div>
+<div id="u87" class="u87"  >
+<div id="u87_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">定制</span></p></div>
+</div>
+<div id="u88" class="u88"  >
+<div id="u88_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">b</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">ay</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">**</span></p></div>
+</div>
+<div id="u89" class="u89"  >
+<div id="u89_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">**</span></p></div>
+</div>
+<div id="u90" class="u90"  >
+<div id="u90_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">过关</span></p></div>
+</div>
+<div id="u91" class="u91"  >
+<div id="u91_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2元</span></p></div>
+</div>
+<div id="u92" class="u92"  >
+<div id="u92_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">12倍</span></p></div>
+</div>
+<div id="u93" class="u93"  >
+<div id="u93_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">06-05 23</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">59</span></p></div>
+</div>
+<div id="u94" class="u94"  >
+<div id="u94_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2倍</span></p></div>
+</div>
+<div id="u95" class="u95"  >
+<div id="u95_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5%</span></p></div>
+</div>
+<div id="u96" class="u96"  >
+<div id="u96_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">808</span></p></div>
+</div>
+<div id="u97" class="u97"  >
+<div id="u97_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">跟单</span></p></div>
+</div>
+<div id="u98" class="u98"  >
+<div id="u98_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">定制</span></p></div>
+</div>
+<div id="u99" class="u99_container"   >
+<div id="u99_img" class="u99_normal detectCanvas"></div>
+<div id="u100" class="u100"  >
+<div id="u100_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">1</span></p></div>
+</div>
+</div>
+<div id="u101" class="u101_container"   >
+<div id="u101_img" class="u101_normal detectCanvas"></div>
+<div id="u102" class="u102"  >
+<div id="u102_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">3</span></p></div>
+</div>
+</div><div id="u103" class="u103" >
+<DIV id="u103_line" class="u103_line" ></DIV>
+</div><div id="u104" class="u104" >
+<DIV id="u104_line" class="u104_line" ></DIV>
+</div><div id="u105" class="u105" >
+<DIV id="u105_line" class="u105_line" ></DIV>
+</div>
+<DIV id="u106" style="" data-label="aa">
+<DIV id="pd1u106" style="visibility:hidden;" data-label="篮球榜">
+<div id="u107" class="u107_container"   data-label="足球榜">
+<div id="u107_img" class="u107_normal detectCanvas"></div>
+<div id="u108" class="u108"  >
+<div id="u108_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球榜</span></p></div>
+</div>
+</div><div id="u109" class="u109" >
+<DIV id="u109_line" class="u109_line" ></DIV>
+</div>
+<div id="u110" class="u110_container"   data-label="Selected Tab">
+<div id="u110_img" class="u110_normal detectCanvas"></div>
+<div id="u111" class="u111"  >
+<div id="u111_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">篮球榜</span></p></div>
+</div>
+</div>
+</DIV>
+<DIV id="pd0u106" style="" data-label="足球榜">
+<div id="u112" class="u112_container"   data-label="Tab Option 2">
+<div id="u112_img" class="u112_normal detectCanvas"></div>
+<div id="u113" class="u113"  >
+<div id="u113_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">篮球榜</span></p></div>
+</div>
+</div><div id="u114" class="u114" >
+<DIV id="u114_line" class="u114_line" ></DIV>
+</div>
+<div id="u115" class="u115_container"   data-label="aa">
+<div id="u115_img" class="u115_normal detectCanvas"></div>
+<div id="u116" class="u116"  >
+<div id="u116_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">足球榜</span></p></div>
+</div>
+</div>
+<div id="u117" class="u117"  >
+<div id="u117_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">用户名</span></p></div>
+</div>
+<div id="u118" class="u118"  >
+<div id="u118_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩</span></p></div>
+</div>
+<div id="u119" class="u119"  >
+<div id="u119_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">盈利</span></p></div>
+</div>
+</DIV>
+</DIV>
+<div id="u120" class="u120_container"   data-label="Styled Button">
+<div id="u120_img" class="u120_normal detectCanvas"></div>
+<div id="u121" class="u121"  >
+<div id="u121_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">查询</span></p></div>
+</div>
+</div>
+<div id="u122" class="u122_container"   >
+<div id="u122_img" class="u122_normal detectCanvas"></div>
+<div id="u123" class="u123" style="visibility:hidden;"  >
+<div id="u123_rtf"></div>
+</div>
+</div>
+<div id="u124" class="u124_container"   >
+<div id="u124_img" class="u124_normal detectCanvas"></div>
+<div id="u125" class="u125" style="visibility:hidden;"  >
+<div id="u125_rtf"></div>
+</div>
+</div>
+<DIV id="u126" style="visibility:hidden;" data-label="跟单">
+<DIV id="pd0u126" style="" data-label="State1">
+<div id="u127" class="u127_container"   >
+<div id="u127_img" class="u127_normal detectCanvas"></div>
+<div id="u128" class="u128" style="visibility:hidden;"  >
+<div id="u128_rtf"></div>
+</div>
+</div><div id="u129" class="u129" >
+<DIV id="u129_line" class="u129_line" ></DIV>
+</div>
+<div id="u130" class="u130"  >
+<div id="u130_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">方案号:</span></p></div>
+</div>
+<div id="u131" class="u131"  >
+<div id="u131_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">发起人:</span></p></div>
+</div>
+<div id="u132" class="u132"  >
+<div id="u132_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">bit***</span></p></div>
+</div>
+<div id="u133" class="u133"  >
+<div id="u133_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">方案状态:</span></p></div>
+</div>
+<div id="u134" class="u134"  >
+<div id="u134_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF0000;">正在进行中</span></p></div>
+</div>
+<div id="u135" class="u135"  >
+<div id="u135_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">发起时间:</span></p></div>
+</div>
+<div id="u136" class="u136"  >
+<div id="u136_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">截止时间:</span></p></div>
+</div>
+<div id="u137" class="u137"  >
+<div id="u137_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">***********</span></p></div>
+</div>
+<div id="u138" class="u138"  >
+<div id="u138_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">跟单人数 23 人</span></p></div>
+</div>
+<div id="u139" class="u139"  >
+<div id="u139_rtf"><p style="text-align:left;"><a id="u140" ><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#0000FF;">我要自动跟单</span></a></p></div>
+</div>
+<div id="u141" class="u141"  >
+<div id="u141_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2012-</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">05-05 23:23</span></p></div>
+</div>
+<div id="u142" class="u142"  >
+<div id="u142_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2012-</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">05-05 23:23</span></p></div>
+</div>
+<div id="u143" class="u143"  >
+<div id="u143_rtf"><p style="text-align:right;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">总</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span></p></div>
+</div>
+<div id="u144" class="u144_container"   >
+<div id="u144_img" class="u144_normal detectCanvas"></div>
+<div id="u145" class="u145" style="visibility:hidden;"  >
+<div id="u145_rtf"></div>
+</div>
+</div>
+<div id="u146" class="u146_container"   >
+<div id="u146_img" class="u146_normal detectCanvas"></div>
+<div id="u147" class="u147" style="visibility:hidden;"  >
+<div id="u147_rtf"></div>
+</div>
+</div>
+<div id="u148" class="u148"  >
+<div id="u148_rtf"><p style="text-align:right;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球战绩</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span></p></div>
+</div>
+<div id="u149" class="u149"  >
+<div id="u149_rtf"><p style="text-align:right;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">蓝球</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span></p></div>
+</div>
+<div id="u150" class="u150_container"   >
+<div id="u150_img" class="u150_normal detectCanvas"></div>
+<div id="u151" class="u151" style="visibility:hidden;"  >
+<div id="u151_rtf"></div>
+</div>
+</div>
+<div id="u152" class="u152_container"   >
+<div id="u152_img" class="u152_normal detectCanvas"></div>
+<div id="u153" class="u153" style="visibility:hidden;"  >
+<div id="u153_rtf"></div>
+</div>
+</div><div id="u154" class="u154" >
+<DIV id="u154_line" class="u154_line" ></DIV>
+</div>
+<div id="u155" class="u155"  >
+<div id="u155_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">提成比例:</span></p></div>
+</div>
+<div id="u156" class="u156"  >
+<div id="u156_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">5%</span></p></div>
+</div>
+<div id="u157" class="u157"  >
+<div id="u157_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">投注金额:</span></p></div>
+</div>
+<div id="u158" class="u158"  >
+<div id="u158_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">4500.00元 倍数:23倍&nbsp; 理论最高总奖金:</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">13456.00</span></p></div>
+</div>
+<div id="u159" class="u159"  >
+<div id="u159_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">过关方式:</span></p></div>
+</div>
+<div id="u160" class="u160"  >
+<div id="u160_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球-胜平负</span></p></div>
+</div>
+<div id="u161" class="u161"  >
+<div id="u161_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2串1 3串1</span></p></div>
+</div>
+<div id="u162" class="u162"  >
+<div id="u162_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">投注详情:</span></p></div>
+</div>
+<div id="u163" class="u163"  >
+<div id="u163_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">投注详细内容</span></p></div>
+</div>
+<div id="u164" class="u164"  >
+<div id="u164_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">跟单金额:</span></p></div>
+</div>
+<div id="u165" class="u165"  >
+<div id="u165_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">2元</span></p></div>
+</div>
+<div id="u166" class="u166"  >
+<div id="u166_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">跟单倍数:</span></p></div>
+</div>
+<INPUT id="u167" type=text value="1" class="u167"     >
+
+<div id="u168" class="u168"  >
+<div id="u168_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">倍</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">，最高999倍</span></p></div>
+</div>
+<div id="u169" class="u169_container"   data-label="Styled Button">
+<div id="u169_img" class="u169_normal detectCanvas"></div>
+<div id="u170" class="u170"  >
+<div id="u170_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">我要跟单</span></p></div>
+</div>
+</div>
+<div id="u171" class="u171_container"   data-label="Styled Button">
+<div id="u171_img" class="u171_normal detectCanvas"></div>
+<div id="u172" class="u172"  >
+<div id="u172_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">复制地址</span></p></div>
+</div>
+</div>
+<div id="u173" class="u173"  >
+<div id="u173_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">方案地址:</span></p></div>
+</div>
+<div id="u174" class="u174_container"   >
+<div id="u174_img" class="u174_normal detectCanvas"></div>
+<div id="u175" class="u175"  >
+<div id="u175_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">http://www.davcai.com/xxx/?s=123123</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+<DIV id="u176" style="visibility:hidden;" data-label="订制">
+<DIV id="pd0u176" style="" data-label="State1">
+<div id="u177" class="u177_container"   >
+<div id="u177_img" class="u177_normal detectCanvas"></div>
+<div id="u178" class="u178" style="visibility:hidden;"  >
+<div id="u178_rtf"></div>
+</div>
+</div><div id="u179" class="u179" >
+<DIV id="u179_line" class="u179_line" ></DIV>
+</div>
+<div id="u180" class="u180"  >
+<div id="u180_rtf"><p style="text-align:right;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">发起人:</span></p></div>
+</div>
+<div id="u181" class="u181"  >
+<div id="u181_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">bit***</span></p></div>
+</div>
+<div id="u182" class="u182"  >
+<div id="u182_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">跟单人数 23 人</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">,</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">订制人数</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;"> 1 人</span></p></div>
+</div>
+<div id="u183" class="u183"  >
+<div id="u183_rtf"><p style="text-align:right;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">总</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span></p></div>
+</div>
+<div id="u184" class="u184_container"   >
+<div id="u184_img" class="u184_normal detectCanvas"></div>
+<div id="u185" class="u185" style="visibility:hidden;"  >
+<div id="u185_rtf"></div>
+</div>
+</div>
+<div id="u186" class="u186_container"   >
+<div id="u186_img" class="u186_normal detectCanvas"></div>
+<div id="u187" class="u187" style="visibility:hidden;"  >
+<div id="u187_rtf"></div>
+</div>
+</div>
+<div id="u188" class="u188"  >
+<div id="u188_rtf"><p style="text-align:right;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球战绩</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span></p></div>
+</div>
+<div id="u189" class="u189"  >
+<div id="u189_rtf"><p style="text-align:right;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">蓝球</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">战绩</span><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">:</span></p></div>
+</div>
+<div id="u190" class="u190_container"   >
+<div id="u190_img" class="u190_normal detectCanvas"></div>
+<div id="u191" class="u191" style="visibility:hidden;"  >
+<div id="u191_rtf"></div>
+</div>
+</div>
+<div id="u192" class="u192_container"   >
+<div id="u192_img" class="u192_normal detectCanvas"></div>
+<div id="u193" class="u193" style="visibility:hidden;"  >
+<div id="u193_rtf"></div>
+</div>
+</div><div id="u194" class="u194" >
+<DIV id="u194_line" class="u194_line" ></DIV>
+</div>
+<div id="u195" class="u195"  >
+<div id="u195_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">每次自动跟单上限金额:</span></p></div>
+</div>
+<div id="u196" class="u196"  >
+<div id="u196_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">每日最大跟单金额:</span></p></div>
+</div>
+<div id="u197" class="u197_container"   data-label="Styled Button">
+<div id="u197_img" class="u197_normal detectCanvas"></div>
+<div id="u198" class="u198"  >
+<div id="u198_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">马上订制</span></p></div>
+</div>
+</div>
+<INPUT id="u199" type=text value="50" class="u199"     >
+
+<div id="u200" class="u200"  >
+<div id="u200_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">元</span></p></div>
+</div>
+<div id="u201" class="u201"  >
+<div id="u201_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">最少50元</span></p></div>
+</div>
+<div id="u202" class="u202"  >
+<div id="u202_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">每日自动跟单次数:</span></p></div>
+</div>
+<INPUT id="u203" type=text value="1" class="u203"     >
+
+<div id="u204" class="u204"  >
+<div id="u204_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">次</span></p></div>
+</div>
+<div id="u205" class="u205"  >
+<div id="u205_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">50元</span></p></div>
+</div><div id="u206" class="u206" >
+<DIV id="u206_line" class="u206_line" ></DIV>
+</div>
+<div id="u207" class="u207"  >
+<div id="u207_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">高级订制选项</span></p></div>
+</div>
+<div id="u208" class="u208"  >
+<div id="u208_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">自动跟单开始时间：</span></p></div>
+</div>
+<INPUT id="u209" type=text value="2012-05-30" class="u209"     >
+
+<div id="u210" class="u210"  >
+<div id="u210_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">自动跟单截止时间：</span></p></div>
+</div>
+<INPUT id="u211" type=text value="2020-12-31" class="u211"     >
+
+<div id="u212" class="u212"  >
+<div id="u212_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">玩法:</span></p></div>
+</div>
+<DIV id="u213container" style="position:absolute; left:199px; top:334px; width:131px; height:16px; ; ; ;" >
+<LABEL for="u213">
+<div id="u214" class="u214"  >
+<div id="u214_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球-胜平负过关</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u213" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+</DIV>
+<DIV id="u215container" style="position:absolute; left:330px; top:334px; width:130px; height:16px; ; ; ;" >
+<LABEL for="u215">
+<div id="u216" class="u216"  >
+<div id="u216_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">足球-胜平负-单关</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u215" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+</DIV>
+<DIV id="u217container" style="position:absolute; left:199px; top:360px; width:131px; height:16px; ; ; ;" >
+<LABEL for="u217">
+<div id="u218" class="u218"  >
+<div id="u218_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">篮球-胜负-过关</span></p></div>
+</div>
+</LABEL>
+<INPUT id="u217" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+</DIV>
+<DIV id="u219container" style="position:absolute; left:330px; top:360px; width:140px; height:16px; ; ; ;" >
+<LABEL for="u219">
+<div id="u220" class="u220"  >
+<div id="u220_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">篮球-胜负-单关 </span></p></div>
+</div>
+</LABEL>
+<INPUT id="u219" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+</DIV>
+<div id="u221" class="u221"  >
+<div id="u221_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">......</span></p></div>
+</div>
+<div id="u222" class="u222_container"   data-label="Styled Button">
+<div id="u222_img" class="u222_normal detectCanvas"></div>
+<div id="u223" class="u223"  >
+<div id="u223_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">帮助</span></p></div>
+</div>
+</div>
+<div id="u224" class="u224_container"   data-label="Styled Button">
+<div id="u224_img" class="u224_normal detectCanvas"></div>
+<div id="u225" class="u225"  >
+<div id="u225_rtf"><p style="text-align:center;"><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">我的订制</span></p></div>
+</div>
+</div>
+</DIV>
+</DIV>
+</div>
+<div class="preload"><img src="导航-banner_files/u0_normal.png" width="1" height="1"/><img src="导航-链接_files/u2_normal.png" width="1" height="1"/><img src="导航-banner_files/u15_normal.png" width="1" height="1"/><img src="导航-banner_files/u17_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u20_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u22_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u24_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u26_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u28_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u30_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u32_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u34_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u36_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u48_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u54_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u99_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u103_line.png" width="1" height="1"/><img src="晒单跟单首页_files/u104_line.png" width="1" height="1"/><img src="晒单跟单首页_files/u105_line.png" width="1" height="1"/><img src="晒单跟单首页_files/足球榜_u107_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u109_line.png" width="1" height="1"/><img src="晒单跟单首页_files/Selected_Tab_u110_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/Tab_Option_2_u112_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u114_line.png" width="1" height="1"/><img src="晒单跟单首页_files/aa_u115_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u120_mouseDown.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u120_disabled.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u120_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u122_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u124_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u127_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u129_line.png" width="1" height="1"/><img src="晒单跟单首页_files/u144_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u154_line.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u169_mouseDown.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u169_disabled.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u169_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u171_mouseDown.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u171_disabled.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u171_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u174_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u177_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/u179_line.png" width="1" height="1"/><img src="晒单跟单首页_files/u194_line.png" width="1" height="1"/><img src="晒单跟单首页_files/u206_line.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u222_mouseDown.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u222_disabled.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u222_normal.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u224_mouseDown.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u224_disabled.png" width="1" height="1"/><img src="晒单跟单首页_files/Styled_Button_u224_normal.png" width="1" height="1"/></div>
+</body>
+<script src="resources/scripts/axurerp_pagescript.js"></script>
+<script src="晒单跟单首页_files/axurerp_pagespecificscript.js" charset="utf-8"></script>

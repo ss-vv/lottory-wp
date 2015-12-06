@@ -1,0 +1,100 @@
+#if($user.id > 0)
+  <div class="top">
+    <div class="intop" id="_top_bar">
+      <div class="user fl">
+        <div class="fl">欢迎您，$!{user.username}&nbsp;</div>
+        <div class="fl">
+          <a href="$base/balance.do">我的账户</a><cite class="line"> | </cite>
+          <a href="$base/recharge.do">充值</a><cite class="line"> | </cite>
+          <a href="$base/withdraw.do">提现</a><cite class="line"> | </cite>
+          <a href="$base/record/bet.do">我的投注</a><cite class="line"> | </cite>
+          <a href="$base/inbox.do">收件箱<span id="inboxCount"></span></a><cite class="line"> | </cite>
+          <a href="http://login.davcai.com/sso/logout.do">退出</a>
+        </div>
+      </div>
+      <div class="help fr">
+        <strong>QQ交流群261417051</strong>&nbsp;&nbsp;
+        <a href="http://trade.davcai.com/df/result/" target="_blank" title="">赛果开奖</a>&nbsp;&nbsp;
+        <a title="专家推荐" href="http://trade.davcai.com/df/rec/">专家推荐</a>&nbsp;&nbsp;
+       	<a href="http://trade.davcai.com/df/fbinfo/">资讯</a>&nbsp;&nbsp;
+        <a href="http://trade.davcai.com/df/help/" target="_blank" title="">帮助</a>
+      </div>
+    </div>
+  </div>
+#else
+  <div class="top">
+    <div class="intop">
+      <div class="user fl" id="_top_ubar">
+        <form action="http://login.davcai.com/login.do?referer=#if($referer)
+$referer
+#else
+http://trade.davcai.com/ac/betconfirm.do
+#end" id="_top_loginForm" method="post" target="_top">
+          <div class="row">
+            <label class="lbl">用户名：</label>
+            <div class="ipttxt ipttxt-a wh-txta">
+              <input class="inipttxt" maxlength="32" name="username" type="text" />
+            </div>
+          </div>
+          <div class="row">
+            <label class="lbl">密码：</label>
+            <div class="ipttxt ipttxt-a wh-txta">
+              <input class="inipttxt" maxlength="20" name="password" type="password" />
+            </div>
+          </div>
+          <div class="row_btn">
+            <a class="btnx2 btnx2-a" href="javascript:void(0);"> <span class="inbtn"><input class="iptbtn" type="submit" value="登录" /></span> </a></div>
+          <div class="row_reg selectbox">
+            <a class="c-a" href="http://login.davcai.com/reg.do" target="_top">免费注册</a></div>
+          <div class="row_reg">
+            <a href="http://login.davcai.com/getpwd.do" target="_blank">忘记密码</a></div>
+        </form>
+        <script type="text/javascript">
+            $(function(){
+                $('#_top_loginForm').bind('submit', function() {
+                    var _uIpt = $('input[name="username"]', $(this));
+                    var _pIpt = $('input[name="password"]', $(this));
+                    
+                    var un = jQuery.trim(_uIpt.val());
+                    var pd = jQuery.trim(_pIpt.val());
+                    if(un.length == 0){
+                        alert('请输入用户名');
+                        _uIpt.focus();
+                        return false;
+                    }
+                    if(pd.length == 0){
+                        alert('请输入密码');
+                        _pIpt.focus();
+                        return false;
+                    }
+                    return true;
+                });
+            });
+      </script>      
+      </div>
+      <div class="help fr">
+        	<strong>QQ交流群261417051</strong>&nbsp;&nbsp;
+        	<a href="http://trade.davcai.com/df/result/" target="_blank" title="">赛果开奖</a>&nbsp;&nbsp;
+        	<a title="专家推荐" href="http://trade.davcai.com/df/rec/">专家推荐</a>&nbsp;
+	      	<a href="http://trade.davcai.com/df/fbinfo/">资讯</a>&nbsp;&nbsp;
+        	<a href="http://trade.davcai.com/df/help/" target="_blank" title="">帮助</a>
+      </div>
+    </div>
+  </div>
+#end
+<script type="text/javascript">
+$(function(){
+	loadInboxCount('$base/inboxCount.do');
+	function loadInboxCount(url){
+		$.getJSON(url, function(data){
+			if(data != null) {
+				if(data.success){
+					var htmlContent = '<span class="c-i">('+data.data+')</span>';
+					$('#inboxCount').html(htmlContent);
+					$('#menuInboxCount').html(htmlContent);
+				}
+			}
+		});
+	}
+})
+</script>

@@ -1,0 +1,35 @@
+log4j.rootLogger = INFO,R,F
+log4j.logger.org.apache = INFO
+log4j.logger.org.hibernate = INFO
+log4j.logger.org.springframework = INFO
+log4j.logger.com.unison = INFO
+log4j.logger.com.xhcms.lottery.commons.persist.service.impl.BetSchemeBaseServiceImpl = INFO,F
+log4j.logger.com.unison.lottery.api.framework.log.LogManager=INFO,F1
+log4j.logger.com.unison.lottery.api.framework.filter.security.EncryptPrintWriterWrapper=INFO,F2
+
+
+log4j.appender.R = org.apache.log4j.ConsoleAppender
+log4j.appender.R.Target = System.out
+log4j.appender.R.layout = org.apache.log4j.PatternLayout
+log4j.appender.R.layout.ConversionPattern = %-d{HH:mm:ss} %p [%c] - %m%n
+
+log4j.appender.F=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.F.File=/data/logs/lottery-api.log
+log4j.appender.F.DatePattern = '.'yyyy-MM-dd
+log4j.appender.F.layout=org.apache.log4j.PatternLayout
+log4j.appender.F.layout.ConversionPattern=%d{HH:mm:ss} %p [%c] - %m%n
+
+
+
+
+log4j.appender.F1=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.F1.File=/data/logs/lottery-api-activity.log
+log4j.appender.F1.DatePattern = '.'yyyy-MM-dd
+log4j.appender.F1.layout=org.apache.log4j.PatternLayout
+log4j.appender.F1.layout.ConversionPattern=%m%n
+
+log4j.appender.F2=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.F2.File=/data/logs/lottery-api-encryprt-reponse.log
+log4j.appender.F2.DatePattern = '.'yyyy-MM-dd
+log4j.appender.F2.layout=org.apache.log4j.PatternLayout
+log4j.appender.F2.layout.ConversionPattern=%d{HH:mm:ss} %p [%c] - %m%n

@@ -1,0 +1,51 @@
+#set($layout="web/regist-guide.vm")
+#set($p_title="关注用户")
+#set($styles=["css/regist-guide.css"])
+#set($scripts=["js/web/login.js","js/web/add_lottery_user.js"])
+
+<div class="main" style="margin: 0px auto;width:70%">
+	<div class="regist-guide-progress-bar">
+    	<span class="span01">完善个人资料</span>
+    	<span class="span02">关注你感兴趣的彩种</span>
+    	<span class="span03">关注其他彩票人</span>
+   		<p><img src="images/step-2.png"/></p>
+	</div><!---------progress-bar部分----------->
+	<div id="attention-kind">
+ 	  	    <div class="attention-kind-title">
+ 	  	    	 <span>推荐您关注以下彩种：</span>
+ 	  	         <p>
+ 	  	            <span class="checkbox-all-selected" id="check-all-btn">
+ 	  	            	<label for="check-all">全选</label> 
+ 	  	            </span>
+ 	  	         </p>
+ 	  	    </div>
+ 	  	    
+ 	  	    <ul class="attention-kind-list">
+ 	  	    	#foreach($ltUser in $ltUsers)
+ 	  	    	<li _uid="$ltUser.weiboUserId" _checked="true">
+ 	  	    		<div class="attention-kind-logo">
+ 	  	    			<img src="$ltUser.headImageURL" />
+ 	  	    			<span class="checkbox-selected"></span>
+ 	  	    		</div>
+ 	  	    		<span>$ltUser.nickName</span>
+ 	  	    		#if($ltUser.nickName == '双色球')
+ 	  	    			<p>每周<i>二、四、日</i>开奖</p>
+ 	  	    			<p>奖池型，倍投赢亿元</p>
+ 	  	    		#elseif($ltUser.nickName == '竞彩足球')
+ 	  	    			<p>固定赔率，混合过关</p>
+ 	  	    			<p>胜负、进球、半全场</p>
+ 	  	    		#elseif($ltUser.nickName == '竞彩篮球')
+ 	  	    			<p>固定赔率，可单可串</p>
+ 	  	    			<p>让分胜负、胜分差</p>
+ 	  	    		#elseif($ltUser.nickName == '传统足彩')
+ 	  	    			<p>每周<i>2-3</i>期，最高<i>500万</i></p>
+ 	  	    			<p>胜负、进球、半全场</p>
+ 	  	    		#end
+ 	  	    	</li>
+ 	  	    	#end
+ 	  	    </ul>
+ 	  	 <div style="margin-top:20px;float:right">
+ 	  	 	<input type="button" id="next-btn" value="下一步" class="btn btn-primary" style="width:100px;">
+ 	  	 </div>
+ 	  </div><!---------attention-kind部分----------->
+</div>

@@ -1,0 +1,9 @@
+#if($user) <!-- 登录-->
+	#parse("web/inc/header_login.vm")
+		${screen_content}
+	#parse("web/inc/footer_login.vm")
+#else
+	#parse("web/inc/header_not_login.vm")
+		${screen_content}
+	#parse("web/inc/footer_login.vm")
+#end

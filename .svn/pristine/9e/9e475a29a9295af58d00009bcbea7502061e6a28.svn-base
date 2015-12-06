@@ -1,0 +1,9 @@
+namespace java com.unison.thrift.scheme.service.gen
+
+include "BetSchemeData.idl"
+
+service BetSchemeHandlerGen {
+	BetSchemeData.BetSchemeData getSchemeById(1:i64 schemeId)
+	bool isCanSendShowScheme(1:i64 schemeId)
+	bool updateBetSchemePublishShow(1:i64 schemeId)
+}

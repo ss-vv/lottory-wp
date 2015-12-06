@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<methodRequest name="userDetail" validId="1ef135b3-7b5d-49c4-8e96-7d0060718ed5" clientVersion="客户端版本号" channel="渠道号" deviceId="sim卡序列号" modelName="机型信息"	type="1" firstResult="0"/>

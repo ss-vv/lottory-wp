@@ -1,0 +1,56 @@
+
+# database
+db.url = jdbc:mysql://10.97.0.102:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = lottery
+db.password = 8DFy4unX
+
+# database
+db2.url = jdbc:mysql://10.97.0.102:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = account
+db2.password = C2g5GL4m
+
+# ActiveMQ
+amq.brokerURL = tcp://10.97.0.105:61616
+
+# Yeepay
+yeepay.url = https://www.yeepay.com/app-merchant-proxy/node
+yeepay.memberId = 10011536868
+yeepay.keyValue = X495l1P7s174Q6du618mxp0ZnL5vhX8sZvJADbMnY9w3EJ0022m21r13X971
+yeepay.callback = http://trade.davcai.com/ac/callback/yeepay.do
+
+#alipay
+alipay.url = https://mapi.alipay.com/gateway.do?_input_charset=UTF-8
+alipay.partner = 2088701998923444
+alipay.key = 13c6n152ldh4smkxsxwnf38kkxnh0g16
+alipay.notifyUrl = http://trade.davcai.com/ac/callback/alipayNotify.do
+alipay.returnUrl = http://trade.davcai.com/ac/callback/alipayReturn.do
+alipay.sellerEmail = ligeng.tian@unison.net.cn
+alipay.signType = MD5
+alipay.inputCharset = UTF-8
+alipay.rsaPublic = MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCRgbq8NLDiQC5TvYDz/JqelyftrzfLxHsQ+8Z3gaHl/8hyTbvHGMlIEAscYOERo3sXj+XZHpvKrskbbesyMMrcHhSfn5+18tfTAWHomgGZ5VxScNbBVdTuQWAke94oJ7a75TM/Z1sDmJL6n38J279f61rnvobMVZOzG0IKbDb+OwIDAQAB
+
+# Ticket
+ticket.key = CB1EEA815D97B6CAA6BF78B2A5E7DC08
+
+#promotion
+recharge.redeemed.promotionId = 20
+
+#thrift.port
+thrift.port = 32100
+
+#thrift.address
+thrift.address = 10.97.0.104
+
+solrUrl = http://58.83.235.135:28080/solr/collection1/
+
+# redis
+redis.url = 10.97.0.107
+redis.port = 33133
+
+#scheme time to live
+scheme.timeToLive=86400
+scheme.final.timeToLive=604800
+
+#赛事颜色超时时间(毫秒)
+match_color_timeout = 120000
+

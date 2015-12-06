@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="lt_bet_partner">
+    <column>id</column>
+    <column>scheme_id</column>
+    <column>user_id</column>
+    <column>username</column>
+    <column>bet_amount</column>
+    <column>win_amount</column>
+    <column>commission</column>
+    <column>created_time</column>
+    <row>
+      <value>143623</value>
+      <value>132642</value>
+      <value>1358</value>
+      <value>datouhui</value>
+      <value>2</value>
+      <null/>
+      <value>0.00</value>
+      <value><![CDATA[2012-09-03 09:25:29.0]]></value>
+    </row>
+    <row>
+      <value>143624</value>
+      <value>132643</value>
+      <value>1780</value>
+      <value>ni787</value>
+      <value>2</value>
+      <null/>
+      <value>0.00</value>
+      <value><![CDATA[2012-09-03 09:32:09.0]]></value>
+    </row>
+    <row>
+      <value>143625</value>
+      <value>132644</value>
+      <value>1780</value>
+      <value>ni787</value>
+      <value>2</value>
+      <null/>
+      <value>0.00</value>
+      <value><![CDATA[2012-09-03 09:32:51.0]]></value>
+    </row>
+    <row>
+      <value>143626</value>
+      <value>132645</value>
+      <value>504</value>
+      <value>小尹必红</value>
+      <value>160</value>
+      <null/>
+      <value>0.00</value>
+      <value><![CDATA[2012-09-03 09:43:26.0]]></value>
+    </row>
+  </table>
+</dataset>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>$!{p_title}-大V彩</title>
+<meta name="keywords" content="大V彩,竞彩足球,竞彩篮球,足彩,竞彩专家推荐,竞彩专家#if($!{keywords}),$!{keywords}#end" />
+<meta name="description" content="买竞彩,选大V彩,大V彩是中国最好最安全的网上投注平台,免费发布竞彩专家推荐信息,最新足球篮球资讯#if($!{description}),$!{description}#end" />
+<link rel="shortcut icon" href="http://trade.davcai.com/df/favicon.ico">
+<link rel="stylesheet" type="text/css" href="http://www.davcai.com/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="http://www.davcai.com/css/home.css">
+<link rel="stylesheet" type="text/css" href="http://www.davcai.com/css/emoticon.css">
+<link rel="stylesheet" type="text/css" href="http://www.davcai.com/css/jquery.ias.css">
+<link type="text/css" rel="stylesheet" href="http://www.davcai.com/css/layout.css" />
+<link type="text/css" rel="stylesheet" href="http://www.davcai.com/css/index.css" />
+<link type="text/css" rel="stylesheet" href="http://www.davcai.com/css/davcai/header/header_not_login.css"/>
+
+#foreach($s in $styles)
+<link type="text/css" rel="stylesheet" href="http://www.davcai.com/${s}" />
+#end
+
+#foreach($s in $wucstyles)
+<link type="text/css" rel="stylesheet" href="http://login.davcai.com/${s}" />
+#end
+
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/jquery.js?v=${res.version}"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/jet.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/ui.core.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/ueditor/ueditor.config.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/ueditor/ueditor.all.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/ueditor/lang/zh-cn/zh-cn.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/kindeditor-min.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/jquery/jquery.uploadify.min.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/jquery.emoticons.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/search.js?v=$resVersoin"></script>
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/notification.js"></script>
+#foreach($s in $scripts)
+<script language="javascript" type="text/javascript" src="http://www.davcai.com/${s}"></script>  
+#end
+#foreach($s in $wucscripts)
+<script language="javascript" type="text/javascript" src="http://login.davcai.com/${s}"></script>  
+#end
+
+</head>
+
+<body id="my-home">
+<div class="davcai-header" id="ajax_login_msg" _weibouserId="$!user.weiboUserId">
+	<div class="davcai-header">
+     	 <div class="davcai-header-content">
+     	 	<h1 id="davcai-logo">
+ 	 		  <a href="http://www.davcai.com/"></a>
+ 	 	    </h1>
+ 	 	    <p class="davcai-address">
+ 	 		    <a class="huoban">新浪微博官方合作伙伴</a>
+ 	 	    </p>
+ 	 	 
+ 	 	    <form class="not-login-form">
+	  	 	 	<input type="text"   id="head-search"
+	  	 	 	 value="搜索 讨论/用户" autocomplete="off" maxlength=""
+	  	 	 	onfocus="this.value=''" onblur="if(this.value==''){this.value='搜索  讨论/用户'}"/>
+	  	 	 	<span class="magnifier"><a href="javascript:void(0);"></a></span>
+	
+				 <!--------------下面开始searching-dropdown-menu搜索下拉菜单部分---------------------> 	
+					<ul class="not-login-searching-dropdown-menu" id="search_result">
+					
+				  </ul><!------searching-dropdown-menu搜索下拉菜单部分结束-------->
+ 	   	    </form>
+ 	 	    <ul class="davcai-header-menu-not-login">
+ 	 	    	<li><a href="http://www.davcai.com/welcome">登录</a></li>
+ 	 	    </ul>
+     	 </div><!----davcai-header-content结束------->
+     </div><!------davcai-header结束-------->
+</div>
+
+$screen_content
+	
+<!-- 底部开始 -->
+	#parse("inc/footer_login.vm")
+<!-- 底部结束 -->	
+</body>
+</html>

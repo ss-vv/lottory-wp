@@ -1,0 +1,36 @@
+<!--微博头引用的css和js start-->
+#set($weibo = "http://www.davcai.com/")
+<link rel="stylesheet" type="text/css" href="$weibo/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="$weibo/css/home.css">
+<link type="text/css" rel="stylesheet" href="$weibo/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="$weibo/css/davcai/header/header.css"/>
+<script type="text/javascript" src="$weibo/js/jet.js"></script>
+<script type="text/javascript" src="$weibo/js/web/placeholder.js"></script>
+<script type="text/javascript" src="$weibo/js/web/load-header.js"></script>
+<script type="text/javascript" src="$weibo/js/web/common.js"></script>
+<script type="text/javascript" src="$weibo/js/ui.core.js"></script>
+<script type="text/javascript" src="$weibo/js/web/login.js"></script>
+<script type="text/javascript" src="$weibo/js/web/search.js"></script>
+<script type="text/javascript" src="$weibo/js/davcai/header/module.js"></script>
+<script type="text/javascript" src="$weibo/js/web/notification.js"></script>
+
+<body id="my-home">
+<div id="ajax_login_msg" class="davcai-header"  _weibouserId="$!user.weiboUserId">
+	<div class="davcai-header-content">
+		<div id="sync_head">
+			<h1 id="davcai-logo">
+				<a href="http://www.davcai.com/"></a>
+			</h1>
+            <p class="davcai-address">
+	         	<a class="huoban">新浪微博官方合作伙伴</a>
+            </p>
+		</div>
+		<form class="login-form">
+  	 	 	<input type="text" id="head-search"  value="搜索  讨论/用户" autocomplete="off" maxlength=""
+  	 	 		onfocus="this.value=''" onblur="if(this.value==''){this.value='搜索  讨论/用户'}"/>
+  	 	 	<span class="magnifier"><a href="javascript:void(0);"></a></span>
+			<ul class="searching-dropdown-menu" id="search_result">
+			</ul>
+   	   </form>
+	</div>
+</div>

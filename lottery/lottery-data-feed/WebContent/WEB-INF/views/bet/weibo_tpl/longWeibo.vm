@@ -1,0 +1,21 @@
+<!-- 长微博窗口 -->
+<form id="longWeiboForm">
+<input type="hidden" name="weiboMsg.id" id="longPostId" value="0"/>
+	<div class="modal fade" id="longWeiboModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <input class="form-control" placeholder="请输入标题……" name="weiboMsg.title" id="longWeiboTitle"/>
+	      </div>
+	      <div class="modal-body">
+	      	<textarea class="form-control" id="longWeiboContent" name="weiboMsg.content" style="height:500px;"></textarea>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" id="longWeiboBtn">保存</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</form>

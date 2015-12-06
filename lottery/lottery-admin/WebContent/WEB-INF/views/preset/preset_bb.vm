@@ -1,0 +1,220 @@
+#set($title="赛事管理")
+#set($styles=["css/jqueryui/jquery-ui", "css/style"])
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js", "js/lottery/match.editor.preset.js"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span><a href="$base/preset/fblist.do"><b>足球预兑奖</b></a></span>
+		<span class="current"><a href="$base/preset/bblist.do"><b>篮球预兑奖</b></a></span>
+		<span><a href="$base/preset/preset_ctzc.do"><b>传统足彩预兑奖</b></a></span>
+		<span><a href="$base/preset/ctzcmatchlist.do"><b>传统足彩赛果预处理</b></a></span>
+		<span><a href="$base/preset/lsnotaward.do"><b>预派奖</b></a></span>
+		<span><a href="$base/preset/lsawarded.do"><b>已派奖</b></a></span>
+		<span><a href="$base/preset/lsnotwin.do"><b>未中奖</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/preset/bblist.do" method="post">
+      <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			<div class="tabH tabH02 panel">
+        <span class="current"><b>条件查询</b></span>
+				<div class="l">
+           从 <input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+         至 <input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+         <select name="state" value="${state}" id="stateSel">
+            <option value="-1">不限状态</option>
+            <option value="0">停售</option>
+            <option value="1">在售</option>
+            <option value="2">待售</option>
+            <option value="3">进行中</option>
+            <option value="4">已取消</option>
+            <option value="5">已完成</option>
+          </select>
+          <select name="matchResult" value="${matchResult}" id="matchResultSel">
+            <option value="-1">不限赛果</option>
+            <option value="0">已填赛果</option>
+            <option value="1">未填赛果</option>
+          </select>
+			每页显示 <input type="text" id="maxResult" name="maxResult" value="#if(${maxResult} == 0)20#else${maxResult}#end" size="2"/> 条
+		 </div>
+				<div class="r" style="margin: 0px 4px 0 0">
+			<input type="button" id="prizes" class="hand btn" value="预兑奖">
+          <input type="submit" class="hand btn" value="查询">
+        </div>
+			</div>
+			</form>
+		</div>
+		<form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr class="">
+				<th style="width:25px;text-align:center;"><span><input type="checkbox" id="checkAll" /></span></th>
+        		<th style="width:90px;text-align:center;"><span>赛事ID</span></th>
+				<th style="width:50px;text-align:center;"><span>赛事编号</span></th>
+				<th style="width:50px;text-align:center;"><span>联赛名称</span></th>
+				<th style="width:160px;text-align:center;"><span>客队 VS 主队</span></th>
+				<th style="width:80px;text-align:center;"><span>预计停售时间</span></th>
+				<th style="width:100px;text-align:center;"><span>开赛时间</span></th>
+				<th style="width:190px;text-align:center;"><span>赛果</span></th>
+				<th style="width:60px;text-align:center;"><span>状态</span></th>
+				<th style="width:40px;text-align:center;">操作</th>
+			</tr>
+			#foreach($m in $paging.results)
+			<tr id="$m.id">
+				<td style="text-align:center;">
+					<input type="checkbox" name="id" 
+						value="${m.id}" _s="${m.status}" 
+						#if((${m.status} == 5 || ${m.status} == 0) && 
+							${m.finalScorePreset} &&
+							${m.finalScorePreset} == $!{m.checkScore})
+						#elseif(${m.status} == 4)
+						#else
+							disabled="disabled"
+						#end/>
+				</td>
+				<td style="text-align:center;">${m.id}</td>
+				<td style="text-align:center;">${m.cnCode}</td>
+				<td style="text-align:center;">${m.leagueName}</td>
+				<td style="text-align:center;">${m.name}</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${m.offtime})</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${m.playingTime})</td>
+				<td style="text-align:center;" _checkStatus="${m.checkStatus}">
+					<span _score="$!{m.finalScorePreset}">$!{m.finalScorePreset}</span>
+					#checkJcMatchScore($!{m.status}, $!{m.finalScorePreset}, $!{m.checkScore})
+				</td>
+				<td style="text-align:center;" _attr="${m.status}">$status.match(${m.status})</td>
+				<td style="text-align:center;">
+					#if((${m.status} == 5 || ${m.status} == 0) && ${m.checkScore})
+						<a href="javascript:void(0);" _op="edit">编辑</a>
+						<br/>
+						<a href="javascript:void(0);" _op="fillResult" title="使用参考值作为赛事比分值">比分填充</a>
+					#end
+				</td>
+			</tr>
+			#end
+		</table>
+		</form>
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    $('#matchResultSel option[value="${matchResult}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="id"]:enabled').each(function(){
+            	var tr = $(this).closest('tr');
+				var finalScore = $('span', tr).eq(0).text();
+            	var status = $('td', tr).eq(8).text();
+				//console.log(finalScore + status)
+				var final = jQuery.trim(finalScore) != '' && (status == '已完成' || status == '停售');
+	            if(final == true || status == '取消'){
+	            	$(this).attr('checked', true);
+	            }
+ 			 });
+        }else{
+            $('#dataGrid :checkbox[name="id"]:enabled').removeAttr('checked');
+        }
+    });
+    
+    $('#prizes').bind('click', function(){
+		var _this = $(this);
+        var _chks = $('#dataGrid :checkbox[name="id"]:checked');
+        if(_chks.length == 0){
+            alert('请选择要预兑奖的赛事');
+            return false;
+        }
+        if(_chks.filter('[_s="5"]').length == 0 
+			&& _chks.filter('[_s="4"]').length == 0
+			&& _chks.filter('[_s="0"]').length == 0){
+			
+            alert('没有"停售、取消、已完成"的比赛,不需要提交。');
+            return false;
+        }
+        
+        if(confirm('确定要提交选中的赛事？')){
+			_this.attr("disabled","disabled");
+            jQuery.getJSON('$base/preset/aj_presetBb.do', $('#pForm').serialize(), function(json){
+				_this.removeAttr("disabled");
+               if(json.success){
+                	if(json.data[0] == 0){
+                		alert("没有方案投注已选赛事。");
+                	}else{
+                    	alert('操作成功!'+'\n可处理方案数：'+json.data[0] + '  \n成功数：' + json.data[1] + '  \n跳过数：'+json.data[2] + ' \n失败数：' + json.data[3]);
+                    }
+                }else{
+                	alert('错误！' + json.data);
+                }
+            });
+        }
+    });   
+    
+    $('#dataGrid a[_op="edit"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+		
+		var finalScore = $('span', _tr).eq(0).text();
+        createMatchEditor(_tr, finalScore);
+
+        return false;
+    });
+	
+	$('#dataGrid a[_op="fillResult"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+		
+		var finalScore = $('span', _tr).eq(1).attr("_score");
+        createMatchEditor(_tr, finalScore);
+
+        return false;
+    });
+	
+	function createMatchEditor(_tr, finalScore) {
+		new matchEditor({
+            width: 380, 
+            height: 300, 
+            data: {
+                mtype : 1,
+                id: $('td', _tr).eq(1).text(),
+                cnCode: $('td', _tr).eq(2).text(),
+                leagueName: $('td', _tr).eq(3).text(),
+                name: $('td', _tr).eq(4).text(),
+                offtime: $('td', _tr).eq(5).text(),
+                playingTime: $('td', _tr).eq(6).text(),
+                finalScorePreset: finalScore,
+                checkStatus: $('td', _tr).eq(7).attr('_checkStatus'),
+                status: $('td', _tr).eq(8).attr('_attr')
+            },
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+	};
+	
+});
+</script>

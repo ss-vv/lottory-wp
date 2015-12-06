@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+  "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <package name="default" extends="struts-default" abstract="true">
+    <result-types>
+      <result-type name="layout" class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult" default="true" />
+      <result-type name="json" class="org.apache.struts2.json.JSONResult">
+        <param name="root">data</param>
+        <param name="contentType">text/html</param>
+        <param name="callbackParameter">jsonp</param>
+      </result-type>
+    </result-types>
+    
+    <interceptors>
+      <!-- 验证拦截器 -->
+      <interceptor name="postValidation" class="com.xhcms.ucenter.web.validation.PostAnnotationValidationInterceptor" />
+      <interceptor name="loginValidateInterceptor" class="com.xhcms.ucenter.web.interceptor.LoginValidateInterceptor" />
+      <interceptor name="ssoAuthenticationInterceptor" class="com.xhcms.ucenter.sso.web.interceptor.SSOAuthenticationInterceptor" />
+      <interceptor name="profileRetriveInterceptor" class="com.xhcms.ucenter.web.interceptor.ProfileRetriveInterceptor" />
+      <interceptor name="exception" class="com.xhcms.commons.web.struts2.interceptor.ExceptionInterceptor" />
+      <interceptor name="workflow" class="com.xhcms.commons.web.struts2.interceptor.AjaxWorkflowInterceptor" />
+      <interceptor name="staticParams" class="com.opensymphony.xwork2.interceptor.StaticParametersInterceptor"/>
+      
+      <interceptor-stack name="ucenterStack">
+        <interceptor-ref name="exception" />
+        <interceptor-ref name="servletConfig" />
+        <interceptor-ref name="fileUpload">
+          <param name="maximumSize">2097152</param>
+        </interceptor-ref>
+        <interceptor-ref name="actionMappingParams" />
+        <interceptor-ref name="params">
+          <param name="excludeParams">dojo\..*,^struts\..*</param>
+        </interceptor-ref>
+        <interceptor-ref name="conversionError" />
+    <interceptor-ref name="postValidation">
+          <param name="excludeMethods">input,back,cancel,browse</param>
+        </interceptor-ref>
+        <interceptor-ref name="workflow" />
+        <interceptor-ref name="staticParams" />
+      </interceptor-stack>
+      
+      <interceptor-stack name="ucenterLoginStack">
+        <interceptor-ref name="loginValidateInterceptor" />
+        <interceptor-ref name="ucenterStack" />
+      </interceptor-stack>
+      
+      <interceptor-stack name="ssoAuthenticationStack">
+        <interceptor-ref name="ssoAuthenticationInterceptor" />
+        <interceptor-ref name="ucenterStack" />
+      </interceptor-stack>
+    </interceptors>
+    <default-interceptor-ref name="ucenterStack" />
+    
+    <global-results>
+      <result name="input">/message.vm</result>
+      <result name="error">/message.vm</result>
+      <result name="login" type="redirect">${ssoLogin}</result>
+    </global-results>
+  </package>
+  
+  <package name="front" extends="default" namespace="/">
+    <!-- 上传图片 -->
+    <action name="aj_upload" class="com.xhcms.ucenter.web.action.upload.UploadImageAction">
+      <result type="json"/>
+    </action>
+    
+    <!-- 水印码 -->
+    <action name="water" class="com.xhcms.ucenter.web.action.WaterCodeAction" />
+  </package>
+
+  <package name="uc-index" extends="default" namespace="/">
+    <default-interceptor-ref name="ucenterLoginStack" />
+    <!-- 个人首页 -->
+    <action name="index" class="com.xhcms.ucenter.web.action.IndexAction">
+      <result type="redirect">http://trade.davcai.com/ac/balance.do</result>
+    </action>
+
+    <action name="inbox" class="com.xhcms.ucenter.web.action.msg.InboxAction">
+      <result>inbox.vm</result>
+    </action>
+    
+    <action name="inboxCount" class="com.xhcms.ucenter.web.action.msg.AjaxInboxAction">
+      <result type="json"/>
+    </action>    
+    
+    <action name="rmmsg" class="com.xhcms.ucenter.web.action.msg.RemoveAction">
+      <result type="redirect">/inbox.do</result>
+      <result name="input">/error.vm</result>
+    </action>
+    
+    <!-- 修改登录密码 -->
+    <action name="passwd" class="com.xhcms.ucenter.web.action.my.ToPasswdAction">
+      <result>passwd.vm</result>
+    </action>
+    <action name="editpasswd" class="com.xhcms.ucenter.web.action.my.PasswdAction">
+      <result name="input">passwd.vm</result>
+      <result>message.vm</result>
+    </action>
+    
+    <!-- 验证邮箱 -->
+    <action name="email" class="com.xhcms.ucenter.web.action.verify.EmailAction">
+      <result>/verify/email.vm</result>
+      <result name="input">/verify/email.vm</result>
+    </action>
+    
+    <action name="weibo_email" class="com.xhcms.ucenter.web.action.verify.WeiboEmailAction">
+      <result type="json"/>
+    </action>
+    
+    <action name="confirmEmail" class="com.xhcms.ucenter.web.action.verify.ConfirmEmailAction">
+      <result>/verify/result.vm</result>
+    </action>
+    <action name="weiboConfirmEmail" class="com.xhcms.ucenter.web.action.verify.WeiboConfirmEmailAction">
+      <result type="redirect">http://www.davcai.com/${weiboUserId}/edit-email?reload=reload</result>
+    </action>
+    
+    <!-- 发送验证码到手机 -->
+    <action name="aj_smscode" class="com.xhcms.ucenter.web.action.verify.AjaxSendCodeAction">
+      <result type="json"/>
+    </action>
+    
+    <!-- 修改手机号码 发送验证码到手机 -->
+    <action name="aj_smscode_change" class="com.xhcms.ucenter.web.action.verify.AjaxSendCodeAction" method="changeMobile">
+      <result type="json"/>
+    </action>
+      
+    <!-- 验证手机 -->
+    <action name="mobile" class="com.xhcms.ucenter.web.action.verify.MobileAction">
+      <result name="input">/verify/mobile.vm</result>
+      <result name="error">/verify/mobile.vm</result>
+      <result>/message.vm</result>
+    </action>
+    
+    <!-- 修改手机 -->
+    <action name="mobilechange" class="com.xhcms.ucenter.web.action.verify.MobileChangeAction">
+      <result name="input">/verify/mobileChange.vm</result>
+      <result name="error">/verify/mobileChange.vm</result>
+      <result>/message.vm</result>
+    </action>
+
+    <!-- 微博验证手机 -->
+    <action name="weibo_mobile" class="com.xhcms.ucenter.web.action.verify.WeiboMobileAction">
+       <result type="json"/>
+    </action>
+    
+    <!-- 微博修改手机 -->
+    <action name="weibo_mobilechange" class="com.xhcms.ucenter.web.action.verify.WeiboMobileChangeAction">
+       <result type="json"/>
+    </action>
+  
+    <!--申请修改提款密码，上传身份证 -->
+    <action name="getwhpwd" class="com.xhcms.ucenter.web.action.idcard.GoAction" method="whpassword">
+      <result>/idcard/whpasswd.vm</result>
+    </action>
+    <!--申请修改真实姓名，上传身份证 -->
+    <action name="realname" class="com.xhcms.ucenter.web.action.idcard.GoAction" method="realname">
+      <result>/idcard/realname.vm</result>
+    </action>
+    <!--申请修改身份证号，上传身份证 -->
+    <action name="idnumber" class="com.xhcms.ucenter.web.action.idcard.GoAction" method="idnumber">
+      <result>/idcard/idnumber.vm</result>
+    </action>
+    <!--提交申请 -->
+    <action name="idcard" class="com.xhcms.ucenter.web.action.idcard.PostAction">
+      <result name="realname">/idcard/realname.vm</result>
+      <result name="idnumber">/idcard/idnumber.vm</result>
+      <result name="password">/idcard/whpasswd.vm</result>
+      <result>/message.vm</result>
+    </action>
+    
+  
+    <!-- 基本信息 -->
+    <action name="info" class="com.xhcms.ucenter.web.action.my.InfoAction">
+      <result name="input">/info.vm</result>
+      <result>/message.vm</result>
+    </action>
+    
+  </package>
+
+  <include file="struts-uc.xml" />
+  <include file="struts-sso.xml" />
+</struts>

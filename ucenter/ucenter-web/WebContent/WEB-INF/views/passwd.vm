@@ -1,0 +1,97 @@
+#set($p_title="密码管理")
+#set($pos="passwd")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="mod mod-c mod-c-a wh-mh">
+	<div class="mh">
+		<div class="tabh tabh-e">
+			<a class="cur" href="javascript:void(0);"><span>修改登录密码</span></a>
+			<a href="http://trade.davcai.com/ac/passwd.do"><span>修改提现密码</span></a>
+		</div>
+	</div>
+	<div class="mm">
+		<form id="pForm" action="$base/editpasswd.do" method="post">
+  		<div class="formbox formbox-a formbox-a-b mp-c">
+  			<div class="row">
+  				<label class="lbl wh-a">旧密码：</label>
+  				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+					<input class="inipttxt" type="password" name="oldPwd" maxlength="15" />
+				</div>
+        <div class="tips c-i"></div>
+				#if($!fieldErrors.oldPwd)
+					<div class="tips c-i">$!fieldErrors.oldPwd.get(0)</div>
+				#end
+  			</div>
+  			<div class="row">
+  				<label class="lbl wh-a">新密码：</label>
+  				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+					<input id="newPwd" class="inipttxt" type="password" name="newPwd" value="" maxlength="15" />
+				</div>
+        <div class="tips c-i"></div>
+				#if($!fieldErrors.newPwd)
+					<div class="tips c-i">$!fieldErrors.newPwd.get(0)</div>
+				#end
+  			</div>
+  			<div class="row">
+  				<label class="lbl wh-a">确认新密码：</label>
+  				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+					<input class="inipttxt" type="password" name="confirmPwd" value="" maxlength="15" />
+				</div>
+        <div class="tips c-i"></div>
+				#if($!fieldErrors.confirmPwd)
+					<div class="tips c-i">$!fieldErrors.confirmPwd.get(0)</div>
+				#end
+  			</div>
+  			<div class="row">
+  				<label class="lbl wh-a"></label>
+  				<a class="btnx2 btnx2-b fl" href="javascript:void(0);">
+            <span class="inbtn"><input class="iptbtn" type="submit" value="确认修改" /></span>
+          </a>
+  			</div>
+  			<span class="clear"></span>
+  		</div>
+    </form>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+
+    $('#pForm').validate({
+        errorPlacement: function(error, element) { //验证消息放置的地方
+            error.appendTo(element.parent("div").next("div"));
+        },
+        rules: {
+            'oldPwd': {
+                required: true,
+                rangelength: [6, 15]
+            },
+            'newPwd': {
+                required: true,
+                rangelength: [6, 15]
+            },
+            'confirmPwd': {
+                required: true,
+                rangelength: [6, 15],
+                equalTo: '#newPwd'
+            }
+        },
+        messages: {
+            'oldPwd': {
+                required: '请输入旧密码！',
+                rangelength: '必须在{0}至{1}个字符之间'
+            },
+            'newPwd': {
+                required: '请输入新密码！',
+                rangelength: '必须在{0}至{1}个字符之间'
+            },
+            'confirmPwd': {
+                required: '请输入确认密码！',
+                rangelength: '必须在{0}至{1}个字符之间',
+                equalTo: '两次输入必须一致'
+            }
+        }
+    });
+});
+</script>

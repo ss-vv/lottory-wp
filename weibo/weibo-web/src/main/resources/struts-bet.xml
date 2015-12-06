@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bet" extends="weibo-web-default" namespace="/bet">
+		<default-interceptor-ref name="defaultStack" />
+		<action name="userBetRecord"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.scheme.AjaxUserBetRecordAction">
+			<result name="success" type="json"/>
+		</action>
+		<action name="scheme"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.scheme.AjaxBetSchemeAction">
+			<result name="success" type="json"/>
+		</action>
+		<action name="aj_showSchemeWeibo"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.scheme.ShowSchemeWeiboAction">
+			<result name="success" type="json"/>
+		</action>
+	</package>
+</struts>

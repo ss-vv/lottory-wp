@@ -1,0 +1,72 @@
+# name
+project.displayname = ${project.displayname}
+
+# database
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+# database
+db2.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db2.url = ${db2.url}
+db2.username = ${db2.username}
+db2.password = ${db2.password}
+
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+# btm
+btm.log.1 = /data/logs/btm-davcai-web1.log
+btm.log.2 = /data/logs/btm-davcai-web2.log
+
+debugMode=${debugMode}
+advancedMinute=${advancedMinute}
+
+#Redis
+redis.url=${redis.url}
+redis.port=${redis.port}
+
+#weibo image path
+image.weibo.directory=${image.weibo.directory}
+image.weibo.url=http://images.davcai.com/weibo/
+
+# head image storage files's path
+head.image.rootPath=/data/weibo/images/
+
+#local test use
+#head.image.rootPath=E:/workspace_trunk/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/weibo-web/
+
+# head images url prefix
+head.image.directory=/head/
+head.image.width=180
+head.image.height=180
+
+# ActiveMQ
+amq.brokerURL = ${amq.brokerURL}
+amq.sender.threads = 3
+
+solrUrl = ${solrUrl}
+
+#thrift.port
+thrift.port = ${thrift.port}
+
+#thrift.address
+thrift.address = ${thrift.address}
+
+#scheme time to live
+scheme.timeToLive=${scheme.timeToLive}
+scheme.final.timeToLive=${scheme.final.timeToLive}
+
+#alipay login
+alipay.service = ${alipay.service}
+alipay.parenter = ${alipay.parenter}
+alipay.input_charset = ${alipay.input_charset}
+alipay.return_url = ${alipay.return_url}
+alipay.target_service = ${alipay.target_service}
+alipay.sign_type = ${alipay.sign_type}
+alipay.url = ${alipay.url}
+alipay.key = ${alipay.key}
+
+# match_color_timeout mils
+match_color_timeout = ${match_color_timeout}

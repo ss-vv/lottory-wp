@@ -1,0 +1,45 @@
+<script id="mix-bet-tmpl" type="text/x-jquery-tmpl">
+	<tr {{{oddsStatus}}} class="table-single-pop" _n="mix-odds-all" style="display:none"   matchgroupindex="{{matchGroupIndex}}" >
+		<td colspan="10">
+			<div> 
+				<table class="table-single-box" cellspacing="0" cellpadding="0" border="0">
+					<tbody><tr>
+						<td rowspan="3" colspan="2" class="font-weight color-gray mix-odds-title" style="color: #424242;"  odds-type="qcbf">全场比分</td>
+						{{{scoreOddsWinOptions}}}
+					</tr>
+					<tr>
+						{{{scoreOddsDrawnOptions}}}
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+					</tr>
+					<tr>
+						{{{scoreOddsLoseOptions}}}
+					</tr>
+					<tr>
+						<td colspan="2" class="font-weight color-gray mix-odds-title" style="color: #424242;" odds-type="zjq">总进球</td>
+						{{{jinqiushuOptions}}}
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="font-weight color-gray mix-odds-title" style="color: #424242;" odds-type="bqc">半全场</td>
+						{{{banquanchangOptions}}}
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+						<td class="no-bg color-gray"></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</td>
+	</tr>
+</script>

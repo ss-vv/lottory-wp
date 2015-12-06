@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head transcode="${transcode}" partnerid="${partnerid}" version="${version}" time="${time}" />
+  <body>
+    <ticketorder lotteryId="${lotteryId}" ticketsnum="${ticketNum}" totalmoney="${totalMoney}">
+      <tickets>
+      #foreach($t in $tickets)
+        #set ($betUnits = ${t.note}/${t.multiple})
+        <ticket ticketId="${t.id}" betType="${t.passTypeId}" issueNumber="$!{t.issue}" betUnits="$betUnits" multiple="${t.multiple}" betMoney="${t.money}" isAppend="0">
+            <betContent>${t.actualCode}</betContent>
+        </ticket> 
+      #end
+      </tickets>
+    </ticketorder>
+  </body>
+</msg>

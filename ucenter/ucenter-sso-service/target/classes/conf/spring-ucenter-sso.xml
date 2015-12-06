@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="numericGenerator" class="com.xhcms.ucenter.sso.util.generator.DefaultLongNumericGenerator"/>
+	<bean id="randomStringGenerator" class="com.xhcms.ucenter.sso.util.generator.DefaultRandomStringGenerator"/>
+	<bean id="ticketIdGenerator" class="com.xhcms.ucenter.sso.util.generator.DefaultUniqueTicketIdGenerator">
+		<property name="suffix" value="${ucenter.sso.TicketSuffix}"/>
+	</bean>
+	<bean id="ticketRegistry" class="com.xhcms.ucenter.sso.ticket.impl.TicketRegistryDefault"/>
+	<bean id="authenticationManager" class="com.xhcms.ucenter.sso.service.impl.AuthenticationManagerDefault"/>
+	<bean id="authenticateHandler" class="com.xhcms.ucenter.sso.service.impl.UsernamePasswordAuthenticationHandler"/>
+	
+	<bean id="grantingTicketExpirationPolicy" class="com.xhcms.ucenter.sso.ticket.impl.TimeoutExpirationPolicy">
+		<constructor-arg index="0" value="7200000" />
+	</bean>
+	<bean id="serviceTicketExpirationPolicy" class="com.xhcms.ucenter.sso.ticket.impl.MultiTimeUseOrTimeoutExpirationPolicy">
+		<constructor-arg index="0" value="1" />
+		<constructor-arg index="1" value="10000" />
+	</bean>
+	
+	<!-- TICKET REGISTRY CLEANER -->
+	<bean id="ticketRegistryCleaner" class="com.xhcms.ucenter.sso.ticket.impl.DefaultTicketRegistryCleaner"></bean>
+	<bean id="jobDetailTicketRegistryCleaner"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" 
+		p:targetObject-ref="ticketRegistryCleaner" 
+		p:targetMethod="clean" />
+	<bean id="triggerJobDetailTicketRegistryCleaner" class="org.springframework.scheduling.quartz.SimpleTriggerBean"
+		p:jobDetail-ref="jobDetailTicketRegistryCleaner"
+		p:startDelay="20000"
+		p:repeatInterval="5000000" />	
+	
+	<!-- OPEN ID Service -->
+	<bean id="sinaOpenIdAuthService" class="com.xhcms.ucenter.sso.service.impl.SinaOpenIdAuthService"/>
+	<bean id="weixinOpenIdAuthService" class="com.xhcms.ucenter.sso.service.impl.WeixinOpenIdAuthService"/>
+	<bean id="qqConnectAuthService" class="com.xhcms.ucenter.sso.service.impl.QQConnectAuthService"/>
+	<bean id="alipayOpenIdAuthService" class="com.xhcms.ucenter.sso.service.impl.AlipayOpenIdAuthService"/>
+	<bean id="openIdAuthenticateHandler" class="com.xhcms.ucenter.sso.service.impl.OpenIdAuthenticateHandler"/>
+	<bean id="openIdServiceFactory" class="com.xhcms.ucenter.sso.service.impl.OpenIdServiceFactory" />
+	
+</beans>

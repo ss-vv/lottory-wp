@@ -1,0 +1,79 @@
+<script id="new-bet-scheme-tmpl" type="text/x-jquery-tmpl">
+{{#scheme}}
+	<div class="davcai-sun-list">
+		<ul class="davcai-sun-list-top">
+		</ul>
+		<div class="davcai-sun-list-middle">
+			<table cellpadding="0" cellspacing="0" class="davcai-sun-table">
+				<tbody><tr style="border-bottom: none;">
+					<th style="width: 85px;">赛事编号</th>
+					<th style="width: 140px;">{{switchHomeGuest}}</th>
+					<th style="width: 190px;">投注项</th>
+					<th>比分</th>
+				</tr> 
+				{{#matchs}}
+					<tr>
+						<td>{{cnCode}}
+							<br> {{leagueName}}
+						</td>
+						<td>
+							<a target="_blank" href="http://www.davcai.com/matches/{{lotteryId}}/{{matchId}}">
+								 {{homeName}}<br> VS <br> {{guestName}}
+							</a>
+						</td>
+						<td>
+							{{{_betContentHtml}}}
+						</td>
+						<td channelIdentifer="match_{{_pushMatchType}}_{{matchId}}">
+							<em class="pgs"></em>
+							<span class="score-reset">
+								{{_score}}
+							</span>
+						</td>
+					</tr>
+					{{#annotation}}
+		    		<tr>
+		    			<td colspan="4">
+		    				<p class="davcai-sun-list-comment">{{annotation}}</p>
+						</td>
+					</tr>
+					{{/annotation}}
+				{{/matchs}}
+				{{#ratio}}
+					<tr>
+		    			<td colspan="4" style="text-align: left;text-indent: 15px;">
+	    					<span>命中率：</span><label><ew class="color-red">{{ratio}}</ew></label>
+	    				</td>
+					</tr>
+				{{/ratio}}
+				{{^_realScheme}}
+					<tr style="text-align: left;text-indent: 15px;">
+						<td colspan="3">
+							<span>过关方式：</span>
+							<label>{{playName}}　{{passTypeIds}}</label>
+							<span>方案金额：</span>
+							<label><i style="background: none;width: auto;" class="color-red">￥{{totalAmount}}元</i></label>
+						</td>
+						<td rowspan="2">
+							<a target="_blank" href="{{srcWeiboUrl}}" class="bet-follow" type="{{weibotype}}">{{realFollowersCountView}}</a>
+						</td>
+					</tr>
+					<tr class="bottom">
+						<td colspan="3">
+							<span>理论最大奖金：  </span>
+							<label>
+								<!--<i style="background: none;width: auto;" class="color-red">￥TODO元　　~</i>--> 
+								<i style="background: none;width: auto;" class="color-red">￥{{maxBonus}}元</i>
+							</label>
+							{{#winprize}}
+								<img src="/assets/js/bet/images/winprize-logo.png" class="winprize" style="margin-top: -123px;margin-right: -80px;">
+							{{/winprize}}
+						</td>
+					</tr>
+				{{/_realScheme}}
+			</tbody></table>
+		</div>
+		<div class="davcai-sun-list-bottom"></div>
+	</div>
+{{/scheme}}
+</script>

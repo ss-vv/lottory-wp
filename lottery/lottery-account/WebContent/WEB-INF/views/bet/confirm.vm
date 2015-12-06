@@ -1,0 +1,594 @@
+#set($layout = "bet.vm")
+#set($p_title = "投注详情")
+#set($scripts = ["js/repeat_scheme", "js/jquery-ui", "js/jquery.blockUI"])
+#set($styles = ["css/ui-lightness/jquery-ui"])
+
+<script type="text/javascript" src="http://www.davcai.com/js/web/plugins/cookie/jquery.cookie.js"></script>
+<script type="text/javascript">
+var lotteryId = "${schemeView.lotteryId}";
+</script>
+## 是否不可以晒单、跟单
+#set($can_not_show=false) 
+#if(${schemeView.lotteryId}=="CTZC"||${schemeView.lotteryId}=="SSQ")
+    #set($can_not_show=true)
+#end
+<div class="mod mod-d">
+  <div class="imglst imglst-b bgbrr-c">
+    <div class="row" style="margin-left:0px;">
+      <span class="img">
+        #parse("/bet/playImg.vm")
+      </span>
+      <b class="phases fl">第  
+		#if(${schemeView.lotteryId}=='SSQ')${schemeView.issueNumber}
+		#elseif(${schemeView.lotteryId}=='CTZC') 20${schemeView.ctBetContents[0].issueNumber} 
+		#else  $date.format("yyyyMMdd", ${schemeView.createdTime})#end  期</b>
+      <span class="tips">认购截止时间：$date.format("yyyy-MM-dd HH:mm", ${schemeView.offtime})</span>
+    </div>
+    <span class="clear"></span>
+  </div>
+  <div class="tblbox tblbox-d">
+    <form id="bForm" action="betconfirm.do" method="post">
+      <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <th class="thl" style="width:160px;text-align:center;"><div class="inth">方案信息</div></th>
+          <td>
+            <div class="tblbox tblbox-c">
+              <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+                <tbody><tr>
+                  <th class="thl" style="width:150px;text-align:center;"><div class="inth"><div class="" style="text-align:center;">彩种玩法</div></div></th>
+                  <th style="width:100px;"><div class="inth"><div class="" style="text-align:center;">总金额</div></div></th>
+                  <th class="thr" style="width:100px;"><div class="inth"><div class="" style="text-align:center;">投注倍数</div></div></th>
+                </tr>
+                <tr class="last">
+                  <td class="tdl"><div class="intd">#lotteryName(${schemeView.lotteryId}) $status.getPlayName($schemeView.playId)</div></td>
+                  <td><div class="intd">￥${schemeView.totalAmount}元</div></td>
+                  <td class="tdr"><div class="intd">${schemeView.multiple}倍</div></td>
+                </tr>
+              </tbody></table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th class="thl" style="text-align:center;"><div class="inth">认购设置</div></th>
+          <td>
+            <div class="intd">
+              <div class="formbox formbox-a formbox-a-b">
+                <div class="row" style="margin-left:0px;">
+                  <div class="iptchk"><label title="发起代购" ><input class="iniptchk" type="radio" name="type" value="0" checked="checked"/><span class="fs14 fwb">全额认购</span></label></div>
+                  <div class="iptchk"><label title="发起合买" ><input class="iniptchk" type="radio" name="type" value="1" id="groupByInput"/><span class="fs14 fwb">发起合买</span></label></div>
+                  <div class="iptchk">
+                  <label #if($can_not_show)title="本彩种暂不支持晒单" #else title="发起晒单" #end>
+                  <input class="iniptchk" type="checkbox" name="showdan" id="show_scheme_checkbox" #if($can_not_show)disabled#else checked #end/><span class="fs14 fwb">
+                  <b  #if($can_not_show)style="color:gray" #else class="c-i" #end>晒单</b></span></label></div>
+                  <input type="hidden" name="showScheme" />
+                  <input type="hidden" name="showSchemeSlogan" />
+                  ##<div class="iptchk"><label><input class="iniptchk" type="radio" name="type" value="2"/><span class="fs14 fwb">免费保存</span></label></div>
+                </div>
+                <div _type="0">
+                  <div class="row" style="margin-left:0px;">
+                    <label class="lbl">我要认购：</label><div class="tips"><b class="c-i"> $!{schemeView.totalAmount} </b>元 比例<b class="c-i" _attr="ratio">100</b>%</div>
+                  </div>
+                </div>
+                <div _type="1" style="display:none;">
+                  <div class="row" style="margin-left:0px;">
+                    <label class="lbl">我要认购：</label>
+                    <div class="ipttxt ipttxt-b wh-txtb"><input class="inipttxt" type="text" name="buyAmount" style="width:60px;" value=""/></div><div class="tips">元 <b class="c-i"_attr="buyRatio">0</b>%</div>
+                  </div>
+                  <div class="row" style="margin-left:0px;">
+                    <label class="lbl">我要保底：</label>
+                    <div class="ipttxt ipttxt-b wh-txtb"><input class="inipttxt" type="text" name="floorAmount" style="width:60px;" value="0"/></div><div class="tips">元 <b class="c-i"_attr="floorRatio">0</b>%</div>
+                    <div class="iptchk">
+                      <label class="">
+                        <input _op="floorAll" class="iniptchk" type="checkbox"/>
+                        <span>全额保底</span>
+                      </label>
+                    </div>
+                    <div class="tips">
+                      <a href="javascript:void(0);" title="发起人承诺合买截止后，如果方案还没有满员，发起人再投入先前承诺的金额以最大限度让方案成交。在合买截止时如果方案还未满员的话，系统将会用冻结的保底资金去认购方案。如果在合买截止前方案已经满员，系统会返还保底资金。">什么是保底？</a>
+                    </div>
+                  </div>
+                </div>
+                <span class="clear"></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr id="showSchemeSlogan">
+			<th class="thl" style="text-align:center;"><div class="inth">晒单宣言</div></th>
+			<td>#parse("/bet/publish.vm")</td>
+		</tr>
+        <tr _type="1" id="groupbuy_privacy" style="display:none;">
+          <th class="thl" style="text-align:center;"><div class="inth">合买方案保密</div></th>
+          <td>
+            <div class="intd">
+              <div class="formbox formbox-a formbox-a-b">
+                <div class="row" style="margin-left:0px;">
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="privacy" value="0" checked/><span>公开</span></label></div>
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="privacy" value="2"/><span>仅对跟单者公开（跟单后即公开）</span></label></div>
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="privacy" value="3"/><span>仅对跟单者公开（销售截止后公开）</span></label></div>
+				  <!--
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="privacy" value="1"/><span>开奖后公开</span></label></div>
+				  -->
+				  <div class="iptchk"><label style="color:#F00;font-weight:bold;">(保密设置说明：方案最晚一场比赛截止后，方案即公开)</label></div>
+                  <div class="iptchk"  style="display:none;"><label><input class="iniptchk" type="radio" name="privacy" value="4"/><span>保密</span></label></div>
+                </div>
+                <span class="clear"></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr _type="4" id="groupbuy_ratio" style="display:none;">
+          <th class="thl" style="text-align:center;"><div class="inth">合买提成比例</div></th>
+          <td>
+            <div class="intd">
+              <div class="formbox formbox-a formbox-a-b">
+                <div class="row" style="margin-left:0px;">
+                  <div class="iptchk">
+	                  <label><span>合买提成比例：</span>
+	                  	<select name="groupbuyRatio">
+	                  		<option selected value="0">无</option>
+	                  		<option value="1">1%</option>
+	                  		<option value="2">2%</option>
+	                  		<option value="3">3%</option>
+	                  		<option value="4">4%</option>
+	                  		<option value="5">5%</option>
+	                  	</select>
+	                  </label>
+                  </div>
+                </div>
+                <span class="clear"></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr _type="2" id="show_scheme_privacy" #if($can_not_show)style="display:none;" #end>
+          <th class="thl" style="text-align:center;"><div class="inth">跟单方案保密</div></th>
+          <td>
+            <div class="intd">
+              <div class="formbox formbox-a formbox-a-b">
+                <div class="row" style="margin-left:0px;">
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="followSchemePrivacy" value="0" checked/><span>公开</span></label></div>
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="followSchemePrivacy" value="2"/><span>仅对跟单者公开（跟单后即公开）</span></label></div>
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="followSchemePrivacy" value="3"/><span>仅对跟单者公开（销售截止后公开）</span></label></div>
+				  <!--
+                  <div class="iptchk"><label><input class="iniptchk" type="radio" name="followSchemePrivacy" value="1"/><span>开奖后公开</span></label></div>                  
+				  -->
+				  <div class="iptchk"><label style="color:#F00;font-weight:bold;">(保密设置说明：方案最晚一场比赛截止后，方案即公开)</label></div>
+                </div>
+                <span class="clear"></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr _type="3" id="followed_ratio" #if($can_not_show)style="display:none;" #end>
+          <th class="thl" style="text-align:center;"><div class="inth">跟单提成比例</div></th>
+          <td>
+            <div class="intd">
+              <div class="formbox formbox-a formbox-a-b">
+                <div class="row" style="margin-left:0px;">
+                  <div class="iptchk">
+	                  <label><span>跟单提成比例：</span>
+	                  	<select name="followedRatio">
+	                  		<option selected value="0">无</option>
+	                  		<option value="1">1%</option>
+	                  		<option value="2">2%</option>
+	                  		<option value="3">3%</option>
+	                  		<option value="4">4%</option>
+	                  		<option value="5">5%</option>
+	                  	</select>
+	                  </label>
+                  </div>
+                </div>
+                <span class="clear"></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        
+		#if($!{schemeView.lotteryId} == "SSQ")
+			#parse("/bet/_repeat.vm")
+		#end
+        
+        <tr>
+          <th class="thl"><div class="inth">&nbsp;</div></th>
+          <td>
+            <div class="intd">
+              <div class="formbox formbox-a formbox-a-b">
+                <div class="row" style="margin-left:0px;">
+                  <div class="tips">注：点击下方按钮表明您同意<a href="javascript:void(0);" title="">《大V彩络服务协议》</a> 并已认可投注详情。</div>
+                </div>
+                <div class="row" style="margin-left:0px;">
+                  <div class="tips c-i">重要提示：您投注时的竞彩奖金指数有可能在出票时发生变化，实际数值以票样信息为准。</div>
+                </div>
+                <div class="row" style="margin-left:0px;">
+                  <a _op="submit" class="btn" style="padding:0px;" href="javascript:void(0)"></a>
+                </div>
+                <span class="clear"></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th class="thl" style="text-align:center;"><div class="inth">方案内容</div></th>
+          <td>
+            <div id="betMatch" class="intd">
+              #if(${schemeView.lotteryId} == "JCZQ")
+              <div class="tblbox tblbox-c">
+				#if(${schemeView.playId} != "jcsjbgj")
+                <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <th class="thl" style="width:80px;"><div class="inth"><div class="hide" style="">赛事编号</div></div></th>
+                    <th><div class="inth"><div class="hide">主队 VS 客队</div></div></th>
+                    <th style="width:60px;"><div class="inth"><div class="hide">让球数</div></div></th>
+                    <th style="width:320px;"><div class="inth"><div class="hide">投注内容</div></div></th>
+                    <th class="thr" style="width:40px;"><div class="inth"><div class="hide">胆码</div></div></th>
+                  </tr>
+                  #foreach($m in ${schemeView.matchs})
+                  #getPlayId($schemeView, $m)
+                  <tr>
+                    <td class="tdl"><div class="intd">${m.cnCode}</div></td>
+                    <td><div class="intd">${m.name}</div></td>
+                    <td><div class="intd">#if(${_playId}!='80_ZC_1' && ${_playId}!='80_ZC_2')#if($math.toInteger(${m.concedePoints}) > 0)+${m.concedePoints}#else${m.concedePoints}#end#end</div></td>
+                    <td><div class="intd">$Result.cn(${_playId}, ${m.betCode}, ${m.odds})</div></td>
+                    <td class="tdr bgbrr-e">#if($m.seed)胆#else &nbsp;#end</td>
+                  </tr>
+                  #end
+                  <tr class="last">
+                    <td class="tdl"><div class="intd"></b>过关方式</b></div></td>
+                    <td class="tdr tal" colspan="4"><div class="intd">${schemeView.passTypeIds}</div></td>
+                  </tr>
+                </table>
+				#else
+					#parse("/bet/cgjConfirmScheme.vm")
+				#end
+              </div>
+              #elseif(${schemeView.lotteryId} == "JCLQ")
+                <div class="tblbox tblbox-c">
+                  <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <th class="thl" style="width:80px;"><div class="inth"><div style="text-align:center;">赛事编号</div></div></th>
+                      <th style="width:275px;"><div class="inth"><div style="text-align:center;">客队 VS 主队</div></div></th>
+                      <th style="width:105px;"><div class="inth"><div style="text-align:center;">让分数/预设总分</div></div></th>
+                      <th style="width:300px;"><div class="inth"><div style="text-align:center;">投注内容</div></div></th>
+                      <th class="thr" style="width:40px;"><div class="inth"><div style="text-align:center;">胆码</div></div></th>
+                    </tr>
+                    #foreach($m in ${schemeView.matchs})
+                    #getPlayId($schemeView, $m)
+                    <tr>
+                      <td class="tdl"><div class="intd">${m.cnCode}</div></td>
+                      <td><div class="intd">${m.name}</div></td>
+                      <td><div class="intd">#if($math.toDouble(${m.concedePoints}) > 0 && ${m.playId} != "09_LC_2")+${m.concedePoints}#else${m.concedePoints}#end</div></td>
+                      <td><div class="intd">$Result.cn(${_playId}, ${m.betCode}, ${m.odds})</div></td>
+                      <td class="tdr bgbrr-e">#if($m.seed)胆#else &nbsp;#end</td>
+                    </tr>
+                    #end
+                    <tr class="last">
+                      <td class="tdl"><div class="intd"></b>过关方式</b></div></td>
+                      <td class="tdr tal" colspan="4"><div class="intd">${schemeView.passTypeIds}</div></td>
+                    </tr>
+                  </table>
+                </div>
+              #elseif(${schemeView.lotteryId} == "CTZC")
+              	<div class="tblbox tblbox-c">
+                  <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+					#if(${schemeView.ctBetRequest.chooseType.getIndex()} == 0)
+                    <tr>
+                      <th class="thl" style="width:80px;"><div class="inth"><div class="hide">赛事编号</div></div></th>
+                      <th style="width:200px;"><div class="inth"><div class="hide">主队 VS 客队</div></div></th>
+                      #if(${schemeView.playId} == "26_ZC_BQ")
+                      <th style="width:60px;"><div class="inth"><div class="hide">半全场</div></div></th>
+                      #end
+                      <th style="width:320px;"><div class="inth"><div class="hide">投注内容</div></div></th>
+                      <th class="thr" style="width:40px;"><div class="inth"><div class="hide">胆码</div></div></th>
+                    </tr>
+                    	#if(${schemeView.playId} == "27_ZC_JQ")
+	                    	#foreach($m in ${schemeView.ctFBMatchs})
+		                    <tr>
+		                      <td rowspan="2" class="tdl"><div class="intd">${m.matchId}</div></td>
+		                      <td rowspan="2"><div class="intd">${m.homeTeamName}<br />${m.guestTeamName}</div></td>
+		                      <td><div class="intd">$Result.cn(${schemeView.playId}, ${schemeView.ctBetContents[0].code.split(',').get($math.sub($math.mul(${m.matchId},2),2))}, ${m.odds})</div></td>
+		                      <td class="tdr bgbrr-e">#if($m.seed)胆#else &nbsp;#end</td>
+		                    </tr>
+		                    <tr>
+		                    	<td><div class="intd">$Result.cn(${schemeView.playId}, ${schemeView.ctBetContents[0].code.split(',').get($math.add($math.sub($math.mul(${m.matchId},2),2),1))}, ${m.odds})</div></td>
+		                    	<td class="tdr bgbrr-e">&nbsp;</td>
+		                    </tr>
+	                    	#end
+	                    #elseif(${schemeView.playId} == "26_ZC_BQ")
+	                    	#foreach($m in ${schemeView.ctFBMatchs})
+		                    <tr>
+		                      <td rowspan="2" class="tdl"><div class="intd">${m.matchId}</div></td>
+		                      <td rowspan="2"><div class="intd">${m.homeTeamName} VS ${m.guestTeamName}</div></td>
+		                      <td><div class="intd">半场</div></td>
+		                      <td><div class="intd">$Result.cn(${schemeView.playId}, ${schemeView.ctBetContents[0].code.split(',').get($math.sub($math.mul(${m.matchId},2),2))}, ${m.odds}) </div></td>
+		                      <td class="tdr bgbrr-e">#if($m.seed)胆#else &nbsp;#end</td>
+		                    </tr>
+		                    <tr>
+		                    	<td><div class="intd">全场</div></td>
+		                    	<td><div class="intd">$Result.cn(${schemeView.playId}, ${schemeView.ctBetContents[0].code.split(',').get($math.add($math.sub($math.mul(${m.matchId},2),2),1))}, ${m.odds})</div></td>
+		                    	<td class="tdr bgbrr-e">&nbsp;</td>
+		                    </tr>
+	                    	#end
+	                    #else
+	                    	#foreach($m in ${schemeView.ctFBMatchs})
+		                    <tr>
+		                      <td class="tdl"><div class="intd">${m.matchId}</div></td>
+		                      <td><div class="intd">${m.homeTeamName} VS ${m.guestTeamName}</div></td>
+		                      <td><div class="intd">$Result.cn(${schemeView.playId}, ${schemeView.ctBetContents[0].code.split(',').get($math.sub(${m.matchId},1))}, ${m.odds}) </div></td>
+		                      <td class="tdr bgbrr-e">
+		                     #set( $result = false )
+		                      #foreach($seed in ${schemeView.ctBetContents[0].seed.split(',')})
+		                      	#if($seed==$math.sub(${m.matchId},1)) #set( $result = true ) #end
+		                      #end
+		                      #if($result)胆#else&nbsp; #end
+		                       </td>
+		                    </tr>
+	                    	#end
+	                    #end
+                    #else
+		                    <tr class="tdl">
+		                      <td class="tdl"><div class="intd"></b>机选列表</b></div></td>
+		                      <td class="tdr tal" colspan="3"><div class="intd">
+			                    	#foreach($m in ${schemeView.ctBetContents})
+			                    		$m.code.replaceAll("-","*")<br/>
+				                    #end
+								</div></td>
+		                    </tr>
+                    #end
+                  </table>
+                </div>
+              #elseif(${schemeView.lotteryId} == "SSQ")
+              	<div class="tblbox tblbox-c">
+                	<table class="tbl" cellpadding="0" cellspacing="0" border="0">
+                    	<tr class="tdl">
+		                	<td class="tdl"><div class="intd">投注列表</div></td>
+		                    <td class="tdr tal" colspan="3"><div class="intd">
+			                #foreach($c in ${schemeView.digitalBetContents})
+			                	#set($code=${c.code.split("\|")})
+			                	<b class="c-i">红</b>：$code[0].replaceAll("\,"," ") + <b class="c-c">蓝</b>：$code[1].replaceAll("\,"," ")<br/>
+				            #end
+							</div></td>
+		            	</tr>
+                	</table>
+                </div>
+              #elseif(${schemeView.lotteryId} == "BJDC")
+                  #parse("/bet/bjdcConfirm.vm")
+              #end
+              
+            </div>
+          </td>
+        </tr>
+        <tr class="last">
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+    var _form = $('#bForm');
+    $('input[name=type]').bind('change', function(){
+        if($(this).val() == 1){
+            $('div[_type=0]', _form).hide();
+            $('div[_type=1]', _form).show();
+            $('tr[_type=1]', _form).show();
+            $('tr[_type=4]', _form).show();
+            $('a[_op=submit]', _form).removeClass('btn').addClass('btn-b');
+            var total = $!{schemeView.totalAmount};
+		    var _buy = $('input[name=buyAmount]', _form);
+		    var _floor = $('input[name=floorAmount]', _form);
+		    var _buyRadio = $('b[_attr=buyRatio], _form');
+		    if((total*0.02)<1){
+		    	_buy.val(1);
+		    }else{
+		    	_buy.val(parseInt(total*0.02)+1);
+		    }
+		    _buyRadio.text(Math.round(_buy.val() / total * 100000) / 1000);
+			 
+			 if($("#show_scheme_checkbox").attr("checked") != "checked") {
+			 	 $("#show_scheme_checkbox").attr("checked", true);
+    			 $('#showSchemeSlogan').show();
+                 $('#show_scheme_privacy').show();
+                 $('#followed_ratio').show();
+			 }
+			 
+			 $('tr[_type=1]', _form).show();
+			 $('tr[_type=2]', _form).hide();
+			 $('tr[_type=3]', _form).hide();
+        } else {
+            $('div[_type=0]', _form).show();
+            $('div[_type=1]', _form).hide();
+			 $('tr[_type=2]', _form).show();
+			 $('tr[_type=3]', _form).show();
+            $('tr[_type=1]', _form).hide();
+            $('tr[_type=4]', _form).hide();
+            $('a[_op=submit]', _form).removeClass('btn-b').addClass('btn');
+        }
+    });
+
+    //认购金额
+    var total = $!{schemeView.totalAmount};
+    var _buy = $('input[name=buyAmount]', _form);
+    var _floor = $('input[name=floorAmount]', _form);
+    var _buyRadio = $('b[_attr=buyRatio], _form');
+    var _floorRadio = $('b[_attr=floorRatio], _form');
+    _buy.bind('keyup', function(){
+        var buy = jQuery.trim($(this).val());
+        if (!(/^\d+$/g.test(buy))) {
+            alert("认购金额必须是正整数");
+            $(this).val('');
+            _buyRadio.text(0);
+            return false
+        }
+        buy = (Number)(buy);
+        var floor = (Number)(jQuery.trim($('input[name=floorAmount]', _form).val()));
+        if(buy > total){
+            alert('认购额必须小于总金额');
+            $(this).val('');
+            _buyRadio.text(0);
+            return false;
+        }
+        if(buy + floor > total){
+            alert('保底金额加认购金额必须小于总金额');
+            $(this).val('');
+            _buyRadio.text(0);
+            return false;
+        }
+        _buyRadio.text(Math.round(buy / total * 100000) / 1000);
+        
+    });
+       _buy.bind('blur', function(){
+    	var buy = jQuery.trim($(this).val());
+    	if(buy < total*0.02){
+        	alert("认购金额必须大于总金额的2%");
+            $(this).val('');
+            _buyRadio.text(0);
+            return false
+        }
+    });
+    
+    
+    //保底金额
+    _floor.bind('keyup', function(){
+        var floor = $(this).val();
+        if (!(/^\d+$/g.test(floor))) {
+            alert("保底金额必须是正整数");
+            $(this).val('');
+            _floorRadio.val(0);
+            return false
+        }
+        
+        floor = (Number)(floor);
+        var buy = (Number)(jQuery.trim(_buy.val()));
+        if(buy + floor > total){
+            alert('保底金额加认购金额必须小于总金额');
+            $(this).val('');
+            _floorRadio.val(0);
+            return false;
+        }
+        _floorRadio.text(Math.round(floor / total * 100000) / 1000);
+        
+    });
+    
+    _floor.bind('blur', function(){
+    	var floor = $(this).val();
+    	if(floor != 0){
+	    	if( floor < total*0.02){
+	            alert('保底金额必须大于总金额的2%');
+	            $(this).val('');
+	            _floorRadio.val(0);
+	            return false;
+	        }
+        }
+    });
+    //全额保底
+    $('input[_op=floorAll]', _form).bind('change', function(){
+        var ctx = $(this);
+        if(ctx[0].checked == true){
+            var buy = (Number)(jQuery.trim(_buy.val()));
+            var floor = total - buy;
+            _floor.val(floor);
+            _floorRadio.text(Math.round(floor / total * 100000) / 1000);
+        } else {
+            _floor.val('');
+            _floorRadio.text(0);
+        }
+    });
+    
+	var playType = "$!{schemeView.playId}";
+	var lotteryId = "$!{schemeView.lotteryId}";
+    var count = 0;
+    $('a[_op=submit]', _form).bind('click', function(){
+      //是否晒单
+      var ctx = $('input[name=showdan]');
+	  var slogan = $('input[name=showSchemeSlogan]');
+	  var editorContent = _wbEditor.getContent();
+      if(ctx[0].checked == true){
+        $('input[name=showScheme]').val(1);
+		slogan.val(editorContent);
+      }else{
+       	$('input[name=showScheme]').val(0);
+       	slogan.val("");
+      }
+	  if(!checkShowSloganLength(editorContent)) {
+	  	return;
+	  }
+	  
+	  if("SSQ" == lotteryId) {
+    	  getRepeatIssueList();
+    	  if(!validStopTypeOfWin()) {
+    	  	alert("盈利不能为空！");
+    	  	return;
+    	  }
+	  }
+	  
+      count ++;
+      if(count == 1){
+	  	try {
+			delAnnotationCookie(lotteryId, playType);
+		} catch(err) {}
+		
+        setTimeout(function(){
+          	_form.submit();
+        }, 0);
+      } else {
+        alert('您好，你已提交此方案，正在处理中……');
+      }
+    });
+    
+    $('#show_scheme_checkbox').bind('click', function(){
+		console.log($("#groupByInput").attr("checked"))
+		if($("#groupByInput").attr("checked") == "checked") {
+			$(this).attr("checked", "true")
+			return;
+		}
+        var checked = $(this).is(':checked');
+        if (checked) {
+            $('#showSchemeSlogan').show();
+            $('#show_scheme_privacy').show();
+            $('#followed_ratio').show();
+        } else{
+			$('#showSchemeSlogan').hide();
+            $('#show_scheme_privacy').hide();
+            $('#followed_ratio').hide();
+        }
+    });
+});
+
+var checkShowSloganLength = function(editorContent) {
+	if(editorContent && editorContent.length > maximumWords) {
+		jQuery.blockUI({  
+	    	overlayCSS:{backgroundColor:'#FFFFFF'},  
+	     	message:'您输入的晒单渲染，字数已超，请删减。',  
+	     	css:{  
+		      backgroundColor:'#FFFFFF',height:40, color:'red'
+	     	},
+		 	timeout:2000
+		});
+		return false;
+	}
+	return true;
+};
+
+var delAnnotationCookie = function(lotteryId, playType) {
+	if(!playType || !lotteryId) {
+		return;
+	}
+	var schemeAnnotationKey = lotteryId.toLowerCase() + "_" + playType.toLowerCase();
+	var recKey = jQuery.cookie(schemeAnnotationKey);
+	var option = {
+		"expires":-1,
+    	"domain":".davcai.com",
+    	"path":"/"
+	}
+	if(recKey) {
+		var keyArr = recKey.split(",");
+		for(var i=0; i<keyArr.length; i++) {
+			var result = jQuery.removeCookie(keyArr[i], option);
+		}
+	}
+	jQuery.removeCookie(schemeAnnotationKey, option);
+};
+
+</script>

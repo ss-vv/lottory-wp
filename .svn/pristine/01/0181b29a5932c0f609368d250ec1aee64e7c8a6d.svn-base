@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="qt" extends="weibo-admin-default">
+		<action name="gameZQData" class="com.unison.weibo.admin.action.qt.QtFbResourceAction">
+			<result name="success">qt_ft_resrouce.vm</result>
+		</action>
+		<action name="detailQTfootball" class="com.unison.weibo.admin.action.qt.QtFbResourceAction"  
+		method="detailQTfootball">
+			<result name="success" type="json"/>
+		</action>
+		<action name="updateQTfootball" class="com.unison.weibo.admin.action.qt.QtFbResourceAction"  
+		method="updateQTfootball">
+			<result name="success" type="json"/>
+		</action>
+		<action name="findDatas" class="com.unison.weibo.admin.action.qt.QtFbResourceAction"  
+		method="findDatas">
+			<result name="success">qt_ft_resrouce.vm</result>
+		</action>
+		
+		
+		<action name="gameLQData" class="com.unison.weibo.admin.action.qt.QtBbResourceAction">
+			<result name="success">qt_Bb_resrouce.vm</result>
+		</action>
+		<action name="detailQTbasketball" class="com.unison.weibo.admin.action.qt.QtBbResourceAction"  
+		method="detailQTbasketball">
+			<result name="success" type="json"/>
+		</action>
+		<action name="updateQTbasketball" class="com.unison.weibo.admin.action.qt.QtBbResourceAction"  
+		method="updateQTbasketball">
+			<result name="success" type="json"/>
+		</action>
+		<action name="findDatasBB" class="com.unison.weibo.admin.action.qt.QtBbResourceAction"  
+		method="findDatasBB">
+			<result name="success">qt_Bb_resrouce.vm</result>
+		</action>
+	</package>
+</struts>

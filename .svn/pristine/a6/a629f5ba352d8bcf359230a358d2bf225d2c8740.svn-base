@@ -1,0 +1,60 @@
+# 通用彩金卷（面额：1-10）
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_1', '送彩金1', 1.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得1元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_2', '送彩金2', 2.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得2元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_4', '送彩金4', 4.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得4元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_5', '送彩金5', 5.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得5元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_6', '送彩金6', 6.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得6元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_7', '送彩金7', 7.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得7元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_8', '送彩金8', 8.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得8元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_9', '送彩金9', 9.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得9元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+
+# 客户端专用彩金卷（面额：1-10）
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_1_CLIENT', '送彩金1', 1.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得1元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_2_CLIENT', '送彩金2', 2.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得2元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_3_CLIENT', '送彩金3', 3.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得3元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_4_CLIENT', '送彩金4', 4.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得4元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_5_CLIENT', '送彩金5', 5.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得5元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_6_CLIENT', '送彩金6', 6.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得6元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_7_CLIENT', '送彩金7', 7.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得7元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_8_CLIENT', '送彩金8', 8.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得8元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_9_CLIENT', '送彩金9', 9.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得9元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+INSERT INTO `lt_voucher` (`id`, `name`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) 
+VALUES ('SCJ_10_CLIENT', '送彩金10', 10.00, 'grant', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得10元购彩金；购彩后方可提现。只能在客户端使用', '2013-03-22 14:40:18');
+
+# 订彩铃送彩金活动表增加用户ID字段
+ALTER TABLE `pm_colorring_grant`
+ADD COLUMN `user_id` BIGINT(20) UNSIGNED NULL DEFAULT NULL COMMENT '用户id';
+

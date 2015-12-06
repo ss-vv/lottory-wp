@@ -1,0 +1,66 @@
+#set($title="投注时间管理")
+#set($styles=["css/jqueryui/jquery-ui", "css/style"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<script type="text/javascript" src="$base/js/xhcms/ui.window.js"></script>
+<script type="text/javascript" src="$base/js/xhcms/editor.js"></script>
+<script type="text/javascript" src="$base/js/lottery/bettime.js"></script>
+
+<div class="w">
+	<div class="tabH">
+		<span class="current"><a href="$base/scheme/bet_time.do"><b>投注时间管理</b></a></span>
+	</div>
+	<div class="bx_c">
+		<table cellspacing="0" id="dataGrid" class="tab">
+			<tr>
+				<th style="width:70px;text-align:center;"><span>星期</span></th>
+				<th style="width:40px;text-align:center;"><span>开售时间</span></th>
+				<th style="width:40px;text-align:center;"><span>停售时间</span></th>
+				<th style="width:50px;text-align:right;"><span>机器截止时间</span></th>
+				<th style="width:50px;text-align:right;"><span>停售时间是否跨天</span></th>
+				<th style="width:60px;text-align:right;"><span>机器截止时间是否跨天</span></th>
+        		<th style="width:70px;text-align:center;">操作</th>
+			</tr>
+		
+			#foreach($s in $results)
+			<tr  #if($today==$Time.getWeekDayWithNumber(${s.dayOfWeek})) style="background-color: darkseagreen;" #end>
+				<td style="text-align:center;color:red">$Time.getWeekDayWithNumber(${s.dayOfWeek})</td>
+				<td style="text-align:center;">${s.openTime}</td>
+				<td style="text-align:center;">${s.endTime}</td>
+				<td style="text-align:right;">${s.machineOfftime}</td>
+				<td style="text-align:right;">#if(${s.isEndTimeCrossDay}==0)否 #else 是#end</td>
+				<td style="text-align:right;">#if(${s.isMachineOfftimeCrossDay}==0)否 #else 是#end</td>
+		        <td style="text-align:center;">
+		          <a href="javascript:void(0);" _op="edit" _sid="${s.id}" title="编辑">编辑</a>
+		        </td>
+			</tr>
+			#end
+		</table>
+	</div>
+	<div style="margin-top:15px">
+		<div style="background-color: darkseagreen;width: 15px;height: 15px;float: left;margin-left: 50px;"></div>
+		<div style="float: left;margin-left: 10px;">表示今天</div>
+	</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+	$('#dataGrid a[_op="edit"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+        new betTimeEditor({
+            width: 380,
+            height: 320,
+            data: {
+                week: $('td', _tr).eq(0).text(),
+                opentime: $('td', _tr).eq(1).text(),
+                endtime: $('td', _tr).eq(2).text(),
+                machineOfftime: $('td', _tr).eq(3).text(),
+                id: $(this).attr("_sid"),
+                endtimeKua: $.trim($('td', _tr).eq(4).text()),
+                machineOfftimeKua: $.trim($('td', _tr).eq(5).text())
+            },
+            callback: function(){
+                
+            }
+        });
+        return false;
+    });
+</script>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+			<amq:connectionFactory id="mqFactory"
+				brokerURL="${amq.brokerURL}" />
+    </property>
+  </bean>
+
+  <bean id="analysisExpertPushProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+		<amq:queue name="WB_LAICAI_ANALYSIS_EXPERT_CMD"
+			physicalName="com.unison.weibo.queue.WB_LAICAI_ANALYSIS_EXPERT_CMD" />
+	</property>
+  </bean>
+  <bean id="smsSendProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="SMS_SEND_MESSAGE_QUEUE"
+				physicalName="com.unison.weibo.queue.SMS_SEND_MESSAGE_QUEUE" />
+    </property>
+  </bean>
+  <!-- 消息发送器 -->
+  <bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender" 
+        init-method="init" destroy-method="destroy">
+    <property name="threads" value="${amq.sender.threads}" />
+    <property name="producers">
+      <map>
+        <entry key="CertificationUserNoticeHandler" value-ref="analysisExpertPushProducer" />
+        <entry key="SMSSendMessage" value-ref="smsSendProducer" />
+      </map>
+    </property>
+  </bean>
+</beans>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd"
+    default-autowire="byName">
+
+    <context:property-placeholder location="init.properties"/>
+    
+    <context:component-scan 
+        base-package="com.unison.lottery.weibo.common.nosql.impl,
+        com.unison.lottery.weibo.msg.persist.dao.impl,
+        com.unison.lottery.weibo.msg.service.impl,
+        com.unison.lottery.weibo.uc.service.impl,
+        com.unison.lottery.weibo.uc.persist.impl"/>
+        
+    <bean id="redisTemplate" class="com.unison.lottery.weibo.common.redis.RedisTemplate">
+        <constructor-arg index="0"><value>122.226.122.47</value></constructor-arg>
+        <constructor-arg index="1"><value>22123</value></constructor-arg>
+    </bean>
+
+	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+	    <property name="minIdle" value="1" />
+	    <property name="maxIdle" value="8" />
+	</bean>
+	
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool" destroy-method="destroy">
+	    <constructor-arg index="0" ref="poolConfig" />
+        <!-- 本地测试服务器 -->
+        <constructor-arg index="1" value="localhost" />
+        <constructor-arg index="2" value="6379" />
+	    <constructor-arg index="3" value="2000" />
+	</bean>
+	
+<!-- 	<bean id="redisOhm" class="redis.clients.johm.JOhm" factory-method="setPool" scope="singleton" > -->
+<!-- 	    <constructor-arg ref="jedisPool" /> -->
+<!-- 	</bean> -->
+
+    <import resource="spring-db.xml"/>
+    <import resource="spring-ucenter.xml"/>
+</beans>

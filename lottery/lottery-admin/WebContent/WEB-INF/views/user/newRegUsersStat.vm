@@ -1,0 +1,77 @@
+#set($title="新增用户统计管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>新增用户</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/user/newRegUsers.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">
+					注册日期：从 
+					<input type="text" id="fromDP" name="from" #if($from)value="$date.format('yyyy-MM-dd', $from)"#end readonly="readonly" size="10"/>
+					至 <input type="text" id="toDP" name="to" #if($to)value="$date.format('yyyy-MM-dd', $to)"#end readonly="readonly" size="10"/>
+					渠道：
+					<select name="channel" value="$!{channel}">
+                      <option value="android">android</option>
+                      <option value="ios">ios</option>
+                      <option value="LaicaiWeibo">网站</option>
+                      <option value="">全部</option>
+                    </select>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+            <input type="submit" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+				<th style="width:60px;text-align:center;"><span>日期</span></th>
+				<th style="width:80px;text-align:center;"><span>新注册用户数</span></th>
+				<th style="width:80px;text-align:center;"><span>渠道</span></th>
+			</tr>
+			#foreach($u in $data)
+			<tr>
+				<td style="text-align:center;">${u.date}</td>
+				<td style="text-align:center;">${u.count}</td>
+				<td style="text-align:center;">${u.pid}</td>
+			</tr>
+			#end
+		</table>
+    </form>
+	</div>
+</div>
+	
+<script type="text/javascript">
+	var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(f != null && t != null){
+            if(t.getTime() < f.getTime()){
+                alert('终止日期不能早于开始日期');
+                return false;
+            }
+            if((t.getTime() - f.getTime()) / 86400000 > 90){
+                alert('查询日期区间不能超过90天');
+                return false;
+            }
+        }
+        $('#qForm').submit();
+    }
+</script>

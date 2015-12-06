@@ -1,0 +1,1022 @@
+/* 
+	MacIdea iOS Skin
+	Author: Jako
+	
+	Developed upon open source project:
+
+	Universal iPhone UI Kit 1.0
+	Author: Diego Mart铆n Lafuente.
+	E-Mail: dlafuente@gmail.com
+	AIM: Minidixier
+	Licence: AGPLv3
+	date: 2008-08-09
+	
+	URL: www.minid.net
+	SVN URL: http://code.google.com/p/iphone-universal/source/checkout
+	Download: http://code.google.com/p/iphone-universal/downloads/list
+	
+	*/
+body {
+	-webkit-background-size:.438em 100%;
+	background:-webkit-gradient(linear,left top,right top,from(#c5ccd4),color-stop(71%,#c5ccd4),color-stop(72%,#cbd2d8),to(#cbd2d8));
+	-webkit-touch-callout:none;
+	font-family:Helvetica Neue,Helvetica;
+	margin:0 0 0 10px;
+	padding:0;
+	-webkit-user-select:none;
+	-webkit-text-size-adjust:none;
+	-webkit-touch-callout:none;
+	min-height:416px
+}
+
+
+
+#wrap {
+	width:100%;
+	padding:0;
+	-webkit-border-radius:0
+}
+
+.content {
+	margin:0;
+	padding:5px
+}
+
+em#icon {
+	display:none
+}
+
+
+div#header{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	z-index:999;
+	margin-left:0!important
+}
+
+
+a:hover,a:active {
+	text-decoration:none
+}
+
+/* headers */
+div#header {
+	background:#6d85a3 url(../images/bgHeader.png) repeat-x top;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#cdd5df),color-stop(1%,#abbbcb),color-stop(49%,#7691ab),color-stop(51%,#6886a3),color-stop(100%,#6486a3));
+	border-top:1px solid #cdd5df;
+	border-bottom:1px solid #2e3744;
+	padding:10px;
+	margin:0 0 0 -10px;
+	min-height:44px;
+	-webkit-box-sizing:border-box;
+	box-shadow: 0px 1px 2px #6d85a3;
+}
+
+div#header h1 {
+	color:#fff;
+	font:bold 20px/30px Helvetica;
+	text-shadow:#2d3642 0 -1px 0;
+	text-align:center;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	width:49%;
+	padding:5px 0;
+	margin:2px 0 0 -24%;
+	position:absolute;
+	top:0;
+	left:50%
+}
+
+div#header a {
+	color:#FFF;
+	background:none;
+	font:bold 12px/30px Helvetica;
+	border-width:0 5px;
+	margin:0;
+	padding:0 3px;
+	width:auto;
+	height:30px;
+	text-shadow:#2e3744 0 -1px 0;
+	text-overflow:ellipsis;
+	text-decoration:none;
+	white-space:nowrap;
+	position:absolute;
+	overflow:hidden;
+	top:7px;
+	right:6px;
+	-webkit-border-image:url(../images/toolButton.png) 0 5 0 5;
+	-webkit-background-size: 16px 30px;
+}
+
+div#header a.left {
+	top:7px;
+	left:6px;
+	right:auto;
+	width:auto
+}
+
+div#header #backButton {
+	left:6px;
+	right:auto;
+	padding:0;
+	max-width:55px;
+	border-width:0 8px 0 14px;
+	-webkit-border-image:url(../images/backButton.png) 0 8 0 14;
+	-webkit-background-size: 43px 30px;
+}
+
+
+
+.Action {
+	border-width:0 5px;
+	-webkit-border-image:url(../images/actionButton.png) 0 5 0 5
+}
+
+
+div#header p {
+	color:#3c4650;
+	font-weight:700;
+	font-size:13px;
+	text-align:center;
+	clear:both;
+	position:absolute;
+	top:4px;
+	left:35px;
+	right:35px;
+	margin:0;
+	text-shadow:#C0CBDB 0 1px 0;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden
+}
+
+div.pre {
+	height:60px
+}
+
+div.pre h1 {
+	top:18px!important
+}
+
+div.pre a {
+	top:25px!important;
+	right:6px
+}
+
+div.pre a#Backbutton {
+	left:6px!important
+}
+
+
+
+/* when you have a first LI item on any list */
+li:first-child {
+	border-top:0;
+	-webkit-border-top-left-radius:8px;
+	-webkit-border-top-right-radius:8px
+}
+
+li:last-child {
+	-webkit-border-bottom-left-radius:8px;
+	-webkit-border-bottom-right-radius:8px
+}
+
+
+
+
+/* Normal lists and metal */
+body#normal h4 {
+	color:#fff;
+	background:#9a9faa url(../images/bglight.png) top left repeat-x;
+	border-top:1px solid #a5b1ba;
+	text-shadow:#666 0 1px 0;
+	margin:0;
+	padding:2px 10px
+}
+
+body#normal,body#metal {
+	margin:0;
+	padding:0;
+	background-color:#fff
+}
+
+body#normal ul,body#metal ul,body#plastic ul {
+	-webkit-border-radius:0;
+	margin:0;
+	border-left:0;
+	border-right:0;
+	border-top:0
+}
+
+body#metal ul {
+	border-top:0;
+	border-bottom:0;
+	background:#b4b4b4
+}
+
+body#normal ul li {
+	font-size:20px
+}
+
+body#normal ul li small {
+	font-size:16px;
+	line-height:28px
+}
+
+body#normal li,body#metal li {
+	-webkit-border-radius:0
+}
+
+body#normal li em {
+	font-weight:400;
+	font-style:normal
+}
+
+body#normal h4 + ul {
+	border-top:1px solid #989ea4;
+	border-bottom:1px solid #717d85
+}
+
+body#metal ul li {
+	border-top:1px solid #eee;
+	border-bottom:1px solid #9c9ea5;
+	background:url(../images/bgMetal.png) top left repeat-x;
+	font-size:26px;
+	text-shadow:#fff 0 1px 0
+}
+
+body#metal ul li a {
+	line-height:26px;
+	margin:0;
+	padding:13px 0
+}
+
+body#metal ul li a:hover {
+	color:#000
+}
+
+body#metal ul li:hover small {
+	color:inherit
+}
+
+body#metal ul li a em {
+	display:block;
+	font-size:14px;
+	font-style:normal;
+	color:#444;
+	width:50%;
+	line-height:14px
+}
+
+body#metal ul li small {
+	float:right;
+	position:relative;
+	margin-top:10px;
+	font-weight:700
+}
+
+body#metal ul li.arrow a small {
+	padding-right:0;
+	line-height:17px
+}
+
+body#metal ul li.arrow {
+	background:url(../images/bgMetal.png) top left repeat-x,url(../images/chevron_dg.png) right center no-repeat
+}
+
+/* option panel */
+div#optionpanel {
+	background:url(../images/blackbg.png) top left repeat-x;
+	text-align:center;
+	padding:20px 10px 15px;
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0
+}
+
+div#optionpanel h2 {
+	font-size:17px;
+	color:#fff;
+	text-shadow:#000 0 1px 0
+}
+
+/***** BUTTONS *****/
+.button {
+	color:#fff;
+	font:bold 20px/46px Helvetica;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:#000 0 1px 0;
+	border-width:0 14px;
+	display:block;
+	margin:3px 0
+}
+
+.green {
+	-webkit-border-image:url(../images/greenButton.png) 0 14 0 14
+}
+
+.red {
+	-webkit-border-image:url(../images/redButton.png) 0 14 0 14
+}
+
+.white {
+	color:#000;
+	text-shadow:#fff 0 1px 0;
+	-webkit-border-image:url(../images/whiteButton.png) 0 14 0 14
+}
+
+.black {
+	-webkit-border-image:url(../images/grayButton.png) 0 14 0 14
+}
+
+/***** FORMS *****/
+/* fields list */
+ul.form {
+}
+
+ul.form li {
+	padding:7px 10px
+}
+
+ul.form li.error {
+	border:2px solid red
+}
+
+ul.form li.error + li.error {
+	border-top:0
+}
+
+ul.form li:hover {
+	background:#fff
+}
+
+ul li input[type="text"],ul li input[type="password"],ul li textarea,ul li select {
+	color:#777;
+	background:#fff url(../.png);
+/* this is a hack due the default input shadow that iphones uses on textfields */
+	border:0;
+	font:normal 17px Helvetica;
+	padding:0;
+	display:inline-block;
+	margin-left:0;
+	width:100%;
+	-webkit-appearance:textarea
+}
+
+ul li textarea {
+	height:120px;
+	padding:0;
+	text-indent:-2px
+}
+
+ul li select {
+	text-indent:0;
+	background:transparent url(../images/chevron.png) no-repeat 103% 3px;
+	-webkit-appearance:textfield;
+	margin-left:-6px;
+	width:104%
+}
+
+ul li input[type="checkbox"],ul li input[type="radio"] {
+	margin:0;
+	color:#324f85;
+	padding:10px
+}
+
+ul li input[type="checkbox"]:after,ul li input[type="radio"]:after {
+	content:attr(title);
+	font:17px Helvetica;
+	display:block;
+	width:246px;
+	margin:-12px 0 0 17px
+}
+
+/**** INFORMATION FIELDS ****/
+ul.data li h4 {
+	margin:10px 0 5px
+}
+
+ul.data li p {
+	text-align:left;
+	font-size:14px;
+	line-height:18px;
+	font-weight:400;
+	margin:0
+}
+
+ul.data li p + p {
+	margin-top:10px
+}
+
+ul.data li {
+	background:none;
+	padding:15px 10px;
+	color:#222
+}
+
+ul.data li a {
+	display:inline;
+	color:#2E3744;
+	text-decoration:underline
+}
+
+ul.field li small {
+	position:absolute;
+	right:25px;
+	margin-top:3px;
+	z-index:3
+}
+
+ul.field li h3 {
+	color:#4c566c;
+	width:25%;
+	font-size:13px;
+	line-height:18px;
+	margin:0 10px 0 0;
+	float:left;
+	text-align:right;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	padding:0
+}
+
+ul.field li a {
+	font-size:13px;
+	line-height:18px;
+	overflow:visible;
+	white-space:normal;
+	display:inline-block;
+	width:60%;
+	padding:0;
+	margin:0;
+	vertical-align:top
+}
+
+ul.field li big {
+	font-size:13px;
+	line-height:18px;
+	font-weight:400;
+	overflow:visible;
+	white-space:normal;
+	display:inline-block;
+	width:60%
+}
+
+ul.field li small {
+	font-size:13px;
+	font-weight:700
+}
+
+/* this is for profiling */
+ul.profile {
+	border:0;
+	background:none;
+	clear:both;
+	min-height:62px;
+	position:relative;
+	box-shadow: none;
+}
+
+ul.profile li {
+	background:#fff url(../images/profile-user.png) no-repeat;
+	border:1px solid #B4B4B4;
+	width:62px;
+	height:62px;
+	-webkit-border-radius:4px;
+	-webkit-box-sizing:border-box;
+	float:left
+}
+
+ul.profile li + li {
+	border:0;
+	background:none;
+	width:70%
+}
+
+ul.profile li + li h2,ul.profile li + li p {
+	color:#2e3744;
+	text-shadow:#fff 0 1px 0;
+	margin:0
+}
+
+ul.profile li + li h2 {
+	font:bold 18px/22px Helvetica;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden
+}
+
+ul.profile li + li p {
+	font:14px/18px Helvetica;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden
+}
+
+/* any A element inside this kind of field list will scale 62x62 */
+ul.profile li a {
+	display:block;
+	width:62px;
+	height:62px;
+	color:transparent
+}
+
+/***** PLASTIC LISTS *****/
+body#plastic {
+	margin:0;
+	padding:0;
+	background:#adadad
+}
+
+body#plastic ul {
+	-webkit-border-radius:0;
+	margin:0;
+	border-left:0;
+	border-right:0;
+	border-top:0;
+	background-color:#adadad
+}
+
+body#plastic ul li {
+	-webkit-border-radius:0;
+	border-top:1px solid #bfbfbf;
+	border-bottom:1px solid #9d9d9d
+}
+
+body#plastic ul li:nth-child(odd) {
+	background-color:#989898;
+	border-top:1px solid #b5b5b5;
+	border-bottom:1px solid #8a8a8a
+}
+
+body#plastic ul + p {
+	font-size:11px;
+	color:#2f3237;
+	text-shadow:none;
+	padding:10px
+}
+
+body#plastic ul + p strong {
+	font-size:14px;
+	line-height:18px;
+	text-shadow:#fff 0 1px 0
+}
+
+body#plastic ul li a {
+	text-shadow:#d3d3d3 0 1px 0
+}
+
+body#plastic ul li:nth-child(odd) a {
+	text-shadow:#bfbfbf 0 1px 0
+}
+
+body#plastic ul li small {
+	color:#3C3C3C;
+	text-shadow:#d3d3d3 0 1px 0;
+	font-size:13px;
+	font-weight:700;
+	text-transform:uppercase;
+	line-height:24px
+}
+
+/**** MINI & BIG BANNERS ****/
+#plastic ul.minibanner,#plastic ul.bigbanner {
+	margin:10px;
+	border:0;
+	height:81px;
+	clear:both
+}
+
+#plastic ul.bigbanner {
+	height:140px!important
+}
+
+#plastic ul.minibanner li {
+	border:1px solid #8a8a8a;
+	background-color:#989898;
+	width:145px;
+	height:81px;
+	float:left;
+	-webkit-border-radius:5px;
+	padding:0
+}
+
+#plastic ul.bigbanner li {
+	border:1px solid #8a8a8a;
+	background-color:#989898;
+	width:296px;
+	height:140px;
+	float:left;
+	-webkit-border-radius:5px;
+	padding:0;
+	margin-bottom:4px
+}
+
+#plastic ul.minibanner li:first-child {
+	margin-right:6px
+}
+
+#plastic ul.minibanner li a {
+	color:transparent;
+	text-shadow:none;
+	display:block;
+	width:145px;
+	height:81px
+}
+
+#plastic ul.bigbanner li a {
+	color:transparent;
+	text-shadow:none;
+	display:block;
+	width:296px;
+	height:145px
+}
+
+/**** CHAT ****/
+#chat {
+	background:#DBE1ED;
+	overflow:hidden;
+	margin-bottom:10px
+}
+
+#chat div.bubble {
+	margin:10px 10px 0 0;
+	width:80%;
+	text-shadow: 0px 1px 0px rgba(255,255,255,0.55);
+/*clear: both;*/
+}
+
+#chat div.bubble img {
+	max-width:100%!important;
+	-webkit-border-radius:5px
+}
+
+#chat div.bubble a {
+	color:#015fe7
+}
+
+#chat div.right {
+	float:right
+}
+
+#chat div.left,#chat div.right1 {
+	float:left
+}
+
+#chat div.right div.clear {
+	border-width:10px 19px 12px 10px
+}
+
+#chat div.left div.lime,#chat div.right1 div.clear {
+	border-width:10px 10px 12px 19px
+}
+
+/* lefties */
+#chat div.left div.lime {
+	-webkit-border-image:url(../images/chat_bubbles_lime_l.png) 10 10 13 19
+}
+
+#chat div.left div.lemon {
+	-webkit-border-image:url(../images/chat_bubbles_lemon_l.png) 10 10 13 19
+}
+
+#chat div.left div.orange {
+	-webkit-border-image:url(../images/chat_bubbles_orange_l.png) 10 10 13 19
+}
+
+#chat div.left div.aqua {
+	-webkit-border-image:url(../images/chat_bubbles_aqua_l.png) 10 10 13 19
+}
+
+#chat div.left div.purple {
+	-webkit-border-image:url(../images/chat_bubbles_purple_l.png) 10 10 13 19
+}
+
+#chat div.left div.pink {
+	-webkit-border-image:url(../images/chat_bubbles_pink_l.png) 10 10 13 19
+}
+
+#chat div.left div.graphite {
+	-webkit-border-image:url(../images/chat_bubbles_graphite_l.png) 10 10 13 19
+}
+
+#chat div.left div.clear {
+	-webkit-border-image:url(../images/chat_bubbles_clear_l.png) 10 10 13 19
+}
+
+#chat div.right1 div.clear {
+	-webkit-border-image:url(../images/chat_bubbles_lime_l.png) 10 10 13 19
+}
+
+/*rights*/
+#chat div.right div.aqua {
+	-webkit-border-image:url(../images/chat_bubbles_aqua_r.png) 10 19 13 10
+}
+
+#chat div.right div.lemon {
+	-webkit-border-image:url(../images/chat_bubbles_lemon_r.png) 10 19 13 10
+}
+
+#chat div.right div.lime {
+	-webkit-border-image:url(../images/chat_bubbles_lime_r.png) 10 19 13 10
+}
+
+#chat div.right div.purple {
+	-webkit-border-image:url(../images/chat_bubbles_purple_r.png) 10 19 13 10
+}
+
+#chat div.right div.pink {
+	-webkit-border-image:url(../images/chat_bubbles_pink_r.png) 10 19 13 10
+}
+
+#chat div.right div.graphite {
+	-webkit-border-image:url(../images/chat_bubbles_graphite_r.png) 10 19 13 10
+}
+
+#chat div.right div.clear {
+	-webkit-border-image:url(../images/chat_bubbles_clear_r.png) 10 19 13 10
+}
+
+#chat div.bubble div {
+	color:#000;
+	font-size:16px;
+	margin:0
+}
+
+#chat div.bubble + div,.cp {
+	color:#666;
+	text-align:center;
+	font-size:12px;
+	font-weight:700;
+	margin:0;
+	padding:10px 0 0;
+	clear:both;
+	text-shadow: 0px 1px 0px rbga(255,255,255,0.7);
+}
+
+/**** image grids ****/
+body#images {
+	background:#fff;
+	margin:0
+}
+
+body#images ul {
+	margin:4px 4px 4px 0;
+	border:0;
+	-webkit-border-radius:0
+}
+
+body#images ul li {
+	border:1px solid #C0D5DD;
+	-webkit-border-radius:0;
+	width:73px;
+	height:73px;
+	float:left;
+	margin:0 0 4px 4px;
+	background:#F4FBFE url(../images/image-loading.gif) no-repeat center center;
+	padding:0
+}
+
+body#images ul li a {
+	display:block;
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0
+}
+
+/*** BLANK PAGES ***/
+body#blank {
+	background:#fff
+}
+
+body#blank p {
+	color:#898989;
+	text-align:center;
+	margin:250px 0 0
+}
+
+/**** ICONFIED LIST ****/
+.icowrapper {
+	float:left;
+	display:block;
+	margin:-4px 10px -4px -1px
+}
+
+ul li a img.ico,ul li img.ico {
+	float:left;
+	display:block;
+	margin:-4px 10px -4px -1px
+}
+
+.reward_bestpost {
+	width:250px
+}
+
+#header h1 a {
+	visibility:hidden
+}
+
+.viewthread td.postcontent {
+	padding:0
+}
+
+#f_post td {
+	padding-bottom:0
+}
+
+.imgtitle {
+	display:none
+}
+
+.t_attachlist {
+	padding:0
+}
+
+.main ul li .arrow {
+	width:90%
+}
+
+/*
+input[type="checkbox"] {
+	width:77px;
+	height:27px;
+	background:url(../images/checkbox.png);
+	-webkit-appearance:none;
+	border:0;
+	float:right
+	-webkit-background-size: 77px 55px;
+}
+
+input[type="checkbox"]:checked {
+	background-position:0 27px
+}
+*/
+
+.txt {
+	height:30px
+}
+
+/*	Avatar*/
+.viewnode {
+	overflow:auto;
+	position:relative;
+	padding-bottom:2px
+}
+
+.avatar {
+	margin-top:5px;
+	position:absolute;
+	bottom:5px
+}
+
+.avatar img {
+	-webkit-border-radius:5px;
+	-webkit-box-shadow:0 1px 1px gray;
+	max-width: 48px;
+	max-height: 48px;
+}
+
+.avatar.left,.avatar.right1 {
+	float:left;
+	margin-right:5px
+}
+
+.avatar.right {
+	float:right;
+	margin-left:5px;
+	right:0
+}
+
+#chat div.bubble.right1,#chat div.bubble.left {
+	margin:10px 10px 0 50px!important
+}
+
+#chat div.bubble.right {
+	margin:10px 50px 0 10px!important
+}
+
+a.toggle {
+	width:77px;
+	height:27px;
+	background:url(../images/checkbox.png);
+	background-position:0 27px;
+	-webkit-appearance:none;
+	border:0;
+	float:right;
+	margin-right:10px;
+	margin-top:2px;
+	margin-bottom:5px;
+	padding:0!important;
+	-webkit-background-size: 77px 55px;
+}
+
+ul.stickyoff {
+	display:none
+}
+
+div.postattachlist img {
+	max-width:100%!important
+}
+
+.attachimg {
+	width:100%!important
+}
+
+.inputpane {
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#eaeaea),color-stop(100%,#939aad));
+	border-top:1px solid #b7c0ca;
+	-webkit-box-shadow:inset 0 1px 0 #fff;
+	padding:15px;
+	overflow: hidden;
+/*
+	position: fixed;
+	bottom: 0px;
+	width: 97.5%;
+*/
+}
+
+/*
+.inputpanewrap{
+margin-right: 20px;
+}
+*/
+
+
+div#chat{
+min-height: 260px;
+}
+
+
+div#wrapper {
+	margin-top:45px;
+	overflow-x: hidden;
+}
+
+.quote {
+	font-size:14px!important;
+	border-left:5px solid gray!important
+}
+
+.locked{
+width:auto !important;
+padding: 5px 5px 5px 14px;
+border: 1px solid gray;
+font-size: 13px !important;
+border-radius: 25px;
+box-shadow: inset 0px 1px 0px white;
+background: transparent;
+}
+
+.pollchart {
+width: auto;
+overflow: hidden;
+}
+
+.special_reward {
+padding-left: 0;
+background: none;
+}
+
+font[face] {
+font-family: Helvetica Neue, Helvetica !important;
+}
+
+font[size] {
+font-size: 14px !important;
+}
+
+
+@media all and (-webkit-min-device-pixel-ratio:2) {
+    div#header #backButton {
+        -webkit-border-image:url(../images/backButton2x.png) 0 16 0 28;
+    }
+    
+    div#header a{
+    	-webkit-border-image:url(../images/toolButton2x.png) 0 10 0 10;
+    }
+    
+    #chat div.right div.clear {
+	-webkit-border-image:url(../images/chat_bubbles_clear_r2x.png) 20 38 26 20
+	}
+	
+	#chat div.left div.lime, #chat div.right1 div.clear {
+	-webkit-border-image:url(../images/chat_bubbles_lime_l2x.png) 20 20 26 38
+	}
+	
+	/*
+input[type="checkbox"] {
+		background:url(../images/checkbox2x.png);
+	}
+*/
+	
+	a.toggle {
+		background:url(../images/checkbox2x.png);
+	}
+}

@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS `pm_grant_voucher_byday` (
+  `id` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# 新增赠款类型
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (39, '6月彩金优惠券天天送');
+
+# 延长新用户送彩金活动时间到6月底
+UPDATE `pm_promotion` SET `end_time`='2013-06-30 23:59:59' WHERE `id`=33 LIMIT 1;
+
+# 添加新活动
+INSERT INTO `lt_voucher_pm` (`id`, `name`, `grant_type_id`, `valid_time_type`, `from_create_day`, `pm_begin_time`, `pm_end_time`, `create_time`) VALUES (3, '2013.6月彩金优惠劵天天送活动', 39, 'fromCreate', 31, '2013-06-01 00:00:00', '2013-06-30 23:59:59', '2013-05-28 16:56:19');
+
+# 新建彩金优惠劵
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) VALUES ('SCJ_20', '送彩金20', 0.00, 20.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得20元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) VALUES ('SCJ_50', '送彩金50', 0.00, 50.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得50元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) VALUES ('SCJ_200', '送彩金200', 0.00, 200.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得200元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `imgUrl`, `instructions`, `create_time`) VALUES ('SCJ_500', '送彩金500', 0.00, 500.00, 'grant', 'http://ac.davcai.com/images/bet/voucher.png', '使用后立刻获得500元购彩金；购彩后方可提现。', '2013-03-22 14:40:18');

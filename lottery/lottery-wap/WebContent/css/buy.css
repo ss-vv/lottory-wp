@@ -1,0 +1,49 @@
+body { font-size: 13px; line-height: 20px; margin: 0; padding: 0; font-family: arial,sans-serif; background-color: #FFF; }
+ul, li, p, div, form { list-style: none; margin: 0; padding: 0; }
+p { line-height: 16px; text-indent: 25px; }
+a{ color: black; text-decoration: none; margin-right: 0px; }
+a:link,a:active,a:visited,a:hover{color:black;}
+label { display: inline-block; }
+img { border: 0; }
+.mainDiv { padding: 0px; }
+.clear { clear: both; font-size: 0; margin: 0; padding: 0; overflow: hidden; }
+.topNavigationBar a { color: #FFF; }
+.topNavigationBar {	padding: 2px 0px 2px 6px;color: #FFF;font-weight: bold;background-color: #FFA61A;}
+.topNavigationBar span{color:#ccc;}
+.orderBox { padding: 3px 0 0 10px; margin: 0; }
+.orderBox li { line-height: 20px; }
+.orderBox li span { display: block; float: left; text-align: right; width: 55px; }
+.curLotteryTerm { background-color: #E6FBFF; color: #333; border-bottom: 1px solid #A7BCE0; padding: 1px 0px 1px 1px; }
+.curLotteryTerm2 { background-color: #F4FEC9; color: #333; padding: 2px 0px 2px 2px; border-bottom: 1px solid #9C0; }
+.xian1 { margin-top: 2px; padding: 4px 10px 0px 5px; border-top: 1px solid #BAC4D1; }
+.red  { color: red;  text-decoration: none; }
+.blue { color: blue; text-decoration: none; }
+.divErrorMSG { border: 1px solid #FEA485; line-height: 20px; padding: 3px 3px 3px 10px; background-color: #FEFDE9; margin:3px 0px 3px 2px; color: #F30; width: 90%; }
+.divTipMSG { border: 1px dashed #9C0; line-height: 20px; background-color: #F5FECB; margin: 2px 0px; margin-left: 2px; color: #390; width: 90%; padding: 3px 3px 3px 10px; }
+.newDiv { padding-top: 3px; padding-right: 0; padding-bottom: 0; }
+.newDiv select { width: 100px; }
+.newLine { line-height: 1.5em; }
+.buyArea { padding: 1px; border-top: 1px solid #DDAC7B; border-bottom: 1px solid #DDAC7B; background-color: #FFEDD7; line-height: 20px; }
+.pageTitle { color: #333; }
+.divLine li { padding-top: 3px; }
+.ni1 { background-color: #EDF4FC; line-height: 20px; padding: 3px 0px 3px 3px; }
+.ni2 { background-color: #FFF; line-height: 20px; padding: 3px 0px 3px 3px; }
+.ni_ { background-color: #EDF4FC; border-bottom: 1px solid #9CAECB; padding: 1px 0px 1px 1px; line-height: 20px; }
+.ni2_ { background-color: #FFF; border-bottom: 1px solid #9CAECB; padding: 1px 0px 1px 1px; line-height: 20px; }
+.list_lottory { border-bottom: 1px solid #CCD6E6; padding: 3px 0px 3px 7px; }
+.xianMid { border-bottom: 1px solid #D0D0D0; }
+.divBigName{font-weight:bolder;color:Red;padding-left:5px;}
+.divBigName a{font-weight:normal;}
+
+.AspNetPager{padding-top: 5px;padding-bottom: 5px;clear: both;font-family:Arial, Helvetica, sans-serif,����;margin:0px auto;background-color:#E0E0E0}
+
+.msgTitle3{ padding:2px 2px; }
+.msgTitle{border-top:1px dotted #000; padding:2px 2px; }
+.txtTitle{border-top:1px dotted #000; padding:2px 2px;background-color:#E6FBFF;}
+.msgView{ font-weight:bold; padding:2px 0px 2px 5px; background-color:#E6FBFF; }
+.msgTitle2{border-top:1px dotted #000; padding:2px 2px;border-bottom:1px dotted #000;  }
+.redHead{background-color:#F00; color:#FFF; clear:both; width:200px; padding:0 5px; line-height:22px; margin:2px 0px;}
+
+.pursueChk{ border-top:1px dotted #000; padding:2px 2px;background-color:#E6FBFF; color:#F60; font-weight:bold;}
+
+.borderTitle{ line-height:15px; padding:4px; background-color:#E6FBFF; border-bottom:1px solid #A7BCE0; margin-bottom:5px; }

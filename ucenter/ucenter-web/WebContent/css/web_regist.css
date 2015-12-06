@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+.main {
+/* 	border: 1px solid #F00; */
+	width: 500px;
+	margin: 20px auto 0px auto;
+	text-align: center;
+}
+
+.main li input {
+	background: none repeat scroll 0 0 #FFF;
+	border: 1px solid #888;
+	height: 24px;
+	outline: medium none;
+	width: 271px;
+	font-size: 14px;
+	line-height: 24px;
+	padding-top: 4px;
+	padding-left: 6px;
+	padding-bottom: 4px;
+	border-radius: 3px;
+}
+
+.main ul ul {
+	height: 34px;
+	vertical-align: middle;
+	margin: 10px auto;
+	width: 310px;
+}
+
+.main li.comm {
+	margin-top: 30px;
+	color:#888888;
+}
+
+.main li h2 {
+	color:gray;
+	font-size: 24px;
+	padding-top: 50px;
+}
+
+.main li.mail-reg {
+	text-align: left;
+	text-indent: 75px;
+	margin-top: 32px;
+}
+
+.main li.apply {
+	text-align: left;
+	text-indent: 44px;
+}
+
+.main .reg_sep {
+	margin-top: 20px;
+}
+
+.main .agree-support {
+	color:#E22319;
+}
+
+.tip_label{
+	float: right; 
+	color:red;
+	width:100px;
+	text-align: left;
+}
+
+.loading {
+	height:65px;
+}
+
+.regist-table {
+	margin-left: 19px;
+	width:100%;
+}
+.regist-table tr{
+	height: 50px;
+}
+.regist-table td.first{
+	text-align: right;
+	font-weight: normal;
+}
+.regist-table input{
+	background: none repeat scroll 0 0 white;
+	border: 1px solid #888;
+	height: 24px;
+	outline: medium none;
+	width: 271px;
+	font-size: 14px;
+	line-height: 24px;
+	padding-top: 4px;
+	padding-left: 6px;
+	padding-bottom: 4px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 0 #000, inset 0px 3px 3px #eee;
+	-webkit-box-shadow: 0 0 0 black, inset 0px 3px 3px #EEE;
+	box-shadow: 0 0 0 black, inset 0px 3px 3px #EEE;
+}
+
+
+
+
+

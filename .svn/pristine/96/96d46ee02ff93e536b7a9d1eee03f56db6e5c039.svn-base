@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="彩票"/>
+    <meta name="description" content="彩票"/>
+    <title></title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/scores.css">
+    <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <body>
+        <!-- header -->
+        <div class="top_nav">
+            <div class="nav_inner">
+                <div class="logo"><img src="img/logo.png" width="86" height="50"></div>
+                <div class="menu_wrap">
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li>
+                            <a href="#">精华</a><i class="sprites"></i>
+                            <div class="drop_menu">
+                                <a href="#">今日话题</a>
+                                <a href="#">热门推荐</a>
+                                <a href="#">热门讨论</a>
+                                <a href="#">最新发表</a>
+                            </div>
+                        </li>
+                        <li class="active"><a href="#">推荐</a></li>
+                        <li><a href="#">投注</a></li>
+                    </ul>
+                </div>
+                <div class="user_info">
+                    <ul>
+                        <li class="user_name">
+                            <i class="sprites"></i>
+                            <a href="#">Life时代</a>
+                        </li>
+                        <li class="search_input">
+                            <form>
+                                <div class="sprites"><input placeholder="搜索 微博/用户" type="text" class="search_text"></div>
+                                <input type="button" class="search_button sprites">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- header -->
+
+        <!-- body -->
+        <div class="main_body clearfix">
+            <div class="scores_slide_box">
+                <div class="user">
+                    <img src="pic/t.jpg">
+                </div>
+                <div class="user_name">
+                    <span>LifeTime</span>
+                </div>
+                <div class="user_link">
+                    <a href="#">查看个人页</a>
+                </div>
+                <div class="scores_left_menu_wrap">
+                    <ul>
+                        <li class="o active"><a href="#">首页</a></li>
+                        <li class="t"><a href="#">收藏</a></li>
+                        <li class="th"><a href="#">我的大V彩</a></li>
+                    </ul>
+                    <ul>
+                        <li class="fo"><a href="#">提到我的</a><i class="sprites"></i></li>
+                        <li class="fi"><a href="#">评论我的</a><i class="sprites"></i></li>
+                        <li class="s"><a href="#">私信</a><i class="sprites"></i></li>
+                    </ul>
+                    <ul class="last_child">
+                        <li class="se"><a href="#">关注(12)</a></li>
+                        <li class="ei"><a href="#">粉丝(64)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="scores_main">
+                <div class="red_t">竞彩篮球比分直播</div>
+                <div class="pink_t clearfix">
+                    <div class="btn sprites">
+                        <span>保留所选</span>
+                        <i class="sprites"></i>
+                    </div>
+                    <div class="btn sprites">
+                        <span>隐藏所选</span>
+                        <i class="sprites"></i>
+                    </div>
+                    <div class="btn sprites active">
+                        <span>恢复</span>
+                        <i class="sprites"></i>
+                    </div>
+                    <div class="label">
+                        共<span class="b">5</span>场  已隐藏<span class="r">0</span>场
+                    </div>
+                </div>
+                <div class="scores_list">
+                    <table width="100%" cellspacing="0" cellpadding="0" class="list_table">
+                        <thead>
+                            <tr bgcolor="#dcdcdc">
+                                <td width="9%" align="center" height="33">序号</td>
+                                <td width="10%" align="center">赛事</td>
+                                <td width="11%" align="center">时间</td>
+                                <td width="7%" align="center">状态</td>
+                                <td align="center">客/主</td>
+                                <td width="7%" align="center">第一节</td>
+                                <td width="7%" align="center">第二节</td>
+                                <td width="7%" align="center">第三节</td>
+                                <td width="7%" align="center">第四节</td>
+                                <td width="7%" align="center">加时</td>
+                                <td width="7%" align="center">上/下</td>
+                                <td width="7%" align="center">全场</td>
+                                <td width="7%" align="center">分差</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr bgcolor="#ffffff">
+                                <td align="center" height="66">
+                                    <label>
+                                        <div class="checkbox">
+                                            <input type="checkbox">
+                                            <span class="icon sprites"></span>
+                                            <span class="label">周一001</span>
+                                        </div>
+                                    </label>
+                                </td>
+                                <td align="center" bgcolor="#174190"><b class="fc_white">NBA</b></td>
+                                <td align="center"><b>02-16 12:00</b></td>
+                                <td align="center"><b>未</b></td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b class="fc_red">公牛</b></li>
+                                        <li><b class="fc_green">马刺</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">&nbsp;</td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b>20/20</b></li>
+                                        <li><b>20/20</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b class="fc_red">40</b></li>
+                                        <li><b class="fc_red">40</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">0</td>
+                            </tr>
+                            <tr bgcolor="#f2f2f2">
+                                <td align="center" height="66">
+                                    <label>
+                                        <div class="checkbox">
+                                            <input type="checkbox">
+                                            <span class="icon sprites"></span>
+                                            <span class="label">周一001</span>
+                                        </div>
+                                    </label>
+                                </td>
+                                <td align="center" bgcolor="#174190"><b class="fc_white">NBA</b></td>
+                                <td align="center"><b>02-16 12:00</b></td>
+                                <td align="center"><b class="fc_blue">完</b></td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b class="fc_red">公牛</b></li>
+                                        <li><b class="fc_green">马刺</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">&nbsp;</td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b>20/20</b></li>
+                                        <li><b>20/20</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b class="fc_red">40</b></li>
+                                        <li><b class="fc_red">40</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">0</td>
+                            </tr>
+                            <tr bgcolor="#ffffff">
+                                <td align="center" height="66">
+                                    <label>
+                                        <div class="checkbox">
+                                            <input type="checkbox">
+                                            <span class="icon sprites"></span>
+                                            <span class="label">周一001</span>
+                                        </div>
+                                    </label>
+                                </td>
+                                <td align="center" bgcolor="#174190"><b class="fc_white">NBA</b></td>
+                                <td align="center"><b>02-16 12:00</b></td>
+                                <td align="center"><b class="fc_red">8’</b></td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b class="fc_red">公牛</b></li>
+                                        <li><b class="fc_green">马刺</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t">10</li>
+                                        <li>10</li>
+                                    </ul>
+                                </td>
+                                <td align="center">&nbsp;</td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b>20/20</b></li>
+                                        <li><b>20/20</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">
+                                    <ul>
+                                        <li class="t"><b class="fc_red">40</b></li>
+                                        <li><b class="fc_red">40</b></li>
+                                    </ul>
+                                </td>
+                                <td align="center">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- body -->
+        <!-- footer -->
+        <div class="copyright_box">
+            <div class="t_bg">
+                <a href="javascript:;">关于我们</a> | <a href="javascript:;">商务合作</a> | <a href="javascript:;">联系我们</a> | <a href="javascript:;">法律声明</a>
+            </div>
+            <p>Copyright &copy; 2014 大V彩 版权所有 京ICP备12043110号-4<br><span><b>购彩有风险，请理性投注。</b></span>禁止向未满18岁的未成年人销售彩票</p>
+            <p><img src="pic/b.png"></p>
+        </div>
+        <!-- footer -->
+    </body>
+</html>

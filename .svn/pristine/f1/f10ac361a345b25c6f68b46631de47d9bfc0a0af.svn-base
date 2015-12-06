@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 赛事数据 -->
+	<package name="match-data" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<!-- ajax赛事比分 -->
+		<action name="ajax_match_score"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.MatchScoreAction" 
+			method="matchResult">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- ajax比分走势 -->
+		<action name="ajax_fb_match_score_chart"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.MatchScoreAction" 
+			method="scoreChart">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- ajax欧赔指数 -->
+		<action name="ajax_match_europe_odds"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction" method="europeOdds">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- ajax亚洲盘口 -->
+		<action name="ajax_match_asian_odds"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction" method="asianOdds">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- ajax大小球盘口 -->
+		<action name="ajax_match_bigSmall_odds"
+			class="com.unison.lottery.weibo.web.action.pc.MatchAction" method="bigSmallOdds">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- ajax联赛排名 -->
+		<action name="ajax_league_rank" class="com.unison.lottery.weibo.web.action.pc.league.LeagueCupAction">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- 查询某只球队支持的微博用户 -->
+		<action name="ajax_bbTeam_praise" class="com.unison.lottery.weibo.web.action.pc.ajax.TeamPraiseAction"
+			method="teamPraiseQuery">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 支持某只球队（对球队点赞） -->
+		<action name="ajax_like_team" class="com.unison.lottery.weibo.web.action.pc.ajax.TeamPraiseAction"
+			method="likeTeam">
+			<result name="success" type="json"/>
+		</action>
+		<!-- 取消支持某只球队（取消对球队赞） -->
+		<action name="ajax_unlike_team" class="com.unison.lottery.weibo.web.action.pc.ajax.TeamPraiseAction"
+			method="unlikeTeam">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- 篮球赛事概览 -->
+		<action name="ajax_bb_overview" class="com.unison.lottery.weibo.web.action.pc.ajax.TeamPraiseAction"
+			method="matchInfoCollect">
+			<result name="success" type="json">
+				<param name="root">resultMap</param>
+			</result>
+		</action>
+		<!-- match's float card -->
+		<action name="ajax_match_float_card" class="com.unison.lottery.weibo.web.action.pc.ajax.MatchFloatCardAction">
+			<result name="success" type="json">
+				<param name="root">matchFloatCard</param>
+			</result>
+		</action>
+		
+		<!-- 竞彩足球赛程筛选 -->
+		<action name="aj_fb_selector" class="com.unison.lottery.weibo.web.action.pc.ajax.AjaxMatchSelectorAction" method="fbMatchs">
+			<result type="json"/>
+		</action>
+		<!-- 竞彩篮球赛程筛选 -->
+		<action name="aj_bb_selector" class="com.unison.lottery.weibo.web.action.pc.ajax.AjaxMatchSelectorAction" method="bbMatchs">
+			<result type="json"/>
+		</action>
+		<!-- 北单赛程筛选 -->
+		<action name="aj_bjdc_selector" class="com.unison.lottery.weibo.web.action.pc.ajax.AjaxMatchSelectorAction" method="bjdcMatchs">
+			<result type="json"/>
+		</action>
+	</package>
+	
+	<!-- 赛事微博 -->
+	<package name="match-weibo" extends="weibo-web-default" namespace="/">
+		<default-interceptor-ref name="defaultStack" />
+		<!-- 检查新赛事新闻数量 -->
+		<action name="newMatchNewsTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction" method="newMatchNewsTimer">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- 检查新赛事实单/推荐数量 -->
+		<action name="newRealMatchPostTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction" method="newRealMatchPostTimer">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- 检查新赛事讨论数量 -->
+		<action name="newMatchDiscussTimer"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.NewPostTimerAction" method="newMatchDiscussTimer">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- ajax获取所有赛事新闻微博 -->
+		<action name="loadMatchsNews"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction" method="loadMatchsNews">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		<!-- ajax获取所有赛事新闻微博 -->
+		<action name="loadMatchDiscussPost"
+			class="com.unison.lottery.weibo.web.action.pc.ajax.LoadPostAction" method="loadMatchDiscussPost">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+	</package>
+</struts>

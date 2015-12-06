@@ -1,0 +1,51 @@
+#set($title="自动推荐用户列表")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+        <span #if("RECUSER" == $tab) class="current" #end><a href="$base/gf/list_rec_user.do?tab=RECUSER"><b>推荐用户</b></a></span>
+        <span #if("SEARCH" == $tab) class="current" #end><a href="$base/gf/search_rec_user.do?tab=SEARCH"><b>搜索用户</b></a></span>
+	</div>
+	<div class="bx_c">
+    <form id="pForm">
+        <table cellspacing="0" class="tab" id="dataGrid">
+        <tr>
+        <th style="width:60px;text-align:center;"><span>用户ID</span></th>
+        <th style="width:80px;text-align:center;"><span>用户名称</span></th>
+        <th style="width:80px;text-align:center;"><span>彩票种类</span></th>
+        <th style="width:80px;text-align:center;"><span>推荐人</span></th>
+        <th style="width:120px;text-align:center;"><span>创建时间</span></th>
+        <th style="width:120px;text-align:center;"><span>操作</span></th>
+        </tr>
+#foreach($u in $paging.results)
+        <tr>
+        <td style="text-align:center;">${u.id}</td>
+        <td style="text-align:center;">${u.username}</td>
+        <td style="text-align:center;">${u.lotteryId}</td>
+        <td style="text-align:center;">${u.creatorId}</td>
+        <td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${u.createTime})</td>
+        <td style="text-align:center;">
+        <a href="javascript:void(0);" _id="${u.id}" _action="cancel_rec">取消推荐</a></td>
+        </tr>
+#end
+        </table>
+    </form>    
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    $('#dataGrid a[_action="cancel_rec"]').click(function (){
+        var id = $(this).attr('_id');
+        if(confirm('确定要取消吗？')){
+            location="$base/gf/cancel_rec_user.do?id=" + id + "&tab=RECUSER";
+        }
+    });
+});
+</script>

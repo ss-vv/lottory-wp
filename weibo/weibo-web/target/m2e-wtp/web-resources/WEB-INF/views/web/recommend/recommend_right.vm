@@ -1,0 +1,57 @@
+<div class="recommendation-content-right"><!-----recommendation-content-right开始--------->
+  	      	  <div class="davcai-popular-race-outer" id="hot_recommend_">
+		   	  </div><!------davcai-popular-race-outer部分 ------->
+  	      	 <div class="davcai-ranking-list-outer">
+		  	  	  <h4 class="title">胜平负-胜率排行榜&nbsp;&nbsp;&nbsp; <i class="blue-mark-tips" tid="3"></i></h4>
+		  	  	  <hr class="hr-solid">
+		  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-3">
+		  	  	  	       胜平负胜率，是指专家所有推荐胜平负玩法比赛中，命中场次的比例，例如，专家近7天累计推荐比赛14场，其中正确7场，胜率为50%。
+		  	  	  </div>
+		  	  	  <p class="ranking-list-tab" id="spfshenglv">
+		  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="spf7dayshenglv">7日内</a>
+		  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="spf50matchshenglv">近50场</a>
+		  	  	  </p>
+		  	  	  <!-- 胜平负-胜率排行榜 -->
+		  	  <div > <!-- id="spf7dayshenglv"-->
+		  	  	   <ul class="davcai-plus-interest" id="spf_shenglv7day_top5">
+  	  	           <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	            </ul>
+		  	  </div>
+              <div ><!-- id="spf50matchshenglv" -->
+		  	  	   <ul class="davcai-plus-interest" id="spf_shenglv50match_top5" style="display:none">
+  	  	           <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	            </ul>
+		  	  </div>
+		  	  </div><!----davcai-ranking-list-outer部分------->
+		  	  <!--
+  	      	   <div class="davcai-ranking-list-outer">
+		  	  	  <h4 class="title">胜平负-盈利排行榜&nbsp;&nbsp;&nbsp;<i class="blue-mark-tips" tid="2"></i></h4>
+		  	  	  <hr class="hr-solid">
+		  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-2">
+		  	  	  	            胜平负盈利，
+		  	  	  	            是指专家所有推荐胜平负场次中，每场投入万元的盈利率
+		  	  	  	            ，例如：近7天累计推荐比赛14场，每场投注1万元，
+		  	  	  	            奖金15000元，盈利率50%。
+		  	  	  </div>
+		  	  	  <p class="ranking-list-tab" id="spfyingli">
+		  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="spf7dayyingli">7日内</a>
+		  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="spf50matchyingli">近50场</a>
+		  	  	  </p>
+		  	  	
+		  	  	<div > 
+		  	  	   <ul class="davcai-plus-interest" id="spf_yingli7day_top5">
+  	  	           <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	            </ul>
+		  	    </div>
+		  	    <div> 
+		  	  	   <ul class="davcai-plus-interest" id="spf_yingli50match_top5" style="display:none">
+  	  	           		<div class="loading" style="height: 40px; display: true;" ></div>
+  	  	           </ul>
+		  	    </div>
+		  	  </div>
+		  	  -->
+		  	  <!----davcai-ranking-list-outer部分------->
+		 </div><!---recommendation-content-right结束----> 
+#parse("web/inc/common_tmpl.vm")
+<script type="text/javascript" src="$base/js/davcai/recommend/hot_recommend.js"></script>
+<script type="text/javascript" src="$base/js/davcai/recommend/spf_shenglv_yinglilv.js"></script>	  

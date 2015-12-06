@@ -1,0 +1,194 @@
+#macro(passTypes $val)
+  #foreach($i in $val.split(','))
+    ${i}<br/>
+  #end
+#end
+
+#macro(lotteryName $v)
+  #if($v == "JCZQ")竞彩足球#elseif($v == "JCLQ")竞彩篮球#else未知
+  #end
+#end
+
+#macro(schemeType $type)
+  #if($type == 0) 代购
+  #elseif($type == 1) 合买
+  #end
+#end
+
+#macro(saleStatus $v)
+  #if($v == 0) 可跟单
+  #elseif($v == 1) 满员未扣款
+  #elseif($v == 2) 满员已扣款
+  #else 无效状态 
+  #end
+#end
+
+#macro (showUserScorePic $pic)
+#if(!$pic)&nbsp;#else#foreach($s in $pic.split('#'))<img src="${base}/images/score/${s}" style="width:18px;height:18px;" alt＝"战绩_$!{s}"/>#end#end
+#end
+
+#macro (userScore $scheme, $lotteryId)
+  #set($tdNBSP="&nbsp;")
+  #foreach($score in $scheme.userScores)
+    #if($score.lotteryId==$lotteryId)
+  	   #showUserScorePic($score.showPic)
+  	   #set($tdNBSP="")
+    #end
+  #end
+  $tdNBSP
+#end
+
+#macro (userScoreGroupbuy $score)
+	#showUserScorePic($score.groupPic)
+#end
+
+#macro(orderColumn $orderColumn $col $orderStatus)
+	#if($orderColumn==$col)
+		#if($orderStatus==true)<img src="${base}/images/down.png" style="width:14px;height:14px;" alt="$!{col}"/>
+		#elseif($orderStatus==false)<img src="${base}/images/up.png" style="width:14px;height:14px;" alt="$!{col}"/>
+		#else
+		#end
+	#else
+	#end
+#end
+
+#macro(orderColumn2 $orderColumn $col $asc)
+	#if($orderColumn==$col)#if($asc)<img src="${base}/images/up.png" style="width:14px;height:14px;" alt="升序_$!{col}"/>#else<img src="${base}/images/down.png" style="width:14px;height:14px;" alt="降序_$!{col}"/>#end#end
+#end
+
+#macro(recommendation $isRecommend)
+	#if($isRecommend==1)<img src="${base}/images/hold.png" style="width:14px;height:14px;" alt="推荐用户"/>
+	#else
+	#end
+#end
+
+#macro(hotFollow $followingCount)
+	#if($followingCount>=10)<div class="follow_count">${followingCount}</div>
+	#else${followingCount}
+	#end
+#end
+
+#macro (composeReferer)
+	#set($referer = $esc.url($request.getRequestURL().append("?").append($request.getQueryString()).append("&")))
+#end
+
+#macro (pager $p $spans $pagerId)
+	#set($span = ($spans - 3)/2)
+  <span id="${pagerId}" class="r page inb_a">共${p.totalCount}条记录
+	#if($p.pageNo > 1)
+	  <a href="javascript:void(0);" _pn="${p.prevPageNo}" class="btn_p">上一页</a>
+  #end
+  #set($totalNo = ${span} * 2 + 3)
+  #set($totalNo1 = $totalNo - 1)
+  #if(${p.pageCount} > ${totalNo})
+  	#if($p.pageNo <= $span + 2)
+  		#foreach($i in [1..$totalNo1])
+	      #link(${p.pageNo}, $i)
+	    #end
+	    #link(0, 0)
+	    #link(${p.pageNo}, ${p.pageCount})
+  	#elseif($p.pageNo > ($p.pageCount - (${span} + 2)))
+      #link(${p.pageNo}, 1)
+			#link(0, 0)
+			#set($num = ${p.pageCount} - ${totalNo} + 2)
+			#foreach($i in [$num..${p.pageCount}])
+      	#link(${p.pageNo}, ${i})
+      #end
+    #else
+  		#link(${p.pageNo}, 1)
+  		#link(0, 0)
+			#set($x = ${p.pageNo}-${span})
+			#set($y = ${p.pageNo}+$span)
+  		#foreach($i in [$x..$y])
+	      #link($p.pageNo, $i)
+	    #end
+	    #link(0, 0)
+	    #link($p.pageNo, $p.pageCount)
+  	#end
+  #elseif ($p.pageCount > 1)
+		#foreach($i in [1..$p.pageCount])
+      #link(${p.pageNo}, $i)
+    #end
+  #else
+    #link(1, 1)
+  #end
+    
+  #if ($p.pageNo < $p.pageCount)
+		<a href="javascript:void(0);" _pn="${p.nextPageNo}">下一页</a>
+	#end
+	
+	&nbsp;转到<input type="text" name="p_pn" class="txts" size="4" _pc="${p.pageCount}" maxlength="4"/>
+  <input type="button" value="GO" class="hand" name="p_go"/>
+	  <script type="text/javascript">
+    $(function(){
+        var _span = $('#${pagerId}');
+        $(':button[name="p_go"]', _span).bind('click', function(){
+            var _ipt = $(':input[name="p_pn"]', _span), pn = jQuery.trim(_ipt.val());
+            if(!(/^[1-9]\d*$/.test(pn))){
+                alert('请输入正整数');
+                _ipt.focus();
+                return false;
+            }
+            if(parseInt(pn) > parseInt(_ipt.attr('_pc'))){
+                alert('跳转的目标页码不能超过最大页码');
+                _ipt.focus();
+                return false;
+            }
+            
+            pager_reload(pn);
+        });
+        
+        $('a[_pn]', _span).bind('click', function(){
+            pager_reload($(this).attr('_pn'));
+            return false;
+        });
+    });
+	  </script>
+	</span>
+#end
+
+
+<#-- 分页链接 -->
+#macro (link $pageNo $i)
+	#if ($i == 0)
+		<span>...</span>
+    #elseif ($pageNo == $i)
+		 <a href="javascript:void(0);"><b>${i}</b></a>
+    #else
+     <a href="javascript:void(0);" _pn="${i}">${i}</a>
+    #end
+#end
+
+#macro (lotteryIcon $scheme)
+    #if ($scheme.lotteryId=="JCLQ")
+    <img src="/df/images/basketball.png" width="18" alt="竞彩篮球_$!{scheme.id}"/>
+    #elseif ($scheme.lotteryId=="JCZQ")
+    <img src="/df/images/soccerball.png" width="18" alt="竞彩足球_$!{scheme.id}"/>
+    #end
+#end
+
+#macro (schemeStatus $scheme)
+	#if(${scheme.partnerCount} > 20)
+		<div class="follow_count">
+	#end
+	
+	#if(${scheme.saleStatus}==0)
+		#if(${scheme.type} == 1)进行中#end
+	#else
+		#if(${scheme.status} == 5202)
+		已结算
+		#elseif(${scheme.status} == 5203 || ${scheme.status} == 12)
+		已中奖
+		#elseif(${scheme.status} == 99 || ${scheme.status}==5101)
+		流标
+		#elseif(${scheme.status} == 100)
+		已撤单
+		#else
+		已完成
+		#end
+	#end
+	
+	#if(${scheme.partnerCountP} > 20)
+		</div>
+	#end
+#end

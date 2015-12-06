@@ -1,0 +1,6 @@
+##导入感兴趣的人用户列表模板
+#include("web/tmpl/relationship/interest-user.vm")
+##导入“加关注”按钮
+#include("web/tmpl/relationship/follow-btn.vm")
+##导入“牛人”标志模版
+#include("web/tmpl/profile/certification-flag.vm")

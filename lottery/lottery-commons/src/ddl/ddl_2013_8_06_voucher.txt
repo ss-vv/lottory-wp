@@ -1,0 +1,1 @@
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (49, '论坛兑换彩金赠款');

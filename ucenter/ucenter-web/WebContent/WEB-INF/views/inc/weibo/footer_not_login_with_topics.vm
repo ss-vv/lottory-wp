@@ -1,0 +1,39 @@
+    
+    <!-- 底部开始 -->
+    <div class="bottomWrapper">
+        <div id="bottom" class="bottom-container">
+            <div class="left">
+                <h1>今日话题</h1>
+                <div class="cont" id="daily_topics">
+                    <ul></ul>
+                </div>
+            </div>
+            
+            <div class="right">
+                <div class="">
+                    <ul>
+                        <li id="show-recommend-user-detail">
+                            
+                        </li>
+                        <div class="active_user">
+                            <ul class="user" id="show-recommend-users">
+                            	#foreach( $user in $recommendUsers )
+								    <li _index="$foreach.count" weiboUserId="$user.weiboUserId" nickName="$!user.nickName" headImageURL="$!user.headImageURL" resume="$!user.individualResume">
+                                    	<a href="http://www.davcai.com/$!user.weiboUserId/profile" title="" class="thumb" rel="history">
+                                    	<img src="$!user.headImageURL" width="50" height="50" title="$!user.nickName" alt="" class="user_pic"></a>
+                                    	<div _id="$!user.weiboUserId" style="display:none">$!user.individualResume</div>
+                                	</li>
+								#end
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>        
+        <!-- 版权开始 -->
+        #parse("inc/weibo/footer_login.vm")
+        <!-- 版权结束 -->
+    </div>
+    <!-- 底部结束 -->
+</body>
+</html>

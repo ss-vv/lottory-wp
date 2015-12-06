@@ -1,0 +1,66 @@
+#set($layout="web/head_foot.vm")
+#set($styles=["css/jquery.atwho.css",
+	"css/jquery.autocomplete.css",
+	"css/wb_list.css", 
+	"css/list-open.css"])
+	
+#set($scripts=["js/web/detail.js",
+	"assets/js/cometd/match-push.js"])
+	
+#set($p_title="内容详情")
+<style type="text/css">
+.status-list li, .commentList li {
+	border-bottom: none !important;
+}
+</style>
+<div class="wrapper" style="margin:50px auto;width: 580px;">
+    <div class="home-timeline processing" _detail>
+    	<ul class="status-list">
+    	</ul>
+    </div>
+    <div id="share_wrapper" style="position: fixed;">
+    	
+    </div>
+</div>
+
+<script>
+jQuery(document).ready(function(){
+    var weiboMsg = {};
+    weiboMsg.postId = $postId;
+    ajaxLoadDetail(weiboMsg);
+    
+    var X = $(".wrapper").offset().top + 15 + 20;
+    var Y = $(".wrapper").offset().left + 658 + 20;
+    $("#share_wrapper").css("left",Y);
+    $("#share_wrapper").css("top",X);
+    
+    $(window).resize(function() {
+    	var X = $(".wrapper").offset().top + 20;
+   	    var Y = $(".wrapper").offset().left + 658 + 20;
+   	    $("#share_wrapper").css("left",Y);
+   	    $("#share_wrapper").css("top",X);
+    });
+});
+</script>
+<script language="javascript" type="text/javascript" src="$base/js/loginornot.js"></script>
+<script language="javascript" type="text/javascript" src="$base/js/pop.js"></script>
+<script type="text/javascript">
+ $(function(){
+    ##isLogin();
+        $("#pop-outer").hide();	
+	var a = 1;	
+	$(window).scroll(function(){
+	      var username = $.cookie('username');
+	     if(undefined != username && null != username &&　"null" != username){
+		   ## $("#username").val(username);
+	     }else{
+		    if($(window).scrollTop()>50 && a==1){
+			   ##$("#pop-outer").fadeIn(1500);
+			   $("#pop-outer input[name='referer']").val(location.href);
+			   isLogin();
+			   a++;
+		    }
+		}
+	});
+ })
+</script>

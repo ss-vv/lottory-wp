@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <!-- 管理员 -->
+  <package name="admin" extends="global" namespace="/admin">
+    <action name="resetpwd" class="com.xhcms.lottery.admin.web.action.admin.ResetPwdAction">
+      <result name="input">resetpwd.vm</result>
+      <result type="velocity">/message.vm</result>
+    </action>
+    <action name="createAdmin" class="com.xhcms.lottery.admin.web.action.admin.CreateAdminAction">
+      <result name="input">create_admin.vm</result>
+      <result type="velocity">/message.vm</result>
+    </action>
+	</package>
+</struts>

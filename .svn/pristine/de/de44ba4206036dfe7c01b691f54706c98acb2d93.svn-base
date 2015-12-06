@@ -1,0 +1,155 @@
+#set($p_title ="充值")
+#set($pos = "rh")
+
+#parse("inc/balance.vm")
+<form id="pForm" action="$base/callback/affirm.do" method="post" target="_blank">
+<div class="mod mod-c mod-c-a wh-mh">
+  <div class="mh">
+    <div class="tt">充值</div>
+  </div>
+  <div class="mm">
+    <div class="formbox formbox-a formbox-a-b mp-c">
+    #if($actionErrors && $actionErrors.size() > 0)
+	    <div class="row">
+	      <span class="fl"><b class="c-i">#foreach($ae in $actionErrors)$!{ae}#end</b></span>
+	    </div>
+    #end
+      <div class="row">
+        <label class="lbl wh-a">充值金额：</label>
+        <div class="ipttxt ipttxt-b wh-txtb">
+          <input type="text" name="amount" id="aIpt" value="$!{amount}" class="inipttxt" maxlength="6" readonly />
+          <input type="hidden" name="isUseVoucher" value="$!{isUseVoucher}"/>
+          <input type="hidden" name="voucherId" value="$!{voucherId}"/>
+        </div>
+        <div class="tips">元</div>
+      </div>
+      <div class="row">
+        <label class="lbl wh-a">充值渠道：</label><label class="iptchk bank"><b class="c-i">以下使用易宝支付！</b></label>
+      </div>
+      <div class="row">
+        <div class="mp-h">
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="BOC-NET-B2C" class="iniptchk" checked="checked"/>
+            <img title="中国银行" src="${base}/images/bank/bank_01.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CCB-NET-B2C" class="iniptchk"/>
+            <img title="中国建设银行" src="${base}/images/bank/bank_02.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="ABC-NET-B2C" class="iniptchk"/>
+            <img title="中国农业银行" src="${base}/images/bank/bank_03.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CMBCHINA-NET-B2C" class="iniptchk"/>
+            <img title="招商银行" src="${base}/images/bank/bank_04.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="ICBC-NET-B2C" class="iniptchk"/>
+            <img title="中国工商银行" src="${base}/images/bank/bank_05.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="BOCO-NET-B2C" class="iniptchk" />
+            <img title="交通银行" src="${base}/images/bank/bank_06.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="GDB-NET-B2C" class="iniptchk"/>
+            <img title="广发银行" src="${base}/images/bank/bank_07.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CMBC-NET-B2C" class="iniptchk"/>
+            <img title="中国民生银行" src="${base}/images/bank/bank_08.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="SDB-NET-B2C" class="iniptchk"/>
+            <img title="深圳发展银行" src="${base}/images/bank/bank_09.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="SPDB-NET-B2C" class="iniptchk"/>
+            <img title="浦发银行" src="${base}/images/bank/bank_10.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CIB-NET-B2C" class="iniptchk" />
+            <img title="兴业银行" src="${base}/images/bank/bank_11.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="BCCB-NET-B2C" class="iniptchk"/>
+            <img title="北京银行" src="${base}/images/bank/bank_12.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="POST-NET-B2C" class="iniptchk"/>
+            <img title="中国邮政储蓄银行" src="${base}/images/bank/bank_13.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="ECITIC-NET-B2C" class="iniptchk"/>
+            <img title="中信银行" src="${base}/images/bank/bank_14.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CEB-NET-B2C" class="iniptchk"/>
+            <img title="中国光大银行" src="${base}/images/bank/bank_15.jpg"/>
+          </label>
+          <label class="iptchk bank">
+            <input type="radio" name="frpId" value="CZ-NET-B2C" class="iniptchk"/>
+            <img title="浙商银行" src="${base}/images/bank/bank_17.jpg"/>
+          </label>
+        </div>
+      </div>
+      <div class="row"><label class="lbl wh-a">&nbsp;</label></div>
+      <div class="row">
+        <label class="lbl wh-a"></label>
+        <a href="javascript:void(0);" class="btnx2 btnx2-c fl" id="payLink">
+          <span class="inbtn"><input type="button" value="下一步" class="iptbtn"></span>
+        </a>
+      </div>
+      <span class="clear"></span>
+    </div>
+  </div>
+</div>
+</form>
+
+<script language="javascript">
+$(function(){
+	$('#rePromo').bind('mouseover', function(){
+		$('#promoDiv').show();
+	});
+	$('#rePromo').bind('mouseout', function(){
+		$('#promoDiv').hide();
+	});
+	
+	$('#promoDiv').bind('mouseover', function(){
+		$('#promoDiv').show();
+	});
+	$('#promoDiv').bind('mouseout', function(){
+		$('#promoDiv').hide();
+	});
+	
+    var J = jQuery;
+    $('#payLink').bind('click', function(){
+        var amount = J.trim($('#aIpt').val());
+        if(amount == ''){
+            alert('请输入充值金额');
+            $('#aIpt').focus();
+            return false;
+        }
+        if(!(/^\d+(\.\d{1,2})?$/.test(amount)) || amount <= 0){
+            alert('请输入有效充值金额：如123或1.23');
+            $('#aIpt').focus();
+            return false;
+        }
+		
+        if(parseFloat(amount) < 2.00){
+            alert('最小充值金额为2元');
+            $('#aIpt').focus();
+            return false;
+        }
+        
+        if($(':radio[name="frpId"]:checked').length == 0){
+            alert('请选择银行');
+            return false;
+        }   
+        
+        $('#pForm').submit();
+        return false;
+    });
+});
+</script>

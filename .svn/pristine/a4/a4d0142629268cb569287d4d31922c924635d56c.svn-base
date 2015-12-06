@@ -1,0 +1,22 @@
+#parse("/ssq/inc/header.vm")
+
+	<div class='topNavigationBar' style="color: #FFF;"> 
+ 		<a href="../index.do">首页</a>
+ 		> <a href='/ssq/buy_fs.do'>双色球</a>
+	</div>
+    
+	<div>    
+		<b>您的方案已成功发起</b><br/>
+		<a href="/record/scheme-detail.do?schemeId=$!{scheme.id}">方案详情</a>：
+		<a href="/record/scheme-detail.do?schemeId=$!{scheme.id}">$!{scheme.id}</a> 
+	</div>
+	
+	第$!{issueInfo.issueNumber}期<br/>
+	投注截止:$!date.format('yyyy-MM-dd HH:mm',$!{issueInfo.stopTimeForUser})<br/>
+	<b><a href="$base/record/accountRecord.do?lotteryId=SSQ&duration=-1">>>查看投注历史记录</a></b>
+	
+	<div class="topNavigationBar">【双色球】[最近5期开奖号码]&nbsp;&nbsp;<a href="$base/ssq_ballot_record.do">历史开奖</a></div>
+	#foreach($record in $list)
+		<div class="#if($record.id%2 == 0)ni1 #else ni2 #end" style="padding-left:8px">$record.issueNumber&nbsp;期&nbsp;&nbsp;<span>$date.format("yyyy-MM-dd HH:mm", $record.stopTime)&nbsp;&nbsp;</span> $!lotteryFormat.format4SSQ($record.bonusCode)</div>
+	#end
+#parse("/ssq/inc/tail.vm")

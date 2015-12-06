@@ -1,0 +1,7 @@
+#prod url
+#solrUrl = http://182.92.172.26:28080/solr/collection1
+
+#dev url
+solrUrl = http://182.92.191.193:28080/solr/collection1/
+
+#solrUrl = http://58.83.235.135:28080/solr/collection1/

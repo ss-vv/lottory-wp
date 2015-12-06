@@ -1,0 +1,1 @@
+ALTER TABLE `lt_bet_scheme`  ADD COLUMN `is_publish_show` SMALLINT(1) UNSIGNED NOT NULL DEFAULT '0' AFTER `is_show_scheme`;

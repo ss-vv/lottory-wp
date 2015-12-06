@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    default-autowire="byName">
+
+    <context:annotation-config />
+    <import resource="classpath:multi-lottery-platform.xml"/>
+    <import resource="classpath:anruizhiying-client.xml"/>
+    <import resource="classpath:zunao-client.xml"/>
+    <import resource="classpath:shitidian-client.xml"/>
+    <import resource="classpath:yuancheng-client.xml"/>
+
+    <!-- 运营数据库Dao -->
+    <bean id="betSchemeDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSchemeDaoImpl">
+        <property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    <bean id="betPartnerDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetPartnerDaoImpl">
+        <property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    <bean id="ticketDao" class="com.xhcms.lottery.commons.persist.dao.impl.TicketDaoImpl">
+        <property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    <bean id="winDao" class="com.xhcms.lottery.commons.persist.dao.impl.WinDaoImpl">
+	    <property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="userScoreDao" class="com.xhcms.lottery.commons.persist.dao.impl.UserScoreDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="betMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetMatchDaoImpl">
+	  	<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="fbMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.FBMatchDaoImpl">
+  		<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+    <bean id="fbMatchPlayDao" class="com.xhcms.lottery.commons.persist.dao.impl.FBMatchPlayDaoImpl">
+	  	<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="bbMatchDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.BBMatchDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="bbMatchPlayDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.BBMatchPlayDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="playDao" class="com.xhcms.lottery.commons.persist.dao.impl.PlayDaoImpl">
+	    <property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="userDao" class="com.xhcms.lottery.commons.persist.dao.impl.UserDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    <bean id="recommendUserDao" class="com.xhcms.lottery.commons.persist.dao.impl.RecommendUserDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    <bean id="customMadeAvaiableSchemeDao" class="com.xhcms.lottery.commons.persist.dao.impl.CustomMadeAvaiableSchemeDaoImpl">
+  		<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="showWinListDao" class="com.xhcms.lottery.commons.persist.dao.impl.ShowWinListDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="followWinListDao" class="com.xhcms.lottery.commons.persist.dao.impl.FollowWinListDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>  
+  	<bean id="lotteryPlatformPriorityDao" class="com.xhcms.lottery.commons.persist.dao.impl.LotteryPlatformPriorityDaoImpl">
+  		<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="matchPlatformDao" class="com.xhcms.lottery.commons.persist.dao.impl.MatchPlatformDaoImpl">
+  		<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="PrintableTicketDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.PrintableTicketDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+	<bean id="LotteryOpenSaleDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.LotteryOpenSaleDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+    
+    <!-- 账务数据库Dao -->
+    <bean id="accountDao" class="com.xhcms.lottery.commons.persist.dao.impl.AccountDaoImpl">
+        <property name="sessionFactory" ref="accountSessionFactory" />
+    </bean>
+    <bean id="orderDao" class="com.xhcms.lottery.commons.persist.dao.impl.OrderDaoImpl">
+	    <property name="sessionFactory" ref="accountSessionFactory" />
+	</bean>
+	<bean id="rechargeDao" class="com.xhcms.lottery.commons.persist.dao.impl.RechargeDaoImpl">
+	    <property name="sessionFactory" ref="accountSessionFactory" />
+	</bean>
+	<bean id="withdrawDao" class="com.xhcms.lottery.commons.persist.dao.impl.WithdrawDaoImpl">
+    	<property name="sessionFactory" ref="accountSessionFactory" />
+  	</bean>
+
+    <bean id="psDao" class="com.xhcms.lottery.commons.persist.dao.impl.PsDaoImpl">
+        <property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>  
+    <bean id="puDao" class="com.xhcms.lottery.commons.persist.dao.impl.PuDaoImpl">
+        <property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>  
+
+
+	<bean id="issueinfoDao" class="com.xhcms.lottery.commons.persist.dao.impl.IssueinfoDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+	<bean id="ctBetContentDao" class="com.xhcms.lottery.commons.persist.dao.impl.CTBetContentDaoImpl">
+	  <property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+	<bean id="ctFBMatchDaoCommons" class="com.xhcms.lottery.commons.persist.dao.impl.CTFBMatchDaoImpl">
+	  <property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+	<bean id="hfBetContentDao" class="com.xhcms.lottery.commons.persist.dao.impl.HfBetContentDaoImpl">
+	  <property name="sessionFactory" ref="mainSessionFactory"></property>
+	</bean>
+	<bean id="betSchemePresetDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSchemePresetDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>  
+	<bean id="ticketPresetDao" class="com.xhcms.lottery.commons.persist.dao.impl.TicketPresetDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>  
+	<bean id="betPartnerPresetDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetPartnerPresetDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="showSchemeDao" class="com.xhcms.lottery.commons.persist.dao.impl.ShowSchemeDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>  
+    <bean id="pMPromotionDao" class="com.xhcms.lottery.commons.persist.dao.impl.PMPromotionDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean> 
+  		<bean id="PMWeekBonusDao" class="com.xhcms.lottery.commons.persist.dao.impl.PMWeekBonusDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="PMWeekBonusPoolDao" class="com.xhcms.lottery.commons.persist.dao.impl.PMWeekBonusPoolDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="PMWeekBonusRecordDao" class="com.xhcms.lottery.commons.persist.dao.impl.PMWeekBonusRecordDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>	
+	<bean id="PMWeekWinnersRecordDao" class="com.xhcms.lottery.commons.persist.dao.impl.PMWeekWinnersRecordDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+  	<bean id="grantDao" class="com.xhcms.lottery.commons.persist.dao.impl.GrantDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="cgjTeamDao" class="com.xhcms.lottery.commons.persist.dao.impl.CGJTeamDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="QTMatchid" class="com.unison.lottery.weibo.common.persist.impl.QTMatchidImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="QTFBMatchDao" class="com.xhcms.lottery.account.service.impl.QTFBMatchDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<bean id="QTBBMatchDao" class="com.xhcms.lottery.account.service.impl.QTBBMatchDaoImpl">
+    	<property name="sessionFactory" ref="mainSessionFactory" />
+  	</bean>
+  	<!-- bjdc -->
+	<bean id="bjdcMatchDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.BJDCMatchDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="bjdcMatchPlayDao"
+		class="com.xhcms.lottery.commons.persist.dao.impl.BJDCMatchPlayDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="BetSwitchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSwitchDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	  
+    <!-- Service -->
+    <bean id="ticketService" class="com.xhcms.lottery.mc.persist.service.impl.TicketServiceImpl" >
+    	<property name="threshold4AutoAward" value="5000"/>
+    </bean>
+    <bean id="matchPlatformService" class="com.xhcms.lottery.commons.persist.service.impl.MatchPlatformServiceImpl"></bean>
+    <bean id="orderTicketService" class="com.davcai.lottery.persist.OrderTicketServiceImpl">
+    	<property name="shitidianLotteryPlatformIds">
+    		<list>
+    			<value>changchunshitidian</value>
+    			<value>changchunshitidian2</value>
+    			<value>changchun60005</value>
+    			<value>shanxi00001</value>
+    			<value>changchun02857</value>
+    			<value>kuaisuchupiao</value>
+    		</list>
+    	</property>
+    </bean>
+	<bean id="betSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.BetSchemeServiceImpl"/>
+	<bean id="userScoreService" class="com.xhcms.lottery.commons.persist.service.impl.UserScoreServiceImpl" />
+  	<bean id="winListService" class="com.xhcms.lottery.commons.persist.service.impl.WinListServiceImpl" />
+  	<bean id="accountService" class="com.xhcms.lottery.commons.persist.service.impl.AccountServiceImpl" />
+  	<bean id="betOddsService"	class="com.xhcms.lottery.commons.persist.service.impl.BetOddsServiceImpl"/>
+    <bean id="historyTicketChecker" class="com.xhcms.lottery.mc.jc.handler.JCHistoryTicketChecker">
+        <property name="historyClient">
+          <bean class="com.xhcms.lottery.mc.jc.client.JCTicketClient">
+            <property name="key" value="${history.ticket.key}" />
+            <property name="partnerId" value="${history.ticket.partnerId}" />
+            <property name="version" value="${history.ticket.version}" />
+            <property name="url" value="${history.ticket.url}" />
+
+            <property name="transcode" value="106" />
+            <property name="template" value="/tpl/jc_check.xml" />
+            <property name="parser">
+              <bean class="com.xhcms.lottery.mc.jc.parser.JCBonusParser">
+                <property name="transCode" value="706" />
+              </bean>
+            </property>
+          </bean>
+        </property>
+    </bean>
+    
+    <bean id="bonusCheckerForOldPlatform" class="com.xhcms.lottery.mc.jc.handler.JCBonusCheckerForOldPlatform">
+        <property name="historyClient">
+          <bean class="com.xhcms.lottery.mc.jc.client.JCTicketClient">
+            <property name="key" value="${old.ticket.key}" />
+            <property name="partnerId" value="${old.ticket.partnerId}" />
+            <property name="version" value="${old.ticket.version}" />
+            <property name="url" value="${old.ticket.url}" />
+
+            <property name="transcode" value="106" />
+            <property name="template" value="/tpl/jc_check.xml" />
+            <property name="parser">
+              <bean class="com.xhcms.lottery.mc.jc.parser.JCBonusParser">
+                <property name="transCode" value="706" />
+              </bean>
+            </property>
+          </bean>
+        </property>
+    </bean>
+
+    <bean id="pService" class="com.xhcms.lottery.mc.persist.service.impl.PhantomServiceImpl" />
+    <bean id="betResolver" class="com.xhcms.lottery.commons.util.BetResolver">
+        <property name="strategies">
+            <array>
+                <bean class="com.xhcms.lottery.commons.utils.internal.JX11BetStrategy" />
+            </array>
+        </property>
+    </bean>
+	<bean id="cacheUserScoreService" class="com.xhcms.lottery.commons.persist.service.impl.CacheUserScoreServiceImpl"/>
+  	<bean id="shareUserScore" class="com.xhcms.lottery.commons.data.ShareUserScore"/> 
+	<bean id="digitalBetService" class="com.xhcms.lottery.commons.persist.service.impl.DigitalBetServiceImpl"/>
+	<bean id="ctBetService" class="com.xhcms.lottery.commons.persist.service.impl.CTBetServiceImpl" />
+	<bean id="presetAwardService" class="com.xhcms.lottery.commons.persist.service.impl.PresetAwardServiceImpl"/>
+  	<bean id="getPresetSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.GetPresetSchemeServiceImpl"/>
+  	<bean id="showSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.ShowSchemeServiceImpl"/>
+	<bean id="prizesResolver" class="com.xhcms.lottery.commons.util.PrizesResolver">
+    	  <property name="prizesStrategys">
+        	  <array>
+            	  <bean class="com.xhcms.lottery.commons.utils.internal.JCPrizesStrategy" />
+         	 </array>
+      	</property>
+	 </bean>
+	 
+	<bean id="WinningNotice" class="com.xhcms.lottery.commons.persist.service.impl.WinningNoticeServiceImpl"/>
+  	<bean id="AwardNotice" class="com.xhcms.lottery.commons.persist.service.impl.AwardNoticeServiceImpl"/>
+  	<bean id="SchemeCacheUpdateNotice" class="com.xhcms.lottery.commons.persist.service.impl.SchemeCacheUpdateNoticeServiceImpl"/>
+  	<bean id="accountQueryService" class="com.xhcms.lottery.commons.persist.service.impl.AccountQueryServiceImpl"/>
+  	<bean id="pMWeekBonusService" 
+		class="com.xhcms.lottery.commons.persist.service.impl.PMWeekBonusServiceImpl"/>
+	<bean id="GrantService" class="com.xhcms.lottery.commons.persist.service.impl.GrantServiceImpl"/>
+	<bean id="playMatchModifyService" class="com.xhcms.lottery.commons.persist.service.impl.PlayMatchModifyServiceImpl"/>
+	<bean id="ctfbMatchResultUtil" class="com.xhcms.lottery.commons.utils.CTFBMatchResultUtil"></bean>
+	<bean id="systemConfDao" class="com.xhcms.lottery.commons.persist.dao.impl.SystemConfDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="systemConfImpl" class="com.xhcms.lottery.conf.SystemConfImpl" />
+	<bean id="checkMatchService" class="com.xhcms.lottery.commons.persist.service.impl.CheckMatchServiceImpl"/>
+	<bean id="betOptionService" class="com.xhcms.lottery.commons.persist.service.impl.BetOptionServiceImpl"/>
+	<bean id="maxAndMinBonusUtil" class="com.xhcms.lottery.commons.util.bonus.MaxAndMinBonusUtil"></bean>
+	<bean id="BonusCalculatorService" class="com.xhcms.lottery.commons.persist.service.impl.BonusCalculatorServiceImpl"/>
+	<bean id="shiTiDianBetContentUpgradeUtil" class="com.xhcms.lottery.commons.utils.ShiTiDianBetContentUpgradeUtil"></bean>
+	<bean id="matchService" class="com.xhcms.lottery.commons.persist.service.impl.MatchServiceImpl"></bean>
+	<bean id="matchNameService" class="com.davcai.lottery.service.impl.MatchNameServiceImpl"/>
+	<bean id="bbLeagueDao" class="com.unison.lottery.weibo.data.service.store.persist.dao.impl.BBLeagueDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="bbTeamDao" class="com.unison.lottery.weibo.data.service.store.persist.dao.impl.BBTeamDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	<bean id="matchColorDao" class="com.xhcms.lottery.commons.persist.dao.impl.MatchColorDaoImpl">
+        <property name="sessionFactory" ref="mainSessionFactory" />
+    </bean>
+    <bean name="initLeagueColor" init-method="init"
+		class="com.xhcms.lottery.conf.LeagueColorConfImpl" >
+		<property name="matchColorTimeout" value="120000"/>
+	</bean>
+	<bean id="matchColorService"
+		class="com.xhcms.lottery.commons.persist.service.impl.MatchColorServiceImpl" />
+	<bean id="jCZQAnalyseDao" class="com.davcai.lottery.dao.impl.JCZQAnalyseDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"/>
+	</bean>
+	<bean id="jCLQAnalyseDao" class="com.davcai.lottery.dao.impl.JCLQAnalyseDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"/>
+	</bean> 
+	<bean id="top5Dao" class="com.xhcms.lottery.commons.persist.dao.impl.Top5RecommendDBDaoImpl"/>
+	<bean id="ticketRemoteDao" class="com.xhcms.lottery.commons.persist.dao.impl.TicketRemoteDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"/>
+	</bean>
+	<bean id="lotteryOpenSaleDao" class="com.xhcms.lottery.commons.persist.dao.impl.LotteryOpenSaleDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory"/>
+	</bean>
+	<bean id="remoteTicketService" class="com.xhcms.lottery.mc.persist.service.impl.RemoteTicketServiceImpl"></bean>
+	<bean id="buyTicketServiceImpl" class="com.xhcms.lottery.mc.service.BuyTicketServiceImpl">
+  		<lookup-method name="createTask" bean="orderTicketTask"/>
+  	</bean>
+</beans>

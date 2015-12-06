@@ -1,0 +1,100 @@
+#set($p_title="充值记录")
+#set($pos = "bal")
+#set($scripts = ["js/jquery-ui"])
+#set($styles = ["css/ui-lightness/jquery-ui"])
+
+<div class="lyr lyw-g fr">
+  <div class="mod mod-c mod-c-a">
+    <div class="mh">
+      <div class="tabh tabh-e">
+        <a href="$base/balance.do"><span>账户明细</span></a>
+        <a href="$base/record/journal.do"><span>流水明细</span></a>
+        <a href="javascript:void(0);" class="cur"><span>充值记录</span></a>
+        <a href="$base/record/withdraw.do"><span>提现记录</span></a>
+        <a href="$base/record/win.do"><span>中奖记录</span></a>
+        <a href="$base/record/grant.do"><span>赠款记录</span></a>
+        <a href="$base/record/commissionin.do"><span>佣金收入</span></a>
+        <a href="$base/record/commissionout.do"><span>佣金支出</span></a>
+      </div>
+    </div>
+    <div class="mm">
+      <div class="formbox formbox-a mp-e">
+        <div class="row">
+        <form id="qForm" action="$base/record/recharge.do" method="post">
+          <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+          <label class="lbl">起始日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="from" type="text" value='$date.format("yyyy-MM-dd", ${from})' class="inipttxt" id="fromDP"></div>
+          <label class="lbl">终止日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="to" type="text" value='$date.format("yyyy-MM-dd", ${to})' class="inipttxt" id="toDP"></div>
+          <a href="javascript:void(0);" class="btnx2 btnx2-b fl">
+            <span class="inbtn"><input type="button" value="查询" class="iptbtn" id="qBtn"></span>
+          </a>
+        </form>
+        </div>
+        <span class="clear"></span>
+      </div>
+      <div class="tblbox tblbox-c mp-f">
+        <table cellspacing="0" cellpadding="0" border="0" class="tbl">
+          <tr>
+            <th style="width:90px;" class="thl"><div class="inth"><div class="hide">交易时间</div></div></th>
+            <th style="width:100px;"><div class="inth"><div class="hide">充值金额</div></div></th>
+            <th style="width:80px;"><div class="inth"><div class="hide">手续费</div></div></th>
+            <th style="width:160px;"><div class="inth"><div class="hide">订单号</div></div></th>
+            <th style="width:100px;"><div class="inth"><div class="hide">状态</div></div></th>
+            <th class="thr"><div class="inth"><div class="hide">备注</div></div></th>
+          </tr>
+          #foreach($r in $paging.results)
+          <tr>
+            <td class="tdl">$date.format("yyyy-MM-dd", ${r.createdTime})</td>
+            <td style="text-align:right;padding-right:5px;">￥${r.amount}</td>
+            <td style="text-align:right;padding-right:5px;">￥${r.totalFee}</td>
+            <td>${r.orderId}</td>
+            <td>$status.recharge(${r.status})</td>
+            <td class="tdr">$!{r.note}&nbsp;</td>
+          </tr>
+          #end
+          <tr>
+            <td colspan="6" class="tdr" style="text-align:right;">
+              <div class="pager fr">
+                <span>累计充值次数：<b class="c-i">${paging.totalCount}</b> 次&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                #pager($paging, 8, "pager")
+              </div>
+            </td>
+          </tr>
+        </table>
+        #include("/inc/note.inc")
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#qBtn').bind('click', query);
+});
+</script>

@@ -1,0 +1,239 @@
+#set($styles = ["css/admin/common.css", "css/admin/table-patch.css",
+	"css/admin/jquery-ui-patch.css", "css/admin/TextboxList.css","css/admin/basketballleague.css",
+	"css/admin/jquery-ui/jquery-ui-1.10.3.custom.min.css"])
+#set($scripts = ["js/admin/topic.js", "js/admin/TextboxList.js","js/admin/basketballleague.js",
+	"js/admin/GrowingInput.js", "js/admin/jquery-ui-1.10.3.custom.min.js","js/admin/jscolor.js",
+	"js/admin/commons.js", "js/admin/jquery.form.js","js/match/recommend.js"])
+	
+
+
+<!--详情对话框-->
+<div id="detail_app_dialog" title="联赛详情" class="dialog-define">
+
+	<form>
+		<table>
+			<td>
+				<tr><span class="td_text">联赛id：</span></tr>
+				<tr><span id="leagueId" class="td_text">1</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">联赛全称：</span></tr>
+				<tr><span id="chineseNameAll" class="td_text">爱尔兰超级联赛</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">联赛名称简称：</span></tr>
+				<tr><span id="chineseName" class="td_text">爱超</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span  class="td_text">颜色：</span></tr>
+				<tr><span id="color" class="td_text td_color">#9933FF</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">所属</span></tr>
+				</br>
+				<tr><span  class="td_text_right">区域：</span></tr>
+				<tr><span id="countryId" class="td_text_right">欧洲联赛</span></tr>
+				</br>
+				<tr><span class="td_text_right">国家：</span></tr>
+				<tr><span id="country" class="td_text_right">爱尔兰</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">赛季id：</span></tr>
+				<tr><span id="currMatchSeason" class="td_text">2014</span></tr>
+			</td>
+		</table>
+		<div class='div_icon'>
+			<span class='img_text1'>联赛图标</span>
+			<img id="logoUrl" class='img_size1' src="http://info.310win.com/Image/league_match/images/20140109110625.jpg">
+		</div>
+		<div class='div_flag'>
+			<span class='img_text2'>国旗</span>
+			<img id="countryImg" class='img_size2' src="http://pic.58pic.com/58pic/11/30/41/02c58PIC36H.jpg">
+		</div>
+	</form>
+</div>
+
+<!--详情编辑对话框-->
+<div id="detail_app_dialog_edit" title="联赛详情编辑" class="dialog-define">
+	<inout />
+	<form>
+		<table >
+			<td>
+				<tr><span class="td_text">联赛id：</span></tr>
+				<tr><span dataname="leagueId" id="leagueId_edit" class="td_text">1</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">联赛全称：</span></tr>
+				<tr><span dataname="chineseName" class="td_text" id="edit_chineseNameAll">爱尔兰超级联赛</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">联赛名称简称：</span></tr>
+				<tr>
+					<span dataname="shortName" class="td_text" id="edit_chineseName">爱超</span>
+					
+				</tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">颜色：</span></tr>
+				<tr>
+					<input dataname="color" id="color_edit" style="width:70px;height:30px;" class="td_text min-width color {pickerPosition:'right'}" value="#663399"></input>
+				</tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">所属</span></tr>
+				</br>
+				<tr><span class="td_text_right">区域：</span></tr>
+				<tr><span dataname="countryId" class="td_text_right" id="countryId_edit">欧洲联赛</span></tr>
+				</br>
+				<tr><span class="td_text_right">国家：</span></tr>
+				<tr><span dataname="country" class="td_text_right" id="edit_country">爱尔兰</span></tr>
+			</td>
+			</br>
+			<td>
+				<tr><span class="td_text">赛季id：</span></tr>
+				<tr><span dataname="currMatchSeason" class="td_text" id="edit_currMatchSeason">2014</span></tr>
+			</td>
+		</table>
+		<div class='div_icon'>
+			<span class='img_text1'>联赛图标</span>
+			<img id="logoUrl_edit" class='img_size1' src="http://info.310win.com/Image/league_match/images/20140109110625.jpg">
+		</div>
+		<div class='div_flag'>
+			<span class='img_text2'>国旗</span>
+			<img class='img_size2' id="countryImg_edit" src="http://pic.58pic.com/58pic/11/30/41/02c58PIC36H.jpg">
+		</div>
+	</form>
+	<button id="close_dig" class="btn btn-primary btn-lg">提交</button>
+	<!-- 提示 -->
+	<button id="okinfo" style="display:none;" class="btn btn-primary noty"
+                            data-noty-options="{&quot;text&quot;:&quot;修改成功&quot;,&quot;layout&quot;:&quot;top&quot;,&quot;type&quot;:&quot;information&quot;}">
+                        <i class="glyphicon glyphicon-bell icon-white"></i> 
+    </button>
+</div>
+
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		#parse("layout/leftMenu.vm")
+		<!-- content starts -->
+		<div id="content" class="span10">
+			<div>
+				<ul class="breadcrumb">
+					<li><a href="#">首页</a> <span class="divider">/</span></li>
+					<li><a href="javascript:void(0)">篮球联赛数据</a></li>
+				</ul>
+			</div>
+			<div class="user-opt-list">
+                <ul>
+                    <li><a href="javascript:void(0);" id="addbasketleague">增加</a></li>
+                    <li><a href="javascript:void(0);" id="delbasketleague">删除</a></li>
+                    <div class="selectbox" align="right">       
+						<label class="slabel" for="selectSource">数据源: </label>             	
+                    	<select id="selectSource" style="float:right;">
+                            <option value="qt">球探</option>
+                            <option value="of">onefootball</option>
+                		</select>
+                		
+                		
+                    </div>
+                    
+				</ul>
+			</div>
+			<!--表格内容开始-->
+			<div class="row-fluid sortable ui-sortable">
+				<div class="box span12">
+					<div class="box-header well" data-original-title="">
+						<div class="box-icon">
+							<a href="#" class="btn btn-minimize btn-round">
+								<i class="icon-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div id="topic_table">
+						<form>
+							<table class="table table-striped table-bordered bootstrap-datatable">
+								<thead>
+									<tr>
+										<th style="width: 5%;">序号</th>
+										<th style="width: 5%;">id</th>
+										<th style="width: 10%;">联赛图标</th>      <!-- 图片 -->
+										<th style="width: 10%;">联赛名称</th>
+										<th style="width: 10%;">名称简写</th>
+										<th style="width: 10%;">区域(洲)</th>
+										<th style="width: 10%;">国家</th>										
+										<th style="width: 10%;">国旗</th>           <!-- 图片 -->
+										<th style="width: 10%;">颜色</th>
+										<th style="width: 10%;">修改时间</th>
+										<th style="width: 10%;">操作</th>
+										
+									</tr>
+								</thead>
+								
+								<tbody>
+								  
+									#foreach($basketballleague in ${pageResult.results})
+										
+									<tr class="odd">
+										<td style="text-align:center"><input type="checkbox"  value="$!{basketballleague.leagueId}"/>$velocityCount</td>
+										<td style="text-align:center">$!{basketballleague.leagueId}</td>
+										<td class="data-image" style="text-align:center">
+											
+											#if($!{activity.logo}) <img height="40px" src="$!{basketballleague.logo}"/> #end
+											</a>
+										</td>
+										<td style="text-align:center">$!{basketballleague.chineseName}</td>
+										<td style="text-align:center">$!{basketballleague.shortName}</td>
+										<td style="text-align:center">
+											#if($!{basketballleague.countryId}=="1")
+											         欧洲联赛
+											#elseif($!{basketballleague.countryId}=="2")
+											         美洲联赛    
+											#elseif($!{basketballleague.countryId}=="3")
+											         亚洲联赛 
+											#elseif($!{basketballleague.countryId}=="4")
+											         大洋洲联赛
+											#elseif($!{basketballleague.countryId}=="4")
+											         非洲联赛
+											#end
+										</td>
+										<td style="text-align:center">$!{basketballleague.country}</td>
+										<td class="data-image" style="text-align:center">
+											
+											#if($!{activity.imageURL}) <img height="40px" src="$!{basketballleague.logoUrl}"/> #end
+											</a>
+										</td>
+										<td style="text-align:center;color:#FFFFFF;background-color:$!{basketballleague.color};" >$!{basketballleague.color}</td>
+										<td style="text-align:center">$!{basketballleague.updateTime}</td>
+										<td style="text-align:center"><a href="javascript:editfootball($!{basketballleague.leagueId});">编辑</a>
+										</br>
+										<a href="javascript:footballinfo($!{basketballleague.leagueId});">详情</a></td>
+									</tr>
+									#end
+								</tbody>
+							</table>
+							</form>
+							
+							<div class="pager-wrapper">
+						          #pagerHtml($pageRequest.pageIndex $pageRequest.pageCount)
+					        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--表格内容结束-->
+		</div>
+		<!-- content ends -->
+	</div>
+	<hr>
+	#include("layout/copyright.vm")
+</div>

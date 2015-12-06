@@ -1,0 +1,28 @@
+# database
+db.url = jdbc:mysql://182.92.191.193:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = test_lottery
+db.password = test77
+
+# database
+db2.url = jdbc:mysql://182.92.191.193:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = test_account
+db2.password = test77
+
+# ActiveMQ
+amq.brokerURL = tcp://182.92.191.193:61616
+
+debugMode=true
+advancedMinute=10
+
+# ZhongMing new interface
+zm.ticket.key = pwd123456
+zm.ticket.partnerId = 349139
+zm.ticket.version = 1.0
+#zm.ticket.url = http://121.12.168.124:661/ticketinterface.aspx
+zm.ticket.url = http://121.12.168.101:661/ticketinterface.aspx
+
+anruizhiying.interfaceUrl4FootballPV=http://124.254.63.10:7100/SportteryPv/football_pv.xml
+anruizhiying.interfaceUrl4BasketballPV=http://124.254.63.10:7100/SportteryPv/basketball_pv.xml
+anruizhiying.interfaceUrl=http://124.254.63.10:7001/trade.aspx
+
+email.receivers=1978502326@qq.com,228044108@qq.com

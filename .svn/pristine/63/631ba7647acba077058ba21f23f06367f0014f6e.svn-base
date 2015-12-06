@@ -1,0 +1,65 @@
+<div class="profile_box_info">
+	<div class="profile_info">
+		<div class="profile_info_pic">
+			<img src="$!userProfile.headImageURL" width="100" height="100" />
+		</div>
+		
+		<div class="profile_info_content">
+			<h2>
+				<span>$!userProfile.nickName</span>
+				#if($userProfile.certificationType == 1)
+					<i class="niu" title="大V彩牛人" style="background:url('../images/niu.png') 50% no-repeat;width: 32px;height: 15px;display: inline-block;"></i>
+				#end
+			</h2>
+			<ul style="margin-top: 5px;">
+				<li class="gender_info">
+					性别:#if($userProfile.gender == 0)
+							保密
+						#elseif($userProfile.gender == 1)
+							男
+						#else
+							女
+						#end &nbsp;&nbsp;&nbsp; 
+					地址：#if($userProfile.address) 
+							$userProfile.address 
+						#else 
+							未填写 
+						#end &nbsp;&nbsp;&nbsp; 
+				</li>
+				<li>主帖($allWeiboNum)&nbsp;&nbsp;关注($followingsNum)&nbsp;&nbsp;粉丝($followersNum)</li>
+				<li>
+					<div class="item_title">简介：</div>
+					<div class="item_content expend_in_oneline">
+						<p class="summary">
+							#if($userProfile.individualResume)
+								$userProfile.individualResume
+							#else
+								-
+							#end
+						</p>
+						<p style="display:none" class="detail">- <span class="fold_all">展开</span></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="profile_box_behaviour">
+	<div class="profile_box_operations">
+		<div class="profile_operations">
+			<ul class="operations relation">
+				<li class="relationship">
+					#if($userProfile.beFollowed)
+						<span class="op addFriendBtn" style="font-size: 14px;" _userid="$!userProfile.weiboUserId" flag="unFollowFlag" id="followBtn" title="取消关注">取消关注</span>
+					#else
+						<span class="op addFriendBtn" style="font-size: 14px;" _userid="$!userProfile.weiboUserId" flag="followFlag" id="followBtn" title="加关注">+加关注</span>
+					#end
+				</li>
+				<li>
+					<a href="javascript:;" class="at" #if($user) isLogin = "true" #else isLogin = "false" #end nickname="$userProfile.nickName" id="atBtn">@他</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

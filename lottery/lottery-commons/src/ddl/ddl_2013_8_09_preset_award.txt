@@ -1,0 +1,197 @@
+ALTER TABLE `lt_bet_scheme`  ADD COLUMN `preset_award` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' AFTER `recommendation`;
+
+ALTER TABLE `lt_ticket`  ADD COLUMN `preset_award` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' AFTER `final_state_time`;
+
+
+ALTER TABLE `fb_match`  ADD COLUMN `half_score_preset` VARCHAR(16) NULL DEFAULT NULL AFTER `half_score`;
+ALTER TABLE `fb_match`  ADD COLUMN `score_preset` VARCHAR(16) NULL DEFAULT NULL AFTER `score`;
+ALTER TABLE `fb_match`  ADD COLUMN `check_status` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' COMMENT '0 - 未做预兑奖 1 - 做了预兑奖，但未核对 2 - 已核对，一致 3 - 已核对，不一致' AFTER `note`;
+
+
+ALTER TABLE `bb_match`  ADD COLUMN `check_status` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' COMMENT '0 - 未做预兑奖 1 - 做了预兑奖，但未核对 2 - 已核对，一致 3 - 已核对，不一致' AFTER `note`;
+ALTER TABLE `bb_match`  ADD COLUMN `final_score_preset` VARCHAR(16) NULL DEFAULT NULL AFTER `final_score`;
+
+
+CREATE TABLE `lt_bet_scheme_preset` (
+
+`id` bigint(20) NOT NULL,
+
+`sponsor_id` bigint(20) NOT NULL,
+
+`sponsor` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' ',
+
+`channel` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT ' www' COMMENT '区分是手机客户端还是www网站',
+
+`partner` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'davcaiwww' COMMENT '合作伙伴',
+
+`lottery_id` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+
+`play_id` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+
+`pass_type_ids` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+
+`status` smallint(5) NOT NULL DEFAULT 0,
+
+`sale_status` smallint(5) NOT NULL DEFAULT 0,
+
+`type` smallint(5) NOT NULL DEFAULT 0,
+
+`share_ratio` smallint(5) NOT NULL DEFAULT 0,
+
+`privacy` smallint(5) NOT NULL DEFAULT 0,
+
+`total_amount` int(11) NOT NULL DEFAULT 0,
+
+`buy_amount` int(11) NOT NULL DEFAULT 0,
+
+`floor_amount` int(11) NOT NULL DEFAULT 0,
+
+`purchased_amount` int(11) NOT NULL DEFAULT 0,
+
+`bet_note` int(11) NOT NULL DEFAULT 1,
+
+`match_number` int(11) NOT NULL DEFAULT 1,
+
+`multiple` int(11) NOT NULL DEFAULT 1,
+
+`win_note` int(11) NOT NULL DEFAULT 0,
+
+`cancel_note` int(11) NOT NULL DEFAULT 0,
+
+`ticket_note` int(11) NOT NULL DEFAULT 0,
+
+`ticket_count` int(11) NOT NULL DEFAULT 0,
+
+`max_bonus` decimal(12,2) NOT NULL DEFAULT 0.00,
+
+`expect_bonus` decimal(12,2) NOT NULL DEFAULT 0.00,
+
+`pre_tax_bonus` decimal(12,2) NOT NULL DEFAULT 0.00,
+
+`after_tax_bonus` decimal(12,2) NOT NULL DEFAULT 0.00,
+
+`offtime` datetime NOT NULL,
+
+`created_time` datetime NOT NULL,
+
+`award_time` datetime NULL DEFAULT NULL,
+
+`partner_count` int(5) NOT NULL,
+
+`version` int(11) NOT NULL DEFAULT 0,
+
+`is_show_scheme` smallint(1) NOT NULL DEFAULT 0,
+
+`followed_scheme_id` bigint(20) NOT NULL DEFAULT '-1',
+
+`following_count` int(11) NOT NULL DEFAULT 0,
+
+`follow_total_amount` int(11) NULL DEFAULT 0,
+
+`followed_ratio` smallint(5) NOT NULL DEFAULT 0,
+
+`follow_scheme_privacy` smallint(5) NOT NULL DEFAULT 0,
+
+`recommendation` smallint(5) NOT NULL DEFAULT 0,
+
+`check_status` tinyint(1) NOT NULL DEFAULT 1,
+
+PRIMARY KEY (`id`) ,
+
+INDEX `play_id` (`play_id`),
+
+INDEX `sponsor_id` (`sponsor_id`),
+
+INDEX `created_time` (`created_time`),
+
+INDEX `offtime` (`offtime`),
+
+INDEX `status` (`status`)
+
+)
+
+ENGINE=InnoDB
+
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+;
+
+
+# 创建预兑奖票表
+CREATE TABLE `lt_ticket_preset` (
+
+`id` bigint(20) NOT NULL,
+
+`platform_id` bigint(20) NOT NULL DEFAULT 0,
+
+`scheme_id` bigint(20) NOT NULL,
+
+`play_id` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+
+`pass_type_id` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+
+`code` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+
+`actual_code` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+
+`odds` varchar(2048) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+
+`actual_odds` varchar(2048) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+
+`note` int(11) NOT NULL DEFAULT 1,
+
+`multiple` int(11) NOT NULL DEFAULT 1,
+
+`money` int(11) NOT NULL DEFAULT 0,
+
+`expect_bonus` decimal(12,2) NULL DEFAULT NULL,
+
+`pre_tax_bonus` decimal(12,2) NULL DEFAULT NULL,
+
+`after_tax_bonus` decimal(12,2) NULL DEFAULT NULL,
+
+`issue` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+
+`created_time` datetime NOT NULL,
+
+`number` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+
+`message` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+
+`status` smallint(5) NOT NULL DEFAULT 0,
+
+`actual_status` smallint(5) NOT NULL DEFAULT 0,
+
+`version` int(11) NOT NULL DEFAULT 0,
+
+`final_state_time` datetime NULL DEFAULT NULL,
+
+`check_status` tinyint(1) NOT NULL DEFAULT 1,
+
+PRIMARY KEY (`id`) ,
+
+INDEX `scheme_id` (`scheme_id`),
+
+INDEX `created_time` (`created_time`)
+
+)
+ENGINE=InnoDB
+
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+;
+
+CREATE TABLE `lt_bet_partner_preset` (
+	`id` BIGINT(20) UNSIGNED NOT NULL,
+	`scheme_id` BIGINT(20) UNSIGNED NOT NULL,
+	`user_id` BIGINT(20) UNSIGNED NOT NULL,
+	`username` VARCHAR(32) NOT NULL DEFAULT ' ',
+	`bet_amount` INT(11) UNSIGNED NOT NULL DEFAULT '0',
+	`win_amount` DECIMAL(12,2) UNSIGNED NULL DEFAULT NULL,
+	`commission` DECIMAL(12,2) UNSIGNED NOT NULL DEFAULT '0.00',
+	`created_time` DATETIME NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `scheme_id` (`scheme_id`),
+	INDEX `user_id` (`user_id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DEFAULT;

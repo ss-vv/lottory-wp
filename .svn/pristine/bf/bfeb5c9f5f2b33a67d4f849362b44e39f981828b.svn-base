@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="utf-8" />
+<meta name="robots" content="all" />
+<meta name="author" content="星汇盛世" />
+<meta name="copyright" content="auction.cn 版权所有，未经授权禁止链接、复制或建立镜像。" />
+<meta name="description" content="星汇后台"/>
+<meta name="keywords" content="星汇后台"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>星汇盛世（北京）科技有限公司_管理后台</title>
+<link rel="icon" href="http://www.rbc.cn/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.rbc.cn/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" media="screen" href="xhdesk/style/common.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="xhdesk/style/filter.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="xhdesk/style/window.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
+<script type="text/javascript" src="$base/js/jquery.js"></script>
+</head>
+<body>
+<div class="loginbg"></div>
+<div class="login">
+	<div class="bg"></div>
+	<div class="inlogin">
+		<form action="loginPost.do" method="post">			
+			<p><label>用户名：</label><span class="ipttxt ipttxt01"><input name="username" class="inipttxt" type="text" value="" /></span></p>
+			<p><label>密　码：</label><span class="ipttxt ipttxt01"><input name="password" class="inipttxt" type="password" value="" /></span></p>
+			<p>
+			   <label>验证码：</label><input class="captcha" name="captcha" id="captcha" type="text" value="" maxLength="4" />
+			   <img id="captchaImg" src="captcha.do"></img>
+			   <a id="changeImg" href="#">换一张</a>
+			   <input class="iptbtn" type="submit" value="登录" />
+			</p>
+			<p>
+				$!request.getAttribute('loginErrors')
+			</p>
+		</form>
+	</div>
+	<div class="pmt01">
+		<h3>注意事项：</h3>
+		<p>1.本系统只有经过授权的、合法的管理员才有权使用</p>
+		<p>2.如果您还不是管理员，请联系贵单位相关负责人，索取管理员初始帐号和密码</p>
+		<p>3.忘记密码时，请联系贵单位相关负责人，请他帮助您重置密码</p>
+	</div>
+</div>
+<script type="text/javascript">
+//    $(function(){
+//    	if(top.location !=self.location) {
+//    		top.location=self.location;
+//    	}
+//    });
+	
+	$(function(){
+		//单击验证码图片时换一张
+		$("#changeImg").click(function() {
+			var rand = Math.random();
+			var url = "captcha.do?id=" + rand;
+			$("#captchaImg").attr("src", url);
+		});
+	});
+
+</script>
+</body>
+</html>

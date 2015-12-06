@@ -1,0 +1,9 @@
+#Email
+host = smtp.davcai.com
+mail.smtp.auth = true
+mail.smtp.timeout = 25000
+username = service@davcai.com
+password = dvm@M4W7rQdXNUKG
+from = service@davcai.com
+encoding = utf-8
+template.location = /emailtemplate/

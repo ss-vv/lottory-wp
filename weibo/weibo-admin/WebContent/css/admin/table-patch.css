@@ -1,0 +1,7 @@
+/**
+by lei.li@unison.net.cn
+对于bootstrap table样式的订制
+*/
+.table tr th {
+	text-align:center;
+}

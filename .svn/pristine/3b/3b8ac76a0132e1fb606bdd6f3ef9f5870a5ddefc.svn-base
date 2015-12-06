@@ -1,0 +1,94 @@
+#set($title="赠送优惠劵")
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>赠送优惠劵</b></span>
+	</div>
+	<div class="bx_c">
+	<form id="aForm" action="$base/voucher/addVoucher.do" method="post">
+		<table cellspacing="0" class="tab">
+			<tr>
+				<td style="text-align:right;">会员名：</td><td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">优惠劵类型：</td><td>
+						<select name="voucherId">
+							<option value="">请选择优惠劵</option>
+						#foreach($v in $vouchers)
+							#if($v.id == $voucherId)
+			    				<option selected="selected" value="$v.id">${v.name}#if($!{v.limit})_$!{v.limit}#end</option>
+							#else
+			    				<option value="$v.id">${v.name}#if($!{v.limit})_$!{v.limit}#end</option>
+							#end
+						#end
+					 </select></td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">赠款类型：</td><td>
+						<select name="granttypeId">
+		            			<option value="">请选择</option>
+						#foreach($g in $grantTypes)
+							#if($g.id == $granttypeId)
+			    				<option selected="selected" value="$g.id">$g.name</option>
+							#else
+			    				<option value="$g.id">$g.name</option>
+							#end
+						#end
+					 </select></td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">有效期(天)：</td>
+				<td>
+					<select name="validDay">
+						<option value="1">1</option>
+						<option value="7">7</option>
+						<option value="15">15</option>
+						<option value="30" selected>30</option>
+						<option value="60">60</option>
+						<option value="90">90</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" id="btnTd" style="text-align:center; padding: 5px 0px;">
+					<input type="button" class="hand" value="提交"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+$(function(){
+   $('#btnTd :button').bind('click', function(){
+	  var granttypeId = $('[name=granttypeId]').val();
+	  var voucherId = $('[name=voucherId]').val();
+	  var username = $('input[name=username]').val();
+	  var validDay = $('[name=validDay]').val();
+	  
+	  if(validDay == null || isNaN(parseInt(validDay,10)) || validDay <= 0) {
+	  	alert("有效期必须大于0");
+		return false;
+	  }
+	  if(username == null) {
+	  	alert("请输入会员名");
+		return false;
+	  }
+	  if(granttypeId ==null || $.trim(granttypeId) == "") {
+	  	alert("请选择赠款类型");
+		return false;
+	  }
+	  if(voucherId ==null  || $.trim(voucherId) == "") {
+	  	alert("请选择优惠劵类型");
+		return false;
+	  }
+	   jQuery.getJSON('$base/voucher/addVoucher.do', $('#aForm').serialize(), function(json){
+	        if(json.success){
+	        	alert("赠送成功！请刷新优惠劵列表！");
+	            xhCloseWindow();
+	        }else{
+	        	alert(json.data);
+	        }
+	    });
+   });
+});
+</script>

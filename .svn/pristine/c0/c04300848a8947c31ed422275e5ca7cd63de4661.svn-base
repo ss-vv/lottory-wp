@@ -1,0 +1,18 @@
+<div class="slide_box">
+    <div class="title">
+        <span><b>彩种分类</b></span>
+    </div>
+    <ul id="lotteryRecomContainer">
+		<li class="JCZQ lottery-rec"><a href="#">竞彩足球推荐</a></li>
+        <li class="JCLQ lottery-rec"><a href="#">竞彩篮球推荐</a></li>
+        <li class="CTZC lottery-rec"><a href="#">传统足球推荐</a></li>
+        <li class="SSQ lottery-rec"><a href="#">双色球推荐</a></li>
+		
+		<li class="lottery-rec">
+			<a href="http://trade.davcai.com/df/follow/index.html">晒单跟单</a>
+		</li>
+		<li class="lottery-rec">
+			<a href="http://trade.davcai.com/df/groupbuy/index.html">合买大厅</a>
+		</li>
+	</ul>
+</div>

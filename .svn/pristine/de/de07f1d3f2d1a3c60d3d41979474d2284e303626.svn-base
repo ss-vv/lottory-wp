@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>lottery-parent</artifactId>
+    <groupId>com.xhcms.lottery</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>lottery-test-commons</artifactId>
+  <name>lottery-test-commons</name>
+  <description>Test Common Library</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.dbunit</groupId>
+  		<artifactId>dbunit</artifactId>
+  		<version>2.4.8</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-beans</artifactId>
+  		<version>3.0.4.RELEASE</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.10</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  </dependencies>
+
+  <!-- ========================= for dbunit ============================ -->
+  <build>
+    <plugins>
+        <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>dbunit-maven-plugin</artifactId>
+        <version>1.0-beta-3</version>
+        
+        <!--jar file that has the jdbc driver -->
+        <dependencies>
+          <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.15</version>
+          </dependency>
+        </dependencies>
+        
+        <!-- common configurations -->
+        <configuration>
+          <driver>com.mysql.jdbc.Driver</driver>
+          <url>jdbc:mysql://test.www.davcai.com:3306/db_lottery?useUnicode=true&amp;characterEncoding=utf8</url>
+          <username>test_lottery</username>
+          <password>test77</password>
+          <dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dataTypeFactoryName>
+          <tables>
+              <table>
+                  <name>lt_return_status</name>
+              </table>
+          </tables>
+          <format>xml</format>
+          <dest>target/dbunit/lt_return_status.xml</dest>
+        </configuration>
+        
+        </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,85 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="赛事概览")
+#set($styles=["css/match.css", 
+	"css/list-open.css"])
+
+#set($scripts=["js/web/match/weiboMatch.js", 
+	"js/web/match/chart.js",
+	"js/web/match/query-util.js",
+	"js/web/match/match-score.js",
+	"js/web/match/match-overview.js",
+	"js/web/match/match-league-cup.js",
+	"js/web/match/fill-match-string.js",
+	"js/web/publish-weibo.js"])
+
+<div class="main_body clearfix">
+    <div class="slide_box">
+        <div class="title">
+            <span><b>赛事数据</b></span>
+        </div>
+        <ul>
+		    <li class="active-bg"><a style="color:white"  href="/matches/$!lotteryType/$!matchId">赛事概览</a></li>
+		    <li><a href="/europe_odds?matchId=$!matchId&lotteryType=$!lotteryType">欧赔指数</a></li>
+		    <li><a href="/asian_odds?matchId=$!matchId&lotteryType=$!lotteryType">亚洲盘口</a></li>
+			#if(${lotteryType} == "JCLQ")
+            <li><a href="/bigSmall_odds?matchId=$!matchId&lotteryType=$!lotteryType">大小分盘口</a></li>
+        	#end
+		    <li><a href="/fighting_history?matchId=$!matchId&lotteryType=$!lotteryType">交战历史</a></li>
+		    <li><a href="/recent_match?matchId=$!matchId&lotteryType=$!lotteryType">近期赛事</a></li>
+		    <li><a href="/future_matchs?matchId=$!matchId&lotteryType=$!lotteryType">未来赛事</a></li>
+		</ul>
+    </div>
+    <div class="main_content">
+        <div class="inner_content">
+            <!-- 比分 -->
+            <div class="game_tip clearfix"></div>
+            <!-- 比分 -->
+            <div class="hr"></div>
+			<input type="hidden" value="${matchId}" id="matchId"/>
+			<input type="hidden" value="${lotteryType}" id="lotteryType"/>
+			<input type="hidden" value="${match.homeTeamId}" id="homeTeamId"/>
+			<input type="hidden" value="${match.guestTeamId}" id="guestTeamId"/>
+			#if(${lotteryType} == "JCZQ" || ${lotteryType} == "CTZC" || ${lotteryType} == "BJDC")
+            <div class="chart_wrap">
+                <div class="charts clearfix">
+                    <div class="item left"></div>
+                    <div class="item right"></div>
+                </div>
+                <div class="trend_title clearfix">
+                    <i class="sprites"></i> <span>走势</span>
+                </div>
+                <div class="trend_img_wrap clearfix">
+                    <ul>
+                        <li class="left">
+                            <div class="item"></div>
+                        </li>
+                        <li class="center">
+                            <p>胜</p> <p>平</p> <p>负</p>
+                        </li>
+                        <li class="right">
+                            <div class="item"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			#elseif(${lotteryType} == "JCLQ")
+				<ul class="support">
+				</ul>
+				<ul class="jclq_msg">
+				</ul>
+				<div class="support_home">
+					
+                </div>
+				<div class="support_guest">
+					
+                </div>
+			#end
+            <div class="weiboContainer">
+				#parse("web/match/match_weibo.vm")
+			</div>
+        </div>
+    </div>
+    #include("web/match/match_right_comm.vm")
+</div>
+
+

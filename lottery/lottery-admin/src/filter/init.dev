@@ -1,0 +1,48 @@
+# database
+db.url = jdbc:mysql://182.92.191.193:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = test_lottery
+db.password = 9Pnc7BeJ
+
+# database
+db2.url = jdbc:mysql://182.92.191.193:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = test_account
+db2.password = 9Pnc7BeJ
+
+# shiroDb
+shirodb.serverName = 182.92.191.193
+shirodb.databaseName = db_lottery
+
+# ActiveMQ
+amq.brokerURL = tcp://182.92.191.193:61616
+amq.sender.threads = 20
+
+#system send privateMessage account UserID
+privateMessageSenderId = 619145310522368
+
+#赛事颜色超时时间(毫秒)
+match_color_timeout = 60000
+
+dataStoreDirPath =/data/weibo/images/export
+downloadUrlPre =http://images-test.davcai.com/export
+
+
+
+
+
+yuanchengchupiao.getBonusAllUrl =http://121.40.218.112:8889/?m=getBonusAll
+
+
+
+yuanchengchupiao.apiId=DVCP201507201547
+yuanchengchupiao.secret=X8J73GIE93VN2LYP
+yuanchengchupiao.contentKey=123456
+
+#getInfo
+yuanchengchupiao.getInfoUrl=http://121.40.218.112:8889/?m=getInfo
+
+
+#getInfoList
+yuanchengchupiao.getInfoListUrl=http://121.40.218.112:8889/?m=getInfoList
+
+
+

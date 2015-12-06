@@ -1,0 +1,23 @@
+
+# database
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+# database
+db2.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db2.url = ${db2.url}
+db2.username = ${db2.username}
+db2.password = ${db2.password}
+
+# btm
+btm.log.1 = /data/logs/btm-admin1.log
+btm.log.2 = /data/logs/btm-admin2.log
+
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+# ActiveMQ
+amq.brokerURL = ${amq.brokerURL}
+amq.sender.threads = 3

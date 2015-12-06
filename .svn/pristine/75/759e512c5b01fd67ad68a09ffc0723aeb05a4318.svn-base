@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<methodRequest name="selectFollow" clientVersion="客户端版本号"
+	channel="渠道号" deviceId="sim卡序列号" modelName="机型信息" validId="用户身份识别码(md5)"
+	betSchemeID="订单号" firstResult="分页时，首先从第几条数据开始查询,以0开始"/>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+   <constant name="struts.enable.SlashesInActionNames" value="true"/>
+	<package name="uc-register" extends="default" namespace="/">
+
+		<!-- 用户注册 -->
+<!-- 		<action name="reg" -->
+<!-- 			class="com.xhcms.ucenter.web.action.reg.RegistStep1Action"> -->
+<!-- 			<result name="input">/reg/reg_step1.vm</result> -->
+<!-- 			<result name="error">/reg/reg_step1.vm</result> -->
+<!-- 			<result type="redirectAction">regok</result> -->
+<!-- 		</action> -->
+
+		<!-- 注册后，登录 -->
+		<action name="regok"
+			class="com.xhcms.ucenter.web.action.reg.RegistStep2Action">
+			<result>/reg/reg_step2.vm</result>
+		</action>
+
+		<action name="regist"
+			class="com.xhcms.ucenter.web.action.reg.RegistByWeiboAction">
+			<param name="sendMessageUserId">619145310522368</param>
+			<result name="input">/reg/web/regist.vm</result>
+			<result name="error">/reg/web/regist.vm</result>
+			<result name="success" type="chain">
+				<param name="actionName">login</param> 
+			</result>
+			<result name="toRegistPage" >/reg/web/regist.vm</result>
+			<result name="toRegistPageByOpen">/reg/web/regist_after_login_weibo.vm</result>
+		</action>
+		<action name="bind_account"
+			class="com.xhcms.ucenter.web.action.reg.BindWeiboAction">
+			<result name="input" type="velocity">/reg/web/bind_account.vm</result>
+			<result name="error" type="velocity">/reg/web/bind_account.vm</result>
+			<result name="success" type="chain">
+				<param name="actionName">login</param> 
+			</result>
+			<result type="json" name="ajax">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+
+		<!-- 验证用户名 -->
+		<action name="aj_chk_nickname"
+			class="com.xhcms.ucenter.web.action.reg.AjaxCheckUserAction" method="nickname">
+			<result type="json" />
+		</action>
+		
+		<!-- 验证用户名 -->
+		<action name="aj_chkuser"
+			class="com.xhcms.ucenter.web.action.reg.AjaxCheckUserAction">
+			<result type="json" />
+		</action>
+
+		<!-- 验证身份证号 -->
+		<action name="aj_chkidn"
+			class="com.xhcms.ucenter.web.action.reg.AjaxCheckUserAction" method="idnumber">
+			<result type="json" />
+		</action>
+
+		<!-- 验证手机 -->
+		<action name="aj_chkmobile"
+			class="com.xhcms.ucenter.web.action.reg.AjaxCheckUserAction" method="mobile">
+			<result type="json" />
+		</action>
+
+		<!-- 验证邮箱 -->
+		<action name="aj_chkemail"
+			class="com.xhcms.ucenter.web.action.reg.AjaxCheckUserAction" method="email">
+			<result type="json" />
+		</action>
+
+		<!-- 找回密码 -->
+		<action name="getpwd"
+			class="com.xhcms.ucenter.web.action.password.CheckUserAction">
+			<result name="input">/password/getpwd.vm</result>
+			<result name="error">/password/message.vm</result>
+			<result>/password/sendemail.vm</result>
+		</action>
+
+		<!-- 找回密码，发送邮件 -->
+		<action name="getpwdsendemail"
+			class="com.xhcms.ucenter.web.action.password.SendEmailAction">
+			<result>/password/message.vm</result>
+		</action>
+		<!-- 找回密码，修改密码 -->
+		<action name="editpwd"
+			class="com.xhcms.ucenter.web.action.password.EditPasswordAction">
+			<result name="input">/password/editpwd.vm</result>
+			<result>/password/message.vm</result>
+		</action>
+		
+		<!-- 找回密码，发送邮件 （通过大V彩微博） -->
+		<action name="getpwd_send_email"
+			class="com.xhcms.ucenter.web.action.password.WeiboSendEmailAction">
+		</action>
+
+		<!-- 找回密码，设置新密码密码 （通过大V彩微博）-->
+		<action name="setnewpwd"
+			class="com.xhcms.ucenter.web.action.password.WeiboSetNewPwdAction">
+			<result name="input">/password/web/editpwd.vm</result>
+			<result>/password/web/message.vm</result>
+		</action>
+		
+	</package>
+
+	<package name="uc-signin" extends="default" namespace="/">
+		<default-interceptor-ref name="ssoAuthenticationStack" />
+		<!-- 用户登录 -->
+		<action name="login" class="com.xhcms.ucenter.web.action.LoginAction">
+			<!-- <result name="login">/login.vm</result> -->
+			<result name="login"  type="redirect">http://www.davcai.com/welcome</result>
+			<result name="toreferer" type="">${referer}</result>
+			<result name="toFailURL" type="redirect">${failReturnURL}</result>
+			<result type="redirect">http://trade.davcai.com/ac/balance.do</result>
+		</action>
+
+		<!-- 第三方登录 -->
+		<action name="open_login" class="com.xhcms.ucenter.web.action.OpenLoginAction">
+			<result type="redirect">${referer}</result>
+			<result name="toRegistPageByOpen">/reg/web/regist_after_login_weibo.vm</result>
+		</action>
+		<!-- alipay 回调 -->
+       <action name="alipay_login_back" class="com.xhcms.ucenter.web.action.AlipayLoginBackAction">
+           <result type="redirect">${referer}</result>
+			<result name="toRegistPageByOpen">/reg/web/regist_after_login_weibo.vm</result>
+       </action>
+		<!-- 用户Ajax登录 -->
+		<action name="aj_login" class="com.xhcms.ucenter.web.action.AjaxLoginAction">
+			<result name="client" type="json" />
+			<result name="login" type="velocity">/aj_login.vm</result>
+			<result type="redirect">/index.do</result>
+		</action>
+	</package>
+
+	<package name="uc-retrive" extends="default" namespace="/">
+		<!-- 加载登录用户的新消息 -->
+		<action name="loadmsg" class="com.xhcms.ucenter.web.action.LoadMsgAction">
+			<interceptor-ref name="profileRetriveInterceptor" />
+			<interceptor-ref name="ucenterStack" />
+			<result type="json" />
+		</action>
+		<action name="ajax_get_weibouser" class="com.xhcms.ucenter.web.action.WeiboUserAction" method="getWeiboUser">
+			<interceptor-ref name="profileRetriveInterceptor" />
+			<interceptor-ref name="ucenterStack" />
+			<result type="json" />
+		</action>
+	</package>
+</struts>

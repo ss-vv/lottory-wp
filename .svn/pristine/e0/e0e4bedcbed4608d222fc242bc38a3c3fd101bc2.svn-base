@@ -1,0 +1,140 @@
+      <tr>
+        <th class="thl">
+        	<div class="inth">
+        			#if($!{p_title}=="晒单详情")
+        				晒单方案信息#if($!{scheme.type}==1)<br/><a href="$base/groupbuy.do?id=${scheme.id}" style="color:blue;">查看合买信息</a>#end
+        			#elseif($!{p_title}=="合买详情")
+        				合买方案信息#if($!{scheme.showScheme}==1)<br/><a href="$base/follow.do?id=${scheme.id}" style="color:blue;">查看晒单信息</a>#end
+        			#elseif($!{scheme.type}=='2')
+        				跟单信息<br/><a href="$base/follow.do?id=${scheme.followedSchemeId}" style="color:blue;">查看晒单</a>
+        			#else
+        				方案信息
+        			#end
+        	</div>
+        </th>
+        <td>
+          <div class="tblbox tblbox-c">
+            <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+            #if(${scheme.lotteryId}=='JCZQ' || ${scheme.lotteryId}=='JCLQ')
+				#if(${scheme.playId} != "jcsjbgj")
+	              <tbody><tr>
+	                <th class="thl" style="width:100px;"><div class="inth"><div class="hide">彩种玩法</div></div></th>
+	                <th style="width:70px;"><div class="inth"><div class="hide">总金额</div></div></th>
+	                <th style="width:50px;"><div class="inth"><div class="hide">过关方式</div></div></th>
+	                #if($!{p_title}=="合买详情")
+	                <th style="width:60px;"><div class="inth"><div class="hide">保底</div></div></th>
+	                #end
+	                <th style="width:50px;"><div class="inth"><div class="hide">投注倍数</div></div></th>
+	                <th style="width:70px;"><div class="inth"><div class="hide">理论最高奖金</div></div></th>
+	                <th style="width:50px;"><div class="inth"><div class="hide">进度</div></div></th>
+	                <th class="thr" style="width:50px;"><div class="inth"><div class="hide">方案状态</div></div></th>
+	              </tr>
+	              <tr class="last">
+	                <td class="tdl">
+						<div class="intd">#lotteryName(${scheme.lotteryId}) $status.getPlayName(${scheme.playId})
+						</div>
+					</td>
+	                <td><div class="intd">￥$math.mul(${scheme.betNote}, 2)元</div></td>
+	                <td><div class="intd">${scheme.passTypeIds}</div></td>
+	                #if($!{p_title}=="合买详情")
+	                <td><div class="intd">#if(${scheme.floorAmount}==0)无#else￥${scheme.floorAmount}元($math.round($math.div($math.mul(${scheme.floorAmount}, 100.0), ${scheme.totalAmount}))%)#end</div></td>
+	                #end
+	                <td><div class="intd">${scheme.multiple}倍</div></td>
+	                <td><div class="intd"><b class="c-i">￥${scheme.maxBonus}元</b></div></td>
+	                <td><div class="intd">$Result.progress(${scheme})%</div></td>
+	                <td class="tdr"><div class="intd">$status.bet(${scheme.status})</div></td>
+	              </tr>
+	            </tbody>
+				#else
+					#parse("/bet/cgjSchemeinfo.vm")
+				#end
+            #elseif(${scheme.lotteryId}=='CTZC')
+					<tbody><tr>
+	                <th class="thl" style="width:100px;"><div class="inth"><div class="hide">彩种玩法</div></div></th>
+	                <th style="width:70px;"><div class="inth"><div class="hide">总金额</div></div></th>
+	                #if($!{p_title}=="合买详情")
+	                <th style="width:60px;"><div class="inth"><div class="hide">保底</div></div></th>
+	                #end
+	                <th style="width:50px;"><div class="inth"><div class="hide">投注倍数</div></div></th>
+	                <th style="width:70px;"><div class="inth"><div class="hide">奖金</div></div></th>
+	                <th style="width:50px;"><div class="inth"><div class="hide">进度</div></div></th>
+	                <th class="thr" style="width:50px;"><div class="inth"><div class="hide">方案状态</div></div></th>
+	              </tr>
+	              <tr class="last">
+	                <td class="tdl">
+						<div class="intd">#lotteryName(${scheme.lotteryId}) $status.getPlayName(${scheme.playId})
+						</div>
+					</td>
+	                <td><div class="intd">￥$math.mul(${scheme.betNote}, 2)元</div></td>
+	                #if($!{p_title}=="合买详情")
+	                <td><div class="intd">#if(${scheme.floorAmount}==0)无#else￥${scheme.floorAmount}元($math.round($math.div($math.mul(${scheme.floorAmount}, 100.0), ${scheme.totalAmount}))%)#end</div></td>
+	                #end
+	                <td><div class="intd">${scheme.multiple}倍</div></td>
+	                <td><div class="intd"><b class="c-i">￥${scheme.maxBonus}元</b></div></td>
+	                <td><div class="intd">$Result.progress(${scheme})%</div></td>
+	                <td class="tdr"><div class="intd">$status.bet(${scheme.status})</div></td>
+	              </tr>
+	            </tbody>
+            #elseif(${scheme.lotteryId}=='SSQ')
+                    <tbody><tr>
+                    <th class="thl" style="width:100px;"><div class="inth"><div class="hide">彩种玩法</div></div></th>
+                    <th style="width:70px;"><div class="inth"><div class="hide">总金额</div></div></th>
+                    
+                    #if($!{p_title}=="合买详情")
+                    <th style="width:60px;"><div class="inth"><div class="hide">保底</div></div></th>
+                    #end
+                    <th style="width:50px;"><div class="inth"><div class="hide">投注倍数</div></div></th>
+                    
+                    <th style="width:50px;"><div class="inth"><div class="hide">进度</div></div></th>
+                    <th class="thr" style="width:50px;"><div class="inth"><div class="hide">方案状态</div></div></th>
+                  </tr>
+                  <tr class="last">
+                    <td class="tdl">
+                        <div class="intd">#lotteryName(${scheme.lotteryId})
+                        </div>
+                    </td>
+                    <td><div class="intd">￥$math.mul(${scheme.betNote}, 2)元</div></td>
+                    #if($!{p_title}=="合买详情")
+                    <td><div class="intd">#if(${scheme.floorAmount}==0)无#else￥${scheme.floorAmount}元($math.round($math.div($math.mul(${scheme.floorAmount}, 100.0), ${scheme.totalAmount}))%)#end</div></td>
+                    #end
+                    <td><div class="intd">${scheme.multiple}倍</div></td>
+                    
+                    <td><div class="intd">$Result.progress(${scheme})%</div></td>
+                    <td class="tdr"><div class="intd">$status.bet(${scheme.status})</div></td>
+                  </tr>
+                </tbody>
+            #elseif(${scheme.lotteryId}=='BJDC')
+                <tbody><tr>
+	                <th class="thl" style="width:100px;"><div class="inth"><div class="hide">彩种玩法</div></div></th>
+	                <th style="width:70px;"><div class="inth"><div class="hide">总金额</div></div></th>
+	                <th style="width:50px;"><div class="inth"><div class="hide">过关方式</div></div></th>
+	                #if($!{p_title}=="合买详情")
+	                <th style="width:60px;"><div class="inth"><div class="hide">保底</div></div></th>
+	                #end
+	                <th style="width:50px;"><div class="inth"><div class="hide">投注倍数</div></div></th>
+	                <th style="width:70px;"><div class="inth"><div class="hide">理论最高奖金</div></div></th>
+	                <th style="width:50px;"><div class="inth"><div class="hide">进度</div></div></th>
+	                <th class="thr" style="width:50px;"><div class="inth"><div class="hide">方案状态</div></div></th>
+	              </tr>
+	              <tr class="last">
+	                <td class="tdl">
+						<div class="intd">#lotteryName(${scheme.lotteryId}) $status.getPlayName(${scheme.playId})
+						</div>
+					</td>
+	                <td><div class="intd">￥$math.mul(${scheme.betNote}, 2)元</div></td>
+	                <td><div class="intd">${scheme.passTypeIds}</div></td>
+	                #if($!{p_title}=="合买详情")
+	                <td><div class="intd">#if(${scheme.floorAmount}==0)无#else￥${scheme.floorAmount}元($math.round($math.div($math.mul(${scheme.floorAmount}, 100.0), ${scheme.totalAmount}))%)#end</div></td>
+	                #end
+	                <td><div class="intd">${scheme.multiple}倍</div></td>
+	                <td><div class="intd"><b class="c-i">￥${scheme.maxBonus}元</b></div></td>
+	                <td><div class="intd">$Result.progress(${scheme})%</div></td>
+	                <td class="tdr"><div class="intd">$status.bet(${scheme.status})</div></td>
+	              </tr>
+	            </tbody>
+            
+            #end
+            </table>
+          </div>
+        </td>
+      </tr>

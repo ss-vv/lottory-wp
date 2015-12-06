@@ -1,0 +1,27 @@
+#set($styles = ["css/admin/common.css"])
+<div class="container-fluid">
+    <div class="row-fluid">
+		#parse("layout/leftMenu.vm")
+        <!-- content starts -->
+        <div id="content" class="span10">
+	        <div class="row-fluid">
+	            <div class="box span12">
+	                <div class="box-header well">
+	                    <h2><i class="icon-info-sign"></i> 介绍</h2>
+	                    <div class="box-icon">
+	                        <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+	                    </div>
+	                </div>
+	                <div class="box-content">
+	                    <h1>大V彩微博 <small>彩民的专属交流平台。</small></h1>
+	                    <p>微博管理平台可以对“今日话题”、“推荐用户”等内容进行管理，并可以系统中的所有微博和用户进行管理，如删除某微博、对某用户禁言。</p>
+	                    <div class="clearfix"></div>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        <!-- content ends -->
+    </div>
+    <hr>
+	#include("layout/copyright.vm")
+</div>

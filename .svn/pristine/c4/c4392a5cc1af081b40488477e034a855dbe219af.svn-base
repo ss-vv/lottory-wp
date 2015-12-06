@@ -1,0 +1,24 @@
+#set($layout="password.vm")
+#set($p_title="找回密码")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="mm">
+  #if($actionMessages && $actionMessages.size() > 0)
+    <div class="row">
+      <b class="fl">提示信息：</b>
+    </div>
+    #foreach($am in $actionMessages)
+    <div class="row">
+      <span class="fl">$am</span>
+    </div>
+    #end
+  #end
+  #if($actionErrors)
+    #foreach($ae in $actionErrors)
+    <div class="row">
+      <span class="fl">$ae</span>
+    </div>
+    #end
+  #end
+</div>

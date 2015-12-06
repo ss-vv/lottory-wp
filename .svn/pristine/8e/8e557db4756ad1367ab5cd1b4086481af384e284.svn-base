@@ -1,0 +1,37 @@
+ALTER TABLE `pm_colorring_grant`
+	ADD COLUMN `update_time` DATETIME NULL DEFAULT NULL COMMENT '更新时间' AFTER `status`;
+
+ALTER TABLE `pm_grant_voucher`
+	DROP INDEX `user_id_pm_week`;
+
+ALTER TABLE `pm_grant_voucher`
+	ADD UNIQUE INDEX `user_id_voucher_pm_id_pm_week` (`user_id`, `voucher_pm_id`, `pm_week`);
+
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, 
+`play_ids`, `scheme_status`, `buy_amount`, `after_tax_bonus`, `scheme_types`, `show`, `pass_type_ids`, `pass_type_ids_logic`, 
+`everyone_join_count`, `count_relevance_granType_ids`, `join_count_type`) VALUES 
+(34, '7月新注册送3元彩金', 41, '2013-07-01 00:00:00', '2013-07-31 23:59:59', 1, '7月新注册送3元彩金', '2013-06-28 10:07:10', NULL, NULL, NULL, 0, NULL,
+NULL, 0, NULL, NULL, 0, NULL, 0);
+
+INSERT INTO `lt_voucher_pm` (`id`, `name`, `grant_type_id`, `valid_time_type`, `from_create_day`, `effect_time`, `dead_time`, 
+`pm_begin_time`, `pm_end_time`, `create_time`) VALUES (4, '7月充值优惠券周周送', 42, 'fromCreate', 31, NULL, NULL, 
+'2013-07-01 00:00:00', '2013-07-14 23:59:59', '2013-06-28 10:10:10');
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (41, '7月新注册送3元彩金');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (42, '七月充值送奖金活动赠送');
+
+// --------------- 活动3数据 ---------------
+
+ALTER TABLE `pm_promotion`  ADD COLUMN `after_tax_bonus_max` DECIMAL(12,2) NULL DEFAULT NULL COMMENT '最大税后奖金' AFTER `after_tax_bonus`;
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (43, '2013.07竞彩足彩中奖加奖赠款');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (44, '2013.07竞彩篮彩中奖加奖赠款');
+
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, `play_ids`, `scheme_status`, `buy_amount`, `after_tax_bonus`, `after_tax_bonus_max`, `scheme_types`, `show`, `pass_type_ids`, `pass_type_ids_logic`, `everyone_join_count`, `count_relevance_granType_ids`, `join_count_type`) VALUES (35, '2013.07竞彩足彩中奖加奖赠款', 43, '2013-07-15 00:00:00', '2013-07-31 23:59:59', 1, '2013.07竞彩足彩中奖加奖赠款', '2013-07-03 15:36:18', 'JCZQ', NULL, '12', 0, 100.00, 10000.00, NULL, 1, ',1@1,', 'ne', 3, '43,44', 1);
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, `play_ids`, `scheme_status`, `buy_amount`, `after_tax_bonus`, `after_tax_bonus_max`, `scheme_types`, `show`, `pass_type_ids`, `pass_type_ids_logic`, `everyone_join_count`, `count_relevance_granType_ids`, `join_count_type`) VALUES (36, '2013.07竞彩篮彩中奖加奖赠款', 44, '2013-07-15 00:00:00', '2013-07-31 23:59:59', 1, '2013.07竞彩篮彩中奖加奖赠款', '2013-07-03 15:36:18', 'JCLQ', NULL, '12', 0, 100.00, 10000.00, NULL, 1, ',1@1,', 'ne', 3, '43,44', 1);
+
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (21, 35, ',1@1,', 'ne', 100.00, 1000.00, 10.00, NULL);
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (22, 35, ',1@1,', 'ne', 1000.00, 10000.00, 100.00, NULL);
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (23, 36, ',1@1,', 'ne', 100.00, 1000.00, 10.00, NULL);
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (24, 36, ',1@1,', 'ne', 1000.00, 10000.00, 100.00, NULL);
+

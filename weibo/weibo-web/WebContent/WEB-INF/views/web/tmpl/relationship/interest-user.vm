@@ -1,0 +1,66 @@
+<script id="interest-user-tmpl" type="text/x-jquery-tmpl">
+	{{#users}}
+	 <li class="davcai-plus-interest-son">
+	  <a href="http://davcai.com/{{weiboUser.weiboUserId}}{{weiboUserId}}/profile" target="_blank"><img src="{{weiboUser.headImageURL}}{{headImageURL}}" class="interest-user"/></a>
+	    <a href="http://davcai.com/{{weiboUser.weiboUserId}}{{weiboUserId}}/profile" target="_blank" class="interest-name" >{{weiboUser.nickName}}{{nickName}}</a>
+	    {{#lotteryId}}
+	      <span class="winning-bet">{{lotteryId}}&nbsp;
+	      {{#playName}}
+	            {{playName}}      
+	       {{/playName}}           
+	      </span>
+	    {{/lotteryId}}
+	    {{#countOfRecommend}}
+	      <span class="winning-bet">推荐{{countOfRecommend}}&nbsp;场</span>
+	    {{/countOfRecommend}}
+	    {{#realWeibo7OpenCount}}
+	       <span id="8" class="interest-guanzhu" style="height:20px;line-height:20px">开奖{{realWeibo7OpenCount}}单</span>
+	    {{/realWeibo7OpenCount}}
+	    {{#realWeibo7GainCount}}
+	       <span id="7" class="interest-guanzhu" style="height:20px">盈利{{realWeibo7GainCount}}单，总奖金</span>
+	    {{/realWeibo7GainCount}}
+	    {{#scheme}}
+	       <span  id="6" class="interest-guanzhu" style="height:20px;line-height:20px">{{scheme}}</span>
+	       {{#bonus_}}
+	         <span id="5" class="interest-guanzhu" style="height:20px">{{followSchemeCount}},总奖金</span>
+	       {{/bonus_}}
+	    {{/scheme}}
+	    {{#winCount}}
+	        <span id="9" class="interest-guanzhu" style="height:20px;line-height:20px">{{followSchemeCount}}</span>
+	       {{#bonus_}}
+	         <span id="10" class="interest-guanzhu" style="height:20px">{{winCount}},总奖金</span>
+	       {{/bonus_}}
+	    {{/winCount}}
+        {{#activeUser}}
+             <span class="interest-guanzhu" style="height:20px"></span>
+             <span class="interest-guanzhu" style="height:20px"></span>
+        {{/activeUser}}
+	   {{#bonus}}
+	    <span class="winning-prize">中奖：{{bonus}}元</span>
+	   {{/bonus}}
+	   {{#winSchemeCount}}
+	         <span id="10" class="interest-guanzhu"> {{winSchemeCount}}，胜率</span>
+	   {{/winSchemeCount}}
+	    {{#togetherFollowNum}}
+	     <span  style="height:20px;display:block"></span>
+    	 <span class="interest-guanzhu">我们共同关注{{togetherFollowNum}}人</span>
+    	 {{/togetherFollowNum}}
+    	 {{#countOfHit}}
+    	  <span class="interest-guanzhu">命中{{countOfHit}}场</span>
+    	 {{/countOfHit}}
+    	 <a href="javascript:void(0);" class="plus-interest-button"  _id="follow-container-div" _userid="{{weiboUser.weiboUserId}}{{weiboUserId}}"></a>
+    	 {{#ratio}}
+    	   <i class="ranking-rate-percent">{{ratio}}</i>
+    	 {{/ratio}}
+    	 {{#winRate}}
+    	  <i id="1" class="ranking-rate-percent">{{winRate}}</i>
+    	 {{/winRate}}
+    	 {{#bonus_}}
+    	  <i id="2" class="ranking-rate-percent" style="margin-top:-23px">{{bonus_}}</i>
+    	 {{/bonus_}}
+    	 {{#totalBonus}}
+    	   <i id="1" class="ranking-rate-percent">{{totalBonus}}</i>
+    	 {{/totalBonus}}
+	 </li>
+	{{/users}}
+</script>

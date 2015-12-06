@@ -1,0 +1,179 @@
+#set($title="投注方案管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH">
+		<span #if("JCZQ" == $lotteryId) class="current" #end><a href="$base/ticket/listPhysicalStoreTicket.do?lotteryId=JCZQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩足球</b></a></span>
+		<span #if("JCLQ" == $lotteryId) class="current" #end><a href="$base/ticket/listPhysicalStoreTicket.do?lotteryId=JCLQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩篮球</b></a></span>
+		<span #if("CTZC" == $lotteryId) class="current" #end><a href="$base/ticket/listPhysicalStoreTicket.do?lotteryId=CTZC&lotteryPlatformId=${lotteryPlatformId}"><b>传统足彩</b></a></span>
+		<span><a href="$base/ticket/listPrintableTicket.do?lotteryId=JCZQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩足球导出</b></a></span>
+		<span><a href="$base/ticket/listPrintableTicket.do?lotteryId=JCLQ&lotteryPlatformId=${lotteryPlatformId}"><b>竞彩篮球导出</b></a></span>
+		<span><a href="$base/ticket/listPrintableTicket.do?lotteryId=CTZC&lotteryPlatformId=${lotteryPlatformId}"><b>传统足彩导出</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in">
+			<form id="qForm" action="$base/ticket/listPhysicalStoreTicket.do" method="post">
+				<input type="hidden" name="lotteryId" value="${lotteryId}"/>
+				<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+				<input type="hidden" name="lotteryPlatformId" value="${lotteryPlatformId}"/>
+				<div class="tabH tabH02 panel">
+	       			<span class="current"><b>查询条件</b></span>
+	        		<div class="l">
+					          从 <input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+					         至 <input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+				          <select name="state" value="${state}" id="stateSel">
+				            <option value="3">等待人工处理出票</option>
+				            <option value="5100">出票成功</option>
+				            <option value="5101">出票失败</option>
+				            <option value="5202">未中奖</option>
+				            <option value="5203">中奖未派奖</option>
+				            <option value="12">已派奖</option>
+				            <option value="99">流标</option>
+				            <option value="100">撤单</option>
+				          </select>
+						方案编号：<input type="text" name="schemeId" value="$!{schemeId}" maxlength="10" size="9"/>
+						票编号：<input type="text" name="ticketId" value="$!{ticketId}" maxlength="10" size="9"/>
+					</div>
+		            <div class="r" style="margin: 4px 4px 0 0">
+		              <input type="submit" class="hand btn" value="查询">
+		            </div>
+				</div>
+			</form>
+		</div>
+		<table cellspacing="0" id="dataGrid" class="tab">
+			<tr>
+				<th style="width:25px;text-align:center;"><span>票号</span></th>
+				<th style="width:25px;text-align:center;"><span>方案编号</span></th>
+				<th style="width:30px;text-align:center;"><span>玩法</span></th>
+				#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+				<th style="width:40px;text-align:center;">过关方式</th>
+                #end
+				<th style="width:20px;text-align:center;"><span>注数</span></th>
+				<th style="width:30px;text-align:center;"><span>投注倍数</span></th>
+				<th style="width:40px;text-align:center;"><span>总金额（元）</span></th>
+				<th style="width:40px;text-align:center;">税后奖金</th>
+				<th style="width:40px;text-align:center;"><span>投注时间</span></th>
+				<th style="width:40px;text-align:center;"><span>方案截止时间</span></th>
+				<th style="width:40px;text-align:center;"><span>状态</span></th>
+        <th style="width:70px;text-align:center;">操作</th>
+			</tr>
+		
+			#foreach($s in $tickets)
+			<tr>
+				<td style="text-align:center;">${s.id}</td>
+				<td style="text-align:center;">${s.schemeId}</td>
+				<td style="text-align:center;">$status.playName($s.playId)</td>
+				#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+				<td style="text-align:center;">
+					$!{s.passTypeId}
+				</td>
+                #end
+				<td style="text-align:center;">${s.note}</td>
+				<td style="text-align:center;">${s.multiple}</td>
+        		<td style="text-align:center;">￥${s.money}</td>
+				<td style="text-align:center;">#if(${t.afterTaxBonus})￥${t.afterTaxBonus}#end</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.createdTime})</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.schemeOfftime})</td>
+				<td style="text-align:center;">$status.bet(${s.status})</td>
+		        <td style="text-align:center;">
+		          <a href="javascript:void(0);" _action="view" _sid="${s.schemeId}" _tid="${s.id}" title="查看详情">详情</a>
+				  ##if($s.status == 3)
+		          ##<a href="javascript:void(0);" _action="cancel" _tid="${s.id}" title="撤销该票"><span class="red">撤单</span></a>
+				  ##&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		          ##<a href="javascript:void(0);" _action="buyTicket" _tid="${s.id}" title="实体出票"><span style="font-weight:bold;font-size:12px">实体出票</span></a>
+				  ##end
+		        </td>
+			</tr>
+			#end
+		</table>
+
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    $('#pSel option[value="$!{playId}"]').attr('selected', 'selected');
+    $('#ptSel option[value="$!{passType}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+	$('#qForm').submit(function() {
+		var schemeId = $(':input[name="schemeId"]').val();
+		var digital = /^\d*$/g;
+		if(!schemeId.match(digital)) {
+			alert("无效的方案编号");
+			return false;
+		}
+	});
+	
+	// 查看看票详情
+    $('#dataGrid td a[_action="view"]').bind('click', function(){
+        var tid = $(this).attr('_tid');
+		var host = window.location.host;
+		var url = "http://" + host + '$base/ticket/detail.do?lotteryId=$!{lotteryId}&ticketId=';
+        xhOpenWindow(url + tid, {
+            id: 's_' + tid,
+            title: '查看票详情',
+            height: 600,
+            width: 900
+        });
+        return false;
+    });
+	
+	// 出票
+	$('#dataGrid td a[_action="buyTicket"]').bind('click', function(){
+	    var _tid = $(this).attr('_tid');
+	    if(confirm('你确定要出票吗，烦请务必确认“实体票”已经成功出票！')){
+	        J.getJSON('$base/ticket/aj_set_ticket_succ.do', {ticketId: _tid}, function(json){
+	            if(json.success){
+	                $('#qForm').submit();
+	            }else{
+	                alert(json.data);
+	            }
+	        });            
+	    }
+	    return false;
+	});
+	
+	//对票进行撤单操作
+	$('#dataGrid td a[_action="cancel"]').bind('click', function(){
+        var _tid = $(this).attr('_tid');
+        if(confirm('你确定要对票进行撤单操作吗？')){
+            J.getJSON('$base/ticket/aj_set_ticket_cancel.do', {ticketId: _tid}, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                    alert(json.data);
+                }
+            });            
+        }
+        return false;
+    });
+});
+</script>

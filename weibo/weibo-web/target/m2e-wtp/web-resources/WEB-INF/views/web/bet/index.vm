@@ -1,0 +1,5 @@
+#set($layout="web/head_foot.vm")
+#set($scripts=["js/web/login.js"])
+#set($p_title="彩票投注")
+#set($name = "/web/bet/lottery_tpl/lottery_" + $lottery + ".html")
+#include($name)

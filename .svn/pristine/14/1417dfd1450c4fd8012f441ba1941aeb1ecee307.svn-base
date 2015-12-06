@@ -1,0 +1,71 @@
+#set($p_title="邮箱验证")
+#set($pos = "vemail")
+
+<div class="mod mod-c mod-c-a wh-mh">
+	<div class="mh">
+		<div class="tt">电子邮箱验证</div>
+	</div>
+	<div class="mm">
+		<div class="tipsbox tipsbox-a mp-d">
+			<div class="row">
+            1.验证邮箱保证您在忘记密码时可以通过该邮箱找回。<br />
+            2.每个邮箱地址只可以为一个用户名提供验证。<br />
+            3.我们不会向您的邮箱发送垃圾邮件，也不会向第三方提供您的邮箱。<br />
+			<span class="clear"></span>
+		</div>
+		<div class="formbox formbox-a formbox-a-b mp-c">
+          #if($user.email)
+            <form method="post">
+              <div class="row">
+                <label class="lbl wh-a">邮箱：</label>
+                <div class="tips wh-b">$user.email</div>
+                #if(!$verify)
+                  <input type="hidden" name="email" value="$user.email"/>
+                  <a class="btnx2 btnx2-b fl" href="javascript:void(0);" title="">
+                    <span class="inbtn"><input class="iptbtn" type="submit" value="提交申请" /></span>
+                  </a>
+                #end
+                <div class="tips c-f">#if($verify)邮箱已经验证#else 邮箱尚未验证，请马上验证#end</div>
+              </div>
+            </form>
+          #end
+          <form id="eForm" method="post">
+    				<div class="row">
+    					<label class="lbl wh-a">输入邮箱地址：</label>
+    					<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a" style="width:180px;"><input class="inipttxt" maxlength="32" type="text" name="email" value=""></div>
+      					<a class="btnx2 btnx2-b fl" href="javascript:void(0);" title="">
+                  <span class="inbtn"><input class="iptbtn" type="submit" value="提交申请" /></span>
+                </a>
+                
+      					<div class="tips c-f">如果您填写有误，请提交修改申请
+        					#if($!fieldErrors.email)
+            					($!fieldErrors.email.get(0))
+                  #end
+                </div>
+      				</div>
+    			</form>
+  				<div class="row">
+  					<div class="tips c-f">
+      					#if($!actionMessages.size() > 0)
+  							#foreach($msg in $actionMessages)
+  								$msg
+  							#end
+      					#end
+  					</div>
+  				</div>
+  			<span class="clear"></span>
+  		</div>
+		</div>
+	</div>
+</div>
+  
+<SCRIPT>
+  $(function(){
+    $('#eForm').bind('submit', function(){
+      if($('#eForm input[name=email]').val() == ''){
+        alert('请输入邮箱');
+        return false;
+      }
+    });
+  });
+</SCRIPT>

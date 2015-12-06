@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="follow-default" extends="struts-default"
+		abstract="true">
+
+		<result-types>
+			<result-type name="layout"
+				class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult"
+				default="true" />
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+				<param name="root">data</param>
+				<param name="contentType">text/html</param>
+				<param name="callbackParameter">jsonp</param>
+			</result-type>
+		</result-types>
+		<global-results>
+			<result name="input" type="velocity">/message.vm</result>
+			<result name="error" type="velocity">/message.vm</result>
+		</global-results>
+	</package>
+
+	<!-- 跟单 -->
+	<package name="follow" extends="follow-default" namespace="/follow">
+		<!-- 热门晒单推荐 -->
+		<action name="aj_hot_scheme_recommend"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.ShowingSchemeListAction"
+			method="ajxHotSchemeRecommend">
+			<result type="json">
+				<param name="root">paging</param>
+			</result>
+		</action>
+
+		<!-- 列出推荐方案和用户战绩 -->
+		<action name="index"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.ShowingSchemeListAction">
+			<result name="betView" type="redirect">
+				<param name="location">index.do</param>
+			</result>
+			<result>index.vm</result>
+		</action>
+		<!-- 列出方案和用户战绩 -->
+		<action name="list"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.ShowingSchemeListAction"
+			method="list">
+			<result name="betView" type="redirect">
+				<param name="location">list.do</param>
+				<param name="lotteryId">${lotteryId}</param>
+			</result>
+			<result>list.vm</result>
+		</action>
+		<action name="aj_rec"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.AjaxRecommendList">
+			<result type="json" name="success"></result>
+		</action>
+		<!-- 发起人当前晒单 -->
+		<action name="oss"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.ShowAndFollowSchemeListAction"
+			method="oss">
+			<result name="betView" type="redirect">
+				<param name="location">oss.do</param>
+				<param name="userId">${userId}</param>
+			</result>
+			<result>onsale_show_scheme.vm</result>
+		</action>
+		<!-- 发起人当前跟单 -->
+		<action name="osf"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.ShowAndFollowSchemeListAction"
+			method="osf">
+			<result name="betView" type="redirect">
+				<param name="location">osf.do</param>
+				<param name="userId">${userId}</param>
+			</result>
+			<result>onsale_follow_scheme.vm</result>
+		</action>
+		<!-- 发起人中奖晒单 -->
+		<action name="ws"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.ShowAndFollowSchemeListAction"
+			method="ws">
+			<result name="betView" type="redirect">
+				<param name="location">ws.do</param>
+				<param name="userId">${userId}</param>
+			</result>
+			<result>win_show_scheme.vm</result>
+		</action>
+		<!-- 发起人中奖跟单 -->
+		<action name="wf"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.ShowAndFollowSchemeListAction"
+			method="wf">
+			<result name="betView" type="redirect">
+				<param name="location">wf.do</param>
+				<param name="userId">${userId}</param>
+			</result>
+			<result>win_follow_scheme.vm</result>
+		</action>
+		<!-- 晒单中奖榜 -->
+		<action name="swl"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.WinListAction"
+			method="swl">
+			<result name="betView" type="redirect">
+				<param name="location">swl.do</param>
+				<param name="lotteryId">${lotteryId}</param>
+			</result>
+			<result>show_win_list.vm</result>
+		</action>
+		<!-- 跟单中奖榜 -->
+		<action name="fwl"
+			class="com.xhcms.lottery.dc.feed.web.action.follow.WinListAction"
+			method="fwl">
+			<result name="betView" type="redirect">
+				<param name="location">fwl.do</param>
+				<param name="lotteryId">${lotteryId}</param>
+			</result>
+			<result>follow_win_list.vm</result>
+		</action>
+	</package>
+
+	<!-- 合买 -->
+	<package name="groupbuy" extends="follow-default" namespace="/groupbuy">
+		<action name="index"
+			class="com.xhcms.lottery.dc.feed.web.action.groupbuy.IndexAction">
+			<result name="success" type="layout">/groupbuy/index.vm</result>
+		</action>
+		<action name="gblist"
+			class="com.xhcms.lottery.dc.feed.web.action.groupbuy.IndexAction"
+			method="lotteryGroupbuySchemes">
+			<result name="success" type="layout">/groupbuy/list.vm</result>
+		</action>
+		<action name="aj_rec"
+			class="com.xhcms.lottery.dc.feed.web.action.groupbuy.AjaxRecommendList">
+			<result type="json" name="success"></result>
+		</action>
+	</package>
+</struts>

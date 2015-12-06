@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1"><title>
+	大V彩-充值
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" />
+<meta name="MobileOptimized" content="240" />
+<link type="text/css" href="../css/buy.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="post" action="" id="form1">
+    <div class="mainDiv">
+		<div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+	 		> <a href="/user/myAccount.do">我的账户</a>  > 账户充值
+	 	</div>
+
+		<div style="background-color:#EAEAEA; line-height:21px; padding-left:5px; border-bottom:dotted 1px #8d8d8d;">
+			   您好，<a href="../user/myAccount.do" rel="nofollow">$account.username</a>		
+			<div><label>可用金额 <span style='color:red;font-weight:bolder;'>${account.free}</span>元</label></div>
+		</div>
+		        
+    	<div class="ni1_">1.在线充值</div>
+           &nbsp;<a href="$base/user/alicharge.do">支付宝充值>></a>          
+        <div class="ni1_">2.移动充值卡充值</div>
+          &nbsp;<a href="$base/user/yeepayCharge.do?amount=30&pd_FrpId=SZX">30元</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="$base/user/yeepayCharge.do?amount=50&pd_FrpId=SZX">50元</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="$base/user/yeepayCharge.do?amount=100&pd_FrpId=SZX">100元</a><br />
+        <div class="ni1_">3.联通充值卡充值</div>
+         &nbsp;<a href="$base/user/yeepayCharge.do?amount=30&pd_FrpId=UNICOM">30元</a>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="$base/user/yeepayCharge.do?amount=50&pd_FrpId=UNICOM">50元</a>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="$base/user/yeepayCharge.do?amount=100&pd_FrpId=UNICOM">100元</a><br />
+        <div class="ni1_">4.电信充值卡充值</div>  
+          &nbsp;<a href="$base/user/yeepayCharge.do?amount=50&pd_FrpId=TELECOM">50元</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="$base/user/yeepayCharge.do?amount=100&pd_FrpId=TELECOM">100元</a>   
+    </div>
+    </form>
+    <div class='topNavigationBar' style='color: #FFF;'> <a href='../index.do'>首页</a> > <a href="/user/myAccount.do">我的账户</a>  > 账户充值</div> 
+    <div class="clear">
+    </div>
+</body>
+</html>
+
+	

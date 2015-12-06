@@ -1,0 +1,5 @@
+<div class="tab_box">
+	<!--排行榜-->
+    <ul class="rank"></ul>
+	<div class="loading"></div>
+</div>

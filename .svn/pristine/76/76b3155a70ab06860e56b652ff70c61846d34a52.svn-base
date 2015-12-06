@@ -1,0 +1,11 @@
+#set($layout = "weibo/scheme_info.vm")
+#set($p_title = "微博推荐详情")
+#set($scripts=["js/weibo_detail_recommend.min"])
+
+#parse("/recommend_weibo/scheme.vm")
+
+<div style="float: right;display:none">
+	<div class="btn-group">
+	  <button name="accept_schema_btn" type="button" onclick="acceptRecommend('${scheme.lotteryId}','${scheme.playId}',${scheme.id})" class="btn btn-default" id="accept_schema_btn" _schemeId="${scheme.id}" >采纳</button>
+	</div>
+</div>

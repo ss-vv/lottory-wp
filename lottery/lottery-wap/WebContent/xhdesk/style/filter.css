@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* launcherBar */
+.launcherBar .lcr_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/appBar_l.png", sizingMethod="crop");}
+.launcherBar .lcr_c {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/appBar_c.png", sizingMethod="scale");}
+.launcherBar .lcr_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/appBar_r.png", sizingMethod="crop");}
+/* userBar */
+.userBar {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/topBar.png", sizingMethod="scale");}
+/* userBar */
+.inuserBar .lcr_l {_filter:none;}
+.inuserBar .lcr_c {_filter:none;}
+.inuserBar a:hover .lcr_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/qikBtnBar_lr.png", sizingMethod="crop");}
+.inuserBar a:hover .lcr_c {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/qikBtnBar_c.png", sizingMethod="scale");}
+.inuserBar a:hover .lcr_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/qikBtnBar_lr.png", sizingMethod="crop");}
+/* logo */
+.logo .lcr_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/logo_l.png", sizingMethod="scale");}
+.logo .lcr_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/logo_r.png", sizingMethod="crop");}
+.inlogo a {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/logo.png", sizingMethod="crop");}
+/* watermark */
+.watermark {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/watermark.png", sizingMethod="crop");}
+/* toolBar */
+.toolBar .watermark {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/watermark01.png", sizingMethod="crop");}
+/* menuBar */
+.menuBar .splitter {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/line01.png", sizingMethod="crop");}
+.menuBar .button_hover .lcr_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/qikBtnBar_lr.png", sizingMethod="crop");}
+.menuBar .button_hover .lcr_c {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/qikBtnBar_c.png", sizingMethod="scale");}
+.menuBar .button_hover .lcr_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/qikBtnBar_lr.png", sizingMethod="crop");}
+.menuBar .lcr_l {_filter:none;}
+.menuBar .lcr_c {_filter:none;}
+/* appL */
+.appL .button_hover .button_inner {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/appBtn01.png", sizingMethod="crop");}
+.appBar .button_hover .button_inner {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/appBtn04.png", sizingMethod="crop");}
+.quickBar .button_hover .button_inner {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/appBtn03.png", sizingMethod="crop");}
+.statusBar .button_hover .button_inner {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/appBtn02.png", sizingMethod="crop");}
+/*icon*/
+.appL .icons {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/icons/ios32_01.png", sizingMethod="crop");}
+.appBar .icons {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/icons/ios24_01.png", sizingMethod="crop");}
+.statusBar .icons {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/icons/ios16_01.png", sizingMethod="crop");}
+.quickBar .icons {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/icons/ios18_01.png", sizingMethod="crop");}
+/* taskL */
+.taskL .icons {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/icons.gif", sizingMethod="crop");}
+/* menu */
+.ui_menu .menu_bg_t {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_t02.png", sizingMethod="scale");}
+.ui_menu .menu_bg_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_r02.png", sizingMethod="scale");}
+.ui_menu .menu_bg_b {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_b02.png", sizingMethod="scale");}
+.ui_menu .menu_bg_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_l02.png", sizingMethod="scale");}
+.ui_menu .menu_bg_rt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_tr02.png", sizingMethod="crop");}
+.ui_menu .menu_bg_rb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_rb02.png", sizingMethod="crop");}
+.ui_menu .menu_bg_lt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_lt02.png", sizingMethod="crop");}
+.ui_menu .menu_bg_lb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_bl02.png", sizingMethod="crop");}
+.menuitem_arrow {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/arrow.png", sizingMethod="crop");}
+/*****mask proxy***********/
+.dragMask {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_c01.png", sizingMethod="scale");}
+.win_bg_trbl {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_trbl.png", sizingMethod="crop");}
+.window .win_bg_c {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_c01.png", sizingMethod="scale");}
+.window .win_bg_t {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_t01.png", sizingMethod="scale");}
+.window .win_bg_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_r01.png", sizingMethod="scale");}
+.window .win_bg_b {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_b01.png", sizingMethod="scale");}
+.window .win_bg_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_l01.png", sizingMethod="scale");}
+.window .win_bg_rt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_tr01.png", sizingMethod="crop");}
+.window .win_bg_rb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_rb01.png", sizingMethod="crop");}
+.window .win_bg_lt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_lt01.png", sizingMethod="crop");}
+.window .win_bg_lb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_bl01.png", sizingMethod="crop");}
+.window_current .win_bg_c {background:#9fcdf8; _filter:none;}
+.window_current .win_bg_t {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_t02.png", sizingMethod="scale");}
+.window_current .win_bg_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_r02.png", sizingMethod="scale");}
+.window_current .win_bg_b {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_b02.png", sizingMethod="scale");}
+.window_current .win_bg_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_l02.png", sizingMethod="scale");}
+.window_current .win_bg_rt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_tr02.png", sizingMethod="crop");}
+.window_current .win_bg_rb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_rb02.png", sizingMethod="crop");}
+.window_current .win_bg_lt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_lt02.png", sizingMethod="crop");}
+.window_current .win_bg_lb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_bl02.png", sizingMethod="crop");}
+/***** widget 窗口 **********/
+.widget .win_bg_c {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_c03.png", sizingMethod="scale");}
+.widget .win_bg_t {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_t03.png", sizingMethod="scale");}
+.widget .win_bg_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_r03.png", sizingMethod="scale");}
+.widget .win_bg_b {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_b03.png", sizingMethod="scale");}
+.widget .win_bg_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_l03.png", sizingMethod="scale");}
+.widget .win_bg_rt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_tr03.png", sizingMethod="crop");}
+.widget .win_bg_rb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_rb03.png", sizingMethod="crop");}
+.widget .win_bg_lt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_lt03.png", sizingMethod="crop");}
+.widget .win_bg_lb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_bl03.png", sizingMethod="crop");}
+.widget_current .win_bg_c {background:#9fcdf8; _filter:none;}
+.widget_current .win_bg_t {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_t02.png", sizingMethod="scale");}
+.widget_current .win_bg_r {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_r02.png", sizingMethod="scale");}
+.widget_current .win_bg_b {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_b02.png", sizingMethod="scale");}
+.widget_current .win_bg_l {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_l02.png", sizingMethod="scale");}
+.widget_current .win_bg_rt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_tr02.png", sizingMethod="crop");}
+.widget_current .win_bg_rb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_rb02.png", sizingMethod="crop");}
+.widget_current .win_bg_lt {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_lt02.png", sizingMethod="crop");}
+.widget_current .win_bg_lb {_background:url(../images/blank.gif) repeat; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/win_bg_bl02.png", sizingMethod="crop");}
+/****windows button****/
+.window_action_button {_background:url(../images/blank.gif) repeat;}
+.window_close {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_close.png", sizingMethod="crop");}
+.window_max {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_max.png", sizingMethod="crop");}
+.window_restore {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_restore.png", sizingMethod="crop");}
+.window_min {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_min.png", sizingMethod="crop");}
+.window_fullscreen {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_fullscreen.png", sizingMethod="crop");}
+.window_restore_full {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_restore_full.png", sizingMethod="crop");}
+.window_refresh {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_refresh.png", sizingMethod="crop");}
+.window_pinUp {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_pinUp.png", sizingMethod="crop");}
+.window_pinDown {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_pinDown.png", sizingMethod="crop");}
+.window_home {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_home.png", sizingMethod="crop");}
+.window_close:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_close_.png", sizingMethod="crop");}
+.window_max:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_max_.png", sizingMethod="crop");}
+.window_restore:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_restore_.png", sizingMethod="crop");}
+.window_min:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_min_.png", sizingMethod="crop");}
+.window_fullscreen:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_fullscreen_.png", sizingMethod="crop");}
+.window_restore_full:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_restore_full_.png", sizingMethod="crop");}
+.window_refresh:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_refresh_.png", sizingMethod="crop");}
+.window_pinUp:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_pinUp_.png", sizingMethod="crop");}
+.window_pinDown:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_pinDown_.png", sizingMethod="crop");}
+.window_home:hover {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/xhdesk/images/win/window_home_.png", sizingMethod="crop");}

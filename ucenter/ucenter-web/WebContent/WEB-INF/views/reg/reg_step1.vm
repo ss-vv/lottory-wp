@@ -1,0 +1,255 @@
+#set($layout="regist.vm")
+#set($p_title="注册中心")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="box">
+  <div class="mod mod-e">
+    <div class="mh">
+      <div class="tt"><b class="icns"></b>注册中心</div>
+    </div>
+    <div class="mm">
+    	<div class="stepbox-a wh-c">
+    		<div class="first"><span>1</span><b>填写注册信息</b></div>
+    		<div class="last"><span>2</span><b>注册成功</b></div>
+    	</div>
+    	<div class="formbox formbox-a formbox-a-b mp-b">
+    		<form id="registForm" action="reg.do" method="post">
+					<input name="pid" type="hidden" id="pid" value=""/>
+					<input name="referer" type="hidden" id="referer" value=""/>
+    				<div class="row">
+    				<label class="lbl wh-a fs14">用户名：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="username" type="text" value="$!{username}" maxlength="16" size="16" style="width:150px;"/></div>
+            <div class="tips c-i"></div>
+    				#if($!fieldErrors.username)
+              <div class="tips c-i">$!fieldErrors.username.get(0)</div>
+    				#end
+    				<div class="tips c-f">4-16个字符，可以使用汉字、数字、字母</div>
+    			</div>
+    				<div class="row">
+    				<label class="lbl wh-a fs14">密码：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input id="password" class="inipttxt" name="password" type="password" value="" maxlength="15" size="15" style="width:150px;"/></div>
+            <div class="tips c-i"></div>
+    				#if($!fieldErrors.password)
+    					<div class="tips c-i">$!fieldErrors.password.get(0)</div>
+    				#end
+    				<div class="tips c-f">6-15个字符，建议使用字母、数字组合，混合大小写</div>
+    			</div>
+    				<div class="row">
+    				<label class="lbl wh-a fs14">确认密码：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="confirmPassword" type="password" value="" maxlength="15" size="15" style="width:150px;"/></div>
+            <div class="tips c-i"></div>
+    				#if($!fieldErrors.confirmPassword)
+    					<div class="tips c-i">$!fieldErrors.confirmPassword.get(0)</div>
+    				#end
+    			</div>
+    				<div class="row">
+    				<label class="lbl wh-a fs14">真实姓名：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="realname" type="text" value="$!{realname}" maxlength="12" size="12" style="width:100px;"/></div>
+            <div class="tips c-i"></div>
+    				#if($!fieldErrors.realname)
+    					<div class="tips c-i">$!fieldErrors.realname.get(0)</div>
+    				#end
+    				<div class="tips c-f">请填写真实资料，提现时所用的银行账户必须与之相同</div>
+    			</div>
+    				<div class="row">
+    				<label class="lbl wh-a fs14">身份证号：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="idnumber" type="text" value="$!{idnumber}" maxlength="18" size="18" style="width:150px;"/></div>
+            <div class="tips c-i"></div>
+    				#if($!fieldErrors.idnumber)
+    					<div class="tips c-i">$!fieldErrors.idnumber.get(0)</div>
+    				#end
+    				<div class="tips c-f">15或18位的数字/英文字母，将做为账户资金操作的重要凭据，请牢记 </div>
+    			</div>
+    				<div class="row">
+    				<label class="lbl wh-a fs14">邮箱：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="email" type="text" value="$!{email}" maxlength="30" size="30" style="width:220px;"/></div>
+            <div class="tips c-i"></div>
+    				#if($!fieldErrors.email)
+    					<div class="tips c-i">$!fieldErrors.email.get(0)</div>
+    				#end
+            <div class="tips c-f">找回密码时的通道，请牢记 </div>
+    			</div>
+    				<div class="row">
+    				<label class="lbl wh-a fs14">手机号码：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="mobile" type="text" value="$!{mobile}" maxlength="11" size="11" style="width:120px;"/></div>
+            <div class="tips c-i"></div>
+    				#if($!fieldErrors.mobile)
+    					<div class="tips c-i">$!fieldErrors.mobile.get(0)</div>
+    				#end
+    				<div class="tips c-f">提高账户安全性，请如实填写</div>
+    			</div>
+    			<div class="row"><label class="lbl wh-a fs14">验证码：</label><div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" style="width:60px;" id="validCode" name="validCode" type="text" maxLength="4" size="6"/></div>
+            <div class="tips c-i"></div>
+    			#if($!fieldErrors.validCode)
+    				<div class="tips c-i">$!fieldErrors.validCode.get(0)</div>
+    			#end
+    			<div class="tips c-f">
+    				<a class="img" href="javascript:void(0);">
+    					<img id="validCodeImg" src="$base/water.do?t=$!{date.systemTime}" alt="验证码"/>
+    				</a>
+    			</div>
+          <a href="javascript:void(0);" id="changeCode"><div class="tips c-f">看不清，换一张</div></a>
+    			</div>
+    				<div class="row"><label class="lbl wh-a">&nbsp;</label><label class="iptchk"><input name="accept" class="iniptchk" type="checkbox" checked="true"/><span>我已看过并同意《大V彩服务协议》</span></label></div>
+    				<div class="row"><label class="lbl wh-a"></label><a class="btnx2 btnx2-b fl" href="javascript:void(0);" ><span class="inbtn"><input class="iptbtn" type="submit" value="确认提交" /></span></a></div>
+    		</form>
+    	</div>
+    </div>
+  </div>
+  <span class="clear"></span>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        jQuery.validator.addMethod("stringCheck", function(value, element) {       
+            return this.optional(element) || /^[a-zA-Z0-9\u4e00-\u9fa5]+$/.test(value);       
+        }, "只能包括中文字、英文字母、数字");
+    
+        jQuery.validator.addMethod("realnameCheck", function(value, element) {       
+            return this.optional(element) || /^[\u4e00-\u9fa5]+$/.test(value);       
+        }, "请输入正确的真实姓名");
+        
+        jQuery.validator.addMethod("mobileCheck", function(value, element) {       
+        	var length = value.length;
+            return this.optional(element) || length == 11 &&
+                /^1\d{10}$/.test(value);  
+        }, "请输入正确的手机号码");
+        
+        var _form = $('#registForm');
+        
+        _form.validate({
+            errorPlacement: function(error, element) { //验证消息放置的地方
+                error.appendTo(element.parent("div").next("div"));
+            },
+            rules: {
+                'username': {
+                    required: true,
+                    stringCheck: true,
+                    minlength: 4,
+                    maxlength: 16,
+                    remote: '$base/aj_chkuser.do'
+                },
+                'password': {
+                    required: true,
+                    rangelength: [4, 15]
+                },
+                'confirmPassword': {
+                    required: true,
+                    rangelength: [4, 15],
+                    equalTo: '#password'
+                },
+                'realname': {
+                    required: true,
+                    realnameCheck: true,
+                    rangelength: [2, 32]
+                },
+                'idnumber': {
+                    required: true,
+                    minlength: 15,
+                    remote: '$base/aj_chkidn.do'
+                },
+                'email': {
+                    required: true,
+                    email: true,
+                    remote: '$base/aj_chkemail.do'
+                },
+                'mobile': {
+                    required: true,
+                    mobileCheck: true,
+                    remote: '$base/aj_chkmobile.do'
+                },
+                'validCode': {
+                    required: true
+                }
+            },
+            messages: {
+                'username': {
+                    required: '请输入用户名',
+                    minlength: '至少输入{0}个字符',
+                    maxlength: '至多输入{0}个字符',
+                    remote: '该用户名已被注册！'
+                },
+                'password': {
+                    required: '请输入密码',
+                    rangelength: '必须输入{0}到{1}个字符'
+                },
+                'confirmPassword': {
+                    required: '请输入确认密码',
+                    rangelength: '必须输入{0}到{1}个字符',
+                    equalTo: '两次密码必须一致'
+                },
+                'realname': {
+                    required: '请输入真实姓名',
+                    rangelength: '必须输入{0}到{1}个字符'
+                },
+                'idnumber': {
+                    required: '请输入身份证号',
+                    minlength: '至少输入{0}个字符',
+                    remote: '该身份证号已被注册！'
+                },
+                'email': {
+                    required: '请输入电子邮箱',
+                    email: '请输入正确的电子邮箱',
+                    remote: '该电子邮箱已被注册！'
+                },
+                'mobile': {
+                    required: '请输入手机号码',
+                    mobileCheck: '请输入正确的手机号码',
+                    remote: '该手机号已被注册！'
+                },
+                'validCode': {
+                    required: '请输入验证码'
+                }
+            }
+        });
+        
+        _form.bind('submit', function(){
+            if(_form.valid()){
+                if(checkCard($('input[name=idnumber]', _form).val())){
+                    return true;
+                }
+            }
+            return false;
+        });
+        
+		bindingPid("pid");
+		$("#referer").val(document.referrer);
+    })
+	
+	//用户注册时绑定渠道来源(pid参数)
+	function bindingPid(name) { 
+		var pid = getCookie("pid");
+		if("" != pid) {
+			$("#pid").val(pid);
+			return;
+		}
+		
+		var url = location.href; 
+		var paramArr = url.substring(url.indexOf("?")+1, url.length).split("&");
+		var obj = {};
+		for (i=0; j = paramArr[i]; i++){ 
+			obj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+		} 
+		var paramValue = obj[name];
+		
+		if("undefined" == typeof(paramValue) || (null == paramValue) || ("" == paramValue)){
+			$("#pid").val("0000");//davcai default pid
+		} else { 
+			 $("#pid").val(paramValue);//from channel pid
+		}
+	}
+	
+	function getCookie(c_name) {
+		if (document.cookie.length>0) {
+		  c_start=document.cookie.indexOf(c_name + "=");
+		  if (c_start!=-1) { 
+			c_start=c_start + c_name.length+1;
+			c_end=document.cookie.indexOf(";",c_start);
+			if (c_end==-1) c_end=document.cookie.length;
+				return unescape(document.cookie.substring(c_start,c_end));
+			} 
+		  }
+		return "";
+    }
+</script>

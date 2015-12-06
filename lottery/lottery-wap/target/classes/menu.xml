@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+  <menu name="base.rule" alias="规则管理">
+    <item name="rule.play" alias="玩法管理" service="true" url="play/list.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+    <item name="rule.playoption" alias="玩法选项管理" service="true" url="option/list.do?playId=01_ZC_1" target="_window" option="{width: 950, height: 600}" unique="true"/>
+  </menu>
+ 
+  <menu name="base.user" alias="会员管理">
+    <item name="user.list" alias="注册信息" service="true" url="user/list.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+    <item name="account.list" alias="资金账户" service="true" url="account/list.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+    <item name="order.list" alias="资金变更" service="true" url="order/list.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+  </menu>
+  
+	<menu name="base.financial" alias="账务管理">
+		<item name="financial.withdraw" alias="提现管理" service="true" url="withdraw/list.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+		<item name="financial.recharge" alias="充值管理" service="true" url="recharge/list.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+		<item name="financial.grant" alias="赠款管理" service="true" url="grant/list.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+	</menu>
+	
+	<menu name="base.scheme" alias="投注派奖">
+		<item name="scheme.lsbet" alias="投注管理" service="true" url="scheme/lsbet.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+		<item name="scheme.list" alias="派奖管理" service="true" url="scheme/lsnotaward.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+	</menu>
+	
+    <menu name="base.content" alias="内容管理">
+        <item name="bet.match" alias="赛事数据" service="true" url="match/fblist.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+        <item name="bet.matchcolor" alias="赛事颜色" service="true" url="match/listcolored.do?lotteryId=JCZQ" target="_window" option="{width: 950, height: 600}" unique="true"/>
+    </menu>
+  
+    <menu name="base.promotion" alias="活动管理">
+        <item name="pm.fbwingrant" alias="竞彩足球奖上加奖" service="true" url="promote/football_list.do" target="_window" option="{width: 930, height: 600}" unique="true"/>
+        <item name="pm.bbwingrant" alias="竞彩篮球奖上加奖" service="true" url="promote/basketball_list.do" target="_window" option="{width: 930, height: 600}" unique="true"/>
+    </menu>
+    
+    <menu name="base.group_follow" alias="合买跟单管理">
+        <item name="gf.user" alias="推荐用户管理" service="true" url="gf/list_rec_user.do?tab=RECUSER" target="_window" option="{width: 930, height: 600}" unique="true"/>
+        <item name="gf.show" alias="晒单方案管理" service="true" url="gf/list_rec.do?tab=REC_SCHEME" target="_window" option="{width: 930, height: 600}" unique="true"/>
+    	<item name="gf.groupbuy" alias="合买方案管理" service="true" url="gf/list_gb.do?tab=REC_SCHEME" target="_window" option="{width: 930, height: 600}" unique="true"/>
+    </menu>
+  
+    <menu name="base.admin" alias="管理员管理">
+        <item name="admin.resetpwd" alias="重置密码" service="true" url="admin/resetpwd.do" target="_window" option="{width: 600, height: 400}" unique="true"/>
+        <item name="admin.createadmin" alias="创建用户" service="true" url="admin/createAdmin.do" target="_window" option="{width: 600, height: 400}" unique="true"/>
+    </menu>
+
+</menus>

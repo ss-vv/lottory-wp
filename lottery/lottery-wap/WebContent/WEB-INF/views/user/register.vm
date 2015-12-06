@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>大V彩-手机购彩-注册页面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="max-age=0" />
+    <link type="text/css" href="../css/buy.css" rel="stylesheet" />
+<style type="text/css">
+    .ssw { color: #999;padding-top:0px;padding-bottom:0px; }
+    .ni1{ padding-top:0px;padding-bottom:0px; }
+</style>
+</head>
+<body>
+<div class="mainDiv">
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" /><meta name="MobileOptimized" content="240" />
+ <div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+ > 注册</div>
+
+<div class="curLotteryTerm" style=" line-height: 20px;">电脑上已注册大V彩账号,可直接<a href="/login.do" rel="nofollow">登录</a></div>
+<form method="post" action="register.do?" id="form1">
+<div>
+<div style="padding-top:1px">
+<div class="ni1">用&nbsp;户&nbsp;名：&nbsp; <input name="username" size="16" /></div>
+#if($!fieldErrors.username)
+	<div><div class="divErrorMSG">$!fieldErrors.username.get(0)</div></div>
+#end	
+<div class="ni2 ssw">4-16个字符，中文、英文或数字</div>
+<div class="ni1">用户密码：<input name="password" type="password" size="15" /></div>
+#if($!fieldErrors.password)
+	<div><div class="divErrorMSG">$!fieldErrors.password.get(0)</div></div>
+#end	
+<div class="ni2 ssw">6-15位字母或数字，建议混合密码</div>
+<div class="ni1">确认密码：<input name="confirmPassword" type="password" size="15" /></div>
+#if($!fieldErrors.confirmPassword)
+	<div><div class="divErrorMSG">$!fieldErrors.confirmPassword.get(0)</div></div>
+#end	
+<div class="ni2 ssw">请再输入一遍您上面填写的密码</div>
+<div class="ni1">手机号码：<input name="phoneNum" size="15" maxlength="11"/></div>
+#if($!fieldErrors.phoneNum)
+	<div><div class="divErrorMSG">$!fieldErrors.phoneNum.get(0)</div></div>
+#end
+<div class="ni2 ssw"><span style='color:red;'>绑定手机，充值有现金红包赠送！</span></div>	
+<div class="ni2 ssw">非常重要，可以找回你的密码，提高安全性</div>
+<div class="ni1">真实姓名：<input name="realname" size="15" /></div>
+#if($!fieldErrors.realname)
+	<div><div class="divErrorMSG">$!fieldErrors.realname.get(0)</div></div>
+#end	
+<div class="ni2 ssw">非常重要，当中奖需提款时，银行卡户名必须与注册时填写的姓名相一致,提交后不能更改</div>
+<input name="referer" type="hidden" value="${referer}"/>
+</div>
+<div class="ni2"><input type="submit" name="btnSubmitReg" value="提交注册信息" id="btnSubmitReg" /></div>
+</div>
+</form>
+</div>
+    <div class='topNavigationBar' style='color: #FFF;'> <a href='../index.do'>首页</a> > 注册</div> 
+	#include("inc/footer.inc")
+</body>
+</html>

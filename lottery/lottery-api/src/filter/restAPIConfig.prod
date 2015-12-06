@@ -1,0 +1,14 @@
+#API_SERVER_HOST
+API_SERVER_HOST = a1.easemob.com
+
+#APPKEY
+APPKEY = davcaihuanxinid#davcai
+
+#APP_CLIENT_ID
+APP_CLIENT_ID = YXA6kvqKUL73EeSRL1cIt-wQvA
+
+#APP_CLIENT_SECRET
+APP_CLIENT_SECRET = YXA6G94blbeXrvWjftGHETgxlnVQ6oU
+
+#齐鹏的正式群--此群公司内部用，用作查询所有群的标识
+COMMON_GROUP = 1428484980147069

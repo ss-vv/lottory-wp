@@ -1,0 +1,19 @@
+<table class="tbl" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <th class="thl" style="width:80px;"><div class="inth"><div class="hide">序号</div></div></th>
+    <th style="width:160px;"><div class="inth"><div class="hide">玩法</div></div></th>
+    <th style="width:200px;"><div class="inth"><div class="hide">投注内容</div></div></th>
+    <th style="width:120px;"><div class="inth"><div class="hide">赛果</div></div></th>
+    <th><div class="inth"><div class="hide">开赛时间</div></div></th>
+  </tr>
+  #foreach($m in ${scheme.cgjTeams})
+  #getPlayId($scheme, $m)
+  <tr>
+    <td class="tdl"><div class="intd">$!{m.matchId}</div></td>
+    <td><div class="intd">$status.getPlayName($!{scheme.playId})</div></td>
+    <td><div class="intd #if($!{m.teamName} == $!{m.result}) win #end">$!{m.teamName}($!{m.odds})</div></td>
+    <td><div class="intd"></div>$!{m.result}</td>
+    <td><div class="intd">$!date.format("yyyy-MM-dd HH:mm", ${m.playingTime})</div></td>
+  </tr>
+  #end
+</table>

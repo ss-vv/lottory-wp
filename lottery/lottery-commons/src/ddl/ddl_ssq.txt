@@ -1,0 +1,6 @@
+INSERT INTO `lt_lottery` (`id`, `name`, `win_level`, `help_url`, `created_time`, `note`) 
+ VALUES ('SSQ', '双色球', 1, NULL, '2013-01-24 17:20:52', NULL);
+
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('70_SSQ_DS', 'SSQ', '单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('71_SSQ_FS', 'SSQ', '复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('72_SSQ_DT', 'SSQ', '胆拖', 0);

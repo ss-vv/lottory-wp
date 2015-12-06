@@ -1,0 +1,23 @@
+<div class="list-paper">
+	<div class="list-paper-content">
+        #if(${scheme.matchs} || ${scheme.cgjTeams})
+          #if(${scheme.lotteryId} == "JCZQ")
+          	#if(${scheme.playId} != "jcsjbgj")
+	            #parse("/recommend_weibo/scheme_jczq.vm")
+	         #else
+	         	#parse("/recommend_weibo/scheme_jczq_cgj.vm")
+	         #end
+          #elseif(${scheme.lotteryId} == "JCLQ")
+              #parse("/recommend_weibo/scheme_jclq.vm")
+          #elseif(${scheme.lotteryId} == "BJDC" ||${scheme.lotteryId} == "BDSF")
+            #parse("/recommend_weibo/scheme_bjdc.vm")
+          #end
+        #elseif(${scheme.ctBetContents} && ${scheme.ctFBMatchs})
+        	
+        #elseif(${scheme.digitalBetContents})
+            
+        #else
+         #if($!{p_title}=="合买详情")$status.privacy(${scheme.privacy})#else$status.privacy(${scheme.followSchemePrivacy})#end
+        #end
+	</div>
+</div>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head transcode="${transcode}" partnerid="${partnerid}" version="${version}" time="${time}" />
+  <body>
+    <querygamesp lotteryId="${lotteryId}" issueNumber="${issueNumber}"/>
+  </body>
+</msg>

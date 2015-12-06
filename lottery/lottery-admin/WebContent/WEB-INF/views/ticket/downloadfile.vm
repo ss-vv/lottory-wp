@@ -1,0 +1,134 @@
+#set($title="投注方案管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+
+	<div class="bx_c">
+	   <form id="qForm" action="$base/ticket/listHighSpeedPrintFile.do" method="post">
+				<input type="hidden" name="lotteryId" value="${lotteryId}"/>
+				<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+				<input type="hidden" name="lotteryPlatformId" value="${lotteryPlatformId}"/>
+		</form>
+		<div class="bx_in" style="height: 21px;">
+			<span style="float: left;margin-left: 50px;"> 
+			<span style="display: block;float: right;">说明：同一颜色区块表示同一天的导出文件</span></span>
+		</div>
+		<table cellspacing="0" id="dataGrid" class="tab">
+			<tr>
+				<th style="width:25px;text-align:center;"><span>编号</span></th>
+				<th style="width:25px;text-align:center;"><span>文件</span></th>
+				<th style="width:25px;text-align:center;"><span>中奖票数</span></th>
+				<th style="width:25px;text-align:center;"><span>总奖金</span></th>
+				<th style="width:30px;text-align:center;"><span>创建时间</span></th>
+                <th style="width:70px;text-align:center;">操作</th>
+			</tr>
+			#foreach($f in $printFile)
+			<tr style="background: $f.color">
+				<td style="text-align:center;">$velocityCount</td>
+				<td style="text-align:center;">${f.fileName}</td>
+				<td style="text-align:center;">${f.winTicketCount}</td>
+				<td style="text-align:center;">${f.totalBonus}</td>
+				<td style="text-align:center;">${f.createTime}</td>
+				<td style="text-align:center;">
+					<a href="${f.fileUrl}">下载</a>&nbsp&nbsp
+					<a href="http://admin.davcai.com/lottery/ticket/exportedTicketFileDetail.do?fileId=${f.id}&lotteryPlatformId=${lotteryPlatformId}" target="_blank">查看文件详情</a>
+					#if($f.win)
+						<span style="color:red;float:right;">该文件包含中奖票</span>
+					#else
+						<span style="color:white;float:right;">　　　　　　　　</span>
+					#end 
+				</td>
+			</tr>
+			#end
+		</table>
+
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    $('#pSel option[value="$!{playId}"]').attr('selected', 'selected');
+    $('#ptSel option[value="$!{passType}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+	/*$('#qForm').submit(function() {
+		var schemeId = $(':input[name="schemeId"]').val();
+		var digital = /^\d*$/g;
+		if(!schemeId.match(digital)) {
+			alert("无效的方案编号");
+			return false;
+		}
+	});*/
+	
+	// 查看看票详情
+    $('#dataGrid td a[_action="view"]').bind('click', function(){
+        var tid = $(this).attr('_tid');
+		var host = window.location.host;
+		var url = "http://" + host + '$base/ticket/detail.do?lotteryId=$!{lotteryId}&ticketId=';
+        xhOpenWindow(url + tid, {
+            id: 's_' + tid,
+            title: '查看票详情',
+            height: 600,
+            width: 900
+        });
+        return false;
+    });
+	
+	// 出票
+	$('#dataGrid td a[_action="buyTicket"]').bind('click', function(){
+	    var _tid = $(this).attr('_tid');
+	    if(confirm('你确定要出票吗，烦请务必确认“实体票”已经成功出票！')){
+	        J.getJSON('$base/ticket/aj_set_ticket_succ.do', {ticketId: _tid}, function(json){
+	            if(json.success){
+	                $('#qForm').submit();
+	            }else{
+	                alert(json.data);
+	            }
+	        });            
+	    }
+	    return false;
+	});
+	
+	//对票进行撤单操作
+	$('#dataGrid td a[_action="cancel"]').bind('click', function(){
+        var _tid = $(this).attr('_tid');
+        if(confirm('你确定要对票进行撤单操作吗？')){
+            J.getJSON('$base/ticket/aj_set_ticket_cancel.do', {ticketId: _tid}, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }else{
+                    alert(json.data);
+                }
+            });            
+        }
+        return false;
+    });
+});
+</script>

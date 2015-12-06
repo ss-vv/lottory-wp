@@ -1,0 +1,23 @@
+#set($layout="weibo/head_foot.vm")
+#set($p_title="找回密码")
+
+<div style="margin: 70px 0 70px 90px;
+			border-bottom: 0 none;
+			padding-left: 40px;
+			height: 50px;
+			line-height: 40px;">
+	<h2 style="font: '微软雅黑';font-weight: 700;">提示信息:</h2>
+	 #if($actionMessages && $actionMessages.size() > 0)
+	    #foreach($am in $actionMessages)
+	      <label style="margin-left: 70px;">$am</label>
+	    #end
+	 #end
+	 
+	#if($actionErrors)
+	    #foreach($ae in $actionErrors)
+	      <label style="margin-left: 70px;">$am</label>
+	    #end
+	#end
+	<a href="http://www.davcai.com/">返回大V彩首页</a>
+</div>
+

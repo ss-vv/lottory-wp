@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>大V彩3G购彩平台_江西11选5</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="../css/buy.css" rel="stylesheet" type="text/css" />
+<style type="text/css">.blankLine{padding: 2px 0;}.paleft{ padding-left:5px;}
+.redHead{background-color:#F00; color:#FFF; clear:both; width:200px; padding:0 5px; line-height:22px; margin:2px 0px;}</style>
+</head>
+<body>
+
+	
+<div class="mainDiv">
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" /><meta name="MobileOptimized" content="240" />
+ <div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+ > <a href="/lottery/jx11s5.do?lotteryId=JX11">江西11选5</a></div>
+
+<div class="msgTitle3">&nbsp;第&nbsp;$!{issueInfo.issueNumber}&nbsp;期</div>
+<div class="msgTitle">&nbsp;投注截止： $!date.format('yyyy-MM-dd HH:mm',$!{issueInfo.stopTimeForUser}) </div>
+<div class="msgTitle2" style="background-color:#E2F0FB;">&nbsp;玩法：$status.jx11PlayName($playId)</div>
+#if($!{actionErrors})
+  	#foreach($ac in $actionErrors)
+		<div class="divErrorMSG">$ac</div>
+	#end
+#end					
+<form method="post" action="buyLottery.do?selectType=$selectType&selectNum=$selectNum&playId=$playId&lotteryId=$lotteryId" id="form2">
+
+   <div class='msgView'>投注内容</div>
+   
+   <!-- 
+   #foreach($bet in $resultList)
+	#foreach($randomNum in $bet)
+	<div class='msgTitle' style='color:red'>$randomNum</div>
+	#end
+   #end
+   -->
+   #foreach($betContent in $resultList)
+	<div class='msgTitle' style='color:red'>$betContent</div>
+	<input type="hidden"  name="resultList" value="$betContent">
+   #end
+   <div class='msgTitle'>$betCount 注，$times倍，共$!Result.mul($!Result.mul($betCount, $times), 2)元</div>
+	
+	<input type="hidden"  name="betCount" value="$betCount">	
+	<input type="hidden"  name="times" value="$times">
+	
+    <div style="line-height:20px;">
+        
+    </div>
+    <div class="msgTitle"><input type="submit" name="btnPreNext" value="发起代购" id="btnPreNext" /></div>
+</form>
+   </div>
+#include("inc/bottomNavigate.inc")	
+</body>
+</html>

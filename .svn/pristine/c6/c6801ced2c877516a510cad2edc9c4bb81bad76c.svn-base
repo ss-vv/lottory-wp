@@ -1,0 +1,141 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="关注用户")
+#set($styles=["css/find-user.css"])
+#set($scripts=["js/web/login.js",
+			   "js/web/find-people.js"])
+
+<div class="main" style="margin: 60px auto;width:70%">
+	<div id="someone-page">
+ 		<div class="someone-page-rate">
+ 			<p><img src="images/single-rate-list.png"><a href="javascript:void(0);" id="guodanlv_tip_que"><img src="images/question.png" class="someone-page-rate-prompt"></a></p>
+ 			<button class="someone-page-rate-key-attention" id="follow_all_guodanlv_user">一键关注</button>
+ 			<p class="chart-wide-line"><img src="images/chart-wide-line.png"></p>
+ 			<div class="someone-page-rate-question-prompt-bg" id="guodanlv_tip"  style="display:none">过单率，是指用户最近7天已开奖的晒单方案中盈利方案的比例。例如，用户近7天已开奖晒单方案数为10单，其中盈利方案数为5单，过单率为50%。</div>
+ 			<ul class="single-rate-list">
+ 				#foreach($u in $guoDanLvUsers)
+					<li  #if($currentUserId!=$u.weiboUserId) _uid="$u.weiboUserId" #end
+						 #if($u.guodanlv < 1) style="display:none" #end>
+	 					<span class="order-number">$velocityCount</span>
+	 					<div class="single-rate-list-details">
+	 				 		<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile"><img src="$u.headImageURL" class="single-rate-list-details-head-img" _nickname_block="_nickname_block" _userid="$u.weiboUserId"></a>
+	 						<span class="single-rate-list-details-head-name"  _nickname_block="_nickname_block" _userid="$u.weiboUserId">
+	 							<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile">
+	 								$!u.nickName
+	 							</a>
+	 						</span>
+	 						#if($currentUserId!=$u.weiboUserId)
+		 						#if($u.beFollowed)
+		 							<button class="single-rate-list-details-attention addFriendBtn" title="取消关注" _userid="$u.weiboUserId" flag="unFollowFlag">取消关注</button>
+		 						#else
+	 								<button class="single-rate-list-details-attention addFriendBtn"  title="加关注" _userid="$u.weiboUserId" flag="followFlag">+加关注</button>
+	 							#end
+	 						#end
+	 						<span class="single-rate-list-details-bet">
+	 							#if($u.certificationType == 1)
+									<i class="niu" title="大V彩牛人" style="background:url('../images/niu.png') 50% no-repeat;width: 32px;height: 15px;display: inline-block;float: left;margin-top: -27px;"></i>
+								#end
+	 							开奖<i>$!u.realWeibo7OpenCount</i>单，盈利<em>$!u.realWeibo7GainCount</em>单，过单率<label class="
+	 							#if($u.guodanlv >= 90)
+	 								color-a
+	 							#elseif($u.guodanlv >= 70)
+	 								color-b
+	 							#elseif($u.guodanlv >= 50)
+	 								color-c
+	 							#else
+	 								color-d
+	 							#end
+	 						">$!u.guodanlv%</label></span>
+	 					</div>
+ 					</li>
+				#end
+ 			</ul>
+ 		</div>
+ 		
+ 		 <div class="someone-page-win-bouns">
+ 			<p><img src="images/win-bouns-list.png"><a href="javascript:void(0);" id="zhongjiangjine_tip_que"><img src="images/question.png" class="someone-page-win-bouns-prompt"></a></p>
+ 			<button class="someone-page-win-bouns-key-attention"  id="follow_all_zhongjiang_user">一键关注</button>
+ 			<p class="chart-wide-line"><img src="images/chart-wide-line.png"></p>
+ 			<div class="someone-page-win-bouns-question-prompt-bg"  id="zhongjiangjine_tip" style="display:none">中奖奖金，是指用户最近7天已开奖的晒单方案的中奖金额的总和。</div>
+ 			<ul class="single-rate-list">
+ 				#foreach($u in $bonusUsers)
+					<li  #if($currentUserId!=$u.weiboUserId) _uid="$u.weiboUserId" #end
+					 	 #if($u.totalBonus < 1) style="display:none" #end>
+	 					<span class="order-number">$velocityCount</span>
+	 					<div class="single-rate-list-details">
+	 				 		<a  target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile"><img  src="$u.headImageURL" _nickname_block="_nickname_block" _userid="$u.weiboUserId" src="images/head-img.png" class="single-rate-list-details-head-img"></a>
+	 						<span class="single-rate-list-details-head-name"  _nickname_block="_nickname_block" _userid="$u.weiboUserId">
+	 							<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile">
+	 								$!u.nickName
+	 							</a>
+	 						</span>
+	 						#if($currentUserId!=$u.weiboUserId)
+		 						#if($u.beFollowed)
+		 							<button class="single-rate-list-details-attention addFriendBtn" title="取消关注" _userid="$u.weiboUserId" flag="unFollowFlag">取消关注</button>
+		 						#else
+		 							<button class="single-rate-list-details-attention addFriendBtn"  title="加关注" _userid="$u.weiboUserId" flag="followFlag">+加关注</button>
+		 						#end
+		 					#end
+	 						<span class="single-rate-list-details-bet">
+	 							#if($u.certificationType == 1)
+									<i class="niu" title="大V彩牛人" style="background:url('../images/niu.png') 50% no-repeat;width: 32px;height: 15px;display: inline-block;float: left;margin-top: -27px;"></i>
+								#end
+	 							开奖<i>$!u.realWeibo7OpenCount</i>单，
+	 							盈利<em style="font-style: normal;">$!u.realWeibo7GainCount</em>单，
+	 							总奖金<label class="money color-red" >
+	 								#if($u.totalBonus<10000)
+	 									#set($bonus = $u.totalBonus.toString())
+	 									#set($index = $bonus.indexOf("."))
+	 									#set($a = $bonus.substring(0,$index))
+	 									$a元
+	 								#else
+	 									#set($u.totalBonus = $u.totalBonus/10000)
+	 									#set($bonus = $u.totalBonus.toString())
+	 									#set($index = $bonus.indexOf("."))
+	 									#set($a = $bonus.substring(0,$index))
+	 									#set($index = $index+1)
+	 									#set($b = $bonus.substring($index))
+	 									#if($b.length() > 2)
+	 										#set($b = $b.substring(0,2))
+	 									#end
+	 									$a.$b万元
+	 								#end
+	 							</label>
+	 						</span>
+	 					</div>
+	 				</li>		
+				#end
+ 			</ul>
+ 		</div>
+
+ 		<div class="someone-page-active-user">
+ 			<p><img src="images/active-user.png"></p>
+ 			<span class="someone-page-active-user-change"  id="change_active_user_btn" _page="1"><a href="javascript:void(0);" >不感兴趣？换换看</a></span>
+ 			<button class="someone-page-active-user-key-attention"  id="follow_all_active_user">一键关注</button>
+ 			<p class="chart-wide-long-line"><img src="images/chart-wide-long-line.png"></p>
+ 			
+ 			<ul class="someone-page-active-user-content"  id="active_users_ul">
+ 				#foreach($u in $activeUsers)
+	 				<li #if($currentUserId!=$u.weiboUserId) _uid="$u.weiboUserId" #end>
+	 					<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile"><img src="$u.headImageURL" _nickname_block="_nickname_block" _userid="$u.weiboUserId" class="someone-page-active-user-content-head-img"></a>
+	 					<span class="someone-page-active-user-content-head-name"  _nickname_block="_nickname_block" _userid="$u.weiboUserId">
+	 						<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile">
+	 							$u.nickName
+	 							#if($u.certificationType == 1)
+									<i class="niu" title="大V彩牛人" style="background:url('../images/niu.png') 50% no-repeat;width: 32px;height: 15px;display: inline-block;"></i>
+								#end
+	 						</a>
+	 					</span>
+	 					#if($currentUserId!=$u.weiboUserId)
+	 						#if($u.beFollowed)
+	 							<button class="someone-page-active-user-content-attention addFriendBtn" title="取消关注" _userid="$u.weiboUserId" flag="unFollowFlag">取消关注</button>
+	 						#else
+	 							<button class="someone-page-active-user-content-attention addFriendBtn"  title="加关注" _userid="$u.weiboUserId" flag="followFlag" >+加关注</button>
+	 						#end
+	 					#end
+	 					<span class="someone-page-active-user-content-details">主贴(<i>$u.weiboCount</i>)<em>|</em>关注(<i>$u.followingCount</i>)<em>|</em>粉丝(<i>$u.followerCount</i>)</span>
+	 				</li>
+				#end
+ 			</ul>
+ 		</div>
+ 	</div>
+</div>

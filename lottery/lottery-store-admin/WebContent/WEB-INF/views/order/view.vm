@@ -1,0 +1,38 @@
+#set($title="查看资金变更详情")
+<div class="w">
+	<div class="tabH" id="tabLinks">
+		<span class="current"><b>资金变更详情</b></span>
+	</div>
+	<div class="bx_c">
+		<table cellspacing="0" class="tab">
+			<tr>
+				<td style="text-align:right;width:120px;">流水号：</td><td>${order.id}</td>
+				<td style="text-align:right;width:120px;">用户ID：</td><td>${order.userId}</td>
+      </tr>
+			<tr>
+				<td style="text-align:right;">订单类型：</td><td>$status.order(${order.type})</td>
+				<td style="text-align:right;">交易时间：</td><td>$date.format("yyyy-MM-dd HH:mm", ${order.createdTime})</b></td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">交易金额：</td><td>￥${order.amount}元</td>
+				<td style="text-align:right;">总费用：</td><td>￥${order.fee}元</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">涉及现金账户金额：</td><td>￥${order.fundAmount}元</td>
+				<td style="text-align:right;">涉及赠款账户金额：</td><td>￥${order.grantAmount}元</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">源订单ID：</td><td>$!{order.originId}</td>
+				<td style="text-align:right;">关联对象ID：</td><td>$!{order.relatedId}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">操作员ID：</td>
+				<td colspan="3">$!{order.operatorId}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">备注：</td>
+				<td colspan="3">$!{order.note}</td>
+			</tr>
+		</table>
+  </div>
+</div>

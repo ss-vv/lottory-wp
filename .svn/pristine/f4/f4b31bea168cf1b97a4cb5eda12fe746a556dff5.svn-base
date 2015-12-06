@@ -1,0 +1,73 @@
+<script id="match-date-tmpl" type="text/x-jquery-tmpl">
+	<tr class="table-bet-box-time">
+  	    <td colspan="10">
+    		<p class="time">{{entrustTimeView}}&nbsp(11:00&nbsp--&nbsp次日11:00)</p>
+    		<a href="javascript:void(0);" class="table-bet-box-hide" _n="hideMatch">隐藏</a>
+    	</td>
+    </tr>
+</script>
+<script id="jczq-match-tmpl" type="text/x-jquery-tmpl">
+	{{#match}}
+	<tr {{{displayMatch}}} class="table-bet-box-match  hover-event" matchGroupIndex="{{matchGroupIndex}}" league-name="{{leagueName}}">
+		<td rowspan="">{{codeView}}</td>
+		<td rowspan="2">
+			<div _n="entrustDeadline">{{{entrustDeadlineView}}}</div>
+			<div _n="matchStartTime" style="display:none">{{{matchStartTimeView}}}</div>
+		</td>
+			<td rowspan="2" league-range-id="{{codePlayingTime}}">
+	    		<a href="javascript:void(0);"><span class="bet-match-league-range"></span>{{homeTeamName}}</a><br/>
+	    		<i class="color-red">VS</i><br/>
+	    		<a href="javascript:void(0);"><span class="bet-match-league-range"></span>{{guestTeamName}}</a>
+	    	</td>
+		<td>0</td>
+	   	<td  {{{oddsStatus}}}  _i="{{i}}" _j="0" _p="80ZC2"  style="{{sfpdisplay}}">
+	   		<div odds-type="spf"><a href="javascript:void(0);">{{spf3odd}}</a></div>
+	   	</td>
+		<td  {{{oddsStatus}}}  _i="{{i}}" _j="1" _p="80ZC2" style="{{sfpdisplay}}">
+			<div odds-type="spf"><a href="javascript:void(0);">{{spf1odd}}</a></div>
+		</td>
+		<td  {{{oddsStatus}}} _i="{{i}}" _j="2" _p="80ZC2" style="{{sfpdisplay}}">
+			<div odds-type="spf" ><a href="javascript:void(0);">{{spf0odd}}</a></div>
+		</td>
+		{{{sfpweikaiHtml}}}
+		<td rowspan="2" _i="{{i}}" class="mixed-default" _n="mix-odds-btn">
+			<div>
+				<i _n="select-hunhe-bet-count"></i>
+				<span>更多</span>
+				<div class="line"></div>
+			</div>
+		</td>
+		<td odd-match-id="{{codePlayingTime}}" odd-type="init">
+			<span style="cursor: default;" >--</span>&nbsp;&nbsp;&nbsp;
+			<span style="cursor: default;" >--</span>&nbsp;&nbsp;&nbsp;
+			<span style="cursor: default;" >--</span>
+		</td> 
+		<td rowspan="2">
+			<a target="_blank" href="http://www.davcai.com/odds/fbEuroOdds?daVCaiMatchId={{id}}" class="color-blue">欧</a>&nbsp;&nbsp;
+			<a target="_blank" href="http://www.davcai.com/odds/fbAsianOdds?daVCaiMatchId={{id}}" class="color-blue">亚</a>&nbsp;&nbsp;
+			<a target="_blank" href="http://www.davcai.com/analyse/fbAnalyse?daVCaiMatchId={{id}}" class="color-blue">析</a><br/>
+			<a href="javascript:void(0);" class="write-red">
+				<img {{{writeRecClass}}} _i="{{i}}" match-id="{{id}}" match-str="{{matchString}}" src="http://trade.davcai.com/df/images/bet/write-red.png"/>
+			</a>
+		</td>
+	</tr>
+	<tr {{{displayMatch}}} class="table-bet-box-match hover-together"  matchGroupIndex="{{matchGroupIndex}}"  league-name="{{leagueName}}">
+	 	<td class="event-name" style="background-color: {{color}};"><a href="javascript:void(0);">{{leagueName}}</a></td>
+	 	<td>{{defaultScoreView}}</td>
+		<td  {{{oddsStatus}}} _i="{{i}}" _j="0" _p="01ZC2">
+			<div odds-type="rqspf"><a href="javascript:void(0);">{{rqspf3odd}}</a></div>
+		</td>
+		<td  {{{oddsStatus}}} _i="{{i}}" _j="1" _p="01ZC2">
+			<div odds-type="rqspf"><a href="javascript:void(0);">{{rqspf1odd}}</a></div>
+		</td>
+		<td  {{{oddsStatus}}} _i="{{i}}" _j="2" _p="01ZC2">
+			<div odds-type="rqspf"><a href="javascript:void(0);">{{rqspf0odd}}</a></div>
+		</td>
+		<td odd-match-id="{{codePlayingTime}}" odd-type="instant">
+		    <span style="cursor: default;">--</span>&nbsp;&nbsp;&nbsp;
+			<span style="cursor: default;">--</span>&nbsp;&nbsp;&nbsp;
+			<span style="cursor: default;">--</span>
+		</td>
+	</tr>
+	{{/match}}
+</script>

@@ -1,0 +1,429 @@
+body{
+	padding-top: 30px;/*因为头部导航栏部分设定了fixed,这样才可以使得导航栏固定位置不变，而不是随着浏览器滚动条的滚动而变化。因为设置了fixed。所以导航栏脱离了文档流，
+	这个时候下面的就会视为导航栏不存在，而挤上去，这个时候，给body设置padding-top:30px.加上30px应该是给导航栏留的空白位置。这样挡住下边的元素不往上跑
+*/
+}
+#searching{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+}
+.marp{
+	margin-top:28px !important;
+}                       /*这段是为了让search-user页面趋于完美，css看不出为什么，只能特殊指定了*/
+.welcomepage-head{
+	width: 100%;
+	height: 58px;
+	line-height: 58px;
+    background:url(../images/welcomepage-head-bg.png) repeat-x ;	
+    margin: 0 auto;
+    position: fixed; 
+    left: 0;
+    top: 0;
+      /*这段代码里面的 position: fixed;是为了使头部导航固定不变。2014/08/26  lwc*/
+    z-index:999999;
+}
+
+.welcomepage-head .welcomepage-head-content{
+	width: 985px;
+	height: 58px;
+	line-height: 58px;
+	margin: 0 auto;
+}
+#logo{
+	float: left;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+#logo a{
+	width: 84px;
+	height: 48px;
+	background:url(../images/logo.png);
+    display: inline-block;
+    margin-top: 2px;
+  }
+.welcomepage-head-content form{
+	width: 240px;
+ 	height: 29px;
+ 	display: inline-block;
+ 	margin-top: 14px;
+}
+.welcomepage-head-content form #head-search{
+ 	width: 240px;
+ 	height: 16px;
+ 	line-height: 16px;
+ 	padding: 8px 0;
+ 	/*background:url(../images/head-search-bg.png);*/
+ 	border: none;
+ 	text-indent: 20px;
+ 	font-size: 12px;
+ 	color: #A8A8A8;
+ 	font-family: "微软雅黑";
+ 	float: left;
+ }
+.welcomepage-head-content .magnifier a{
+ 	width: 16px;
+ 	height: 20px;
+ 	display: inline-block;
+ 	background:url(../images/magnifier.png);
+ 	float: right;
+ 	margin-top: -24px;
+ 	margin-right: 8px;
+ }
+/*上面部分是通用的导航栏部分*/
+
+/*下面开始searching-dropdown-menu搜索下拉菜单部分*/
+.searching-dropdown-menu{
+	width: 238px;
+	min-height: 50px;
+	/*border: 1px #ffffff solid;开始的时候，添加上，好看，但是聚焦的时候，铺不满，显示白色边框，可以添加#ccc属性颜色，但是不好看。所以取消，退一步*/
+	border: 1px #cccccc\9 solid;/*针对IE写的*/
+	background: #fff;
+	float: left;
+	margin-top: 3px;
+	padding-bottom: 10px;
+	box-shadow: 0 0 6px rgba(0,0,0,.6);
+	-webkit-box-shadow:0 0 6px rgba(0,0,0,.6);
+	-moz-box-shadow: 0 0 6px rgba(0,0,0,.6);
+	display: none;
+}
+
+.searching-dropdown-menu li{
+	width: 238px;
+	height: 28px;
+	line-height: 28px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	padding-left: 10px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+}
+.searching-dropdown-menu li.no-menu{
+	margin-top: 16px;
+}
+.searching-dropdown-menu li:first-child{
+	margin-top: 5px;
+}
+.searching-dropdown-menu li.no-menu h3{
+	color: #020202;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.searching-dropdown-menu li a{
+	color: #999999;
+	width: 186px;
+	height: 28px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+i,em{
+	font-family: "微软雅黑";
+	font-style: normal;
+}
+.searching-dropdown-menu li em{
+	color: #2AA1FF;
+}
+.searching-dropdown-menu li label{
+	color: #DBDBDB;
+	float: right;
+	margin-right: 3px;
+}
+.searching-dropdown-menu li.dropdown-menu-user{
+	width: 238px;
+	height: 48px;
+}
+.searching-dropdown-menu li.dropdown-menu-user span.dropdown-menu-user-logo a{
+	width: 36px;
+	height: 36px;
+	background:url(../images/dropdown-menu-user.png);
+	display: inline-block;
+	margin-top: 6px;
+	margin-right: 7px;
+	float: left;
+}
+.searching-dropdown-menu li.dropdown-menu-user a{
+	width: 180px;
+	height: 26px;
+	display: inline-block;
+	margin-top: 10px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover{
+	background: #E22319;
+	border-left: 6x #E22319 solid;
+	border-right: x #E22319 solid;
+
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover a{
+	color: #ffffff;
+}
+.searching-dropdown-menu li.dropdown-menu-user:hover a em{
+	color: #ffffff;
+}
+/*上面部分是搜索框下拉菜单部分*/
+
+
+
+
+#searching .searching-content{
+	width: 985px;
+	height: 100%;
+	margin: 0px auto;
+}
+#searching .searching-content .searching-content-left{
+	width: 143px;
+	height: 100%;
+	border-right:1px #EAEAEA solid;
+	float: left;
+	}
+.searching-content-left .left-menu{
+	width: 140px;
+	margin-top: 50px;
+}
+.left-menu li{
+	width: 140px;
+	height: 50px;
+	border-bottom: 1px #EAEAEA solid;
+}
+.left-menu li {
+	font-family: "微软雅黑";
+	color: #000000;
+	font-size: 18px;
+}
+.left-menu li a{
+	color: #000000;
+	display:inline-block;
+	padding:23px 0 10px 14px;
+}
+.left-menu li:hover a{
+	color: #000000;
+	font-weight: bold;
+	display:inline-block;
+	padding:23px 0 10px 14px;
+}
+.left-menu li.active a{
+	color: #000000;
+	font-weight: bold;
+	display:inline-block;
+	padding:23px 0 10px 14px;
+}
+
+/*上面是左边菜单部分*/
+
+#searching .searching-content-right{
+	width: 838px;
+	height: auto;
+	float: right;
+}
+.searching-content-right .tab{
+	width: 400px;
+	height: 43px;
+	margin-left: 15px;
+	margin-top: 65px;
+}
+
+.searching-content-right .tab li{
+	float: left;
+}
+.searching-content-right .tab li a{
+	color: #000000;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.searching-content-right .tab li{
+	width: 71px;
+	height: 37px;
+	text-align: center;
+	padding-top: 8px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin-right: 50px;
+}
+.searching-content-right .tab li:hover{
+	background:url(../images/searching-tab-bg.png);
+	cursor: pointer;
+}
+.searching-content-right .tab li.active{
+	background:url(../images/searching-tab-bg.png);
+	cursor: pointer;
+}
+.searching-content-right .tab li.active a{
+	color: #ffffff;
+}
+.searching-content-right .tab li:hover a{
+	color: #fff;
+}
+
+/*上面是searching-content-right内容用户菜单切换部分*/
+.searching-content-right  p.search-form{
+	clear:both;
+}
+.searching-content-right  p.search-form  input{
+	width: 553px;
+	/*height: 14px !important;*/
+	height: 20px;
+	line-height: 20px;       /*input表现高度写为height line-height  和padding 是为了兼容谷歌浏览器下面的光标居中 一致的问题，
+	这个高度FF识别15px之上的，所以增加了高度，减小了padding*/
+	padding: 5px 0;
+	border:1px #C3C3C3 solid;
+	margin-left: 15px;
+	margin-right: 18px;
+	float: left;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	text-indent: 10px;
+}
+.searching-content-right  p.search-form button{
+	width: 72px;
+	height: 31px;
+	border: none;
+	background:url(../images/search-bg.png);
+	cursor: pointer;
+}
+.searching-content-right  p.search-result{
+	background: #F7F6F6;
+	border: 1px #EAEAEA solid;
+	width: 650px;
+	height: 35px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 20px;
+	text-indent: 6px;
+	padding-top: 8px;
+	padding-right: 10px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin-bottom: 20px;
+}
+p.search-result em{
+	font-family: "微软雅黑";
+	font-style: normal;
+	color: #E22319;
+	font-weight: bold;
+}
+p.search-result span{
+	width: 420px;
+	height: 18px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+p.search-result label{
+	float: right;
+	color: #A2A2A2;
+	font-size: 14px;
+}
+p.search-result label a{
+	color: #000;
+}
+p.search-result label a:hover{
+	color: #A80901;
+}
+p.search-result label a.active{
+	color: #A80901;
+}
+/*上面部分是tab 搜索部分*/
+
+.searching-content-right .searching-shaidan{
+	width: 589px;
+	height: auto;
+	clear: both;
+	margin-left: 10px;
+}
+
+.bottom-line{
+	width: 985px;         /*这段是底部的线条部分*/
+	height: 65px;
+	border-top: 1px #EAEAEA solid;
+	clear: both;
+	margin: 0 auto;
+}
+/*下面开始用户切换部分*/
+.searching-content-right .searching-user{
+	width: 589px;
+	height: auto;
+	clear: both;
+	margin-left: 10px;
+	display: none;
+}
+.searching-user .list{
+	width: 570px;
+	height: auto;
+}
+.searching-user .list li{
+	width: 655px;
+	height: 100px;
+	border-bottom: 1px #EAEAEA solid;
+}
+.list li img.user-logo{
+	float: left;
+	width: 56px;
+	height: 54px;
+	margin: 23px 7px auto 5px;
+}
+.list li span.user-name{
+	width: 400px;
+	height: 22px;
+	line-height: 22px;
+	display: inline-block;
+	margin-top: 20px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.list li span.user-name a{
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #3CA1FF;
+}
+em{
+	font-style: normal;
+}
+.list li p.status{
+	width: 400px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: -2px;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: #5F5F5F;
+    font-family: "微软雅黑";
+    font-size:12px;
+}
+.list li p.review{
+	width: 400px;
+	height: 34px;
+	margin-left: 60px;
+	overflow:hidden;
+	/*white-space: nowrap;*/
+    text-overflow:ellipsis;
+    color: #5F5F5F;
+    font-size:12px;
+    line-height: 16px;
+    margin-top: -3px;
+}
+.list li span.attention{
+	float: right;
+	margin-top:-68px ;
+	margin-right: 25px;
+}
+.list li span.attention button{
+	padding: 7px 16px;
+	background: #E22319;
+	border: none;
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}

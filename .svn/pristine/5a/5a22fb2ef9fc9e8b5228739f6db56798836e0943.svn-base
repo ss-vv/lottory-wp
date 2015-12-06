@@ -1,0 +1,28 @@
+#set($p_title="银行卡信息")
+#set($pos = "bank")
+
+<div class="mod mod-c mod-c-a wh-mh">
+	<div class="mh">
+		<div class="tt">银行卡信息</div><div class="tt c-i fwn">温馨提醒：银行卡信息必须与账户实名信息一致，否则无法提现</div>
+	</div>
+	<div class="mm">
+    	<div class="formbox formbox-a formbox-a-b mp-c">
+    		<div class="row">
+    			<label class="lbl wh-a">开户名：</label><div class="tips">$Text.hideString(${user.truename}, 1)</div>
+    		</div>
+    		<div class="row">
+    			<label class="lbl wh-a">开户银行：</label><div class="tips">${acc.bank}</div>
+    		</div>
+    		<div class="row">
+    			<label class="lbl wh-a">银行卡号：</label><div class="tips">$Text.hideString(${acc.accountNumber}, 12)</div>
+    		</div>
+    		<div class="row">
+    			<label class="lbl wh-a"></label>
+    			<a class="btnx2 btnx2-b fl" href="javascript:void(0);" onclick="location='$base/tobank.do'">
+            <span class="inbtn"><input class="iptbtn" type="button" value="修改" /></span>
+          </a>
+    		</div>
+    		<span class="clear"></span>
+    	</div>
+	</div>
+</div>

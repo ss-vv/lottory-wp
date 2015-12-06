@@ -1,0 +1,98 @@
+<div class="mod mod-c mod-c-a wh-mh">
+	<div class="mh">
+		<div class="tt">提现</div>
+	</div>
+	<div class="mm">
+		<form id="wForm" action="$base/withdraw/apply.do" method="post">
+    		<div class="formbox formbox-a mp-g bgbrr-b">
+    			<div class="row">
+    				<a class="btnx2 btnx2-b fl" href="javascript:void(0);">
+              <span class="inbtn"><input class="iptbtn" type="button" value="提现" /></span>
+            </a>
+    				<div class="tips">提现无手续费，如果提现成功，款项在1-3个工作日到达您的账户</div>
+    			</div>
+    			<span class="clear"></span>
+    		</div>
+    		<div class="formbox formbox-a formbox-a-b mp-c">
+    			<div class="row">
+    				<label class="lbl wh-a">账户名：</label>
+    				<div class="tips">$Text.hideString(${user.truename}, 1)</div>
+    			</div>
+    			<div class="row">
+    				<label class="lbl wh-a">开户银行：</label>
+    				<div class="tips">${account.bank}</div>
+    			</div>
+    			<div class="row">
+    				<label class="lbl wh-a">银行卡号：</label>
+    				<div class="tips">$Text.hideString(${account.accountNumber}, 12)</div>
+    				<a class="btnx2 btnx2-b fl" href="http://www.davcai.com/edit_bank_info" title=""><span class="inbtn"><input class="iptbtn" type="button" value="修改" /></span></a>
+    			</div>
+    			<div class="row">
+    				<label class="lbl wh-a">可提金额：</label>
+    				<div class="tips wh-b"><b class="c-i">${account.fund}元</b></div>
+    			</div>
+    			<div class="row">
+    				<label class="lbl wh-a">提现金额：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb"><input id="aIpt" class="inipttxt" type="text" name="amount" maxlength="6" _fund="${account.fund}"/></div>
+					#if($!fieldErrors.amount)
+						<label class="tips c-i">$!fieldErrors.amount.get(0)</label>
+					#end
+				  </div>
+    			<div class="row">
+    				<label class="lbl wh-a">提现密码：</label>
+    				<div class="ipttxt ipttxt-b wh-txtb"><input class="inipttxt" type="password" name="passwd" maxlength="20"/></div>
+					#if($!fieldErrors.passwd)
+						<label class="tips c-i">$!fieldErrors.passwd.get(0)</label>
+					#end
+				  </div>
+    			<div class="row">
+    				<label class="lbl wh-a">&nbsp;</label>
+    				<a class="btnx2 btnx2-b fl" href="javascript:void(0);">
+              <span class="inbtn"><input class="iptbtn" type="submit" value="立即提现" /></span>
+            </a>
+    			</div>
+    			<span class="clear"></span>
+    		</div>
+		</form>
+		#include("/inc/withdram_note.inc")
+	</div>
+</div>
+
+<script language="javascript">
+$(function(){
+    var J = jQuery;
+    $('#wForm').bind('submit', function(){
+        var amount = J.trim($('#aIpt').val());
+        var passwd = J.trim($('#wForm input[name="passwd"]').val());
+        if(amount == ''){
+            alert('请输入提现金额');
+            $('#aIpt').focus();
+            return false;
+        }
+        if(!(/^\d+(\.\d{1,2})?$/.test(amount)) || amount <= 0){
+            alert('请输入有效提现金额：如123或1.23');
+            $('#aIpt').focus();
+            return false;
+        }
+        if(parseFloat(amount) < 10.00){
+            alert('最小提现金额为10元');
+            $('#aIpt').focus();
+            return false;
+        }
+        if(parseFloat(amount) > parseFloat($('#aIpt').attr('_fund'))){
+            alert('可提现金额不足');
+            return false;
+        }
+        if(passwd == ''){
+            alert('请输入提现密码');
+            return false;
+        }
+        if(passwd.length < 6){
+            alert('提现密码最短6个字符');
+            return false;
+        }
+        
+        return true;
+    });
+});
+</script>  

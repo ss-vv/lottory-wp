@@ -1,0 +1,192 @@
+@charset "utf-8";
+/*
+ * Properties 属性
+ * style 样式
+ */
+/* width height */
+.wh-mg .mm {height:500px;}
+.wh-mh .mm {height:418px;}
+.wh-mi .mm {height:505px;}
+.wh-a {width:84px;}
+.wh-b {width:180px;}
+.wh-txtb .inipttxt {width:88px; height:22px; line-height:22px;}
+@-moz-document url-prefix()
+{
+   .wh-txtb .inipttxt {height:18px\0; padding-top:4px\0;}
+}
+.wh-txtb-a .inipttxt {width:220px;}
+/* color */
+.c-c {color:#3273d8!important;}
+.c-f {color:#999!important;}
+.c-i {color:#f00!important;}
+/* margin padding */
+.mp-ma {margin-top:10px!important;}
+.mp-b {margin-bottom:-10px!important;}
+.mp-c {padding:12px 30px!important;}
+.mp-d {margin:10px 20px!important; padding:10px 20px!important;}
+.mp-e {padding:6px 20px!important;}
+.mp-f {margin:0 15px!important;}
+.mp-g {margin:10px!important; padding:3px 10px!important;}
+.mp-h {padding-left:84px!important;}
+/* background border */
+.bgbrr-a {border-top:#ccc 1px dashed;}
+.bgbrr-b {background-color:#e9f2fe; border:#d1e3fd 1px solid;}
+/*
+ * Elements 元素
+ * style 样式
+ */
+/* icns */
+.icns16_read {background-position:0 -48px;}
+.icns16_unread {background-position:0 -64px;}
+/* ipttxt */
+.ipttxt-b {background-color:#fff; border:1px solid; border-color:#f3b18c #ffeee2 #ffecdf #f5ba9a;}
+/* iptchk */
+.bank {height:39px;}
+.bank .iniptchk {margin-top:13px; margin-top:12px\0; margin-top:10px\9; *margin-top:9px;/*ie7、ie6*/ _margin-top:8px;/*ie6*/}
+.bank img {width:103px; height:39px; margin-left:6px; margin-right:2px; float:left;}
+/* selectbox */
+.selectbox-b {background-color:#fff; border:1px solid; border-color:#f3b18c #ffeee2 #ffecdf #f5ba9a;}
+.selectbox-b .tt {line-height:22px;}
+.selectbox-b .icns {margin-top:4px;}
+.selectbox-b .selectlst {top:22px;}
+/* btn */
+.btnx2-b,
+.btnx2-b .inbtn {height:23px; line-height:23px;}
+.btnx2-b {color:#8f1e00; padding-right:3px; background-position:right -107px;}
+.btnx2-b .inbtn {width:58px; padding-left:3px; background-position:0 -84px;}
+.btnx2-b .iptbtn {color:#8f1e00; width:58px; height:23px;}
+.btnx2-b:hover {color:#8f1e00; background-position:right -153px;}
+.btnx2-b:hover .inbtn {background-position:0 -130px;}
+.btnx2-c,
+.btnx2-c .inbtn {height:23px; line-height:23px;}
+.btnx2-c {color:#fff; padding-right:3px; background-position:right -199px;}
+.btnx2-c .inbtn {width:58px; padding-left:3px; background-position:0 -176px;}
+.btnx2-c .iptbtn {color:#fff; width:58px; height:23px;}
+.btnx2-c:hover {color:#fff; background-position:right -245px;}
+.btnx2-c:hover .inbtn {background-position:0 -222px;}
+/*
+ * content 内容
+ * style 样式
+ */
+/* mod */
+.mod-c {background-color:#fff; border:#ffcdab 1px solid;}
+.mod-c .mh {height:28px; background:url(../images/mod/mh-c.png) repeat-x; border-bottom:#ffcdab 1px solid;}
+.mod-c .mh .tt {color:#8f1e00; margin:3px 0 0 10px;}
+.mod-c-a .mh {background:#fff7e1;}
+/* tabh */
+.tabh-e {height:29px; margin-bottom:-1px; position:relative;}
+.tabh-e a {color:#8f1e00; font-weight:bold; margin:3px 0 0 10px;}
+.tabh-e span {padding:0 16px;}
+.tabh-e a:hover {color:#8f1e00; text-decoration:none; margin-top:2px; background-color:#fff; border:#ffcdab 1px solid; border-bottom:none;}
+.tabh-e a:hover span {height:25px; padding:0 15px;}
+.tabh-e .cur span,
+.tabh-e .cur:hover span {height:26px; padding:0 15px;}
+.tabh-e .cur,
+.tabh-e .cur:hover {margin-top:2px; background-color:#fff; border:#ffcdab 1px solid; border-bottom:none;}
+/* nav */
+.nav .row {height:28px; border-top:#fff 1px solid; border-bottom:#fee6c6 1px solid;}
+.nav .row_tt {line-height:28px; font-weight:bold; padding-left:20px; background-color:#fff7e1;}
+.nav .row a,
+.nav .row .bg_l,
+.nav .row .bg_r {cursor:pointer; display:block;}
+.nav .row a {margin:4px 10px 0;}
+.nav .row .bg_l {padding:0 2px;}
+.nav .row .bg_r {height:18px; line-height:18px; padding-left:40px; background:url(../images//nav_cur.gif) no-repeat 30px 0; border-top:#fff 1px solid; border-bottom:#fff 1px solid;}
+.nav .row a:hover {text-decoration:none;}
+.nav .row a:hover,
+.nav .row a:hover .bg_l,
+.nav .row .cur,
+.nav .row .cur .bg_l {background:url(../images//nav.gif) no-repeat;}
+.nav .row a:hover {color:#fff; background-position:right -20px;}
+.nav .row a:hover .bg_r {background-position:30px -18px; background-color:#ff9138; border-color:#ff6d39;}
+.nav .row .cur,
+.nav .row .cur:hover {color:#fff; background-position:right -60px;}
+.nav .row .cur .bg_l,
+.nav .row .cur:hover .bg_l {background-position:0 -40px;}
+.nav .row .cur .bg_r,
+.nav .row .cur:hover .bg_r {background-position:30px -18px; background-color:#ff7506; border-color:#ff4808;}
+/* infobox */
+.infobox {padding:1px; background-color:#fff; border:#d1e3fd 1px solid;}
+.infobox .row {padding-bottom:5px; background-color:#e9f2fe;}
+.infobox .row .fl {margin:0 15px;}
+.infobox .row b.fl,
+.infobox .row .btnx2 {margin-top:10px;}
+.infobox .row .btnx2 {margin-left:0; margin-right:10px;}
+/* formbox */
+.formbox .lbl,
+.formbox .tips {display:inline; float:left;}
+.formbox .row_l .lbl {display:inline; float:right;}
+.formbox-a .row {padding-bottom:3px;}
+.formbox-a .lbl,
+.formbox-a .ipttxt,
+.formbox-a .selectbox,
+.formbox-a .iptchk,
+.formbox-a .btnx2,
+.formbox-a .tips {margin-top:3px; margin-right:6px;}
+.formbox-a .lbl {margin-right:0;}
+.formbox-a-b .row {padding-bottom:6px;}
+.formbox-a-b .lbl {text-align:right;}
+.formbox-a-b .lbl,
+.formbox-a-b .ipttxt,
+.formbox-a-b .selectbox,
+.formbox-a-b .iptchk,
+.formbox-a-b .btnx2,
+.formbox-a-b .tips {margin-top:6px;}
+/* tipsbox */
+.tipsbox-a {line-height:18px;}
+/* tblbox */
+.tblbox-c {background-color:#fff; border:#ccc 1px solid;}
+.tblbox-c .tbl {border-top:#fff 1px solid;}
+.tblbox-c th {height:28px; background:url(../images/tblbox-c.png) repeat-x; border-right:#ccc 1px solid;}
+.tblbox-c .thr,
+.tblbox-c .tdr {border-right:none;}
+.tblbox-c .tdc {text-align:left;}
+.tblbox-c td {text-align:center; border-right:#ccc 1px solid; border-bottom:#ccc 1px solid;}
+.tblbox-c .tdr a {color:#3273d8; margin-right:10px;}
+.tblbox-c-a {border-left:none; border-right:none;}
+.tblbox-c-a th,
+.tblbox-c-a td {border-right:none;}
+.tblbox-c-a .tdtt td {border-bottom:none;}
+.tblbox-c-a td {padding:3px 0;}
+.tblbox-c-a .iptchk {margin-left:10px;}
+.tblbox-c-a .iptchk .icns {margin:3px 0 0 5px; float:left;}
+
+
+/*nb:no border*/
+.search-box {text-align:right;margin-right: 14px; margin-bottom: 4px;}
+/* bet */
+.tblbox-c .follow_count{
+    margin: 0 0;
+    padding: 0;
+    background: url(../images/hot.png) no-repeat 28px 28px;
+    background-position: 0 0;
+    color: red;
+}
+.tblbox .tdc {text-align:left;padding-left: 10px;}
+/*end*/
+
+/*sencond tab*/
+.st {padding-left:20px;padding-right:20px;padding-top:5px;height:30px;position:relative;}
+.st a {display:inline-block; color:#0F3F94;width:63px;text-decoration:underline;text-align:center;}
+.st .line {border-right: 1px solid #C2C2C2;height: 12px;margin-top: 6px;overflow: hidden;width: 1px;}
+.st .cur {color:#000000;text-decoration:none;}
+
+/*btn*/
+.btn_dora_s {
+	background:url("../images/img/sprite_btn.png") no-repeat scroll 0 0 transparent;
+	display:inline-block;
+	border:0 none;
+	cursor:pointer;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.btn_dora_s {
+    background-position: -220px 0;
+    color: #FFFFFF;
+    height:22px;
+    line-height: 24px;
+    text-decoration: none;
+    width: 45px;
+}
+

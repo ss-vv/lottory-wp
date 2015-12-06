@@ -1,0 +1,13 @@
+#Redis
+redis.url=182.92.191.193
+redis.port=22122
+pushServerUrl=http://182.92.191.193:18080/push-server/comet
+pushHXServerUrl=http://182.92.191.193:28080/lottery-api/syncLiveScores
+
+# getui
+appID = 9muQJk6wtX6SHpbe3RW0o9
+appSecret = rQCSfqGOYj5IeS4r5W4nBA
+appKey = CpHzBK7BWm9O6wsPpfFOkA
+masterSecret = 5iySk2XZLQ62pQWbSNnyX
+
+ge.tui = http://sdk.open.api.igexin.com/apiex.htm

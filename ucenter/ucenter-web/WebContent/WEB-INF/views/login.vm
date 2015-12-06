@@ -1,0 +1,67 @@
+#set($layout="weibo/default_with_topics_footer.vm")
+#set($p_title="登录-大V彩")
+
+<div class="fupper">
+	<div id="head">
+		<h1><span id="flogo" title="彩票是一种消遣，交流能创造财富">彩票是一种消遣，交流能创造财富</span></h1>
+	</div>
+	<div class="login">
+		<div class="register">
+			<a href="#" class="index-color-bold go" onclick="toRegistPage('http://www.davcai.com/upload-head-img','http://www.davcai.com/welcome')">注册大V彩帐号</a>
+		</div>
+		<div class="login-box">
+			<div>
+				<form action="#" method="post" id="loginForm">
+					<input type="hidden" name="referer" value="http://www.davcai.com/index"/>
+					<input type="hidden" name="failReturnURL" value="http://www.davcai.com/welcome"/>
+					<div class="email">
+						<div class="email-wrap">
+							<span>
+								<input id="username" name="username" tabindex="1" 
+									type="text" autocomplete="off" title="用户名或邮箱帐号登录"
+									placeholder="用户名" class="placeholderHack"/>
+							</span>
+						</div>
+					</div>
+					<div class="password">
+						<div class="password-wrap">
+							<span>
+								<input id="password" name="password" tabindex="2"
+									autocomplete="off" title="请输入密码" 
+									type="password" placeholder="密码" class="placeholderHack"/>
+							</span>
+						</div>
+					</div>
+					<div class="regread">
+						<a href="forget" class="region-switcher index-color-bold">忘记密码?</a>
+						<input type="checkbox" id="remember_me" name="rememberMe" checked="checked" class="login-checkbox" tabindex="3"/>
+						<label for="remember_me" class="rem-me">记住我</label>
+					</div>
+					<div class="login-button">
+						<input type="button" tabindex="4" value="登 录" class="button_red regbtn" onclick="login()">
+							<a href="http://www.davcai.com/index.html" class="index-color-bold go_old" target="_blank" >访问旧版大V彩</a>
+					</div>
+				</form>
+			</div>
+			<div class="un-login">
+				<div class="connect-link-wrap">
+					<div class="connectlink">
+						<ul class="fconnect-link">
+							<li class="sina"><a id="sina_login" href="#" onclick="loginBySina('http://www.davcai.com/sina_weibo_login')"><i></i>新浪微博登录</a></li>
+							<li class="qq"><a id="qq_login" href="#" onclick="loginByQQ('http://www.davcai.com/qq_weibo_login')"><i></i>QQ&nbsp;微博登录</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<img width="624" height="375" src="images/index_capture.png" alt="Welcome" class="promo">
+	
+</div>
+<script type="text/javascript">
+	var username = jQuery.cookie('username');
+	if(undefined != username && null != username &&　"null" != username){
+		jQuery("#username").val(username);
+	}
+</script>

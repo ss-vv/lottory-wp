@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>我的大V彩微博首页</title>
+<meta name="keywords" content="我的首页 - 大V彩微博">
+<meta name="description" content="我的首页 - 大V彩微博">
+<link rel="shortcut icon" href="http://www.davcai.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/emoticon.css">
+<link rel="stylesheet" type="text/css" href="css/detail.css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<script type="text/javascript" src="js/jquery.emoticons.js"></script>
+<script type="text/javascript" src="js/showReplyArea.js"></script>
+
+<script type="text/javascript">
+	
+</script>
+
+</head>
+<body id="my-home">
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<h1 id="logo">
+					<span><a href="/">大V彩</a></span>
+				</h1>
+				<div class="nav_logined">
+					<ul class="nav">
+						<li><a class="out" href="/">首页</a></li>
+						<li class="dropdown">
+							<a href="javascript:void(0);" class="dropdown-toggle out">精华<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li class=""><a href="#">今日话题</a></li>
+								<li class=""><a href="#">热门讨论</a></li>
+								<li class=""><a href="#">兴趣推荐</a></li>
+								<li class=""><a href="#">最新发表</a></li>
+								<li class=""><a href="#">大V彩微博访谈</a></li>
+							</ul>
+						</li>
+						<li class=""><a class="out" href="#">推荐</a></li>
+						<li class="guide_div_two guide_div"><a class="out" href="#">投注</a></li>
+					</ul>
+					<ul class="nav pull-right account">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle">屌丝玩大V彩,屌丝玩大V彩<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#"><img src="images/avatar_01.png" width="30px" height="30px">屌丝玩大V彩,屌丝玩大V彩</a>
+								</li>
+								<li class=""><a href="#">个人设置</a></li>
+								<li class=""><a href="#">彩票设置</a></li>
+								<li><a href="http://localhost" class="exit">退出</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<div class="search">
+					<form method="get" action="#">
+						<input id="quick-search" name="q" type="text" autocomplete="off" placeholder="搜索 彩票/讨论/用户" class="typeahead">
+					</form>
+					<label><span class="icon"><i></i></span></label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="center" class="container">
+		<!-- 左侧用户头像开始 -->
+		<div class="head-list fl">
+			<a href="javascript:void(0)">
+				<img src="images/avatar_01.png" alt="屌丝玩大V彩" 
+					width="50px" height="50px" class="shadow">
+			</a>
+		</div>
+		<!-- 左侧用户头像结束 -->
+		
+		<!-- 内容部分开始 -->
+		<div class="main">
+			<a href="javascript:void(0)">屌丝玩竞彩</a>
+			<h2>平安转债太迅速了，平安转债为目前最有吸引力的可转债？</h2>
+			<p>
+				平安转债太迅速了，平安转债为目前最有吸引力的可转债？
+				2013 年 11 月 22 日网下申购
+				。初始转股价格：41.33 元/股。A 股股份数按每股配售 5.432 元可转债的比例，并按 1,000 元/手转换成手数。
+				票面利率：第一年为 0.8%、第二年为 1.0%、第三年为 1.2%、第四年为 1.8%、第五年为 2.2%、第六年为 2.6%。
+				债券到期偿还：在本次发行的可转债期满后五个交易日内，发行人将以本次
+				发行的可转债的票面面值的 108%（含最后一期年度利息）的价格向投资者兑付全部未
+				转股的可转债。
+				$中国平安(SH601318)$ $中国平安(02318)$ $平安银行(SZ000001)$ $中国人寿(SH601628)$ $民生转债(SH110023)$ $中行转债(SH113001)$ $工行转债(SH113002)$
+				平安股东们，赚钱要购物要上呀饭粒呀。<a href="">http://www.davcai.com</a>
+			</p>
+			<div class="status-list">
+				<div class="meta">
+					<div class="infos">
+						<a href="#" class="time">2分钟前</a><span>来自大V彩微博</span>
+					</div>
+					<div class="ops">
+						<a href="javascript:void(0);" class="repost">转发(355)</a>
+						<a href="javascript:void(0);" class="share">分享</a>
+						<a href="javascript:void(0);" class="addFav">收藏</a>
+						<a href="javascript:void(0);" class="statusComment last">评论(92010)</a>
+					</div>
+				</div>
+			</div>
+			<!-- 评论容器开始 -->
+			<div class="editor">
+				<form action="http://www.davcai.com" method="POST">
+					<div class="editor-wrapper editorHack" id="publish">
+						<div id="emotionArea"><textarea class="text" id="status-box" name="自定义"></textarea></div>
+						<div class="emotion">
+							<span title="插入表情" id="message_face" class="face"><s></s><span>表情</span></span>
+							<span title="过滤赛事" class="match"><s></s><span>赛事</span></span>
+							<span class="to-home"><input type="checkbox" checked="checked"/>同时转发到我的首页 </span>
+						</div>
+						<!-- 显示表情 -->
+						<!-- 
+						<br>
+						<div><a href="JavaScript:void(0)" id="show_face">显示表情</a></div>
+						<div class="show_emotion"></div>
+						 -->
+					</div>
+					<div class="editor-footer">
+						<div class="submit-container">
+							<input type="button" value="发布" class="submit main-submit disabled">
+						</div>
+						<div class="back-container"></div>
+						<div class="footer-controller"></div>
+					</div>
+				</form>
+			</div>
+			<!-- 评论容器开始 -->
+			<!-- 全部评论 -->
+			<div class="commentInfo" style="">
+				<div class="hd">
+					<span class="commentNum">全部评论<span class="counts">(5)</span></span>
+				</div>
+				<div class="loading" style="display: none;"></div>
+				<ul class="commentList">
+					<li>
+						<div class="headpic"><a href="#">
+							<img width="30px" height="30px" src="images/avatar_01.png"></a>
+						</div>
+						<div class="content">
+							<div>
+								<div class="comment">
+									<a href="javascript:void(0)">噼里啪啦鼎龙狂狼</a>：
+								</div>
+								<div class="cmt_con">
+									<span>
+										常理来说不对的,券商首先保障自己的利益,你卖了券肯定要还他们的钱,然后才可以自由操作,现金还他们管不着。
+									</span>
+								</div>
+								<div class="ops">
+									<div class="infos">
+										<span class="createAt">3秒前</span>
+									</div>
+									<div class="replyBtn">
+										<a href="javascript:void(0)" class="like">赞</a>
+										<a href="javascript:void(0)" class="reply last">回复</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="headpic">
+							<a href="javascript:void(0)"><img width="30px" height="30px" src="images/avatar_01.png"></a>
+						</div>
+						<div class="content">
+							<div>
+								<div class="comment">
+									<a href="javascript:void(0)">V5德胜</a>：
+								</div>
+								<div class="cmt_con">
+									<span>
+										每一个LI就是一条回复，在这里重复
+									</span>
+								</div>
+								<div class="ops">
+									<div class="infos">
+										<span class="createAt">3秒前</span>
+									</div>
+									<div class="replyBtn">
+										<a href="javascript:void(0)" class="like">赞</a>
+										<a href="javascript:void(0)" class="reply last">回复</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 内容部分结束 -->
+		
+	</div>
+	<div id="footer">
+		<div class="risk">提示：大V彩微博里任何用户或者嘉宾的发言，都有其特定立场，投注决策需要建立在独立思考之上。</div>
+		<div class="copyright">
+			<a href="/about/faq" target="_blank">常见问题</a>
+			<a href="/about/contact-us" target="_blank">联系方式</a>
+			<a href="/about/jobs" target="_blank">加入我们</a>
+			<a href="/about" target="_blank">关于大V彩微博</a><a>© 2013 .COM</a>
+			<a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证100666号</a>
+		</div>
+	</div>
+</body>
+</html>

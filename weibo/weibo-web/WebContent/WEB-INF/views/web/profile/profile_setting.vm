@@ -1,0 +1,117 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="基本资料")
+#set($styles=["css/profile.css","css/imgareaselect/imgareaselect-default.css"])
+
+#set($scripts=["js/cities.js","js/web/profile/profile.js","js/web/login.js",
+	"js/imgareaselect/jquery.imgareaselect.pack.js",
+	"js/jquery.form.js",
+	"js/web/profile/basicinfo.js"])
+
+<div id="modify-data">
+	#parse("web/profile/inc/profile_header.vm")
+	<!--省市js代码-->
+	<script>
+	  var province = "$!{user.province}";
+	  var city = "$!{user.city}";
+	
+	  //初始化城市和地区的选择框
+	  function initPA(prov, area) {
+	    jQuery("select[id='" + prov +"']").each(function(){
+	      jQuery(this).empty();
+	      for(var i = 0; i < arrCity.length; i++) {
+	        if(i > 0) {
+	          jQuery("<option value='" + arrCity[i]['name'] +"'>" + arrCity[i]['name'] + "</option>").appendTo(this);
+	        } else {
+	          jQuery("<option value=''>" + arrCity[i]['name'] + "</option>").appendTo(this);
+	        }
+	      }   
+	    });
+	    
+	    jQuery("select[id='" + prov +"']").css('width', 'auto');
+	    
+	    jQuery("select[id='" + area +"']").each(function(){
+	      jQuery(this).empty();
+	      jQuery("<option value=''>" +  arrCity[0]['sub'][0]['name'] + "</option>").appendTo(this);
+	    });
+	    
+	    jQuery("select[id='" + prov +"']").change(function(){
+	      jQuery("select[id='" + area +"']").empty();
+	      var selectedIndex = jQuery(this).find("option:selected")[0].index;
+	      for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+	        var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+	        if(i > 0) {
+	                jQuery("<option value='" + areaName +"'>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+	        } else {
+	          jQuery("<option value=''>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+	        }
+	      }
+	    });
+	    
+	    if(province.length > 0){
+	      setTimeout(function(){
+	        jQuery("select[id='" + prov +"']").val(province);
+	        var selectedIndex = jQuery("select[id='" + prov + "'] option[value='" + province +"']")[0].index;
+	        
+	        for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+	          var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+	          if(i > 0) {
+	                jQuery("<option value='" + areaName +"'>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+	          } else {
+	            //jQuery("<option value=''>" + areaName +"</option>").appendTo(jQuery("select[id='" + area +"']"));
+	          }
+	        }
+	      }, 1);
+	    }
+	    
+	    if(city.length > 0){
+	      setTimeout(function(){
+	        jQuery("select[id='" + area +"']").val(city);
+	      }, 1);
+	    }
+	    
+	  }
+	
+	  jQuery(function(){ 
+	    initPA("province", "city");
+	  });
+	</script>
+    <form id="setting_user_profile_form" action="/ajax_save_profile" method="post"  class="modify-data-form">
+        <ul>
+	        	<li>
+	        		<label>昵称</label>
+	        		<input id="nickname" type="text" name="newUserProfile.nickName" value="$!{user.nickName}">
+	          		<i class="modify-data-form-redstar">*</i>
+					<span class="err" id="nickname_tip" style="float: left;margin-top: 6px;"></span>
+	          	</li>
+	          	<li>
+	            	<label class="place">居住地</label>
+	            	<select id="province" name="newUserProfile.province"></select>
+					<select id="city" name="newUserProfile.city"></select>
+	            </li>
+	            <li>
+      	    		<label class="gender">性别</label>
+	                <select id="gender" name="newUserProfile.gender">
+	                    <option id="genderN" value="0" name="gender" #if(${user.gender} == 0) selected='selected' #end>不详</option>
+	                    <option id="genderMale" value="1" name="gender" #if(${user.gender} == 1) selected='selected' #end>男</option>
+	                	<option id="genderFemale" value="2" name="gender" #if(${user.gender} == 2) selected='selected' #end>女</option>
+	                </select>
+				</li>
+				<li class="long">
+	                <label class="person-profile">个人简介</label>
+	                <textarea id="desc" cols="60" rows="5" name="newUserProfile.individualResume" max_num="200" optional="1" null_text="" over_text="个人简介请控制在200个字以内" class="jq_watermark" data-jq-watermark="processed" style="font-size: 14px;">$!{user.individualResume}</textarea>
+				</li>
+				<li class="modify-data-form-li">
+					<label></label>
+					<button id="save_profile_btn" class="modify-data-form-confirm">确定</button>
+				</li>
+		</ul>
+    </form>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#grzl').attr('class','active');	
+		jQuery("#setting_user_profile_form").submit(function(){
+		   return false;
+		})
+	});
+</script>

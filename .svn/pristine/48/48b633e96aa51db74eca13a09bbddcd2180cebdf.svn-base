@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  <title>$!{p_title}-大V彩</title>
+  <meta name="keywords" content="大V彩,竞彩足球,竞彩篮球,足彩,竞彩专家推荐,竞彩专家#if($!{keywords}),$!{keywords}#end" />
+  <meta name="description" content="买竞彩,选大V彩,大V彩是中国最好最安全的网上投注平台,免费发布竞彩专家推荐信息,最新足球篮球资讯#if($!{description}),$!{description}#end" />
+  <link type="text/css" rel="stylesheet" href="$base/css/layout.css" />
+  <link type="text/css" rel="stylesheet" href="$base/css/ucenter.css" />
+  #foreach($s in $styles)
+  <link type="text/css" rel="stylesheet" href="$base/${s}.css" />
+  #end
+  <script language="javascript" type="text/javascript" src="$base/js/jquery.js"></script>
+  #foreach($s in $scripts)
+  <script language="javascript" type="text/javascript" src="$base/${s}.js"></script>  
+  #end
+  <script language="javascript" type="text/javascript" src="http://www.davcai.com/js/jet.js"></script>
+  <script language="javascript" type="text/javascript" src="http://www.davcai.com/js/web/notification.js"></script>
+</head>
+<body>
+#parse("inc/header_login.vm")
+<div class="wrap">
+  <div class="inwrap">
+    <div class="uhere mp-b">
+      <div class="inuhere">您的位置：<a href="http://www.davcai.com">首页</a> &gt; <a href="http://login.davcai.com">个人中心</a> &gt; $!{p_title}</div>
+    </div>
+    <div class="main">
+      <div class="box">
+        <div class="lyl lyw-f fl">
+          <div class="mod mod-c wh-mg">
+            <div class="mh">
+              <div class="tt"><b class="icns"></b>我的账户</div>
+            </div>
+            <div class="mm">
+              <div class="nav">
+                <div class="row row_tt">投注管理</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/record/bet.do" "bet" $pos "投注记录")</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/record/myjoinfollow.do" "joinfollow" $pos "晒单记录")</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/record/myjoingroupbuy.do" "groupbuy" $pos "合买记录")</div>
+                <div class="row row_tt">资金管理</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/balance.do" "bal" $pos "账户明细")</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/recharge.do" "rh" $pos "充值")</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/withdraw.do" "wh" $pos "提现")</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/voucher.do" "myvoucher" $pos "优惠卷")</div>
+                <div class="row row_tt">定制管理</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/cmlist.do" "mycus" $pos "我的定制")</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/cmlist.do?type=1" "cusme" $pos "定制我的")</div>
+                <div class="row row_tt">账户管理</div>
+                <div class="row">#umenu("/info.do" "uinfo" $pos "基本资料")</div>
+                <div class="row">#umenu("/passwd.do" "passwd" $pos "密码管理")</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/bank.do" "bank" $pos "银行卡信息")</div>
+                <div class="row">#umenu("/email.do" "vemail" $pos "邮箱验证")</div>
+                <div class="row">#umenu("/mobile.do" "vmobile" $pos "手机管理")</div>
+                <div class="row row_tt">站内信息</div>
+                <div class="row">#umenu("http://trade.davcai.com/ac/inbox.do" "inbox" $pos "收件箱")</div>
+                <div class="row row_tt">安全退出</div>
+                <div class="row">#umenu("/sso/logout.do" "logout" "" "退出登录")</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lyr lyw-g fr">
+          $screen_content
+        </div>
+        <span class="clear"></span>
+      </div>
+    </div>
+  </div>
+</div>
+#parse("inc/footer_login.vm")
+</body>
+</html>

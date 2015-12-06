@@ -1,0 +1,113 @@
+#set($p_title="手机号码修改")
+#set($pos = "vmobile")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="mod mod-c mod-c-a wh-mh">
+  <div class="mh">
+    	<div class="tabh tabh-e">
+			<a href="http://login.davcai.com/mobile.do"><span>手机号码验证</span></a>
+			<a class="cur" href="javascript:void(0);"><span>手机号码修改</span></a>
+		</div>
+  </div>
+  <div class="mm">
+    <div class="tipsbox tipsbox-a mp-d">
+      <div class="row">
+            1.为了更好保护您的帐户，请务必确保您的手机信息填写正确。<br />
+            2.我们承诺不收取任何费用和发送垃圾短信，也不会向第三方提供您的手机号，请放心验证。<br />
+      <span class="clear"></span>
+    </div>
+    <div class="formbox formbox-a formbox-a-b mp-c">
+        <form id="eForm" method="post">
+            #if($mobile != "")
+              <div class="row">
+                <label class="lbl wh-a">当前手机号码：</label>
+                <div id="mobile" class="tips wh-a">$mobile</div>
+                <div class="tips c-f">#if($verify)手机号码已经验证#end</div>
+              </div>
+            #end
+            <div class="row">
+              <label class="lbl wh-a">新的手机号码：</label>
+              <div class="ipttxt ipttxt-b wh-txtb wh-txtb-b"><input id="newMobile" class="inipttxt" name="newMobile" value="$!{newMobile}" maxlength="11" type="text"></div>
+              <div class="tips c-i"></div>
+              <a id="sendNewCode" class="btnx2 btnx2-b fl" href="javascript:void(0);">
+                <span class="inbtn"><input class="iptbtn" type="button" value="发验证码" /></span>
+              </a>
+              <div class="tips c-f"></div>
+            </div>
+            <div class="row" id="checkcode" style="display:none;">
+              <label class="lbl wh-a">验证码：</label>
+              <div class="ipttxt ipttxt-b wh-txtb wh-txtb-b" style="width:60px;"><input class="inipttxt" maxlength="6" type="text" name="code" value=""></div>
+              <div class="tips c-i">
+                #foreach($e in $errors)
+                  $e
+                #end
+              </div>
+            </div>
+            <div class="row" id="checksubmit" style="display:none;">
+              <label class="lbl wh-a">&nbsp;</label>
+              <a class="btnx2 btnx2-b fl" href="javascript:void(0);">
+                <span class="inbtn"><input class="iptbtn" type="submit" value="确认修改"></span>
+              </a>
+            </div>
+        </form>
+        <span class="clear"></span>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<SCRIPT>
+  $(function(){
+	if('$!{newMobile}'!=''){
+		$("#checkcode").toggle();
+		$("#checksubmit").toggle();
+	}
+    $('#sendNewCode').bind('click', function(){
+        if(jQuery.trim($('#newMobile').val()) == ''){
+            alert('请输入新的手机号码！');
+            return false;
+        }
+        if($('#eForm').valid()){
+          jQuery.getJSON('aj_smscode_change.do', {mobile: $('#newMobile').val(), t: new Date().getTime()}, function(data){
+              if(data.success){
+                  alert('验证码已发出，如没有收到，请重新发送验证码');
+                  $("#checkcode").css("display","block");
+          		  $("#checksubmit").css("display","block");
+              } else {
+                  alert(data.data);
+              }
+          });
+        }
+    });
+  
+    $('#eForm').bind('submit', function(){
+      if($('#eForm input[name=code]').val() == ''){
+        alert('请输入验证码！');
+        return false;
+      }
+    });
+
+
+    jQuery.validator.addMethod("mobileCheck", function(value, element) {       
+        return this.optional(element) || /^1\d{10}$/.test(value);       
+    }, "请输入正确的手机号码");
+    
+    $('#eForm').validate({
+        errorPlacement: function(error, element) { //验证消息放置的地方
+            error.appendTo(element.parent("div").next("div"));
+        },
+        rules: {
+            'newMobile': {
+                mobileCheck: true,
+                required:true
+            }
+        },
+        messages:{
+     		'newMobile': "请输入手机号码"
+     	}
+    });
+    
+    
+  });
+</SCRIPT>

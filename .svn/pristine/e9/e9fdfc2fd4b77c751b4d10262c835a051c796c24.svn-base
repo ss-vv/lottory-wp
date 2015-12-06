@@ -1,0 +1,44 @@
+#set($p_title="关于我们")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="晒单推荐,跟单推荐,中奖排行榜")
+#set($styles = ["css/hack-bootstrap", "css/about"])
+#set($scripts = ["js/faq"])
+
+<div class="wrapper">
+    <div class="slide_box">
+        <ul>
+		    <li><a href="http://trade.davcai.com/df/about/about">关于我们</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/coop">商务合作</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/legal">法律声明</a></li>
+		    <li class="active-bg" id="faq">
+				<img src="$base/images/fdown.png">
+				<a href="javascript:void(0);">常见问题</a>
+			</li>
+            <ul id="faq_sub" style="display:none">
+				<li handler="regist">
+					<a href="javascript:void(0);">注册登录</a>
+				</li>
+				<li handler="recharge"><a href="javascript:void(0);">账户充值</a></li>
+				<li handler="account"><a href="javascript:void(0);">我的账户</a></li>
+				<li handler="cash"><a href="javascript:void(0);">兑奖提现</a></li>
+				<li handler="buy"><a href="javascript:void(0);">购买彩票</a></li>
+				<li handler="play"><a href="javascript:void(0);">彩种玩法</a></li>
+				<li handler="show"><a href="javascript:void(0);">晒单跟单</a></li>
+				<li handler="group"><a href="javascript:void(0);">合买</a></li>
+			</ul>
+		</ul>
+    </div>
+	
+	<div class="main_about">
+        <ul class="faq_content">
+            <li style="display:block" class="regist_li">#include("/about/faq/regist.vm")</li>
+            <li class="recharge_li">#include("/about/faq/recharge.vm")</li>
+			<li class="account_li">#include("/about/faq/account.vm")</li>
+			<li class="cash_li">#include("/about/faq/cash.vm")</li>
+			<li class="buy_li">#include("/about/faq/buy.vm")</li>
+			<li class="play_li">#include("/about/faq/play.vm")</li>
+			<li class="show_li">#include("/about/faq/show.vm")</li>
+			<li class="group_li">#include("/about/faq/group.vm")</li>
+		</ul>
+    </div>
+</div>

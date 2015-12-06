@@ -1,0 +1,31 @@
+<script id="weibo-groupbuy-form-tmpl" type="text/x-jquery-tmpl">
+	<div weiboBetFormDiv style="margin-top:15px" weibo-footer-element>
+		<form  id="{{postId}}_betForm" weiboBetForm action="http://trade.davcai.com/ac/betconfirm_in_weibo.do" method="post">
+		  	<div class="follow-page-content">	<i class="follow-page-content-i"></i><s class="follow-page-content-s"></s>
+				<div class="follow-page-content-editor">
+					<textarea  weiboBetTextarea style="resize: none;line-height: 20px;padding: 5px 5px;width:325px;height:86px;border: 0;font-family:Microsoft YaHei;font-size:13px;color: #aaa;" name="followRealWeiboContent" >{{followRealWeiboContent}}</textarea>
+					<div textareaRestwordsDiv class="" style="color: #aaa;margin-top: 3px;float: right;" ></div>
+				</div>
+				<input type="hidden" name="type" value="3"/>
+				<input type="hidden" name="schemeId" value="{{schemeId}}"/>
+				<div class="follow-page-content-right">
+					<p>发起人保底：&nbsp;<span>{{floorAmount}}</span></p>
+					<p>合买提成：&nbsp;<span>{{shareRatio}}%</span></p>
+					<p>可认购金额：&nbsp;<span _n="canBuy">{{canBuyAmount}}</span>元</p>
+					<p>我要认购&nbsp;<input maxlength="4" type="text" name="buyAmount" value="1"></input>&nbsp;元</p>
+				</div>
+		  	</div>
+			<div  class="follow-page-bottom">
+				<div class="editor fn-btn" style="width:300px;margin-top:0px;dislay:inline-block;" ><div class="emotion selector">
+					<span title="插入表情" class="face" follow_face style="" _postid="{{postId}}"><s></s>
+					<span>表情</span></span>
+					<span title="过滤赛事" class="match matchFindForward game_show_btn" style=""><s></s>
+						<span style="margin-right:10px;">赛事</span>
+					</span>
+				<span><label style="vertical-align:middle;display:inline-block;margin-top:3px;"><input type="checkbox" name="repost" checked="checked" style="vertical-align: middle;margin-right:8px;"/>同时转发</label></span>
+				</div></div>
+				<input  class="Immediately-bet" type="button" name="投注" value="立即投注" _n="groupbuy_schema_confirm_btn" style="padding: 8px 8px;border-radius: 3px;"></input>
+			</div>
+		</form>
+	</div>
+</script>

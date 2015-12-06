@@ -1,0 +1,26 @@
+package com.xhcms.lottery.admin.persist.service;
+
+import java.util.List;
+
+import com.xhcms.lottery.commons.data.Play;
+
+/**
+ * <p>Title: 玩法管理</p>
+ * <p>Description: </p>
+ * <p>Copyright：Copyright (c) 2011</p>
+ * <p>Company：XingHui Spirit (Beijing) Technical Co.,Ltd.</p>
+ * 
+ * @author jiajiancheng
+ * @version 1.0.0
+ */
+public interface PlayService {
+
+    List<Play> list(String lottery);
+
+    Play getWithPassType(String playId);
+    
+    void add(Play play);
+
+    void remove(String id);
+
+}

@@ -1,0 +1,168 @@
+#set($p_title="基本资料")
+#set($pos="uinfo")
+
+#set($scripts = ["js/cities", "js/jquery.validate"])
+<script>
+    $(function(){
+        var gender = $!user.gender;
+        $('input[name=gender]').each(function(){
+            if($(this).val() == gender){
+                $(this)[0].checked = true;
+            }
+        });
+    });
+</script>
+<div class="mod mod-c mod-c-a wh-mh">
+  <div class="mh">
+    <div class="tt">基本资料</div>
+  </div>
+  <div class="mm">
+      <form id="iForm" method="post">
+        <div class="formbox formbox-a formbox-a-b mp-c">
+          <div class="row">
+            <label class="lbl wh-a">真实姓名：</label>
+            <div class="tips wh-b">$Text.hideString(${user.realname}, 1)</div>
+            ##<a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input onclick="javascript:location='$base/realname.do'" class="iptbtn" type="button" value="提交申请"></span></a>
+            <div class="tips c-f">如果您填写有误，请提交修改申请</div>
+          </div>
+          <div class="row">
+            <label class="lbl wh-a">身份证号：</label>
+            <div class="tips wh-b">#if(${user.idNumber})$Text.hideString(${user.idNumber}, 12)#else 尚未提交身份证明#end</div>
+            ##<a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input onclick="javascript:location='$base/idnumber.do'" class="iptbtn" type="button" value="提交申请"></span></a>
+            <div class="tips c-f">如果您填写有误，请提交修改申请</div>
+          </div>
+          <div class="row">
+            <label class="lbl wh-a">手机：</label>
+            <div class="tips wh-b">
+              #if(${user.mobile})${user.mobile}#else 尚未填写手机号码#end
+            </div>
+            <a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input onclick="javascript:location='$base/mobilechange.do'" class="iptbtn" type="button" value="修改"></span></a>
+          </div>
+          <div class="row">
+            <label class="lbl wh-a">邮箱：</label>
+            <div class="tips wh-b">#if(${user.email})${user.email}#else 尚未验证邮箱#end</div>
+            <a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input onclick="javascript:location='/email.do'" class="iptbtn" type="button" value="修改"></span></a>
+          </div>
+          <div class="row">
+            <label class="lbl wh-a">性别：</label>
+            <label class="iptchk"><input class="iniptchk" name="gender" type="radio" value="0"><span>保密</span></label>
+            <label class="iptchk"><input class="iniptchk" name="gender" type="radio" value="1"><span>男</span></label>
+            <label class="iptchk"><input class="iniptchk" name="gender" type="radio" value="2"><span>女</span></label>
+          </div>
+          <div class="row">
+            <label class="lbl wh-a">所在城市：</label>
+            <div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+              <select name="province"></select>
+            </div>
+            <label class="tips">省</label>
+            <div class="tips c-i"></div>
+            <div class="ipttxt ipttxt-b wh-txtb wh-txtb-a">
+              <select name="city"></select>
+            </div>
+            <label class="tips">市</label>
+            <div class="tips c-i"></div>
+          </div>
+          <div class="row">
+            <label class="lbl wh-a"></label>
+            <a class="btnx2 btnx2-b fl" href="javascript:void(0)"><span class="inbtn"><input class="iptbtn" type="submit" value="保存"></span></a>
+          </div>
+          <span class="clear"></span>
+        </div>
+      </form>
+      <div class="tipsbox tipsbox-a mp-d bgbrr-a">
+        <div class="row">验证手机和邮箱的好处：<br />
+        1.令帐户安全性大大提高，即使被破解密码或者忘记密码也可以短信认证和重设<br />
+        2.更方便快捷享受我们的服务，例如及时知道我们网站的各项优惠活动等<br />
+        3.中奖和出票等第一手讯息可以即时收到，免除后顾之忧，而且全是免费的</div>
+        <span class="clear"></span>
+      </div>
+  </div>
+</div>
+<script>
+  var province = "$!{user.province}";
+  var city = "$!{user.city}";
+
+  //初始化城市和地区的选择框
+  function initPA(prov, area) {
+    $("select[name='" + prov +"']").each(function(){
+      $(this).empty();
+      for(var i = 0; i < arrCity.length; i++) {
+        if(i > 0) {
+          $("<option value='" + arrCity[i]['name'] +"'>" + arrCity[i]['name'] + "</option>").appendTo(this);
+        } else {
+          $("<option value=''>" + arrCity[i]['name'] + "</option>").appendTo(this);
+        }
+      }   
+    });
+    
+    $("select[name='" + prov +"']").css('width', 'auto');
+    
+    $("select[name='" + area +"']").each(function(){
+      $(this).empty();
+      $("<option value=''>" +  arrCity[0]['sub'][0]['name'] + "</option>").appendTo(this);
+    });
+    
+    $("select[name='" + prov +"']").change(function(){
+      $("select[name='" + area +"']").empty();
+      var selectedIndex = $(this).find("option:selected")[0].index;
+      for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+        var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+        if(i > 0) {
+                $("<option value='" + areaName +"'>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+        } else {
+          $("<option value=''>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+        }
+      }
+    });
+    
+    if(province.length > 0){
+      setTimeout(function(){
+        $("select[name='" + prov +"']").val(province);
+        var selectedIndex = $("select[name='" + prov + "'] option[value='" + province +"']")[0].index;
+        
+        for(var i =0; i < arrCity[selectedIndex]['sub'].length; i++) {
+          var areaName = arrCity[selectedIndex]['sub'][i]['name'];
+          if(i > 0) {
+                $("<option value='" + areaName +"'>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+          } else {
+            //$("<option value=''>" + areaName +"</option>").appendTo($("select[name='" + area +"']"));
+          }
+        }
+      }, 1);
+    }
+    
+    if(city.length > 0){
+      setTimeout(function(){
+        $("select[name='" + area +"']").val(city);
+      }, 1);
+    }
+    
+  }
+
+  $(function(){ 
+    initPA("province", "city");
+    
+    $('#iForm').validate({
+        errorPlacement: function(error, element) { //验证消息放置的地方
+            error.appendTo(element.parent("div").next().next("div"));
+        },
+        rules: {
+            'province': {
+                required: true
+            },
+            'city': {
+                required: true
+            }
+        },
+        messages: {
+           'province': {
+                required: '请选择省份'
+            },
+            'city': {
+                required: '请选择城市'
+            }
+        }
+    });
+    
+  });
+</script>

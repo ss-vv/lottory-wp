@@ -1,0 +1,48 @@
+<div class="bx_c">
+    <table cellspacing="0" class="tab" id="dataGrid">
+      <tr>
+        <th style="width:50px;text-align:center;">编号</th>
+        <th style="width:160px;text-align:center;">彩票号码</th>
+        <th style="width:60px;text-align:center;">倍数</th>
+        <th style="width:80px;text-align:right;">金额（元）</th>
+        <th style="width:100px;text-align:right;">税后奖金（元）</th>
+        <th style="width:80px;text-align:center;">状态</th>
+        <th style="width:80px;text-align:center;">投注时间</th>
+        <th style="width:60px;text-align:center;">操作</th>
+      </tr>
+      #foreach($t in ${tickets})
+      <tr>
+        <td style="text-align:center;">${t.id}</td>
+        <td style="text-align:center;">#if(${t.number})${t.number}#else -- #end</td>
+        <td style="text-align:center;">${t.multiple}</td>
+        <td style="text-align:right;">￥${t.money}</td>
+        <td style="text-align:right;">#if(${t.afterTaxBonus})￥${t.afterTaxBonus}#end</td>
+        <td style="text-align:center;">$status.bet(${t.status})</td>
+        <td style="text-align:center;">$date.format("MM-dd HH:mm", ${t.createdTime})</td>
+        <td style="text-align:center;">
+          <a href="javascript:void(0);" _id="${t.id}" _odds="$!{t.odds}" _code="${t.code}" _ptb="$!{t.preTaxBonus}" _atb="$!{t.afterTaxBonus}" _msg="$!{t.message}">查看详情</a>
+        </td>
+      </tr>
+      #end
+    </table>
+    <table cellspacing="0" class="tab" id="detailView">
+      <tr>
+        <td style="text-align:right;width:150px;">编号：</td>
+        <td _row="id" colspan="3"></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;width:150px;">税前奖金：</td>
+        <td _row="ptb"></td>
+        <td style="text-align:right;width:150px;">税后奖金：</td>
+        <td _row="atb"></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">信息：</td>
+        <td _row="msg" colspan="3"></td>
+      </tr>
+      <tr>
+    	<td style="text-align:right;">投注内容：</td>
+    	<td id="cont" colspan="3"></td>
+      </tr>
+    </table>
+</div>

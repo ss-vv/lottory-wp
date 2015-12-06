@@ -1,0 +1,29 @@
+
+# database
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+# database
+db2.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db2.url = ${db2.url}
+db2.username = ${db2.username}
+db2.password = ${db2.password}
+
+#Redis
+redis.url = ${redis.url}
+redis.port = ${redis.port}
+
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+# btm
+btm.log.1 = /data/logs/btm-news-extract-task1.log
+btm.log.2 = /data/logs/btm-news-extract-task2.log
+
+# active mq
+#amq.brokerURL=${amq.brokerURL}
+#amq.sender.threads =${amq.sender.threads}
+
+solrUrl = ${solrUrl}

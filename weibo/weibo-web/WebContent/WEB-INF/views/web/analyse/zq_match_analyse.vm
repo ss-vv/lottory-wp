@@ -1,0 +1,612 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="足球分析")
+<div id="bet-data-box">
+			<!-----下面开始bet-data-left部分-------->
+			<div class="bet-data-left">
+				<ul class="bdl-menu">
+					<li>
+						<a href="javascript:void(0);" class="current">分析</a>
+					</li> 
+					<li>
+						<a href="$base/odds/fbEuroOdds?daVCaiMatchId=$!{daVCaiMatchId}">欧赔</a>
+					</li>
+					<li>
+						<a href="$base/odds/fbAsianOdds?daVCaiMatchId=$!{daVCaiMatchId}">亚赔</a>
+					</li>
+				</ul>
+			</div>
+			<!----bet-data-left结束--->
+
+			<!-----下面开始bet-data-right部分-------->
+			<div class="bet-data-right">
+			
+				<div class="bdr-top">
+					<span class="bdr-top-left">
+						<img src="../images/davcai/analyse/gldg.png"/>
+				    </span>
+					<div class="bdr-top-middle">
+						<span class="team-name"><a href="javascript:void(0);">$!homeTeamId</a></span>
+						<label class="vs">vs</label>
+						<span class="team-name"><a href="javascript:void(0);">$!guestTeamId</a></span>
+						<p>开赛时间：$!date.format('yyyy-MM-dd HH:mm',$!matchBaseInfoPO.matchTime)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 场地：$!matchBaseInfoPO.city
+						</p>
+						<p> <i class="color-red">$!leagueRankMap.get("leaveTime")</i></p>
+					</div> 
+					
+					<span class="bdr-top-right">
+						<img src="../images/davcai/analyse/admira.png"/>
+					</span>
+  		 	  	
+  		 	   
+				</div>
+			
+				<!-----bdr-top结束了------>
+				<p class="bdr-top-bottom"></p>
+
+				<!-------下面开始bet-data-content------->
+				<div class="bet-data-content">
+					<table class="bdc-menu" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td><a href="javascript:void(0);" class="active" id="lspmdb-tab">联赛排名对比</a>
+							</td>
+							<td><a href="javascript:void(0);" id="sfdzls-tab">双方对阵历史</a>
+							</td>
+							<td><a href="javascript:void(0);" id="zdjqzj-tab">主队近期战绩</a>
+							</td>
+							<td><a href="javascript:void(0);" id="kdjqzj-tab">客队近期战绩</a>
+							</td>
+							<td><a href="javascript:void(0);" id="ssplsj-tab">实时赔率数据</a>
+							</td>
+							<td><a href="javascript:void(0);" id="lsjf-tab">联赛积分榜</a>
+							</td>
+						</tr>
+					</table>
+					<!--------bdc-menu结束了---------->
+				
+					<!-----lspmdb-menu联赛排名对比开始--------------->
+					<table class="lspmdb-menu tabCon" cellpadding="0" border="0" style="display: table;">
+						<tr>
+							<td width="50%">
+								<table cellpadding="0" cellspacing="0" border="1">
+									<tr>
+										<td height="45" colspan="10" bgcolor="#FDF4E0">
+											<a href="javascript:void(0);" target="_blank" class="color-black">
+												<b>$!{matchBaseInfoPO.homeTeamId}[$!matchBaseInfoPO.homeTeamPosition]</b>
+											</a>
+										</td>
+									</tr>
+									<tr bgcolor="#F6EEE0">
+										<td height="28">全场</td>
+										<td>赛</td>
+										<td>胜</td>
+										<td>平</td>
+										<td>负</td>
+										<td>得</td>
+										<td>失</td>
+										<td>积分</td>
+										<td>排名</td>
+										<td>胜率</td>
+									</tr>
+							
+									<tr bgcolor="#ffffff">
+										<td height="28">总</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").goal</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").lose</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamTotalRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamTotalRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28" class="color-red">主场</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").goal</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").lose</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamZCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamZCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#ffffff">
+										<td height="28" class="color-blue">客场</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").goal</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").lose</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamKCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamKCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28">近6场</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").goal</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").lose</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamRankLatest_6").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamRankLatest_6").winRate</td>
+									</tr>
+								</table>
+								<table cellpadding="0" cellspacing="0" border="1">
+									<tr bgcolor="#F6EEE0">
+										<td height="28">半场</td>
+										<td>赛</td>
+										<td>胜</td>
+										<td>平</td>
+										<td>负</td>
+										<td>得</td>
+										<td>失</td>
+										<td>积分</td>
+										<td>排名</td>
+										<td>胜率</td>
+									</tr>
+									<tr bgcolor="#ffffff">
+										<td height="28">总</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").goal</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").lose</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamHalfTotalRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamHalfTotalRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28" class="color-red">主场</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").goal</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").lose</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamHalfZCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamHalfZCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#ffffff">
+										<td height="28" class="color-blue">客场</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").goal</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").lose</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamHalfKCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamHalfKCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28">近6场</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").totalMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").winMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").drawMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").loseMatches</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").goal</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").lose</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").leageScore</td>
+										<td>$!leagueRankMap.get("homeTeamHalfRankLatest_6").rank</td>
+										<td class="color-red">$!leagueRankMap.get("homeTeamHalfRankLatest_6").winRate</td>
+									</tr>
+								</table>
+							</td>
+							
+							<td width="50%">
+								<table cellpadding="0" cellspacing="0" border="1">
+									<tr>
+										<td height="45" colspan="10" bgcolor="#FDF4E0">
+											<a href="javascript:void(0);" target="_blank" class="color-black">
+												<b>$!{matchBaseInfoPO.guestTeamId}[$!matchBaseInfoPO.guestTeamPosition]</b>
+											</a>
+										</td>
+									</tr>
+									<tr bgcolor="#E0ECF3">
+										<td height="28">全场</td>
+										<td>赛</td>
+										<td>胜</td>
+										<td>平</td>
+										<td>负</td>
+										<td>得</td>
+										<td>失</td>
+										<td>积分</td>
+										<td>排名</td>
+										<td>胜率</td>
+									</tr>
+									<tr bgcolor="#ffffff">
+										<td height="28">总</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").goal</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").lose</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamTotalRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamTotalRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28" class="color-red">主场</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").goal</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").lose</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamZCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamZCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#ffffff">
+										<td height="28" class="color-blue">客场</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").goal</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").lose</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamKCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamKCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28">近6场</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").goal</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").lose</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamRankLatest_6").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamRankLatest_6").winRate</td>
+									</tr>
+								</table>
+								<table cellpadding="0" cellspacing="0" border="1">
+									<tr bgcolor="#E0ECF3">
+										<td height="28">半场</td>
+										<td>赛</td>
+										<td>胜</td>
+										<td>平</td>
+										<td>负</td>
+										<td>得</td>
+										<td>失</td>
+										<td>积分</td>
+										<td>排名</td>
+										<td>胜率</td>
+									</tr>
+									<tr bgcolor="#ffffff">
+										<td height="28" class="color-red">总</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").goal</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").lose</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamHalfTotalRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamHalfTotalRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28" class="color-red">主场</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").goal</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").lose</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamHalfZCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamHalfZCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#ffffff">
+										<td height="28" class="color-blue">客场</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").goal</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").lose</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamHalfKCRank").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamHalfKCRank").winRate</td>
+									</tr>
+									<tr bgcolor="#F5F5F5">
+										<td height="28">近6场</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").totalMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").winMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").drawMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").loseMatches</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").goal</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").lose</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").leageScore</td>
+										<td>$!leagueRankMap.get("guestTeamHalfRankLatest_6").rank</td>
+										<td class="color-red">$!leagueRankMap.get("guestTeamHalfRankLatest_6").winRate</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+					</table>
+					<!-------lspmdb-menu联赛排名对比结束了------>
+				
+
+					<!-----下面开始sfdzls-menu双方对阵历史部分------------->
+					<div class="sfdzls-menu BothSide tabCon" id="s_v_against">
+						<div class="BothSide-menu-title">
+							<form action="" method="get">
+								近
+								<select id="v_against" onchange="s_change(this.id,this.value)">
+								</select><i>场</i>
+								<label>
+									<input name="category_v_against" onclick="v_clicklx(this)" id="v_against_qb" type="radio" value="v_against_qb" checked="true" />全部
+								</label>
+								<label>
+									<input name="category_v_against" onclick="v_clicklx(this)" id="v_against_zkx" type="radio" value="v_against_zkx" />主客相同
+								</label>
+								<label>
+									<input name="category_v_against" onclick="v_clicklx(this)" id="v_against_tlx" type="radio" value="v_against_tlx" />同类型
+								</label>
+							</form>
+						</div>
+						<!------BothSide-menu-title结束------>
+
+						<!------下面开始BothSide-table----->
+						
+						<!------上面结束BothSide-table部分----->
+
+					</div>
+					<!-------sfdzls-menu双方对阵历史部分结束了------------->
+
+
+
+
+					<!-----下面开始zdjqzj-menu主队近期战绩部分------------->
+					<div class="zdjqzj-menu BothSide tabCon" id="s_h_against">
+						<div class="BothSide-menu-title">
+							<form action="" method="get">
+								近
+								<select id="h_against" onchange="s_change(this.id,this.value)">
+								</select><i>场</i>
+								<label>
+									<input name="category_h_against" onclick="v_clicklx(this)" id="h_against_qb" type="radio" value="v_against_qb" checked="true" />全部
+								</label>
+								<label>
+									<input name="category_h_against" onclick="v_clicklx(this)" id="h_against_zc" type="radio" value="v_against_zc" />主场
+								</label>
+								<label>
+									<input name="category_h_against" onclick="v_clicklx(this)" id="h_against_tlx" type="radio" value="v_against_tlx" />同类型
+								</label>
+							</form>
+						</div>
+						<!------BothSide-menu-title结束------>
+
+						<!------下面开始BothSide-table----->
+						<!------上面结束BothSide-table部分----->
+
+					</div>
+					<!-------zdjqzj-menu主队近期战绩部分结束了------------->
+
+
+					<!-----下面开始kdjqzj-menu客队近期战绩部分------------->
+					<div class="kdjqzj-menu BothSide tabCon" id="s_g_against">
+						<div class="BothSide-menu-title">
+							<form action="" method="get">
+								近
+								<select id="g_against" onchange="s_change(this.id,this.value)">
+								</select><i>场</i>
+								<label>
+									<input name="category_g_against" onclick="v_clicklx(this)" id="h_against_qb" type="radio" value="v_against_qb"  checked="true" />全部
+								</label>
+								<label>
+									<input name="category_g_against" onclick="v_clicklx(this)" id="h_against_qb" type="radio" value="v_against_kc"  />客场
+								</label>
+								<label>
+									<input name="category_g_against" onclick="v_clicklx(this)" id="h_against_qb" type="radio" value="v_against_tlx"  />同类型
+								</label>
+							</form>
+						</div>
+						<!------BothSide-menu-title结束------>
+
+						<!------下面开始BothSide-table----->
+						<!------上面结束BothSide-table部分----->
+
+					</div>
+					<!-------kdjqzj-menu客队近期战绩部分结束了------------->
+
+					<!-----ssplsj-menu实时赔率数据开始--------------->
+					<table class="ssplsj-menu tabCon" cellpadding="0" cellspacing="0" border="0">
+						<tr bgcolor="#F6EEE0" height="30px">
+							<td rowspan="2" width="8%" height="24">公司</td>
+							<td rowspan="2" width="45px"></td>
+							<td colspan="3" bgcolor="#E9F7F2">欧洲指数</td>
+							<td colspan="4" bgcolor="#E9F7F2">欧转亚盘</td>
+							<td colspan="4" bgcolor="#E9F7F2">实际最新亚盘</td>
+							<td colspan="3" bgcolor="#E9F7F2">大小球</td>
+							<td rowspan="2" width="35px">变化</td>
+							<td rowspan="2" width="35px">
+								<a href="javascript:void(0);">
+									<img src="../images/davcai/analyse/plus-icon.png" />
+								</a>
+							</td>
+						</tr>
+						<tr bgcolor="#F6EEE0" height="30px">
+							<td>主胜</td>
+							<td>和局</td>
+							<td>和局</td>
+							<td>主队</td>
+							<td>让球</td>
+							<td>客队</td>
+							<td>总水位</td>
+							<td>主队</td>
+							<td>让球</td>
+							<td>客队</td>
+							<td>总水位</td>
+							<td>大球</td>
+							<td>盘口</td>
+							<td>小球</td>
+						</tr>
+						<tr bgcolor="#ffffff" height="25px">
+							<td rowspan="2" bgcolor="#F3F3F3" class="color-companybg"><b>SB</b>
+							</td>
+							<td>初盘</td>
+							<td bgcolor="#E6F2FF">2.40</td>
+							<td bgcolor="#E6F2FF">3.10</td>
+							<td bgcolor="#E6F2FF">2.75</td>
+							<td bgcolor="#FDFDCB">1.05</td>
+							<td bgcolor="#FDFDCB">平/半</td>
+							<td bgcolor="#FDFDCB">0.80</td>
+							<td bgcolor="#FDFDCB">1.85</td>
+							<td>0.80</td>
+							<td>平手</td>
+							<td>1.95</td>
+							<td>0.95</td>
+							<td bgcolor="#E6F2FF">0.95</td>
+							<td bgcolor="#E6F2FF">2/2.5</td>
+							<td bgcolor="#E6F2FF">0.85</td>
+							<td rowspan="2">
+								<a href="javascript:void(0);" target="_blank">
+									<img src="../images/davcai/analyse/change-icon.png" />
+								</a>
+							</td>
+							<td rowspan="2">
+								<a href="javascript:void(0);">
+									<img src="../images/davcai/analyse/reduce-icon.png" />
+								</a>
+							</td>
+						</tr>
+						<tr bgcolor="#ffffff" height="25px">
+							<td class="color-red">即时</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">2.40</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">3.10</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">2.75</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">1.025</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">平/半</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">0.80</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">1.85</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">0.80</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">平手</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">1.95</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">0.95</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">0.95</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">2/2.5</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">0.85</td>
+						</tr>
+						<tr bgcolor="#ffffff" height="25px">
+							<td rowspan="2" bgcolor="#F3F3F3" class="color-companybg"><b>澳彩</b>
+							</td>
+							<td>初盘</td>
+							<td bgcolor="#E6F2FF">2.40</td>
+							<td bgcolor="#E6F2FF">3.10</td>
+							<td bgcolor="#E6F2FF">2.75</td>
+							<td bgcolor="#FDFDCB">1.05</td>
+							<td bgcolor="#FDFDCB">平/半</td>
+							<td bgcolor="#FDFDCB">0.80</td>
+							<td bgcolor="#FDFDCB">1.85</td>
+							<td>0.80</td>
+							<td>平手</td>
+							<td>1.95</td>
+							<td>0.95</td>
+							<td bgcolor="#E6F2FF">0.95</td>
+							<td bgcolor="#E6F2FF">2/2.5</td>
+							<td bgcolor="#E6F2FF">0.85</td>
+							<td rowspan="2">
+								<a href="javascript:void(0);" target="_blank">
+									<img src="../images/davcai/analyse/change-icon.png" />
+								</a>
+							</td>
+							<td rowspan="2">
+								<a href="javascript:void(0);">
+									<img src="../images/davcai/analyse/reduce-icon.png" />
+								</a>
+							</td>
+						</tr>
+						<tr bgcolor="#ffffff" height="25px">
+							<td class="color-red">即时</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">2.40</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">3.10</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">2.75</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">1.025</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">平/半</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">0.80</td>
+							<td bgcolor="#FDFDCB" class="color-blue-light">1.85</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">0.80</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">平手</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">1.95</td>
+							<td bgcolor="#FEFEEC" class="color-blue-light">0.95</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">0.95</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">2/2.5</td>
+							<td bgcolor="#E6F2FF" class="color-blue-light">0.85</td>
+						</tr>
+					</table>
+					<!------ssplsj-menu实时赔率数据结束了-------->
+
+
+					<!------lsjfb-menu联赛积分榜开始-------->
+					<div class="lsjfb-menu tabCon" id='leagueScore'>
+						<table class="lsjfb-menu-nav" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td><a href="javascript:void(0);" class="active">总积分榜</a>
+								</td>
+								<td><a href="javascript:void(0);">主场积分榜</a>
+								</td>
+								<td><a href="javascript:void(0);">客场积分榜</a>
+								</td>
+								<td><a href="javascript:void(0);">半场总积分榜</a>
+								</td>
+								<td><a href="javascript:void(0);">半场主场积分榜</a>
+								</td>
+								<td><a href="javascript:void(0);">半场客场积分榜</a>
+								</td>
+							</tr>
+						</table>
+						<!------lsjfb-menu-nav结束-------->
+							
+					</div>
+					<!--------lsjfb-menu联赛积分榜结束---------->
+
+				</div>
+				<!-------上面结束bet-data-content------->
+			</div>
+			<!----bet-data-right结束------>
+		</div>
+		<!-------bet-data-box结束了---->
+	<div class="zhanwei"></div>
+<script type="text/javascript" src="$base/js/davcai/analyse/analyse_util.js"></script>
+<script type="text/javascript" src="$base/js/davcai/analyse/zq_league_score_analyse.js"></script>
+<script type="text/javascript">
+//双方对阵历史
+var v_data;
+var new_data;
+//主队近期战绩
+var h_data;
+//客队近期战绩
+var g_data;
+var leagueScore_data;
+var sclassID = $!{matchBaseInfoPO.leagueId};
+var matchHomeTeam = '$!{matchBaseInfoPO.homeTeamId}';
+var matchGuestTeam = '$!{matchBaseInfoPO.guestTeamId}';
+
+$(function(){
+	
+	twoSideAgainstHistory('$!{matchBaseInfoPO.homeTeamId}','$!{matchBaseInfoPO.guestTeamId}');
+	homeRecentRecord('$!{matchBaseInfoPO.homeTeamId}');
+	guestRecentRecord('$!{matchBaseInfoPO.guestTeamId}');
+	leagueScoreRank('total_rank');
+	leagueScoreRank('zc_rank');
+	leagueScoreRank('kc_rank');
+	leagueScoreRank('half_total_rank');
+	leagueScoreRank('half_zc_rank');
+	leagueScoreRank('half_kc_rank');
+	
+});
+</script>

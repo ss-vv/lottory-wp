@@ -1,0 +1,30 @@
+CREATE TABLE `uc_sysmessage` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id自增',
+	`subject` VARCHAR(255) NOT NULL COMMENT '信息名称',
+	`note` TEXT NOT NULL COMMENT '信息内容',
+	`authorid` BIGINT(20) UNSIGNED NOT NULL COMMENT '发起人id',
+	`author` VARCHAR(32) NOT NULL COMMENT '发起人',
+	`created_time` DATETIME NOT NULL COMMENT '创建时间',
+	`status` SMALLINT(5) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态：0 无效，1 有效',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
+CREATE TABLE `uc_message` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id自增',
+	`sys_message_id` BIGINT(20) UNSIGNED NOT NULL COMMENT '系统信息id',
+	`user_id` BIGINT(20) UNSIGNED NOT NULL COMMENT '用户id',
+	`username` VARCHAR(32) NOT NULL COMMENT '用户名',
+	`type` SMALLINT(5) UNSIGNED NOT NULL COMMENT '信息类型：0 系统信息',
+	`isread` SMALLINT(5) UNSIGNED NOT NULL COMMENT '是否阅读：0 未读，1 已读',
+	`subject` VARCHAR(255) NOT NULL COMMENT '信息名称',
+	`note` TEXT NOT NULL COMMENT '信息内容',
+	`authorid` BIGINT(20) UNSIGNED NOT NULL COMMENT '发起人id',
+	`author` VARCHAR(32) NOT NULL COMMENT '发起人',
+	`created_time` DATETIME NOT NULL COMMENT '创建时间',
+	`del_status` SMALLINT(5) UNSIGNED NOT NULL DEFAULT '0' COMMENT '状态：0 正常，1 已删除',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;

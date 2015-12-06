@@ -1,0 +1,17 @@
+log4j.rootLogger = INFO,R,F
+log4j.logger.org.apache = INFO
+log4j.logger.org.hibernate = INFO
+log4j.logger.org.springframework = INFO
+log4j.logger.com.unison.lottery.msi=INFO,R,F
+
+
+log4j.appender.R = org.apache.log4j.ConsoleAppender
+log4j.appender.R.Target = System.out
+log4j.appender.R.layout = org.apache.log4j.PatternLayout
+log4j.appender.R.layout.ConversionPattern = %-d{HH:mm:ss} %p [%c] - %m%n
+
+log4j.appender.F=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.F.File=/data/logs/partner-bet.log
+log4j.appender.F.DatePattern = '.'yyyy-MM-dd
+log4j.appender.F.layout=org.apache.log4j.PatternLayout
+log4j.appender.F.layout.ConversionPattern=%d{HH:mm:ss} %p [%c] - %m%n

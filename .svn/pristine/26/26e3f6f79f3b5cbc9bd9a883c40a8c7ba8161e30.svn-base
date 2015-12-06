@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>大V彩3G购彩平台_江西11选5</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="../css/buy.css" rel="stylesheet" type="text/css" />
+<style type="text/css">.blankLine{padding: 2px 0;}.paleft{ padding-left:5px;}
+.redHead{background-color:#F00; color:#FFF; clear:both; width:200px; padding:0 5px; line-height:22px; margin:2px 0px;}</style>
+</head>
+<body>
+<div class="mainDiv">
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" />
+<meta name="MobileOptimized" content="240" />
+ <div class='topNavigationBar' style="color: #FFF;"> 
+	<a href="../index.do">首页</a>
+	>
+	<a href="/lottery/jx11s5.do?lotteryId=JX11">江西11选5</a></div>
+
+<div class="msgTitle3">&nbsp;第&nbsp;$!{issueInfo.issueNumber}&nbsp;期</div>
+<div class="msgTitle">&nbsp;投注截止： $!date.format('yyyy-MM-dd HH:mm',$!{issueInfo.stopTimeForUser}) </div>
+<div class="msgTitle2" style="background-color:#E2F0FB;">
+	&nbsp;玩法：$status.jx11PlayName($playId)&nbsp;&nbsp;&nbsp;&nbsp;
+	<span style='color:#A1A1A1'>
+		#if($playId==11)中第1码 奖金13元
+		#elseif($playId==12)任意中2码 奖金6元
+		#elseif($playId==13)任意中3码    奖金19元
+		#elseif($playId==14)任意中4码    奖金78元
+		#elseif($playId==15)不定位中5码    奖金540元
+		#elseif($playId==16)不定位中5码    奖金90元 
+		#elseif($playId==17)不定位中5码    奖金26元 
+		#elseif($playId==18)不定位中5码    奖金9元
+		#elseif($playId==19)定位中前2码    奖金130元 
+		#elseif($playId==20)定位中前3码    奖金1170元 
+		#elseif($playId==21)不定位中前2码    奖金65元
+		#elseif($playId==22)不定位中前3码    奖金195元
+		#end
+	</span>
+</div>
+
+
+    <div class="curLotteryTerm" style="padding:5px; border-bottom:0px;">
+		#if($selectType==0)
+			手选 |
+		#else	
+			<a href='playJX11s5.do?selectType=0&selectNum=$selectNum&playId=$playId&lotteryId=$lotteryId'>手选</a> |
+		#end
+
+			
+		#if($playId!=11 && $playId!=19 && $playId!=20) 		
+			#if($selectType==1)
+				胆拖 |
+			#else
+				<a href='playJX11s5.do?selectType=1&selectNum=$selectNum&playId=$playId&lotteryId=$lotteryId'>胆拖</a> |
+			#end
+		#end
+		
+		#if($selectType==2)
+			机选
+		#else	
+			<a href='playJX11s5.do?selectType=2&selectNum=$selectNum&playId=$playId&lotteryId=$lotteryId'>机选</a>
+		#end	
+	</div>
+	
+#if($error)
+<div class="divErrorMSG">$error</div>
+#end
+<form method="post" action="
+	#if($selectType != 1)
+		computeBet.do?
+	#else
+		#if($danContent)
+			computeBet.do?danContent=$danContent&
+		#else
+			selectTuo.do?
+		#end
+	#end
+	selectType=$selectType&selectNum=$selectNum&playId=$playId&lotteryId=$lotteryId" id="form2">
+	
+		#if($selectType==2)	
+			<div class="msgTitle">机选：
+				<input type="radio" name="randomCount" value="1" />1 
+				<input type="radio" name="randomCount" value="5" checked="checked" />5
+				<input type="radio" name="randomCount" value="10" />10
+				<input type="radio" name="randomCount" value="11" />
+				<input name="inputRandomNum" style="-wap-input-format: '*N'" maxlength="2" size="4" />注</div>
+			
+		#else
+			
+			<div>
+			
+				#if($selectType==1)
+					#if($danContent)
+						已选胆码：<span style="color:Red">$danContent</span>
+						<div class="redHead">胆码+拖码大于等于$math.add($selectNum,1)</div>
+					#else
+						<div class="redHead">胆码(至多$selectNum-1个)</div>
+					#end
+				#end
+				
+				#if($playId==19 || $playId==20)
+				<div class="msgTitle">第一位：</div>
+				#end
+				
+				
+				<span class="red">
+				#foreach($chk in $first)
+						<label><input type="checkbox" value="$chk.value" name="firstGroup" />$chk.value</label>
+				#end	
+				</span>
+    		</div>
+    		
+    		#if($playId==19 || $playId==20)
+    		<div>
+    			<div class="msgTitle">第二位：</div>
+    			<span class="red">
+    				<label><input type="checkbox" value="01" name="secondGroup" />01</label>
+    				<label><input type="checkbox" value="02" name="secondGroup" />02</label>
+    				<label><input type="checkbox" value="03" name="secondGroup" />03</label>
+    				<label><input type="checkbox" value="04" name="secondGroup" />04</label>
+    				<label><input type="checkbox" value="05" name="secondGroup" />05</label>
+    				<label><input type="checkbox" value="06" name="secondGroup" />06</label>
+    				<label><input type="checkbox" value="07" name="secondGroup" />07</label>
+    				<label><input type="checkbox" value="08" name="secondGroup" />08</label>
+    				<label><input type="checkbox" value="09" name="secondGroup" />09</label>
+    				<label><input type="checkbox" value="10" name="secondGroup" />10</label>
+    				<label><input type="checkbox" value="11" name="secondGroup" />11</label>
+    			</span>
+    		</div> 
+    		#end	
+    		
+    		#if($playId==20)
+    		<div>
+				<div class="msgTitle">第三位：</div>
+    			<span class="red">
+    				<label><input type="checkbox" value="01" name="thirdGroup" />01</label>
+    				<label><input type="checkbox" value="02" name="thirdGroup" />02</label>
+    				<label><input type="checkbox" value="03" name="thirdGroup" />03</label>
+    				<label><input type="checkbox" value="04" name="thirdGroup" />04</label>
+    				<label><input type="checkbox" value="05" name="thirdGroup" />05</label>
+    				<label><input type="checkbox" value="06" name="thirdGroup" />06</label>
+    				<label><input type="checkbox" value="07" name="thirdGroup" />07</label>
+    				<label><input type="checkbox" value="08" name="thirdGroup" />08</label>
+    				<label><input type="checkbox" value="09" name="thirdGroup" />09</label>
+    				<label><input type="checkbox" value="10" name="thirdGroup" />10</label>
+    				<label><input type="checkbox" value="11" name="thirdGroup" />11</label>
+    			</span>
+    		</div> 
+    		#end
+        #end
+    <div class="msgTitle">倍数：<input name="Times" style="-wap-input-format: '*N'" value="$times"  size="4" maxlength="2"/>倍</div>
+    <div class="msgTitle">
+		#if($selectType==1 && !$danContent)
+			<input type="submit" name="next" value="下一步：选择拖码" id="next" title="下一步：选择拖码" />&nbsp;
+		#else
+		<input type="submit" name="buy" value="代购" id="Button1" title="代购" />&nbsp;
+		
+		#end
+	</div>
+    </form>
+
+#include("inc/bottomNavigate.inc")
+
+
+</div>
+</body>
+</html>

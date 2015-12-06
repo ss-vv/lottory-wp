@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="lt_lottery">
+    <column>id</column>
+    <column>name</column>
+    <column>win_level</column>
+    <column>help_url</column>
+    <column>created_time</column>
+    <column>note</column>
+    <row>
+      <value>JCZQ</value>
+      <value>竞彩足球</value>
+      <value>1</value>
+      <null/>
+      <value><![CDATA[2011-12-07 17:49:57.0]]></value>
+      <null/>
+    </row>
+    <row>
+      <value>JCLQ</value>
+      <value>竞彩篮球</value>
+      <value>1</value>
+      <null/>
+      <value><![CDATA[2011-12-07 17:51:14.0]]></value>
+      <null/>
+    </row>
+    <row>
+      <value>JX11</value>
+      <value>江西11选5</value>
+      <value>1</value>
+      <null/>
+      <value><![CDATA[2012-09-06 10:51:14.0]]></value>
+      <null/>
+    </row>
+    <row>
+      <value>CTZC</value>
+      <value>传统足彩</value>
+      <value>1</value>
+      <null/>
+      <value><![CDATA[2012-10-23 11:18:05.0]]></value>
+      <null/>
+    </row>
+  </table>
+</dataset>

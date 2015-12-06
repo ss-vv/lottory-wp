@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- 	<settings> -->
+<!-- 		<setting name="cacheEnabled" value="true"/> -->
+<!-- 	</settings> -->
+
+	<typeAliases>
+		<typeAlias alias="Top5RecommendMiddle" type="com.davcai.data.statistic.model.Top5RecommendMiddle"/>
+		<typeAlias alias="Top5Recommend" type="com.davcai.data.statistic.model.Top5Recommend"/>
+		<typeAlias alias="BetScheme" type="com.davcai.data.statistic.model.BetScheme"/>
+		<typeAlias alias="PlayMatch" type="com.xhcms.lottery.commons.data.PlayMatch"/>
+		<typeAlias alias="BBMatch"  type="com.davcai.data.statistic.task.model.BBMatch"/>
+		<typeAlias alias="FBMatch" type="com.davcai.data.statistic.task.model.FBMatch"/>
+		<typeAlias alias="BJDCMatch" type="com.davcai.data.statistic.task.model.BJDCMatch"/>
+		<typeAlias alias="HotAndRecommendMatch" type="com.xhcms.lottery.commons.data.HotAndRecommendMatch"/>
+	</typeAliases>
+	
+
+</configuration>

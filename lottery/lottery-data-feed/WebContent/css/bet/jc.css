@@ -1,0 +1,1210 @@
+/***************************下面�?��davcai-bet投注***************************/
+/*下面�?��davcai-bet-left-title部分*/
+.box{ 
+	margin: 0px auto;
+	line-height: normal;
+	width: auto;
+	height: auto;
+}
+td label{
+	display: inline;
+}
+.davcai-bet {
+	width: 985px;
+	height: auto;
+	margin: 0 auto;
+}
+.davcai-bet-left {
+	width: 700px;
+	height: auto;
+	float: left;
+}
+.davcai-bet-left-title {
+	width: 700px;
+	height: 38px;
+	line-height: 38px;
+	background: #FCECEC;
+	border-bottom: 1px #E74C3C solid;
+	margin-top: 23px;
+	position: fixed;
+	z-index: 4;
+}
+.davcai-bet-left-title p {
+	float: right;
+	margin-right: 5px;
+}
+.davcai-bet-left-title input {
+	margin-right: 5px;
+}
+.davcai-bet-left-title label {
+	vertical-align: middle;
+	float: left;
+	margin-right: 22px;
+	font-size: 12px;
+	color: #4B4B4B;
+	cursor: pointer;
+}
+.davcai-bet-left-title .checkbox-cut {
+	font-size: 18px;
+	color: #D2D2D2;
+	float: left;
+	margin-top: -2px;
+	margin-right: 15px;
+}
+.davcai-bet-left-title .back {
+	font-weight: bold;
+}
+.davcai-bet-left-title .title-calendar {
+	width: 105px;
+	height: 23px;
+	line-height: 23px;
+	margin-top: 6px;
+	font-size: 12px;
+}
+/*上面结束davcai-bet-left-title部分*/
+
+table.table-bet-box {
+	width: 700px;
+	border-collapse: collapse;
+	margin-top: 61px;
+}
+table.table-bet-box .table-bet-box-nav {
+	height: 25px;
+	background: #EDEDED;
+	color: #000;
+	border: 1px #CCCCCC solid;
+	text-align: center;
+}
+.table-bet-box-nav td {
+	border: 1px #CCCCCC solid;
+}
+.table-bet-box-nav td a {
+	color: #000;
+}
+.table-bet-box-nav td {
+	border: 1px #CCCCCC solid;
+	/*white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;*/
+}
+.table-bet-box-nav .padding-lf {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.table-bet-box-nav .padding-lfb {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+/*section-sale*/
+
+.section-sale-td {
+	position: relative;
+}
+.section-sale-list {
+	width: 97%;
+	min-height: 70px;
+	height: auto;
+	background: #fff;
+	border: 1px #EE8A85 solid;
+	text-align: center;
+	position: absolute;
+	top: -2px;
+	left: 0;
+	z-index: 99;
+	display: none;
+}
+@-moz-document url-prefix() {
+	.section-sale-list {
+		left: -1px;
+	}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	.section-sale-list {
+		width: 97%;
+	}
+}
+.section-sale-list a.current {
+	color: #000!important;
+	font-weight: bold;
+}
+.section-sale-list a {
+	color: #878787!important;
+	display: inline-block;
+	margin-top: 17px;
+}
+.section-sale-list a:hover {
+	color: #000!important;
+	font-weight: bold;
+}
+.section-sale-list a.kick-off {
+	margin-top: 10px;
+}
+/*section-sale*/
+/*instant-index即时指数�?��*/
+
+.instant-index-td {
+	position: relative;
+}
+.instant-index-list {
+	width: 99%;
+	height: auto;
+	border: 1px #EE8A85 solid;
+	position: absolute;
+	top: -2px;
+	left: 0;
+	z-index: 99;
+	background: #fff;
+	display: none;
+}
+.instant-index-list a.current {
+	font-weight: bold;
+}
+@-moz-document url-prefix() {
+	.instant-index-list {
+		left: -1px;
+	}
+}
+.instant-index {
+	margin-top: 17px;
+	display: inline-block;
+	margin-bottom: 18px;
+}
+.instant-index:hover {
+	font-weight: bold;
+}
+.instant-index-list-content h4 {
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 12px;
+	margin-bottom: 3px;
+}
+.instant-index-list-content {
+	clear: both;
+	width: 97%;
+	margin: 0 auto;
+	height: 100%;
+}
+.instant-index-list-content li span{
+	cursor: pointer;
+}
+@-moz-document url-prefix() {
+	.instant-index-list-content {
+		width: 98%;
+	}
+}
+.instant-index-list-content li {
+	border-bottom: 1px #E74C3C dashed;
+	height: auto;
+	overflow: hidden;
+	min-height: 21px;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+.instant-index-list-content li:last-child {
+	border: none;
+}
+.instant-index-list-content li span {
+	display: inline-block;
+	width: 60px;
+	padding: 2px 2px 2px 2px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-right: 5px;
+	margin-left: 5px;
+	text-align: center;
+	float: left;
+	margin-top: 5px;
+}
+.instant-index-list-content li span.current {
+	background: #E74C3C;
+}
+.instant-index-list-content li span.current a {
+	color: #fff;
+}
+.instant-index-list-content li span:hover {
+	background: #E74C3C;
+}
+.instant-index-list-content li span:hover a {
+	color: #fff;
+}
+/*instant-index即时指数结束*/
+
+.table-bet-box-time {
+	background: #FBFAFA;
+	height: 28px;
+	line-height: 28px;
+	border: none!important;
+}
+.table-bet-box-time td {
+	border: 1px #CCCCCC solid;
+}
+.table-bet-box-time p.time {
+	color: #6C6C6C;
+	float: left;
+	margin-left: 7px;
+	margin-right: 12px;
+}
+.table-bet-box-time .hide {
+	color: #E74C3C;
+	margin-right: 222px;
+}
+.color-red {
+	color: #E74C3C;
+}
+.color-black {
+	color: #4B4B4B;
+}
+.font-weight {
+	font-weight: bold;
+}
+.font-size14 {
+	font-size: 14px;
+}
+.fl {
+	float: left;
+}
+.margin-top3 {
+	margin-top: 3px;
+}
+
+.table-bet-box-time input {
+	vertical-align: middle;
+	margin-left: 265px;
+}
+.table-bet-box-time label {
+	vertical-align: middle;
+}
+.color-red {
+	color: #E22319!important;
+	font-weight: normal;
+}
+.color-green {
+	color: #19D001!important;
+}
+.color-blue {
+	color: #004FD1!important;
+}
+.down-arrow {
+	display: inline-block;
+	width: 8px;
+	height: 5px;
+	margin-left: 4px;
+	background: url(http://trade.davcai.com/df/images/bet/down-arrow.png) no-repeat;
+}
+.up-arrow {
+	display: inline-block;
+	width: 8px;
+	height: 5px;
+	margin-left: 2px;
+	background: url(http://trade.davcai.com/df/images/bet/up-arrow.png) no-repeat;
+}
+.table-bet-box-nav .up-arrow-no {
+	display: inline-block;
+	width: 8px;
+	height: 5px;
+	margin-left: 2px;
+}
+.table-bet-box-match {
+	height: 35px;
+	border: 1px #CCCCCC solid;
+}
+.hoverbg {
+	background: #FCECEC;
+}
+.table-bet-box-match .event-name {
+	cursor: pointer;
+}
+.table-bet-box-match .event-name a {
+	color: #fff;
+}
+.table-bet-box-match .color-01 {
+	background-color: #975EFF;
+}
+.table-bet-box-match .color-02 {
+	background-color: #E22319;
+}
+.table-bet-box-match .color-03 {
+	background-color: #FF9102;
+}
+.table-bet-box-match .color-04 {
+	background-color: #72AD60;
+}
+.table-bet-box-match .spf-default .active {
+	cursor: pointer;
+}
+
+
+.table-bet-box-match .offsale div a{
+	color:#999;
+	cursor:default;
+}
+.table-bet-box-match .default {
+	background: url(http://trade.davcai.com/df/images/bet/spf-default-bg.png) no-repeat;
+	cursor: pointer;
+}
+
+.table-bet-box-match .default:hover {
+	background: url(http://trade.davcai.com/df/images/bet/spf-focus-hover-bg.png) no-repeat;
+	cursor: pointer;
+}
+
+.table-bet-box-match .hover {
+	background: url(http://trade.davcai.com/df/images/bet/spf-focus-hover-bg.png) no-repeat;
+}
+.table-bet-box-match .active {
+	background: url(http://trade.davcai.com/df/images/bet/spf-focus-bg.png) no-repeat;
+	font-weight: bold;
+}
+
+
+.hover-event .spf-default-pink {
+	background: url(http://trade.davcai.com/df/images/bet/spf-default-pink-bg.png) no-repeat;
+	cursor: pointer;
+}
+.hover-event .spf-default-pink:hover {
+	background: url(http://trade.davcai.com/df/images/bet/spf-focus-pink-bg.png) no-repeat;
+	cursor: pointer;
+}
+.table-bet-box-match .active {
+	background: url(http://trade.davcai.com/df/images/bet/spf-focus-bg.png) no-repeat;
+	font-weight: bold;
+	cursor: pointer;
+	position: relative;
+}
+.table-bet-box-match .active a{
+	color: #fff;
+}
+.table-bet-box-match .active span{
+	margin-top: 16px;
+	color: #fff;
+	display: block;
+}
+.table-bet-box-match .mixed-default {
+	background:url(http://trade.davcai.com/df/images/bet/mixed-default-bg.png)  no-repeat;
+	cursor: pointer;
+	position: relative;
+}
+.table-bet-box-match  .mixed-active .active .line{
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	bottom: -3px;
+	background: #ccc;
+}
+.table-bet-box-match  .mixed-active .active{
+	background:url(http://trade.davcai.com/df/images/bet/mixed-focus-bg33.png)  no-repeat;
+	cursor: pointer;
+	position: relative;
+	border: 2px #C1C1C1 solid;
+	height: 67px;
+	border-bottom: none;
+}
+.table-bet-box-match .mixed-default:hover {
+	background:url(http://trade.davcai.com/df/images/bet/mixed-hover-bg2.png)  no-repeat;
+}
+.mixed-default .mixed-default-outer {
+	width: 99.55%;
+	height: 67px;
+	background: url(http://trade.davcai.com/df/images/bet/mixed-default-bg.png) no-repeat;
+}
+.mixed-default .hover{
+	width: 99.55%;
+	height: 67px;
+	background: url(http://trade.davcai.com/df/images/bet/mixed-hover-bg.png) no-repeat;
+}
+.mixed-default .active{
+	border: 2px #E74C3C solid;
+	width: 96.55%;
+	height: 67px;
+	border-bottom: none;
+	font-color: #fff;
+	background: url(http://trade.davcai.com/df/images/bet/mixed-focus-bg.png) no-repeat
+}
+
+.table-bet-box-match td.no-sale {
+	background: #F6F6F6;
+	color: #ADADAD;
+}
+.table-bet-box-match .mixed-default a {
+	/*color: #969696;*/
+	display: inline-block;
+}
+
+.table-bet-box-match td {
+	border: 1px #CCCCCC solid;
+	text-align: center;
+}
+.table-bet-box-match td a {
+	display: inline-block;
+}
+.table-bet-box-match td .write-red {
+	margin-top: 5px;
+}
+.table-bet-box-match a {
+	color: #000;
+}
+.font-weight {
+	font-weight: bold;
+}
+/*单关�?��*/
+
+.table-bet-box-match .spf-danguan {
+	background: url(http://trade.davcai.com/df/images/bet/spf-danguan-bg.png) no-repeat;
+	width: 63px;
+	height: 18px;
+	position: absolute;
+	top: -11px;
+	left: -11px;
+}
+.table-bet-box-match .red-border-l {
+	border: 2px #E74C3C solid;
+	border-right: none;
+	width: 100%;
+	height: 30px;
+	line-height: 32px;
+}
+.table-bet-box-match .red-border-m {
+	position: relative;
+	border-bottom: 2px #E74C3C solid;
+	width: 100%;
+	height: 32px;
+	line-height: 34px;
+}
+.table-bet-box-match .red-border-r {
+	border: 2px #E74C3C solid;
+	border-left: none;
+	width: 98%;
+	height: 30px;
+	line-height: 32px;
+}
+}
+tr.table-single-pop {
+	display: none!important;
+}
+tr.table-single-pop td {
+	border: 0;
+}
+/*单关结束*/
+/*上面结束table-bet-box部分*/
+/******下面�?��table-single-box单关悬浮弹出部分*********/
+
+table.table-single-box {
+	/*width: 698px;*/
+	/*width: 99.9999999999%;*/
+	
+	width: 100%;
+	border-collapse: collapse;
+	/*相邻边框合并*/
+	text-align: center;
+	background-color: #FBFAFA;
+	border: 2px #C1C1C1 solid;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)	{
+				table.table-single-box { 
+					width: 100.2%;
+					 }
+			}
+
+
+table.table-single-box tr {
+	height: 40px;
+}
+table.table-single-box td {
+	background-color: #DFFFED;
+}
+table.table-single-box .color-gray {
+	background: #FBFAFA;
+	border: 1px transparent solid;
+	border-bottom: none;
+	width: 47px;
+}
+
+table.table-single-box td.dg {
+	background: url(http://trade.davcai.com/df/images/bet/dg.png) no-repeat;
+}
+
+table.table-single-box td .color-green01 {
+	color: #2E6B49;
+	font-weight: bold;
+}
+table.table-single-box td .color-grey01 {
+	color: #898989;
+}
+table.table-single-box td.mix-odds-title {
+	border: 1px #CCCCCC solid
+}
+table.table-single-box td.default {
+	width: 47px;
+	border: 1px #CCCCCC solid;
+	cursor: pointer;
+}
+table.table-single-box td.offsale a i{
+	color: #999;
+}
+table.table-single-box td.offsale a{
+	cursor: default;
+}
+table.table-single-box td.offsale {
+	background-color: #FFFFFF;
+	width: 47px;
+	border: 1px #CCCCCC solid;
+}
+table.table-single-box td.default:hover {
+	background: url(http://trade.davcai.com/df/images/bet/single-td-hover.png) no-repeat;
+}
+table.table-single-box .hover {
+	color: #fff;
+	background: url(http://trade.davcai.com/df/images/bet/single-td-hover.png) no-repeat;
+}
+table.table-single-box .active {
+	cursor: pointer;
+	color: #fff;
+	background: url(http://trade.davcai.com/df/images/bet/single-td-active.png) no-repeat;
+	width: 47px;
+	border: 1px #FF9D02 solid;
+}
+table.table-single-box .active i {
+	color: #fff!important;
+}
+/*******上面结束table-single-box单关悬浮弹出部分*******/
+
+
+/*下面�?��davcai-bet-right部分*/
+
+.davcai-bet-right {
+	width: 273px;
+	height: auto;
+	border-top: 1px #F4C3C3 solid;
+	float: right;
+	position: fixed;
+	margin-left: 725px;
+}
+.bet-information-block,
+.type-selection-block,
+.pass-way-block,
+.confirm-bet-block {
+	width: 273px;
+	height: auto;
+	border-left: 1px #F4C3C3 solid;
+	border-right: 1px #F4C3C3 solid;
+	;
+}
+.davcai-bet-right .bib-title {
+	width: 273px;
+	height: 35px;
+	line-height: 35px;
+	background: #E74C3C;
+	font-weight: normal;
+	border-bottom: 0px;
+	padding: 0px;
+}
+.bib-title span.circle-f {
+	display: inline-block;
+	background: url(http://trade.davcai.com/df/images/bet/circle-f.png) no-repeat;
+	margin-left: 10px;
+	margin-top: 6px;
+	text-indent: 25px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 19px;
+}
+.bib-title span.circle-s {
+	display: inline-block;
+	background: url(http://trade.davcai.com/df/images/bet/circle-s.png) no-repeat;
+	margin-left: 10px;
+	margin-top: 6px;
+	text-indent: 25px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 19px;
+}
+.bib-title span.circle-t {
+	display: inline-block;
+	background: url(http://trade.davcai.com/df/images/bet/circle-t.png) no-repeat;
+	margin-left: 10px;
+	margin-top: 6px;
+	text-indent: 25px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 19px;
+}
+.bib-title span.circle-fi {
+	display: inline-block;
+	background: url(http://trade.davcai.com/df/images/bet/circle-fi.png) no-repeat;
+	margin-left: 10px;
+	margin-top: 6px;
+	text-indent: 25px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 19px;
+}
+.bib-title .bib-all-delete {
+	font-size: 12px;
+	color: #FFFC00;
+	display: inline-block;
+	float: right;
+	margin-right: 5px;
+}
+.bib-table {
+	border-collapse: collapse;
+	width: 273px;
+	font-size: 12px;
+	text-align: center;
+}
+.bib-table .bib-table-nav {
+	height: 35px;
+	background: #FCECEC;
+	line-height: 35px;
+	border-bottom: 1px #F4C3C3 solid;
+}
+.bib-table-nav .bib-question {
+	background: url(http://trade.davcai.com/df/images/bet/question.png) 13px 0px no-repeat;
+	display: inline-block;
+	width: 30px;
+	height: 17px;
+	line-height: 17px;
+	text-indent: -18px;
+	color: #000;
+}
+.bib-question i {
+	cursor: text;
+}
+.bib-table tr {
+	height: 32px;
+	line-height: 32px;
+	border-bottom: 1px #CCCCCC solid;
+}
+.bib-table .home-team {
+	width: 60px!important;
+	height: 32px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.bib-table .ring-red-arrow {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background: url(http://trade.davcai.com/df/images/bet/ring-red-arrow-down.png) no-repeat;
+	float: left;
+	margin-top: 10px;
+	margin-left: 3px;
+}
+.bib-table .write-red {
+	margin-top: -2px;
+	display: inline-block;
+	float: right;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+.bib-table .betting-three {
+	width: 58px;
+	height: 19px;
+	line-height: 19px;
+	display: inline-block;
+	background: url(http://trade.davcai.com/df/images/bet/betting-three-bg.png) no-repeat;
+	color: #fff;
+	margin-left: 1px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.bib-table .betting-three-empty {
+	width: 51px;
+	height: 19px;
+	line-height: 19px;
+	display: inline-block;
+	color: #fff;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.bib-table .recommend-text-tr {
+	height: 90px;
+}
+.recomend-text {
+	width: 257px;
+	height: 76px;
+	background: url(http://trade.davcai.com/df/images/bet/recommend-text-bg.png) no-repeat;
+	margin-left: 8px;
+	margin-top: -5px;
+	line-height: 140%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	text-align: left;
+	padding: 12px 6px 6px 8px;
+	overflow: hidden;
+}
+.bib-table .end-time {
+	text-align: left;
+	text-indent: 10px;
+}
+/*下面�?��type-selection-block部分*/
+
+.type-selection-block form.type-selection-form {
+	height: 42px;
+	line-height: 42px;
+}
+form.type-selection-form label {
+	margin-left: 26px;
+}
+form.type-selection-form input {
+	vertical-align: middle;
+	margin-top: -3px;
+	margin-right: 3px;
+}
+/*上面结束type-selection-block部分*/
+/*下面�?��pass-way-block部分*/
+
+.pass-way-block p > label{
+	width: 60px;
+}
+.pass-way-block p {
+	line-height: 30px;
+	border: 1px transparent solid;
+	padding-left: 15px;
+}
+.pass-way-block p input {
+	vertical-align: middle;
+	margin-top: -2px;
+}
+.pass-way-block p label {
+	display: inline-block;
+}
+/*上面结束pass-way-block部分*/
+/*下面�?��confirm-bet-block部分*/
+
+.cbb-table {
+	border-collapse: collapse;
+	width: 273px;
+	font-size: 12px;
+}
+.cbb-table tr td {
+	height: 34px;
+	line-height: 34px;
+	border-bottom: 1px #CCCCCC solid;
+	padding-left: 2px;
+}
+.cbb-table .tdtitle {
+	background-color: #FFFFDF;
+	text-align: center;
+	border-right: 1px #CCCCCC solid;
+	width: 34px;
+}
+.cbb-table .td-multiple {
+	cursor: pointer;
+	margin-top: 1px;
+	margin-right: 3px;
+}
+.cbb-table .td-input {
+	border: solid 1px #bbb;
+	padding: 0px;
+	font-size: 12px;
+	background-color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	width: 57px;
+	height: 25px;
+	margin-right: 3px;
+	line-height: 5px;
+}
+.cbb-table .bonusPre {
+	border: 2px solid #fff;
+	background-color: #fff;
+	display: block;
+	float: left;
+	word-break: break-all;
+	max-width: 215px;
+	line-height: 20px;
+}
+.bonusPre:hover {
+	/* border: 2px solid #FFB6B6; */
+}
+.cbb-table .detailed-button {
+	/* display: inline-block; */
+	display:none;
+	width: 79px;
+	height: 28px;
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+.cbb-table .minimum-5 {
+	color: #999999;
+	margin-left: 30px;
+}
+.cbb-table #checkbox-full {
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-left: 6px;
+}
+.cbb-table .cbb-question {
+	background: url(http://trade.davcai.com/df/images/bet/question.png) 13px 0px no-repeat;
+	display: inline-block;
+	width: 30px;
+	height: 17px;
+	line-height: 17px;
+	float: right;
+	margin-top: 8px;
+	margin-right: 3px;
+}
+.cbb-table .cbb-questionb {
+	background: url(http://trade.davcai.com/df/images/bet/question.png) 13px 0px no-repeat;
+	display: inline-block;
+	width: 30px;
+	height: 17px;
+	line-height: 17px;
+	float: right;
+	margin-top: 4px;
+	margin-right: 130px;
+}
+.cbb-table #commission {
+	width: 66px;
+	height: 25px;
+	line-height: 25px;
+	border: solid 1px #bbb;
+	word-wrap: normal;
+}
+.cbb-table .secret-form label {
+	margin-right: 10px;
+}
+.cbb-table .secret-form input {
+	vertical-align: middle;
+	margin-top: -3px;
+	margin-right: 3px;
+}
+.cbb-table #scheme-submit {
+	width: 125px;
+	height: 50px;
+	background: url(http://trade.davcai.com/df/images/bet/confirm-bet.png) no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+	border-width: 0;
+}
+.cbb-table .tdconfirm {
+	text-align: center;
+	height: 60px;
+	background-color: #FCECEC;
+	border-bottom: 1px #F4C3C3 solid;
+}
+/*上面结束confirm-bet-block部分*/
+/*下面�?��客服service-icon-block部分*/
+
+.service-icon-block {
+	width: 273px;
+	height: 100px;
+	border: 1px #fff solid;
+	margin-top: 40px;
+	margin-bottom: 60px;
+}
+.service-icon-block .service-icon {
+	width: 92px;
+	height: 94px;
+	background: url(http://trade.davcai.com/df/images/bet/service-icon.png) no-repeat;
+	display: inline-block;
+	float: left;
+	margin-left: 25px;
+}
+.service-icon-block .customer-speak {
+	width: 135px;
+	height: 64px;
+	background: url(http://trade.davcai.com/df/images/bet/customer-speak-bg.png) no-repeat;
+	float: right;
+	display: inline-block;
+	margin-left: 100px;
+	margin-top: -78px;
+	margin-right: 20px;
+	padding: 6px 6px 6px 15px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	color: #838383;
+}
+.pass-type-span,.pass-type-span-active{
+	display: block;
+	height: 34px;
+	width: 45px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	border-top: 2px solid;
+	border-top-color: rgb(231, 76, 60);
+	color: #FFFFFF;
+}
+.pass-type-span-active{
+	background-color: #FFF;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	font-weight: bold;
+	color: #000000;
+}
+/*上面结束客服service-icon-block部分*/
+/*上面结束davcai-bet-right部分*/
+
+/***************************上面结束davcai-bet投注**************************************/
+
+
+/*下面�?��basketball-bet-box部分*/
+table.basketball-bet-head-fixed{
+	position: fixed;
+	margin-top: 61px;
+}
+table.basketball-bet-box{
+	width: 700px;
+    border-collapse: collapse;
+}
+.basketball-bet-box .basketball-bet-box-nav{
+	height: 50px;
+	background: #EDEDED;
+	color: #000;
+	border: 1px #CCCCCC solid;
+	text-align: center;
+}
+.basketball-bet-box-nav td{
+	border: 1px #CCCCCC solid;
+}
+.basketball-bet-box-nav td a{
+	color: #000;
+}
+.basketball-bet-box-nav .down-arrow {
+	display: inline-block;
+	width: 8px;
+	height: 5px;
+	margin-left: 4px;
+	background: url(http://trade.davcai.com/df/images/bet/down-arrow.png) no-repeat;
+}
+.basketball-bet-box-time{
+	background: #FBFAFA;
+	height: 28px;
+	line-height: 28px;
+	border: none!important;
+}
+.basketball-bet-box-time td{
+	border: 1px #CCCCCC solid;
+	border-top: none;
+}
+.basketball-bet-box-time p.time {
+	color: #6C6C6C;
+	float: left;
+	margin-left: 7px;
+	margin-right: 12px;
+}
+.basketball-bet-box-time .hide {
+	display: inherit !important;
+}
+.basketball-bet-box-time input{
+    vertical-align: middle;
+	float: right;
+	margin-top: -20px;
+	margin-right: 134px;
+}
+.basketball-bet-box-time label{
+    vertical-align: middle;
+	float: right;
+	margin-top: -28px;
+	margin-right: 10px;
+}
+.basketball-bet-box-match{
+	height: 35px;
+    border: 1px #CCCCCC solid;
+}
+.basketball-bet-box-match td{
+	border: 1px #CCCCCC solid;
+    text-align: center;
+}
+.basketball-bet-box-match td a{
+	display: inline-block;
+}
+.basketball-bet-box-match  a{
+	color: #000;
+}
+/*上面结束basketball-bet-box部分*/
+
+/*下面�?��basketball-bet-cont*/
+.basketball-bet-cont{
+	width: 700px;
+    border-collapse: collapse;
+}
+.basketball-bet-cont tr{
+	height: 40px;
+	color: #000;
+	text-align: center;
+}
+.basketball-bet-cont tr td:last-child{
+	border-top-width: 0;
+	border-left:0;
+}
+.basketball-bet-cont tr:first-child td{
+	border-top-width: 0;
+}
+.basketball-bet-cont tr .default:hover{
+	background: url(http://trade.davcai.com/df/images/bet/basket-bet-hover-bg.png) no-repeat;
+}
+.basketball-bet-cont tr .default{
+	background: url(http://trade.davcai.com/df/images/bet/basket-bet-default-bg.png) no-repeat;
+    cursor: pointer;
+}
+.basketball-bet-cont tr .hover{
+	background: url(http://trade.davcai.com/df/images/bet/basket-bet-hover-bg.png) no-repeat;
+    cursor: pointer;
+}
+.basketball-bet-cont tr .active{
+	background: url(http://trade.davcai.com/df/images/bet/basket-bet-active-bg.png) no-repeat;
+    cursor: pointer;
+    color: #fff;
+}
+.basketball-bet-cont tr td{
+	border: 1px #CCCCCC solid;
+    text-align: center;
+}
+.basketball-bet-cont tr td .write-red {
+   margin-top: 5px;
+}
+.basketball-bet-cont tr td a{
+	color: #000;
+	display: inline-block;
+}
+.basketball-bet-cont tr .no-for-sale{
+	color: #ADADAD;
+	font-weight: bold;
+}
+.basketball-bet-cont table{
+	border-collapse: collapse;
+	border: none;
+}
+.basketball-bet-cont table tr{
+	border: 0;
+}
+
+.table_notborder{
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+}
+.table_notborder tr td.default:hover{
+	background: url(http://trade.davcai.com/df/images/bet/basket-fencha-hover-bg.png) no-repeat;
+}
+.table_notborder tr td.default{
+	border: 0px;
+	border-left: 1px solid #ccc;
+	background: #DFFFED;
+	font-weight: bold;
+}
+.table_notborder tr td:first-child{
+	border: 0px;
+}
+.table_notborder tr td .color-green01{
+	color: #2E6B49;
+}
+.table_notborder tr td .color-grey01{
+	color: #898989;
+}
+.table_notborder tr .hover{
+	background: url(http://trade.davcai.com/df/images/bet/basket-fencha-hover-bg.png) no-repeat;
+}
+.table_notborder tr .active{
+	background: url(http://trade.davcai.com/df/images/bet/basket-bet-active-bg.png) no-repeat;
+	color: #fff;
+}
+.table_notborder tr .active i{
+	color: #fff;
+}
+.basketball-bet-cont td.dg{
+	background: url(http://trade.davcai.com/df/images/bet/lqdg.png) no-repeat;	
+}
+
+/*上面结束basketball-bet-cont部分*/
+i.select-hunhe-bet-count{
+	background: rgb(255, 157, 2);
+	padding: 0px 6px;
+	color: #FFFFFF;
+	font-weight: bold;
+	float: right;
+	margin-top: -23px;
+	margin-right: 2px;
+	border-radius: 2px 2px 2px 2px;
+}
+.table-bet-box-match .mixed-active .active i.select-hunhe-bet-count{
+	display:none;
+}
+.gray-img{
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+}
+.options-passed{
+	color:#c11920 !important;
+	font-weight: bold;
+}
+/*下面下面开始添加davcai-bet-nav导航部分20150309LS*/
+.davcai-bet-nav{
+	width: 700px;
+	position: fixed;
+	background: rgb(255, 255, 255);
+	z-index: 3;
+	height: 42px;
+	margin-top: -54px;
+	padding-top: 37px;
+}
+.davcai-bet-nav .davcai-bet-nav-tab{
+	width: 700px;
+	height: 35px;
+	border-bottom: 3px #D2D2D2 solid;
+}
+.davcai-bet-nav li{
+	float: left;
+	font-size: 15px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-family: "微软雅黑";
+}
+.davcai-bet-nav li:hover{
+	 border-bottom:3px solid #E22319;
+}
+.davcai-bet-nav li:hover a{
+	font-weight: bold;
+	padding:0 20px;
+}
+.davcai-bet-nav li.current{
+	 border-bottom:3px solid #E22319;
+}
+.davcai-bet-nav li.current a{
+	font-weight: bold;
+	padding:0 20px;
+}
+.davcai-bet-nav li a{
+	color: #5F5F5F;
+	text-align: center;
+	display:inline-block;
+	padding:0 20px;
+}
+/*上面结束davcai-bet-nav*/
+.main{
+	min-height: 800px;
+}
+#filter-match-selector-span{
+	float: left;margin-left: 15px;width: 80px;	
+}
+#filter-match-selector{
+	  float: left;
+	  margin-top: 3px;
+	  width: 300px;
+	  min-height: 41px;
+	  background: white;
+	  border: 1px #EE8A85 solid;
+	  padding-left: 12px;
+	  display:none;
+	  margin-left: -10px;
+}
+.bet-match-league-range{
+	  color: #999;
+	  font-weight: normal;
+	  font-size: 11px;
+}

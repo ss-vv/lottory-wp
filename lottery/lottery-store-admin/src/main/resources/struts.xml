@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <package name="lottery-default" extends="struts-default" abstract="true">
+    <result-types>
+      <result-type name="layout" class="com.xhcms.commons.web.struts2.velocity.VelocityLayoutResult" default="true" />
+      <result-type name="json" class="org.apache.struts2.json.JSONResult">
+        <param name="root">data</param>
+        <param name="contentType">text/html</param>
+        <param name="callbackParameter">jsonp</param>
+      </result-type>
+    </result-types>
+    
+    <interceptors>
+      <interceptor name="accessInterceptor" class="com.xhcms.lottery.admin.web.interceptor.AccessInterceptor" />
+      <interceptor name="exception" class="com.xhcms.commons.web.struts2.interceptor.ExceptionInterceptor" />
+      <interceptor-stack name="lotteryStack">
+<!--         <interceptor-ref name="exception" /> -->
+        <interceptor-ref name="servletConfig" />
+        <interceptor-ref name="fileUpload" />
+        <interceptor-ref name="actionMappingParams" />
+        <interceptor-ref name="params">
+          <param name="excludeParams">dojo\..*,^struts\..*</param>
+        </interceptor-ref>
+        <interceptor-ref name="conversionError" />
+        <interceptor-ref name="workflow" />
+        <interceptor-ref name="validation">
+          <param name="excludeMethods">input,back,cancel,browse</param>
+        </interceptor-ref>
+      </interceptor-stack>
+      <interceptor-stack name="accessItctStack">
+        <interceptor-ref name="accessInterceptor" />
+        <interceptor-ref name="lotteryStack" />
+      </interceptor-stack>
+    </interceptors>
+    <default-interceptor-ref name="accessItctStack" />
+    
+    <global-results>
+      <result name="login" type="redirect">/login.do</result>
+      <result name="input" type="velocity">/message.vm</result>
+      <result name="error" type="velocity">/message.vm</result>
+    </global-results>
+  </package>
+  
+  <include file="struts-scheme.xml" />
+  <include file="struts-account.xml" />
+  <include file="struts-user.xml" />
+  <include file="struts-admin.xml" />
+  <include file="struts-promote.xml" />
+  <include file="struts-group-follow.xml" />
+  <include file="struts-activity-notify.xml" />
+  <include file="struts-ticket.xml" />
+
+  <package name="global" extends="lottery-default">
+    <action name="index" class="com.xhcms.lottery.admin.web.action.IndexAction">
+      <result type="velocity">index.vm</result>
+    </action>
+    
+    <action name="menu" class="com.xhcms.lottery.admin.web.action.menu.MenuAction">
+      <result type="json">
+        <param name="root">menus</param>
+      </result>
+    </action>
+  </package>
+
+  <package name="common" extends="lottery-default" namespace="/">
+    <default-interceptor-ref name="lotteryStack" />
+    <action name="login" class="com.xhcms.lottery.admin.web.action.LoginAction">
+      <result type="redirect">/index.do</result>
+      <result name="input" type="velocity">login.vm</result>
+    </action>
+    
+    <action name="logout" class="com.xhcms.lottery.admin.web.action.LogoutAction">
+      <result type="redirect">/login.do</result>
+    </action>
+    
+    <!-- 请求验证码的Action请求配置 -->
+    <action name="captcha" class="com.xhcms.lottery.admin.web.action.captcha.CaptchaAction"></action>
+  </package>
+
+  <!-- 玩法 -->
+  <package name="play" extends="global" namespace="/play">
+    <action name="list" class="com.xhcms.lottery.admin.web.action.play.ListAction">
+      <result>list.vm</result>
+    </action>
+    <action name="aj_ls" class="com.xhcms.lottery.admin.web.action.play.AjaxListAction">
+      <result type="json" />
+    </action>
+    <action name="aj_get" class="com.xhcms.lottery.admin.web.action.play.AjaxGetAction">
+      <result type="json" />
+    </action>
+    <action name="aj_save" class="com.xhcms.lottery.admin.web.action.play.AjaxSaveAction">
+      <result type="json" />
+    </action>
+    <action name="aj_rm" class="com.xhcms.lottery.admin.web.action.play.AjaxRemoveAction">
+      <result type="json" />
+    </action>
+  </package>
+
+  <!-- 玩法选项 -->
+  <package name="playoption" extends="global" namespace="/option">
+    <action name="list" class="com.xhcms.lottery.admin.web.action.playoption.ListAction">
+      <result>/playoption/list.vm</result>
+    </action>
+    <action name="aj_save" class="com.xhcms.lottery.admin.web.action.playoption.AjaxSaveAction">
+      <result type="json" />
+    </action>
+    <action name="aj_rm" class="com.xhcms.lottery.admin.web.action.playoption.AjaxRemoveAction">
+      <result type="json" />
+    </action>
+  </package>
+
+  <!-- 过关方式维护 -->
+  <package name="passtype" extends="global" namespace="/passtype">
+    <action name="aj_ls" class="com.xhcms.lottery.admin.web.action.passtype.AjaxListAction">
+      <result type="json" />
+    </action>
+    <action name="aj_save" class="com.xhcms.lottery.admin.web.action.passtype.AjaxSaveAction">
+      <result type="json" />
+    </action>
+  </package>
+
+  <!-- 赛事 -->
+  <package name="match" extends="global" namespace="/match">
+    <action name="fblist" class="com.xhcms.lottery.admin.web.action.match.FBMatchListAction">
+      <result>fblist.vm</result>
+    </action>
+    <action name="aj_editfb" class="com.xhcms.lottery.admin.web.action.match.AjaxEditFBMatchAction">
+      <result type="json" />
+    </action>
+    <action name="ctfblist" class="com.xhcms.lottery.admin.web.action.match.CTFBMatchListAction">
+      <result>ctfblist.vm</result>
+    </action>
+    <action name="ctfbmatch" class="com.xhcms.lottery.admin.web.action.match.AjaxEditCTFBMatchAction">
+      <result type="json" />
+    </action>  
+    <action name="aj_editctfb" class="com.xhcms.lottery.admin.web.action.match.AjaxEditCTFBMatchAction" method="aj_editctfb">
+      <result type="json" />
+    </action>       
+    <action name="jxlist" class="com.xhcms.lottery.admin.web.action.match.JXMatchListAction">
+      <result>jxlist.vm</result>
+    </action>
+    <action name="aj_editjx" class="com.xhcms.lottery.admin.web.action.match.AjaxEditJXMatchAction">
+     <result type="json"/>
+    </action>
+    <action name="bblist" class="com.xhcms.lottery.admin.web.action.match.BBMatchListAction">
+      <result>bblist.vm</result>
+    </action>
+    <action name="aj_editbb" class="com.xhcms.lottery.admin.web.action.match.AjaxEditBBMatchAction">
+      <result type="json"/>
+    </action>
+    <action name="listcolored" class="com.xhcms.lottery.admin.web.action.match.ListColouredAction">
+      <result>coloredlist.vm</result>
+    </action>
+    <action name="listnocolor" class="com.xhcms.lottery.admin.web.action.match.ListNoColorAction">
+      <result>nocolorlist.vm</result>
+    </action>
+    <action name="aj_savecolor" class="com.xhcms.lottery.admin.web.action.match.AjaxSaveColorAction">
+      <result type="json"/>
+    </action>
+    <action name="aj_updatecolor" class="com.xhcms.lottery.admin.web.action.match.AjaxUpdateColorAction">
+      <result type="json"/>
+    </action>
+  </package>
+  
+</struts>

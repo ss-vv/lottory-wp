@@ -1,0 +1,76 @@
+#set($title="自动推荐用户列表")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+        <span #if("RECUSER" == $tab) class="current" #end><a href="$base/gf/list_rec_user.do?tab=RECUSER"><b>推荐用户</b></a></span>
+        <span #if("SEARCH" == $tab) class="current" #end><a href="$base/gf/search_rec_user.do?tab=SEARCH"><b>搜索用户</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/gf/search_rec_user.do" method="post">
+                <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+                <input type="hidden" name="tab" value="$tab"/>
+  			    <div class="tabH tabH02 panel" style="height:auto;clear:both;overflow:hidden;">
+          			<span class="current"><b>查询条件</b></span>
+          				<div class="l">
+                    		用户名：<input type="text" name="username" value="$!{username}" maxlength="30" size="20"/>
+          				</div>
+                    &nbsp;<input type="submit" class="hand btn" value="查询">
+                </div>
+			</form>
+		</div>
+      
+    <form id="pForm">
+        <table cellspacing="0" class="tab" id="dataGrid">
+        <tr>
+        <th style="width:60px;text-align:center;"><span>用户ID</span></th>
+        <th style="width:80px;text-align:center;"><span>用户名称</span></th>
+        <th style="width:80px;text-align:center;"><span>真实姓名</span></th>
+        <th style="width:80px;text-align:center;"><span>身份证号</span></th>
+        <th style="width:80px;text-align:center;"><span>注册IP</span></th>
+        <th style="width:80px;text-align:center;"><span>手机号</span></th>
+        <th style="width:80px;text-align:center;"><span>注册日期</span></th>
+        <th style="width:50px;text-align:center;"><span>状态</span></th>
+        <th style="width:120px;text-align:center;"><span>操作</span></th>
+        </tr>
+#foreach($u in $paging.results)
+        <tr>
+        <td style="text-align:center;">${u.id}</td>
+        <td style="text-align:center;">${u.username}</td>
+        <td style="text-align:center;">${u.realname}</td>
+        <td style="text-align:center;">$!{u.idNumber}</td>
+        <td style="text-align:center;">$!{u.ip}</td>
+        <td style="text-align:center;">${u.mobile}</td>
+        <td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${u.createdTime})</td>
+        <td style="text-align:center;">#if(${u.status} == 0) 正常 #else 已关闭#end</td>
+        <td style="text-align:center;">
+        <a href="javascript:void(0);" _uid="${u.id}" _action="recommend">设为推荐</a></td>
+        </tr>
+#end
+        </table>
+    </form>    
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    $('#dataGrid a[_action="recommend"]').click(function (){
+        var uid = $(this).attr('_uid');
+        if(confirm('确定要设为自动推荐用户吗？')){
+            xhOpenWindow('$base/gf/setup_rec_user.do?id=' + uid, {
+                id: 'u_' + uid,
+                title: '设置自动推荐用户',
+                height: 430,
+                width: 700
+            });
+        }
+    });
+});
+</script>

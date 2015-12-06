@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* ipttxt */
+.ipttxt,
+.ipttxt .inipttxt {color:#999; display:inline; float:left;}
+.ipttxt01 .inipttxt {background:none; border:none;}
+/* login */
+.loginbg {width:100%; height:100%; background:#1b3870; filter:alpha(opacity=60); opacity:0.6; position:absolute; top:0px; right:0px; left:0px; z-index:998;}
+.login {width:696px; height:329px; margin:-165px 0px 0px -348px; position:absolute; left:50%; top:50%; z-index:999;}
+.login .bg {width:696px; height:329px; margin-bottom:-329px; background:url(../images/login.png) no-repeat; _background:url(../images/blank.gif) repeat left top; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/login.png", sizingMethod="crop"); overflow:hidden; zoom:1;}
+.login .bg span {width:220px; height:35px; margin:48px 0px 0px 108px; background:url(../images/login_logo.png) no-repeat; _background:url(../images/blank.gif) repeat left top; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/login_logo.png", sizingMethod="crop"); float:left;}
+.inlogin {width:320px; margin:155px 0px 0px 90px; display:inline; float:left;}
+.inlogin p {padding-bottom:23px; overflow:hidden; zoom:1;}
+.inlogin p .captcha {width:50px;margin-left:5px;vertical-align:middle;float:left;}
+.inlogin p img {vertical-align:middle;float:left;margin-left:1px;}
+.inlogin p a {display:block;float:left;margin-left:-5px;text-decoration:none;}
+.inlogin p a:hover {text-decoration:underline;}
+.inlogin label {color:#36679f; float:left;}
+.inlogin .inipttxt {width:126px; height:17px; margin:3px 0px 0px 33px; padding:0px; padding-top:2px;}
+.inlogin .iptbtn {width:75px; height:25px; color:#fff; float:left; vertical-align:middle; text-align:center; margin-left:5px; padding:0px; background:url(../images/login_btn.gif) no-repeat; border:none; cursor:pointer;}
+/* pmt */
+.pmt01 {width:240px; color:#fff; line-height:18px; margin:108px 40px 0px 0px; display:inline; float:right; overflow:hidden; zoom:1;}
+.pmt01 h3 {font-size:12px; font-weight:bold; margin-bottom:18px;}
+.pmt01 p {margin-bottom:18px;}

@@ -1,0 +1,86 @@
+
+# database
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db.url = jdbc:mysql://182.92.191.193:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = test_lottery
+db.password = test77
+
+# database
+db2.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+db2.url = jdbc:mysql://182.92.191.193:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = test_account
+db2.password = test77
+
+# btm
+btm.log.1 = /data/logs/btm-mc1.log
+btm.log.2 = /data/logs/btm-mc2.log
+
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+# ActiveMQ
+amq.brokerURL = tcp://182.92.191.193:61616
+amq.sender.threads = 20
+
+# old ZhongMing interface
+old.ticket.key = CB1EEA815D97B6CAA6BF78B2A5E7DC08
+old.ticket.partnerId = 120
+old.ticket.version = 1.0
+old.ticket.url = http://121.12.173.4:8087/interface.aspx
+
+# ZhongMing new interface
+zm.ticket.key = pwd123456
+zm.ticket.partnerId = 349139
+zm.ticket.version = 1.0
+#zm.ticket.url = http://121.12.168.124:6661/ticketinterface.aspx
+zm.ticket.url = http://121.12.168.101:661/ticketinterface.aspx
+
+#\u77ed\u4fe1\u73af\u5883
+#sms.url = http://127.0.0.1:8080/smsbill/mt
+#sms.corpid = 1
+#sms.corppwd = test
+#sms.corpservice = test
+#sms.templateId=1
+#sms.signature =\u3010\u5927V\u5F69\u3011
+
+sms.url = http://111.13.19.27/smsbill/mt
+sms.corpid = 030000008
+sms.corppwd = aaa@111
+#sms.corpservice = 106td
+#sms.signature =\u3010\u5927V\u5F69\u3011
+sms.templateId =030000008_001
+
+# the interface for history tickets query
+history.ticket.key = CB1EEA815D97B6CAA6BF78B2A5E7DC08
+history.ticket.partnerId = 120
+history.ticket.version = 1.0
+history.ticket.url = http://121.12.173.4:887/interface.aspx
+
+anruizhiying.interfaceUrl=http://124.254.63.10:7001/trade.aspx
+anruizhiying.channelId=802
+anruizhiying.key=NP9WRYE85R
+#prod
+#API_ID:DVCP201507201547
+#SECRECT:X8J73GIE93VN2LYP
+
+#dev
+#  TEST123456789012
+#  ABCDEFGHIJKLMNOP
+yuanchengchupiao.apiId=TEST123456789012
+yuanchengchupiao.secret=ABCDEFGHIJKLMNOP
+
+yuanchengchupiao.contentKey=123456
+#ticket
+yuanchengchupiao.interfaceUrl=http://121.40.218.112:8889/?m=ticket
+#checkTicketStatus
+yuanchengchupiao.checkTicketStatusUrl=http://121.40.218.112:8889/?m=getTicketStatus
+#getBonusList
+yuanchengchupiao.getBonusListUrl=http://121.40.218.112:8889/?m=getBonusList
+#getBonusAll
+yuanchengchupiao.getBonusAllUrl=http://121.40.218.112:8889/?m=getBonusAll
+#getInfo
+yuanchengchupiao.getInfoUrl=http://121.40.218.112:8889/?m=getInfo
+#checkTicketsStatus
+yuanchengchupiao.checkTicketsStatus=http://121.40.218.112:8889/?m=checkTicketsStatus
+#checkTickets
+yuanchengchupiao.checkTicketsUrl=http://121.40.218.112:8889/?m=checkTickets

@@ -1,0 +1,105 @@
+#set($p_title="收件箱")
+#set($pos="inbox")
+
+<div class="lyr lyw-g fr">
+	<div class="mod mod-c mod-c-a">
+		<div class="mh">
+			<div class="tt">收件箱</div>
+		</div>
+		<div class="mm">
+			<form id="inboxForm1" action="$base/inbox.do" method="post">
+				<div class="formbox formbox-a mp-e">
+					<div class="row">
+						<label class="iptchk"><input class="iniptchk" type="checkbox" id="chkAll"/><span>全选</span></label>
+						<a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input class="iptbtn" type="button" event="remove" value="删除" /></span></a>
+					</div>
+					<span class="clear"></span>
+				</div>
+				<div class="tblbox tblbox-c mp-f">
+					<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+					<table id="msgtab" class="tbl" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<th class="thl" style="width:80px;"><div class="inth">&nbsp;</div></th>
+							<th style="width:150px;"><div class="inth"><div class="hide">发件人</div></div></th>
+							<th style="width:353px;"><div class="inth"><div class="hide">消息主题</div></div></th>
+							<th class="thr" style="width:180px;"><div class="inth"><div class="hide">时间</div></div></th>
+						</tr>
+						#foreach($msg in $paging.results)
+						<tr class="tdtt">
+							<td class="tdl">
+								<div class="intd">
+									<label>
+										<input class="iniptchk" name="ids" type="checkbox" value="${msg.id}"/>&nbsp;
+										#if($msg.read == "0")
+										<b class="icns icns16 icns16_read"></b>
+										#else
+										<b class="icns icns16 icns16_unread"></b>
+										#end
+									</label>
+								</div>
+							</td>
+							<td><div class="intd"><b>${msg.author}</b></div></td>
+							<td class="tal2">
+								<div class="intd">
+									<a href="$base/read.do?mid=${msg.id}">
+										<span class="c-c">
+										#if($msg.read == "0")
+											<b>${msg.subject}</b>
+										#else
+											${msg.subject}
+										#end
+										</span>
+									</a>
+								</div>
+							</td>
+							<td class="tdr"><div class="intd"><span class="c-f">$!date.format("yyyy-MM-dd HH:mm", $!{msg.createTime})</span></div></td>
+						</tr>
+						#end
+						#if($paging.results.size() == 0)
+						<tr>
+							<td colspan="4" class="tdr">没有消息记录!</td>
+						</tr>
+						#end				
+						<tr class="last">
+		        			<td colspan="10" class="tdr" style="text-align:right;">
+		          			<div class="pager fr">
+		            			#pager($paging, 8, "pager")
+		          			</div>
+		        			</td>
+			          </tr>	
+					</table>
+				</div>
+			</form>
+			<span class="cb">&nbsp;</span>
+		</div>
+	</div>
+</div>	
+<script type="text/javascript">
+function pager_reload(pn){
+    $('#inboxForm1').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+	$("#chkAll").click(function() {
+		if($(this).attr("checked") == "checked") {
+			$('#msgtab').find("input[name='ids']").attr("checked", true);
+		} else {
+			$('#msgtab').find("input[name='ids']").attr("checked", false);
+		}
+	});
+	
+	$("input[event='remove']").click(function(){
+		if($("input[name='ids']:checked").length<=0) {
+			alert("请选择要删除的信息！");
+			return false;
+		} else {
+			if(!confirm("确认要删除选择的信息！")){
+				return false;
+			} else{
+				$("#inboxForm1").attr("action", "$base/remove.do");
+				$("#inboxForm1").submit();
+			}
+		}
+	});
+	
+})
+</script>

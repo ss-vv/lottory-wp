@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head transcode="707" partnerid="135" version="1.0" time="${time}" />
+  <body>
+  #foreach($t in $tickets)
+    <ticket id="${t}" code="0" message="accepted"/>
+  #end
+  </body>
+</msg>

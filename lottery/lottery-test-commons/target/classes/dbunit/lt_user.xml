@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <table name="lt_user">
+    <column>id</column>
+    <column>username</column>
+    <column>password</column>
+    <column>real_name</column>
+    <column>id_number</column>
+    <column>question</column>
+    <column>answer</column>
+    <column>email</column>
+    <column>mobile</column>
+    <column>phone</column>
+    <column>address</column>
+    <column>province</column>
+    <column>city</column>
+    <column>verify_status</column>
+    <column>gender</column>
+    <column>status</column>
+    <column>birthday</column>
+    <column>ip</column>
+    <column>created_time</column>
+    <column>last_login_time</column>
+    <column>last_login_ip</column>
+    <column>referer</column>
+    <column>login_number</column>
+    <column>locked_time</column>
+    <column>islocked</column>
+    <column>login_failure_number</column>
+    <column>pid</column>
+    <row>
+      <value>441</value>
+      <value>沙漠之舟</value>
+      <value>3bea5ba3b5109ba2615a6be31004e2ca</value>
+      <value>杨波</value>
+      <value>520102197707151614</value>
+      <value/>
+      <value/>
+      <value>bob.yang.dev@gmail.com</value>
+      <value>13910392574</value>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>2</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>1.202.141.241</value>
+      <value><![CDATA[2012-05-18 18:05:17.0]]></value>
+      <value><![CDATA[2012-10-26 16:33:12.0]]></value>
+      <value>1.202.141.241</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+     <row>
+      <value>25</value>
+      <value>pingfanren</value>
+      <value>e10adc3949ba59abbe56e057f20f883e</value>
+      <value>田利耕</value>
+      <value>230222197511080019</value>
+      <value/>
+      <value/>
+      <value>tianlg2004@163.com</value>
+      <value>13671167324</value>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>3</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <value><![CDATA[2012-01-06 15:41:08.0]]></value>
+      <value><![CDATA[2012-07-26 00:34:50.0]]></value>
+      <value>110.232.43.102</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+    <row>
+      <value>13</value>
+      <value>大V彩老吴</value>
+      <value>4c602a3988bedcc59d0c972fa6604fe7</value>
+      <value>田利耕</value>
+      <value>233453235</value>
+      <value/>
+      <value/>
+      <value>perfsfsdfdfdsafds@qq.com</value>
+      <value>234224332</value>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>0</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <value><![CDATA[2012-01-03 23:06:50.0]]></value>
+      <value><![CDATA[2012-10-23 12:43:11.0]]></value>
+      <value>114.245.209.111</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+    <row>
+      <value>198</value>
+      <value>战场马克斯</value>
+      <value>6062a59e5ee892974975a239bcba5bc2</value>
+      <value>卞虎清</value>
+      <value>320483198606222139</value>
+      <value/>
+      <value/>
+      <value>fantaski@vip.qq.com</value>
+      <value>13616109234</value>
+      <null/>
+      <null/>
+      <value>江苏</value>
+      <value>常州</value>
+      <value>3</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>180.115.48.28</value>
+      <value><![CDATA[2012-05-15 21:07:13.0]]></value>
+      <value><![CDATA[2012-10-23 09:20:17.0]]></value>
+      <value>61.132.95.82</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+     <row>
+      <value>26</value>
+      <value>woshini</value>
+      <value>e3ceb5881a0a1fdaad01296d7554868d</value>
+      <value>张额</value>
+      <value>640221197107211515</value>
+      <value/>
+      <value/>
+      <value>kind@sina.com</value>
+      <value>13501049328</value>
+      <null/>
+      <null/>
+      <value>广东</value>
+      <value>佛山</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <value><![CDATA[2012-01-06 15:43:29.0]]></value>
+      <value><![CDATA[2012-02-09 13:59:02.0]]></value>
+      <value>117.136.0.81</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+    <row>
+      <value>213</value>
+      <value>88888888</value>
+      <value>023299564b0db47d5f3e476a254d0c21</value>
+      <value>张斌</value>
+      <value>210103198701196019</value>
+      <value/>
+      <value/>
+      <value>620055626@qq.com</value>
+      <value>13716838411</value>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>0</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>202.108.145.51</value>
+      <value><![CDATA[2012-05-16 13:11:38.0]]></value>
+      <value><![CDATA[2012-10-22 22:16:00.0]]></value>
+      <value>114.252.33.70</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+    <row>
+      <value>1676</value>
+      <value>hell</value>
+      <value>fc5e038d38a57032085441e7fe7010b0</value>
+      <value>HELL</value>
+      <value>413026198902197252</value>
+      <value/>
+      <value/>
+      <value>784969743@qq.com</value>
+      <value>13671091297</value>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>1</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>1.202.141.241</value>
+      <value><![CDATA[2012-07-09 15:03:20.0]]></value>
+      <value><![CDATA[2012-10-23 10:46:59.0]]></value>
+      <value>1.202.141.241</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+	<row>
+      <value>3905</value>
+      <value>testUser</value>
+      <value>33ef37db24f3a27fb520847dcd549e9f</value>
+      <value><![CDATA[ 测试]]></value>
+      <value>111111111111111</value>
+      <value/>
+      <value/>
+      <value>michael1983.chen@gmail.com</value>
+      <value>18601944885</value>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>0</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>1.202.141.241</value>
+      <value><![CDATA[2012-10-29 15:07:20.0]]></value>
+      <value><![CDATA[2012-10-29 15:07:20.0]]></value>
+      <value>1.202.141.241</value>
+      <value>http://www.davcai.com/</value>
+      <value>0</value>
+      <value><![CDATA[2012-10-29 15:07:20.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <value>0000</value>
+    </row>
+    <row>
+      <value>75</value>
+      <value>c0yne</value>
+      <value>ce2f0d3da0949eaa95a07b6b03ddc763</value>
+      <value>陈岩</value>
+      <value>11010719831006271x</value>
+      <value/>
+      <value/>
+      <null/>
+      <value>13811073816</value>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>2</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>127.0.0.1</value>
+      <value><![CDATA[2012-02-08 18:16:46.0]]></value>
+      <value><![CDATA[2012-10-19 10:43:42.0]]></value>
+      <value>1.202.141.241</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+     <row>
+      <value>6</value>
+      <value>444444</value>
+      <value>73882ab1fa529d7273da0db6b49cc4f3</value>
+      <value>44444</value>
+      <null/>
+      <value/>
+      <value/>
+      <null/>
+      <value/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <value>0</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <value><![CDATA[2011-12-30 18:27:48.0]]></value>
+      <value><![CDATA[2011-12-30 18:27:48.0]]></value>
+      <value>127.0.0.1</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+    </row>
+    <row>
+      <value>2809</value>
+      <value>JLCSW</value>
+      <value>e10adc3949ba59abbe56e057f20f883e</value>
+      <value>吕爽</value>
+      <value>110103198712231840</value>
+      <value/>
+      <value/>
+      <value>xiaotuzilvshuang@163.com</value>
+      <value>15901076205</value>
+      <null/>
+      <null/>
+      <value>北京</value>
+      <value>崇文区</value>
+      <value>1</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>1.202.141.241</value>
+      <value><![CDATA[2012-08-21 18:07:41.0]]></value>
+      <value><![CDATA[2012-10-23 09:45:51.0]]></value>
+      <value>1.202.141.241</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <value/>
+    </row>
+    <row>
+      <value>2</value>
+      <value>JLCSW2</value>
+      <value>e10adc3949ba59abbe56e057f20f883e</value>
+      <value>吕爽2</value>
+      <value>110103198712231840</value>
+      <value/>
+      <value/>
+      <value>xiaotuzilvshuang@163.com</value>
+      <value>15901076205</value>
+      <null/>
+      <null/>
+      <value>北京</value>
+      <value>崇文区</value>
+      <value>1</value>
+      <value>0</value>
+      <value>0</value>
+      <null/>
+      <value>1.202.141.241</value>
+      <value><![CDATA[2012-08-21 18:07:41.0]]></value>
+      <value><![CDATA[2012-10-23 09:45:51.0]]></value>
+      <value>1.202.141.241</value>
+      <null/>
+      <value>0</value>
+      <value><![CDATA[1970-01-01 00:00:00.0]]></value>
+      <value>0</value>
+      <value>0</value>
+      <value/>
+    </row>
+  </table>
+</dataset>

@@ -1,0 +1,64 @@
+	<div class="winner-content-right"><!-----下面开始hot-content-right部分了--------->
+  	   	   		<div class="davcai-popular-race-outer" id="hotrecommend">
+			   </div><!------davcai-popular-race-outer部分 ------->
+	 <div class="davcai-ranking-list-outer">
+  	  	    <h4 class="title">中奖奖金排行榜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	  	  	<i class="blue-mark-tips" tid="1"></i></h4>
+  	  	    <hr class="hr-solid">
+  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-1">
+  	  	  	跟单中奖奖金，是指用户跟单所中奖金总额。
+  	  	  </div>
+  	  	  <ul class="davcai-plus-interest" id="winprize_list">
+  	  	      <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	  </ul>
+  	  </div><!----davcai-ranking-list-outer部分------->
+	<div class="davcai-ranking-list-outer">
+  	  	   	<h4 class="title">晒单助人奖金排行榜&nbsp;
+  	  	  	<i class="blue-mark-tips" tid="2"></i></h4>
+  	  	    <hr class="hr-solid">
+  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-2">
+  	  	  	      晒单助人奖金，是指用户帮助跟单用户中奖的奖金总额。
+  	  	  </div>
+  	  	 <p class="ranking-list-tab" id="showschemeprize" >
+  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="showschemeprize7day">7日内</a>
+  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="showschemeprize50match">近50场</a>
+  	  	  </p>
+  	  	       <div>
+		  	  	   <ul class="davcai-plus-interest" id="showschemeprize7day">
+  	  	              <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	           </ul>
+		  	   </div>
+		  	   <div>
+		  	  	   <ul class="davcai-plus-interest" id="showschemeprize50match" style="display:none">
+  	  	              <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	           </ul>
+		  	   </div>
+  	  </div><!----davcai-ranking-list-outer部分------->
+	    	  
+	   <div class="davcai-ranking-list-outer">
+  	  	   	<h4 class="title">跟单中奖奖金排行榜&nbsp;
+  	  	  	<i class="blue-mark-tips" tid="3"></i></h4>
+  	  	    <hr class="hr-solid">
+  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-3">
+  	  	  	      跟单中奖奖金，是指用户跟单所中奖金总额。
+  	  	  </div>
+  	  	 <p class="ranking-list-tab" id="followschemewin">
+  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="followschemewin7day">7日内</a>
+  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="followschemewin50match">近50场</a>
+  	  	  </p>
+  	  	  <div>
+		  	 <ul class="davcai-plus-interest" id="followschemewin7day">
+  	  	      	<div class="loading" style="height: 40px; display: true;" ></div>
+  	  	     </ul>
+		  </div>
+		  <div>
+		  	 <ul class="davcai-plus-interest" id="followschemewin50match" style="display:none">
+  	  	        <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	     </ul>
+		  </div>
+  	  </div><!----davcai-ranking-list-outer部分------->
+	</div><!--------winner-content-right部分结束--------->
+#parse("web/inc/common_tmpl.vm")
+<script type="text/javascript" src="$base/js/davcai/winlist/commonShowSchemeList.js"></script>
+<script type="text/javascript" src="$base/js/davcai/winlist/winPrizeList.js"></script>
+<script type="text/javascript" src="$base/js/davcai/recommend/hotrecommend.js"></script>  	   	   	

@@ -1,0 +1,37 @@
+.nav-tabs-son-drop ul{
+	list-style:none;
+}
+.nav-tabs-son-drop ul a{text-decoration:none;}
+.nav-tabs-son-drop{
+	display:none;
+}
+
+/*下面是区别于原有的新修改的*/
+.dialog-span {
+display: inline-block;
+width: 70px;
+height: 28px;
+line-height: 28px;
+margin-left: 0px;
+}
+.as-home-ad{
+	width:360px;
+}
+.dialog-define .dialog-submit {
+/* margin: 2px 0px 0px 60px; */
+border: 1px solid #E0E0E0;
+width: 100px;
+height: 30px;
+line-height: 30px;
+text-align: center;
+border-radius: 6px;
+cursor: pointer;
+display: inline-block;
+float: left;
+margin-left: -118px;
+margin-top: 31px;
+}
+
+.submit-left{
+	margin-left:245px !important;
+}

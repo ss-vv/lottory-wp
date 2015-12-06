@@ -1,0 +1,38 @@
+.checkbox {
+    position: relative;
+    padding-left: 0px;
+	margin-top: 0px;
+}
+
+.label {
+	color: #000000;
+	font-weight: normal;
+}
+
+.active-bg {
+	background-color: #E22319;
+}
+
+ul.support li {
+}
+ul.support li.sup-home {
+	float:left;
+	margin-left: 10px;
+}
+ul.support li.sup-guest {
+	float:right;
+	margin-left: 100px;
+}
+
+ul.jclq_msg {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+ul.jclq_msg li {
+	height: 30px;
+	line-height:30px;
+}
+
+ul.jclq_msg .even_bg {
+	background-color: #F2F2F2;
+}

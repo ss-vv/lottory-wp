@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+
+
+/*
+ * Properties	属性
+ * style		样式
+ */
+
+/* background border */
+.bgbrr-1 {border-bottom:#f0846f 1px solid!important;}
+
+/*
+ * Content	内容
+ * Style	样式
+ */
+
+body {background-color:#e63614;}
+
+/* foot */
+.foot {background-color:#fff;}
+
+/* wrap */
+.wrap,
+.inwrap {padding-top:0; background:none;}
+
+/* head */
+.head {height:244px; background:url(../images/img/activity_img-1.jpg) no-repeat;}
+.head .logo {width:173px; height:60px; margin:153px 1px 0 0; background:url(../images/activity_logo.png) no-repeat; text-indent:-999px; float:right; overflow:hidden;}
+
+/* main */
+.main .lyw-1 {width:720px;}
+.main .lyw-2 {width:270px;}
+
+/* mod */
+.mod-1 {background-color:#fff; border:#dcdae2 1px solid;}
+.mod-1 .mh {height:29px; background:url(../images/mod/mh-b.png) repeat-x;}
+.mod-1 .mh .tt {margin:3px 0 0 10px;}
+.mod-1 .mh .more a {color:#0048ff;}
+
+.mod-2 {background-color:#fff; border:#ffcdab 1px solid;}
+
+/* morebox */
+.morebox {text-align:right; padding:0 12px;}
+.morebox a {color:#0048ff;}
+
+/* tipsbox */
+.tipsbox {padding:6px 20px;}
+.tipsbox .ctt {padding:0 24px;}
+
+/* listbox */
+.listbox {clear:both; *zoom:1;}
+.listbox .row {width:100%; display:inline; float:left; clear:both;}
+
+/* btnbox */
+.btnbox {text-align:center; padding:15px 0 48px;}
+.btnbox a {width:133px; height:40px; background:url(../images/activity_btn.png) no-repeat; display:-moz-inline-box; display:inline-block; overflow:hidden;}
+.btnbox a span {width:133px; height:40px; display:block; _display:inline-block; text-indent:-999px; overflow:hidden;}
+.btnbox .btn-1 {background-position:0 0;}
+.btnbox .btn-2 {background-position:-133px 0;}
+.btnbox .btn-3 {background-position:-266px 0;}
+.btnbox .btn-4 {background-position:-399px 0;}
+.btnbox a.btn-1:hover {background-position:0 -40px;}
+.btnbox a.btn-2:hover {background-position:-133px -40px;}
+.btnbox a.btn-3:hover {background-position:-266px -40px;}
+.btnbox a.btn-4:hover {background-position:-399px -40px;}
+
+/* vsgroup */
+.vsgroup .row {border-bottom:#e5e3e9 1px solid;}
+.vsgroup .lbl {width:48px; height:79px; line-height:79px; text-align:center; float:left;}
+.vsgroup .team {width:54px; height:79px; border-left:#e5e3e9 1px solid; display:inline; float:left;}
+.vsgroup .team span {height:39px; text-align:center; display:block; overflow:hidden;}
+.vsgroup .team .img {border-bottom:#e5e3e9 1px solid;}
+.vsgroup .team .img img {width:36px; height:36px; margin-top:1px;}
+.vsgroup .team .name {line-height:39px;}
+.vsgroup .last {border-bottom-width:0;}
+
+/* textlist */
+.textlist-1 {padding:3px 12px;}
+.textlist-1 .tt {height:30px; line-height:30px; overflow:hidden;}
+.textlist-1 .tt .c-1 {color:#f60;}
+
+.textlist-2 {margin:0 5px; padding:10px 0 6px;}
+.textlist-2 .title {color:#e63614; font-size:16px; font-weight:bold; margin:5px 20px 0 15px; display:inline; float:left;}
+.textlist-2 .ctt {line-height:18px; overflow:hidden; *zoom:1;}
+
+.textlist-2-1 .title {margin-top:24px;}
+.textlist-2-1 .ctt {margin-top:10px;}
+
+/* tablebox */
+.tablebox {clear:both; *zoom:1;}
+.tablebox .table {width:100%; table-layout:fixed;}
+.tablebox .inth,
+.tablebox .intd {clear:both; *zoom:1;}
+.tablebox .last th,
+.tablebox .last td {border-bottom:none;}
+.tablebox .num {width:11px; height:11px; line-height:11px; color:#fff; font-weight:bold; margin:0 auto; background:url(../images/num.png) repeat-x; border:#b3b3b3 1px solid; white-space:nowrap; display:block; overflow:hidden;}
+.tablebox .hot {background-position:0 -11px; border-color:#fd5703;}
+.tablebox .num-10 {width:14px;}
+
+.tablebox-1 th,
+.tablebox-1 td {text-align:center; border-right:#f0f0f1 1px solid; border-bottom:#f0f0f1 1px solid;}
+.tablebox-1 .thr,
+.tablebox-1 .tdr {border-right:none;}
+.tablebox-1 th {font-weight:normal;}
+.tablebox-1 .inth {height:24px;}
+.tablebox-1 .intd {height:29px; line-height:29px;}
+.tablebox-1 .c-1 {color:#3273d8;}
+.tablebox-1 .c-2 {color:#f72c05;}

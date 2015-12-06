@@ -1,0 +1,64 @@
+ <div class="game-result">
+  	  <h4 class="vertical-bar">
+  	  	  <img src="images/new-login/vertical-bar-red.png"/>
+  	  </h4>
+  	  <h3 class="vertical-bar-title">比赛结果</h3>
+  	  	  <p class="event"></p>
+  	  	   #if($fb && $fb.size() > 0)
+  	  	   	  <div class="game-line">&nbsp;&nbsp;&nbsp;足球</div>
+  	  	   	   	 <ul class="game-result-event">
+  	  	   	   	    #foreach($res in $fb)
+  	  	   	   	     	<li>
+  	  	   	   	     		<span class="game-result-event-match">$res.leagueShortName</span>
+  	  	   	   	     		<span class="game-result-event-team-left">
+  	  	   	   	     			<i>
+  	  	   	   	     				#if($res.homeTeamPosition)
+  	  	   	   	     					[$res.homeTeamPosition]
+  	  	   	   	     				#end
+  	  	   	   	     			</i>
+  	  	   	   	     			<a><!-- href="http://www.davcai.com/matches/JCZQ/$res.id" target="_blank" -->
+  	  	   	   	     				$res.homeTeamName
+  	  	   	   	     			</a>
+  	  	   	   	     		</span>
+  	  	   	   	     		<label title="$res.score">$res.score</label>
+  	  	   	   	     		<span class="game-result-event-team-right">
+  	  	   	   	     			<a><!-- href="http://www.davcai.com/matches/JCZQ/$res.id" target="_blank"-->
+  	  	   	   	     					$res.guestTeamName
+  	  	   	   	     			</a>
+  	  	   	   	     			<i>
+  	  	   	   	     				#if($res.guestTeamPosition)
+  	  	   	   	     					[$res.guestTeamPosition]
+  	  	   	   	     				#end
+  	  	   	   	     			</i>
+  	  	   	   	     		</span>
+  	  	   	   	     	</li>
+  	  	   	   	     #end
+  	  	   	   	 </ul>
+  	  	   	 #end
+  	  	   	 <!------------上面是足球部分----------------->
+	   	     #if($bb && $bb.size() > 0)
+  	  	   	   	<div class="game-line lanqiu-line">&nbsp;&nbsp;&nbsp;篮球</div>
+  	  	   	   	   <ul class="game-result-event">
+  	  	   	   	      #foreach($res in $bb)
+    	  	   	   	     <li>
+  	  	   	   	     		<span class="game-result-event-match">$res.name</span>
+  	  	   	   	     		<span class="game-result-event-team-left basketball01">
+  	  	   	   	     		<!--  href="" target="_blank" http://www.davcai.com/matches/JCLQ/$res.id -->
+  	  	   	   	     			<a>
+  	  	   	   	     				$res.homeTeam
+  	  	   	   	     			</a>
+  	  	   	   	     		</span>
+  	  	   	   	     		<label title="$res.homeScore:$res.guestScore" class="basketball">
+  	  	   	   	     			$res.homeScore:$res.guestScore
+  	  	   	   	     		</label>
+  	  	   	   	     		<span class="game-result-event-team-right basketball01">
+  	  	   	   	     			<a><!-- href="http://www.davcai.com/matches/JCLQ/$res.id" target="_blank" -->
+  	  	   	   	     				$res.guestTeam
+  	  	   	   	     			</a>
+  	  	   	   	     		</span>
+  	  	   	   	     	 </li>
+	  	   	   	     #end
+  	  	   	   	  </ul>
+  	  	   	  #end
+  	  	   	  <!------------上面是篮球部分----------------->
+</div><!------------game-result比赛结果-------------->

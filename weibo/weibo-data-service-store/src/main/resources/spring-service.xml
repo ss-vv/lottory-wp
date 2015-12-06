@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:init.properties</value>
+			</list>
+		</property>
+	</bean>
+	<context:annotation-config />
+	
+	<context:component-scan
+		base-package="com.unison.lottery.weibo.data.service.store.persist.dao.impl,
+	   com.unison.lottery.weibo.common.persist.impl,
+	   com.unison.lottery.weibo.data.service.store.persist.service.impl,
+	   com.unison.lottery.weibo.dataservice.commons.parse,
+	   com.unison.lottery.weibo.dataservice.parse,
+	   com.unison.lottery.weibo.dataservice.scraper,
+	   com.unison.lottery.weibo.data.proxy,
+	   " />
+	   <bean id="downloadService" class="com.unison.lottery.weibo.dataservice.commons.download.DownloadServiceImpl">
+    	<property name="urlMap">
+    		<map>
+    			<entry key="CurrentDayOdds">
+	           		<value>http://interface.win007.com/zq/odds.aspx</value>
+	           </entry> 
+	           <entry key="HistoryPanKou">
+	           		<value>http://interface.win007.com/zq/historyOdds.aspx</value>
+	           </entry>
+	           <entry key="ChangeOdds">
+	           		<value>http://interface.win007.com/zq/ch_odds.xml</value>
+	           </entry>
+	           <entry key="BFData">
+	           		<value>http://dxbf.bet007.com/vbsxml/bfdata.js</value>
+	           </entry>
+	           <entry key="BFChange">
+	           		<value> http://interface.win007.com/zq/change.xml</value>
+	           </entry> 
+	           <entry key="BFChange2">
+	           		<value>http://interface.win007.com/zq/change2.xml</value>
+	           </entry> 
+	           <entry key="BFDetail">
+	           		<value>http://interface.win007.com/zq/detail.aspx</value>
+	           </entry>
+	           <entry key="BFResult">
+	           		<value>http://interface.win007.com/zq/BF_XML.aspx</value>
+	           </entry> 
+	           <entry key="League">
+	           		<value>http://interface.win007.com/zq/League_XML.aspx</value>
+	           </entry>
+	           <entry key="Team">
+	           		<value>http://interface.win007.com/zq/Team_XML.aspx</value>
+	           </entry>
+	           <entry key="Event">
+	           		<value>http://interface.win007.com/zq/Event_XML.aspx</value>
+	           </entry>
+	           <entry key="Matchid">
+	           		<value>http://www.310win.com/handle/MatchidInterface.aspx</value>
+	           </entry>
+	           <entry key="Technic">
+	           		<value>http://interface.win007.com/zq/Technic_XML.aspx</value>
+	           </entry>
+	           <entry key="BF_XMLByID">
+	           		<value>http://interface.win007.com/zq/BF_XMLByID.aspx</value>
+	           </entry>
+               <entry key="BJ_EUROPE_ODDS">
+                    <value>http://interface.win007.com/zq/1x2.aspx</value>
+               </entry>
+               <entry key="BBMatchInfo">
+                    <value>http://interface.win007.com/lq/LqSchedule.aspx</value>
+               </entry>
+               <entry key="BBMatchInfoToday">
+                    <value>http://interface.win007.com/lq/today.aspx</value>
+               </entry>
+               <entry key="BBMatchInfoRealtime">
+                    <value>http://interface.win007.com/lq/change.xml</value>
+               </entry>
+               <entry key="BBTeam">
+                    <value>http://interface.win007.com/lq/LqTeam_Xml.aspx</value>
+               </entry>
+               <entry key="BBLeague">
+                    <value>http://interface.win007.com/lq/LqLeague_Xml.aspx</value>
+               </entry>
+               <entry key="BBCurrentDayOdds">
+                    <value>http://interface.win007.com/lq/LqOdds.aspx</value>
+               </entry>
+               <entry key="BBOddsHistory">
+                    <value>http://interface.win007.com/lq/LqHistoryOdds.aspx</value>
+               </entry>
+               <entry key="BBChangeOdds30Sec">
+                    <value>http://interface.win007.com/lq/ch_oddsBsk.xml</value>
+               </entry>
+               <entry key="BBBjEuropeOdds">
+                    <value>http://interface.win007.com/lq/1x2.aspx</value>
+               </entry>
+               <!-- 新接口足球当天数据 -->
+               <entry key="FBBFDayOdds">
+               	 	<value>http://interface.win007.com/zq/today.aspx</value>
+               </entry>
+    		</map>
+    		
+    	</property>
+    	
+    </bean>
+    <bean id="charsetDecider" class="com.unison.lottery.weibo.dataservice.commons.util.CharSetDeciderImpl">
+    	<property name="charsetMap">
+    		<map>
+    			<entry key="BFDetail">
+	           		<value>GBK</value>
+	           </entry>
+               <entry key="BFData">
+                    <value>gb18030</value>
+               </entry>
+<!--                <entry key="BFData"> -->
+<!--                     <value>gb18030</value> -->
+<!--                </entry> -->
+<!--                <entry key="BBMatchInfo"> -->
+<!--                     <value>gb18030</value> -->
+<!--                </entry> -->
+<!--                <entry key="BBMatchInfoToday"> -->
+<!--                     <value>gb18030</value> -->
+<!--                </entry> -->
+               <entry key="BBMatchInfoRealtime">
+                    <value>gb18030</value>
+               </entry>
+<!--                <entry key="BBOddsHistory"> -->
+<!--                     <value>gb18030</value> -->
+<!--                </entry> -->
+<!--                <entry key="BBCurrentDayOdds"> -->
+<!--                     <value>UTF8</value> -->
+<!--                </entry> -->
+<!--                <entry key="BBChangeOdds30Sec"> -->
+<!--                     <value>UTF8</value> -->
+<!--                </entry> -->
+    		</map>
+    	</property>
+    </bean>
+    <bean id="matchService" class="com.xhcms.lottery.commons.persist.service.impl.MatchServiceImpl">
+    </bean>
+    <bean id="PresetAwardService" class="com.xhcms.lottery.commons.persist.service.impl.PresetAwardServiceImpl"/>
+    <bean id="QtLcMatchService" class="com.xhcms.lottery.commons.persist.service.impl.QtLcMatchServiceImpl"/>
+    <bean id="prizesResolver" class="com.xhcms.lottery.commons.util.PrizesResolver">
+		<property name="prizesStrategys">
+			<array>
+				<bean class="com.xhcms.lottery.commons.utils.internal.JCPrizesStrategy" />
+			</array>
+		</property>
+	</bean>
+	<bean id="betResolver" class="com.xhcms.lottery.commons.util.BetResolver">
+		<property name="strategies">
+			<array>
+				<bean class="com.xhcms.lottery.commons.utils.internal.JCBetStrategy" />
+				<bean class="com.xhcms.lottery.commons.utils.internal.JX11BetStrategy" />
+				<bean class="com.xhcms.lottery.commons.utils.internal.CQSSBetStrategy" />
+				<bean class="com.xhcms.lottery.commons.utils.internal.SSQBetStrategy" />
+			</array>
+		</property>
+	</bean>
+    <bean id="fbMatchPlayDao" class="com.xhcms.lottery.commons.persist.dao.impl.FBMatchPlayDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="bbMatchPlayDao" class="com.xhcms.lottery.commons.persist.dao.impl.BBMatchPlayDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="matchColorDao" class="com.xhcms.lottery.commons.persist.dao.impl.MatchColorDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="bbMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BBMatchDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="fbMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.FBMatchDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="ctfbMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.CTFBMatchDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="TicketPresetDao" class="com.xhcms.lottery.commons.persist.dao.impl.TicketPresetDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="BetPartnerDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetPartnerDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="BetPartnerPresetDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetPartnerPresetDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="TicketDao" class="com.xhcms.lottery.commons.persist.dao.impl.TicketDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="BetSchemeDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSchemeDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="BetMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetMatchDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="BetSchemePresetDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSchemePresetDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="MatchPlatformDao" class="com.xhcms.lottery.commons.persist.dao.impl.MatchPlatformDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+    <bean id="BetSwitchDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSwitchDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+    
+    <bean id="MatchPlatformService" class="com.xhcms.lottery.commons.persist.service.impl.MatchPlatformServiceImpl"></bean>
+    <bean id="BonusCalculatorService" class="com.xhcms.lottery.commons.persist.service.impl.BonusCalculatorServiceImpl"></bean>
+    <bean id="betMatchsResolver" class="com.xhcms.lottery.commons.util.BetMatchsResolver"/>
+    <bean id="BetCommonsSchemeService" class="com.xhcms.lottery.commons.persist.service.impl.BetSchemeBaseServiceImpl"/>
+<!--     <bean id="crawlerDownloadService" class="com.unison.lottery.weibo.dataservice.commons.crawler.download.DownloadServiceImpl"></bean> -->
+	<bean id="checkMatchService" class="com.xhcms.lottery.commons.persist.service.impl.CheckMatchServiceImpl"/>
+	<bean id="betOptionService" class="com.xhcms.lottery.commons.persist.service.impl.BetOptionServiceImpl"/>
+	<bean id="maxAndMinBonusUtil" class="com.xhcms.lottery.commons.util.bonus.MaxAndMinBonusUtil"></bean>
+	<bean id="BonusCalculatorService" class="com.xhcms.lottery.commons.persist.service.impl.BonusCalculatorServiceImpl"/>
+</beans>

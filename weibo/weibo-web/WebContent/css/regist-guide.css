@@ -1,0 +1,515 @@
+.regist-guide-progress-bar{
+	width: 540px;
+	height: 30px;
+	line-height: 30px;
+	margin: 10px auto 60px;
+}
+.regist-guide-progress-bar span{
+	float: left;
+	font-size: 14px;
+	
+}
+.regist-guide-progress-bar .span01{
+	margin-left: 48px;
+}
+.regist-guide-progress-bar .span02{
+	margin-left: 100px;
+}
+.regist-guide-progress-bar .span03{
+	margin-left: 73px;
+}
+.regist-guide-progress-bar p{
+	float: left;
+}
+#personal-data{
+	width: 730px;
+	height: 725px;
+	margin: 0 auto;
+}
+#personal-data .personal-data-title{
+	width: 500px;
+	height: 26px;
+	line-height: 26px;
+	margin: 0 auto;
+	border-bottom: 1px #EAEAEA solid;
+	font-size: 14px;
+}
+.personal-data-form{
+	width: 730px;
+	height: 660px;
+}
+.personal-data-form li{
+	height: 34px;
+	width: 730px;
+	line-height: 34px;
+	margin-top: 15px;
+}
+.personal-data-form li label{
+	float:left;
+	width:100px;
+	height: 34px;
+	line-height:34px;
+	text-align:right;
+	font-size:14px;
+	margin-right: 10px;
+	color: #000000;
+	font-family: "微软雅黑";
+
+}
+.personal-data-form li select{
+	min-width:90px;
+	height:34px;
+	line-height:34px;
+	font-size:14px;
+	color: #000000;
+	margin-right: 22px;
+	font-family: "微软雅黑";
+	
+}
+.personal-data-form li .upload-picture-button{
+	height:34px;
+	font-size:14px;
+	cursor: pointer;
+	padding-top: -5px;
+	font-family: "微软雅黑";
+}
+.personal-data-form li .upload-picture-file-index{
+	display: inline-block;
+	width: 102px;
+	height: 40px;
+	overflow: hidden;
+	background:url(../images/select-file.png) no-repeat;
+}
+.personal-data-form li .upload-picture-file-index input{
+	filter:alpha(opacity=0.5); 
+	-moz-opacity:0.5;              /* 老版Mozilla */
+    -khtml-opacity:0.5;              /* 老版Safari */
+    opacity: 0.5;
+    width: 100px;
+	height: 38px;
+	font-size:1000px;
+}
+.personal-data-form li.personal-data-form-explain{
+	height: 12px;
+	width: 730px;
+	line-height: 12px;
+	margin-top: 6px;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #999999;
+}
+.personal-data-form li.margin-top{
+	margin-top:20px;
+	}
+.personal-data-form li.personal-data-form-preview{
+	width: 730px;
+	height: 180px;
+}
+
+.personal-data-form li .personal-data-form-previewimg{
+	width: 106px;
+	height: 106px;
+	border: 1px #AFCBDF solid;
+	text-align: center;
+	float: left;
+	margin:30px 80px 50px 120px;
+	background-color: #CEDAE4;
+}
+.personal-data-form li .personal-data-form-previewimg  img{
+	width: 106px;
+	height: 106px;
+}
+.personal-data-form li .personal-data-form-thumbnailimg{
+	width: 130px;
+	height: 120px;
+	float: left;
+	margin-top:10px;
+	margin-left: 20px;
+}
+.personal-data-form li .personal-data-form-thumbnailimg p{
+	border-bottom: 1px #EAEAEA solid;
+	height: 30px;
+	width: 125px;
+	line-height: 30px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	margin-bottom: 10px;
+}
+.personal-data-form li .personal-data-form-thumbnailimg  img{
+	width: 60px;
+	height: 60px;
+}
+.personal-data-form li.long{
+	width:730px;
+	height: 200px;
+}
+.personal-data-form li textarea{
+	width: 525px;
+	height: 180px;
+	border: 1px #CCCCCC solid;
+}
+.personal-data-form li .personal-data-form-nextbutton{
+	 width: 120px;
+	 height: 38px;
+	 background: #8FD33F;
+	 color: #fff;
+	 font-size: 20px;
+}
+
+#attention-kind{
+	width: 985px;
+	min-height: 480px;
+	margin: 0 auto;
+}
+#attention-kind .attention-kind-title{
+	width: 950px;
+	height: 30px;
+	line-height: 30px;
+	margin: 10px auto;
+	border-bottom: 4px #ECECEC solid;
+}
+
+/*下面这两部分是总选的复选框的设置*/
+#attention-kind .attention-kind-title span.checkbox-all-selected{
+	width: 55px;
+	height: 30px;
+	display: inline-block;
+	margin-top: 9px;
+	float: left;
+	cursor: pointer;
+	background:url(../images/checkbox-selected.png) no-repeat ;
+}
+
+/*#attention-kind .attention-kind-title span.checkbox-all:hover{
+	background:url(../images/checkbox-not-selected.png) no-repeat ;
+}*/
+
+
+#attention-kind .attention-kind-title span.checkbox-all-not-selected{
+	width: 55px;
+	height: 30px;
+	display: inline-block;
+	margin-top: 9px;
+	float: left;
+	cursor: pointer;
+	background:url(../images/checkbox-not-selected.png) no-repeat ;
+}
+
+#attention-kind .attention-kind-title span{
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+#attention-kind .attention-kind-title  p{
+	display: inline-block;
+	float: right;
+	margin-right: 50px;
+	vertical-align: middle;
+}
+#attention-kind .attention-kind-title  p label{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	margin-left: 22px;
+	vertical-align: middle;
+	float: left;
+	margin-top: -8px;
+	cursor: pointer;
+}
+#attention-kind .attention-kind-title  p input{
+	margin-top: 3px;
+	vertical-align: middle;
+}
+.attention-kind-list {
+	clear:both ;
+	width:980px;
+	height: 140px;
+	margin: 0 auto;
+	border-bottom: 1px #AAA9A9 dashed;
+}
+
+.attention-kind-list li{
+	width: 240px;
+	height: 140px;
+	float:left;
+	font-family: "微软雅黑";
+	margin-left: 5px;
+	
+}
+	
+.attention-kind-list li .attention-kind-logo{
+	width: 68px;
+	height: 68px;
+	border: 1px #CCCCCC solid;
+	float: left;
+	margin: 30px 15px 30px 25px;
+	cursor: pointer;
+}
+.attention-kind-list li .attention-kind-logo  img{
+	width: 68px;
+	height: 68px;
+}
+.attention-kind-list li .attention-kind-logo input{
+	margin-left: -10px;
+	margin-top:-5px;
+}
+.attention-kind-list li span{ 
+	width:125px;
+	height: 22px;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 28px;
+	display: inline-block;
+	margin-bottom: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	font-family: "微软雅黑";
+}
+.attention-kind-list li p{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis; 
+	font-family: "微软雅黑";
+	margin-top:4px;
+}
+.attention-kind-list li p i{
+	font-style: normal;
+	color: #E74C3C;
+}
+.attention-kind-nextbutton{
+	 width: 120px;
+	 height: 38px;
+	 background: #8FD33F;
+	 color: #fff;
+	 font-size: 20px;
+	 margin: 60px;
+}
+
+
+
+/*下面部分是复选框的设置*/
+
+.attention-kind-list li .checkbox-not-selected{
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	cursor: pointer;
+	margin-top: -13px;
+	margin-left:-10px ;
+	background:url(../images/checkbox-not-selected.png) no-repeat ;
+}
+/*.attention-kind-list li .checkbox:hover{
+	background:url(../images/checkbox-selected.png) no-repeat ;
+}*/
+
+.attention-kind-list li .checkbox-selected{
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	cursor: pointer;
+	margin-top: -13px;
+	margin-left:-10px ;
+	background:url(../images/checkbox-selected.png) no-repeat ;
+}
+
+#attention-lottery-people{
+	width: 985px;
+	min-height: 480px;
+	margin: 0 auto;
+}
+
+#attention-lottery-people .attention-lottery-people-title{
+	width: 950px;
+	height: 30px;
+	line-height: 30px;
+	margin: 10px auto;
+	border-bottom: 4px #ECECEC solid;
+}
+/*下面这两部分是总选的复选框的设置*/
+#attention-lottery-people .attention-lottery-people-title span.checkbox-all-selected{
+	width: 55px;
+	height: 30px;
+	display: inline-block;
+	margin-top: 9px;
+	float: left;
+	cursor: pointer;
+	background: url(../images/checkbox-selected.png) no-repeat;
+}
+
+#attention-lottery-people .attention-lottery-people-title span.checkbox-all-not-selected{
+	width: 55px;
+	height: 30px;
+	display: inline-block;
+	margin-top: 9px;
+	float: left;
+	cursor: pointer;
+	background:url(../images/checkbox-not-selected.png) no-repeat ;
+}
+
+#attention-lottery-people .attention-lottery-people-title span{
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+#attention-lottery-people .attention-lottery-people-title span.attention-lottery-people-user-change a{
+	color: #0076CE;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+#attention-lottery-people .attention-lottery-people-title  p{
+	display: inline-block;
+	float: right;
+	margin-right: 50px;
+	vertical-align: middle;
+}
+#attention-lottery-people .attention-lottery-people-title  p label{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	margin-left: 22px;
+	vertical-align: middle;
+	float: left;
+	margin-top: -8px;
+	cursor: pointer;
+}
+#attention-lottery-people .attention-lottery-people-title  p input{
+	margin-top: 3px;
+	vertical-align: middle;
+}
+
+
+
+/*以上部分是title部分*/
+
+
+.attention-lottery-people-list  li{
+	width: 310px;
+	height: 122px;
+	line-height: 100%;
+	border: 1px #E9E9E9 solid;
+	float: left;
+	margin-left:12px;
+	margin-top: 15px;
+	background:#F8F8F8;
+}
+.attention-lottery-people-list  li .attention-lottery-people-logo{
+	width: 54px;
+	height: 54px;
+	border: 1px #CCCCCC solid;
+	float: left;
+    margin:18px 15px 0 12px ;
+    cursor: pointer;
+}
+.attention-lottery-people-list  li .attention-lottery-people-logo  img{
+	width: 54px;
+	height: 54px;
+}
+
+/*下面部分是复选框的设置*/
+
+.attention-lottery-people-list  li .checkbox-not-selected{
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	cursor: pointer;
+	margin-top: -13px;
+	margin-left:-10px ;
+	background:url(../images/checkbox-not-selected.png) no-repeat ;
+}
+/*.attention-kind-list li .checkbox:hover{
+	background:url(../images/checkbox-selected.png) no-repeat ;
+}*/
+
+.attention-lottery-people-list  li .checkbox-selected{
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	cursor: pointer;
+	margin-top: -13px;
+	margin-left:-10px ;
+	background:url(../images/checkbox-selected.png) no-repeat ;
+}
+
+/*上面是复选框的位置*/
+.attention-lottery-people-list  li span{ 
+	width: 158px;
+	height: 27px;
+	font-weight: bold;
+	font-size: 14px;
+	margin-top: 17px;
+	display: inline-block;
+	margin-bottom: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-family: "微软雅黑";
+}
+.attention-lottery-people-list-attention{
+	width: 60px;
+	height: 26px;
+	line-height: 26px;
+	background: #E22319;
+	border: none;
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+    margin-top: 18px;
+    margin-right: 5px;
+}
+.attention-lottery-people-list-details{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	margin-bottom: 12px;
+}
+
+.attention-lottery-people-list-details em{
+	margin-right: 8px;
+	margin-left: 8px;
+	font-style: normal;
+}
+.attention-lottery-people-list-details i{
+	color: #0076CE;
+	font-weight: bold;
+	font-style: normal;
+
+}
+.dashed{
+	clear:both ;
+	width:980px;
+	height: 35px;
+	margin: 0 auto;
+	border-bottom: 1px #AAA9A9 dashed;
+}
+.attention-lottery-people-nextbutton{
+	 width: 120px;
+	 height: 38px;
+	 background: #8FD33F;
+	 color: #fff;
+	 font-size: 20px;
+	 margin: 60px;
+}
+.attention-lottery-people-list  li .attention-lottery-people-list-bottom{
+    width:310px;
+	height:36px;
+	background:#FFFFFF;
+	line-height:36px;
+	text-align:center;
+	font-family: "微软雅黑";
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+.attention-lottery-people-list  li .attention-lottery-people-list-bottom i{
+    color:#5DA508;
+	font-style: normal;
+	font-weight: bold;
+	margin-right:10px;
+}
+
+.attention-lottery-people-list  li .attention-lottery-people-list-bottom em{
+    color:#E22319;
+	font-style: normal;
+	font-weight: bold;
+}

@@ -1,0 +1,33 @@
+INSERT INTO `lt_lottery` (`id`, `name`, `win_level`, `help_url`, `created_time`, `note`) VALUES ('CQSS', '重庆时时彩', 1, NULL, '2013-01-04 17:20:52', NULL);
+
+ALTER TABLE `lt_issueinfo`  ADD COLUMN `prize_time` DATETIME NULL DEFAULT NULL COMMENT '兑奖时间' AFTER `zm_close_time`;
+
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('30_CQSS_5X_TX',    'CQSS', '五星通选', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('31_CQSS_5X_DS',    'CQSS', '五星单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('32_CQSS_5X_FS',    'CQSS', '五星复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('33_CQSS_5X_ZH',    'CQSS', '五星组合', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('34_CQSS_3X_DS',    'CQSS', '三星单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('35_CQSS_3X_FS',    'CQSS', '三星复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('36_CQSS_3X_ZH',    'CQSS', '三星组合', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('37_CQSS_3X_ZH_FS', 'CQSS', '三星组合复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('38_CQSS_3X_HZ',    'CQSS', '三星直选和值', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('39_CQSS_3X_Z3_FS', 'CQSS', '三星组三复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('40_CQSS_3X_Z6_FS', 'CQSS', '三星组六复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('41_CQSS_3X_ZX_HZ', 'CQSS', '三星组选合值', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('42_CQSS_3X_ZX_BD', 'CQSS', '三星组选包胆', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('43_CQSS_2X_DS',    'CQSS', '二星直选单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('44_CQSS_2X_FS',    'CQSS', '二星直选复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('45_CQSS_2X_ZH',    'CQSS', '二星组合', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('46_CQSS_2X_HZ',    'CQSS', '二星直选和值', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('47_CQSS_2X_ZX_DS', 'CQSS', '二星组选单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('48_CQSS_2X_ZX_ZH', 'CQSS', '二星组选组合', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('49_CQSS_2X_ZX_FZ', 'CQSS', '二星组选分组', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('50_CQSS_2X_ZX_HZ', 'CQSS', '二星组选和值', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('51_CQSS_2X_ZX_BD', 'CQSS', '二星组选包胆', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('52_CQSS_1X_DS',    'CQSS', '一星单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('53_CQSS_DXDS',     'CQSS', '大小单双', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('54_CQSS_3X_Z3_DS', 'CQSS', '三星组三单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`)  VALUES ('55_CQSS_3X_Z6_DS', 'CQSS', '三星组六单式', 0);
+
+# 客户端投注接口,增加投注失败状态码(由于期无效,期截止等原因)
+INSERT INTO `lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('bet_issue_close', '6007', '投注的期号错误');

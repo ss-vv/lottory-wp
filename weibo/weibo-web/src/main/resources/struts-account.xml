@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="account-import" extends="weibo-web-default" namespace="/">
+		<!-- 跳转基本资料页面 -->
+		<action name="/{weiboUserId:\d+}/edit"
+			class="com.unison.lottery.weibo.web.action.pc.UserProfileAction"
+			method="toEditProfile">
+			<result name="success">/web/profile/profile_setting.vm</result>
+		</action>
+		<!-- ajax 保存基本资料 -->
+		<action name="ajax_save_profile"
+			class="com.unison.lottery.weibo.web.action.pc.UserProfileAction"
+			method="saveProfile">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- 跳转修改头像页面 -->
+		<action name="/{weiboUserId:\d+}/photo/edit"
+			class="com.unison.lottery.weibo.web.action.pc.UserProfileAction"
+			method="toEditHeadImage">
+			<result name="success">/web/profile/head_setting.vm</result>
+		</action>
+		<!-- 保存头像 -->
+		<action name="/{weiboUserId:\d+}/photo/save_face"
+			class="com.unison.lottery.weibo.web.action.pc.UserProfileAction"
+			method="saveFace">
+			<result name="success">/web/profile/head_setting.vm</result>
+		</action>
+		
+		<!-- 跳转修改登录密码页面 -->
+		<action name="/{weiboUserId:\d+}/edit-pass"
+			class="com.unison.lottery.weibo.web.action.pc.UserProfileAction"
+			method="toModifyPwd">
+			<result name="success">/web/profile/password_setting.vm</result>
+		</action>
+		
+		<!-- ajax 修改登录密码 -->
+		<action name="ajax_modify_password"
+			class="com.unison.lottery.weibo.web.action.pc.UserProfileAction"
+			method="modifyPwd">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- 跳转绑定帐号页面 -->
+		<action name="to_bind_auth"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="toBind">
+			<result name="success">/web/profile/bind_setting.vm</result>
+		</action>
+		
+		<!-- 绑定新浪微博 -->
+		<action name="bind_sinaweibo"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="bindSinaWeibo">
+			<result name="success" type="chain">to_bind_auth</result>
+		</action>
+		
+		<!-- 取消绑定新浪微博 -->
+		<action name="cancel_sina_bind"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="cancelBindSinaWeibo">
+			<result name="success" type="chain">to_bind_auth</result>
+		</action>
+		
+		<!-- 绑定微信 -->
+		<action name="bind_weixin"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="bindWeixin">
+			<result name="success" type="chain">to_bind_auth</result>
+		</action>
+		<action name="cancel_weixin_bind"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="cancelBindWeixin">
+			<result name="success" type="chain">to_bind_auth</result>
+		</action>
+		
+		<action name="cancel_alipay_bind"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="cancelBindAlipay">
+			<result name="success" type="chain">to_bind_auth</result>
+		</action>
+		
+		<!-- 绑定QQ -->
+		<action name="bind_qq"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="bindQQ">
+			<result name="success" type="chain">to_bind_auth</result>
+			<result name="input">/web/qq_login.vm</result>
+		</action>
+		
+		<!-- 取消绑定QQ -->
+		<action name="cancel_qq_bind"
+			class="com.unison.lottery.weibo.web.action.pc.BindAction" method="cancelBindQQ">
+			<result name="success" type="chain">to_bind_auth</result>
+		</action>
+		
+		<!-- ajax 检查身份证号码 -->
+		<action name="ajax_check_idnumber"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction" method="ajCheckIdNumber">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- ajax 保存银行信息 -->
+		<action name="ajax_save_bank_info"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction" method="saveBankInfo">
+			<result name="success" type="json"/>
+		</action>
+		
+		<!-- 跳转提现密码页面 -->
+		<action name="/{weiboUserId:\d+}/edit-txpass"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction"
+			method="editTxPass">
+			<result name="success">/web/profile/tx_password_setting.vm</result>
+			<result name="reload" type="redirect">http://www.davcai.com/${user.weiboUserId}/edit-txpass</result>
+		</action>
+		<!-- ajax 修改提现密码  -->
+		<action name="ajax_modify_acc_pwd"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction" method="modifyAccPwd">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+		</action>
+		
+		<!-- 跳转邮箱管理页面 -->
+		<action name="/{weiboUserId:\d+}/edit-email"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction"
+			method="toEditEmail">
+			<result name="success">/web/profile/email_setting.vm</result>
+			<result name="reload" type="redirect">http://www.davcai.com/${user.weiboUserId}/edit-email</result>
+		</action>
+		<!-- 跳转手机管理页面 -->
+		<action name="/{weiboUserId:\d+}/edit-phone"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction"
+			method="toEditPhone">
+			<result name="success">/web/profile/phone_setting.vm</result>
+			<result name="reload" type="redirect">http://www.davcai.com/${user.weiboUserId}/edit-phone</result>
+		</action>
+		
+		<!-- 跳转银行卡管理页面 -->
+		<action name="/{weiboUserId:\d+}/to-edit-bank"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction"
+			method="bankInfo">
+			<result name="success">/web/profile/bank_setting.vm</result>
+			<result name="reload" type="redirect">http://www.davcai.com/${user.weiboUserId}/to-edit-bank</result>
+		</action>
+		<!-- 跳转银行卡管理页面 -->
+		<action name="bankinfo"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction">
+			<result type="redirect">http://www.davcai.com/${user.weiboUserId}/bank-info</result>
+		</action>
+		<action name="/{weiboUserId:\d+}/bank-info"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction"
+			method="bankInfo">
+			<result name="success">/web/profile/bank_info.vm</result>
+			<result name="reload" type="redirect">http://www.davcai.com/${user.weiboUserId}/bank-info</result>
+		</action>
+		
+		<!-- 编辑银行卡信息 -->
+		<action name="edit_bank_info"
+			class="com.unison.lottery.weibo.web.action.pc.AccountAction"
+			method="bankInfo">
+			<result name="success">/web/profile/bank_setting.vm</result>
+			<result name="reload" type="redirect">http://www.davcai.com/${user.weiboUserId}/to-edit-bank</result>
+		</action>
+	</package>
+</struts>

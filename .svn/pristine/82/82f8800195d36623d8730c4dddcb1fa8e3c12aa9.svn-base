@@ -1,0 +1,34 @@
+<div class="top">
+  <div class="intop" id="_top_bar">
+    <div class="user fl">
+      <div class="fl">欢迎您，$!{self.username}&nbsp;</div>
+      <div class="fl">
+        <a href="http://trade.davcai.com/ac/balance.do">我的账户</a><cite class="line"> | </cite>
+        <a href="http://trade.davcai.com/ac/recharge.do">充值</a><cite class="line"> | </cite>
+        <a href="http://trade.davcai.com/ac/withdraw.do">提现</a><cite class="line"> | </cite>
+        <a href="http://trade.davcai.com/ac/record/bet.do">我的投注</a><cite class="line"> | </cite>
+        <a href="http://trade.davcai.com/ac/inbox.do">收件箱<span id="inboxCount"></span></a><cite class="line"> | </cite>
+        <a href="$base/sso/logout.do">退出</a>
+      </div>
+    </div>
+    <div class="help fr">
+      <strong>QQ交流群110192229</strong>&nbsp;<a title="专家推荐" href="http://trade.davcai.com/df/rec/">专家推荐</a>&nbsp;<a title="帮助" href="http://trade.davcai.com/df/help/">帮助</a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	loadInboxCount('$base/inboxCount.do');
+	function loadInboxCount(url){
+		jQuery.getJSON(url, function(data){
+			if(data != null) {
+				if(data.success){
+					var htmlContent = '<span class="c-i">('+data.data+')</span>';
+					$('#inboxCount').html(htmlContent);
+					$('#menuInboxCount').html(htmlContent);
+				}
+			}
+		});
+	}
+})
+</script>

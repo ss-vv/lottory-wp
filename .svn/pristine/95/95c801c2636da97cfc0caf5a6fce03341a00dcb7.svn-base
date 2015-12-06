@@ -1,0 +1,120 @@
+#set($title="待兑奖")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH">
+		<span class="current"><a href="javascript:void(0)"><b>待兑奖</b></a></span>
+		<span><a href="$base/scheme/lsnotaward.do"><b>待派奖</b></a></span>
+		<span><a href="$base/scheme/lsawarded.do"><b>已派奖</b></a></span>
+		<span><a href="$base/scheme/lsnotwin.do"><b>未中奖</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/scheme/lsbought.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel">
+          <span class="current"><b>查询条件</b></span>
+  				<div class="l">
+            从 <input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+           至 <input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+            <select name="lotteryId" value="$!{lotteryId}" id="ltSel">
+              <option value="">不限彩种</option>
+              <option value="JCZQ">竞彩足球</option>
+              <option value="JCLQ">竞彩篮球</option>
+              <option value="JX11">江西十一选五</option>
+              <option value="CTZC">传统足彩</option>
+            </select>
+            发起人：<input type="text" name="sponsor" value="$!{sponsor}" maxlength="30" size="9"/>
+                  方案编号：<input type="text" name="schemeId" value="$!{schemeId}" maxlength="10" size="9"/>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0">
+            <input type="submit" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+		</div>
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+        <th style="width:60px;text-align:center;"><span>方案编号</span></th>
+				<th style="width:70px;text-align:center;"><span>彩种</span></th>
+				<th style="width:90px;text-align:center;"><span>玩法</span></th>
+				<th style="width:80px;text-align:center;"><span>发起人</span></th>
+				<th style="width:80px;text-align:center;"><span>投注倍数</span></th>
+				<th style="width:90px;text-align:center;"><span>投注金额（元）</span></th>
+				<th style="width:80px;text-align:center;"><span>出票注数</span></th>
+				<th style="width:100px;text-align:center;"><span>投注时间</span></th>
+        <th style="width:70px;text-align:center;">操作</th>
+			</tr>
+			#foreach($s in $paging.results)
+			<tr>
+				<td style="text-align:center;">${s.id}</td>
+				<td style="text-align:center;">#lotteryName($s.lotteryId)</td>
+				<td style="text-align:center;">$status.playName($s.playId)</td>
+				<td style="text-align:center;">${s.sponsor}</td>
+				<td style="text-align:right;">${s.multiple}</td>
+				<td style="text-align:right;">￥${s.totalAmount}</td>
+				<td style="text-align:right;">${s.ticketNote}</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${s.createdTime})</td>
+				<td style="text-align:center;">
+          			<a href="javascript:void(0);" _sid="${s.id}">查看详情</a>
+        		</td>
+			</tr>
+			#end
+		</table>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#ltSel option[value="$!{lotteryId}"]').attr('selected', 'selected');
+    
+	$('#qForm').submit(function() {
+		var schemeId = $(':input[name="schemeId"]').val();
+		var digital = /^\d*$/g;
+		if(!schemeId.match(digital)) {
+			alert("无效的方案编号");
+			return false;
+		}
+	});
+	
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    // 查看详情
+    $('#dataGrid td a[_sid]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        xhOpenWindow('$base/scheme/view.do?id=' + sid, {
+            id: 's_' + sid,
+            title: '查看投注方案详情',
+            height: 600,
+            width: 900
+        });
+        
+        return false;
+    });
+});
+</script>

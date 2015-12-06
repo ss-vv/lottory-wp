@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	font-size: 12px;
+	font-family: "微软雅黑", Tahoma, Arial, Roboto, ”Droid Sans”,
+		”Helvetica Neue”, ”Droid Sans Fallback”, ”Heiti SC”,
+		”Hiragino Sans GB”, Simsun, sans-self;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.font_15 {
+	font-size: 15px;
+}
+
+img {
+	border: none;
+}
+
+i, em {
+	font-style: normal;
+}
+
+.nav_fixed {
+	position: fixed;
+	top: -10px;
+}
+.color-blue{
+	color: #2758c6!important;
+}

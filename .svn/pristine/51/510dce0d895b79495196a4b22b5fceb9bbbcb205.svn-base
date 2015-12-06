@@ -1,0 +1,87 @@
+#set($p_title="晒单跟单")
+#set($user_score="晒单红人总战绩榜")
+#set($referer="http://trade.davcai.com/df/follow/swl.do?lid=$!{lid}")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="推荐用户,晒单推荐,跟单推荐,中奖排行榜")
+#set($pos="fl")
+#set($styles = ["style/style_follow_group", "css/hack-bootstrap"])
+
+<div class="lyl lyw-g fl">
+	<div class="mod mod-c mod-c-a wh-mh">
+		<form id="qForm" action="$base/follow/swl.do" method="post"> 
+		<input type="hidden" name="pageNo" value="${paging.pageNo}"/> 
+		<input name="lid" type="hidden" value="$!{lid}">
+		<div class="mh">
+			<div class="tabh tabh-e">
+				<a href="$base/follow/index.do"><span>热门推荐</span></a>
+			    <a href="$base/follow/list.do?lid=JCZQ""><span>足球方案</span></a>
+			    <a href="$base/follow/list.do?lid=JCLQ""><span>篮球方案</span></a>
+				<a href="$base/follow/list.do?lid=BJDC"><span>北京单场方案</span></a>
+			    <a href="$base/follow/swl.do?lid=JCZQ" class="cur"><span>晒单中奖榜</span></a>
+			    <a href="$base/follow/fwl.do?lid=JCZQ"><span>跟单中奖榜</span></a>
+			</div>
+		</div>
+		<div class="mhs">
+			<div  class="st">
+				<div class="fl">
+					<a href="$base/follow/swl.do?lid=JCZQ"" #if(${lid}=="JCZQ") class="cur" #end"><span>竞彩足球</span></a><b class="line"></b>
+			    	<a href="$base/follow/swl.do?lid=JCLQ"" #if(${lid}=="JCLQ") class="cur" #end"><span>竞彩篮球</span></a>
+				</div>
+				<span class="cb"></span>
+			</div>
+		</div>
+		<div class="tblbox tblbox-c mp-f">
+		    <table  cellspacing="0" cellpadding="0" border="0" class="tbl">
+			         <tr>
+			            <th style="width:30px;" class="thl"><div class="inth"><div class="hide">排名</div></div></th>
+			            <th><div class="inth"><div class="hide">发起人</div></div></th>
+			            <th style="width:60px;"><div class="inth"><div class="hide">战绩</div></div></th>
+			            <th style="width:50px;"><div class="inth"><div class="hide">方案个数</div></div></th>				            
+				        <th style="width:60px;"><div class="inth"><div class="hide">投注额</div></div></th>
+				        <th style="width:65px;"><div class="inth"><div class="hide">税后奖金</div></div></th>
+				        <th style="width:40px;"><div class="inth"><div class="hide">回报率</div></div></th>
+			            <th style="width:65px;"><div class="inth"><div class="hide">总跟单人数</div></div></th>
+			            <th style="width:60px;"><div class="inth"><div class="hide">平均跟单</div></div></th>
+			            <th style="width:70px;"><div class="inth"><div class="hide">跟单总金额</div></div></th>
+			            <th style="width:65px;"><div class="inth"><div class="hide">跟单总奖金</div></div></th>
+			            <th style="width:65px;" class="tdr"><div class="inth"><div class="hide">当前晒单</div></div></th>
+			          </tr>
+			         #foreach($ss in $paging.results)
+			           #set($s=${ss.showWinList})
+			          <tr>
+			            <td>$velocityCount</td>
+			            <td class="tdl"><a href="$base/follow/ws.do?uid=$!{s.sponsorId}">$!{s.sponsor}</a></td>
+			            <td>#showUserScorePic($!{ss.userScore.showPic})</td>
+			            <td>$!{s.showSchemeCount}</td>				            
+			            <td>$!{s.totalAmount}元</td>
+			            <td>$!{s.afterTaxBonus}元</td>
+			            <td>$!{s.returnRate}倍</td>
+			            <td>$!{s.followCount}</td>
+			            <td>$!{s.avgFollowCount}</td>
+			            <td>$!{s.followTotalAmount}元</td>
+			            <td>$!{s.followTotalBonus}元</td>
+			          	<td class="tdr"><a href="$base/follow/oss.do?uid=$!{s.sponsorId}" style="margin-right:0px;">查看</a>|<a href="http://trade.davcai.com/ac/cm.do?fuid=$!{s.sponsorId}" target="_blank" style="margin-right:0px;">定制</a></td>
+			          </tr>
+		          #end	
+			          <tr class="last">
+	        			<td colspan="10" class="tdr" style="text-align:right;">
+	          			<div class="pager fr">
+	            			#pager($paging, 8, "pager")
+	          			</div>
+	        			</td>
+		          	  </tr>		          
+			</table>
+		</div>
+		</form>
+		<space>&nbsp;</space>
+	</div>
+</div>
+<div class="lyr lyw-f fr">
+	#parse("inc/topn.vm")
+	#include("inc/topn-desc.vm")
+</div>
+<script type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+</script>

@@ -1,0 +1,34 @@
+<div class="welcomepage-nav">
+	<div class="welcomepage-nav-box">
+		<ul class="welcomepage-nav-tab">
+			<li class="active">
+				<a href="javascript:void(0);" class="active">今日提点 </a>
+			</li>
+			<li>
+				<a href="http://www.davcai.com/realfollow/category_ALL">晒单跟单</a>
+			</li>
+	  	    <li>
+	  	    	<a href="http://www.davcai.com/hotDiscuss">热门讨论</a>
+	  	    </li>
+			<li>
+				<a href="http://www.davcai.com/latestPublish">最近发表</a>
+			</li>
+			<li>
+				<a href="http://www.davcai.com/winningList">中奖喜报</a>
+			</li>
+	  	</ul>
+	  	<p class="welcomepage-nav-vicetab">
+	  	    <!--
+	  	      	span class="vicetab-weixin"><a href="#"></a></span 
+	  	      -->
+	  	    <span class="vicetab-sinaweibo"><a href="http://www.weibo.com/davcai"></a></span>
+	  	    <!-- 
+	  	       span class="vicetab-rss"><a href="#"></a></span 
+	  	     -->
+	  	    <span class="vicetab-lottery">
+	  	    	<a href="http://www.davcai.com/navigation.do" target="_blank">彩票导航</a> 
+	  	    	<!--<em>|</em><a href="#" id="charge">充值</a>-->
+	  	    </span>
+	  	 </p>
+	</div>
+</div><!-------------------welcomepage-nav部分--------------------------->

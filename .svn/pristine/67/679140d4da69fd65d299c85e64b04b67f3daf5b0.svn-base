@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+.main {
+/* 	border: 1px solid #F00; */
+	width: 480px;
+	margin: 20px auto 0px auto;
+	text-align: center;
+}
+
+.main li input.regInput {
+	background: none repeat scroll 0 0 #FFF;
+	border: 1px solid #888;
+	height: 24px;
+	outline: medium none;
+	width: 271px;
+	font-size: 14px;
+	line-height: 24px;
+	padding-top: 4px;
+	padding-left: 6px;
+	padding-bottom: 4px;
+	border-radius: 3px;
+}
+
+.main ul ul {
+	height: 34px;
+	vertical-align: middle;
+	margin: 10px auto;
+	width: 294px;
+}
+
+.main li.comm {
+	margin-top: 30px;
+	color:#888888;
+}
+
+.main li h2 {
+	color:gray;
+	font-size: 24px;
+}
+
+.main li.mail-reg {
+	text-align: left;
+	text-indent: 75px;
+	margin-top: 32px;
+}
+
+.main li.indent {
+	text-align: left;
+	text-indent: 40px;
+}
+
+.main .reg_sep {
+	margin-top: 20px;
+}
+
+.main .agree-support {
+	color:#E22319;
+}
+
+
+
+
+
+
+
+
+
+
+

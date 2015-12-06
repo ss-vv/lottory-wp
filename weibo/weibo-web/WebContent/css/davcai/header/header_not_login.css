@@ -1,0 +1,225 @@
+/*下面开始davcai-header头部导航部分*/
+.davcai-header{
+	width: 100%;
+	height: 66px;
+	line-height: 66px;
+    background:url(../../../images/davcai/header/davcai-header-bg.png) repeat-x ;	
+    margin: 0 auto;
+    position: fixed; 
+    left: 0;
+    top: 0;            /*这段代码里面的 position: fixed;是为了使头部导航固定不变。*/
+    z-index:999999;
+}
+.davcai-header .davcai-header-content{
+	width: 985px;
+	height: 66px;
+	line-height: 66px;
+	margin: 0 auto;
+}
+#davcai-logo{
+	float: left;
+}
+#davcai-logo a{
+	width: 165px;
+	height: 110px;
+	background:url(../../../images/davcai/header/davcai-logo.png);
+    display: inline-block;
+ }
+.davcai-header-content .davcai-address{
+	width: 125px;
+	height: 55px;
+	float: left;
+	background:url(../../../images/davcai/header/dacom.png) 5px 18px no-repeat;
+	padding-top: 15px;
+	color: #FFF113;
+	padding-left: 2px;
+	margin-right: 15px;
+}
+.davcai-header-content .davcai-address a.huoban{
+ 	font-size: 11px;
+	font-family: "微软雅黑";
+	color:#FFF113;
+ }
+.davcai-header-menu li{
+	float: left;
+	height: 66px;
+	line-height: 66px;
+    margin-left: -15px;
+}
+
+.davcai-header-content form{
+	width: 185px;
+ 	height: 26px;
+ 	margin-top: 18px;
+ 	margin-left: 5px;
+ 	float: left;
+}
+.davcai-header-content form.not-login-form{
+	width: 240px;
+ 	height: 26px;
+ 	margin-top: 18px;
+ 	margin-left: -13px;
+ 	float: left;
+}
+.davcai-header-content form #head-search{
+ 	width: 240px!important;
+ 	height: 15px;
+ 	line-height: 15px;
+ 	padding: 7px 0;
+ 	/*background:url(../images/head-search-bg.png);*/
+ 	border: none;
+ 	text-indent: 10px;
+ 	font-size: 12px;
+ 	color: #A8A8A8;
+ 	font-family: "微软雅黑";
+ 	float: left;
+ }
+ .davcai-header-content form #head-search{
+ 	width: 240px;
+ 	height: 15px;
+ 	line-height: 15px;
+ 	padding: 7px 0;
+ 	/*background:url(../images/head-search-bg.png);*/
+ 	border: none;
+ 	text-indent: 10px;
+ 	font-size: 12px;
+ 	color: #A8A8A8;
+ 	font-family: "微软雅黑";
+ 	float: left;
+ }
+/*  .davcai-header-content .magnifier a{
+ 	width: 16px;
+ 	height: 20px;
+ 	display: inline-block;
+ 	background:url(../../../images/davcai/header/magnifier.png);
+ 	float: right;
+ 	margin-top: -26px;
+ 	margin-right: 4px;
+ } */
+
+ 
+ .davcai-header-menu-not-login{
+	float: right;
+}
+.davcai-header-menu-not-login li{
+	float: left;
+	height: 66px;
+	line-height: 66px;
+}
+.davcai-header-menu-not-login li a{
+	color: #ffffff;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	display: block;
+	width: 90px;
+	height: 65px;
+	text-align: center;
+}
+.davcai-header-menu-not-login li a:hover{
+	background-color:#85CC32 ;
+}
+.davcai-header-menu-not-login li a.current{
+	background-color:#85CC32 ;
+}
+
+/*下面开始未登录状态的searching-dropdown-menu搜索下拉菜单部分*/
+.not-login-searching-dropdown-menu{
+	width: 240px;
+	min-height: 50px;
+	/*border: 1px #ffffff solid;开始的时候，添加上，好看，但是聚焦的时候，铺不满，显示白色边框，可以添加#ccc属性颜色，但是不好看。所以取消，退一步*/
+	border: 1px #cccccc\9 solid;/*针对IE写的*/
+	background: #fff;
+	float: left;
+	margin-top: 3px;
+	padding-bottom: 10px;
+	box-shadow: 0 0 6px rgba(0,0,0,.6);
+	-webkit-box-shadow:0 0 6px rgba(0,0,0,.6);
+	-moz-box-shadow: 0 0 6px rgba(0,0,0,.6);
+	display: none;
+	margin-left:20px;
+}
+
+
+.not-login-searching-dropdown-menu li{
+	width: 240px;
+	height: 28px;
+	line-height: 28px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	padding-left: 5px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+}
+.not-login-searching-dropdown-menu li.no-menu{
+	margin-top: 16px;
+}
+.not-login-searching-dropdown-menu li:first-child{
+	margin-top: 5px;
+}
+.not-login-searching-dropdown-menu li.no-menu h3{
+	color: #020202;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.not-login-searching-dropdown-menu li a{
+	color: #999999;
+	max-width: 186px;
+	height: 28px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+i,em{
+	font-family: "微软雅黑";
+	font-style: normal;
+}
+.not-login-searching-dropdown-menu li em{
+	color: #2AA1FF;
+}
+.not-login-searching-dropdown-menu li label{
+	color: #DBDBDB;
+	float: right;
+	margin-right: 3px;
+}
+.not-login-searching-dropdown-menu li.dropdown-menu-user{
+	width: 240px;
+	height: 48px;
+}
+.not-login-searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-logo{
+	width: 36px;
+	height: 36px;
+	background:url(../images/dropdown-menu-user.png);
+	display: inline-block;
+	float: left;
+	margin-top: 6px;
+	margin-right: 7px;
+}
+.not-login-searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-logo img{
+	width: 36px;
+	height: 36px;
+}
+.not-login-searching-dropdown-menu li.dropdown-menu-user a.dropdown-menu-user-name{
+	width: 180px;
+	height: 26px;
+	margin-top: 10px;
+	display: inline-block;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.not-login-searching-dropdown-menu li.dropdown-menu-user:hover{
+	background: #E22319;
+	border-left: 0px #E22319 solid;
+	border-right: 0px #E22319 solid;
+
+}
+.not-login-searching-dropdown-menu li.dropdown-menu-user:hover a{
+	color: #ffffff;
+}
+.not-login-searching-dropdown-menu li.dropdown-menu-user:hover a em{
+	color: #ffffff;
+}
+/*上面部分是not-login-未登录状态搜索框下拉菜单部分*/
+ 

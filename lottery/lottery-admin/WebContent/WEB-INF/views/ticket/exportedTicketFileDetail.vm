@@ -1,0 +1,76 @@
+#set($title="已导出票文件详情")
+#set($styles=["css/jqueryui/jquery-ui","js/jquery-ui-1.11.4.custom/jquery-ui.min"])
+<script type="text/javascript" src="$base/js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="$base/js/lottery/printable-ticket.js?version=1.0.5"></script>
+
+<div class="w">
+	<div class="bx_c">
+		<div class="bx_in">
+			<input type="button" id="buyTicketBtn" style="margin-left: 150px;" value="批量执行实体出票">
+			#if($ShiroUtil.isPermitted("ticket:cancel"))
+				<input type="button" id="cancelTicketBtn" style="margin-left: 150px;" value="批量执行撤单">
+			#end
+			<span style="float: left;margin-left: 50px;"> <span style="display: inline-block;width: 16px;height: 16px;background: rgb(250, 167, 167);"></span>
+			<span style="display: block;float: right;">　表示中奖的票</span></span>
+			<span style="float: left;margin-left: 50px;"> <span style="display: inline-block;width: 16px;height: 16px;background: #B0ECCE;"></span>
+			<span style="display: block;float: right;">　表示出票成功的票</span></span>
+		</div>
+		<form id="qForm" action="http://admin.davcai.com/lottery/ticket/exportedTicketFileDetail.do?fileId=${fileId}" method="post">
+			<input type="hidden" name="lotteryPlatformId" value="${lotteryPlatformId}"/>
+		</form>
+		<form id="doForm" action="" method="post">
+			<input type="hidden" name="lotteryPlatformId" value="${lotteryPlatformId}"/>
+		</form>
+		<table cellspacing="0" id="dataGrid" class="tab">
+			<tr>
+				<th style="width:25px;text-align:center;"><label><input type="checkbox" id="selectAll">全选</label></th>
+				<th style="width:25px;text-align:center;"><span>行号</span></th>
+				<th style="width:25px;text-align:center;"><span>票号</span></th>
+				<th style="width:25px;text-align:center;"><span>方案编号</span></th>
+				<th style="width:30px;text-align:center;"><span>玩法</span></th>
+				#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+				<th style="width:40px;text-align:center;">过关方式</th>
+                #end
+				<th style="width:20px;text-align:center;"><span>注数</span></th>
+				<th style="width:30px;text-align:center;"><span>投注倍数</span></th>
+				<th style="width:40px;text-align:center;"><span>总金额（元）</span></th>
+				<th style="width:40px;text-align:center;"><span>投注时间</span></th>
+				<th style="width:40px;text-align:center;"><span>方案截止时间</span></th>
+				<th style="width:40px;text-align:center;"><span>彩机截止时间</span></th>
+				<th style="width:40px;text-align:center;"><span>状态</span></th>
+				<th style="width:40px;text-align:center;"><span>奖金</span></th>
+				<th style="width:40px;text-align:center;"><span>打印格式</span></th>
+			</tr>
+		
+			#foreach($s in $printableTickets)
+			<tr #if($s.status==5203	|| $s.status==12) style="background: rgb(250, 167, 167);" #elseif($s.status==5100) style="background: #B0ECCE;" #end>
+				<td style="text-align:center;">
+					#if($s.status == 4) 
+						<input type="checkbox" value="${s.id}" name="alreadyExportTicketIds" ticket-checkbox="true"/>
+					#end
+				</td>
+				<td style="text-align:center;">$velocityCount</td>
+				<td style="text-align:center;">${s.id}</td>
+				<td style="text-align:center;">${s.schemeId}</td>
+				<td style="text-align:center;">$status.playName($s.playId)</td>
+				#if("JCZQ" == $lotteryId || "JCLQ" == $lotteryId)
+				<td style="text-align:center;">
+					$!{s.passTypeId}
+				</td>
+                #end
+				<td style="text-align:center;">${s.note}</td>
+				<td style="text-align:center;">${s.multiple}</td>
+        		<td style="text-align:center;">￥${s.money}</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.createdTime})</td>
+				<td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.schemeOfftime})</td>
+				<td style="text-align:center;" class="red">$date.format("MM-dd HH:mm", ${s.machineOfftime})</td>
+				<td style="text-align:center;">$status.bet(${s.status})</td>
+				<td style="text-align:center;">$!s.afterTaxBonus</td>
+				<td style="text-align:center;">${s.printBetContent}</td>
+			</tr>
+			#end
+		</table>
+	</div>
+</div>
+<div id="dialog">
+</div>

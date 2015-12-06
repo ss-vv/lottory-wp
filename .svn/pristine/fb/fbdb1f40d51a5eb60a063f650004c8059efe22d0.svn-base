@@ -1,0 +1,98 @@
+<script id="bet-scheme-tmpl" type="text/x-jquery-tmpl">
+{{#scheme}}
+	<div class="davcai-sun-list">
+		<ul class="davcai-sun-list-top">
+			<li class="davcai-sun-list-width01">赛事编号</li>
+			<li class="davcai-sun-list-width02">{{switchHomeGuest}}</li>
+			{{^isMixPlay}}
+			<li class="davcai-sun-list-width03">玩法</li>
+			{{/isMixPlay}}
+			{{^_showConcede}}
+			<li class="davcai-sun-list-width04">让球</li>
+			{{/_showConcede}}
+			<li class="davcai-sun-list-width05 {{formatCss}}">投注内容</li>
+			<li class="davcai-sun-list-width06">比分</li>
+			<li class="davcai-sun-list-width07">赛果</li>
+		</ul>
+		<div class="davcai-sun-list-middle">
+			{{#matchs}}
+			<ul class="davcai-sun-list-details">
+				<li class="davcai-sun-list-width01">{{cnCode}}</li>
+				<li class="davcai-sun-list-width02">
+					<a target="_blank" href="http://www.davcai.com/matches/{{lotteryId}}/{{matchId}}">
+    					<em class="match-left" title="{{homeName}}">{{homeName}}</em>
+    					<em class="match-vs">vs</em>
+    					<em class="match-right" title="{{guestName}}">{{guestName}}</em>
+					</a>
+				</li>
+				{{^isMixPlay}}
+				<li class="davcai-sun-list-width03">{{playName}}</li>
+				{{/isMixPlay}}
+				{{^_showConcede}}
+				<li class="davcai-sun-list-width04">{{_concedePoints}}</li>
+				{{/_showConcede}}
+				<li class="davcai-sun-list-width05 {{throughResult}} {{bravery}} {{formatCss}}" title="{{_betContent}}">
+					{{{_betContentHtml}}}
+				</li>
+				<li class="davcai-sun-list-width06 davcai-sun-list-width-mg" 
+					channelIdentifer="match_{{_pushMatchType}}_{{matchId}}">
+					<em class="pgs"></em>
+					<span class="score-reset">
+						{{_score}}
+					</span>
+				</li>
+				<li class="davcai-sun-list-width07" title="{{resultView}}">{{resultView}}</li>
+			</ul>
+			<hr class="davcai-sun-list-dotted">
+			{{#annotation}}
+    			<p class="davcai-sun-list-comment">{{annotation}}</p>
+			{{/annotation}}
+			{{/matchs}}
+			
+			{{#ratio}}
+				<p class="davcai-sun-list-middle-multiple">
+    				<span>命中率：</span><label><ew class="color-red">{{ratio}}</ew></label>
+    			</p>
+			{{/ratio}}
+			{{^realScheme}}
+    			<p class="davcai-sun-list-middle-white"></p>
+			{{/realScheme}}
+			
+			{{^_realScheme}}
+    			<p class="davcai-sun-list-middle-ggfs">
+    				<span>过关方式：</span> <label>{{playName}}</label>
+    				<label>{{passTypeIds}}</label>
+    			</p>
+    			<p class="davcai-sun-list-middle-multiple">
+    				<span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label>{{multiple}}倍</label>
+    				<span>方案金额：</span><label><ew class="color-red">{{totalAmount}}</ew>元</label>
+    			</p>
+    			<p class="davcai-sun-list-middle-jjhb">
+    				<span>理论最高奖金：</span>
+    				<label><ew class="color-red">{{maxBonus}}</ew>元</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    				<span>回报率： </span> <label><ew>{{returnRation}}</ew>倍</label>
+					{{^_type}}
+					<span>保底比例： </span> <label><ew class="color-red">{{_floorRatio}}</ew></label>
+					{{/_type}}
+    			</p>
+    			{{#sumBonus}}
+    			<p class="davcai-sun-list-middle-multiple">
+    				<span>奖金：</span><label><ew class="color-red">{{sumBonus}}</ew>元</label>
+    			</p>
+    			{{/sumBonus}}
+    			{{#privacyMsg}}
+    			<p class="davcai-sun-list-middle-multiple">
+    				<span>保密状态：</span>
+    				<label class="color-red">{{privacyMsg}}</label>
+    			</p>
+    			{{/privacyMsg}}
+    			{{#winprize}}
+    			<img src="/assets/js/bet/images/winprize-logo.png" class="winprize">
+    			{{/winprize}}
+			{{/_realScheme}}
+			
+		</div>
+		<div class="davcai-sun-list-bottom"></div>
+	</div>
+{{/scheme}}
+</script>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+
+	<bean id="runWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Run" />
+		<property name="maxSize" value="20" />
+	</bean> 
+	<bean id="statusRunWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-statusRunWS" />
+		<property name="maxSize" value="20" />
+	</bean>
+	
+	<!-- 热门讨论task   -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="weibo hot discuss task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="30" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.HotDiscussTask" />
+		</property>
+	</bean>
+	
+	<!-- 热门推荐task   -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="weibo hot recommend task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="30" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.HotRecommendTask" />
+		</property>
+	</bean>
+	
+	<!-- 足球赛事task -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="index football match task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="1800" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.IndexMatchTask" />
+		</property>
+	</bean>
+	
+	<!-- 自动发布微博 
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="index football match task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="180" />
+		<property name="job">
+			<bean class="com.unison.lottery.weibo.task.AutoPublishWeiboNewsTask" />
+		</property>
+	</bean>
+	-->
+	
+	<!-- 更新动态标签状态的task -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="update dynamic tag task" />
+		<property name="workspace" ref="statusRunWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="120" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.AsyncUpdateDynamicTagStatusTask" />
+		</property>
+	</bean>
+	
+	<!-- 统计用户实单和推荐数据task -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value=" statistic user data task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 01:00:00" />
+		<property name="period" value="86400" /><!-- 一天 -->
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.StatisticUserDataTask" />
+		</property>
+	</bean>
+	<!-- 统计最近7天所有中奖用户 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value=" statistic last 7 days win user info" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 01:00:00" />
+		<property name="period" value="300" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.StatisticWinTask" />
+		</property>
+	</bean>
+	
+	<!-- 创建历史中奖喜报索引,只执行一次(属零时性的任务) -->
+	<!-- 
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="weibo IndexWinning task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="86400" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.IndexWinningTask" />
+		</property>
+	</bean>
+	 -->
+	 <!-- 定时更新非最终状态方案缓存 -->
+	 <bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="update scheme cache of not final status scheme" />
+		<property name="workspace" ref="statusRunWS" />
+		<property name="time" value="2012-01-01 01:00:00" />
+		<property name="period" value="300" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.AsyncUpdateSchemeCacheTask" />
+		</property>
+	</bean>
+		<!-- jczq -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="jczq compute" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2014-10-20 00:03:00" />
+		<property name="period" value="25" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.JCZQTask" />
+		</property>
+	</bean>
+		<!-- jclq -->
+  	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="jclq compute" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2014-10-20 00:03:00" />
+		<property name="period" value="25" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.JCLQTask" />
+		</property>
+		
+	</bean>
+		<!-- bjdc -->
+  	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="bjdc compute" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2014-10-20 00:03:00" />
+		<property name="period" value="25" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.BJDCTask" />
+		</property>
+		
+	</bean>
+	<!--ctzq  -->
+  	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="ctzq compute" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="25" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.CTZQTask" />
+		</property>  
+		
+	</bean>
+	<!-- ssq -->
+  	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="ssq compute" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="25" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.SSQTask" />
+		</property>	
+	</bean> 
+
+<!-- 注释掉一次性任务 	
+  	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="LoadWeiboNicknameAndImageUrlTask" />
+		<property name="workspace" ref="statusRunWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="9000000000" />
+		<property name="job">
+			<bean class="com.unison.lottery.weibo.task.LoadWeiboNicknameAndImageUrlTask" />
+		</property>	
+	</bean>
+ -->	
+	<!-- init match -->
+   	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="init incrment num" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2014-12-08 09:00:00" />
+		<property name="period" value="86400" />
+		<property name="job">
+				<bean class="com.unison.lottery.weibo.task.InitMatchTask" />
+		</property>	
+	</bean>
+	
+	<!-- 缓存用户投注记录task   -->
+<!-- 	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry"> -->
+<!-- 		<property name="name" value="user bet task" /> -->
+<!-- 		<property name="workspace" ref="runWS" /> -->
+<!-- 		<property name="time" value="2012-01-01 00:03:00" /> -->
+<!-- 		<property name="period" value="30000000000" /> -->
+<!-- 		<property name="job"> -->
+<!-- 				<bean class="com.unison.lottery.weibo.task.FillUserBetCacheTask" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="UpdateBetMatchesCacheTask" />
+		<property name="workspace" ref="statusRunWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="20" />
+		<property name="job">
+			<bean class="com.unison.lottery.weibo.task.UpdateBetMatchesCacheTask" />
+		</property>	
+	</bean>
+</beans>

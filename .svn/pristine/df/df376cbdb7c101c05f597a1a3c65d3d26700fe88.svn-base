@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName">
+
+	<import resource="test-db-spring.xml" />
+
+	<bean name="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<!-- DAO -->
+	<bean id="betSchemeWithIssueInfoDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSchemeWithIssueInfoDaoImpl"/>
+	<bean id="betSchemeDao" class="com.xhcms.lottery.commons.persist.dao.impl.BetSchemeDaoImpl">
+	  <property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>  
+	<bean id="cTFBMatchDao" class="com.xhcms.lottery.commons.persist.dao.impl.CTFBMatchDaoImpl">
+	  <property name="sessionFactory" ref="mainSessionFactory" />
+	</bean> 
+	<bean id="cTFBMatchBaseService" class="com.xhcms.lottery.commons.persist.service.impl.CTFBMatchBaseServiceImpl"></bean>
+</beans>

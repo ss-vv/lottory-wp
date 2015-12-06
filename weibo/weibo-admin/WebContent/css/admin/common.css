@@ -1,0 +1,45 @@
+a.ajax-link {
+	cursor: pointer;
+}
+
+.user-opt-list {
+	height: 30px;
+}
+
+.user-opt-list ul {
+	margin: 0px;
+}
+
+.user-opt-list ul li {
+	list-style: none;
+	float: left;
+	width: 80px;
+	height: 30px;
+	line-height:30px;
+	border: 1px solid #E0E0E0;
+	margin-right: 5px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.user-opt-list ul li a {
+	width: 80px;
+	height: 30px;
+	display: block;
+}
+
+.pager-wrapper {
+	width: 500px;
+	margin-left: 0px;
+	margin-bottom: 10px;
+	height: 30px;
+}
+
+.pager-wrapper .pager {
+	text-align: right;
+}
+
+.pager-wrapper .pager li.active a {
+	background-color: #DDD;
+}

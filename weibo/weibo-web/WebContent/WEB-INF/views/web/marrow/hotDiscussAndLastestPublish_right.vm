@@ -1,0 +1,26 @@
+<div class="hot-content-right"><!-----下面开始hot-content-right部分了--------->
+  	   	   		<div class="davcai-popular-race-outer" id="hot_recommend_weibo_count">
+			    </div><!------davcai-popular-race-outer部分 ------->
+	    	    <div class="davcai-plus-outer">
+	    	  	  <h4 class="title">活跃用户</h4>
+	  	  	      <hr class="hr-solid">
+	  	  	     <ul class="davcai-plus-interest" id="active_user">
+  	  	          <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	         </ul>
+	    	  </div><!---davcai-plus-outer部分----->
+	    <div class="davcai-today-commend">
+ 			<!-- 异步填充数据 -->
+ 		</div><!------davcai-recommend-bet部分------>
+	     <div class="davcai-plus-outer">
+    	  	  <h4 class="title">你可能感兴趣的人</h4>
+              <h6 class="change"><a href="javascript:void(0);">换一换</a></h6>
+  	  	      <hr class="hr-solid">
+  	  	      <ul class="davcai-plus-interest" id="interest_user_list">
+  	  	         <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	      </ul>
+    	  </div><!---davcai-plus-outer部分----->
+	
+</div><!--------hot-content-right部分结束--------->
+#parse("web/inc/common_tmpl.vm")
+<script type="text/javascript" src="$base/js/davcai/recommend/hot_recommend_by_weibo_count.js"></script>  	   	
+<script type="text/javascript" src="$base/js/davcai/recommend/activeuser.js"></script>  	   	   	

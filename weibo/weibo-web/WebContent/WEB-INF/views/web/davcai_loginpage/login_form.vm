@@ -1,0 +1,43 @@
+<div class="welcomepage-loginform" class="wel-login">
+	<form id="loginForm" method="post">						
+		<ul class="loginform">
+			 <li>
+			    <span class="register">
+			       <a href="#" onclick="toRegistPage('http://www.davcai.com/upload-head-img','http://www.davcai.com/welcome')"></a>
+			    </span>
+			 </li>
+		     <li>
+				<input type="hidden" name="referer" value="http://www.davcai.com/index"/>
+				<input type="hidden" name="failReturnURL" value="http://www.davcai.com/welcome"/>
+				<input type="text" id="username" name="username" title="用户名/手机号码" placeholder="用户名/手机号码"/>
+			  	<p>
+			  	   <span class="welcome-checkbox-selected" id="checkselect"></span>
+ 	  	           <label class="remember-me">记住我</label> 
+ 	  	           <span class="check">
+ 	  	              <input type="checkbox" name="rememberMe" checked="checked" id="remember_me"/>
+ 	  	           </span>
+			  	</p>
+			 </li>
+			 <li>
+				 <input type="password" id="password" name="password"  placeholder="密码"/>
+			  	    <p class="welcome-forget-password"><a href="forget">忘记密码</a></p>
+			 </li>
+		     <li class="last-child"><span class="login"><a href="#" onclick="login()"></a></span>
+				 <p class="cooperative-logging">合作账号登录
+				 	<span class="welcome-zhifubao fist-child">
+				 	   <a href="javascript:void(0)" onclick="alipayLogin()" ></a>
+				 	</span>
+				 	<span class="welcome-sina-weibo">
+				 	   <a href="#" onclick="loginBySina('http://www.davcai.com/sina_weibo_login')" ></a>
+				 	</span>
+				 	<span class="welcome-qq">
+				 	  <a href="#" onclick="loginByQQ('http://www.davcai.com/qq_connect_login')" ></a>
+				 	</span>
+				 	<span class="welcome-weixin">
+				 	  <a href="#" onclick="loginByWeixin()"></a>
+				 	</span>
+				 </p>
+			 </li>
+	   </ul>														
+	</form>				  	 	
+</div><!-----------------------welcomepage-loginform部分-------------------------------->

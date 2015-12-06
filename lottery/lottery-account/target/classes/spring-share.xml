@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <context:annotation-config />
+
+  <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="classpath:init.properties" />
+  </bean>
+  
+  <bean id="webContext" class="com.xhcms.lottery.account.web.WebContext">
+    <property name="ticketKey" value="${ticket.key}" />
+  </bean>
+  
+  <bean id="yeePayContext" class="com.xhcms.lottery.account.web.YeePayContext">
+    <property name="memberId" value="${yeepay.memberId}" />
+    <property name="keyValue" value="${yeepay.keyValue}" />
+    <property name="url" value="${yeepay.url}" />
+    <property name="callback" value="${yeepay.callback}" />
+  </bean>
+  
+  <bean id="AliPayContext" class="com.xhcms.lottery.account.web.AliPayContext">
+    <property name="url" value="${alipay.url}" />
+    <property name="partner" value="${alipay.partner}" />
+    <property name="key" value="${alipay.key}" />
+    <property name="notifyUrl" value="${alipay.notifyUrl}" />
+    <property name="returnUrl" value="${alipay.returnUrl}" />
+    <property name="sellerEmail" value="${alipay.sellerEmail}" />
+    <property name="signType" value="${alipay.signType}"></property>
+    <property name="inputCharset" value="${alipay.inputCharset}"></property>
+    <property name="rsaPublic" value="${alipay.rsaPublic}"></property>
+  </bean>
+  
+  <bean id="PromotionContext" class="com.xhcms.lottery.account.web.PromotionContext">
+    <property name="promotionId" value="${recharge.redeemed.promotionId}" />
+  </bean>
+
+  <bean id="exceptionHandler" class="com.xhcms.commons.web.struts2.interceptor.DefaultExceptionHandler">
+    <property name="handlers">
+      <list>
+        <bean class="com.xhcms.commons.web.struts2.interceptor.XHRuntimeExceptionHandler" />
+        <bean class="com.jx.commons.web.interceptor.exception.JXExceptionHandler" />
+      </list>
+    </property>
+  </bean>
+
+  <bean id="betResolver" class="com.xhcms.lottery.commons.util.BetResolver">
+    <property name="strategies">
+      <array>
+        <bean class="com.xhcms.lottery.commons.utils.internal.CGJBetStrategy" />
+        <bean class="com.xhcms.lottery.commons.utils.internal.JCBetStrategy" />
+        <bean class="com.xhcms.lottery.commons.utils.internal.CTBetStrategy" />
+        <bean class="com.xhcms.lottery.commons.utils.internal.SSQBetStrategy" />
+        <bean class="com.xhcms.lottery.commons.utils.internal.BJDCBetStrategy"/>
+      </array>
+    </property>
+  </bean>
+</beans>

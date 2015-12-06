@@ -1,0 +1,2 @@
+INSERT INTO `db_lottery`.`lt_system_conf` (`conf_key`, `conf_value`, `desc`) VALUES ('send_monitor_email_start_time', '09:00:00', '允许发送监控邮件的开始时间。格式为HH:mm:ss');
+INSERT INTO `db_lottery`.`lt_system_conf` (`conf_key`, `conf_value`, `desc`) VALUES ('send_monitor_email_end_time', '23:59:59', '允许发送监控邮件的结束时间。格式为HH:mm:ss');

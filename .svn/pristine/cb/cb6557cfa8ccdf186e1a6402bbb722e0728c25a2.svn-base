@@ -1,0 +1,61 @@
+<!-- 加注释对话框 -->
+<form id="addCommentForm">
+	<div class="modal fade" id="commentModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	      </div>
+	      <div class="modal-body">
+	      <div class="editor">
+	      		<div class="editor-wrapper">
+			      		<div>
+							<textarea class="form-control" rows="5" id="shareContent" name="shareContent" placeholder="你有什么推荐？"></textarea>
+							<div id="filter_dialog_share" style="display:none;"></div>
+						</div>
+			      		<div class="emotion">
+		                    <span title="插入表情" id="message_face_share" class="face"><s></s><span>表情</span></span>
+		                    <span title="过滤赛事" class="match matchFindShare game_show_btn"><s></s><span>赛事</span></span>
+		                    <span id="shareContentRemainingWords" style="float:right;clear:both;">还可输入<em style='color:red;'>140</em>字</span>
+		                </div>
+		          </div>
+		   </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="sharePostBtn">写好了</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</form>
+
+
+
+<!-- 发推荐对话框 -->
+<form id="postRecomForm">
+	<div class="modal fade" id="recommendModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	      </div>
+	      <div class="modal-body">
+	      <div class="editor">
+	      		<div class="editor-wrapper">
+			      		<div>
+							<textarea class="form-control" rows="5" 
+								id="recommendContent">
+							</textarea>
+						</div>
+		          </div>
+		   </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="recommendPostBtn">发布</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</form>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <link type="text/css" rel="stylesheet" href="$base/css/buy.css" />
+  <link type="text/css" rel="stylesheet" href="$base/css/style.css" />
+  #foreach($s in $styles)
+ 	<link type="text/css" rel="stylesheet" href="$base/${s}.css" />
+  #end
+  #foreach($s in $scripts)
+  	<script language="javascript" type="text/javascript" src="$base/${s}.js"></script>  
+  #end
+</head>
+<body>
+
+<div class="wrap">
+		<div class="title">
+			#parse("inc/header.inc")
+		</div>
+		<div class="advertise">
+			#parse("inc/advertise.inc")
+		</div>
+		<div id="content">${screen_content}</div>  
+		
+		<div class="footer">
+			#parse("inc/footer.inc")
+		</div>
+
+</div>
+</body>
+</html>

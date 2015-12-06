@@ -1,0 +1,135 @@
+<script id="jclq-sfc-odd-tmpl" type="text/x-jquery-tmpl">
+	<table class="table_notborder" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td style="width:58px" {{{saleStatusView}}}   _i="{{i}}" _j="{{opta}}" _p="08LC2">
+					<a href="javascript:void(0);">
+						<i class="color-green01">1-5</i>
+						<br>
+						<i class="color-grey01">{{a}}</i>
+					</a>
+				</td>
+				<td style="width:58px" {{{saleStatusView}}}  _i="{{i}}" _j="{{optb}}" _p="08LC2">
+					<a href="javascript:void(0);">
+						<i class="color-green01">6-10</i>
+						<br>
+						<i class="color-grey01">{{b}}</i>
+					</a>
+				</td>
+				<td style="width:58px" {{{saleStatusView}}}  _i="{{i}}" _j="{{optc}}" _p="08LC2">
+					<a href="javascript:void(0);">
+						<i class="color-green01">11-15</i>
+						<br>
+						<i class="color-grey01">{{c}}</i>
+					</a>
+				</td>
+				<td style="width:58px" {{{saleStatusView}}}  _i="{{i}}" _j="{{optd}}" _p="08LC2">
+					<a href="javascript:void(0);">
+						<i class="color-green01">16-20</i>
+						<br>
+						<i class="color-grey01">{{d}}</i>
+					</a>
+				</td>
+				<td style="width:58px" {{{saleStatusView}}}  _i="{{i}}" _j="{{opte}}" _p="08LC2">
+					<a href="javascript:void(0);">
+						<i class="color-green01">21-25</i>
+						<br>
+						<i class="color-grey01">{{e}}</i>
+					</a>
+				</td>
+				<td style="width:58px" {{{saleStatusView}}}  _i="{{i}}" _j="{{optf}}" _p="08LC2">
+					<a href="javascript:void(0);">
+						<i class="color-green01">26+</i>
+						<br>
+						<i class="color-grey01">{{f}}</i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</script>
+<script id="jclq-match-date-tmpl" type="text/x-jquery-tmpl">
+	<table class="basketball-bet-box" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr class="basketball-bet-box-time">
+				<td colspan="9">
+					<p class="time">{{entrustTimeView}}&nbsp&nbsp(12：00--次日12：00)</p>
+					<a _n="hideMatch" href="javascript:void(0);" class="hide">隐藏</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</script>
+<script id="jclq-match-tmpl" type="text/x-jquery-tmpl">
+	{{#match}}
+	<table {{{matchStyle}}} matchGroupIndex="{{matchGroupIndex}}" class="basketball-bet-cont" league-name="{{leagueName}}" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td rowspan="5" style="width: 44px;">{{codeView}}
+					<br>
+					<br>{{leagueName}}</td>
+				<td rowspan="5" style="width: 48px;">
+					<div _n="entrustDeadline">{{{entrustDeadlineView}}}</div>
+					<div _n="matchStartTime" style="display:none">{{{matchStartTimeView}}}</div>
+				</td>
+				<td rowspan="5" style="width: 100px;">
+					<a href="javascript:void(0);" class="font-weight">{{guestTeamName}}</a>
+					<br>
+					<i class="color-red font-weight">VS</i>
+					<br>
+					<a href="javascript:void(0);" class="font-weight">{{homeTeamName}}</a>
+				</td>
+				<td {{sfdg}} style="width: 68px;">胜负</td>
+				{{{sfOddsView}}}
+				<td style="width: 68px;">欧赔</td>
+				<td odd-match-id="{{codePlayingTime}}">
+					<span type="europe" >--</span>&nbsp;
+					<span type="europe" >--</span>&nbsp;
+				</td>
+				<td rowspan="5" style="width: 68px;">
+					<a target="_blank" href="javascript:void(0);" class="color-blue">欧</a>&nbsp;&nbsp;
+					<a target="_blank" href="javascript:void(0);" class="color-blue">亚</a>&nbsp;&nbsp;
+					<a target="_blank" href="javascript:void(0);" class="color-blue">析</a>
+					<a href="javascript:void(0);" class="write-red">
+						<img {{{matchWriteRecBtnStyle}}} _i="{{i}}" match-id="{{id}}" match-str="{{matchString}}"  src="http://trade.davcai.com/df/images/bet/write-red.png"/>
+				    </a>
+				</td>
+			</tr>
+			<tr>
+				<td {{{rfsfdg}}}>让分胜负</td>
+				{{{rfsfOddsView}}}
+				<td>亚洲让分盘</td>
+				<td odd-match-id="{{codePlayingTime}}">
+					<span type="asian">--</span>&nbsp;
+					<span type="asian">--</span>&nbsp;
+					<span type="asian">--</span>
+				</td>
+			</tr>
+			<tr>
+				<td {{{dxfdg}}}>全场大小分</td>
+				{{{dxfOddsView}}}
+				<td>大小分</td>
+				<td  odd-match-id="{{codePlayingTime}}">
+					<span type="bigsmall">--</span>&nbsp;
+					<span type="bigsmall">--</span>&nbsp;
+					<span type="bigsmall">--</span>
+				</td>
+			</tr>
+			<tr>
+				<td {{{sfcdg}}}>客胜分差</td>
+				<td colspan="4">
+					{{{ksfcOddsView}}}
+				</td>
+				<!-------td  colspan="4"的table结束------------>
+			</tr>
+			<tr>
+				<td {{{sfcdg}}}>主胜分差</td>
+				<td colspan="4">
+					{{{zsfcOddsView}}}
+				</td>
+				<!-------td  colspan="4"的table结束------------>
+			</tr>
+		</tbody>
+	</table>
+	{{/match}}
+</script>

@@ -1,0 +1,38 @@
+<div id="center" class="right-sidebar">
+    <div class="wrapper">
+        <div class="widget">
+            <div class="tipstop">
+                <h2 class="widget-title">
+                    <a href="#"><span class="index-color">公告</span></a>
+                </h2>
+                <div class="fixit"></div>
+                <div class="tipstopic" id="announceList">
+                </div>
+				<div class="loading" style="display: none;height:40px;"></div>
+                <div class="fixit"></div>
+            </div>
+        </div>
+         
+        <div class="widget">
+            <div class="tipstop">
+                <h2 class="widget-title index-color">中奖喜报</h2>
+                <div class="fixit"></div>
+                <ul class="rightSider-list" id="winningNewsList">
+                </ul>
+				<div class="loading" style="display: none;height:40px;"></div>
+            </div>
+        </div>
+        
+       <div class="widget">
+       		<div class="tipstop">
+                <h2 class="widget-title index-color">您可能感兴趣的人</h2>
+                <a href="javascript:void(0)" class="changeAnother" style="margin-top:18px" id="change_interest_btn">换一些</a>
+                <div class="fixit"></div>
+                	
+                <ul class="rightSider-list" id="interest_user_list" _url="LT.Settings.URLS.user_relationship.interest_user">
+                </ul>
+                <div class="loading" style="height: 40px; display: true;" id="interest_user_list_loading"></div>
+            </div>
+        </div>
+    </div>
+</div>

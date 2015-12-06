@@ -1,0 +1,16 @@
+<div class="txtlst infobox mp-ma">
+  <div class="row">
+    <b class="fl">欢迎您，$!{user.username}</b>
+    <a href="$base/uc/recharge.do" class="btnx2 btnx2-c fl">
+      <span class="inbtn"><input type="button" value="充值" class="iptbtn"></span>
+    </a>
+    <a href="$base/uc/withdraw.do" class="btnx2 btnx2-b fl">
+      <span class="inbtn"><input type="button" value="提现" class="iptbtn"></span>
+    </a>
+  </div>
+  <div class="row">
+    <span class="fl">账户余额：<b class="c-i">${account.free}</b>元（现金：<b class="c-i">${account.fund}</b>元，赠款：<b class="c-i">${account.grant}元）</b></span>
+    <span class="c-f fl">注：赠款不能提现，仅限于购买彩票。</span>
+  </div>
+  <span class="clear"></span>
+</div>

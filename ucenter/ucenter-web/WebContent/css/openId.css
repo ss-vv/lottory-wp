@@ -1,0 +1,11 @@
+.head_image_container {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	background-color: #fbfbfb;
+	border: 1px solid #b8b8b8;
+}
+
+.head_image_container img {
+	height: inherit;
+}

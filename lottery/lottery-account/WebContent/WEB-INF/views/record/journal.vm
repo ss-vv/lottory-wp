@@ -1,0 +1,129 @@
+#set($p_title="流水明细")
+#set($pos = "bal")
+#set($scripts = ["js/jquery-ui"])
+#set($styles = ["css/ui-lightness/jquery-ui"])
+
+<div class="lyr lyw-g fr">
+  <div class="mod mod-c mod-c-a">
+    <div class="mh">
+      <div class="tabh tabh-e">
+        <a href="$base/balance.do"><span>账户明细</span></a>
+        <a href="javascript:void(0);"  class="cur"><span>流水明细</span></a>
+        <a href="$base/record/recharge.do"><span>充值记录</span></a>
+        <a href="$base/record/withdraw.do"><span>提现记录</span></a>
+        <a href="$base/record/win.do" ><span>中奖记录</span></a>
+        <a href="$base/record/grant.do"><span>赠款记录</span></a>
+        <a href="$base/record/commissionin.do"><span>佣金收入</span></a>
+        <a href="$base/record/commissionout.do"><span>佣金支出</span></a>
+      </div>
+    </div>
+    <div class="mm" style="min-height:630px;">
+      <div class="formbox formbox-a mp-e">
+        <div class="row">
+        <form id="qForm" action="$base/record/journal.do" method="post">
+          <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+          <input type="hidden" name="journalType" id="ltIpt" value="$!{journalType}"/>
+          <div style="width:150px;" class="selectbox selectbox-b fl">
+            <div class="tt" id="ltText">#if(${journalType})$adminStatus.order(${journalType})#else 全部#end</div>
+            <b class="icns" id="lt_popup_link"></b>
+            <div class="selectlst" style="display:none;z-order:1000;" id="lt_popup">
+              	<div class="option" _lid="0">全部</div>
+              	<div class="option" _lid="100">充值</div>
+          		<div class="option" _lid="101">赠款</div>
+          		<div class="option" _lid="102">派奖</div>
+          		<div class="option" _lid="200">提现返款</div>
+          		<div class="option" _lid="210">提现冻结</div>
+          		<div class="option" _lid="220">提现扣款</div>
+          		<div class="option" _lid="300">投注返款</div>
+          		<div class="option" _lid="301">合买保底返款</div>
+          		<div class="option" _lid="310">投注冻结</div>
+          		<div class="option" _lid="311">合买保底冻结</div>
+          		<div class="option" _lid="320">投注扣款</div>
+          		<div class="option" _lid="321">合买保底扣款</div>
+          		<div class="option" _lid="500">加佣金</div>
+            </div>
+          </div>
+          <label class="lbl">起始日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="from" type="text" value='$date.format("yyyy-MM-dd", ${from})' class="inipttxt" id="fromDP"></div>
+          <label class="lbl">终止日期：</label>
+          <div class="ipttxt ipttxt-b wh-txtb"><input name="to" type="text" value='$date.format("yyyy-MM-dd", ${to})' class="inipttxt" id="toDP"></div>
+          <a href="javascript:void(0);" class="btnx2 btnx2-b fl">
+            <span class="inbtn"><input type="button" value="查询" class="iptbtn" id="qBtn"></span>
+          </a>
+        </form>
+        </div>
+        <span class="clear"></span>
+      </div>
+      <div class="tblbox tblbox-c mp-f">
+        <table cellspacing="0" cellpadding="0" border="0" class="tbl">
+          <tr>
+            <th style="width:120px;" class="thl"><div class="inth"><div class="hide">交易时间</div></div></th>
+            <th style="width:100px;"><div class="inth"><div class="hide">金额</div></div></th>
+            <th style="width:120px;"><div class="inth"><div class="hide">类型</div></div></th>
+            <th class="thr" style="width:120px;"><div class="inth"><div class="hide">备注</div></div></th>
+          </tr>
+          #foreach($r in $paging.results)
+          <tr>
+            <td class="tdl">$date.format("yyyy-MM-dd HH:mm:ss", ${r.createdTime})</td>
+            <td>${r.amount}</td>
+            <td style="text-align:right;padding-right:5px;">$adminStatus.order(${r.type})</td>
+            <td class="tdr" style="text-align:right;padding-right:5px;">$!{r.note}</td>
+          </tr>
+    		  #end
+    		  <tr>
+            <td colspan="4" class="tdr" style="text-align:right;">
+              <div class="pager fr">
+                <span>累计交易次数：<b class="c-i">${paging.totalCount}</b> 次&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                #pager($paging, 8, "pager")
+              </div>
+            </td>
+          </tr>
+        </table>
+        #include("/inc/note.inc")
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    $('#lt_popup_link').bind('click', function() {
+        $('#lt_popup').toggle();
+    });
+    $('#lt_popup div[_lid]').hover(function(){
+        $(this).addClass('hover');
+    }, function(){
+        $(this).removeClass('hover');
+    }).bind('click', function(){
+        $('#ltText').text($(this).text());
+        $('#ltIpt').val($(this).attr('_lid'));
+        $('#lt_popup').hide();
+    });
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#qBtn').bind('click', query);
+});
+</script>

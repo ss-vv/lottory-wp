@@ -1,0 +1,113 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="帐号绑定")
+#set($styles=["css/profile.css","css/imgareaselect/imgareaselect-default.css"])
+
+#set($scripts=["js/cities.js","js/web/profile/profile.js","js/web/login.js",
+	"js/imgareaselect/jquery.imgareaselect.pack.js",
+	"js/jquery.form.js"])
+
+<div id="account-bound">
+	#parse("web/profile/inc/profile_header.vm")
+	<p class="account-bound-title">
+	  	Hi,$!user.nickName,绑定以下帐号，你就可以用它们登录大V彩，分享大V彩内容，并获得更多好友推荐。
+	</p>
+    <ul class="account-bound-list">
+		#if(!$user.sinaWeiboUid)
+			<li>
+				<img src="images/sina-weibo-logo.png"/>
+				<a id="sina_bind" class="active" href="#" name="sina_bind" onclick="loginBySina('http://www.davcai.com/bind_sinaweibo')">绑定新浪微博</a>
+			</li>
+    	#else
+    		#if($sinaWeiboUser)
+    			<li>
+    				<img src="images/sina-weibo-logo.png"/><a href="javascript:void(0);">已绑定($!sinaWeiboUser.screenName)</a>
+    				#if($showCancelBindBtn)
+		  	   	   		<span class="unbind"><a href="javascript:void(0);" _href="cancel_sina_bind" _cancel_bind name="cancel_sina_bind">取消绑定</a></span>
+		  	   	   	#end
+		  	   	</li>
+			#else
+		  	   	<li>
+					<img src="images/sina-weibo-logo.png"/>
+					<a id="sina_bind" class="active" href="#" name="sina_bind" onclick="loginBySina('http://www.davcai.com/bind_sinaweibo')">新浪微博已失效，请重新授权</a>
+				</li>
+			#end
+    	#end
+	    	
+		#if(!$user.qqConnectUid)
+    		<li> 
+    			<img src="images/qq.png"/>
+    			<a id="qq_bind" class="active" href="#" name="qq_bind" onclick="loginByQQ('http://www.davcai.com/bind_qq')">绑定QQ&nbsp;&nbsp;</a>
+    		</li>
+    	#else
+    		#if($qqConnectUser)
+			<li>
+				<img src="images/qq.png"/><a href="javascript:void(0);">已绑定($!qqConnectUser.nickName)</a>
+	  	   	   	#if($showCancelBindBtn)
+	  	   	   		<span class="unbind"><a href="javascript:void(0);" _href="cancel_qq_bind" _cancel_bind name="cancel_qq_bind">取消绑定</a></span>
+	  	   	   	#end
+	  	   	</li>
+			#else
+			<li>
+				<img src="images/qq.png"/>
+    			<a id="qq_bind" class="active" href="#" name="qq_bind" onclick="loginByQQ('http://www.davcai.com/bind_qq')">QQ绑定已失效，请重新授权</a>
+			</li>
+			#end
+    	#end
+		
+		#if(!$user.weixinPCUid)
+    		<li>
+    			<img src="images/icon48_appwx_logo.png"/>
+    			<a id="weixin_bind" class="active" href="#" name="weixin_bind" onclick="loginByWeixin('http://www.davcai.com/bind_weixin')">绑定微信&nbsp;&nbsp;</a>
+    		</li>
+    	#else
+    		#if($weixinUser)
+			<li>
+				<img src="images/icon48_appwx_logo.png"/><a href="javascript:void(0);">已绑定($!weixinUser.nickName)</a>
+	  	   	   	#if($showCancelBindBtn)
+	  	   	   		<span class="unbind"><a href="javascript:void(0);" _href="cancel_weixin_bind"  _cancel_bind name="cancel_weixin_bind">取消绑定</a></span>
+	  	   	   	#end
+	  	   	</li>
+			#else
+			<li>
+				<img src="images/icon48_appwx_logo.png"/>
+    			<a id="weixin_bind" class="active" href="#" name="weixin_bind" onclick="loginByWeixin('http://www.davcai.com/bind_weixin')">微信绑定已失效，请重新授权</a>
+			</li>
+			#end
+    	#end
+		#if($user.alipayUid)
+    		<li>
+				<img src="images/alipay-icon.png" style="width:50px;height:50px"/><a href="javascript:void(0);">已绑定支付宝账户</a>
+	  	   	   	#if($showCancelBindBtn)
+	  	   	   		<span class="unbind"><a href="javascript:void(0);" _href="cancel_alipay_bind" _cancel_bind name="cancel_alipay_bind">取消绑定</a></span>
+	  	   	   	#end
+	  	   	</li>
+    	#end
+    </ul>
+    <p class="account-bound-line">&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;说明
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;
+			&minus;&minus;
+	</p>
+   <p class="account-bound-line-words" style="color:red">注意：如果您是从第三方服务登录大V彩，且不知道您大V彩的帐号和密码，请您不要取消绑定，否则您将不能再次登录系统</p>
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		jQuery('#zhbd').attr('class','active');	
+		jQuery("[_cancel_bind]").click(function (){
+			var self = jQuery(this);
+			if(confirm("确认取消绑定吗？"+
+				"\n\n 警告：如果您没有大V彩的帐号和密码，请您不要取消绑定，否则您将不能再次登录大V彩，如有疑问请咨询客服。") == true){
+				window.location.href=self.attr("_href");
+			} else {
+				return;
+			}
+		});
+	});
+	#if(!$data.success && $data.desc)
+		alert("$data.desc");
+	#end
+</script>

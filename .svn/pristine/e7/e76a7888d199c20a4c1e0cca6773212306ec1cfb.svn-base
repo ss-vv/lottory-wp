@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+  <bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+      <amq:connectionFactory id="template" brokerURL="${amq.brokerURL}" />
+    </property>
+  </bean>
+  <!-- 异步发布微博到粉丝的时间线 -->
+  <bean id="asyncPublishFollowersHandler" class="com.unison.lottery.weibo.mq.AsyncPublishFollowersHandler"/>
+
+  <!-- 异步发布微博新闻到粉丝的时间线 -->
+  <bean id="asyncPublishWeiboNewsHandler" class="com.unison.lottery.weibo.mq.AsyncPublishWeiboNewsHandler"/>
+  
+  <!-- 异步发布赛事、推荐、新闻到粉丝的时间线 -->
+  <bean id="asyncPublishHandler" class="com.unison.lottery.weibo.mq.AsyncPublishHandler"/>
+
+  <!-- 异步发布用户微博 -->
+  <bean id="asyncLaiCaiWeiboPublishHandler" class="com.unison.lottery.weibo.mq.AsyncLaicaiPublishHandler"/>
+  
+  <!-- 异步处理投注消息 -->
+  <bean id="asyncSendBetMsgHandler" class="com.unison.lottery.weibo.mq.AsyncBetMessageHandler"/>
+
+  <!-- 异步处理关注关系 -->
+  <bean id="asyncFollowHandler" class="com.unison.lottery.weibo.mq.AsyncFollowHandler"/>
+  
+  <!-- 异步处理推荐微博 -->
+  <bean id="asyncPublishRecommendHandler" class="com.unison.lottery.weibo.mq.AsyncPublishRecommendHandler"/>
+  
+  <!-- 异步处理删除微博 -->
+  <bean id="asyncDeleteWeiboHandler" class="com.unison.lottery.weibo.mq.AsyncDeleteWeiboHandler"/>
+  
+  <!-- 异步处理提现通知 -->
+  <bean id="asyncWithdrawNoticeHandler" class="com.unison.lottery.weibo.mq.AsyncWithdrawNoticeHandler"/>
+  
+  <!-- 异步处理派奖通知 -->
+  <bean id="asyncAwardNoticeHandler" class="com.unison.lottery.weibo.mq.AsyncAwardNoticeHandler"/>
+  
+  <!-- 异步处理发喜报 -->
+  <bean id="asyncWinningHandler" class="com.unison.lottery.weibo.mq.AsyncWinningHandler"/>
+  
+  <!-- 异步处理系统私信推送 -->
+  <bean id="asyncPushPrivateMsgHandler" class="com.unison.lottery.weibo.mq.AsyncPushPrivateMsgHandler"/>
+  
+  <!-- 异步处理认证用户推送 -->
+  <bean id="asyncAnalysisExpertPushHandler" class="com.unison.lottery.weibo.mq.AsyncAnalysisExpertPushHandler"/>
+  
+  <!-- 异步接收方案缓存更新消息 -->
+  <bean id="schemeCacheUpdateMessageHandler" class="com.unison.lottery.weibo.mq.AsyncSchemeCacheUpdateHandler"/>
+  
+  <!-- 异步推送“中奖加奖微博” -->
+  <bean id="asyncPushAddBonusHandler" class="com.unison.lottery.weibo.mq.AsyncPushAddBonusHandler"/>
+  
+  <!-- 异步发布微博到粉丝的时间线的侦听器 -->
+  <bean id="asyncPublishFollowersListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_FOLLOWERS_CMD_LISTENER" physicalName="com.unison.weibo.queue.WB_PUBLISH_FOLLOWERS_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncPublishFollowersHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  <!-- 异步发布微博新闻到粉丝的时间线的侦听器 -->
+  <bean id="asyncPublishNewsFollowersListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_NEWS_PUBLISH_FOLLOWERS_CMD_LISTENER" physicalName="com.unison.weibo.queue.WB_NEWS_PUBLISH_FOLLOWERS_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncPublishWeiboNewsHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  
+  <!-- 异步发布赛事、推荐、新闻到粉丝的时间线的侦听器 -->
+  <bean id="asyncPublishListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_CMD_LISTENER" physicalName="com.unison.weibo.queue.WB_PUBLISH_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncPublishHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  
+  <!-- 异步发布晒单新微博侦听器 -->
+  <bean id="asyncPublishLaiCaiWeiboListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_PUBLISH_FULL_CMD" physicalName="com.unison.weibo.queue.WB_LAICAI_PUBLISH_FULL_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncLaiCaiWeiboPublishHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+    
+    <property name="sessionTransacted" value="false"/>
+	<property name="sessionAcknowledgeModeName" value="CLIENT_ACKNOWLEDGE" />
+  </bean>
+
+  <!-- 异步处理关注的侦听器 -->
+  <bean id="asyncFollowListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_FOLLOW_CMD" physicalName="com.unison.weibo.queue.WB_FOLLOW_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncFollowHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  
+  <!-- 异步处理'推荐微博'的侦听器 -->
+  <bean id="asyncPubRecommendListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_PUBLISH_RECOM_SCHEME" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_PUBLISH_RECOM_SCHEME" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncPublishRecommendHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+
+  <!-- 异步处理'删除微博'的侦听器 -->
+  <bean id="asyncDeleteWeiboListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_DELETE_WEIBO_LISTENER" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_DELETE_WEIBO" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncDeleteWeiboHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  <!-- 异步处理'系统推送私信'的侦听器 -->
+  <bean id="asyncPushPrivateMsgListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_PUSH_PRIVATEMSG_LISTENER" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_PUSH_PRIVATEMSG" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncPushPrivateMsgHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  
+  <!-- 异步处理‘提现’私信通知的侦听器 -->
+  <bean id="asyncWithdrawListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_WITH_DRAW_CMD" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_WITH_DRAW_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncWithdrawNoticeHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  
+  <!-- 异步处理‘派奖’私信通知的侦听器 -->
+  <bean id="asyncAwardListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_AWARD_CMD" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_AWARD_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncAwardNoticeHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+
+	<!-- 异步处理‘发喜报’的侦听器 -->
+  <bean id="asyncWinningListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_WINNING_CMD" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_WINNING_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncWinningHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  
+  <!-- 异步处理‘分析达人’推送通知的侦听器 -->
+  <bean id="asyncExpertPushListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_ANALYSIS_EXPERT_CMD" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_ANALYSIS_EXPERT_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncAnalysisExpertPushHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+  
+  <!-- 异步处理方案缓存更新推送通知的侦听器 -->
+  <bean id="asyncUpdateSchemeCacheListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_SCHEME_CACHE_UPDATE_CMD" 
+      	physicalName="com.unison.weibo.queue.WB_LAICAI_SCHEME_CACHE_UPDATE_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="schemeCacheUpdateMessageHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+
+	<!-- 异步处理投注侦听器 -->
+  <bean id="asyncSendBetMsgListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="WB_DAVCAI_BET_MSG_CMD" physicalName="com.unison.weibo.queue.WB_DAVCAI_BET_MSG_CMD" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncSendBetMsgHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+    
+    <property name="sessionTransacted" value="false"/>
+	<property name="sessionAcknowledgeModeName" value="CLIENT_ACKNOWLEDGE" />
+  </bean>
+
+  <!-- 异步处理“中奖加奖”微博推送的侦听器 -->
+  <bean id="asyncPushAddBonusHandlerListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="PM_WIN_ADD_BONUS_WEIBO_QUEUE" 
+      	physicalName="com.xhcms.lottery.queue.PM_WIN_ADD_BONUS_WEIBO_QUEUE" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="asyncPushAddBonusHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="20"/>
+  </bean>
+
+  <!-- 异步删除微博from时间线 -->
+  <bean id="deleteWeiboProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_LAICAI_DELETE_WEIBO" physicalName="com.unison.weibo.queue.WB_LAICAI_DELETE_WEIBO" />
+    </property>
+  </bean>
+  
+  <!-- 异步发布赛事、推荐、新闻到粉丝的时间线 -->
+  <bean id="publishCommandProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_CMD" physicalName="com.unison.weibo.queue.WB_PUBLISH_CMD" />
+    </property>
+  </bean>
+  
+  <!-- 异步发布微博到粉丝的时间线 -->
+  <bean id="publishFollowersProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_PUBLISH_FOLLOWERS_CMD" physicalName="com.unison.weibo.queue.WB_PUBLISH_FOLLOWERS_CMD" />
+    </property>
+  </bean>
+  
+  <!-- 异步发布微博新闻到粉丝的时间线 -->
+  <bean id="publishNewsFollowersProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+    <property name="template" ref="mqTemplate" />
+    <property name="destination">
+      <amq:queue name="WB_NEWS_PUBLISH_FOLLOWERS_CMD" physicalName="com.unison.weibo.queue.WB_NEWS_PUBLISH_FOLLOWERS_CMD" />
+    </property>
+  </bean>
+  
+	<!-- 消息发送器 -->
+  <bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender" 
+        init-method="init" destroy-method="destroy">
+    <property name="threads" value="${amq.sender.threads}" />
+    <property name="producers">
+      <map>
+        <entry key="PublishCommand" value-ref="publishCommandProducer" />
+        <entry key="PublishFollowersHandle" value-ref="publishFollowersProducer" />
+        <entry key="PublishWeiboNewsHandle" value-ref="publishNewsFollowersProducer" />
+        <entry key="DeleteWeiboHandle" value-ref="deleteWeiboProducer" />
+      </map>
+    </property>
+  </bean>
+</beans>

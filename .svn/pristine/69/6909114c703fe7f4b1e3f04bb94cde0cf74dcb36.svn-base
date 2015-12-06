@@ -1,0 +1,53 @@
+#set($p_title = "定制我的明细")
+#set($pos = "cusme")
+
+<div class="lyr lyw-g fr">
+	<div class="mod mod-c mod-c-a">
+	 <div class="mh">
+      <div class="tabh tabh-e">
+        <a href="$base/cmlist.do"><span>我的定制</span></a>
+        <a href="javascript:void(0);"  class="cur"><span>定制我的</span></a>
+      </div>
+    </div>
+    <div class="mm">
+        <form id="qForm" action="$base/cmflm.do" method="post">
+    		<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+    		<input type="hidden" name="fuid" value="$!{fuid}"/>
+    	</form>
+    	<div class="mp-ma"></div>
+    	<div class="tblbox tblbox-c mp-f">
+    		<table cellspacing="0" cellpadding="0" border="0" class="tbl">
+         	<tr>
+            	<th class="thl"><div class="inth"><div class="hide">定制用户</div></div></th>
+            	<th style="width:100px;"><div class="inth"><div class="hide">方案ID</div></div></th>
+            	<th style="width:100px;"><div class="inth"><div class="hide">时间</div></div></th>
+            	<th style="width:100px;" class="thr"><div class="inth"><div class="hide">参与金额</div></div></th>
+          	</tr>
+          	#foreach($d in $paging.results)
+          	<tr>
+            	<td class="tdl">${d.followUsername}</td>
+            	<td>${d.schemeId}</td>
+            	<td>$date.format("yyyy-MM-dd", ${d.createTime})</td>
+            	<td class="tdr">￥${d.betMoney}</td>
+          	</tr>
+          	#end
+          	<tr class="last">
+            	<td colspan="4" class="tdr" style="text-align:right;">
+              	<div class="pager fr">
+                	#pager($paging, 8, "pager")
+              	</div>
+            	</td>
+          	</tr>
+          	</table>
+    	</div>
+    	<span class="cb">&nbsp;</span>
+    </div>
+   </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+	function pager_reload(pn){
+	    $('#qForm').find(':input[name="pageNo"]').val(pn);
+	    $("#qForm").submit();
+	}
+</script>

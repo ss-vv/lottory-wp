@@ -1,0 +1,81 @@
+#set($title="查看用户注册信息")
+<div class="w">
+	<div class="tabH" id="tabLinks">
+		<span class="current"><b>用户注册信息</b></span>
+	</div>
+	<div class="bx_c">
+		<table cellspacing="0" class="tab">
+			<tr>
+				<td style="text-align:right;width:110px;">用户ID：</td><td>${u.id}</td>
+				<td style="text-align:right;width:110px;">用户登录名：</td><td>${u.username}</td>
+      </tr>
+			<tr>
+				<td style="text-align:right;">真实姓名：</td><td>${u.realname}</td>
+				<td style="text-align:right;">身份证号：</td><td>$!{u.idNumber}&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">手机号码：</td><td>$!{u.mobile}&nbsp;</td>
+				<td style="text-align:right;">联系电话：</td><td>$!{u.phone}&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">电子邮件：</td><td colspan="3">$!{u.email}&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">联系地址：</td><td colspan="3">$!{u.address}&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">性别：</td><td>#if(${u.gender} == 0)保密#elseif(${u.gender} == 1)男#else 女#end</td>
+				<td style="text-align:right;">出生日期：</td><td>#if(${u.birthday})$date.format("yyyy-MM-dd", $!{u.birthday})#else &nbsp; #end</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">省份：</td><td>$!{u.province}&nbsp;</td>
+				<td style="text-align:right;">城市：</td><td>$!{u.city}&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">注册日期：</td><td>$date.format("yyyy-MM-dd", ${u.createdTime})</td>
+				<td style="text-align:right;">注册IP：</td><td>$!{u.ip}&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">手机绑定状态：</td><td>#if(${u.mobile} && '' != ${u.mobile})已绑定 #else 未绑定 #end</td>
+				<td style="text-align:right;">邮箱绑定状态：</td><td>#if(${u.email} && '' != ${u.email})已绑定 #else 未绑定 #end&nbsp;</td>
+            </tr>
+			<tr>
+				<td style="text-align:right;">最近登录时间：</td><td>$date.format("yyyy-MM-dd", ${u.lastLoginTime})</td>
+				<td style="text-align:right;">最近登录IP：</td><td>$!{u.lastLoginIp}&nbsp;</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">晒单战绩：</td><td>#showUserScorePic(${us.showPic})</td>
+				<td style="text-align:right;">合买战绩：</td><td>#showUserScorePic(${us.groupPic})</td>
+			</tr>			
+      <tr>
+        <td colspan="4" style="text-align:center; padding: 5px 0px;">
+        #if(${u.status} == 0)
+          <input type="button" class="hand btn" value="关闭用户" id="actionBtn" _action="close"/>
+        #else
+          <input type="button" class="hand btn" value="激活用户" id="actionBtn" _action="open"/>
+        #end
+        </td>
+      </tr>
+		</table>
+  </div>
+</div>
+  <script language="javascript" type="text/javascript">
+$(function(){
+    $('#actionBtn').bind('click', function(){
+        var act = $(this).attr('_action'), tip = '激活', url = 'aj_open.do';
+        if(act == 'close'){
+            tip = '关闭';
+            url = 'aj_close.do';
+        }
+        
+        if(confirm('确定要' + tip + '该用户？')){
+            jQuery.getJSON('$base/user/' + url, {id: ${u.id}}, function(json){
+                if(json.success){
+                    window.location.reload();
+                }
+            });
+        }
+        return false;
+    });
+});
+</script>

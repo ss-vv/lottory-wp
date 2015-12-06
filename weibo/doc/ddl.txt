@@ -1,0 +1,205 @@
+CREATE TABLE `md_fb_league` (
+    `leagueId` INT(11) UNSIGNED NOT NULL COMMENT '联赛id',
+    `colour` VARCHAR(50) NULL DEFAULT NULL COMMENT '联赛颜色',
+    `chineseName` VARCHAR(50) NULL DEFAULT NULL COMMENT '国语名称',
+    `chineseNameAll` VARCHAR(50) NULL DEFAULT NULL COMMENT '国语名称全',
+    `traditionalName` VARCHAR(50) NULL DEFAULT NULL COMMENT '繁体名称',
+    `traditionalNameAll` VARCHAR(50) NULL DEFAULT NULL COMMENT '繁体名称全',
+    `englishName` VARCHAR(50) NULL DEFAULT NULL COMMENT '英文名称',
+    `englishNameAll` VARCHAR(50) NULL DEFAULT NULL COMMENT '英文名称全',
+    `type` TINYINT(4) NULL DEFAULT NULL COMMENT '类型：1 联赛 ，2 杯赛',
+    `sumRound` INT(50) NULL DEFAULT NULL COMMENT '总轮次',
+    `currRound` INT(50) NULL DEFAULT NULL COMMENT '当前轮',
+    `currMatchSeason` VARCHAR(50) NULL DEFAULT NULL COMMENT '当前赛季',
+    `countryID` INT(50) NULL DEFAULT NULL COMMENT '所属国家id',
+    `country` VARCHAR(50) NULL DEFAULT NULL COMMENT '所属国家',
+    `areaID` TINYINT(50) NULL DEFAULT NULL COMMENT '1欧洲联赛,2美洲联赛,3亚洲联赛,4大洋洲联赛,5非洲联赛',
+    `doucmentPath` VARCHAR(255) NULL DEFAULT NULL COMMENT '资料库路径',
+    `importance` DECIMAL(10,1) NULL DEFAULT NULL COMMENT '是否是重要赛事, 0/1表示，0：次要赛事，1：重要赛事',
+    `logoUrl` VARCHAR(255) NULL DEFAULT NULL COMMENT '联赛logo图片，绝对地址',
+    `createTime` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+    `updateTime` TIMESTAMP NULL DEFAULT NULL COMMENT '更新时间',
+    PRIMARY KEY (`leagueId`)
+)
+COMMENT='足球联赛杯赛'
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;
+
+
+CREATE TABLE `md_fb_odds_asia` (
+    `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+    `matchId` INT(11) UNSIGNED NOT NULL COMMENT '球探网比赛id',
+    `corpId` INT(11) UNSIGNED NOT NULL COMMENT '博彩公司id, 百家欧赔的公司id',
+    `initHandicap` DECIMAL(10,3) NOT NULL COMMENT '初盘盘口',
+    `initHomeOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '初盘主队赔率',
+    `initGuestOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '初盘客队赔率',
+    `curHandicap` DECIMAL(10,3) NOT NULL COMMENT '即时盘盘口',
+    `curHomeOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '即时盘主队赔率',
+    `curGuestOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '即时盘客队赔率',
+    `finalized` TINYINT(1) NOT NULL COMMENT '是否封盘, 0否，1是',
+    `ground` TINYINT(1) NOT NULL COMMENT '是否走地, 0否，1是',
+    `createTime` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+    `updateTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `matchIdCorpIdKey` (`matchId`, `corpId`)
+)
+COMMENT='足球亚赔'
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM
+AUTO_INCREMENT=400964;
+
+
+CREATE TABLE `md_fb_odds_euro` (
+    `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+    `matchId` INT(11) UNSIGNED NOT NULL COMMENT '球探网比赛id',
+    `corpId` INT(11) UNSIGNED NOT NULL COMMENT '博彩公司id, 百家欧赔的公司id',
+    `initHomeWinOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '初盘主胜赔率',
+    `initDrawOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '初盘和局赔率',
+    `initGuestWinOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '初盘客胜赔率',
+    `curHomeWinOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '即时盘主胜赔率',
+    `curDrawOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '即时盘和局赔率',
+    `curGuestWinOdds` DECIMAL(10,3) UNSIGNED NOT NULL COMMENT '即时盘客胜赔率',
+    `createTime` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+    `updateTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `matchIdCorpId` (`matchId`, `corpId`)
+)
+COMMENT='足球欧洲赔率'
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM
+AUTO_INCREMENT=487705;
+
+
+CREATE TABLE `md_fb_team` (
+    `teamId` INT(11) UNSIGNED NOT NULL COMMENT '球队id',
+    `leagueId` INT(11) UNSIGNED NOT NULL COMMENT '联赛id',
+    `chineseName` VARCHAR(50) NOT NULL COMMENT '简体名称',
+    `traditionalName` VARCHAR(50) NULL DEFAULT NULL COMMENT '繁体名称',
+    `englishName` VARCHAR(50) NULL DEFAULT NULL COMMENT '英文名称',
+    `logoUrl` VARCHAR(255) NULL DEFAULT NULL COMMENT '球队图片，绝对地址',
+    `createTime` DATETIME NOT NULL COMMENT '记录创建时间',
+    `updateTime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间'
+)
+COMMENT='足球球队信息'
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;
+
+
+CREATE TABLE `md_qt_lc_matchId` (
+    `lcMatchId` VARCHAR(50) NOT NULL COMMENT '大V彩赛事id',
+    `qiuTanWangMatchId` INT(11) UNSIGNED NOT NULL COMMENT '球探赛事id',
+    `id` VARCHAR(50) NULL DEFAULT NULL COMMENT '赛事序号',
+    `lotteryName` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '彩种名称',
+    `issueNum` VARCHAR(50) NULL DEFAULT NULL COMMENT '期号',
+    `matchTime` DATETIME NOT NULL COMMENT '比赛时间',
+    `matchTimeInGMT0` DATETIME NOT NULL,
+    `homeName` VARCHAR(50) NOT NULL COMMENT '主队名称',
+    `awayName` VARCHAR(50) NOT NULL COMMENT '客队名称',
+    `qiuTanWangTurnHomeAndAway` VARCHAR(50) NULL DEFAULT NULL,
+    `createTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    PRIMARY KEY (`lcMatchId`)
+)
+COMMENT='球探网赛事id与大V彩赛事id对照表'
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;
+
+
+CREATE TABLE `md_qt_match` (
+    `id` INT(11) UNSIGNED NOT NULL COMMENT '球探网比赛id',
+    `leagueId` INT(11) UNSIGNED NOT NULL COMMENT '联赛id',
+    `leagueShortName` VARCHAR(50) NULL DEFAULT NULL COMMENT '联赛缩写名称',
+    `color` VARCHAR(50) NULL DEFAULT NULL COMMENT '联赛颜色',
+    `homeTeamId` INT(11) UNSIGNED NOT NULL COMMENT '主队id',
+    `guestTeamId` INT(11) UNSIGNED NOT NULL COMMENT '客队id',
+    `homeTeamName` VARCHAR(50) NOT NULL COMMENT '主队名称，中文名',
+    `guestTeamName` VARCHAR(50) NOT NULL COMMENT '客队名称，中文名',
+    `score` VARCHAR(50) NULL DEFAULT NULL COMMENT '全场比分',
+    `halfScore` VARCHAR(50) NULL DEFAULT NULL COMMENT '半场比分',
+    `matchTime` DATETIME NULL DEFAULT NULL COMMENT '比赛时间',
+    `halfStartTime` DATETIME NULL DEFAULT NULL COMMENT '开场时间：实际开场的时间，与预定时间会有误差，下半场时为下半场的开场时间',
+    `homeTeamPosition` INT(11) UNSIGNED NULL DEFAULT NULL COMMENT '主队联赛、杯赛排名',
+    `guestTeamPosition` INT(11) UNSIGNED NULL DEFAULT NULL COMMENT '客队联赛、杯赛排名',
+    `matchStatus` INT(11) NULL DEFAULT NULL COMMENT '比赛状态,0:未开,1:上半场,2:中场,3:下半场,-11:待定,-12:腰斩,-13:中断,-14:推迟,-1:完场',
+    `homeTeamScore` INT(11) NULL DEFAULT NULL COMMENT '主队得分',
+    `homeHalfScore` INT(11) NULL DEFAULT NULL COMMENT '主队上半场得分',
+    `guestTeamScore` INT(11) NULL DEFAULT NULL COMMENT '客队得分',
+    `guestHalfScore` INT(11) NULL DEFAULT NULL COMMENT '客队上半场得分',
+    `televison` VARCHAR(255) NULL DEFAULT NULL COMMENT '电视直播的电视台',
+    `neutral` TINYINT(1) NULL DEFAULT NULL COMMENT '是否中立场',
+    `importance` DECIMAL(10,1) NULL DEFAULT NULL COMMENT '重要程度，级别，<=0 彩票赛事，<=1：重要赛事，2：次要赛事',
+    `fbLotteryScoreType` TINYINT(4) NULL DEFAULT NULL COMMENT '是否是足彩比分 0：非足彩，1:胜负彩，2：北京单场，3：胜负彩+北京单场',
+    `haveBattleArray` TINYINT(1) NULL DEFAULT NULL COMMENT '是否有阵容，1为有',
+    `matchMessage` VARCHAR(500) NULL DEFAULT NULL COMMENT '比赛说明',
+    `homeTeamRed` INT(11) NULL DEFAULT '0' COMMENT '主队红牌',
+    `guestTeamRed` INT(11) NULL DEFAULT '0' COMMENT '客队红牌',
+    `homeTeamYellow` INT(11) NULL DEFAULT '0' COMMENT '主队黄牌',
+    `guestTeamYellow` INT(11) NULL DEFAULT '0' COMMENT '客队黄牌',
+    `countryID` INT(11) UNSIGNED NULL DEFAULT '0' COMMENT '国家id',
+    `createTime` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+    `updateTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    `alreadyCrawl` TINYINT(4) NULL DEFAULT '0' COMMENT '是否已抓取球探网数据, 0 未抓取，1 已抓',
+    PRIMARY KEY (`id`)
+)
+COMMENT='球探对赛记录'
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM;
+
+
+
+-- --------------------------------------------------------
+-- 主机:                           58.83.235.132
+-- 服务器版本:                        5.1.61 - Source distribution
+-- 服务器操作系统:                      redhat-linux-gnu
+-- HeidiSQL 版本:                  8.2.0.4675
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- 导出  表 db_lottery.md_lottery_corp 结构
+CREATE TABLE IF NOT EXISTS `md_lottery_corp` (
+  `id` int(10) unsigned NOT NULL COMMENT '博彩公司id，球探网百家欧赔公司id，0表示无效id',
+  `name` varchar(100) NOT NULL COMMENT '百家欧赔中的公司名',
+  `eliteId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '赔率接口中的精选公司id，0表示不是精选公司',
+  `eliteName` varchar(100) DEFAULT '' COMMENT '精选公司名称',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `updateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='博彩公司';
+
+-- 正在导出表  db_lottery.md_lottery_corp 的数据：20 rows
+/*!40000 ALTER TABLE `md_lottery_corp` DISABLE KEYS */;
+INSERT INTO `md_lottery_corp` (`id`, `name`, `eliteId`, `eliteName`, `createTime`, `updateTime`) VALUES
+    (80, '澳门', 1, '澳门', '2014-02-13 15:01:40', '2014-02-13 15:01:41'),
+    (593, '波音', 2, '波音', '2014-02-13 15:02:42', '2014-02-13 15:02:44'),
+    (545, 'ＳＢ/ 皇冠', 3, 'ＳＢ/ 皇冠', '2014-02-13 15:06:00', '2014-02-13 15:06:38'),
+    (82, '立博', 4, '立博', '2014-02-13 15:07:11', '2014-02-13 15:07:45'),
+    (115, '威廉希尔', 9, '威廉希尔', '2014-02-13 15:08:18', '2014-02-13 15:08:21'),
+    (9000, '云鼎', 5, '云鼎', '2014-02-13 15:09:18', '2014-02-13 15:09:24'),
+    (110, 'SNAI', 7, 'SNAI', '2014-02-13 15:10:38', '2014-02-13 15:12:15'),
+    (281, 'Bet365', 8, 'Bet365', '2014-02-13 15:19:10', '2014-02-13 15:19:44'),
+    (90, '易胜博', 12, '易胜博', '2014-02-13 15:12:42', '2014-02-13 15:13:40'),
+    (81, '韦德', 14, '韦德', '2014-02-13 15:14:04', '2014-02-13 15:14:37'),
+    (517, '明陞', 17, '明陞', '2014-02-13 15:14:43', '2014-02-13 15:15:16'),
+    (580, 'Eurobet', 18, 'Eurobet', '2014-02-13 15:15:17', '2014-02-13 15:15:50'),
+    (104, 'Interwetten', 19, 'Interwetten', '2014-02-13 15:16:28', '2014-02-13 15:17:01'),
+    (499, '金宝博', 23, '金宝博', '2014-02-13 15:17:05', '2014-02-13 15:17:39'),
+    (18, '12bet/沙巴', 24, '12bet/沙巴', '2014-02-13 15:17:51', '2014-02-13 15:18:24'),
+    (604, '乐天堂', 29, '乐天堂', '2014-02-13 15:18:29', '2014-02-13 15:19:02'),
+    (474, '利记', 31, '利记', '2014-02-13 15:19:00', '2014-02-13 15:19:33'),
+    (658, '永利高', 33, '永利高', '2014-02-13 15:20:26', '2014-02-13 15:21:04'),
+    (659, '盈禾', 35, '盈禾', '2014-02-13 15:21:05', '2014-02-13 15:21:38'),
+    (16, '10Bet', 22, '10Bet', '2014-02-14 10:48:42', '2014-02-17 17:34:35'),
+    (660, 'Titanbet', 36, 'Titanbet', '2014-02-18 14:54:19', '2014-02-18 14:54:23'),
+    (816, 'Marathonbet', 41, 'Marathonbet', '2014-02-18 14:55:29', '2014-02-18 14:55:32');
+/*!40000 ALTER TABLE `md_lottery_corp` ENABLE KEYS */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+
+
+---------------------------------------------------------------
+
+ALTER TABLE `md_fb_league`  CHANGE COLUMN `updateTime` `updateTime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' AFTER `createTime`;

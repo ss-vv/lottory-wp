@@ -1,0 +1,117 @@
+#set($title="玩法")
+
+<link type="text/css" rel="stylesheet" href="$base/css/style.css" />
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js", "js/jquery.validate.js", "js/lottery/play.editor.js", "js/lottery/passtype.editor.js"])
+
+<div class="w">
+  <div class="bx_c">
+    <div class="bx_in">
+      <form id="qForm" action="/play/list.do" method="post">
+        <input type="hidden" name="pageNo" value="1">
+        <div class="tabH tabH02 panel">
+          <span class="current"><b>条件查询</b></span>
+          <div class="l">
+                      彩种: <select id="lotteryId" name="lotteryId">
+                  <option value="">查询全部</option>
+                  <option value="JCZQ">竞彩足球</option>
+                  <option value="JCLQ">竞彩篮球</option>
+                  <option value="JX11">江西十一选五</option>
+                  <option value="CTZC">传统足彩</option>
+                </select>
+          </div>
+          <div class="r" style="margin: 4px 4px 0 0"><input id="addBtn" type="button" class="hand btn" value="添加"></div>
+          <div class="r" style="margin: 4px 4px 0 0"><input id="queryBtn" type="submit" class="hand btn" value="查询"></div>
+        </div>
+      </form>
+    </div>
+    
+    <table id="dataGrid" cellspacing="0" summary="" class="tab">
+      <tr class="">
+        <th style="width:150px;text-align:center;">玩法编号</th>
+        <th style="width:150px;text-align:center;">彩种编号</th>
+        <th style="text-align:center;">玩法名称</th>
+        <th style="width:150px;text-align:center;">合买保底比例</th>
+        <th style="width:150px;text-align:center;">操作</th>
+      </tr>
+      #foreach($p in $list)
+      <tr _id="$p.id">
+        <td style="text-align:center;">$p.id</td>            
+        <td style="text-align:center;" _attr="$p.lotteryId">#lotteryName($p.lotteryId) $p.lotteryId</td>            
+        <td style="text-align:center;">$p.name</td>            
+        <td style="text-align:center;" _attr="$p.floorRatio">#if("JX11" != $p.lotteryId)$p.floorRatio%#end</td>            
+        <td style="text-align:left;">
+			<a href="javascript:void(0);" _op="edit">编辑</a> 
+			<a href="javascript:void(0);" _op="delete">删除</a> 
+			#if("JCZQ" == $p.lotteryId || "JCLQ" == $p.lotteryId)
+			<a href="javascript:void(0);" _op="passtype">过关方式维护</a>
+			#end
+		</td>            
+      </tr>
+      #end
+    </table>
+  </div>
+</div>
+  
+<script type="text/javascript" language="javascript">
+$(function(){
+    
+    $('#dataGrid a[_op="edit"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+        new playEditor({
+            width: 400, 
+            height: 206, 
+            data: {
+                id: $('td', _tr).eq(0).text(),
+                lotteryId: $('td', _tr).eq(1).attr('_attr'),
+                name: $('td', _tr).eq(2).text(),
+                floorRatio: $('td', _tr).eq(3).attr('_attr')
+            },
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+
+        return false;
+    });
+    
+    $('#dataGrid a[_op="delete"]').bind('click', function(){
+        if(confirm('确定要删除该玩法？')){
+            var tr = $(this).closest('tr');
+            jQuery.getJSON('$base/play/aj_rm.do', {pid: tr.attr('_id')}, function(json){
+                if(json.success){
+                    tr.remove();
+                    $('#dataGrid tr:gt(0)').filter(':last').addClass('last');
+                }else{
+                    alert(json.data);
+                }
+            });
+        }
+        return false;
+    });
+    
+    $('#dataGrid a[_op="passtype"]').bind('click', function(){
+          var tr = $(this).closest('tr');
+          new passtypeEditor({
+              width: 620,
+              height: 400,
+              playId : $('td', tr).eq(0).text()
+          });
+        return false;
+    });
+    
+    $('#addBtn').bind('click', function(){
+        new playEditor({
+            width: 400, 
+            height: 206, 
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+    });
+    
+    #if($lotteryId)
+        $('#lotteryId').val('${lotteryId}');
+    #end
+    
+});
+</script>

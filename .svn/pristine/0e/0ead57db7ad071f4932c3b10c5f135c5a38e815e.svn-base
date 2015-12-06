@@ -1,0 +1,10 @@
+/**福彩3D玩法*/
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('97_FC3D_ZXDS', 'FC3D', '直选单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('98_FC3D_ZXFS', 'FC3D', '直选复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('99_FC3D_ZXHZ', 'FC3D', '直选和值', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('100_FC3D_ZX_DS', 'FC3D', '组选单式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('101_FC3D_Z3FS', 'FC3D', '组三复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('102_FC3D_Z3HZ', 'FC3D', '组三和值', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('103_FC3D_Z6FS', 'FC3D', '组六复式', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('104_FC3D_Z6HZ', 'FC3D', '组刘和值', 0);
+INSERT INTO `lt_play` (`id`, `lottery_id`, `name`, `floor_ratio`) VALUES ('105_FC3D_DXBH', 'FC3D', '单选包号', 0);

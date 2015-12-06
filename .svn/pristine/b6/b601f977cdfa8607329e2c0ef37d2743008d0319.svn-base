@@ -1,0 +1,180 @@
+<div class="davcai-bet-right">
+	<div class="bet-information-block">
+		 <h2 class="bib-title">
+		 	<span class="circle-fi">投注信息</span>
+		 	<a href="javascript:void(0);" class="bib-all-delete">全删除</a>
+		 </h2>
+		 <table class="bib-table" cellspacing="0" cellpadding="0" border="0">
+		 	 <tbody _n="bet-content-table">
+			 	 
+			 </tbody>	 		 	
+		 </table>
+	</div>
+	<div class="type-selection-block">
+		<h2 class="bib-title">
+		 	<span class="circle-s">类型选择</span>
+		 </h2>
+  		<form action="" method="get" class="type-selection-form">
+			<label><input name="bet-type" type="radio" value="alone" checked="true"/>代购 </label>
+			<label><input name="bet-type" type="radio" value="groupBuy" />发起合买 </label>
+			<label><input name="bet-type" type="radio" value="rec" />仅推荐 </label>
+        </form>
+	 </div>
+	<div class="pass-way-block">
+		 <h2 class="bib-title">
+		 	<span class="circle-t">过关方式</span>
+		 	<span style="float:right; margin-right:10px;display:block;">
+		 		<span class="pass-type-span" _id="pass-type-tab" data="normal">普通</span>
+     			<span class="pass-type-span-active" _id="pass-type-tab" data="multiple">多选</span>
+     		</span>
+		 </h2>
+		<p _n="pass-type-normal" _t="pass-type-panel" style="display:none">
+   	    </p>
+   	    <p _n="pass-type-multiple"  _t="pass-type-panel">
+   	    </p>
+   	    
+   </div>
+    <div class="confirm-bet-block">
+        <h2 class="bib-title">
+		 	<span class="circle-f">确认投注</span>
+		</h2>
+		<table class="cbb-table"  cellpadding="0" cellspacing="0" border="0">
+			 <tr>
+			 	<td class="tdtitle">金额</td>
+			 	<td colspan="2" class="" _n="totalAmountView">
+			 		
+			 	</td>
+			 </tr>
+			 <tr>
+			 	<td class="tdtitle">倍投</td>
+			    <td colspan="2">
+			 	<img _n="multiBetCut" src="http://trade.davcai.com/df/images/bet/jian-bg.png" title="倍投减1" class="td-multiple fl "/>
+			 	<input _n="multiBet" type="text" maxlength="4" class="td-input fl" size=""/>
+			 	<img _n="multiBetAdd" src="http://trade.davcai.com/df/images/bet/jia-bg.png" title="倍投加1" class="td-multiple fl"/>
+			 	</td>
+			 </tr>
+			 <tr>
+			 	<td style="line-height: 18px;" class="tdtitle">奖金<br/>预测</td>
+			 	<td>
+			 		<div class="bonusPre" title="实际奖金请以出票后的票样信息为准" _n="bonus-div">
+			 			最小：<span class="color-red font-weight font-size14"></span> 元<br/>
+			 			最大：<span class="color-red font-weight font-size14"></span> 元
+			 		</div>
+			 		<a href="javascript:void(0);" class="detailed-button">
+			 			<img src="http://trade.davcai.com/df/images/bet/detailed-button.png"/>
+			 		</a>
+			 	</td>
+			 </tr>
+			 <tr>
+			 	<td class="tdtitle">余额</td>
+			 	<td colspan="2" _n="balance">
+			 		
+			 	</td>
+			 </tr>
+			 <tr _n="group-buy-form-tr" style="display:none">
+			 	<td class="tdtitle">认购</td>
+			 	<td colspan="2">
+			 		<input _n="buyAmount" type="text" maxlength="" class="td-input fl margin-top3 " size=""/>
+			 		元(<span _n="currentBuyRatio">0</span>%)
+			 		<span class="minimum-5">最低5%</span>
+			 	</td>
+			 </tr>
+			 <tr _n="group-buy-form-tr" style="display:none">
+			  	<td class="tdtitle">保底</td>
+			  	<td colspan="2">
+			 		<input _n="floorAmount" type="text" maxlength="" class="td-input fl margin-top3 " size=""/>
+			 		元(<span _n="currentFloorAmountRatio">0</span>%)
+			 		<input type="checkbox" id="checkbox-full" value="checkbox" _n="floorAll">
+			 		<label for="checkbox-full">全额保底</label>
+			 		<a href="javascript:void(0);" class="cbb-question"></a>
+			 	</td>
+			 </tr>
+			 <tr _n="not-rec-form-tr">
+			 	<td class="tdtitle">提成</td>
+                <td colspan="2">
+                	<select id="commission" _n="followedRatio" class="">  
+					   <option value="0">无</option>
+					   <option value="1">1%</option>
+					   <option value="2">2%</option>
+					   <option value="3">3%</option>
+					   <option value="4">4%</option>
+					   <option value="5">5%</option>
+			    	</select>  
+			    	<a href="javascript:void(0);" class="cbb-questionb"></a>
+                </td>
+			 </tr>
+			 <tr  _n="not-rec-form-tr">
+			 	<td class="tdtitle">保密</td>
+			 	<td colspan="2">
+			 		<form action="" method="get" class="secret-form ">
+						<label><input name="followSchemePrivacyView" type="radio" value="0" checked="true">公开 </label>
+						<label><input name="followSchemePrivacyView" type="radio" value="2">跟单后公开 </label>
+						<label><input name="followSchemePrivacyView" type="radio" value="3" >截止后公开 </label>
+                    </form>
+				</td>
+			 </tr>
+			 <tr>
+			 	<td colspan="3" class="tdconfirm">
+			 		<form id="scheme-form" action="" method="post">
+			 			<input name="matchs" type="hidden">
+			 			<input name="betMatches" type="hidden">
+			 			<input name="passTypes" type="hidden">
+			 			<input name="playId" type="hidden">
+			 			<input name="annotations" type="hidden">
+			 			<input name="multiple" type="hidden">
+			 			<input name="buyAmount" type="hidden">
+			 			<input name="money" type="hidden">
+			 			<input name="bonus" type="hidden">
+			 			<input name="floorAmount" type="hidden">
+			 			<input name="followedRatio" type="hidden">
+			 			<input name="followSchemePrivacy" type="hidden">
+			 			<input name="type" type="hidden">
+						<input name="showScheme" value="1" type="hidden">
+			 			##<input type="button" name="button" id="scheme-submit" value="" />
+			 			<img style="-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;" src="http://trade.davcai.com/df/images/bet/confirm-bet.png" />
+			 		</form>
+			 	</td>
+			 </tr>
+		</table>
+      </div>
+      <div class="service-icon-block" id="atBtn" nickname="大V彩小助手">
+      	    <a href="javascript:void(0);" class="service-icon"></a>
+      	    <p class="customer-speak">您好，我是大V彩
+					当班客服，有问题
+					可以招呼我。
+      	    </p>
+      </div>
+</div>
+<script id="bet-amount-view-tmpl" type="text/x-jquery-tmpl">
+	<div style="max-width:200px">
+		<span class="color-red font-weight font-size14">{{buyAmount}}</span>元,
+		<i>共选择：</i>
+		<span class="color-black font-weight font-size14">{{matchCount}}</span> 场,
+		<span class="color-black font-weight font-size14">{{betNotesCount}}</span> 注
+	</div>
+</script>
+<script id="bet-match-comment-tmpl" type="text/x-jquery-tmpl">
+	<tr class="recommend-text-tr">
+		<td colspan="4">
+			<div class="recomend-text" title="{{comment}}">
+				{{comment}}
+			</div>
+		</td>
+	</tr>
+</script>
+<script id="bet-match-content-tmpl" type="text/x-jquery-tmpl">
+	 <tr>
+	 	<td>
+	 		<a title="删除比赛" href="javascript:void(0);" class="ring-red-arrow"></a>
+	 		{{code}}
+	 	</td>
+	 	<td>{{homeTeam}}</td>
+	 	<td>
+	 		{{{betOptions}}}
+	 	</td>
+	 	<td>
+	 		<input type="checkbox" id="checkbox-dggd" value="{{i}}" _n="set-dan-checkbox">
+		</td>
+	 </tr>
+	 {{{betComment}}}
+</script>

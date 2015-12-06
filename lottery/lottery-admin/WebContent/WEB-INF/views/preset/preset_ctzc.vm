@@ -1,0 +1,76 @@
+#set($title="赛事管理")
+#set($styles=["css/jqueryui/jquery-ui","js/jquery-ui-1.11.4.custom/jquery-ui.min","css/style"])
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js"])
+<script type="text/javascript" src="$base/js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="$base/js/lottery/ctzc-preset.editor.js"></script>
+<script type="text/javascript" src="$base/js/lottery/ctzc_preset.js"></script>
+<script type="text/javascript" src="$base/js/lottery/preset.js"></script>
+
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span><a href="$base/preset/fblist.do"><b>足球预兑奖</b></a></span>
+		<span><a href="$base/preset/bblist.do"><b>篮球预兑奖</b></a></span>
+		<span class="current"><a href="$base/preset/preset_ctzc.do"><b>传统足彩预兑奖</b></a></span>
+		<span><a href="$base/preset/ctzcmatchlist.do"><b>传统足彩赛果预处理</b></a></span>
+		<span><a href="$base/preset/lsnotaward.do"><b>预派奖</b></a></span>
+		<span><a href="$base/preset/lsawarded.do"><b>已派奖</b></a></span>
+		<span><a href="$base/preset/lsnotwin.do"><b>未中奖</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="" method="post">
+	     		<input type="hidden" name="pageNo" value="${pageNo}"/>
+				<input type="hidden" name="pageSize" value="${pageSize}"/>
+				<input type="hidden" name="lotteryId" value="${lotteryId}"/>
+				<input type="hidden" name="playId" value="$!{playId}"/>
+				<div class="tabH tabH02 panel">
+					<select id="issue_number_selector" style="  float: right;margin-right: 150px;">
+					</select>
+					<div class="r" style="margin: 0px 4px 0 0;margin-right:-150px;">
+						<input type="button" id="prizes" class="hand btn" value="预兑奖">
+			        </div>
+				</div>
+			</form>
+		</div>
+		<form id="pForm" action="$base/preset/preset_ctzc.do">
+			<input type="hidden" name="pageNo" value="${pageNo}"/>
+			<input type="hidden" name="pageSize" value="${pageSize}"/>
+			<input type="hidden" name="lotteryId" value="${lotteryId}"/>
+			<input type="hidden" name="playId" value="$!{playId}"/>
+			<table cellspacing="0" class="tab" id="dataGrid">
+				<tr class="">
+			        <th style="width:60px;text-align:center;"><span>期号</span></th>
+					<th style="width:70px;text-align:center;"><span>玩法</span></th>
+					<th style="width:140px;text-align:center;"><span>开始时间</span></th>
+					<th style="width:140px;text-align:center;"><span>结束时间</span></th>
+					<th style="width:80px;text-align:center;"><span>开奖信息</span></th>
+					<th style="width:50px;text-align:center;">操作</th>
+				</tr>
+				#foreach($issueInfo in $issueInfos)
+				<tr>
+					<td style="text-align:center;color:red" issueNumber="${issueInfo.issueNumber}">${issueInfo.issueNumber}</td>
+					<td style="text-align:center;">$status.playName($issueInfo.playId)</td>
+					<td style="text-align:center;">$date.format("MM-dd HH:mm", ${issueInfo.startTime})</td>
+					<td style="text-align:center;">$date.format("MM-dd HH:mm", ${issueInfo.stopTime})</td>
+					<td style="text-align:center;">
+					#foreach ($element in $issueInfo.presetBonusInfo.split(";"))
+						#if($velocityCount==1)
+							一等奖： $element  元
+						#else 
+							<br/>二等奖： $element 元	 
+						#end  
+					#end</td>
+					<td style="text-align:center;"><a href="javascript:void(0);" _op="edit" playId="${issueInfo.playId}">编辑</a></td>
+				</tr>
+				#end
+			</table>
+		</form>
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+
+<script type="text/javascript">
+	function pager_reload(pn){
+	    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+	}
+</script>

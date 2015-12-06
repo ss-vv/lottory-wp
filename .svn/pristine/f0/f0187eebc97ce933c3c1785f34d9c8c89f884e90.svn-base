@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/org/cometd.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.cometd.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+<title>push demo</title>
+</head>
+<body>
+	<p>足球比赛:</p>
+	<div channelIdentifer="match_FOOTBALL_201412054003">
+		
+		<div id="home-team">
+			<p>主队1</p>
+			<p id="score">0</p>
+		</div>
+		<div id="guest-team">
+			<p>客队1</p>
+			<p id="score">0</p>
+		</div>
+	</div>
+	<div channelIdentifer="match_FOOTBALL_2">
+		<div id="home-team">
+			<p>主队2</p>
+			<p id="score">0</p>
+		</div>
+		<div id="guest-team">
+			<p>客队2</p>
+			<p id="score">0</p>
+		</div>
+	</div>
+	<p>篮球比赛:</p>
+	<div channelIdentifer="match_BASKETBALL_20141125201">
+		
+		<div id="home-team">
+			<p>主队</p>
+			<p id="score">0</p>
+		</div>
+		<div id="guest-team">
+			<p>客队</p>
+			<p id="score">0</p>
+		</div>
+	</div>
+	<div id="status">
+	</div>
+	<div id="subscribeNewChannel">
+		<p>订阅新渠道:</p>
+		<input id="newChannelName" value="渠道名"/>
+		<input id="matchId" value="比赛id"/>
+		<input id="matchType" value="比赛类型"/>
+		<button id="subscribeButton">订阅</button>
+	</div>
+	<div id="newMatch" style="display:none" >
+			<p>新比赛</p>
+			<div id="home-team">
+				<p>新主队</p>
+				<p id="score">0</p>
+			</div>
+			<div id="guest-team">
+				<p>新客队</p>
+				<p id="score">0</p>
+			</div>
+		
+	</div>
+	
+</body>
+</html>

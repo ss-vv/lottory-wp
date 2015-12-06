@@ -1,0 +1,408 @@
+#bet-data-box{
+	width:985px;
+	height: auto;
+	margin: 50px auto ;
+}
+/*bet-data-left开始*/
+.bet-data-left{
+	width: 138px;
+	height: auto;
+	float: left;
+}
+.bet-data-left .bdl-menu{
+	width: 140px;
+	margin-top: 40px;
+}
+.bdl-menu li{
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+}
+.bdl-menu li a{
+	color: #5F5F5F;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.bdl-menu .current{
+	color: #E22319;
+	font-weight: bold;
+}
+/*bet-data-left结束*/
+
+/********************bet-data-right开始************************/
+.bet-data-right{
+	width: 842px;
+	height: auto;
+	float: right;
+	border-left: 1px #EAEAEA solid;
+	padding-left: 2px;
+}
+/*bdr-top开始*/
+.bet-data-right .bdr-top{
+	width:842px;
+	height: 115px;
+	background: #F6F6F6;
+	margin: 0 auto;
+	border-top: 3px #EAEAEA solid;
+}
+.bdr-top .bdr-top-left{
+	width: 75px;
+	height: 75px;
+	line-height: 75px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 90px;
+	text-align: center;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.bdr-top-left img{
+	vertical-align: middle;
+	max-width: 75px;
+	max-height: 75px;
+}
+.bdr-top-middle{
+	width: 500px;
+	height: 100px;
+	float: left;
+	margin-top: 7px;
+	text-align: center;
+}
+.bdr-top-middle .team-name{
+	display: inline-block;
+	width: 230px;
+	height: 50px;
+	line-height: 50px;
+	float: left;
+	text-align: center;
+	white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.bdr-top-middle .team-name a{
+	color: #000000;
+	font-family: "微软雅黑";
+	font-size: 24px;
+}
+.bdr-top-middle .vs{
+	color: #E22319;
+	font-size: 30px;
+	font-family: arial;
+	font-weight: bold;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+}
+.color-red{
+	color: #E22319;
+}
+.color-blue{
+	color: #3519E2;
+}
+.color-blue-light{
+	color: #393EFF;
+}
+.color-white{
+	color: #ffffff;
+}
+.color-black{
+	color: #ffffff;
+}
+.color-green{
+	color: #00AE14;
+}
+.color-brown{
+	color: #640000;
+}
+.color-companybg{
+	color: #5C62AA;
+}
+.bdr-top-middle p{
+	margin-top: 5px;
+}
+.bdr-top .bdr-top-right{
+	width: 75px;
+	height: 75px;
+	line-height: 75px;
+	float: left;
+	margin-top: 20px;
+	text-align: center;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.bdr-top-right img{
+	vertical-align: middle;
+	max-width: 75px;
+	max-height: 75px;
+}
+/*bdr-top结束*/
+.bet-data-right .bdr-top-bottom{
+	width: 100%;
+	height: 4px;
+	border-bottom:1px #EAEAEA solid ;
+}
+
+
+/*下面开始bet-data-content*/
+.bet-data-right .bet-data-content{
+	width: 842px;
+	height: auto;
+	margin-top: 10px;
+}
+/*下面开始bdc-menu*/
+.bet-data-content .bdc-menu{
+	width: 100%;
+	border-collapse: collapse;
+    background: #EDEDED;
+    border:1px #CCCCCC solid;
+    border-bottom:none;
+    table-layout:fixed;
+}
+.bdc-menu td{
+	height: 40px;
+	text-align: center;
+	border:1px #CCCCCC solid;
+	border-bottom: none;
+}
+.bdc-menu td a{
+	color: #000;
+	font-weight: bold;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+}
+.bdc-menu td .active{
+	color: #fff;
+	background: #E74C3C;
+}
+/*上面结束bdc-menu*/
+.tabCon{
+	display: none;
+}
+
+
+
+/*lspmdb-menu联赛排名对比开始*/
+.bet-data-content .lspmdb-menu{
+	width: 100%;
+	border-collapse: collapse;
+    background: #EDEDED;
+    border-bottom: none;
+    border-top: none;
+    border-right:none;
+    border-left: none;
+}
+/*@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	.bet-data-content .lspmdb-menu {
+		border-right:1px #CCCCCC solid;
+	}
+}*/
+.lspmdb-menu table{
+	border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+	border:1px #CCCCCC solid;
+}
+.lspmdb-menu table td{
+	border:1px #CCCCCC solid;
+}
+.color-black{
+	color: #000;
+}
+/*lspmdb-menu结束*/
+
+
+
+/*sfdzls-menu双方对阵历史,zdjqzj-menu主队近期战绩，kdjqzj-menu客队近期战绩开始*/
+.BothSide{
+	width: 100%;
+	height: auto;
+}
+.BothSide .BothSide-menu-title{
+	width: 99.8%;
+	height: 34px;
+	line-height: 34px;
+	background: #FDF4E0;
+	border: 1px #cccccc solid;
+	border-bottom: none;
+	text-indent: 12px;
+}
+.BothSide-menu-title select{
+	width: 50px;
+	height: 25px;
+	padding-left: 2px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+.BothSide-menu-title form{
+	display: inline-block;
+}
+.BothSide-menu-title form i{
+	margin-right: 30px;
+}
+.BothSide-menu-title form label{
+	margin-right: 18px;
+}
+.BothSide-menu-title  input{
+	vertical-align: middle;
+    margin-top: -3px;
+    margin-right: 3px;
+}
+.BothSide-menu-title p{
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+}
+.BothSide-menu-title p label{
+	margin-right: 20px;
+}
+.BothSide-table{
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px #CCCCCC solid;
+}
+.BothSide-table td{
+	border: 1px #CCCCCC solid;
+	text-align: center;
+}
+.BothSide-table td em{
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: #F00;
+	color: #fff;
+	font-weight: bold;
+}
+.BothSide-table td select{
+	height: 24px;
+}
+.BothSide-table select.opSelect-v{
+	width: 95px;
+}
+.BothSide-table select.opType-v{
+	width: 54px;
+}
+.BothSide-table select.ypSelect-v{
+	width: 95px;
+}
+.BothSide-table select.ypType-v{
+	width: 54px;
+}
+/*sfdzls-menu双方对阵历史,zdjqzj-menu主队近期战绩，kdjqzj-menu客队近期战绩结束*/
+
+
+/*ssplsj-menu实时赔率数据开始*/
+.ssplsj-menu{
+	width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border: 1px #CCCCCC solid;
+}
+.ssplsj-menu td{
+	border: 1px #CCCCCC solid;
+}
+
+
+/*ssplsj-menu实时赔率数据结束*/
+
+/*lsjfb-menu联赛积分榜开始*/
+.lsjfb-menu{
+	width: 100%;
+    height: auto;
+}
+.lsjfb-menu table.lsjfb-menu-nav{
+	width: 100%;
+	border-collapse: collapse;
+	background: #EDEDED;
+	border: 1px #CCCCCC solid;
+	border-bottom: none;
+	table-layout: fixed;
+}
+table.lsjfb-menu-nav td{
+	height: 30px;
+    text-align: center;
+	border: 1px #CCCCCC solid;
+	border-bottom: none;
+	border-top: none;
+}
+table.lsjfb-menu-nav td a{
+	color: #000;
+	font-weight: bold;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+}
+table.lsjfb-menu-nav td .active{
+	color: #852F01;
+	background: #FFB933;
+}
+.lsjfb-menu-list{
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	border: 1px #cccccc solid;
+}
+.lsjfb-menu-list td{
+	height: 30px;
+	line-height: 30px;
+	border: 1px #cccccc solid;
+}
+.lsjfb-menu-list td[align="left"]{
+	text-indent: 6px;
+}
+.lsjfb-menu-list td em{
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: #F00;
+	color: #fff;
+	font-weight: bold;
+}
+.lsjfb-menu-list td font{
+	vertical-align:middle;
+	margin-top: -5px;
+	margin-left: 18px;
+	display: inline-block;
+}
+@-moz-document url-prefix() {
+			  .lsjfb-menu-list td font {
+			     margin-top: -4px;
+			  }
+			}
+			
+			
+			
+/*lsjfb-menu联赛积分榜结束*/
+
+
+
+
+
+
+
+
+
+/*上面结束始bet-data-content*/
+
+
+/*bet-data-right结束*/
+
+/*最后这段，为了视图好看，可以删除*/
+.zhanwei{
+	width: 985px;
+	height: 100px;
+	margin: 0 auto;
+	clear: both;
+}
+
+
+
+
+
+
+
+

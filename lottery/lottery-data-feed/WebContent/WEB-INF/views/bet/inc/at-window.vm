@@ -1,0 +1,32 @@
+<!-- @窗口 -->
+<form id="atForm">
+	<div class="modal fade" id="atModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title">对Ta说</h4>
+	      </div>
+	      <div class="modal-body">
+	      <div class="editor">
+	      		<div class="editor-wrapper">
+			      		<div id="emotionArea">
+							<textarea class="form-control" rows="5" id="atContent" name="weiboMsg.content" placeholder="说点什么吧……"></textarea>
+							<div id="filter_dialog_forward" style="display:none;"></div>
+						</div>
+			      		<div class="emotion surplus">
+		                    <span title="插入表情" id="message_face_at" class="face"><s></s><span>表情</span></span>
+		                    <span title="过滤赛事" class="match matchFindForward game_show_btn"><s></s><span>赛事</span></span>
+		                    <span id="atRemainingWords" style="float:right;clear:both;">还可输入<em style='color:red;'>140</em>字</span>
+		                </div>
+		          </div>
+		   </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" data-loading-text="正在加载..." id="publishAtBtn">发布</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</form>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:amq="http://activemq.apache.org/schema/core"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+  default-autowire="byName">
+
+  <bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+  <amq:connectionFactory id="mqFactory" brokerURL="${amq.brokerURL}" />
+
+  <bean id="zmClient" class="com.unison.lottery.mc.uni.ZMClient" abstract="true">
+    <property name="key" value="${zm.ticket.key}" />
+    <property name="partnerId" value="${zm.ticket.partnerId}" />
+    <property name="version" value="${zm.ticket.version}" />
+    <property name="url" value="${zm.ticket.url}" />
+  </bean>
+
+  <bean id="interfaceConfig" class="com.unison.lottery.mc.uni.InterfaceConfig">
+      <property name="version" value="${zm.ticket.version}" />
+      <property name="partnerId" value="${zm.ticket.partnerId}" />
+      <property name="key" value="${zm.ticket.key}" />
+  </bean>
+
+  <bean id="messageParser" abstract="true" class="com.unison.lottery.mc.uni.parser.MessageParser">
+      <property name="config" ref="interfaceConfig"/>
+  </bean>
+
+  <!-- 出票 -->
+  <bean id="orderTicketHandler" class="com.unison.lottery.mc.uni.handler.OrderTicketMQHandler">
+    <property name="client">
+      <bean class="com.unison.lottery.mc.uni.client.OrderTicketClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_order_ticket.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.OrderTicketResponseParser" parent="messageParser"/>
+        </property>
+      </bean>
+    </property>
+  </bean>
+  
+  <bean id="orderTicketListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="JC_BUY_QUEUE" physicalName="com.xhcms.lottery.queue.JC_BUY" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="orderTicketHandler" />
+      </bean>
+    </property>
+    <property name="concurrency" value="1"/>
+  </bean>
+
+  <!-- 出票情况查询消息处理器  -->
+  <bean id="queryOrderResultHandler" class="com.unison.lottery.mc.uni.handler.QueryOrderResultMQHandler">
+    <property name="client">
+      <bean class="com.unison.lottery.mc.uni.client.QueryOrderResultClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_query_order_result.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.QueryOrderResultParser" parent="messageParser"/>
+        </property>
+      </bean>
+    </property>
+  </bean>
+  
+  <bean id="queryOrderResultListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="JC_CHECK_TICKET_QUEUE" physicalName="com.xhcms.lottery.queue.JC_CHECK_TICKET" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="queryOrderResultHandler" />
+      </bean>
+    </property>
+  </bean>
+ 
+  <!-- 中奖查询消息处理器 -->
+  <bean id="queryPrizeHandler" class="com.unison.lottery.mc.uni.handler.QueryPrizeMQHandler">
+    <property name="client">
+      <bean class="com.unison.lottery.mc.uni.client.QueryPrizeClient" parent="zmClient">
+        <property name="template" value="/tpl/zm_query_prize.xml" />
+        <property name="parser">
+          <bean class="com.unison.lottery.mc.uni.parser.QueryPrizeParser" parent="messageParser" />
+        </property>
+      </bean>
+    </property>
+  </bean>
+  
+  <bean id="queryPrizeListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="JC_CHECK_BONUS_QUEUE" physicalName="com.xhcms.lottery.queue.JC_CHECK_BONUS" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="queryPrizeHandler" />
+      </bean>
+    </property>
+  </bean>
+  
+  <!-- 短信发送处理器 -->
+ <bean id="smsSendHandler" class="com.xhcms.lottery.mc.sms.handler.SMSSendWithAspireHandler">
+    <property name="client">
+      <bean class="com.xhcms.lottery.mc.sms.client.SMSSendWithAspirePlatformClient">
+      	<property name="aspireSmsPlatform">
+      		<bean class="com.xhcms.lottery.mc.sms.platform.AspireSmsPlatform">
+      			<property name="requestUrl" value="${sms.url}"/>
+		        <property name="userId" value="${sms.corpid}"/>
+		        <property name="password" value="${sms.corppwd}"/>
+		        <property name="signature" value="${sms.signature}"/>
+		        <property name="templateId" value="${sms.templateId}"/>
+      		</bean>
+      	</property>
+      </bean>
+    </property>
+  </bean>
+  
+  <bean id="smsSendListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="mqFactory" />
+    <property name="destination">
+      <amq:queue name="SMS_SEND_MESSAGE_QUEUE" physicalName="com.xhcms.lottery.queue.SMS_SEND_MESSAGE" />
+    </property>
+    <property name="messageListener">
+      <bean class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="defaultListenerMethod" value="handle" />
+        <constructor-arg ref="smsSendHandler" />
+      </bean>
+    </property>
+  </bean>
+  
+ 
+</beans>

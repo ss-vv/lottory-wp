@@ -1,0 +1,95 @@
+#set($title="有色/已设置短名称联赛")
+#set($styles=["css/jqueryui/jquery-ui", "css/style","css/colorpicker/css/colorpicker","css/colorpicker/css/layout"])
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js", "js/lottery/match.editor.js","js/colorpicker.js","js/jquery.blockUI.js"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>有色/已设置短名称联赛</b></span>
+		<span><a href="$base/match/listnocolor.do?lotteryId=JCZQ"><b>无色/未设置短名称联赛</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/match/listcolored.do" method="post">
+      <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			<div class="tabH tabH02 panel">
+        <span class="current"><b>条件查询</b></span>
+				<div class="l">
+         <select name="lotteryId" value="${lotteryId}" id="lotteryId">
+            <option value="JCZQ">竞彩足球</option>
+            <option value="JCLQ">竞彩篮球</option>
+          </select>
+				</div>
+		<div class="r" style="margin: 4px 4px 0 0">
+          <input type="submit" class="hand btn" value="查询">
+        </div>
+			</div>
+			</form>
+		</div>
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr class="">
+		        <th style="width:60px;text-align:center;"><span>联赛名称</span></th>
+				<th style="width:70px;text-align:center;"><span>赛事颜色</span></th>
+				<th style="width:70px;text-align:center;"><span>联赛短名称</span></th>
+         		<th style="width:40px;text-align:center;">操作</th>
+			</tr>
+			#foreach($m in $paging.results)
+			<tr id="$m.id">
+				<td style="text-align:center;background-color:${m.color};color:#ffffff;" id="leagueName$velocityCount">$!{m.leagueName}</td>
+				<td style="text-align:center;"><input type="text" maxlength="7" size="7" id="colorpickerField$velocityCount" value="$!{m.color}" /></td>
+				<td style="text-align:center;"><input type="text" maxlength="15" size="15" id="leagueShortNameField$velocityCount" value="$!{m.leagueShortName}" matchId="$m.id" /></td>
+				<td style="text-align:center;"><a href="javascript:void(0);" onclick="return submitone('${m.leagueName}',${m.id},'colorpickerField$velocityCount','leagueShortNameField$velocityCount');">更新当前配置</a></td>
+			</tr>
+			<script language="javascript" type="text/javascript">
+			    $('#colorpickerField$velocityCount').ColorPicker({
+					onSubmit: function(hsb, hex, rgb, el) {
+						$(el).val("#"+hex);
+						$(el).ColorPickerHide();
+						$('#leagueName$velocityCount').css({background:"#"+hex});
+					},
+					onBeforeShow: function () {
+						$(this).ColorPickerSetColor(this.value);
+					}
+				})
+				.bind('keyup', function(){
+					$(this).ColorPickerSetColor(this.value);
+				});
+			</script>
+			#end
+		</table>
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function submitone(mname,mcid,colorid,shortLeagueNameId){
+     if(confirm("确定要更新当前设置吗？ ")){
+     	var color = escape($("#"+colorid).val());
+     	var shortLeagueName = $("#"+shortLeagueNameId).val();
+     	setTimeout(function(){
+		    		$.blockUI({  
+			     overlayCSS:{backgroundColor:'#FFFFFF'},  
+			     message:'正在处理中，请勿重复提交！本次提交可能花费较长时间，请耐心等待...',  
+			     css:{  
+				      backgroundColor:'#FFFFFF',  
+				      height:40  
+			     }  
+		     }); 
+		}, 1000);
+            jQuery.getJSON("$base/match/aj_updatecolor.do", "id="+mcid+"&color="+color + "&shortLeagueName=" + shortLeagueName, function(json){
+                if(json.success && json.data==0){
+                    $('#qForm').submit();
+                }else{
+                	alert('未知错误。');
+                	$('#qForm').submit();
+                }
+            });
+        }
+}
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#lotteryId option[value="${lotteryId}"]').attr('selected', 'selected');
+});
+</script>

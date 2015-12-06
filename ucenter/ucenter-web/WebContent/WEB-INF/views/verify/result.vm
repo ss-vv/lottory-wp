@@ -1,0 +1,15 @@
+#set($p_title="邮箱验证")
+#set($pos = "vemail")
+
+<div class="mod mod-c mod-c-a wh-mh">
+  <div class="mh">
+    <div class="tt">电子邮箱验证</div>
+  </div>
+  <div class="mm">
+    <div class="tipsbox tipsbox-a mp-d">
+      <div class="row">
+        <div class="row">$actionMessages.get(0)</div>
+      </div>
+    </div>
+  </div>
+</div>

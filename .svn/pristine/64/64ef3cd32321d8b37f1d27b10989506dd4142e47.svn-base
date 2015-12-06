@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+  <menu name="ticket" alias="出票管理">
+    <item name="ticket.fbaward" alias="足球兑奖管理" service="true" url="ticket/notawardlist.do" target="_window" option="{width: 950, height: 600}" unique="true"/>
+  	<item name="scheme.lsbet" alias="投注管理" service="true" url="scheme/lsbet.do?playId=05_ZC_2" target="_window" option="{width: 950, height: 600}" unique="true"/>
+  </menu>
+</menus>

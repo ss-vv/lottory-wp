@@ -1,0 +1,549 @@
+@CHARSET "UTF-8";
+
+body {
+	padding-top: 58px;
+}
+
+.search .dropdown-menu strong {
+	height: 12px;
+	line-height: 12px;
+}
+
+.my-nav ul li small {
+	font-size: 12px;
+}
+
+.tipstop,.tipstopic ul li {
+	font-size: 13px;
+	font-size: 12px;
+}
+.tipstopic ul li {
+	font-size: 13px;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tipstopic-list {
+/* 	margin-left: 12px; */
+}
+
+.tipstopic-list li span a {
+/* 	text-decoration: underline; */
+}
+
+.tipstopic-list li span a:HOVER {
+	text-decoration: underline;
+}
+
+.tipstopic {
+	padding-top: 6px;
+	border-top: 1px solid #F1F1F1;
+	/* margin-bottom: 15px; */
+	margin-top: 4px;
+	width: 245px;
+}
+
+.tipstop h2 {
+	font-size: 14px;
+}
+
+.tipstopic ul li {
+	line-height: 22px;
+	white-space: nowrap;
+}
+
+.tipstopic ul li span {
+	line-height: 22px;
+}
+
+.tipstopic a {
+	color: #000;
+	width: 240px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	white-space:normal;
+	height: 25px;
+}
+
+.tipstopic .tipstopic-list .item {
+	display: inline-block;
+	width: 290px;
+}
+
+.tipstop a.more {
+	float: right;
+	line-height: 1.5;
+}
+
+.online-service {
+	width:226px;
+}
+
+.new-portfolio table.portfolio tr.odd td.right {
+	text-align: right;
+	cursor: pointer;
+}
+.new-portfolio table.portfolio tr.even td.right {
+	text-align: right;
+	cursor: pointer;
+}
+
+.index-color {
+	color: #E22319;
+}
+
+.index-bg {
+	background-color: #E22319;
+}
+
+.index-color-bold {
+	color: #CE211A;
+}
+
+.index-bg-bold {
+	background-color: #CE211A;
+}
+
+.lotteryButton {
+	background-color:#E22319 !important;
+	border-color: #E22319 !important;
+	color: #FFFFFF !important;
+}
+
+.scheme {
+	background-color:#EEEEEE !important;
+	border-color: #EEEEEE !important;
+	color: #FFFFFF !important;
+}
+
+#rec a {
+	width: 98px;
+}
+
+.eventTitle {
+	color:#93140E !important;
+	width: 10%;
+	text-align: center;
+}
+.matchTitle {
+	width: 12%;
+}
+.oddsTitle{
+	width: 15%;
+}
+.matchNoTitle{
+	width: 8%; 
+}
+.teamTitle{
+	width: 40%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	border:1px red solid;
+	
+}
+.operationTitle{
+	width: 15%;
+}
+
+.portfolio-wrapper {
+	
+}
+
+.portfolio-wrapper .odd_data td span {
+	color:#000;
+}
+
+.portfolio-wrapper td span.nocolor {
+	color: white;
+}
+.portfolio-wrapper .odd_data .center,
+.portfolio-wrapper .even_data .center {
+	text-align: center;
+}
+
+.portfolio-wrapper .odd_data .center span.odd,
+.portfolio-wrapper .even_data .center span.odd {
+	padding-right: 6px;
+}
+
+.portfolio-wrapper #matchTR tr td {
+	vertical-align: middle;
+}
+
+.winColor {
+	color:red;
+}
+
+.matchDay,.matchNums {
+	margin-left: 10px;
+}
+
+.expand {
+	cursor: pointer;
+}
+
+.expand .title {
+	text-align: left;
+	padding-left: 12px;
+}
+
+.new-portfolio thead th {
+	padding-left: 0px;
+}
+
+.matchTable {
+	display: none;
+}
+
+#matchFilter .time-filter {
+	vertical-align: bottom;
+	padding-left: 5px;
+	cursor: pointer;
+}
+
+.lottery-select td {
+	text-align: left !important;
+}
+
+.lottery-select td input {
+	vertical-align: bottom !important;
+}
+
+.lottery-select td label {
+	vertical-align: bottom !important;
+	padding-left: 20px;
+}
+
+#setLotteryBtn {
+	margin-left: 15px;
+	border: medium none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 1px 16px;
+    float: left;
+}
+
+.cursor {
+	cursor: pointer;
+}
+
+#match_sz ul li {
+	clear: both;
+	height: 63px;
+	border-bottom: 1px solid #fff;
+	padding-left: 10px;
+	padding-top: 10px;
+/* 	background-color: #F2F2F2; */
+}
+
+#match_sz .sz-lottery-logo {
+	width: 63px;
+	height: 63px;
+	float:left;
+}
+
+#match_sz .sz-lottery-curr {
+	width: 40%;
+	height: 63px;
+	float:left;
+	margin-left: 5px;
+	padding-left: 8px;
+}
+
+#match_sz .pre-issue-info {
+	width: 44%;
+	height: 63px;
+	float:right;
+	margin-right: 10px;
+}
+
+#match_sz ul li span {
+	vertical-align: middle;
+	display: inline-block;
+	height: 30px;
+	line-height: 26px;
+}
+
+#sz_bet_btn {
+	margin-left: 10px;
+	border: medium none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 16px;
+    float: right;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#match_sz ul li .sz-higher-blue {
+	color: #0943E9;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+#match_sz ul li .sz-higher-red {
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.show_div {
+	cursor:pointer;
+	display:block;
+	color:#0092FF;
+	width:60px;
+	text-align:left;
+	font-size:12px;
+}
+.show_div i{
+	background:url('../images/downarrow.png') no-repeat	
+}
+
+.hide_div {
+	cursor:pointer;
+	display:block;
+	color:#105bb6;
+	width:60px;
+	text-align:left;
+	font-size:12px;
+}
+.hide_div i{
+	background:url('../images/uparrow.png') no-repeat	
+}
+	
+/*jquery-ui 样式订制**/
+.ui-widget-header {
+	background: #e74c3c !important;
+	border: none !important;
+	font-weight: normal !important;
+	color: #fff !important;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #E12319;
+  border-color: #E12319;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #CE211A;
+  border-color: #CE211A;
+}
+
+.rightSider-list {
+	border-top: none;
+	clear: both;
+}
+
+.rightSider-list li {
+
+}
+
+.rightSider-list li .lottery {
+	line-height: 52px;
+	height: 52px;
+	padding-left: 0px;
+	width: 190px;
+	float: none;
+}
+
+.rightSider-list li .lottery a {
+	width: 65px;
+	text-align: center;
+	padding-right: 0px;
+}
+
+.winning a span {
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#logo a {
+	background-image: url('../images/logo.png');
+	width: 86px;
+	height: 50px;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 3px;
+}
+
+.nav_logined ul.nav li {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.login-username {
+	font-size: 14px;
+}
+
+.regist-bg {
+/* 	background-color: #BF1E2A; */
+/* 	border-bottom: 1px solid #BF1E2A; */
+	border-right: 1px solid #FFF;
+}
+
+.profile_info_pic img, .headpic img {
+	box-shadow: 0 2px 4px rgba(9, 2, 3, 0.5);
+}
+
+.navbar .nav.pull-right.account {
+	margin-right: 240px !important;
+}
+
+.tipstopic ul li {
+	line-height: 30px;
+	height: 30px;
+	text-align: left;
+}
+
+.tipstopic ul li span {
+	display: inline-block;
+	width: 138px;
+}
+
+.wb-help a {
+	color:#0092FF;
+	font-size: 14px;
+	width: 94px;
+}
+
+.helper {
+	width: 214px;
+}
+.helper em {
+	float: left;
+	display: inline-block;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.loading {
+	height: 40px;
+	display: block;
+	margin: 0px auto;
+}
+
+.tag-left {
+	float:right;
+	display: inline-block;
+}
+
+.tag-style {
+	width: auto;
+	height: 22px;
+	line-height: 22px;
+	display: block;
+	float:left;
+	padding: 0px 10px 0px 10px;
+	background-color: #f0f0f0;
+	font-size: 12px;
+}
+
+.forward-home {
+	display: block;
+	width: 145px;
+	margin-top: -20px;
+	margin-left: 130px;	
+}
+
+.fn-btn {
+	width:164px;
+	height:25px;
+	margin-top: -26px;
+}
+
+.fn-btn .selector .face {
+	margin-right: 9px;
+}
+
+/**foot css*/
+.foot {
+    text-align: center;
+    margin: 10px auto 0;
+    padding: 1px;
+	font-size:12px;
+	background-color:white;
+    clear: both;
+}
+.foot .about {
+    padding: 16px 0;
+}
+.foot p {
+	line-height:2em;
+}
+
+.foot a, .foot a:visited {
+	color:#AAA;
+}
+
+.foot a:hover {
+    color: #05A;
+}
+
+.foot p, .foot .about {
+	color:#AAA;
+}
+.navbar-inner .container {
+	width:1036px;
+}
+
+/*下面这个超出隐藏式我添加的 -lwc*/
+.overflow{
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.main{
+	width: 650px;
+}
+/**
+ 个人页右下侧彩票投注时间样式
+**/
+.home-widget{
+	margin-left:30px!important;
+}
+
+.btn {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 1.428571429;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+.qq-div-style{
+	margin-top: 2px;
+}
+.qq-word-style{
+	color: #E22319;
+}
+.kefu-qq-style{
+	margin-left: 8px;
+    font-size: 13px;
+}

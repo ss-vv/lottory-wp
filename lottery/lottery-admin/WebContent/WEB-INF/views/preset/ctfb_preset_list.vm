@@ -1,0 +1,291 @@
+#set($title="赛事管理")
+#set($styles=["css/jqueryui/jquery-ui", "css/style"])
+#set($js=["js/xhcms/ui.window.js", "js/xhcms/editor.js", "js/lottery/ctzc_preset.js"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span><a href="$base/preset/fblist.do"><b>足球预兑奖</b></a></span>
+		<span><a href="$base/preset/bblist.do"><b>篮球预兑奖</b></a></span>
+		<span><a href="$base/preset/preset_ctzc.do"><b>传统足彩预兑奖</b></a></span>
+		<span class="current"><a href="$base/preset/ctzcmatchlist.do"><b>传统足彩赛果预处理</b></a></span>
+		<span><a href="$base/preset/lsnotaward.do"><b>预派奖</b></a></span>
+		<span><a href="$base/preset/lsawarded.do"><b>已派奖</b></a></span>
+		<span><a href="$base/preset/lsnotwin.do"><b>未中奖</b></a></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/preset/ctzcmatchlist.do" method="post">
+			<div class="tabH tabH02 panel">
+             <span class="current"><b>条件查询</b></span>
+				<div class="l"> <span class="current"><b>期号：</b></span>
+         			 <select name="issue" id="stateSel" style="margin-left:1px;margin-top:5px">
+            			 #foreach($iss in $issueList)
+               				 #if(${issue} && ${issue}==$iss)
+                  				<option value="${iss}" selected="selected">${iss}</option>   
+                			#else
+                   				<option value="${iss}">${iss}</option>     
+               				 #end
+             			#end
+          			</select>
+          		</div>
+          		<div class="l"> <span class="current"><b>玩法：</b></span>
+         			 <select name="playId" id="playId" style="margin-left:1px;margin-top:5px">
+            			  <option value="24_ZC_14">14场胜负</option>
+            			  <option value="25_ZC_R9">胜负任九</option>
+            			  <option value="26_ZC_BQ">6场半全</option>
+            			  <option value="27_ZC_JQ">4场进球</option>
+          			</select>
+          		</div>
+          		
+				<div class="r" style="margin: 0px 4px 0 0">
+					<input type="submit" class="hand btn" value="查询">
+       		 </div>
+			</div>
+		</form>
+	</div>
+		<form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr class="">
+				<th style="width:30px;text-align:center;"><span>序号</span></th>
+		        <th style="width:110px;text-align:center;"><span>赛事ID</span></th>
+				<th style="width:50px;text-align:center;"><span>联赛名称</span></th>
+				<th style="width:120px;text-align:center;"><span>主队 VS 客队</span></th>
+				<th style="width:80px;text-align:center;"><span>预计停售时间</span></th>
+				<th style="width:110px;text-align:center;"><span>开赛时间</span></th>
+				<th style="width:90px;text-align:center;"  colspan="2";><span>赛果</span></th>
+				<th style="width:50px;text-align:center;"><span>参考赛事/比分</span></th>
+				<th style="width:50px;text-align:center;"><span>状态</span></th>
+       		    <th style="width:40px;text-align:center;">操作</th>
+			</tr>
+			#foreach($m in $presetList)
+			<tr id="$m.id" _hover="$m.id">
+				<td style="text-align:center;"rowspan="2">$velocityCount</td>
+				<td style="text-align:center;"rowspan="2">${m.id}</td>
+				<td style="text-align:center;"rowspan="2">${m.leagueName}</td>
+				<td style="text-align:center;"rowspan="2">${m.homeTeamName} VS ${m.guestTeamName}</td>
+				<td style="text-align:center;"rowspan="2">$date.format("MM-dd HH:mm", ${m.playingTime})</td>
+				<td style="text-align:center;"rowspan="2">$date.format("yyyy-MM-dd HH:mm", ${m.offtime})</td>
+				<td style="text-align:center;">半 </td>
+				<td style="text-align:center;" _checkStatus="${m.checkStatus}" _attr="${m.fbHalfScore}" _attr_="$!{m.halfScore}">
+					$!{m.halfScore}
+					#if($m.fbStatus == 5)
+					 <br/>
+					<span style="color:red"> 参考比分（${m.fbHalfScore}）</span>
+					#end
+				</td>
+				<td style="text-align:center;"rowspan="2">
+				参考赛事 
+				<br/>
+				 #if($!{m.fbMatchs})
+				   <select _op="fbmatch">
+				       #foreach($fb in $m.fbMatchs)
+				         <option value="${fb.halfScorePreset}|${fb.scorePreset}">${fb.cnCode}&nbsp;${fb.name}</option>
+				       #end
+				   </select>
+				 #end
+				 <br/>
+				 参考比分
+				 <br/>
+				 #if($!{m.fbMatchs})
+				  <select disabled="disabled" _op="fbmatch_score">
+				       #foreach($fb in $m.fbMatchs)
+				         <option value="${fb.halfScorePreset}|${fb.scorePreset}"> 半场：${fb.halfScorePreset}&nbsp;全场：${fb.scorePreset}</option>
+				       #end
+				   </select>
+				 #end
+				</td>
+				<td style="text-align:center;"rowspan="2" _attr="${m.status}">
+				   #if($m.status == '0')
+				                 在售
+				   #elseif($m.status == '-1')
+				               停售
+				   #elseif($m.status == '4')
+				                取消
+				   #end
+				</td>
+				<td style="text-align:center;"rowspan="2">
+					#if($isStop=='true' || $m.status == '4')#end
+					<a href="javascript:void(0);" _op="edit">编辑</a>
+					<br/>
+					#if($m.fbStatus == 5)
+					<a href="javascript:void(0)" _op="setScore">参考比分</a>
+					<br/>
+					#end
+					#if($!{m.fbMatchs})
+					<a href="javascript:void(0)" _op="useFbScore">竞猜足球参考比分</a>
+					#end
+				</td>
+			</tr>
+			<tr _hover="$m.id">
+				<td style="text-align:center;">全</td>
+				<td style="text-align:center;" _attr="${m.fbScore}" _attr_="$!{m.score}">
+					$!{m.score}
+					#if($m.fbStatus == 5)
+					 <br/>
+					<span style="color:red">参考比分（${m.fbScore}）</span>
+					#end
+				</td>
+			</tr>
+			#end
+		</table>
+		</form>
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+   var playId='${playId}';
+   if(playId){
+      $("#playId").val(playId);
+   }
+});
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    $('#matchResultSel option[value="${matchResult}"]').attr('selected', 'selected');
+    
+    $('tr[_hover]').hover(
+			function () {
+				var index = $(this).attr('_hover');
+				$('tr[_hover='+index+']').addClass("alt");
+			},
+			function () {
+				var index = $(this).attr('_hover');
+				$('tr[_hover='+index+']').removeClass("alt");
+			}
+		);
+		
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="id"]:enabled').each(function(){
+            	var tr = $(this).closest('tr');
+            	var sda = $('td', tr).eq(8).text();
+	            if(jQuery.trim(sda)!=''){
+	            	$(this).attr('checked', true);
+	            }
+ 			 });
+        }else{
+            $('#dataGrid :checkbox[name="id"]:enabled').removeAttr('checked');
+        }
+    });
+    
+    $('#prizes').bind('click', function(){
+        var _chks = $('#dataGrid :checkbox[name="id"]:checked');
+        if(_chks.length == 0){
+            alert('请选择要预兑奖的赛事');
+            return false;
+        }
+        if(_chks.filter('[_s="5"]').length == 0 && _chks.filter('[_s="4"]').length == 0 && _chks.filter('[_s="0"]').length == 0){
+            alert('所选择的用户已提交,不需要提交。');
+            return false;
+        }
+        
+        if(confirm('确定要提交选中的赛事？')){
+            jQuery.getJSON('$base/preset/aj_presetFb.do', $('#pForm').serialize(), function(json){
+                if(json.success){
+                	if(json.data[0] == 0){
+                		alert("没有方案投注已选赛事。");
+                	}else{
+                    	alert('操作成功!'+'可处理方案数：'+json.data[0] + '  成功数：' + json.data[1] + '  跳过数：'+json.data[2] + ' 失败数：' + json.data[3]);
+                    }
+                }else{
+                	alert('错误！' + json.data);
+                }
+            });
+        }
+    });   
+    
+    $('#dataGrid a[_op="edit"]').bind('click', function(){
+        var _tr = $(this).closest('tr');
+        var _tr2 = _tr.next('tr');
+        new ctzcMatchEditor({
+            width: 380,
+            height: 320,
+            data: {
+                mtype : 0,
+                id: $('td', _tr).eq(1).text(),
+                leagueName: $('td', _tr).eq(2).text(),
+                homeAndGuestTeam: $('td', _tr).eq(3).text(),
+                offtime: $('td', _tr).eq(4).text(),
+                playingTime: $('td', _tr).eq(5).text(),
+                halfScore: $('td', _tr).eq(7).attr("_attr_"),
+                score: $('td', _tr2).eq(1).attr("_attr_"),
+                status: $('td', _tr).eq(8).attr("_attr")
+            },
+            callback: function(){
+                $('#qForm').submit();
+            }
+        });
+         //status: $('td', _tr).eq(8).text()
+        return false;
+    });
+    //设置参考值
+   $('#dataGrid a[_op="setScore"]').bind('click', function(){
+        if(!confirm("要设置比分吗？")){
+            return;
+         }
+        var _tr = $(this).closest('tr');
+        var _tr2 = _tr.next('tr');
+        var id=$('td', _tr).eq(1).text();
+        var halfScore=$('td', _tr).eq(7).attr("_attr");
+        var score=$('td', _tr2).eq(1).attr("_attr");
+        var data={'id':id,'halfScore':halfScore,'score':score};
+        setScore(data);
+   });
+   function setScore(data){
+       $.ajaxSetup({aysnc: false})
+        $.post(base_path+"/preset/aj_presetctzc.do", data, function(resp){
+			var result=$.parseJSON(resp);
+			if(result.success == true){
+			  window.location.reload();
+			}
+		});
+   }
+   //select联动
+   $('#dataGrid select[_op="fbmatch"]').bind('change', function(){
+         var m=$(this).val();
+         var _td = $(this).closest('td');
+         $('select',_td).eq(1).val(m);
+   });
+   //将竞猜足球的赛事比分作为参考，设置为传统足球的比分
+    $('#dataGrid a[_op="useFbScore"]').bind('click', function(){
+         var _tr = $(this).closest('tr');
+         var _td=$('td',_tr).eq(8);
+         var select=$('select',_td).eq(0);
+         var t=$(select).find("option:selected").text();
+         var score=select.val();
+         var match=select.text();
+         var scores=score.split("|");
+         var id=$('td', _tr).eq(1).text();
+         if(confirm("确定要将,"+t+" 半场："+scores[0]+" 全场："+scores[1]+" 的比分设为当前传统足球赛事的比分?")){
+           var data={'id':id,'halfScore':scores[0],'score':scores[1]}
+           setScore(data);
+         }
+   });
+   
+});
+</script>

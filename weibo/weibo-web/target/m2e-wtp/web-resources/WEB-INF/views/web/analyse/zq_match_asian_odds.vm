@@ -1,0 +1,114 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="足球亚赔")
+<div id="bet-data-box">
+			<!-----下面开始bet-data-left部分-------->
+			<div class="bet-data-left">
+				<ul class="bdl-menu">
+					<li>
+						<a href="$base/analyse/fbAnalyse?daVCaiMatchId=$!{daVCaiMatchId}" >分析</a>
+					</li>
+					<li>
+						<a href="$base/odds/fbEuroOdds?daVCaiMatchId=$!{daVCaiMatchId}" >欧赔</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="current">亚赔</a>
+					</li>
+				</ul>
+			</div>
+			<!----bet-data-left结束--->
+		<div class="bet-data-content">
+			<table class="asia-odds" cellpadding="0" cellspacing="0" border="0">
+				<tr style="font-weight:bold" height="28px" bgcolor="#FDF4E0">
+					<td width="16%" rowspan="2">博彩公司</td>
+					<td colspan="3">初盘</td>
+					<td colspan="3">临场盘</td>
+				</tr>
+				
+				<tr height="28px" bgcolor="#FDF4E0">
+					<td width="10%">
+						<a href="#">$!{fb_match.get("fbMatch").homeTeamId}</a>
+					</td>
+					<td width="15%"><a href="#">盘口</a>
+					</td>
+					<td width="10%"><a href="#">$!{fb_match.get("fbMatch").guestTeamId}</a>
+					</td>
+					<td width="10%"><a href="#">$!{fb_match.get("fbMatch").homeTeamId}</a>
+					</td>
+					<td width="15%"><a href="#">盘口</a>
+					</td>
+					<td width="10%"><a href="#">$!{fb_match.get("fbMatch").guestTeamId}</a>
+					</td>
+				</tr>
+				#foreach($key in $!init_asianOdds.keySet())
+				<tr height="28px" bgcolor="#FFFFFF">
+					<td ><a href="$!{init_asianOdds.get($key).corpId}" _corp="$!{init_asianOdds.get($key).corpName}"><font color="blue">$!init_asianOdds.get($key).corpName</font></a>
+					</td>
+					<td>$!init_asianOdds.get($key).homeWinOdds</td>
+					<td>
+					#if($!{init_asianOdds.get($key).handicap}==0)
+						平手
+					#elseif($!{init_asianOdds.get($key).handicap}>0 && $!{init_asianOdds.get($key).handicap}<0.5)
+					平手/半球
+					#elseif($!{init_asianOdds.get($key).handicap}==0.5)
+					半球
+					#elseif($!{init_asianOdds.get($key).handicap}>0.5 && $!{init_asianOdds.get($key).handicap}<1.0)
+					半球/一球
+					#elseif($!{init_asianOdds.get($key).handicap}==1.0)
+					一球
+					#elseif($!{init_asianOdds.get($key).handicap}>1.0 && $!{init_asianOdds.get($key).handicap}<1.5)
+					一球/球半
+					#elseif($!{init_asianOdds.get($key).handicap}==1.5)
+					球半
+					#elseif($!{init_asianOdds.get($key).handicap}>1.5 && $!{init_asianOdds.get($key).handicap}<2.0)
+					球半/两球
+					#else($!{init_asianOdds.get($key).handicap}==2.0)
+					两球
+					#end
+					</td>
+					<td>$!init_asianOdds.get($key).GuestWinOdds</td>
+					<td>$!jishi_asianOdds.get($key).homeWinOdds</td>
+					<td class="color-red">
+					#if($!{jishi_asianOdds.get($key).handicap}==0)
+						平手
+					#elseif($!{jishi_asianOdds.get($key).handicap}>0.0 && $!{jishi_asianOdds.get($key).handicap}<0.5)
+					平手/半球
+					#elseif($!{jishi_asianOdds.get($key).handicap}==0.5)
+					半球
+					#elseif($!{jishi_asianOdds.get($key).handicap}>0.5 && $!{jishi_asianOdds.get($key).handicap}<1.0)
+					半球/一球
+					#elseif($!{jishi_asianOdds.get($key).handicap}==1.0)
+					一球
+					#elseif($!{jishi_asianOdds.get($key).handicap}>1.0 && $!{jishi_asianOdds.get($key).handicap}<1.5)
+					一球/球半
+					#elseif($!{jishi_asianOdds.get($key).handicap}==1.5)
+					球半
+					#elseif($!{jishi_asianOdds.get($key).handicap}>1.5 && $!{jishi_asianOdds.get($key).handicap}<2.0)
+					球半/两球
+					#else($!{jishi_asianOdds.get($key).handicap}==2.0)
+					两球
+					#end
+					</td>
+					<td>$!jishi_asianOdds.get($key).GuestWinOdds</td>
+				</tr>
+				#end
+			</table>
+			<!-------asia-odds亚赔------->
+
+		</div>
+		<!-------bet-data-content---------->
+		
+		
+		</div>
+		<!-------bet-data-box结束了---->
+<script type="text/javascript">
+var corpName;
+var homeTeam='$!{fb_match.get("fbMatch").homeTeamId}';
+var guestTeam='$!{fb_match.get("fbMatch").guestTeamId}';
+$(function(){
+	$(".asia-odds a").click(function(){
+		corpName=$(this).attr("_corp");
+		window.open("oneCompanyAsianOdds?matchId=$!{fb_match.get("fbMatch").id}&corpId="+$(this).attr("href"),"","width=1000,height=480,top=40,left=100,resizable=no,scrollbars=yes");
+		return false;
+	});
+});
+</script>

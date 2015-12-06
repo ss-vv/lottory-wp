@@ -1,0 +1,41 @@
+  <!-------------------------下面开始welcome-single-rate过单率排行榜部分---------------------------------------->     
+#if($guoDanLvUsers) 
+	<div class="welcome-single-rate">
+		<h4 class="vertical-bar">
+			<img src="images/new-login/vertical-bar-red.png"/>
+		</h4>
+		<h3 class="vertical-bar-title"> 过单率排行</h3>
+		<p class="event event-line-gudanlv">
+			<a href="javascript:void(0);">
+				<img src="images/new-login/welcome-question-blue.png">
+			</a>
+		</p>
+		#foreach($u in $guoDanLvUsers)
+			#if($velocityCount <=8)
+				<ul class="welcome-single-rate-list">
+					<li class="welcome-single-rate-list-son">
+						<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile">
+							<img src="$u.headImageURL" style="" class="welcome-user-logo" _nickname_block="_nickname_block" _userid="$u.weiboUserId">
+						</a>
+						<span class="welcome-user-name">
+							<a target="_blank" href="http://www.davcai.com/$u.weiboUserId/profile">
+								$!u.nickName
+							</a>
+  	  	   	   	     	</span>
+  	  	   	   	     	<span class="welcome-single-rate-list-details">
+  	  	   	   	     			开奖
+  	  	   	   	     		<i>$!u.realWeibo7OpenCount</i>
+  	  	   	   	     			单，盈利
+  	  	   	   	     		<em>$!u.realWeibo7GainCount</em>
+  	  	   	   	     			单，过单率
+  	  	   	   	     	</span>
+  	  	   	   	     	<label class="percentage color-red">
+  	  	   	   	     	    $!u.guodanlv%
+  	  	   	   	     	</label>
+  	  	   	   	     </li>
+  	  	   	   	     	    	
+  	  	   	   	</ul>
+  	  	   	 #end
+	  	#end
+	</div><!-----------welcome-single-rate-list部分结束--------->
+#end

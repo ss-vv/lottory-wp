@@ -1,0 +1,14 @@
+#Redis
+redis.url=${redis.url}
+redis.port=${redis.port}
+
+db.url = ${db.url}
+db.username = ${db.username}
+db.password = ${db.password}
+
+db.driver = com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+# Hibernate
+hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+# btm
+btm.log.1 = /data/logs/btm-weibo-push-server1.log
+btm.log.2 = /data/logs/btm-weibo-push-server2.log

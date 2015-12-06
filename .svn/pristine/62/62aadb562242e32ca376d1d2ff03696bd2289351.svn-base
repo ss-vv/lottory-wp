@@ -1,0 +1,140 @@
+CREATE TABLE `pm_rechargegrant` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '充值赠款id',
+	`user_id` BIGINT(20) NOT NULL COMMENT '用户id',
+	`username` VARCHAR(50) NOT NULL COMMENT '用户登录名',
+	`promotion_id` BIGINT(20) NOT NULL COMMENT '活动id',
+	`granttype_id` SMALLINT(5) NOT NULL COMMENT '赠款类型id',
+	`amount` DECIMAL(12,2) NOT NULL DEFAULT '0.00' COMMENT '赠款金额',
+	`grant_time` DATETIME NOT NULL COMMENT '赠款时间',
+	`operator_id` INT(11) NULL DEFAULT '0' COMMENT '发起人id',
+	`operator_name` VARCHAR(50) NULL DEFAULT NULL COMMENT '发起人名称',
+	`operator_time` DATETIME NULL DEFAULT NULL COMMENT '发起时间',
+	`id_number` VARCHAR(18) NULL DEFAULT NULL COMMENT '身份证',
+	`email` VARCHAR(64) NULL DEFAULT NULL COMMENT '邮箱',
+	`mobile` VARCHAR(16) NULL DEFAULT NULL COMMENT '手机',
+	`ip` VARCHAR(32) NULL DEFAULT NULL COMMENT 'ip',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `user_id` (`user_id`),
+	UNIQUE INDEX `username` (`username`),
+	UNIQUE INDEX `id_number` (`id_number`)
+);
+
+
+ALTER TABLE `lt_grant`  ADD COLUMN `granttype_id` SMALLINT(5) NOT NULL DEFAULT '0'  COMMENT '赠款类型' AFTER `status`;
+
+CREATE TABLE `pm_wingrant` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`user_id` BIGINT(20) NOT NULL COMMENT '用户id',
+	`username` VARCHAR(50) NOT NULL COMMENT '用户登录名',
+	`promotion_id` BIGINT(20) NOT NULL COMMENT '活动id',
+	`scheme_id` BIGINT(20) NOT NULL COMMENT '方案id',
+	`granttype_id` BIGINT(20) NOT NULL COMMENT '赠款类型id',
+	`amount` DECIMAL(12,2) NOT NULL DEFAULT '0.00' COMMENT '赠款金额',
+	`grant_time` DATETIME NOT NULL COMMENT '创建时间',
+	`operator_id` BIGINT(11) NOT NULL DEFAULT '0' COMMENT '发起人id',
+	`operator_name` VARCHAR(50) NULL DEFAULT NULL COMMENT '发起人名称',
+	`operator_time` DATETIME NOT NULL COMMENT '发起时间',
+	`status` SMALLINT(5) NOT NULL DEFAULT '0' COMMENT '状态：0，未处理  1，已提交',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `scheme_id` (`scheme_id`)
+);
+
+CREATE TABLE `pm_promotion` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '活动id',
+	`name` VARCHAR(50) NOT NULL COMMENT '活动名称',
+	`granttype_id` SMALLINT(5) NOT NULL COMMENT '赠款类型',
+	`start_time` DATETIME NOT NULL COMMENT '开始时间',
+	`end_time` DATETIME NOT NULL COMMENT '结束时间',
+	`status` SMALLINT(5) NOT NULL DEFAULT '1' COMMENT '是否有效:1,有效 0,无效',
+	`remark` VARCHAR(255) NULL DEFAULT NULL COMMENT '活动描述',
+	`create_time` DATETIME NOT NULL COMMENT '活动创建时间',
+	PRIMARY KEY (`id`)
+);
+
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`) VALUES
+	(1, '2012.6欧洲杯竞彩足球奖上加奖', 3, '2012-06-05 00:00:00', '2012-07-02 23:59:59', 1, '欧洲杯期间中奖税后金额大于等于100元的方案，网站给予方案总奖金的5%奖励', '2012-06-01 16:40:10'),
+	(2, '2012.6欧洲杯注册充值送10元彩金', 4, '2012-06-08 00:00:00', '2012-07-02 23:59:59', 1, '活动期间新注册的用户，验证手机号和绑定邮箱后，首次充值满50元的赠送10元购彩金。', '2012-06-01 16:40:10'),
+	(3, '2012.6竞彩篮彩奖上加奖', 5, '2012-06-08 00:00:00', '2012-07-02 23:59:59', 1, '活动期间中奖税后金额大于等于100元的方案，网站给予方案总奖金的5%奖励', '2012-06-01 16:40:10');
+	
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`) VALUES
+    (4, '迎奥运注册充值送10元彩金', 6, '2012-07-03 00:00:00', '2012-08-12 23:59:59', 1, '活动期间新注册的用户，验证手机号和绑定邮箱后，首次充值满50元的赠送10元购彩金。', '2012-07-02 17:16:15'),
+    (5, '迎奥运竞彩足彩中奖加奖5%赠款',7, '2012-07-03 00:00:00', '2012-08-12 23:59:59', 1, '活动期间中奖税后金额大于等于100元的方案，网站给予方案总奖金的5%奖励', '2012-07-02 17:16:15'),
+    (6, '迎奥运竞彩篮彩中奖加奖5%赠款',8, '2012-07-03 00:00:00', '2012-08-12 23:59:59', 1, '活动期间中奖税后金额大于等于100元的方案，网站给予方案总奖金的5%奖励', '2012-07-02 17:16:15');
+    
+CREATE TABLE IF NOT EXISTS `lt_granttype` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL COMMENT '赠款名称',
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES
+	(1, '老吴赠款'),
+	(2, '内部员工赠送'),
+	(3, '2012.6欧洲杯中奖加奖5%赠款'),
+	(4, '2012.6欧洲杯注册充值送10元彩金'),
+	(5, '2012.6篮彩中奖加奖5%赠款');
+	
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES
+	(6, '迎奥运注册充值送10元彩金'),
+	(7, '迎奥运竞彩足彩中奖加奖5%赠款'),
+	(8, '迎奥运竞彩篮彩中奖加奖5%赠款');
+
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES
+	(9, '2012.8-9足彩中奖加奖活动赠送'),
+	(10, '2012.8-9篮彩中奖加奖活动赠送'),
+	(11, '迎五大联赛充值送10元彩金');
+	
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`) VALUES
+    (7, '2012.8足彩中奖加奖活动赠送', 9, '2012-08-13 00:00:00', '2012-08-31 23:59:59', 1, '8月足彩中奖加奖活动赠送', '2012-08-07 15:07:10'),
+    (8, '2012.8篮彩中奖加奖活动赠送',10, '2012-08-13 00:00:00', '2012-08-31 23:59:59', 1, '8月篮彩中奖加奖活动赠送', '2012-08-07 15:07:10'),
+    (9, '迎五大联赛充值送10元彩金',11, '2012-08-13 00:00:00', '2012-08-31 23:59:59', 1, '迎五大联赛充值送10元彩金', '2012-08-07 15:07:10');
+
+ALTER TABLE `pm_promotion`  ADD COLUMN `lottery_id` VARCHAR(16) NULL COMMENT '彩种id' AFTER `create_time`;
+
+UPDATE `pm_promotion` SET `lottery_id`='JCZQ' WHERE `id`=1;
+UPDATE `pm_promotion` SET `lottery_id`='JCLQ' WHERE `id`=3;
+UPDATE `pm_promotion` SET `lottery_id`='JCZQ' WHERE `id`=5;
+UPDATE `pm_promotion` SET `lottery_id`='JCLQ' WHERE `id`=6;
+UPDATE `pm_promotion` SET `lottery_id`='JCZQ' WHERE `id`=7;
+UPDATE `pm_promotion` SET `lottery_id`='JCLQ' WHERE `id`=8;
+
+------延长8月奖上奖活动时间到九月底
+update `pm_promotion` set `end_time`='2012-09-30 23:59:59' where id=7 and `end_time`='2012-08-31 23:59:59';
+update `pm_promotion` set `end_time`='2012-09-30 23:59:59' where id=8 and `end_time`='2012-08-31 23:59:59';
+
+-----修改活动名称、备注
+update `pm_promotion` set `name`='2012.8-9足彩中奖加奖活动赠送' where id=7 and `name`='2012.8足彩中奖加奖活动赠送';
+update `pm_promotion` set `name`='2012.8-9篮彩中奖加奖活动赠送' where id=8 and `name`='2012.8篮彩中奖加奖活动赠送';
+update `pm_promotion` set `remark`='8-9月足彩中奖加奖活动赠送' where id=7;
+update `pm_promotion` set `remark`='8-9月篮彩中奖加奖活动赠送' where id=8;
+
+------延长8月奖上奖活动时间到十月底
+update `pm_promotion` set `end_time`='2012-10-31 23:59:59' where id=7;
+update `pm_promotion` set `end_time`='2012-10-31 23:59:59' where id=8;
+
+-----修改活动名称、备注
+update `pm_promotion` set `name`='2012.8-10足彩中奖加奖活动赠送' where id=7;
+update `pm_promotion` set `name`='2012.8-10篮彩中奖加奖活动赠送' where id=8;
+update `pm_promotion` set `remark`='8-10月足彩中奖加奖活动赠送' where id=7;
+update `pm_promotion` set `remark`='8-10月篮彩中奖加奖活动赠送' where id=8;
+update `lt_granttype` set `name`='2012.8-10足彩中奖加奖活动赠送' where id=9;
+update `lt_granttype` set `name`='2012.8-10篮彩中奖加奖活动赠送' where id=10;
+
+-----延长充值赠款到十月底
+update `pm_promotion` set `end_time`='2012-10-31 23:59:59' where id=9;
+
+--2012-10-18 wanglei
+lt_granttype 增加赠款类型 
+pm_promotion 增加大V彩wap网首次充值赠款活动
+pm_wap_recharge_grant 创建大V彩wap网首次充值赠款活动表
+
+--2012-10-12 wanglei
+lt_granttype 增加赠款类型
+pm_promotion 修改增加活动
+
+--2012-11-22 zhuyongli
+pm_recharge 增加参加充值活动表
+pm_recharge_redeemed 增加充值返还彩金活动表
+pm_promotion 增加活动
+lt_granttype 增加活动类型
+

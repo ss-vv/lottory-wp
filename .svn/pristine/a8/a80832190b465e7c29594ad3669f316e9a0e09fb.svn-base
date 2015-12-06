@@ -1,0 +1,2 @@
+INSERT INTO `db_lottery`.`lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('bet_scheme_less_than_total_amount_limit', '6010', '方案总金额小于20元');
+INSERT INTO `db_lottery`.`lt_system_conf` (`conf_key`, `conf_value`, `desc`) VALUES ('bet_total_amount_limit', '20', '投注总金额最小值，单位元');

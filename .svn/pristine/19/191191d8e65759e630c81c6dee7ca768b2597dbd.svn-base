@@ -1,0 +1,42 @@
+#set($p_title ="信息")
+
+<div class='topNavigationBar' style="color: #FFF;"> 
+	<a href="$base/index.do">首页</a>
+	> <a href="$base/user/myAccount.do">我的账户</a>  
+	> <a href="$base/user/charge.do">账户充值</a>
+</div>
+
+<div class="txtlst infobox mp-ma">
+  #if($errors && $errors.size() > 0 || $actionErrors && $actionErrors.size() > 0)
+    <div class="row">
+      <b class="fl">错误信息：</b>
+    </div>
+    #foreach($ae in $actionErrors)
+    <div class="row">
+      <span class="fl">$!{ae}</span>
+    </div>
+    #end
+    #foreach($e in $errors)
+    <div class="row">
+      <span class="fl">$!{e}</span>
+    </div>
+    #end
+  #end
+  #if($actionMessages && $actionMessages.size() > 0)
+    <div class="row">
+      <b class="fl">提示信息：</b>
+    </div>
+    #foreach($am in $actionMessages)
+    <div class="row">
+      <span class="fl">$!{am}</span>
+    </div>
+    #end
+  #end
+  <span class="clear"></span>
+</div>
+
+<div class='topNavigationBar' style="color: #FFF;"> 
+	<a href="$base/index.do">首页</a>
+	> <a href="$base/user/myAccount.do">我的账户</a>  
+	> <a href="$base/user/charge.do">账户充值</a>
+</div>

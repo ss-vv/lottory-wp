@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <package name="sso" extends="json-default" namespace="/sso">
+    <action name="retrive" class="com.xhcms.ucenter.sso.web.action.RetriveUserProfileAction">
+      <result type="json">
+        <param name="root">userProfile</param>
+      </result>
+    </action>
+    
+    <action name="validate" class="com.xhcms.ucenter.sso.web.action.ValidateTicketAction">
+      <result type="json" />
+    </action>
+    
+    <action name="logout" class="com.xhcms.ucenter.sso.web.action.LogoutAction">
+      <result name="login" type="redirect">/login.do</result>
+    </action>
+    
+    <action name="aj_logout" class="com.xhcms.ucenter.sso.web.action.AjaxLogoutAction">
+      <result type="json" />
+    </action>
+    
+    <!-- 验证用户名密码是否正确,在UserPassport中用到 -->
+    <action name="verify" class="com.xhcms.ucenter.sso.web.action.VerifyUserIdentifyAction">
+      <result type="velocity">/sso/verify_xml.vm</result>
+    </action>
+    
+    <action name="retriveUserProfile2" class="com.xhcms.ucenter.sso.web.action.RetriveUserProfile2Action">
+      <result type="velocity">/sso/retriveuserprofile2_xml.vm</result>
+    </action>
+  </package>
+</struts>

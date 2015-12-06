@@ -1,0 +1,75 @@
+#set($p_title="手机号码验证")
+#set($pos = "vmobile")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="mod mod-c mod-c-a wh-mh">
+  <div class="mh">
+    	<div class="tabh tabh-e">
+			<a class="cur" href="javascript:void(0);"><span>手机号码验证</span></a>
+			<a href="http://login.davcai.com/mobilechange.do"><span>手机号码修改</span></a>
+		</div>
+  </div>
+  <div class="mm">
+    <div class="tipsbox tipsbox-a mp-d">
+      <div class="row">
+            1.为了更好保护您的帐户，请务必确保您的手机信息填写正确。<br />
+            2.我们承诺不收取任何费用和发送垃圾短信，也不会向第三方提供您的手机号，请放心验证。<br />
+      <span class="clear"></span>
+    </div>
+    <div class="formbox formbox-a formbox-a-b mp-c">
+        <form id="eForm" method="post">
+            #if($mobile != "")
+              <div class="row">
+                <label class="lbl wh-a">手机号码：</label>
+                <div id="mobile" class="tips wh-a" style="width: 135px;">$mobile</div>
+                  #if(!$verify)
+                    <a id="sendCode" class="btnx2 btnx2-b fl" href="javascript:void(0);">
+                      <span class="inbtn"><input class="iptbtn" type="button" value="发验证码" /></span>
+                    </a>
+                  #end
+                <div class="tips c-f">#if($verify)手机号码已经验证#else 已填写手机号码，请完成验证操作#end</div>
+              </div>
+            #end
+            #if(!$verify)
+            <div class="row">
+              <label class="lbl wh-a">验证码：</label>
+              <div class="ipttxt ipttxt-b wh-txtb wh-txtb-b" style="width:60px;"><input class="inipttxt" maxlength="6" type="text" name="code" value=""></div>
+              <div class="tips c-i">
+                #foreach($e in $errors)
+                  $e
+                #end
+              </div>
+            </div>
+            <div class="row">
+              <label class="lbl wh-a">&nbsp;</label>
+              <a class="btnx2 btnx2-b fl" href="javascript:void(0);">
+                <span class="inbtn"><input class="iptbtn" type="submit" value="确认"></span>
+              </a>
+            </div>
+            #end
+        </form>
+        <span class="clear"></span>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<SCRIPT>
+  $(function(){
+    $('#sendCode').bind('click', function(){
+        jQuery.getJSON('aj_smscode.do', {mobile: '$!{mobile}', t: new Date().getTime()}, function(data){
+            if(data.success){
+                alert('验证码已发出，如没有收到，请重新发送验证码');
+            }
+        });
+    });
+  
+    $('#eForm').bind('submit', function(){
+      if($('#eForm input[name=code]').val() == ''){
+        alert('请输入验证码！');
+        return false;
+      }
+    });
+  });
+</SCRIPT>

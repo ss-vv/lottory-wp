@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="ticket" extends="global" namespace="/ticket">
+    <action name="notawardlist" class="com.xhcms.lottery.admin.web.action.ticket.FbListAction" method="notawardlist">
+      <result>fbnotawardlist.vm</result>
+    </action>
+    <action name="awardedlist" class="com.xhcms.lottery.admin.web.action.ticket.FbListAction" method="awardedlist">
+      <result>fbawardedlist.vm</result>
+    </action>
+    
+    <!-- 篮球预派奖 -->
+    <action name="bb_send_award" class="com.xhcms.lottery.admin.web.action.ticket.BBAwardAction" method="preSendAward">
+      <result>bb_award_view.vm</result>
+    </action>
+    <!-- 篮球兑奖 -->
+    <action name="bb_prize" class="com.xhcms.lottery.admin.web.action.ticket.BBAwardAction" method="prize">
+      <result>bb_award_view.vm</result>
+    </action>
+  </package>
+
+</struts>

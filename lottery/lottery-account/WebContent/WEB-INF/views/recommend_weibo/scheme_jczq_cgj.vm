@@ -1,0 +1,23 @@
+<div class="list-paper-content-topbg"></div>
+<div class="list-paper-content-middlebg">
+<ul class="list-paper-content-nav">
+  	<li class="list-paper-width01">赛事编号</li>
+  	<li class="list-paper-width02"  style="width: 100px;">玩法</li>
+  	<li class="list-paper-width03" style="width: 100px;">投注内容</li>
+  	<li class="list-paper-width04">赛果</li>
+  	<li class="list-paper-width05" style="width: 112px;">开赛时间</li>
+</ul>
+     #foreach($m in ${scheme.cgjTeams})
+		  #getPlayId($scheme, $m)
+		  <ul class="list-paper-content-details">
+			  <li class="list-paper-width01">$!{m.matchId}</li>
+			  <li class="list-paper-width02" style="width: 100px;">$status.getPlayName($!{scheme.playId})</li>
+			  <li class="list-paper-width03" style="width: 100px;">$!{m.teamName}($!{m.odds})</li>
+			  <li class="list-paper-width04">$!{m.result}</li>
+			  <li class="list-paper-width05" style="width: 112px;">$!date.format("yyyy-MM-dd HH:mm", ${m.playingTime})</li>
+	  	  </ul>
+	  #end
+<p class="list-paper-content-multiple"><span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label> ${scheme.multiple}倍</label></p>
+<p class="list-paper-content-money"><span>方案金额：</span><label>￥$math.mul(${scheme.betNote}, 2)</label><i>元</i></p>
+</div>
+<div class="list-paper-content-juchi"></div>

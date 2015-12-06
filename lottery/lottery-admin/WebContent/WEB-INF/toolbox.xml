@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<toolbox>   
+
+   <tool>   
+       <key>date</key>   
+       <scope>application</scope>   
+       <class>org.apache.velocity.tools.generic.DateTool</class>   
+   </tool>  
+    
+   <tool>   
+       <key>math</key>   
+       <scope>application</scope>   
+       <class>org.apache.velocity.tools.generic.MathTool</class>   
+   </tool>
+      
+   <tool>   
+       <key>status</key>   
+       <scope>application</scope>   
+       <class>com.xhcms.lottery.utils.AdminStatusTool</class>   
+   </tool> 
+   <tool>   
+       <key>Result</key>   
+       <scope>application</scope>   
+       <class>com.xhcms.lottery.utils.ResultTool</class>   
+   </tool>
+    <tool>
+       <key>Time</key>
+       <scope>application</scope>
+       <class>com.xhcms.lottery.utils.DateUtils</class>
+    </tool>
+   <tool>   
+       <key>ShiroUtil</key>
+       <scope>application</scope>
+       <class>com.xhcms.lottery.admin.shiro.util.ShiroUtil</class>
+   </tool>
+</toolbox>

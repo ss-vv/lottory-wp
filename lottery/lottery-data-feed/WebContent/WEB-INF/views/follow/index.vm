@@ -1,0 +1,121 @@
+#set($p_title="晒单跟单")
+#set($user_score="晒单红人总战绩榜")
+#set($referer="http://trade.davcai.com/df/follow/index.do")
+#set($pos="fl")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="晒单推荐,跟单推荐,中奖排行榜")
+#set($styles = ["style/style_follow_group", "css/hack-bootstrap"])
+
+<div class="lyl lyw-g fl">
+	<div class="mod mod-c mod-c-a wh-mh">
+		<form id="qForm" action="$base/follow/index.do" method="post">  
+		<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+		<input name="lid" type="hidden" value="$!{lid}">
+		<input id="orderBy" name="orderBy" type="hidden" value="$!{orderBy}">
+		<input id="asc" name="asc" type="hidden" value="$!{asc}">
+		<div class="mh">
+			<div class="tabh tabh-e">
+				<a href="javascript:void(0);" class="cur"><span>热门推荐</span></a>
+			    <a href="$base/follow/list.do?lid=JCZQ"><span>足球方案</span></a>
+			    <a href="$base/follow/list.do?lid=JCLQ"><span>篮球方案</span></a>
+				<a href="$base/follow/list.do?lid=BJDC"><span>北京单场方案</span></a>
+			    <a href="$base/follow/swl.do?lid=JCZQ""><span>晒单中奖榜</span></a>
+			    <a href="$base/follow/fwl.do?lid=JCZQ""><span>跟单中奖榜</span></a>
+			</div>
+		</div>
+		<div>
+			<div class="mp-ma"></div>
+			<!-- 筛选条件 -->
+			<div class="search-box">
+				用户名:<input type="text" size="14" name="username" value="$!{username}">
+				提成:<select name="followRatio">
+						#foreach($y in $yesNoAll)
+						<option #if(${y.value}==${followRatio}) selected #end value="${y.value}">$y.desc</option>
+						#end
+					</select>
+				玩法:<select name="playId">
+						<option value="">全部</option>
+						#foreach($p in $playList)
+						<option #if(${playId}==${p.id}) selected #end value="${p.id}">${p.name}</option>
+						#end
+					</select>			   
+				<input id="show_scheme_query" type="button" value="查询">
+			</div>
+			<div class="tblbox tblbox-c mp-f">
+			    <table  cellspacing="0" cellpadding="0" border="0" class="tbl">
+				         <tr>
+				            <th style="width:120px;" class="thl"><div class="inth"><div >发起人</div></div></th>
+				            <th><div class="inth"><div >战绩</div></div></th>
+				            <th style="width:120px;"><div class="inth"><div >玩法</div></div></th>
+				            <th style="width:65px;"><div class="inth"><div >投注额</div></div></th>				            
+				            <th style="width:100px;"><div class="inth"><div ><a href="javascript:void(0);" _col="offtime"><div class="c-c">#orderColumn($!{orderBy},'offtime',$!{asc})截止时间</div></a></div></div></th>
+				            <th style="width:60px;"><div class="inth"><div ><a href="javascript:void(0);" _col="returnRate"><div class="c-c">#orderColumn($!{orderBy},'returnRate',$!{asc})回报率</div></a></div></div></th>
+				            <th style="width:50px;"><div class="inth"><div ><a href="javascript:void(0);" _col="followedRatio"><div class="c-c">#orderColumn($!{orderBy},'followedRatio',$!{asc})提成</div></a></div></div></th>
+				            <th style="width:60px;"><div class="inth"><div >人气</div></div></th>
+				            <th style="width:65px;"><div class="inth"><div >跟单总金额</div></div></th>
+				            <th style="width:60px;" class="tdr"><div class="inth"><div >操作</div></div></th>
+				          </tr>
+			           	 #foreach($ss in $paging.results)
+			           		#set($s=${ss.scheme})
+				          <tr>
+				            <td class="tdl"><a href="$base/follow/oss.do?uid=$!{s.sponsorId}">$!{s.sponsor}</a></td>
+				            <td><a href="$base/follow/ws.do?uid=$!{s.sponsorId}">#showUserScorePic(${ss.userScore.showPic})</a></td>
+				            <td class="tdc">
+				            #lotteryIcon($s)$status.playName($s.playId)
+				            </td>
+				            <td>$!{s.totalAmount}元</td>				            
+				            <td>$date.format("yyyy-MM-dd HH:mm", ${s.offtime})</td>
+				            <td>$!{s.maxBonusReturnRatio}倍</td>
+				            <td>#if($!{s.followedRatio}==0)无 #else $!{s.followedRatio}% #end</td>
+				            <td>#hotFollow($!{s.followingCount})</td>
+				            <td>$!{s.followTotalAmount}元</td>
+				            <td class="tdr"><a href="http://trade.davcai.com/ac/follow.do?id=$!{s.id}" target="_blank" style="margin-right:0px;">跟单</a>|<a href="http://trade.davcai.com/ac/cm.do?fuid=$!{s.sponsorId}" target="_blank" style="margin-right:0px;">定制</a></td>
+				          </tr>
+			          #end
+				          <tr class="last">
+	            			<td colspan="10" class="tdr" style="text-align:right;">
+	              			<div class="pager fr">
+	                			#pager($paging, 8, "pager")
+	              			</div>
+	            			</td>
+	          			 </tr>			          
+				</table>
+			</div>
+		</div>
+		</form>
+		<space>&nbsp;</space>
+	</div>
+</div>
+<div class="lyr lyw-f fr">
+	#parse("inc/topn.vm")
+	#include("inc/topn-desc.vm")
+</div>
+<script type="text/javascript">
+$(function(){
+    $('#show_scheme_query').bind('click', function(){
+		$('#qForm').submit();
+    });
+
+    $("a[_col]").click(function() {
+    	if($("#orderBy").val() == $(this).attr("_col")) {
+    		if($("#asc").val().trim() == "true") {
+    			$("#asc").val("false");
+    		} else {
+    			$("#asc").val("true");
+    		}
+    	} else {
+    		$("#orderBy").val($(this).attr("_col"));
+    		if ($(this).attr("_col")=="offtime") {
+    			$("#asc").val("true");
+    		} else {
+    			$("#asc").val("false");
+    		}
+    	}
+    	$("#qForm").submit();
+    });
+});
+
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+</script>

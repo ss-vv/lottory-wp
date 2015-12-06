@@ -1,0 +1,30 @@
+#set($title ="信息")
+
+<div class="w">
+  #if($errors && $errors.size() > 0 || $actionErrors && $actionErrors.size() > 0)
+    <div class="row">
+      <b class="fl">错误信息：</b>
+    </div>
+    #foreach($ae in $actionErrors)
+    <div class="row">
+      <span class="fl">$!{ae}</span>
+    </div>
+    #end
+    #foreach($e in $errors)
+    <div class="row">
+      <span class="fl">$!{e}</span>
+    </div>
+    #end
+  #end
+  #if($actionMessages && $actionMessages.size() > 0)
+    <div class="row">
+      <b class="fl">提示信息：</b>
+    </div>
+    #foreach($am in $actionMessages)
+    <div class="row">
+      <span class="fl">$!{am}</span>
+    </div>
+    #end
+  #end
+  <span class="clear"></span>
+</div>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+   <bean id="aliPayContext" class="com.unison.lottery.wap.action.user.AliPayContext">
+    <property name="partner" value="${alipay.partner}" />
+    <property name="seller" value="${alipay.seller}" />
+    <property name="rsaPrivate" value="${alipay.rsaPrivate}" />
+    <property name="rsaAlipayPublic" value="${alipay.rsaAlipayPublic}" />
+    <property name="key" value="${alipay.key}" />  
+    <property name="notifyUrl" value="${alipay.notifyUrl}" />  
+    <property name="callbackUrl" value="${alipay.callbackUrl}" />  
+    <property name="merchantUrl" value="${alipay.merchantUrl}" />    
+  </bean>
+  
+  <bean id="yeePayContext" class="com.unison.lottery.wap.action.user.YeePayContext">
+    <property name="memberId" value="${yeepay.memberId}" />
+    <property name="keyValue" value="${yeepay.keyValue}" />
+    <property name="url" value="${yeepay.url}" />
+    <property name="callback" value="${yeepay.callback}" />
+  </bean>
+  
+</beans>

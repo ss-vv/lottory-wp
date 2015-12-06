@@ -1,0 +1,39 @@
+#set($layout="web/topic.vm")
+#set($p_title="热门推荐")
+#set($styles=["css/topic.css", "js/web/jquery-ui/jquery-ui.css", "css/autocomplete.css"])
+
+#set($scripts=["js/web/jquery.emoticons.js", "js/web/jquery.form.min.js", 
+	"js/web/at.js", "js/web/login.js","js/web/share.js", 
+	  "js/web/mlellipsis.js",
+	"js/web/comments.js", "js/web/jquery.mustache.js", 
+	"js/web/ajax-render.js", "js/web/marrow.js", 
+	"js/web/jquery.dateFormat-1.0.js", "js/web/pager.js", "js/web/feature-list.js",
+	"js/jet.js", "js/web/home/announceAndWinning.js",
+	"js/web/home/interest_user.js"])
+	
+<script type="text/javascript">
+	$(function() {
+		ajaxHotRecommend();
+	});
+</script>
+<!--精华标签-->
+<div id="marrowTab" class="newTab_white upper">
+    <ul class="top">
+	  <li class="winningList"><a href="javascript:void(0)">中奖喜报</a></li>
+      <li class="recommend"><a class="active" href="javascript:void(0)">热门推荐</a></li>
+      <li class="notice"><a href="javascript:void(0)">热门讨论</a></li>
+      <li class="latest"><a href="javascript:void(0)">最新发表</a></li>
+    </ul>
+</div>
+<div class="main_content">
+	<div class="hots">
+		<!--列表开始-->
+		<div class="hot-list" id="contentList">
+		</div>
+		<div class="loading"></div>
+		#parse("web/marrow/pager.vm")
+		<!--列表结束-->
+	</div>
+</div>
+
+

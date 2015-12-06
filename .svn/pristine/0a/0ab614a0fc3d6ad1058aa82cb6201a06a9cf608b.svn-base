@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" language="JavaScript">
+    function offset_init() {
+        alert(document.compatMode);
+        var pElement = document.getElementById("sonObj");
+        parentObj = pElement.offsetParent;
+        alert(parentObj.tagName);
+    }
+
+    var _arr = ['1', 'a', 'b', '1', 'b', 1];
+    function removeSame (arr) {
+        console.info(typeof arr);
+
+        var o = {},
+            a = [],
+            len = arr.length;
+
+        for (var i = 0; i < len; i++) {
+            if (typeof o[arr[i]] === 'undefined') {
+                o[arr[i]] = true;
+                a.push(arr[i]);
+            };
+        };
+
+        return a;
+    }
+
+    function getLength (str) {
+        str = str || '';
+
+        var len = str.length;
+        for (var i = 0; i < str.length; i++) {
+            if (str.charCodeAt(i) > 255) len++;
+        };
+
+        return len;
+    }
+
+    alert(window.ActiveXObject)
+</script>
+</head>
+<body>
+<div id="parent">
+<p id="sonObj">测试OffsetParent属性</p>
+</div>
+</body>
+</html>

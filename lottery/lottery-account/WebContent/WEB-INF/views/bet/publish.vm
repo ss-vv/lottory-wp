@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="http://www.davcai.com/css/emoticon.css">
+<script type="text/javascript" src="http://www.davcai.com/js/web/jquery.emoticons.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/ac/js/showScheme.js"></script>
+
+<div class="guide_div_three guide_div">
+    <div class="editor">
+        <div class="editor-wrapper" id="publish">
+            <div id="emotionArea">
+				<script id="weiboContent" name="weiboMsg.content" 
+					style="width:810px;" type="text/plain"></script>
+			</div>
+            <div class="emotion">
+                <span title="插入表情" class="face"  id="message_face"><s></s><span>表情</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="emotion_icons"></div>
+<script type="text/javascript" charset="UTF-8">
+	jQuery(function() {
+		loadShowSchemeEditor();
+		// 插入表情
+        $("#message_face").jqfaceedit({
+        	ueditor: _wbEditor,
+        	containerObj:$('#emotion_icons'),
+        	top:30,
+        	left:-40
+        });
+	});
+</script>

@@ -1,0 +1,11 @@
+<html>
+<head>测试BitSet类</head>
+<body>
+<h1>测试BitSet类</h1>
+<script type="text/javascript" src="../../../WebContent/js/jquery.js"></script>
+<script type="text/javascript" src="../../../WebContent/js/core.js"></script>
+<script type="text/javascript" src="../../../WebContent/js/jet.js"></script>
+<script type="text/javascript" src="../../../WebContent/js/bet/bitset.js"></script>
+<script type="text/javascript" src="bitset-test.js"></script>
+</body>
+</html>

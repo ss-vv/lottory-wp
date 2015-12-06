@@ -1,0 +1,235 @@
+#set($layout = "bet.vm")
+#set($p_title = "晒单详情")
+#set($scripts=["js/jquery.blockUI"])
+#composeReferer()
+
+<div class="mod mod-d">
+  <div class="imglst imglst-b bgbrr-c">
+    <div class="row">
+      <span class="img">
+        #parse("/bet/playImg.vm")
+      </span>
+      <b class="phases fl">第 #if(${scheme.lotteryId}=='CTZC') 20${scheme.ctFBMatchs[0].issueNumber} #else  $date.format("yyyyMMdd", ${scheme.createdTime})#end 期</b>
+      <span class="tips">方案发起时间：$date.format("yyyy-MM-dd HH:mm", ${scheme.createdTime})　　认购截止时间：$date.format("yyyy-MM-dd HH:mm", ${scheme.offtime})</span>
+	  <div class="ban-bf"> 
+	  	<input  type="text" id="copyurl" value="$copyURL" style="width:240px;"/>
+		<span class="clipinner"><a href="javascript:void(0);"  onclick="copyToClipboard('$copyURL');"><img src="$base/images/page_copy.gif" /></a></span>
+	  </div>
+    </div>
+    <span class="clear"></span>
+  </div>
+  <div class="tblbox tblbox-d">
+    <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+      <tr>
+        <th class="thl" style="width:160px;">
+          <div class="inth">晒单人信息<br/>#if($!{user.id}!=$!{scheme.sponsorId})<a href="http://trade.davcai.com/ac/cm.do?fuid=$!{scheme.sponsorId}"  target="_blank" style="color:blue;margin:auto;">我要定制</a>#end</div>
+        </th>
+        <td>
+        		<div class="intd">
+	                 <b>$!{scheme.sponsor}</b>&nbsp;&nbsp;&nbsp;战绩：#userScore($!{scheme}, ${scheme.lotteryId})
+	                 <br/>总中奖金额：<b class="c-i">￥${sponsorAward}</b>
+	                 <!-- Baidu Button BEGIN -->
+                     <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" style="margin-top: -30px; float: right;line-height:1.2;">
+			        <span class="bds_more">分享到：</span>
+			        <a class="bds_qzone"></a>
+			        <a class="bds_tsina"></a>
+			        <a class="bds_tqq"></a>
+			        <a class="bds_renren"></a>
+					<a class="shareCount"></a>
+    				</div>
+					<script type="text/javascript" id="bdshare_js" data="type=tools" ></script>
+					<script type="text/javascript" id="bdshell_js"></script>
+					<script type="text/javascript">
+						document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+					</script>
+					<!-- Baidu Button END -->
+	            </div>
+        </td>
+      </tr>
+	  #parse("/bet/schemeinfo.vm")
+      #parse("/bet/new-scheme.vm")
+      #if($scheme.status == 5203 || $scheme.status == 12)
+		<tr>
+        	<th class="thl"><div class="inth">中奖详情</div></th>
+        	<td>
+        		<div class="intd">
+        		中奖情况：$status.bet(${scheme.status}) ，税后奖金：<b class="c-i">￥${sumBonus}元</b><br/>
+        		#set($totalnums=0)#foreach($followScheme in ${scheme.followSchemes})#set($totalnums=$math.add($totalnums,${followScheme.afterTaxBonus}))#end
+        		跟单奖金：跟单总税后奖金：<b class="c-i">￥$math.roundTo(2,$totalnums)元</b>，晒单发起人佣金(<b class="c-i">$!{scheme.followedRatio}%</b>)收入：<b class="c-i">#if(${scheme.afterTaxBonus}>${scheme.totalAmount})￥$Result.mulPer($totalnums,${scheme.followedRatio})#else￥0#end元</b>
+        		</div>
+        		
+        		<a class="btn" href="javascript:void(0)" _op="submit"></a>
+        	</td>
+        </tr>
+        #else
+        #end
+        #if(${scheme.matchs})
+        <tr>
+        	<th class="thl"><div class="inth">保密类型</div></th>
+        	<td><div class="intd">$status.privacy(${scheme.followSchemePrivacy})</div></td>
+        </tr>
+        #end
+        <tr>
+        <th class="thl"><div class="inth">我要跟单</div></th>
+        <td>
+        	<div class="bet-bf-maindiv">
+        	#if($scheme.followedSchemeId == -1 && $scheme.showScheme == 1 && $!offtime == 0)
+        	<form id="bForm" action="betconfirm.do" method="post">
+        		#if($!{user.id}<=0)
+        		<div class="bet-bf-div">
+								温馨提示： 您尚未登录，请先<a href="http://www.davcai.com/welcome" style="color:red;">【登录】</a>
+				</div>
+				#end
+				#if($!{user.id}>0)
+        		<div class="bet-bf-div">
+								晒单提成：<b class="c-i">$!{scheme.followedRatio} %</b><br/>
+				</div>
+				<div class="bet-bf-div">
+						方案单倍：<b class="c-i">￥$math.div(${scheme.totalAmount},${scheme.multiple})元</b>&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="hidden" name="type" value="2"/>
+						<input type="hidden" name="schemeId" value="$!{scheme.id}"/>
+				</div>
+				<div class="bet-bf-div">
+						方案总额：<b class="c-i"><span id="followtotalmoney">￥$math.div(${scheme.totalAmount},${scheme.multiple})元</span></b>
+				</div>
+				<div class="bet-bf-div">
+						理论最高奖金：<b class="c-i"><span id="followmaxmoney">￥$math.toInteger($math.div(${scheme.maxBonus},${scheme.multiple}))元 </span></b>
+						我要跟：<input  type="text" maxlength="4" id="multiple" name="multiple" value="1" style="width:50px;"/>倍
+				</div>
+					<a class="btn-bf" href="javascript:void(0)"  _op="submit">立即投注</a>
+				#end
+			</form>
+			#else
+				晒单方案赛事已截止或非晒单状态。
+			#end
+			</div>
+        </td>
+      </tr>
+	#if(${scheme.playId} != "jcsjbgj")
+		#parse("/bet/schemeSplit.vm")
+	#else
+		#parse("/bet/cgjSchemeSplit.vm")
+	#end
+	#parse("/bet/user_list_follow.vm")
+    </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="text/javascript">
+	/*复制当前页面地址到剪切板*/
+	function copyToClipboard(txt) {
+ 		if(window.clipboardData) {
+   	 		window.clipboardData.clearData();
+    		window.clipboardData.setData("Text", txt);
+  		} else if(navigator.userAgent.indexOf("Opera") != -1) {
+    		window.location = txt;
+  		} else if (window.netscape) {
+    		try {
+    	  		netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+    		} catch (e) {
+      			alert("您的firefox安全限制限制您进行剪贴板操作，请在地址栏中输入“about:config”将“signed.applets.codebase_principal_support”设置为“true”之后重试");
+      			return false;
+    		}
+    		var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+    		if (!clip)
+      			return;
+    		var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+    		if (!trans)
+      			return;
+    		trans.addDataFlavor('text/unicode');
+    		var str = new Object();
+    		var len = new Object();
+   			var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+    		var copytext = txt;
+    		str.data = copytext;
+    		trans.setTransferData("text/unicode",str,copytext.length*2);
+    		var clipid = Components.interfaces.nsIClipboard;
+    		if (!clip)
+      			return false;
+    		clip.setData(trans,null,clipid.kGlobalClipboard);
+  		}
+	}  
+	
+	/*重载trim方法,使ie支持*/
+	if(!String.prototype.trim) {
+    	var TRIM_REG = "/^/s+|/s+$/g";
+    	String.prototype.trim = function() { return this.replace(TRIM_REG, ''); }
+	}
+	
+	function checkconfirm(){
+		if(confirm( "是否跟单？")){
+			return checkMultiple();
+		} else {
+			return false;
+		}
+	}
+	
+	/*检查倍数是否为正整数*/
+	function  checkMultiple(){
+			if(!document.getElementById("multiple").value.trim().match(/^[0-9]*[1-9][0-9]*$/)){
+	      		alert("请输入正整数!");
+	      		return false;
+	      }else{
+	      		return true;
+	      }
+	}
+	
+	function tab(a,b,c) { 
+		for(var i=1;i<=b;i++) { 
+			if(c==i) { 
+				// 判断选择模块
+				$("#"+a+"_to_"+i).addClass("no");
+				$("#"+a+"_mo_"+i).show();
+			} else { // 没有选择的模块
+				$("#"+a+"_to_"+i).removeClass("no");
+				$("#"+a+"_mo_"+i).hide();
+			} 
+		} 
+	}
+	
+	$(function(){
+		/*注册失去焦点后验证加计算事件*/
+		$("#multiple").blur(function(){
+			var multiple=isNaN(parseInt(document.getElementById("multiple").value.trim()))==true?1:parseInt(document.getElementById("multiple").value.trim());
+			multiple=document.getElementById("multiple").value=multiple<0?1:multiple;
+			
+			var followtotalmoney=$math.div(${scheme.totalAmount},${scheme.multiple})*multiple;
+			document.getElementById("followtotalmoney").innerHTML="￥"+followtotalmoney+"元";
+			
+			var followmaxmoney=($math.div(${scheme.maxBonus},${scheme.multiple})*multiple).toFixed(2);
+			document.getElementById("followmaxmoney").innerHTML="￥"+followmaxmoney+"元";
+		});
+		
+	    $('#showTicketBtn').bind('click', function(){
+	        $('#ticketGrid').toggle();
+	    });
+	    
+	    var _form = $('#bForm');
+	    var count = 0;
+	    $('a[_op=submit]', _form).bind('click', function(){
+	    	setTimeout(function(){
+	    		_form.submit();
+	    	}, 0);
+	    });
+	    
+	    _form.bind('submit', function(e){
+	    	if(!checkconfirm()){
+	    		e.preventDefault();
+	    	}else{
+		    	setTimeout(function(){
+		    			    		$.blockUI({  
+									     overlayCSS:{backgroundColor:'#FFFFFF'},  
+									     message:'方案已提交，正在处理中，请勿重复提交！',  
+									     css:{  
+										      backgroundColor:'#FFFFFF',  
+										      height:40  
+									     }  
+								     }); 
+		    	}, 1000);
+ 
+	    	}
+	    });
+	});
+</script>

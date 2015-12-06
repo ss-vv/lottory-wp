@@ -1,0 +1,14 @@
+#set($layout="web/home_default.vm")
+#set($scripts=["js/web/favouriteList.js"])
+#set($p_title="我的收藏")
+<div class="wrapper">
+    <div id="sysnotify" class="sysnotify"></div>
+    <!-- status list-->
+    <h2>我的收藏 </h2>
+    <div class="home-timeline processing" _favoriate>
+        <ul class="status-list" favorite>
+        </ul>
+    </div>
+</div>
+<div class="pager-wrapper" id="pager-wrapper">
+</div>

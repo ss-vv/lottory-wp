@@ -1,0 +1,57 @@
+#set($p_title="法律声明")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="晒单推荐,跟单推荐,中奖排行榜")
+#set($styles = ["css/hack-bootstrap", "css/about"])
+
+<div class="wrapper">
+    <div class="slide_box">
+        <ul>
+		    <li><a href="http://trade.davcai.com/df/about/about">关于我们</a></li>
+		    <li><a href="http://trade.davcai.com/df/about/contact">联系我们</a></li>
+		    <li class="active-bg"><a href="http://trade.davcai.com/df/about/legal">法律声明</a></li>
+		    <li id="faq">
+				<img src="$base/images/fup.png">
+				<a href="http://trade.davcai.com/df/about/faq">常见问题</a></li>
+		</ul>
+    </div>
+	<div class="main_about">
+		<div class="detailbox" style="font-size:14px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>大V彩提醒您：</strong>
+			在使用大V彩各项服务前，请您务必仔细阅读并透彻理解本声明。您可以选择不使用大V彩，但如果您使用大V彩，您的使用行为将被视为对本声明全部内容的认可。<br>
+　　			<strong>免责声明</strong><br>
+			任何情况下，大V彩及相关人对于进入或使用本网站引起的任何依赖本网站内容而作出的决定或采取的行动不承担任何责任，对进入或使用本网站而产生的任何直接的、间接的、惩罚性的损失或其他任何形式的损失包括但不限于业务中断、数据丢失或利润损失不承担任何责任，即使大V彩被明确告知可能会发生上述损失。大V彩以及相关人对于您在进入、浏览和使用本网站或从本网站下载任何内容而导致病毒或其他破坏性程序对您的电脑系统以及其他任何软件、硬件、IT系统或财产的损害或损失不承担任何责任。　　<br>
+			知识产权声明<br>
+                        　　<br>
+                        　　大V彩拥有本网站内所有信息内容（包括但不限于文字、图片、软件、音频、视频）的版权。任何被授权的浏览、复制、打印和传播属于本网站内信息内容都不得用于商业目的且所有信息内容及其任何部分的使用都必须包括此版权声明； 大V彩（www.davcai.com）所有的产品、技术与所有程序均属于大V彩知识产权。“大V彩”及大V彩其他产品服务名称及相关图形、标识等为大V彩的注册商标。未经大V彩许可，任何人不得擅自（包括但不限于：以非法的方式复制、传播、展示、镜像、上载、下载）使用。否则，大V彩将依法追究法律责任。<br>
+                        　　隐私权声明<br>
+                        　　<br>
+                        　　大V彩非常重视对您隐私的保护，在您使用大V彩提供的服务前，请您仔细阅读以下声明。为了给您提供更准确、更有个性化的服务，大V彩可能会以如下方式，使用您提交的个人信息。但大V彩会以高度的勤勉、审慎义务对待这些信息，在未征得您许可的情况下，不会将这些信息对外披露或向第三方提供。<br>
+                        　　保有您提供的信息<br>
+                        　　<br>
+                        　　大V彩会在您自愿选择服务或提供信息的情况下收集您的个人信息，并将这些信息进行整合，以便向您提供更好的用户服务。请您在注册时及时、详尽及准确的提供个人资料，并不断更新注册资料，符合及时、详尽准确的要求。如果因注册信息不真实而导致的问题，由您自行承担相应的后果。请您不要将您的帐号、密码转让或出借予他人使用。如您发现您的帐号遭他人非法使用，应立即通知大V彩。因黑客行为或用户的保管疏忽导致帐号、密码遭他人非法使用，大V彩不承担责任。<br>
+                        　　cookies等技术的使用<br>
+                        　　<br>
+                        　　大V彩使用cookies，以便您能登录我们的服务，并允许设定您特定的服务选项。运用cookies技术，大V彩能够为您提供更加周到的个性化服务。您可以选择接受或拒绝cookies。您可以通过修改浏览器设置的方式拒绝cookies。如果您选择拒绝cookies，则您可能无法登录或使用依赖于cookies 的大V彩服务或功能。<br>
+                        　　保有您的使用记录<br>
+                        　　<br>
+                        　　当您使用大V彩提供的服务时，服务器会自动记录一些信息，包括URL、IP地址、浏览器的类型和使用的语言以及访问日期和时间等。<br>
+                        　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在如下情况下，大V彩会根据您的意愿或法律的规定披露您的个人信息，由此引发的问题将由您个人承担：<br>
+                        　　（1）事先获得您的授权；<br>
+                        　　（2）只有透露您的个人资料，才能提供您所要求的产品和服务；<br>
+                        　　（3）根据有关的法律法规要求；<br>
+                        　　（4）按照相关政府主管部门的要求；<br>
+                        　　（5）为维护大V彩的合法权益。<br>
+                        　　（6）您同意让第三方共享资料。<br>
+                        　　（7）我们发现您违反了大V彩服务协议或相关规则，根据协议约定或相关规则规定应当披露您的个人信息。<br>
+                        　　（8）我们需要向代表我们提供产品或服务的公司提供资料（除非我们另行通知你，否则这些公司无权使用你的身份识别资料）。<br>
+                        大V彩会始终致力于在充分保护您隐私的前提下，为您提供更优质的体验和服务。<br>
+            <style type="text/css">
+            .pager .cur:hover,
+            .pager .cur{background:#cbcbcb;}
+            .pager span,
+            .pager a{margin:2px 4px 0px 0px; float:left; height:18px; line-height:18px; background:#f1f1f1; border:#c5ddf1 1px solid; padding:0px 7px; text-decoration:none;}
+            .pager .pagerNum{background:none;border:0}
+            </style>
+		</div>
+    </div>
+</div>

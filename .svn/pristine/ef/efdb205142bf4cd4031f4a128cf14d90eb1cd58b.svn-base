@@ -1,0 +1,78 @@
+#set($title="快速账户")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>快速账户管理</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+		<div class="tabH tabH02 panel">
+        <span class="current"><b>余额</b></span>
+        <div style="margin: 4px 4px 0 10px;">
+         	￥${b}
+        </div>
+    
+	</div>
+    
+</div>
+<script language="javascript" type="text/javascript">
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    $('#query').bind('click', function(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        var u = $('#userId');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        
+        if(u.val() != '' && !jQuery.trim($('#userId').val()).match(/^\d*$/g)){
+            alert('请输入正确的用户id');
+            return false;
+        }
+        
+        $('#qForm').submit();
+    });
+    
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="ids"]:enabled').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="ids"]:enabled').removeAttr('checked');
+        }
+    });
+    
+	$("input[action]").click(function() {
+		var action = $(this).attr("action");
+		if (action == '_pass') {
+			$("#pForm").attr("action", "$base/grant/pass.do");
+		} 
+		if (action == '_reject') {
+			$("#pForm").attr("action", "$base/grant/reject.do");
+		}
+		
+		var chkNum = $('input[name=ids]:checked').length;
+		if(chkNum < 1){
+			alert('请至少选择一个再提交该操作!');
+			return false;
+		}
+			
+		$("#pForm").submit();
+	});
+});
+</script>

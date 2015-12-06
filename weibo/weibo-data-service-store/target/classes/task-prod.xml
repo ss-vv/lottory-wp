@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- Quartz 全局配置 -->
+	<bean id="startQuartz" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+ 				<ref bean="queryQTMatch" />                 <!-- 球探网比赛id对照接口 -->
+ 				<ref bean="queryFBTeam" />                  <!-- 足球队伍 -->
+ 				<ref bean="queryFBLeague" />                <!-- 足球联赛杯赛 -->
+ 				<ref bean="queryFBBFTeam" />                <!-- 足球比分接口 -->
+ 				<ref bean="queryFbEuroOddsTrigger" />       <!-- 足球赔率接口 -->
+                <ref bean="crawlQtFbDatabaseTrigger" />     <!-- 抓取足球数据库 -->
+                
+				<ref bean="queryBBTeamTrigger"/>			<!-- 篮球球队资料 -->
+				<ref bean="queryBBLeagueTrigger"/>			<!-- 篮球联赛信息 -->
+                <ref bean="todayBBMatchTrigger" />          <!-- 篮球今日赛程 -->
+                <ref bean="realtimeBBMatchTrigger" />       <!-- 篮球即时比分 -->                
+                <ref bean="bbOddsTrigger"/>                 <!-- 篮球今日赔率 -->
+                <ref bean="bbOddsRealtimeTrigger"/>         <!-- 篮球即时赔率 -->
+                <ref bean="importBBEuro3MintuesTrigger"/>   <!-- 篮球欧赔，三分钟内的 -->
+				
+				<!-- 只需要运行一次的任务 -->
+<!--                 <ref bean="historyBBMatchTrigger" />        篮球3年赛程赛果历史，只需运行一次 -->
+<!--                 <ref bean="historyBBOddsTrigger" />         篮球3年赔率历史，只需运行一次 -->
+<!--                 <ref bean="bbOddsBjEuroHistoryTrigger" />   篮球3年百家欧赔历史，只需运行一次 -->
+			</list>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,132 @@
+package com.xhcms.lottery.admin.web.action.kuaisu;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.davcai.lottery.platform.client.yuanchengchupiao.model.PayoutOrIncomeEntry;
+import com.davcai.lottery.platform.client.yuanchengchupiao.model.QueryGetInfoListResponse4OneLoop;
+import com.xhcms.lottery.admin.persist.service.QueryBalanceService;
+import com.xhcms.lottery.admin.persist.service.QueryGetInfoListService;
+import com.xhcms.lottery.admin.persist.service.QueryPrizeAmountService;
+import com.xhcms.lottery.admin.web.action.BaseAction;
+import com.xhcms.lottery.admin.web.action.BaseListAction;
+
+public class KuaiSuAction extends BaseListAction{
+	@Autowired
+	private QueryGetInfoListService queryGetInfoListService;
+	QueryGetInfoListResponse4OneLoop queryGetInfoListResponse4OneLoop=null;
+	Logger log = LoggerFactory.getLogger(getClass());
+	private String Page;
+	private List<PayoutOrIncomeEntry> result;
+	private String state;
+	
+	public QueryGetInfoListService getQueryGetInfoListService() {
+		return queryGetInfoListService;
+	}
+	public void setQueryGetInfoListService(
+			QueryGetInfoListService queryGetInfoListService) {
+		this.queryGetInfoListService = queryGetInfoListService;
+	}
+	public String getPage() {
+		return Page;
+	}
+	public void setPage(String page) {
+		this.Page = page;
+	}
+	public Date StartDateCast(Date date){
+		 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+	        String result=df.format(date);  
+	         result+=" "+"00:00:00";
+	         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");                
+	         try {
+				return sdf.parse(result);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  
+	         return new Date();
+	}
+	public Date StopDateCast(Date date){
+		 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+	        String result=df.format(date);  
+	         result+=" "+"23:59:59";
+	         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");                
+	         try {
+				return sdf.parse(result);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  
+	         return new Date();
+	}
+	public String execute() throws Exception {
+		try {
+			  System.out.println(from);
+			  System.out.println(to);
+			  int fromLong = (int) (StartDateCast(new Date()).getTime()/1000);
+			  if(null != from)
+			      fromLong = (int) (from.getTime() / 1000);
+			  
+			  int toLong = (int) (StopDateCast(new Date()).getTime() / 1000);
+			  if(null != to)
+				  toLong =   (int) (to.getTime() / 1000);
+			  
+			  setMaxResults(100);
+			  paging = wrapPaging();
+			  paging.setTotalCount(100000);
+			 
+			  Page = paging.getPageNo()+"";
+			  
+			 int truePage =((Integer.valueOf(Page)-1)/50)+1;
+			  
+			  queryGetInfoListResponse4OneLoop= queryGetInfoListService.queryGetInfoListResponse4OneLoop(String.valueOf(truePage),String.valueOf(fromLong),String.valueOf(toLong));
+			  System.out.println(queryGetInfoListResponse4OneLoop);
+			  List<PayoutOrIncomeEntry> list =new ArrayList<PayoutOrIncomeEntry>();
+			  if(state.equals("0"))
+			  {
+				  for(int i=(Integer.valueOf(Page)-1)*20;i<(Integer.valueOf(Page)-1)*20+20;i++)
+				  {
+					  list.add(queryGetInfoListResponse4OneLoop.getIncome().get(i));
+				  }
+				 this.setResult(list);
+			  }
+			      
+			  else if(state.equals("-1"))
+			  {
+				  for(int i=(Integer.valueOf(Page)-1)*20;i<(Integer.valueOf(Page)-1)*20+20;i++)
+				  {
+					  list.add(queryGetInfoListResponse4OneLoop.getPayout().get(i));
+				  }
+				 this.setResult(list);
+			  }
+			      
+			  System.out.println("result="+result);
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return SUCCESS;	
+	}
+	public String queryAmount(){
+		return SUCCESS;
+	}
+	public List<PayoutOrIncomeEntry> getResult() {
+		return result;
+	}
+	public void setResult(List<PayoutOrIncomeEntry> result) {
+		this.result = result;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+}

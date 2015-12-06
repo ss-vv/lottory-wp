@@ -1,0 +1,75 @@
+#set($p_title = "已使用优惠劵")
+#set($pos = "myvoucher")
+
+<div class="lyr lyw-g fr">
+	<div class="mod mod-c mod-c-a">
+	 <div class="mh">
+      <div class="tabh tabh-e">
+        <a href="$base/voucher.do"><span>我的优惠劵</span></a>
+        <a href="javascript:void(0);"  class="cur"><span>已使用</span></a>
+        <a href="$base/invalidVoucher.do"><span>已过期</span></a>
+      </div>
+    </div>
+    <div class="mm">
+    	<form id="qForm" action="$base/cmfbm.do" method="post">
+    		<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+    		<input type="hidden" name="fuid" value="$!{fuid}"/>
+    	</form>
+    	<div class="mp-ma"></div>
+    	#if($!{paging} && $!{paging.results} && ${paging.results.size()} > 0)
+    	<div class="tblbox tblbox-c mp-f">
+    		<table cellspacing="0" cellpadding="0" border="0" class="tbl">
+         	<tr>
+            	<th style="border-right:none;" class="thl"><div class="inth"><div class="hide">优惠劵</div></div></th>
+            	<th style="border-right:none;width:120px;"><div class="inth"><div class="hide">名称/编号</div></div></th>
+            	<th style="border-right:none;width:60px;"><div class="inth"><div class="hide">面值</div></div></th>
+            	<th style="border-right:none;width:120px;"><div class="inth"><div class="hide">有效期</div></div></th>
+            	<th style="border-right:none;"><div class="inth"><div class="hide">使用说明</div></div></th>
+            	<th class="thr"  ><div class="inth"><div class="hide">状态/锁定时间</div></div></th>
+          	</tr>
+          	#foreach($d in $paging.results)
+          	<tr>
+            	<td style="border-right:none;" class="tdl"><span #if($d.voucher.price > 0)  class="voucher"  #else class="voucher_scj" #end><span #if($d.voucher.price > 0) class="voucher_number"  #else class="voucher_number_scj" #end>$math.toInteger(${d.voucher.grant})</span></span></td>
+            	<td style="border-right:none;">${d.voucher.name}<br/><span class="buy_date">$d.id</span></td>
+            	<td style="border-right:none;">$math.toInteger(${d.voucher.grant})</td>
+            	<td style="border-right:none;" class="buy_date">$date.format("yyyy-MM-dd HH:mm", ${d.effectTime})<br/>$date.format("yyyy-MM-dd HH:mm", ${d.deadTime})</td>
+            	<td style="border-right:none;">$d.voucher.instructions</td>
+            	<td class="tdr">$Result.voucherStatus(${d.status})<br/>#if($d.lockTime)$date.format("yyyy-MM-dd HH:mm", ${d.lockTime})#end</td>
+          	</tr>
+          	#end
+          	<tr>
+            	<td colspan="6" class="tdr" style="text-align:right;">
+              	<div class="pager fr">
+                	#pager($paging, 8, "pager")
+              	</div>
+            	</td>
+          	</tr>
+          	</table>
+          	<table cellspacing="0" cellpadding="0" border="0" class="tbl">
+			  <tbody><tr class="last">
+				    <td class="tdr">
+				      <div class="intd">
+				        <div class="tipsbox tipsbox-a tal mp-e" style="color:red;">说明：1.锁定状态的优惠劵会在10分钟后自动解锁。<br>
+				        </div>
+				      </div>
+				    </td>
+				  </tr>
+			</tbody>
+			</table>
+          </div>
+    	#else
+    		<div class="info_box">您目前没有已使用的优惠券</div>
+    	#end
+    		
+    	
+    	<span class="cb">&nbsp;</span>
+    </div>
+   </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+	function pager_reload(pn){
+	    $('#qForm').find(':input[name="pageNo"]').val(pn);
+	    $("#qForm").submit();
+	}
+</script>

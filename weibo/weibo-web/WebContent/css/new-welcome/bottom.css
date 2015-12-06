@@ -1,0 +1,158 @@
+.bottomWrapper {
+	/*margin-top: 75px;*/
+	clear:both;
+	color:#C7C7C6;
+	width:960px;
+	margin:0px auto 50px;
+	height:51px;
+}
+
+.bottom-container, .foot {
+	margin: 0px auto;
+	width: 960px;
+	text-align:center;
+}
+.bottomWrapper .about{
+	height:25px;
+}
+.foot p{
+	margin-top:5px;
+}
+.bottomWrapper .about a{
+	color:#C7C7C6;
+}
+.bottom-container h1 {
+	font-size: 24px;	
+}
+
+.bottom-container .left {
+	float:left;
+	text-align: left;
+	margin-top:15px;
+	width:45%;
+}
+
+.bottom-container .right {
+	float:right;
+	text-align: left;
+	margin-top:15px;
+	width:45%;
+}
+
+
+.bottom-container ul li {
+	padding:5px 0px;	
+}
+
+.bottom-container .cont {
+	border-top: 1px solid gray;
+	position: relative;
+}
+.bottom-container .cont .show-cont {
+	
+}
+.bottom-container .cont .show-time {
+	display: inline-block;
+	float: right;
+	position: absolute;
+	right: 0px;
+}
+
+.bottom-container ul li .win {
+	font-size: 16px;
+}
+
+.footer {
+	clear:both;
+	padding: 12px;
+}
+
+.footer .copyright {
+	margin:0px auto;
+	width:640px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.footer .copyright ul li {
+	padding:3px 15px;
+	float: left;
+}
+
+
+.footer .copyright ul li a {
+	color: #000;
+	text-decoration: none;
+}
+
+.active_user {
+	clear: both;
+}
+
+.active_user .user {
+	padding-top: 15px;
+	display: table;
+}
+
+.active_user ul.user li {
+	float: left;
+	margin-right: 12px;
+	margin-bottom: 10px;
+}
+
+.gallery {
+	position: relative;	
+}
+
+.image-wrapper {
+	display: block;
+	float:left;
+}
+
+.image-wrapper img {
+	border: 3px solid #FFF;
+	padding: 2px;
+}
+
+.caption-container {
+	display: inline-block;
+	position: absolute;
+	float:right;
+	margin-left: 15px;
+}
+
+#image-frame {  
+	height: 104px;
+	width: 230px;
+  	border:3px solid #E1E1E1;   /* 边框宽度为3px */  
+  	position:relative;  
+}  
+#image-frame .point,.sky {  
+  display:block; 
+  height:0px; 
+  width:0px; 
+  position:absolute; 
+  font-size:0; 
+  line-height:0;
+}  
+#image-frame .point {  
+  left:-9px;    /* 它的绝对值加上span的边框宽度等于div边框宽度的5倍 */  
+  top:20px;   /* 它来确定尖角的位置 */  
+  border-left:0px;  
+  border-top:6px solid #F8F8F8;  /* 注意颜色的变化 */  
+  border-right:6px solid #E1E1E1;  
+  border-bottom:6px solid #F8F8F8;  
+}  
+#image-frame .sky {  
+  left:6px;  /* 是自身边框宽度的2倍 */  
+  top:-3px; /* 是自身边框宽度的-1倍  */  
+  border-left:0px;  
+  border-top:3px solid #E1E1E1;  
+  border-right:3px solid white;  
+  border-bottom:3px solid #E1E1E1;  
+}
+
+.image-content {
+	padding: 5px;
+}
+

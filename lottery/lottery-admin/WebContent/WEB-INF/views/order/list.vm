@@ -1,0 +1,120 @@
+#set($title="资金变更流水")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>资金变更流水</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/order/list.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">
+            从 <input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+         至 <input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+            用户名：<input type="text" name="username" value="$!{username}" maxlength="32" size="16"/>
+            状态：<select name="type" value="${type}" id="typeSel">
+              <option value="-1">不限类型</option>
+              <option value="100">充值</option>
+              <option value="101">赠款</option>
+              <option value="102">派奖</option>
+              <option value="200">提现返款</option>
+              <option value="210">提现冻结</option>
+              <option value="220">提现扣款</option>
+              <option value="300">投注返款</option>
+              <option value="310">投注冻结</option>
+              <option value="320">投注扣款</option>
+              <option value="301">合买保底返款</option>
+              <option value="311">合买保底冻结</option>
+              <option value="321">合买保底扣款</option>
+              <option value="500">佣金</option>
+              <option value="230">发红包冻结</option>
+              <option value="250">抢红包成功转账</option>
+              <option value="240">红包失效返款</option>
+            </select>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+            <input type="submit" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+				<th style="width:50px;text-align:center;"><span>流水号</span></th>
+				<th style="width:50px;text-align:center;"><span>用户ID</span></th>
+        <th style="width:90px;text-align:center;"><span>用户名</span></th>
+        <th style="width:70px;text-align:center;"><span>真实姓名</span></th>
+				<th style="width:70px;text-align:center;"><span>订单类型</span></th>
+				<th style="width:80px;text-align:right;"><span>交易金额（元）</span></th>
+				<th style="width:80px;text-align:right;"><span>总费用（元）</span></th>
+				<th style="width:80px;text-align:center;"><span>交易日期</span></th>
+				<th style="width:50px;text-align:center;"><span>详情</span></th>
+			</tr>
+			#foreach($o in $paging.results)
+			<tr>
+        <td style="text-align:center;">${o.id}</td>
+        <td style="text-align:center;">${o.userId}</td>
+				<td style="text-align:center;">$!{o.username}</td>
+				<td style="text-align:center;">$!{o.realname}</td>
+				<td style="text-align:center;">$status.order($o.type)</td>
+				<td style="text-align:right;">￥${o.amount}</td>
+				<td style="text-align:right;">￥${o.fee}</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH-mm-ss", ${o.createdTime})</td>
+				<td style="text-align:center;"><a href="javascript:void(0);" _oid="${o.id}">详情</a></td>
+			</tr>
+			#end
+		</table>
+    </form>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#typeSel option[value="${type}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(f != null && t != null){
+            if(t.getTime() < f.getTime()){
+                alert('终止日期不能早于开始日期');
+                return false;
+            }
+            if((t.getTime() - f.getTime()) / 86400000 > 90){
+                alert('查询日期区间不能超过90天');
+                return false;
+            }
+        }
+        $('#qForm').submit();
+    }
+    
+    // 查看详情
+    $('#dataGrid td a[_oid]').bind('click', function(){
+        var oid = $(this).attr('_oid');
+        xhOpenWindow('$base/order/view.do?id=' + oid, {
+            id: 'o_' + oid,
+            title: '查看资金变更详情',
+            height: 320,
+            width: 600
+        });
+        
+        return false;
+    });
+});
+</script>

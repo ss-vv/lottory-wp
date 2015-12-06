@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+  default-autowire="byName">
+
+  <!-- 运营数据库Dao -->
+   <bean id="colorRingDao" class="com.xhcms.lottery.commons.persist.dao.impl.ColorRingDaoImpl">
+    <property name="sessionFactory" ref="mainSessionFactory" />
+   </bean>
+
+  <!-- 账务数据库Dao -->
+
+  <!-- Service -->
+  <bean id="colorRingService" class="com.xhcms.lottery.commons.persist.service.impl.ColorRingServiceImpl" />
+</beans>

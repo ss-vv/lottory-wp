@@ -1,0 +1,112 @@
+#set($layout="web/head_foot.vm")
+#set($p_title="我的主页")
+#set($styles=["js/web/jquery-ui/jquery-ui.css","css/profile.css","css/list-open.css",
+	"css/jquery.atwho.css","css/jquery.autocomplete.css","css/wb_list.css"])
+
+#set($scripts=["js/web/profile/profile_detail.js","js/web/message/at-window.js"])
+<div id="center" class="container">
+	<div id="current_user_weiboId" style="display:none" weiboUserId="$!user.weiboUserId">
+	</div>	
+	<div class="profile_box container">
+		<!-- self info-->
+		#if($user.nickName == $userProfile.nickName)
+			#parse("web/profile/inc/self_profile.vm")
+		#else
+		<!-- other's info-->
+			#parse("web/profile/inc/others_profile.vm")
+		#end
+	</div>
+	
+	<div class="status-nav newTab_white" style="margin-left: 103px;width: 822px;margin-bottom: 0px;">
+        <ul id="status_tab_ul" class="status-tab upper lotteryScheme" style="margin-left: 24px;">
+            <li class="active" id="weibos_li" _mark="weibos_li" _weiboUserId="$!userProfile.weiboUserId"><a href="javascript:void(0);">主帖($allWeiboNum)</a></li>
+            #if($user.nickName == $userProfile.nickName)
+            <li id="comments_li" _mark="comments_li" _weiboUserId="$!userProfile.weiboUserId"><a href="javascript:void(0);">评论</a></li>
+            #end
+            <li id="followings_li" _mark="followings_li" _weiboUserId="$!userProfile.weiboUserId"><a href="javascript:void(0);">关注($followingsNum)</a></li>
+            <li id="followers_li" _mark="followers_li" _weiboUserId="$!userProfile.weiboUserId"><a href="javascript:void(0);">粉丝($followersNum)</a></li>
+        </ul>
+    </div>
+    <div class="statuses_container container tab-content" style="min-height: 0px;margin-top: 0px;">
+    	<div id="weibos_list" style="display:true">
+    		<div class="loading" style="height: 40px; display: none;"></div>
+    		<div id="weibos_div">
+				<ul class="status-list">
+				</ul>
+	    	</div>
+    		<div class="pager-wrapper" id="weibos_pager" style="float:left;padding: 0px 0;">
+        
+    	  	</div>
+    	</div>
+    	
+    	#if($user.nickName == $userProfile.nickName)
+	    	<div id="comments_list" style="display:none">
+	    		<div class="loading" style="height: 40px; display: none;"></div>
+	    		<div class="status-list commentList" id="comments_div">
+
+		    	</div>
+	    		<div class="pager-wrapper" id="comments_pager" style="float:left;padding: 0px 0;">
+	        
+	    	  	</div>
+	    	</div>
+	    #end
+	    
+    	<div id="followings_list" style="display:none">
+    		<div class="loading" style="height: 40px; display: none;"></div>
+    		<div>
+	    		<ul class="rightSider-list no-top-line" id="followings_ul">
+	    			
+	    		<ul>
+	    	</div>
+    		<div class="pager-wrapper" id="followings_pager" style="float:left;padding: 0px 0;">
+        
+    	  	</div>
+    	</div>
+    	<div  id="followers_list" style="display:none">
+    		<div class="loading" style="height: 40px; display: none;"></div>
+    		<div>
+	    		<ul class="rightSider-list no-top-line" id="followers_ul">
+	    			
+	    		<ul>
+	    	</div>
+    		<div class="pager-wrapper" id="followers_pager" style="float:left;padding: 0px 0;">
+        
+    	  	</div>
+    	</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery("#weibos_list").attr("style","display:none");
+	jQuery("#comments_list").attr("style","display:none");
+	jQuery("#followings_list").attr("style","display:none");
+	jQuery("#followers_list").attr("style","display:none");
+	
+	jQuery("#status_tab_ul li").attr("class","");
+	var url = window.location.href;
+	followerRr = /^.*\/profile\/followers.*$/;
+	followingRr = /^.*\/profile\/followings.*$/;
+	if(followerRr.test(url)){
+		jQuery("#followers_li").attr("class","active");
+		jQuery("#followers_list").attr("style","display:true");
+		weiboUserId = $!userProfile.weiboUserId;
+		findProfileFollowers(weiboUserId,1);
+	} else if(followingRr.test(url)) {
+		jQuery("#followings_li").attr("class","active");
+		jQuery("#followings_list").attr("style","display:true");
+		weiboUserId = $!userProfile.weiboUserId;
+		findProfileFollowings(weiboUserId,1);
+	} else {
+		jQuery("#weibos_li").attr("class","active");
+		jQuery("#weibos_list").attr("style","display:true");
+		weiboUserId = $!userProfile.weiboUserId;
+		findProfileWeibos(weiboUserId,1);
+	}
+});
+</script>
+
+
+
+
+#parse("web/profile/inc/atWindow.vm")

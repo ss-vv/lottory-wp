@@ -1,0 +1,15 @@
+#set($p_title="提现")
+#set($pos="wh")
+
+#parse("inc/balance.vm")
+#if(${user.truename} == "" || 
+	${account.bank} == "" || 
+	${account.accountNumber} =="")
+	#set($noBankAccount = "noBankAccount")
+	
+	<div  style="margin-top:15px;">提现信息不完整，请完善提现信息!</div>
+	
+	<div style="margin-top:15px;"><input onclick="window.location.href='http://www.davcai.com/bankinfo'" value="点击去完善信息" type="button"/></div>
+#else
+	#parse("inc/withdraw.vm")
+#end

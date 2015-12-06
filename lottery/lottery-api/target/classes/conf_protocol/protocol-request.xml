@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:lang="http://www.springframework.org/schema/lang"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+				http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd" >
+				
+	<bean id="requestParserForXml" class="com.unison.lottery.api.protocol.request.xml.parser.XmlRequestParser">
+		<property name="methodRequestParsersMap">
+			<map>				
+				<entry key="selectFollow" value-ref="selectFollowMethodRequestParser"/>
+				<entry key="lotteryResult" value-ref="lotteryResultMethodRequestParser"/>
+				<entry key="bonusResult" value-ref="bonusResultMethodRequestParser"/>
+				<entry key="registe" value-ref="registeMethodRequestParser"/>
+				<entry key="login" value-ref="loginMethodRequestParser"/>
+				<entry key="bindIDCard" value-ref="bindIDCardMethodRequestParser"/>	
+				<entry key="bindBank" value-ref="bindBankMethodRequestParser"/>	
+				<entry key="getVerifyCode" value-ref="getVerifyCodeMethodRequestParser"/>
+				<entry key="bindMobile" value-ref="bindMobileMethodRequestParser"/>
+				<entry key="modifyPassword" value-ref="modifyPasswordMethodRequestParser"/>
+				<entry key="withdraw" value-ref="withdrawMethodRequestParser"/>		
+				<entry key="queryOnSaleLottery" value-ref="queryOnSaleLotteryRequestParser"/>				
+				<entry key="queryJCZQMatch" value-ref="queryJCZQMatchRequestParser"/>				
+				<entry key="queryJCLQMatch" value-ref="queryJCLQMatchRequestParser"/>				
+				<entry key="queryCTZCMatch" value-ref="queryCTZCMatchRequestParser"/>				
+				<entry key="checkUpdate" value-ref="checkUpdateRequestParser"/>
+				<entry key="sendAdvice" value-ref="sendAdviceRequestParser"/>
+				<entry key="activityNotify" value-ref="activityNotifyRequestParser"/>			
+				<entry key="betScheme" value-ref="betSchemeRequestParser"/>	
+				<entry key="schemeDetail" value-ref="schemeDetailRequestParser"/>			
+				<entry key="forgotPassword" value-ref="forgotPasswordRequestParser"/>													
+				<entry key="userDetail" value-ref="userDetailRequestParser"/>
+				<entry key="buyHistory" value-ref="buyHistoryRequestParser"/>
+				<entry key="queryVouchers" value-ref="queryVouchersRequestParser"/>
+				<entry key="schemeTicket" value-ref="schemeTicketRequestParser"/>								
+				<entry key="showAndFollow" value-ref="showAndFollowRequestParser"/>	
+				<entry key="queryAlipayRSAKey" value-ref="queryAlipayRSAKeyRequestParser"/>	
+				<entry key="rechargeCard" value-ref="rechargeCardRequestParser"/>						
+				<entry key="useVoucher" value-ref="useVoucherRequestParser"/>
+			</map>
+		</property>
+	</bean>
+	
+	
+	<bean id="selectFollowMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.SelectFollowMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="lotteryResultMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.LotteryResultMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="bonusResultMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.BonusResultMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="loginMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.LoginMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	
+	<bean id="registeMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.RegisteMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	
+	<bean id="bindIDCardMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.BindIDCardMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	
+	<bean id="bindBankMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.BindBankMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	
+	<bean id="getVerifyCodeMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.GetVerifyCodeMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="bindMobileMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.BindMobileMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="modifyPasswordMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.ModifyPasswordMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="withdrawMethodRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.WithdrawMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	
+	
+	<bean id="userParser" class="com.unison.lottery.api.protocol.request.xml.utils.UserParser"/>
+	
+	<bean id="queryOnSaleLotteryRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.QueryOnSaleLotteryRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryJCZQMatchRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.QueryJCZQMatchRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryJCLQMatchRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.QueryJCLQMatchRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryCTZCMatchRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.QueryCTZCMatchRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="betSchemeRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.BetSchemeRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="schemeDetailRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.SchemeDetailRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="schemeTicketRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.SchemeTicketRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="showAndFollowRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.ShowAndFollowRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="checkUpdateRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.CheckUpdateMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="sendAdviceRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.SendAdviceMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="activityNotifyRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.ActivityNotifyMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="forgotPasswordRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.ForgotPasswordMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="userDetailRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.UserDetailMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="buyHistoryRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.BuyHistoryRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryVouchersRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.QueryVouchersRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="useVoucherRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.UseVoucherRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+	<bean id="queryAlipayRSAKeyRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.QueryAlipayRSAKeyMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>	
+	<bean id="rechargeCardRequestParser" class="com.unison.lottery.api.protocol.request.xml.methodparser.RechargeCardMethodRequestParser">
+		<property name="userParser" ref="userParser"/>
+	</bean>
+		
+</beans>

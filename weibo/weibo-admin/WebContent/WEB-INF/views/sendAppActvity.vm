@@ -1,0 +1,61 @@
+#set($styles = ["css/admin/common.css", "css/admin/table-patch.css",
+	"css/admin/jquery-ui-patch.css", "css/admin/TextboxList.css",
+	"css/admin/jquery-ui/jquery-ui-1.10.3.custom.min.css"])
+#set($scripts = ["js/admin/topic.js", "js/admin/appActivity.js","js/admin/TextboxList.js", 
+	"js/admin/GrowingInput.js", "js/admin/jquery-ui-1.10.3.custom.min.js",
+	"js/admin/commons.js", "js/admin/jquery.form.js","js/match/recommend.js","js/admin/sendMsgToGroup.js"])
+	
+<div class="container-fluid">
+	<div class="row-fluid">
+		#parse("layout/leftMenu.vm")
+		<!-- content starts -->
+		<div id="content" class="span10">
+			<div>
+				<ul class="breadcrumb">
+					<li><a href="#">首页</a> <span class="divider">/</span></li>
+					<li><a href="javascript:void(0)">V群推送</a></li>
+				</ul>
+			</div>
+			
+			<!-- 用户区域  -->
+			<!--表格内容开始-->
+			<div class="row-fluid sortable ui-sortable" >
+				<div class="box span12">
+					<div class="box-header well" data-original-title="">
+						<div class="box-icon">
+							<a href="#" class="btn btn-minimize btn-round">
+								<i class="icon-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div id="topic_table">
+							
+					<!-- 表单 开始 -->					
+                        <label>群号</label>
+                        <select id="selectid_send" >
+						<option value="">请选择...</option>
+						<option value="ALL">ALL</option>
+    					</select>
+    					<br />                    
+                        <label>内容</label>
+                        <textarea id="text_content" cols="20" rows="5"></textarea><br/>    
+                    	<input type="button" id="sendMsg" value="发送"/>
+                	<!-- 表单结束 -->
+							
+							
+							<div class="pager-wrapper">
+						          #pagerHtml($pageRequest.pageIndex $pageRequest.pageCount)
+					        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--表格内容结束-->
+			
+		</div>
+		<!-- content ends -->
+	</div>
+	<hr>
+	#include("layout/copyright.vm")
+</div>

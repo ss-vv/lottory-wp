@@ -1,0 +1,161 @@
+#set($p_title="彩票投注") 
+<link href="http://trade.davcai.com/df/css/widgets.css" rel="stylesheet" type="text/css" />
+<link href="http://www.davcai.com/css/emoticon.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jquery.mustache.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jquery.util.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/jquery.emoticons.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/load-header-background.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/plugins/cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/jet.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/notification.js"></script>
+<link href="http://trade.davcai.com/df/css/hack-bootstrap.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://www.davcai.com/js/web/load-header.js"></script>
+
+<link href="http://trade.davcai.com/df/css/bet/jc.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://www.davcai.com/js/pop.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/davcai/general_pop.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/assets/js/cometd/lib/cometd.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/assets/js/cometd/jquery/jquery.cometd.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/atDemo.js"></script>
+<script type="text/javascript" src="http://www.davcai.com/js/web/message/at-window.js"></script>
+
+<script type="text/javascript" src="http://trade.davcai.com/df/js/core.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/cometd/core.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/cometd/bet-match-odds.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/match-rec/recommend.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/matchUtil.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jczq/jc-option-view.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jczq/count-bet-notes.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jczq/bet-panel.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jczq/match.js"></script>
+<script type="text/javascript" src="http://trade.davcai.com/df/js/bet/jczq/jczq.js"></script>
+<div class="davcai-bet">
+	<div class="davcai-bet-left">
+		<div class="davcai-bet-nav" style="">
+			<ul class="davcai-bet-nav-tab">
+				 <li><a href="http://trade.davcai.com/df/bet/jczq_01_zc_2.html">让球胜平负</a></li>
+				 <li><a href="http://trade.davcai.com/df/bet/jczq_80_zc_2.html">胜平负</a></li>
+				 <li><a href="http://trade.davcai.com/df/bet/jczq_03_zc_2.html">总进球数</a></li>
+				 <li><a href="http://trade.davcai.com/df/bet/jczq_02_zc_2.html">比分</a></li>
+				 <li><a href="http://trade.davcai.com/df/bet/jczq_04_zc_2.html">半全场</a></li>
+				 <li class="current"><a href="javascript:void(0);">混合过关</a></li>
+			</ul>
+		</div>
+		<div class="davcai-bet-left-title">
+   	    	 #include("/bet/jczq/filter-match.vm")
+   	    	 #include("/bet/jczq/history-match-select.vm")
+		</div>
+		<table class="table-bet-box" cellspacing="0" cellpadding="0" border="1" style="position: fixed;z-index: 3;">
+			<tbody>
+		  	    <tr class="table-bet-box-nav">
+	  	    	 <td rowspan="2" style="width: 43px;">赛事<br/>编号</td>
+	  	    	 <td rowspan="2" style="width: 50px;" class="section-sale-td">
+	  	    	 	<a href="javascript:void(0);" class="section-sale">截售</a>
+	  	    	 	<i class="down-arrow"></i>
+	  	    	 	<div class="section-sale-list">
+	  	    	 		<a href="javascript:void(0);" data="offsale" class="section-sale current">截售</a>
+	  	    	 		<i class="up-arrow"></i><br/>
+	  	    	 		<a href="javascript:void(0);" data="palytime" class="kick-off">开赛</a><i class="up-arrow-no"></i>
+	  	    	 	</div>
+	  	    	 </td>
+	  	    	 <td rowspan="2" style="width: 117px;">对阵</td>
+	  	    	 <td colspan="5" style="width: 220px;">投注区</td>
+	  	    	 <td rowspan="2" style="width: 170px;" colspan="" class="instant-index-td">
+	  	    	 	<a href="javascript:void(0);" class="instant-index">即时指数</a>
+	  	    	 	<i class="down-arrow"></i>
+	  	    	 	<div class="instant-index-list">
+	  	    	 	      <a href="javascript:void(0);" class="instant-index current">即时指数</a>
+	  	    	 	      <i class="up-arrow"></i><br/>
+	  	    	 	      <ul class="instant-index-list-content">
+	  	    	 	      	 <li odd-type="europe">
+	  	    	 	      	 	<h4>欧赔</h4>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="1">澳彩</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="3">SB</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="4">立博</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="8">Bet365</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="12">易胜</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="14">韦德</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="17">明陞</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="22">10BET</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="23">金宝博</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="24" title="12bet/大发">12bet/大发</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="31">利记</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="35">盈禾</a></span>
+	  	    	 	      	 </li>
+	  	    	 	      	 <li odd-type="asian">
+	  	    	 	      	 	<h4>亚盘</h4>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="1">澳彩</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="3">SB</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="4">立博</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="8">Bet365</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="12">易胜</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="14">韦德</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="17">明陞</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="22">10BET</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="23">金宝博</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="24" title="12bet/大发">12bet/大发</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="31">利记</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="35">盈禾</a></span>
+	  	    	 	      	 </li>
+	  	    	 	      	 <li odd-type="bigsmall">
+	  	    	 	      	 	<h4>大小</h4>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="1">澳彩</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="3">SB</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="4">立博</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="8">Bet365</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="12">易胜</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="14">韦德</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="17">明陞</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="22">10BET</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="23">金宝博</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="24" title="12bet/大发">12bet/大发</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="31">利记</a></span>
+	  	    	 	      	 	<span><a href="javascript:void(0);" crop-id="35">盈禾</a></span>
+	  	    	 	      	 </li>
+	  	    	 	      </ul>
+	  	    	 	</div>
+	  	    	 </td>
+	  	    	 <td  style="width: 89px;" rowspan="2">参考</td>
+	   	    </tr>
+	        <tr class="table-bet-box-nav">
+	          <td  style="width: 44px;">让球</td>
+	          <td class="padding-lf" style="width: 43px;">&nbsp;胜&nbsp;</td>
+	  	      <td class="padding-lf" style="width: 44px;">&nbsp;平&nbsp;</td>
+	  	      <td class="padding-lf" style="width: 43px;">&nbsp;负&nbsp;</td>
+	          <td class="padding-lfb"  style="width: 42px;">其它</td>
+	        </tr>
+			</tbody>
+	   	</table>
+	   	<table class="table-bet-box"  cellspacing="0" cellpadding="0" border="1">
+	  	    <tbody _n="matches-table">
+	  	    	<tr class="table-bet-box-nav">
+		  	    	 <td rowspan="2" style="width: 43px;"></td>
+		  	    	 <td rowspan="2" style="width: 50px;" class="section-sale-td"></td>
+		  	    	 <td rowspan="2" style="width: 119px;"></td>
+		  	    	 <td colspan="5" style="width: 220px;"></td>
+		  	    	 <td rowspan="2" style="width: 170px;" colspan="" class="instant-index-td"></td>
+		  	    	 <td  style="width: 89px;" rowspan="2"></td>
+		   	    </tr>
+		        <tr class="table-bet-box-nav">
+			          <td  style="width: 44px;"></td>
+			          <td class="padding-lf" style="width: 44px;"></td>
+			  	      <td class="padding-lf" style="width: 44px;"></td>
+			  	      <td class="padding-lf" style="width: 44px;"></td>
+			          <td class="padding-lfb"  style="width: 44px;"></td>
+		        </tr>
+	        </tbody>
+	   	</table>
+	</div>
+</div>
+#include("/bet/jczq/match.vm")
+#include("/bet/jczq/mix-pass-options.vm")
+#parse("/bet/jczq/right-bet-content.vm")
+#parse("/bet/inc/match-rec.vm")
+#include("/bet/inc/at-window.vm")
+
+<div style="position: absolute; z-index: 5;">
+	<table id="OddsChangeTable" cellspacing="1" cellpadding="0" width="280" align="center" bgcolor="#aaaaaa" border="0" style="font-size:12px;border-collapse: separate;border-spacing: 1px;border-color: gray;display:none"><tbody>
+	</tbody></table>
+</div>

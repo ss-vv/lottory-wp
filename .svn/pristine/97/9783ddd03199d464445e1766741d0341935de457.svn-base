@@ -1,0 +1,33 @@
+#set($p_title="登录")
+#set($layout="default_with_new_topics_footer.vm")
+<script src="http://www.davcai.com/js/davcai/betNum.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery("#username").focus();
+		jQuery("#password").keypress(function (e){
+			var currKey = e.keyCode||e.which||e.charCode;
+			if(currKey == 13){
+				login();
+			}
+		});
+	});
+</script>
+
+##parse("web/davcai_loginpage/ad_pic.vm")
+#parse("web/davcai_loginpage/login_form.vm")
+#include("web/davcai_loginpage/davcai-mobile-ad.vm")
+##parse("web/inc/lottery_type.vm")
+##parse("web/davcai_loginpage/menu.vm")
+##parse("web/davcai_loginpage/welcome_content.vm")
+
+<p class="welcome-bottom-line"></p>
+</div><!-----------------------welcomepage部分-------------------------------->
+<script type="text/javascript">
+$(document).ready(function(){
+	var username = $.cookie('username');
+	if(undefined != username && null != username &&　"null" != username){
+		$("#username").val(username);
+	}
+});
+</script>
+#parse("web/inc/parseData.vm")

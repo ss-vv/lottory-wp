@@ -1,0 +1,101 @@
+#set($layout="web/home_default.vm")
+#set($p_title="评论我的")
+#set($scripts=["js/web/jquery.emoticons.js","js/web/home/home_relationship.js", 
+"js/web/login.js", 
+  "js/web/comments.js",
+"js/web/at.js","js/web/home/announceAndWinning.js",
+"js/web/home/interest_user.js", "js/web/label-slide.js"])
+
+<div class="wrapper">
+	<div>
+		<h2>评论我的</h2>
+		
+        <div class="fixit"></div>
+        
+        <div class="newTab_white">
+            <ul class="down tab_comment_down">
+            <li class="#if($type=='all')active#end"><a href="?type=all" data-direct="0" data-type="">全部</a></li>
+            <li class="#if($type=='direct')active#end"><a href="?type=direct" data-direct="1" data-type="direct">直接回复</a></li>
+            <li class="#if($type=='follow')active#end"><a href="?type=follow" data-direct="2" data-type="follow">我关注的人</a></li>
+            </ul>
+        </div>
+        
+        <div class="status-list commentList">
+            <ul class="comments-list">
+                #foreach($comment in $pageResult.results)
+                    #set($author = $comment.author)
+                    #set($repliedUser = $comment.repliedUser)
+                    #if($comment.repliedComment)
+                        #set($originalText=$comment.repliedComment.content)
+                    #else
+                        #set($originalText=$Text.abbreviate(${comment.weiboMsg.content}, 130))
+                    #end
+                <li _post="${comment.weiboMsg.id}" _cid="$!cid"><div class="headpic" _userid="$author.weiboUserId">
+                        <a href="#user_home_url($author.weiboUserId)" data-name="$author.nickName"><img
+                            src="$author.headImageURL"
+                            width="50px" height="50px"></a>
+                    </div>
+                    <div class="content">
+                        <div class="main-comment">
+                            <span class=""><a href="#user_home_url($author.weiboUserId)" class="screen_name "
+                                data-name="$author.nickName"><span>$author.nickName</span><span 
+                                    class="user_remark" data-name="$author.nickName" style="display: none">(null)</span></a>
+                                <span>回复</span> <a href="#user_home_url($repliedUser.weiboUserId)" class="screen_name "
+                                target="_blank">@$repliedUser.nickName</a>：</span>
+								<span class="summary">
+									<span class="text">$!comment.content</span>
+								</span>
+                        </div>
+                        <p>原文：</p>
+                        <div class="status">
+                            <a href="#user_home_url($repliedUser.weiboUserId)" class="screen_name "
+                                target="_blank">${repliedUser.nickName}</a>:<br/>
+                                <div class="weibo"><div class="summary">
+                                	<a href="#weibo_url($comment.weiboMsg)" target="_blank">$originalText</a>
+                                </div></div>
+                            <div class="meta">
+                                <a class="time" date="1385431202000"
+                                    href="#weibo_url($comment.weiboMsg)" target="_blank">$dateUtil.format($comment.weiboMsg.createTime)</a>
+                            </div>
+                        </div>
+                        <div class="meta">
+                            <div class="infos">
+                                <a class="time createdAtTime" date="$comment.createTime"
+                                href="#">#format_date($comment.createTime)</a>
+                            </div>
+                            <div class="ops">
+                                <a href="#" class="toggleComment last" _cid="$comment.id">回复</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                #end
+            </ul>   <!-- comments-list -->
+
+        <div class="pager-wrapper">
+        #pagerHtml($page $pageResult.totalPages)
+        </div>
+
+        </div>  <!-- commentList -->
+
+        <div class="fixit"></div>
+	</div>
+</div>
+
+<script>
+jQuery(document).ready(function(){
+    $('.ops .toggleComment').click(function(event){
+        event.preventDefault();
+        onCommentMeReplyClick($(this));
+    });
+    // 为@添加URL
+    $('.text').each(function(){
+        $(this).at();
+    });
+    $('.weibo').match$ToHtml();
+	$('.weibo').emotionsToHtml();
+	$('.main-comment').match$ToHtml();
+	$('.main-comment').emotionsToHtml();
+});
+</script>
+#parse("web/widgets.vm")

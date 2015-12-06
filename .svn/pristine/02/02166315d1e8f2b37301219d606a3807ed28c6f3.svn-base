@@ -1,0 +1,42 @@
+# database
+db.url = jdbc:mysql://182.92.191.193:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = test_lottery
+db.password = test77
+
+# database
+db2.url = jdbc:mysql://182.92.191.193:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = test_account
+db2.password = test77
+
+# ActiveMQ
+amq.brokerURL = tcp://182.92.191.193:61616
+
+debugMode=true
+advancedMinute=10
+
+# ZhongMing new interface
+zm.ticket.key = 123456
+zm.ticket.partnerId = 349182
+zm.ticket.version = 1.0
+zm.ticket.url = http://121.12.168.124:6661/ticketinterface.aspx
+
+#alipay
+alipay.partner = 2088611118242558
+alipay.seller = fuqiushuma@163.com
+alipay.rsaPrivate = MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAOIqaI10qfcbAeJd6v/LpyiMqLeV02bSYkWub3wYYv0jj9GPBcgSaa76nJYtc+W1B6eQfNa9r2VBjivIbZrhVKU7nZnf93MfAep9JaPMzRphosYGeZ5eezIpd/zcaWEMa//eKmQJpw4oKGwhOOxlgmtkTnqhlAwwo0Di5q63mor5AgMBAAECgYB5jL1AOREXwyYSGNOxwiwGeQI8GIPTYQJ73LICCcE5tyEWST2cN3khF4OMmsUNEWwZvGe7qZpYWxEjqsZtVOj+GhOHafycvo6U2rzFAM2UyfdyJ26d+Dl0Wt03ZJaiSx4bxJ7Dw9BaTvn2xtLk2wmulFpg88k37SA8axlb8c+1+QJBAPK9IIAm+VTVV/GB005VK2AE9A885+aHb/ktzoFvoYXumwleMVFtPgtUQ9yPg+aWYMlGQ+7FPR/axLUHDFq55FcCQQDuhX6j1HBY3jYONVNLnbO69Be4LDudl02TV/0fQo3t1yn/TFGiYHbZgkLdMbuK5Watv3qNlDb/g0QldWjOB/kvAkEA5Xi7d8rgXD1PZQUpQF0toxkrrBgU1o7k4PhXx29DkDyQHhwInYSbadRgTurxc5RnrP8bC2c0sJ984/Hk0QP5AwJBAOEbNfCyPrFwTf3Mz+bOV+B6G6SigkTxlbIYWXhWHJK5/RXHVkfz2Fbg+++7zu6AIA6cZrIVjm5I2Vis3RONLNsCQQCGclGz4rCC9looOpat5Q53Ctka3rThOi3mrWu5/EoDJCwrXBmINJ47J2OYNmMdwDvzti1yx82qAu/YvJ8QwKJQ
+alipay.rsaPublic = MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB
+alipay.notifyUrl = http://182.92.191.193:28080/ac/callback/clientAlipayNotify.do
+
+
+# Yeepay
+yeepay.url = https://www.yeepay.com/app-merchant-proxy/command.action
+yeepay.memberId = 10011536868
+yeepay.keyValue = X495l1P7s174Q6du618mxp0ZnL5vhX8sZvJADbMnY9w3EJ0022m21r13X971
+yeepay.callback = http://test.ac.lai310.com/callback/clientYeepayCardNotify.do
+
+#赛事颜色超时时间(毫秒)
+match_color_timeout = 60000
+
+# redis
+redis.url = 182.92.191.193
+redis.port = 22122

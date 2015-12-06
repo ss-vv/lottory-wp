@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName">
+	
+	<bean id="formAuthFilter" class="com.xhcms.lottery.admin.shiro.filter.FormLoginWithShiroFilter"/>
+	<bean id="ticketPermsFilter" class="com.xhcms.lottery.admin.shiro.filter.TicketPermsWithShiroFilter"/>
+		
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="successUrl" value="/index.do" />
+		<property name="loginUrl" value="/loginPost.do" />
+		<property name="unauthorizedUrl" value="/login.do" />
+		<property name="filters">
+			<map>
+				<entry key="formAuth" value-ref="formAuthFilter"></entry>
+				<entry key="ticketPerms" value-ref="ticketPermsFilter"></entry>
+			</map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				/login.do = anon
+				/loginPost.do = formAuth
+				/index.do = authc
+				/logout.do = logout
+				
+				#玩法
+				/play/** = authc,perms["rule:play"]
+				/option/** = authc,perms["rule:playoption"]
+				
+				#会员
+				/user/** = authc,perms["user:list"]
+				/account/** = authc,perms["account:list"]
+				/order/** = authc,perms["order:list"]
+				
+				#财务
+				/recharge/** = authc,perms["financial:recharge"]
+				/grant/** = authc,perms["financial:grant"]
+				/withdraw/** = authc,perms["financial:withdraw"]
+				/kuaisu/** = authc,perms["financial:kuaisu"]
+				
+				#优惠劵管理
+				/voucher/** = authc,perms["voucher:*"]
+				
+				#投注
+				/scheme/** = authc,perms["scheme:lsbet"]
+				/preset/** = authc,perms["preset:list"]
+				/ticket/** = authc,ticketPerms[""]
+				
+				#内容管理
+				/match/** = authc,perms["bet:*"]
+				
+				#活动管理
+				/promote/** = authc,perms["pm:*"]
+				/activity/** = authc,perms["active:*"]
+				/sysmessage/** = authc,perms["msg:*"]
+				
+				#合买跟单管理
+				/gf/** = authc,perms["gf:*"]
+				
+				#管理员管理
+				admin/resetpwd.do = authc,perms["admin:resetpwd"]
+				admin/createAdmin.do = authc,roles[admin]
+				
+				#分票管理
+				/ticket/aj_edit_priority.do = authc,perms["ticket:allocate"]
+				/ticket/aj_batch_set_priority.do = authc,perms["ticket:allocate"]
+				/ticket/lsPriority.do = authc,perms["ticket:allocate"]
+				
+				#撤单
+				/ticket/aj_set_ticket_cancel.do = authc,perms["ticket:cancel"]
+				/ticket/aj_batch_set_ticket_cancel.do = authc,perms["ticket:cancel"]
+			</value>
+		</property>
+	</bean>
+
+	<bean id="shiroDataSource" class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource">
+		<property name="serverName" value="${shirodb.serverName}"></property>
+		<property name="user" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+		<property name="databaseName" value="${shirodb.databaseName}"></property>
+	</bean>
+
+	<bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+		<property name="dataSource" ref="shiroDataSource" />
+		<property name="permissionsLookupEnabled" value="true" />
+		<property name="authenticationQuery"
+			value="select password from lt_admin where username = ?" />
+		<property name="userRolesQuery"
+			value="select r.role from sys_users_roles ur, sys_roles r, lt_admin u where u.id = ur.user_id and ur.role_id = r.id and u.username = ?" />
+		<property name="permissionsQuery"
+			value="select p.permission from sys_roles_permissions rp, sys_roles r, sys_permissions p where rp.role_id = r.id and rp.permission_id = p.id and r.available = 0 and p.available = 0 and r.role = ?" />
+	</bean>
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	
+	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml" />
+	</bean>
+	
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="jdbcRealm" />
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+	</bean>
+	
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	
+</beans>

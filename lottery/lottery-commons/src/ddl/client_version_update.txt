@@ -1,0 +1,13 @@
+update lt_client_update
+set update_desc = '1.新增彩种双色球和传统足彩；TAGBR2.新增玩法混合过关和无让球胜平负；TAGBR3.修改bug；',
+download_url = 'http://davcai.com/download/davcai/davcai_2.0.0_davcai.apk',
+newest_version = 'android-lc-2.0.0'
+where platform = 'android' and channel = 'davcai';
+
+彩票新渠道（悠悠村）包版本控制：
+INSERT INTO lt_client_update VALUES(NULL, 'android-lc-2.0.1', 'android', 'uucun', 
+'http://davcai.com/download/uucun/davcai_2.0.1_uucun.apk',
+0, '');
+
+
+

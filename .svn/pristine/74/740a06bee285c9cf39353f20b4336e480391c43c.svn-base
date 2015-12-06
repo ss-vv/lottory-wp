@@ -1,0 +1,249 @@
+#pop-outer{
+	width: 672px;
+	height: 360px;
+	border: 1px transparent solid;
+	margin: 100px auto;
+	background: #C5C5C5;
+	/*background: #000000;*/
+	/*background:rgba(197,197,197,.5);*/
+    /*opacity: 0.5;*/
+    /*filter:Alpha(opacity=50);*/
+    position:absolute;
+	top:50%;
+	left:50%;
+	margin:-180px 0 0 -336px;
+	z-index: 9999;
+	position: fixed;
+	display:none;
+	line-height: normal;
+}
+#pop{
+	width: 657px;
+	height: 342px;
+	background: #fff;
+	margin: 9px auto;
+}
+#pop p.pop-title{
+	width: 657px;
+	height: 39px;
+	background: #E74C3C;
+	margin:0 auto;
+}
+#pop p.pop-title span{
+	color: #fff;
+	font-family: "微软雅黑";
+	font-size: 18px;
+	float: left;
+	margin-top: 7px;
+	margin-left: 20px; 
+}
+#pop p.pop-title label{
+	float: right;
+	margin-top: 9px;
+	margin-right: 12px;
+}
+#pop p.pop-title label a.icon-close{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+    background:url(../images/new-login/icon-close.png) no-repeat ;	
+}
+/*下面开始弹出框左边部分*/
+#pop .poplogin-left{
+	width: 388px;
+	height: 303px;
+	float: left;
+}
+#pop .poplogin-left ul{
+	width: 338px;
+	height: 210px;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+#pop .poplogin-left ul li{
+	width:330px;
+	height:45px;
+	line-height: 45px;
+	margin-top: 10px;
+}
+#pop .poplogin-left ul li.poplogin-name{
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: #000000;
+	height: 35px;
+}
+#pop .poplogin-left ul li input[type="text"]{
+	width: 262px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px #C3C3C3 solid;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #C3C3C3;
+	text-indent: 6px;
+	margin-right: 2px;
+}
+
+#pop .poplogin-left ul li input[type="password"]{
+	width: 262px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px #C3C3C3 solid;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #C3C3C3;
+	text-indent: 6px;
+	margin-right: 2px;
+}
+#pop .poplogin-left ul li a.lostpw{
+	color: #4063E6;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+#pop .poplogin-left ul li .poplogin a{
+ 	width: 114px;
+ 	height: 40px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/pop-login.png);
+ 	float: left;
+ 	margin-right: 40px;
+ }
+ #pop .poplogin-left ul li .poplogin a:hover{
+ 	width: 114px;
+ 	height: 40px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/pop-login-active.png);
+ }
+#pop .poplogin-left ul li p {
+ 	vertical-align: middle;
+    height: 28px;
+	line-height: 28px;
+	margin-top: 5px;
+	float: left;
+ }
+#pop .poplogin-left ul li span.pop-checkbox-selected{
+	background:url(../images/new-login/pop-checkbox-selected.png) no-repeat ;
+	width: 18px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	cursor: pointer;
+ 	margin-right: 3px;
+ 	float: left;
+ 	margin-top: 6px;
+}
+#pop .poplogin-left ul li span.pop-checkbox-not-selected{
+	background:url(../images/new-login/pop-checkbox-not-selected.png) no-repeat ;
+	width: 18px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	cursor: pointer;
+ 	margin-right: 3px;
+ 	float: left;
+ 	margin-top: 6px;
+}
+#pop .poplogin-left ul li label.auto-login{
+	margin-right: 60px;
+}
+#pop .poplogin-left ul li.last-child{
+	margin-top: 25px;
+}
+/*下面开始合作账号登录部分*/
+.poplogin-left p.pop-cooperative-logging{
+	color: #717171;
+	height: 28px;
+	line-height: 28px;
+	clear: both;
+	margin-left: 30px;
+	margin-top: 30px;
+}
+.poplogin-left p.pop-cooperative-logging span.fist-child{
+	margin-left: 10px;
+}
+.poplogin-left p.pop-cooperative-logging  span a{
+	margin-right: 4px;
+	vertical-align: middle;
+}
+.poplogin-left p.pop-cooperative-logging span.pop-zhifubao a{
+	width: 22px;
+ 	height: 23px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/zhifubao-logo.png);
+}
+.poplogin-left p.pop-cooperative-logging  span.pop-sina-weibo a{
+	width: 24px;
+ 	height: 19px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/sina-weibo-logo.png);
+}
+.poplogin-left p.pop-cooperative-logging  span.pop-qq a{
+	width: 17px;
+ 	height: 19px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/qq-logo.png);
+}
+.poplogin-left p.pop-cooperative-logging span.pop-weixin a{
+	width: 21px;
+ 	height: 16px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/weixin-logo.png);
+}
+/*上面合作账号登录部分结束*/
+
+/*下面开始弹出框右边部分*/
+#pop .poplogin-right{
+	width: 264px;
+	height: 303px;
+	float: right;
+	background: #F5F5F5;
+}
+.poplogin-right p.no-account{
+	font-size: 16px;
+	color: #000000;
+	font-family: "微软雅黑";
+	margin-top: 34px;
+	margin-left: 35px;
+}
+.poplogin-right p.login{
+	font-size: 16px;
+	color: #8E8E8E;
+	font-family: "微软雅黑";
+	margin-top: 20px;
+	margin-left: 35px;
+	float: none;
+	padding-top: 0px;
+}
+.poplogin-right p.pop-register a{
+ 	width: 126px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/pop-register.png);
+ 	margin-top: 20px;
+	margin-left: 35px;
+ }
+.poplogin-right p.pop-register a:hover{
+	width: 126px;
+ 	height: 41px;
+ 	display: inline-block;
+ 	background:url(../images/new-login/pop-register-active.png);
+ 	margin-top: 20px;
+	margin-left: 35px;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+#all{
+	background-color: #6e6969;
+	width: 100%;
+    height: 100%;
+    left: 0;
+	top: 0;
+    position: fixed;
+    z-index: 1000;
+	opacity:0.5;
+	display:none;
+	filter:Alpha(opacity=50);/*这段为了兼容IE8*/
+	z-index:99;
+}
+

@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.davcai.data.statistic.mapper.Top5RecommendStatisticMapper">
+
+  <select id="loadFootballData" resultType="Top5RecommendMiddle">
+    select 
+    min(recommendCreateTime) as recommendCreateTime,
+    userId,
+    lotteryId,
+    playId,
+    matchId,
+    code,
+    options,
+    odds,
+    winOption
+	from 
+	(
+		select 
+		a.sponsor_id as userId,
+		a.lottery_id as lotteryId,
+		b.play_id as playId,
+		a.created_time as recommendCreateTime,
+		b.match_id as matchId,
+		b.code as code,
+		c.options as options,
+		c.odds as odds,
+		c.win_option as winOption
+		from lt_bet_scheme_rec a,lt_bet_match_rec b,fb_match_play c
+		where
+			a.id=b.scheme_id
+			and b.match_id=c.match_id
+			and b.play_id=c.play_id
+			and c.win_option is not null
+			and b.play_id in('80_ZC_1','80_ZC_2','01_ZC_2','01_ZC_1')
+	) d
+	group by d.userId,d.lotteryId,d.playId,d.matchId,d.code,d.options,d.odds,d.winOption
+  </select>
+  
+  <select id="loadBasketballData" resultType="Top5RecommendMiddle" >
+	  select 
+	  min(recommendCreateTime) as recommendCreateTime,
+	  userId,
+	  lotteryId,
+	  playId,
+	  matchId,
+	  code,
+	  options,
+	  odds,
+	  winOption
+	from 
+	(
+	select a.sponsor_id as userId,a.lottery_id as lotteryId,b.play_id as playId,a.created_time as recommendCreateTime,b.match_id as matchId,
+	b.code as code,c.options as options,c.odds as odds,c.win_option as winOption
+	from lt_bet_scheme_rec a,lt_bet_match_rec b,bb_match_play c
+	where
+	a.id=b.scheme_id
+	and b.match_id=c.match_id
+	and b.play_id=c.play_id
+	and c.win_option is not null
+	and b.play_id in('06_LC_2','07_LC_1','07_LC_2','06_LC_1')
+	) d
+	group by d.userId,d.lotteryId,d.playId,d.matchId,d.code,d.options,d.odds,d.winOption
+  </select>
+  <select id="loadBeidanData" resultType="Top5RecommendMiddle">
+  	select min(recommendCreateTime) as recommendCreateTime,
+  	userId,
+  	lotteryId,
+  	playId,
+  	matchId,
+  	code,
+  	options,
+  	odds,
+  	winOption,
+  	finalOdds
+	from 
+	(
+	select a.sponsor_id as userId,a.lottery_id as lotteryId,b.play_id as playId,a.created_time as recommendCreateTime,b.match_id as matchId,
+	b.code as code,c.options as options,c.odds as odds,c.win_option as winOption,c.final_odds as finalOdds
+	from lt_bet_scheme_rec a,lt_bet_match_rec b,bjdc_match_play c
+	where
+	a.id=b.scheme_id
+	and b.match_id=c.match_id
+	and b.play_id=c.play_id
+	and c.win_option is not null
+	and b.play_id in ('96_BJDC_SF','91_BJDC_SPF')
+	) d
+	group by d.userId,d.lotteryId,d.playId,d.matchId,d.code,d.options,d.odds,d.winOption,d.finalOdds
+  </select>
+  <select id="find7dayWinRatioTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select *
+		from (
+			select a.userId,a.zongshu as countOfRecommend,b.shengshu as countOfHit ,b.shengshu/a.zongshu as ratio
+			from 
+			(
+			select count(*) as zongshu,userId
+			from top5_recommend_middle
+			where
+			recommendCreateTime >=#{fromDate}
+			and recommendCreateTime <=#{toDate}
+			group by userId
+			) a,
+			(
+			select count(*) as shengshu,userId
+			from top5_recommend_middle
+			where
+			recommendCreateTime >=#{fromDate}
+			and recommendCreateTime <=#{toDate}
+			and isWin=1
+			group by userId
+			) b
+			where a.userId=b.userId
+			order by ratio asc
+		) c
+		limit 5
+  	]]>
+  </select>
+  <select id="find50WinRatioTop5List" resultType="Top5Recommend" >
+  <![CDATA[
+  	select *
+	from 
+	(
+		select e.userId,e.zongshu as countOfRecommend,f.shengshu as countOfHit,f.shengshu/e.zongshu as ratio
+		from 
+		(
+			select count(*) as zongshu,userId
+			from 
+			(
+				select *
+				from top5_recommend_middle_order_50 c
+				where
+				50>(
+					 select count(*)
+					 from top5_recommend_middle_order_50 d
+					where c.id>d.id
+					and c.userId=d.userId	
+				)
+			) j
+			group by userId
+		) e,
+		(
+			select count(*) as shengshu,userId
+			from 
+			(
+				
+					select *
+					from top5_recommend_middle_order_50 c
+					where
+					50>(
+						 select count(*)
+						 from top5_recommend_middle_order_50 d
+						 where c.id>d.id
+						 and c.userId=d.userId
+					) 
+				
+			) g
+			where
+			isWin=1
+			group by userId
+		) f
+		where e.userId=f.userId
+		order by ratio asc
+	) k
+	limit 5
+  ]]>
+  </select>
+  <select id="find7dayRevenueRatioTop5List" resultType="Top5Recommend">
+  <![CDATA[
+  	select *
+	from 
+	(
+		select a.userId,a.zongshu as countOfRecommend,b.shengshu as countOfHit,b.revenueRatio as ratio
+		from 
+		(
+			select count(*) as zongshu,userId
+			from top5_recommend_middle
+			where
+			recommendCreateTime >=#{fromDate}
+			and recommendCreateTime <=#{toDate}
+			group by userId
+		) a,
+		(
+			select count(*) as shengshu,sum(revenueRatio) as revenueRatio,userId
+			from top5_recommend_middle
+			where
+			recommendCreateTime >=#{fromDate}
+			and recommendCreateTime <=#{toDate}
+			group by userId
+		) b
+		where a.userId=b.userId
+		order by ratio desc
+	) c
+	where
+	c.ratio>0
+	limit 5
+  ]]>
+  
+  </select>
+  <select id="find50RevenueRatioTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select *
+		from 
+		(
+			select a.userId,a.zongshu as countOfRecommend,b.shengshu as countOfHit,b.revenueRatio as ratio
+			from 
+			(
+				select count(*) as zongshu,userId
+				from top5_recommend_middle
+				group by userId
+				having zongshu>=50
+			) a,
+			(
+				select count(*) as shengshu,sum(revenueRatio) as revenueRatio,userId
+				from top5_recommend_middle
+				group by userId
+			) b
+			where a.userId=b.userId
+			order by ratio desc
+		) c
+		where 
+		c.ratio>0
+		limit 5
+  	]]>
+  </select>
+  <delete id="deleteTop5RecommendMiddle">
+  	delete from top5_recommend_middle
+  </delete>
+  <delete id="deleteTop5Recommend4SevenDayWinRatio">
+  	delete from top5_recommend
+  	where
+  	topType='shenglv'
+  	and dimension='7day'
+  </delete>
+  <delete id="deleteTop5Recommend4FiftyWinRatio">
+    delete from top5_recommend
+  	where
+  	topType='shenglv'
+  	and dimension='50'
+  </delete>
+  <delete id="deleteTop5Recommend4SevenDayRevenueRatio">
+  	 delete from top5_recommend
+  	where
+  	topType='yinglilv'
+  	and dimension='7day'
+  </delete>
+  <delete id="deleteTop5Recommend4FiftyRevenueRatio">
+  	 delete from top5_recommend
+  	where
+  	topType='yinglilv'
+  	and dimension='50'
+  </delete>
+  <insert id="saveTop5RecommendMiddle" parameterType="Top5RecommendMiddle">
+  	insert into top5_recommend_middle(
+  		userId,
+  		lotteryId,
+  		playId,
+  		matchId,
+  		code,
+  		winOption,
+  		isWin,
+  		revenueRatio,
+  		recommendCreateTime,
+  		odds,
+  		options
+  	) values(
+  		#{userId},
+  		#{lotteryId},
+  		#{playId},
+  		#{matchId},
+  		#{code},
+  		#{winOption},
+  		#{isWin},
+  		#{revenueRatio},
+  		#{recommendCreateTime},
+  		#{odds},
+  		#{options}
+  	)
+  </insert>
+  <insert id="saveTop5Recommend" parameterType="Top5RecommendMiddle" useGeneratedKeys="true" keyProperty="id">
+  	insert into top5_recommend(
+  		userId,
+  		countOfRecommend,
+  		countOfHit,
+  		ratio,
+  		topType,
+  		dimension,
+  		sequenceNumber,
+  		bonus
+  	) values(
+  		#{userId},
+  		#{countOfRecommend},
+  		#{countOfHit},
+  		#{ratio},
+  		#{topType},
+  		#{dimension},
+  		#{sequenceNumber},
+  		#{bonus}
+  	)
+  </insert>
+  <delete id="deleteOrderedMiddle">
+  	delete from top5_recommend_middle_order_50
+  </delete>
+  <insert id="makeOrderedMiddle">
+  <![CDATA[
+  	insert into top5_recommend_middle_order_50
+  	(
+	 	userId,
+		lotteryId,
+		playId,
+		matchId,
+		code,
+		winOption,
+		isWin,
+		revenueRatio,
+		recommendCreateTime,
+		odds,
+		options
+ 	)
+ 	select a.userId,a.lotteryId,a.playId,a.matchId,a.code,a.winOption,a.isWin,a.revenueRatio,a.recommendCreateTime,a.odds,a.options
+	from top5_recommend_middle a
+	where a.userId in(
+		select b.userId from
+		(	
+			select count(*) as zongshu,userId
+			from top5_recommend_middle
+			group by userId
+			having zongshu>=50
+		) b
+	)
+	order by a.userId,recommendCreateTime desc
+  ]]>
+  	 
+  </insert>
+  <select id="find7dayFollowBonusTop5List" resultType="Top5Recommend">
+  <![CDATA[
+  	select w1.bonus,w1.countOfHit,w1.userId,w2.countOfRecommend
+from 
+(
+	select count(l.followed_scheme_id) as countOfHit,sum(l.after_tax_bonus) as bonus,l.sponsor_id  as userId
+	from lt_bet_scheme l 
+	where 
+	l.type=2 
+	and l.is_publish_show=1 
+	and l.status in('5203','12')
+	and l.created_time >=#{fromDate}
+	and l.created_time<=#{toDate}
+	and l.after_tax_bonus> l.total_amount
+	group by l.sponsor_id 
+	order by l.created_time desc
+) w1,
+(
+	select count(s.followed_scheme_id) as countOfRecommend,s.sponsor_id  as userId
+	from lt_bet_scheme s
+	where 
+	s.type=2 
+	and s.is_publish_show=1 
+	and s.status in('5203','5202','12')
+	and s.created_time >=#{fromDate}
+	and s.created_time<=#{toDate}
+	group by s.sponsor_id 
+	order by s.created_time desc
+) w2 
+where 
+w1.userId=w2.userId 
+order by w1.bonus asc 
+limit 0,5
+  	
+  ]]>
+  </select>
+  <select id="find50FollowBonusTop5List"  resultType="Top5Recommend" >
+  <![CDATA[
+  	select w1.sponsor_id as userId,w1.win_follow as countOfHit ,w1.money as bonus ,w2.all_follow   as countOfRecommend
+	 from 
+	 (
+		 select count(l.followed_scheme_id) win_follow,sum(l.after_tax_bonus) money,l.sponsor_id 
+		 from lt_bet_scheme l
+		 where 
+		 l.type=2 
+		 and l.is_publish_show=1 
+		 and l.status in('5203','12')
+		 and l.after_tax_bonus> l.total_amount 
+		 and l.created_time<=#{toDate}
+		 group by l.sponsor_id 
+		 order by l.created_time desc 
+		 limit 0,50 
+	 ) w1,
+	 (
+		 select count(s.followed_scheme_id) all_follow,s.sponsor_id 
+		 from lt_bet_scheme s
+		 where 
+		 s.type=2 
+		 and s.is_publish_show=1
+		 and s.status in('5203','5202','12')
+		 and s.created_time<=#{toDate}
+		 group by s.sponsor_id 
+		 order by s.created_time desc 
+		 limit 0,50
+	 )  w2 
+	where 
+	w1.sponsor_id=w2.sponsor_id 
+	order by w1.money asc 
+	limit 0,5
+  ]]>
+  </select>
+  <delete id="deleteTop5Follow4SevenDayBonus">
+  	 delete from top5_recommend
+  	where
+  	topType='followSchemeBonus'
+  	and dimension='7day' 
+  </delete>
+  <delete id="deleteTop5Follow4FiftyBonus">
+  	 delete from top5_recommend
+  	where
+  	topType='followSchemeBonus'
+  	and dimension='50' 
+  </delete>
+  <delete id="deleteTop5Follow4SevenDayWinRatio">
+  	 delete from top5_recommend
+  	where
+  	topType='followSchemeShenglv'
+  	and dimension='7day' 
+  </delete>
+  <delete id="deleteTop5Follow4FiftyWinRatio">
+  	 delete from top5_recommend
+  	where
+  	topType='followSchemeShenglv'
+  	and dimension='50' 
+  </delete>
+  <select id="find7dayFollowWinRatioTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select  m.sid as userId,m.q as countOfRecommend,n.w as countOfHit ,n.w/m.q as ratio 
+		from 
+		(
+			select t.sid,count(t.sid) as q 
+			from 
+			(
+				select l.sponsor_id sid,l.`status` lstatus,l.id schemeid 
+				from lt_bet_scheme l 
+				where 
+				l.type=2 
+			   and l.is_publish_show=1 
+				and l.status in ('5202','5203','12') 
+				and l.created_time >=#{fromDate}
+			   and l.created_time<=#{toDate} 
+				order by sid 
+			) t
+		 	group by t.sid
+		) m,
+		(
+			select t.sid,count(t.sid) as w 
+			from
+			 (
+				 select l.sponsor_id sid,l.`status` lstatus,l.id schemeid 
+				 from lt_bet_scheme l 
+				 where l.type=2
+				 and l.is_publish_show=1 
+				 and l.status in ('5202','5203','12')
+				 and l.created_time >=#{fromDate}
+				 and l.created_time<=#{toDate} 
+				 order by sid 
+			) t
+			 where 
+			 t.lstatus=12 
+			 group by t.sid
+		) n 
+		where 
+		m.sid=n.sid  
+		order by ratio asc,userId desc 
+		limit 0,5
+  		
+  	]]>
+  </select>
+  <select id="find50FollowWinRatioTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select  m.sid as userId,m.q as countOfRecommend,n.w as countOfHit ,n.w/m.q as ratio
+		from
+		(
+			select t.sid,count(t.sid) as q 
+			from
+			(
+				select l.sponsor_id sid,l.`status` lstatus,l.id schemeid 
+				from lt_bet_scheme l
+				where 
+				l.type=2
+				and l.is_publish_show=1 
+				and l.`status` in ('5202','5203','12')
+				and l.created_time<=#{toDate}
+				order by l.created_time desc 
+				limit 50 
+			) t 
+			group by t.sid
+		) m,
+		(
+			select t.sid,count(t.sid) as w 
+			from
+			(
+				select l.sponsor_id sid,l.`status` lstatus,l.id schemeid 
+				from lt_bet_scheme l 
+				where l.type=2
+				and l.is_publish_show=1 
+				and l.`status` in ('5202','5203','12')
+				and l.created_time<=#{toDate}
+				order by l.created_time desc limit 50 
+			) t
+			where 
+			t.lstatus=12 
+			group by t.sid
+		) n  
+		where 
+		m.sid=n.sid  
+		order by ratio asc,countOfRecommend asc 
+		limit 0,5
+  	]]>
+  </select>
+  <select id="find7dayShowSchemeHelpTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select sum(t.total_money+s.after_tax_bonus)  as bonus,count(s.sponsor_id)  as countOfRecommend, s.sponsor_id as userId,t.num as countOfHit 
+		from
+		(
+			select l.followed_scheme_id,count(l.followed_scheme_id) as num,sum(l.after_tax_bonus)  as total_money
+			from lt_bet_scheme l 
+			where
+			l.status in('5203','12') 
+			and l.type=2 
+			and l.is_publish_show=1 
+			and l.after_tax_bonus> l.total_amount
+			and l.created_time>=#{fromDate}
+			and l.created_time<=#{toDate}
+			group by l.followed_scheme_id 
+			order by l.created_time desc
+		) t ,
+		lt_bet_scheme s 
+		where 
+		s.id=t.followed_scheme_id 
+		group by s.sponsor_id 
+		order by bonus asc 
+		limit 0,5
+  	]]>
+  </select>
+  <select id="find50ShowSchemeHelpTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select s.sponsor_id as userId,count(s.sponsor_id) as countOfRecommend, sum(t.total_money+s.after_tax_bonus)  as bonus, t.num as countOfHit 
+		from
+		(
+			select l.followed_scheme_id,count(l.followed_scheme_id) num,sum(l.after_tax_bonus) total_money
+		   from lt_bet_scheme l 
+			where
+		    l.`status` in('5203','12') 
+			 and l.type=2 
+			 and l.is_publish_show=1 
+			 and l.after_tax_bonus> l.total_amount
+		    and l.created_time <=#{toDate}
+		    group by l.followed_scheme_id 
+			 order by l.created_time desc 
+			 limit 0,50
+		) t ,
+		lt_bet_scheme s 
+		where 
+		s.id=t.followed_scheme_id 
+		group by s.sponsor_id 
+		order by bonus asc 
+		limit 0,5
+  	]]>
+  </select>
+  <select id="find7dayShowSchemeWinRatioTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select  m.sid as userId,m.q as countOfRecommend,n.w  as countOfHit,n.w/m.q as ratio 
+		from
+		(
+			select t.sid,count(t.sid) as q 
+			from 
+			(
+				select l.sponsor_id sid,l.`status` lstatus,l.id schemeid 
+				from lt_bet_scheme l 
+				where 
+				l.type=0 
+				and l.is_show_scheme=1 
+				and l.`status` in ('5202','5203','12') 
+				and l.created_time >=#{fromDate}
+				and l.created_time<=#{toDate} 
+				order by sid 
+			) t
+			group by t.sid
+		) m,
+		(
+			select t.sid,count(t.sid) as w 
+			from
+			(
+				select l.sponsor_id sid,l.`status` lstatus,l.id schemeid 
+				from lt_bet_scheme l 
+				where 
+				l.type=0
+				and l.is_show_scheme=1 
+				and l.`status` in ('5202','5203','12')
+				and l.created_time >= #{fromDate}
+				and l.created_time<=#{toDate}
+				order by sid 
+			) t  
+			where t.lstatus=12 
+			group by t.sid
+		) n 
+		where m.sid=n.sid  
+		order by ratio asc,userId asc 
+		limit 0,5
+  		
+  	]]>
+  </select>
+  <select id="find50ShowSchemeWinRatioTop5List" resultType="Top5Recommend">
+  	<![CDATA[
+  		select  m.sid as userId,m.q as countOfRecommend,n.w as countOfHit,n.w/m.q as ratio 
+		from (
+			select t.sid,count(t.sid) as q 
+			from
+			 (
+				 select l.sponsor_id sid,l.status lstatus,l.id schemeid 
+				 from lt_bet_scheme l 
+				 where 
+				 l.type=0 
+				 and l.is_show_scheme=1 
+				 and l.status in ('5202','5203','12') 
+				 and l.created_time<=#{toDate}
+				 order by l.created_time desc 
+				 limit 50 
+			 ) t
+			group by t.sid
+		) m,
+		(
+			select t.sid,count(t.sid) as w 
+			from
+				 (
+					 select l.sponsor_id sid,l.status lstatus,l.id schemeid 
+					 from lt_bet_scheme l 
+					 where 
+					 l.type=0 
+					 and l.is_show_scheme=1 
+					 and l.status in ('5202','5203','12') 
+					 and l.created_time<=#{toDate}
+					 order by l.created_time desc 
+					 limit 50  
+				 ) t
+				 where 
+				 t.lstatus=12 
+				 group by t.sid
+		) n 
+		where 
+		m.sid=n.sid  
+		order by ratio asc,countOfRecommend asc 
+		limit 0,5
+  	]]>
+  </select>
+  <delete id="deleteTop5ByTopTypeAndDimension">
+  	delete from top5_recommend
+  	where
+  	topType=#{topType}
+  	and dimension=#{dimension}
+  </delete> 
+  
+  <select id="findYesterdayScheme" resultType="BetScheme">
+  	<![CDATA[
+  		select id,lottery_id as lotteryId,play_id as playId
+  		from lt_bet_scheme
+  		where
+  		created_time>=#{beginTime}
+  		and created_time<=#{endTime}
+  		and status in(5203,12)
+  		order by created_time asc
+  	]]>
+  </select>
+  <select id="findFootballMatchInfoBySchemeId" resultType="PlayMatch">
+  <![CDATA[
+  		select bmatch.match_id as matchId ,bmatch.code as betCode,bmatchplay.play_id as playId,bmatchplay.win_option as result
+        from lt_bet_match bmatch,fb_match_play bmatchplay 
+        where 
+        bmatch.match_id=bmatchplay.match_id 
+        and bmatch.scheme_id=#{betSchemeId}
+        and bmatchplay.play_id=#{playId}
+  	]]>
+  </select>
+  <select id="findBasketballMatchInfoBySchemeId" resultType="PlayMatch">
+  <![CDATA[
+  		select bmatch.match_id as matchId,bmatch.code as betCode,bmatchplay.play_id as playId,bmatchplay.win_option  as result
+		from lt_bet_match bmatch,bb_match_play bmatchplay 
+		where
+        bmatch.match_id=bmatchplay.match_id 
+        and bmatch.scheme_id=#{betSchemeId}
+		and bmatchplay.play_id=#{playId}
+  	]]>
+  </select>
+   <select id="findBJDCMatchInfoBySchemeId" resultType="PlayMatch">
+  <![CDATA[
+  		select bmatch.match_id as matchId,bmatch.code as betCode,bmatchplay.play_id as playId,bmatchplay.win_option  as result
+		from lt_bet_match bmatch,bjdc_match_play bmatchplay 
+		where
+        bmatch.match_id=bmatchplay.match_id 
+        and bmatch.scheme_id=#{betSchemeId}
+		and bmatchplay.play_id=#{playId}
+  	]]>
+  </select>
+  <select id="findFBMatch" resultType="FBMatch">
+  	<![CDATA[
+  		select league_name as leagueName,home_team_name as homeTeamName,guest_team_name as guestTeamName
+  		from fb_match
+  		where
+  		id=#{matchId}
+  	]]>
+  </select>
+  
+  <select id="findBBMatch" resultType="BBMatch">
+  	<![CDATA[
+  		select league_name as leagueName,home_team_name as homeTeamName,guest_team_name as guestTeamName
+  		from bb_match
+  		where
+  		id=#{matchId}
+  	]]>
+  </select>
+   <select id="findBJDCMatch" resultType="BJDCMatch">
+  	<![CDATA[
+  		select league_name as leagueName,home_team_name as homeTeamName,guest_team_name as guestTeamName
+  		from bb_match
+  		where
+  		id=#{matchId}
+  	]]>
+  </select>
+  <select id="findTeamPosition" resultType="HotAndRecommendMatch">
+  	<![CDATA[
+  			select mdbase.homeTeamPosition as hostTeamPosition,
+  			     mdbase.guestTeamPosition  as guestTeamPostion
+	        from md_qt_match_base mdbase,
+	        (
+	         select fb.cn_code,fb.playing_time 
+	          from fb_match fb 
+	          where id=#{matchId}
+	        ) fb
+	         where 
+	        fb.cn_code=mdbase.jingcaiid 
+	        and fb.playing_time=mdbase.matchTime 
+  	]]>
+  </select>
+  <insert id="saveHotAndRecommendMatch" parameterType="HotAndRecommendMatch" useGeneratedKeys="true" keyProperty="id">
+  	 insert into hot_and_recommend_match(
+  	 	matchId,
+  	 	lottery,
+  	 	recommendCount,
+  	 	hostTeamName,
+  	 	guestTeamName,
+  	 	hostTeamPosition,
+  	 	guestTeamPostion,
+  	 	leagueName
+  	 )
+  	 values(
+  	 	#{matchId},
+  	 	#{lottery},
+  	 	#{recommendCount},
+  	 	#{hostTeamName},
+  	 	#{guestTeamName},
+  	 	#{hostTeamPosition},
+  	 	#{guestTeamPostion},
+  	 	#{leagueName}
+  	 )
+  </insert>
+  <delete id="deleteHotAndRecommendMatch">
+  	delete from hot_and_recommend_match
+  </delete>
+</mapper>

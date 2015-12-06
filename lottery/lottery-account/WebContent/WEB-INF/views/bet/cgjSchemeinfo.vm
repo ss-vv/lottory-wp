@@ -1,0 +1,21 @@
+<tbody>
+  <tr>
+    <th class="thl" style="width:100px;"><div class="inth"><div class="hide">彩种玩法</div></div></th>
+    <th style="width:70px;"><div class="inth"><div class="hide">总金额</div></div></th>
+    <th style="width:50px;"><div class="inth"><div class="hide">投注倍数</div></div></th>
+    <th style="width:70px;"><div class="inth"><div class="hide">理论最高奖金</div></div></th>
+    <th style="width:50px;"><div class="inth"><div class="hide">进度</div></div></th>
+    <th class="thr" style="width:50px;"><div class="inth"><div class="hide">方案状态</div></div></th>
+  </tr>
+  <tr class="last">
+    <td class="tdl">
+		<div class="intd">#lotteryName(${scheme.lotteryId}) $status.getPlayName(${scheme.playId})
+		</div>
+	</td>
+    <td><div class="intd">￥$math.mul(${scheme.betNote}, 2)元</div></td>
+    <td><div class="intd">${scheme.multiple}倍</div></td>
+    <td><div class="intd"><b class="c-i">￥${scheme.maxBonus}元</b></div></td>
+    <td><div class="intd">$Result.progress(${scheme})%</div></td>
+    <td class="tdr"><div class="intd">$status.bet(${scheme.status})</div></td>
+  </tr>
+</tbody>

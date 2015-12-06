@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+<head transcode="${returnTranscode}" partnerid="${config.partnerId}" version="${config.version}" time="${returnTime}"/>
+<body>
+<returnticketresults>
+#foreach($r in $returnResults)
+<returnticketresult lotteryId ="$r.ticketId" palmId ="$r.platformId"/>
+#end
+</returnticketresults>
+</body>
+</msg>

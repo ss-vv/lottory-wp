@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <!-- 账户 -->
+  <package name="account" extends="global" namespace="/account">
+    <!-- 查询列表 -->
+    <action name="list" class="com.xhcms.lottery.admin.web.action.account.ListAction">
+      <result>list.vm</result>
+    </action>
+    
+    <!-- 查看详情 -->
+    <action name="view" class="com.xhcms.lottery.admin.web.action.account.ViewAction">
+      <result>view.vm</result>
+    </action>
+  </package>
+  
+  <!-- 提现 -->
+  <package name="withdraw" extends="global" namespace="/withdraw">
+  
+    <!-- 查询列表 -->
+    <action name="list" class="com.xhcms.lottery.admin.web.action.withdraw.ListAction">
+      <result>list.vm</result>
+    </action>
+    
+    <!-- 查看详情 -->
+    <action name="view" class="com.xhcms.lottery.admin.web.action.withdraw.ViewAction">
+      <result>edit.vm</result>
+    </action>
+    
+    <!-- 审核、确认 -->
+    <action name="pass" class="com.xhcms.lottery.admin.web.action.withdraw.AuditAction">
+      <result>/closewindow.vm</result>
+    </action>
+    
+    <!-- 驳回重审 -->
+    <action name="reject" class="com.xhcms.lottery.admin.web.action.withdraw.AuditAction" method="reject">
+      <result>/closewindow.vm</result>
+    </action>
+    
+    <!-- 直接驳回 -->
+    <action name="fail" class="com.xhcms.lottery.admin.web.action.withdraw.AuditAction" method="fail">
+      <result>/closewindow.vm</result>
+    </action>
+    
+    <!-- 批量确认 -->
+    <action name="aj_pass" class="com.xhcms.lottery.admin.web.action.withdraw.AjaxPassAction">
+      <result type="json" />
+    </action>
+  </package>
+
+  <!-- 充值 -->
+  <package name="recharge" extends="global" namespace="/recharge">
+    <!-- 查询列表 -->
+    <action name="list" class="com.xhcms.lottery.admin.web.action.recharge.ListAction">
+      <result>list.vm</result>
+    </action>
+    
+    <!-- 查看详情 -->
+    <action name="view" class="com.xhcms.lottery.admin.web.action.recharge.ViewAction">
+      <result>edit.vm</result>
+    </action>
+    
+    <!-- 审核、确认 -->
+    <action name="pass" class="com.xhcms.lottery.admin.web.action.recharge.AuditAction">
+      <result>/closewindow.vm</result>
+    </action>
+    
+    <!-- 驳回重审 -->
+    <action name="reject" class="com.xhcms.lottery.admin.web.action.recharge.AuditAction" method="reject">
+      <result>/closewindow.vm</result>
+    </action>
+    
+    <!-- 直接驳回 -->
+    <action name="fail" class="com.xhcms.lottery.admin.web.action.recharge.AuditAction" method="fail">
+      <result>/closewindow.vm</result>
+    </action>
+    
+    <!-- 批量确认 -->
+    <action name="aj_pass" class="com.xhcms.lottery.admin.web.action.recharge.AjaxPassAction">
+      <result type="json" />
+    </action>
+  </package>
+
+      
+  <!-- 用户资金变更 -->
+  <package name="order" extends="global" namespace="/order">
+    <!-- 查询资金变更记录 -->
+    <action name="list" class="com.xhcms.lottery.admin.web.action.order.ListAction">
+      <result>list.vm</result>
+    </action>
+    
+    <!-- 查看详情 -->
+    <action name="view" class="com.xhcms.lottery.admin.web.action.order.ViewAction">
+      <result>view.vm</result>
+    </action>
+  </package>
+  
+  <!-- 赠款 -->
+	<package name="grant" extends="global" namespace="/grant">
+		<action name="list" class="com.xhcms.lottery.admin.web.action.grant.ListAction">
+			<result>list.vm</result>
+		</action>
+		<action name="add" class="com.xhcms.lottery.admin.web.action.grant.SponsorGrantAction">
+			<result>grant.vm</result>
+		</action>
+		<action name="post" class="com.xhcms.lottery.admin.web.action.grant.SponsorGrantAction" method="post">
+			<result>/message.vm</result>
+			<result name="input">grant.vm</result>
+		</action>
+		<action name="pass" class="com.xhcms.lottery.admin.web.action.grant.AuditAction">
+			<result>/closewindow.vm</result>
+		</action>
+  		<action name="reject" class="com.xhcms.lottery.admin.web.action.grant.AuditAction" method="reject">
+			<result>/closewindow.vm</result>
+		</action>
+	</package>
+	
+
+
+	<!-- 查询余额 和中奖金额-->
+  <package name="kuaisu" extends="global" namespace="/kuaisu">
+    <!-- 查询余额 -->
+     <action name="list" class="com.xhcms.lottery.admin.web.action.kuaisu.KuaiSuAction">
+      <result>list.vm</result>
+    </action>
+    <!-- 查询余中奖金额-->
+    <action name="queryAmount" class="com.xhcms.lottery.admin.web.action.kuaisu.KuaiSuAction" method="queryAmount">
+      <result>list.vm</result>
+    </action>
+    
+    
+  </package>
+</struts>

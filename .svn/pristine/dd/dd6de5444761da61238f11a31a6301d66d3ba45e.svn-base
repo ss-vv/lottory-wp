@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head msg="005" partnerId="youyuanwang" version="1.0" time="20140901175541" />
+  <body>
+	<withdrawReq  uuid="550e8400-e29b-41d4-a716-446655441111" 
+		transactionId="550e8400-e29b-41d4-a716-446655442222" 
+		money="150" partnerUserId="123465QQQ" 
+	    bankInfo="银行卡信息111111111111" cardNum="222222222222" mobile="123465798910"
+	    idCard="1564161315346" realname="jhxf发生的" province="福建省" city="武夷山市"/>
+  </body>
+</msg>

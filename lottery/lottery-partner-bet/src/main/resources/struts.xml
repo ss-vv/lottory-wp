@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="partner-bet" extends="struts-default">
+		<interceptors>
+			<interceptor name="verifyUserInterceptor" class="com.xhcms.lottery.pb.interceptor.VerifyUserInterceptor"/>
+			<interceptor name="msgInterceptor" class="com.xhcms.lottery.pb.interceptor.MsgInterceptor"/>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="verifyUserInterceptor"/>
+				<interceptor-ref name="msgInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="myStack"/>
+
+		<global-results>
+			<result type="velocity" name="error">error.xml</result>
+			<result type="velocity" name="errorMsgType">error-msg-type.xml</result>
+		</global-results>
+		
+		<action name="issue-info" class="com.xhcms.lottery.pb.action.IssueInfoAction">
+			<result type="velocity" name="success">issue-info.xml</result>
+		</action>
+		<action name="bet" class="com.xhcms.lottery.pb.action.BetAction">
+			<result type="velocity" name="success">bet-result.xml</result>
+		</action>
+		<action name="withdraw" class="com.xhcms.lottery.pb.action.WithdrawAction">
+			<result type="velocity" name="success">withdraw-resp.xml</result>
+		</action>
+
+	</package>
+</struts>

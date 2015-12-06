@@ -1,0 +1,109 @@
+package com.xhcms.ucenter.web.action.verify;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.xhcms.commons.lang.Data;
+import com.xhcms.exception.XHRuntimeException;
+import com.xhcms.lottery.commons.data.User;
+import com.xhcms.lottery.lang.EntityStatus;
+import com.xhcms.ucenter.action.BaseAction;
+import com.xhcms.ucenter.lang.AppCode;
+import com.xhcms.ucenter.service.mail.IEmailService;
+import com.xhcms.ucenter.service.user.IUserService;
+import com.xhcms.ucenter.service.verify.IVerifyService;
+
+/**
+ * 大V彩微博邮箱验证
+ * @author haoxiang.jiang@unison.net.cn
+ * @time 2014-5-5 下午4:02:01
+ */
+public class WeiboEmailAction extends BaseAction {
+
+    private static final long serialVersionUID = 309246331354809190L;
+
+    @Autowired
+    private IVerifyService bindEmailService;
+
+    @Autowired
+    private IEmailService mailService;
+
+    @Autowired
+    private IUserService userService;
+
+    private String email;
+
+    private User user;
+
+    private boolean verify;
+    
+    private Data data;
+    
+    public String execute() {
+        user = getSelf();
+        verify = (user.getVerifyStatus() & EntityStatus.VERIFY_EMAIL) == EntityStatus.VERIFY_EMAIL;
+
+        if (StringUtils.isEmpty(email)) {
+            data = Data.failure("邮箱为空");
+        	return SUCCESS;
+        } 
+
+		if (userService.emailValidAndBinded(email)) {
+			data = Data.failure(getErrorText(AppCode.VERIFY_EMAIL_IS_BIND));
+            return SUCCESS;
+		}
+
+        sendEmail(user.getId(), user.getUsername(), email);
+        data = Data.success(getText("user.verify.email.success"));
+        return SUCCESS;
+    }
+
+    private void sendEmail(long uid, String username, String email) {
+        // 生成验证码
+        String code = bindEmailService.generateCode(uid, email);
+
+        // 发送邮件
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("uid", uid);
+        model.put("code", code);
+        model.put("username", username);
+        model.put("weibo", "weibo");
+        model.put("currentTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        mailService.setMailTemplateFile("bindemail.vm");
+        try {
+            mailService.sendEmail(model, email, "验证邮箱");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new XHRuntimeException(AppCode.VERIFY_EMAIL_SEND_FAILURE);
+        }
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public boolean isVerify() {
+        return verify;
+    }
+
+	public Data getData() {
+		return data;
+	}
+
+	public void setData(Data data) {
+		this.data = data;
+	}
+}

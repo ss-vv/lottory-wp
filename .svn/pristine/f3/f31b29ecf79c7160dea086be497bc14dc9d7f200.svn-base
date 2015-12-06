@@ -1,0 +1,287 @@
+#set($title="用户管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>用户管理</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/user/list.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel">
+      			<span class="current"><b>查询条件</b></span>
+  				<div class="l">
+            注册日期：从 <input type="text" id="fromDP" name="from" #if($from)value="$date.format('yyyy-MM-dd', $from)"#end readonly="readonly" size="10"/>
+         至 <input type="text" id="toDP" name="to" #if($to)value="$date.format('yyyy-MM-dd', $to)"#end readonly="readonly" size="10"/>
+            用户名：<input type="text" name="username" value="$!{username}" maxlength="30" size="8"/>
+            昵称：<input type="text" name="nickName" value="$!{nickName}" maxlength="30" size="8"/>
+           身份证：<input type="text" name="idNumber" value="$!{idNumber}" maxlength="18" size="8"/>
+            IP：<input type="text" name="ip" value="$!{ip}" maxlength="30" size="8"/>
+            状态：<select name="state" value="${state}" id="stateSel">
+              <option value="-1">不限</option>
+              <option value="0">正常</option>
+              <option value="1">已关闭</option>
+            </select>
+	手机号：<input type="text" name="mobile" value="$!{mobile}" maxlength="11" size="11"/>            
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+            <input type="submit" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+      <div class="tabH tabH02 panel">
+        <span class="current"><b>批量操作</b></span>
+        <div style="margin: 4px 4px 0 10px;">
+          <input type="button" class="hand btn" value="激活用户" id="openBtn"/>
+          <input type="button" class="hand btn" value="关闭用户" id="closeBtn"/>
+        </div>
+      </div>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+        <th style="width:25px;text-align:center;"><span><input type="checkbox" id="checkAll" /></span></th>
+				<th style="width:60px;text-align:center;"><span>用户ID</span></th>
+        <th style="width:80px;text-align:center;"><span>用户名称</span></th>
+        <th style="width:80px;text-align:center;"><span>昵称</span></th>
+        <th style="width:80px;text-align:center;"><span>真实姓名</span></th>
+				<th style="width:80px;text-align:center;"><span>身份证号</span></th>
+				<th style="width:80px;text-align:center;"><span>注册IP</span></th>
+				<th style="width:80px;text-align:center;"><span>手机号</span></th>
+				<th style="width:80px;text-align:center;"><span>注册日期</span></th>
+				<th style="width:50px;text-align:center;"><span>状态</span></th>
+				<th style="width:50px;text-align:center;"><span>是否冻结</span></th>
+				<th style="width:80px;text-align:center;"><span>操作</span></th>
+			</tr>
+			#foreach($u in $paging.results)
+			<tr>
+        <td style="text-align:center;"><input type="checkbox" name="id" value="${u.id}" _s="${u.status}"/></td>
+        <td style="text-align:center;">${u.id}</td>
+				<td style="text-align:center;">${u.username}</td>
+				<td style="text-align:center;">$!{u.nickName}</td>
+				<td style="text-align:center;">${u.realname}</td>
+				<td style="text-align:center;">$!{u.idNumber}</td>
+				<td style="text-align:center;">$!{u.ip}</td>
+				<td style="text-align:center;">${u.mobile}</td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${u.createdTime})</td>
+				<td style="text-align:center;">#if(${u.status} == 0) 正常  #else 已关闭 #end</td>
+				<td style="text-align:center;">#if(${u.allowSeeImportantContentInClient} == 0) 冻结  #else 正常  #end</td>
+				<td style="text-align:center;">
+          <a href="javascript:void(0);" _uid="${u.id}" _action="view">详情</a>
+          #if(${u.status} == 0)
+          <a href="javascript:void(0);" _uid="${u.id}" _action="close">关闭</a>
+          #else
+          <a href="javascript:void(0);" _uid="${u.id}" _action="open">激活</a>
+		  #end
+		  #if(${u.isLocked} == 1)
+			<a href="javascript:void(0);" _uid="${u.id}" _action="unlocked">解锁</a>
+		  #end
+          <br/>
+          <a href="javascript:void(0);" _uid="${u.id}" _action="resetPwd">重置密码</a>
+          
+          <a href="javascript:void(0);" _uid="${u.id}" _action="resetWithdrawPwd">重置提现密码</a>
+          <a href="javascript:void(0);" _uid="${u.id}" _action="updateRealname">更改姓名</a>
+          
+          #if(${u.allowSeeImportantContentInClient} == 0) 
+               <a href="javascript:void(0)" _uid="${u.id}" _action="allow">解冻 </a>
+          #else 
+              <a href="javascript:void(0)" _uid="${u.id}" _action="unallow">冻结</a>
+          #end
+        </td>
+			</tr>
+			#end
+		</table>
+    </form>
+	</div>
+	<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(f != null && t != null){
+            if(t.getTime() < f.getTime()){
+                alert('终止日期不能早于开始日期');
+                return false;
+            }
+            if((t.getTime() - f.getTime()) / 86400000 > 90){
+                alert('查询日期区间不能超过90天');
+                return false;
+            }
+        }
+        $('#qForm').submit();
+    }
+    
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="id"]').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="id"]').removeAttr('checked');
+        }
+    });
+    
+    $('#openBtn').bind('click', function(){
+        var _chks = $('#dataGrid :checkbox[name="id"]:checked');
+        if(_chks.length == 0){
+            alert('请选择要激活的用户');
+            return false;
+        }
+        if(_chks.filter('[_s="1"]').length == 0){
+            alert('所选择的用户不需要激活');
+            return false;
+        }
+        
+        if(confirm('确定要激活选中的用户？')){
+            jQuery.getJSON('$base/user/aj_open.do', $('#pForm').serialize(), function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+    });
+    
+    $('#closeBtn').bind('click', function(){
+        var _chks = $('#dataGrid :checkbox[name="id"]:checked');
+        if(_chks.length == 0){
+            alert('请选择要关闭的用户');
+            return false;
+        }
+        if(_chks.filter('[_s="0"]').length == 0){
+            alert('所选择的用户不需要关闭');
+            return false;
+        }
+        
+        if(confirm('确定要关闭选中的用户？')){
+            jQuery.getJSON('$base/user/aj_close.do', $('#pForm').serialize(), function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+    });
+    
+    $('#dataGrid a[_action="open"]').bind('click', function(){
+        if(confirm('确定要激活该用户？')){
+            jQuery.getJSON('$base/user/aj_open.do', {id: $(this).attr('_uid')}, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+    });
+    $('#dataGrid a[_action="close"]').bind('click', function(){
+        if(confirm('确定要关闭该用户？')){
+            jQuery.getJSON('$base/user/aj_close.do', {id: $(this).attr('_uid')}, function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+    });
+    //解冻用户
+     $('#dataGrid a[_action="allow"]').bind('click', function(){
+        if(confirm('确定要冻结该用户？')){
+            $.ajaxSetup({async:false});
+            jQuery.getJSON('$base/user/ajx_allow.do', {"id": $(this).attr('_uid')}, function(json){
+              //  if(json.success){
+                    //$('#qForm').submit();
+               // }
+                    window.location.reload();
+            });
+        }
+    });
+	//冻结用户
+	 $('#dataGrid a[_action="unallow"]').bind('click', function(){
+        if(confirm('确定要解冻该用户？')){
+            $.ajaxSetup({async:false});
+            jQuery.getJSON('$base/user/ajx_unAllow.do', {"id": $(this).attr('_uid')}, function(json){
+                //if(json.success){
+                    //$('#qForm').submit();
+                    window.location.reload();
+              //  }
+            });
+        }
+    });
+	$('#dataGrid a[_action="unlocked"]').bind('click', function(){
+        if(confirm('确定要解锁该用户？')){
+            jQuery.getJSON('$base/user/aj_unlocked.do', {id: $(this).attr('_uid')}, function(json){
+				$('#dataGrid a[_action="unlocked"]').css("display", "none");
+                if(json.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+    });
+    
+    //修改用户真实姓名
+    $('#dataGrid a[_action="updateRealname"]').bind('click', function(){
+        var uid = $(this).attr('_uid');
+        xhOpenWindow('$base/user/update_realname_input.do?id=' + uid, {
+            id: 'u_' + uid,
+            title: '更改姓名',
+            height: 430,
+            width: 700
+        });
+        
+        return false;
+    });
+    
+    // 查看详情
+    $('#dataGrid a[_action="view"]').bind('click', function(){
+        var uid = $(this).attr('_uid');
+        xhOpenWindow('$base/user/view.do?id=' + uid, {
+            id: 'u_' + uid,
+            title: '查看用户注册信息',
+            height: 430,
+            width: 700
+        });
+        
+        return false;
+    });
+    
+    // 重置用户密码
+    $('#dataGrid a[_action="resetPwd"]').bind('click', function(){
+        if(confirm('确定要重置吗？')){
+            var uid = $(this).attr('_uid');
+            xhOpenWindow('$base/user/reset_user_pwd.do?id=' + uid, {
+                id: 'u_' + uid,
+                title: '重置用户登陆密码',
+                height: 430,
+                width: 700
+            });
+        }
+        return false;
+    });
+    
+    // 重置用户提现密码
+    $('#dataGrid a[_action="resetWithdrawPwd"]').bind('click', function(){
+        if(confirm('确定要重置吗？')){
+            var uid = $(this).attr('_uid');
+            xhOpenWindow('$base/user/reset_user_withdraw_pwd.do?id=' + uid, {
+                id: 'u_' + uid,
+                title: '重置用户提现密码',
+                height: 430,
+                width: 700
+            });
+        }
+        return false;
+    });
+    
+});
+</script>

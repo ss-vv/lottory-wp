@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="ssq" extends="lottery-default" namespace="/ssq">
+		<!-- 投注 -->
+		<action name="index" class="com.unison.lottery.wap.action.ssq.BuyAction">
+			<result name="input" type="velocity">buy_fs.vm</result>
+		</action>
+		
+		<action name="buy_ds" class="com.unison.lottery.wap.action.ssq.BuyAction" method="random">
+			<result name="input" type="velocity">buy_ds.vm</result>
+		</action>
+		
+		<action name="buy_fs" class="com.unison.lottery.wap.action.ssq.BuyAction" method="custom">
+			<result name="input" type="velocity">buy_fs.vm</result>
+		</action>
+		
+		<action name="buy_dt" class="com.unison.lottery.wap.action.ssq.BuyAction" method="xuanDan">
+			<result name="input" type="velocity">buy_dt_dan.vm</result>
+		</action>
+		
+		<action name="buy_dt_other" class="com.unison.lottery.wap.action.ssq.BuyAction" method="xuanOther">
+			<result name="input_dan" type="velocity">buy_dt_dan.vm</result>
+			<result name="success" type="velocity">buy_dt_other.vm</result>
+		</action>
+		
+		<action name="order_confirm" class="com.unison.lottery.wap.action.ssq.BuyAction" method="confirm">
+			<result name="input_ds" type="velocity">buy_ds.vm</result>
+			<result name="input_fs" type="velocity">buy_fs.vm</result>
+			<result name="input_dt_dan" type="velocity">buy_dt_dan.vm</result>
+			<result name="input_dt_other" type="velocity">buy_dt_other.vm</result>
+			<result name="order_confirm" type="velocity">order_confirm.vm</result>
+		</action>
+		
+		<action name="order_submit" class="com.unison.lottery.wap.action.ssq.BuyAction" method="submitOrder">
+		    <result name="login" type="redirect">${redirectURL}</result>
+			<result name="input_ds" type="velocity">buy_ds.vm</result>
+			<result name="input_fs" type="velocity">buy_fs.vm</result>
+			<result name="input_dt_other" type="velocity">buy_dt_dan.vm</result>
+			<result name="error" type="velocity">/message.vm</result>
+			<result name="success" type="velocity">order_success.vm</result>
+		</action>
+		
+		<action name="ssq_ballot_record" class="com.unison.lottery.wap.action.ssq.SSQBallotRecordAction" method="ssqBallotDetail">
+      		<result type="velocity">/lottery/wf/ssq_ballot_record.vm</result>
+		</action>
+	</package>
+</struts>

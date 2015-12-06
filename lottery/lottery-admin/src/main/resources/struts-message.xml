@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 站内信息 -->
+	<package name="message" extends="global" namespace="/sysmessage">
+		<default-class-ref class="com.xhcms.lottery.admin.web.action.promote.MessageAction"/>
+		
+		<action name="sysmessage_list" method="list">
+			<result>/message/list.vm</result>
+		</action>
+		
+		<action name="aj_remove" method="remove">
+			<result type="json" />
+		</action>
+		
+		<action name="aj_add" method="add">
+			<result type="json" />
+		</action>
+		
+		<action name="aj_modify" method="modify">
+			<result type="json" />
+		</action>
+	</package>
+</struts>

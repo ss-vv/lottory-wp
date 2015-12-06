@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+    default-autowire="byName">
+	<bean id="anRuiZhiYingOrderTicketClient" class="com.davcai.lottery.platform.client.anruizhiying.AnRuiZhiYingOrderTicketClientImpl" ></bean> 
+	<bean id="anRuiZhiYingOrderTicketClientSupport"  class="com.davcai.lottery.platform.client.anruizhiying.AnRuiZhiYingOrderTicketClientSupport">
+		<property name="paramNamesShouldSign">
+			<list>
+				<value>ChannelID</value>
+				<value>LotteryID</value>
+				<value>WareID</value>
+				<value>BetAmount</value>
+				<value>BetContent</value>
+			</list>
+		</property>
+		<property name="interfaceUrl" value="${anruizhiying.interfaceUrl}"/>
+		<property name="channelId" value="${anruizhiying.channelId}"/>
+		<property name="key" value="${anruizhiying.key}"/>
+		<property name="maxRetryTime">
+			<value>3</value>
+		</property>
+	</bean>
+	<bean id="anRuiZhiYingQueryPrizeClient" class="com.davcai.lottery.platform.client.anruizhiying.AnRuiZhiYingQueryPrizeClientImpl"></bean>
+	<bean id="anRuiZhiYingQueryPrizeClientSupport"  class="com.davcai.lottery.platform.client.anruizhiying.AnRuiZhiYingQueryPrizeClientSupport">
+		<property name="paramNamesShouldSign">
+			<list>
+				<value>ChannelID</value>
+				<value>ChannelTicketId</value>
+			</list>
+		</property>
+		<property name="interfaceUrl" value="${anruizhiying.interfaceUrl}"/>
+		<property name="channelId" value="${anruizhiying.channelId}"/>
+		<property name="key" value="${anruizhiying.key}"/>
+	</bean>
+	<bean id="anRuiZhiYingQueryPrizeParser" class="com.davcai.lottery.platform.client.anruizhiying.parser.AnRuiZhiYingQueryPrizeParser"></bean>
+</beans>

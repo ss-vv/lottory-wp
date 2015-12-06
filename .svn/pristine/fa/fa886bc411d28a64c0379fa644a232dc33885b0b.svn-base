@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+
+	<bean id="dataStore" class="com.xhcms.lottery.dc.core.DataStore">
+		<property name="persisters">
+			<map>
+				<entry key="zc_odds">
+					<bean class="com.xhcms.lottery.dc.persist.persister.ZCOddsPersisterImpl" />
+				</entry>
+				<entry key="lc_odds">
+					<bean class="com.xhcms.lottery.dc.persist.persister.LCOddsPersisterImpl" />
+				</entry>
+				<entry key="zc_result">
+					<bean
+						class="com.xhcms.lottery.dc.persist.persister.ZCMatchResultPersisterImpl" />
+				</entry>
+				<entry key="lc_result">
+					<bean
+						class="com.xhcms.lottery.dc.persist.persister.LCMatchResultPersisterImpl" />
+				</entry>
+				<entry key="zc_match">
+					<bean class="com.xhcms.lottery.dc.persist.persister.ZCMatchPersisterImpl" />
+				</entry>
+				<entry key="lc_match">
+					<bean class="com.xhcms.lottery.dc.persist.persister.LCMatchPersisterImpl" />
+				</entry>
+				<entry key="query_issueinfo_result">
+					<bean class="com.xhcms.lottery.dc.persist.persister.IssueinfoPersisterImpl" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	
+
+	<bean id="runWS" class="com.xhcms.commons.job.Workspace">
+		<property name="name" value="Workspace-Run" />
+		<property name="maxSize" value="20" />
+	</bean>
+	
+	
+
+    <bean id="interfaceConfig" class="com.unison.lottery.mc.uni.InterfaceConfig">
+        <property name="version" value="${zm.ticket.version}" />
+        <property name="partnerId" value="${zm.ticket.partnerId}" />
+        <property name="key" value="${zm.ticket.key}" />
+    </bean>
+
+    <bean id="messageParser" abstract="true" class="com.unison.lottery.mc.uni.parser.MessageParser">
+        <property name="config" ref="interfaceConfig"/>
+    </bean>
+    
+    <!-- 中民客户端基础配置类 -->
+    <bean id="zmClientBase" class="com.unison.lottery.mc.uni.ZMClient"
+        abstract="true">
+        <property name="key" value="${zm.ticket.key}" />
+        <property name="partnerId" value="${zm.ticket.partnerId}" />
+        <property name="version" value="${zm.ticket.version}" />
+        <property name="url" value="${zm.ticket.url}" />
+    </bean>
+    
+    
+
+	<!-- 数据持久化 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Persist Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="period" value="5" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.PersistTask" />
+		</property>
+	</bean>
+	
+	<!-- 期查询任务 -->
+	<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+         <property name="storeDataName" value="query_issueinfo_result"/>
+         <property name="zmClient" ref="queryIssueinfoClient"/>
+         <property name="lotteryIds">
+         	<list>
+         		<value>JX11X5</value>
+         		<value>JXSSC</value>
+         		<value>ZQSSC</value>
+         	</list>
+         </property>
+    </bean>
+    
+    <!-- 高频彩期查询客户端 -->
+    
+    <bean id="queryIssueinfoClient" class="com.unison.lottery.mc.uni.client.QueryIssueClient"
+		parent="zmClientBase">
+		<property name="template" value="/tpl/queryissue.xml" />
+		<property name="parser">
+			<bean class="com.unison.lottery.mc.uni.parser.QueryIssueResponseParser" parent="messageParser">
+				<property name="expectedTransCode" value="101"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 高频彩期查询 -->
+	<bean class="com.xhcms.commons.job.impl.DefaultTaskEntry">
+		<property name="name" value="Query issueinfo Task" />
+		<property name="workspace" ref="runWS" />
+		<property name="time" value="2012-01-01 00:03:00" />
+		<property name="period" value="300" />
+		<property name="job">
+			<bean class="com.xhcms.lottery.dc.task.QueryIssueinfoTask">
+		         <property name="storeDataName" value="query_issueinfo_result"/>
+		         <property name="zmClient" ref="queryIssueinfoClient"/>
+		         <property name="lotteryIds">
+		         	<list>
+		         		<value>JX11X5</value>
+		         		<value>JXSSC</value>
+		         		<value>ZQSSC</value>
+		         	</list>
+		         </property>
+		    </bean>
+		</property>
+	</bean>
+	
+	
+	<!-- 竞彩出票 -->
+	<bean class="com.xhcms.lottery.dc.task.ticket.BuyJCTicketTask"/>
+	
+	<!-- 高频彩出票 -->
+	<bean class="com.xhcms.lottery.dc.task.ticket.BuyHFTicketTask">
+	
+	</bean>	       
+</beans>

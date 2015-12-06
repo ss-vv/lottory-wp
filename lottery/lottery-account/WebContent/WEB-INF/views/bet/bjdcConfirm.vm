@@ -1,0 +1,28 @@
+ <div class="tblbox tblbox-c">
+				
+                <table class="tbl" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <th class="thl" style="width:80px;"><div class="inth"><div class="hide" style="">赛事编号</div></div></th>
+                    <th><div class="inth"><div class="hide">主队 VS 客队</div></div></th>
+                    <th style="width:60px;"><div class="inth"><div class="hide">让球数</div></div></th>
+                    <th style="width:320px;"><div class="inth"><div class="hide">投注内容</div></div></th>
+                    <th class="thr" style="width:40px;"><div class="inth"><div class="hide">胆码</div></div></th>
+                  </tr>
+                  #foreach($m in ${schemeView.matchs})
+                  #getPlayId($schemeView, $m)
+                  <tr>
+                    <td class="tdl"><div class="intd">${m.cnCode}</div></td>
+                    <td><div class="intd">${m.name}</div></td>
+                    <td><div class="intd">#if(${_playId}=='91_BJDC_SPF')#if($math.toInteger(${m.concedePoints}) > 0)+${m.concedePoints}#elseif($math.toInteger(${m.concedePoints})==0)#else${m.concedePoints}#end#elseif(${_playId}=='96_BJDC_SF')
+                    #if($math.toDouble(${m.concedePoints}) > 0)+${m.concedePoints}#elseif($math.toDouble(${m.concedePoints})<0)${m.concedePoints}#end#end</div></td>
+                    <td><div class="intd">$Result.cn(${_playId}, ${m.betCode}, ${m.odds})</div></td>
+                    <td class="tdr bgbrr-e">#if($m.seed)胆#else &nbsp;#end</td>
+                  </tr>
+                  #end
+                  <tr class="last">
+                    <td class="tdl"><div class="intd"></b>过关方式</b></div></td>
+                    <td class="tdr tal" colspan="4"><div class="intd">${schemeView.passTypeIds}</div></td>
+                  </tr>
+                </table>
+				
+</div>

@@ -1,0 +1,54 @@
+#parse("/ssq/inc/header.vm")
+	<form id="form" method="post" action="buy_dt_other.do">
+		<div class="list_lottory">
+			&nbsp;第&nbsp;$!{issueInfo.issueNumber}&nbsp;期热售 #if ($issueInfo.prizeTime)，${issueInfo.prizeTime}开奖#end<br/> 
+		</div>
+		<div class="list_lottory">&nbsp;截止投注时间： $!date.format('yyyy-MM-dd HH:mm',$!{issueInfo.stopTimeForUser}) </div>
+		
+		#if($actionErrors && $actionErrors.size()>0)
+			<div class="divErrorMSG">
+		    #foreach($error in $actionErrors)
+				$error <br />
+		    #end
+		    </div>
+		#end
+		
+		<div class="list_lottory" style="border-bottom:0px; line-height:10px;">
+		投注：<a href='$base/ssq/buy_fs.do'>手选</a> | <a href='$base/ssq/buy_ds.do'>机选</a> | 胆拖
+		<input type="hidden"  name="playId" value="72">
+		<input type="hidden"  name="selectType" value="1">
+		</div>
+		
+		<div class="curLotteryTerm" style="border-bottom:0px;"><span class="red">红球胆码</span> 可选1-5个号码</div>
+		<div class="list_lottory" style="border-bottom:0px;">
+			<span class="red">
+			#foreach($index in [1..33])
+				#set($select = false)
+				#set($currentBall = $!number.format("00", $index))
+				#if($!{selectDanBalls})
+					#foreach($redBall in $selectDanBalls)
+						#if($currentBall == $!StringUtils.trim($redBall))
+							#set($select = true)
+							#break
+						#end
+					#end
+				#end
+				#if($select)
+					<label><input type="checkbox" value="$currentBall" name="redDanBalls" checked="true" />$currentBall</label>
+				#else
+					<label><input type="checkbox" value="$currentBall" name="redDanBalls" />$currentBall</label>
+				#end
+			#end
+			</span>
+		</div>
+		
+		<div class="msgTitle" style="line-height:18px; padding:5px">
+			<input type="submit" name="buy" value="下一步，选择拖码" id="buttonSubmit" />
+		</div>
+	</form>
+	
+	<div class="topNavigationBar">【双色球】[最近5期开奖号码]&nbsp;&nbsp;<a href="$base/ssq/ssq_ballot_record.do?lotteryId=SSQ">历史开奖</a></div>
+	#foreach($record in $list)
+		<div class="#if($record.id%2 == 0)ni1 #else ni2 #end" style="padding-left:8px">$record.issueNumber&nbsp;期&nbsp;&nbsp;<span>$date.format("yyyy-MM-dd HH:mm", $record.stopTime)&nbsp;&nbsp;</span> $!lotteryFormat.format4SSQ($record.bonusCode)</div>
+	#end
+#parse("/ssq/inc/tail.vm")

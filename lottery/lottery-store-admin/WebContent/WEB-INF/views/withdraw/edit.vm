@@ -1,0 +1,116 @@
+#set($title="查看提现详情")
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>查看提现详情</b></span>
+	</div>
+	<div class="bx_c">
+	<form id="aForm" method="post">
+		<input type="hidden" name="id" value="${w.id}" />
+		<table cellspacing="0" class="tab">
+			<tr>
+				<td style="text-align:right;width:120px;">申请单编号：</td><td colspan="3">${w.id}</td>
+      </tr>
+			<tr>
+				<td style="text-align:right;width:120px;">申请人ID：</td><td>${w.userId}</td>
+				<td style="text-align:right;width:120px;">申请人用户名：</td><td>$!{w.username}</td>
+      </tr>
+			<tr>
+				<td style="text-align:right;">帐号名：</td><td><b>${w.realName}</b></td>
+				<td style="text-align:right;">银行帐号：</td><td><b>${w.bankAccount}</b></td>
+			</tr>
+      <tr>
+        <td style="text-align:right;">用户注册IP：</td><td>$!{w.registIp}</td>
+        <td style="text-align:right;">提现银行：</td><td>$!{w.bank}</td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">提现省市：</td><td>$!{w.province}</td>
+        <td style="text-align:right;">提现地区：</td><td>$!{w.city}</td>
+      </tr>
+			<tr>
+				<td style="text-align:right;">提现金额：</td><td>￥${w.amount}</td>
+				<td style="text-align:right;">支付金额：</td><td>￥${w.payAmount}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">总手续费：</td><td>￥${w.totalFee}</td>
+				<td style="text-align:right;">银行手续费：</td><td>￥${w.bankFee}</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">申请人IP：</td><td>${w.ip}</td>
+				<td style="text-align:right;">申请时间：</td><td>$date.format("yyyy-MM-dd HH:mm", ${w.createdTime})</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">流水单编号：</td><td>$!{w.orderId}</td>
+				<td style="text-align:right;">状态：</td><td colspan="3">$status.withdraw($w.status)</td>
+			</tr>
+      #if(${w.auditId} != 0)
+			<tr>
+				<td style="text-align:right;">审核人：</td><td>$w.auditId</td>
+				<td style="text-align:right;">审核时间：</td><td>$date.format("yyyy-MM-dd HH:mm", ${w.auditTime})</td>
+			</tr>
+      #end
+      #if(${w.confirmId} != 0)
+			<tr>
+				<td style="text-align:right;">确认人：</td><td>${w.confirmId}</td>
+				<td style="text-align:right;">确认时间：</td><td>$date.format("yyyy-MM-dd HH:mm", ${w.confirmTime})</td>
+			</tr>
+      #end
+			#if(${w.status} == 1)
+			<tr>
+				<td style="text-align:right;"><span class="red">*</span> 银行订单编号：</td>
+        <td colspan="3"><input type="text" id="boIpt" name="bankOrder" size="32" maxlength="255"/>请输入银行订单号</td>
+			</tr>
+      <tr>
+        <td style="text-align:right;">审核批注：</td><td colspan="3">$!{w.note}</td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">本次审核批注：</td><td colspan="3"><textarea name="note" rows="4" cols="50"></textarea></td>
+      </tr>
+      #elseif(${w.status} == 2)
+      <tr>
+        <td style="text-align:right;">银行订单编号：</td><td colspan="3">$!{w.bankOrder}</td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">审核批注：</td><td colspan="3">$!{w.note}</td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">确认批注：</td><td colspan="3"><textarea id="nIpt" name="note" rows="4" cols="50"></textarea></td>
+      </tr>
+			#end
+			<tr>
+				<td colspan="4" id="btnTd" style="text-align:center; padding: 5px 0px;">
+					#if(${w.status} == 0 || ${w.status} == 1)
+						<input type="button" class="hand btn" value="通过审核" _action="pass" _s="${w.status}"/>
+						<input type="button" class="hand btn" value="驳回申请" _action="fail"/>
+					#elseif(${w.status} == 2)
+						<input type="button" class="hand btn" value="完成提现" _action="pass" _s="${w.status}"/>
+						<input type="button" class="hand btn" value="重新审核" _action="reject"/>
+						<input type="button" class="hand btn" value="驳回申请" _action="fail"/>
+					#end
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+$(function(){
+	 $('#btnTd :button').bind('click', function(){
+      var _this = $(this), action = _this.attr('_action');
+      if(action == 'pass' && 1 == _this.attr('_s')){
+          if(jQuery.trim($('#boIpt').val()) == ''){
+              alert('请输入银行订单号');
+              return false;
+          }
+      }
+      
+      var note = $('#nIpt').val();
+      if(note != null && note.length > 255){
+          alert('审核批注不能超过255个字符');
+          return false;
+      }
+      if(action != null){
+          $('#aForm').attr('action', '$base/withdraw/' + action + '.do').submit();
+      }
+   });
+});
+</script>

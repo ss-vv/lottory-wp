@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.unison.lottery.weibo</groupId>
+  <artifactId>weibo</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>laicai weibo</name>
+  <description>laicai weibo</description>
+  <packaging>pom</packaging>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  </properties>
+  <parent>
+    <artifactId>lottery-root</artifactId>
+    <groupId>com.xhcms.lottery</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  
+  <modules>
+	<module>weibo-commons</module>
+	<module>weibo-bot</module>
+	<module>weibo-admin</module>
+	<module>weibo-bbs</module>
+	<module>weibo-msg</module>
+	<module>weibo-task</module>
+	<module>weibo-uc</module>
+	<module>weibo-web</module>
+	<module>weibo-data-service-commons</module>
+	<module>weibo-data-service-parse</module>
+	<module>weibo-data-service-store</module>
+	<module>weibo-service</module>
+	<module>load-weibo-data-to-solr</module>
+	<module>news-extract</module>
+	<module>news-extract-common</module>
+	<module>news-extract-store</module>
+	<module>news-extract-parse</module>
+	<module>weibo-statistic</module>
+    <module>data-statistic</module>
+    <module>weibo-push-client</module>
+	<module>weibo-push-server</module>
+	<module>weibo-push-web-demo</module>
+	<module>weibo-push-common</module>
+	<module>weibo-data-service-analyse</module>
+	<module>weibo-data-receive-store</module>
+  </modules>
+</project>

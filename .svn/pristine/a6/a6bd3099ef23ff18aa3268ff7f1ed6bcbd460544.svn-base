@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>大V彩微博</title>
+<meta name="keywords" content="大V彩微博">
+<meta name="description" content="大V彩微博">
+<link rel="shortcut icon" href="http://www.davcai.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/placeholder.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//首页搜索
+		$("#searchSubmit").click(function() {
+			$("#homeSearch").submit();
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="header">
+		<div class="headContainer">
+			<h1 id="logo"><span><a href="/">大V彩</a></span></h1>
+			<div class="search">
+				<form id="homeSearch" method="GET" action="http://www.davcai.com">
+					<label for="keyword-search">
+						<input type="text" id="keyword" name="keyword" placeholder="搜索人名 / 球队"
+							autocomplete="off" value="" class="placeholderHack"/>
+						<span class="icon" id="searchSubmit"><i></i></span>
+	                </label>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="center" class="container">
+		<div class="wrapper">
+			<div class="fupper">
+				<div id="head">
+					<h1><span id="flogo" title="聪明彩民的交流平台">聪明彩民的交流平台</span></h1>
+				</div>
+				<div class="login">
+					<div class="register">
+						<a href="register.html" class="index-color-bold">注册大V彩帐号</a>
+					</div>
+					<div class="login-box">
+						<div>
+							<form action="homeNew.html" method="POST">
+								<div class="email">
+									<div class="email-wrap">
+										<span>
+											<input id="username" name="username" tabindex="1" 
+												type="text" autocomplete="off" title="用户名或邮箱帐号登录"
+												placeholder="用户名 / 邮箱" class="placeholderHack"/>
+										</span>
+									</div>
+								</div>
+								<div class="password">
+									<div class="password-wrap">
+										<span>
+											<input id="password" name="password" tabindex="2"
+												autocomplete="off" title="请输入密码" 
+												type="password" placeholder="密码" class="placeholderHack"/>
+										</span>
+									</div>
+								</div>
+								<div class="regread">
+									<a href="http://www.davcai.com" class="region-switcher index-color-bold">忘记密码</a>
+										<input type="checkbox" id="remember_me" name="remember_me" value="1" checked="checked" class="login-checkbox" tabindex="3"/>
+										<label for="remember_me" class="rem-me">记住我</label>
+								</div>
+								<div class="login-button">
+									<input type="submit" tabindex="4" value="登 录" class="button_red regbtn">
+								</div>
+							</form>
+						</div>
+						<div class="un-login">
+							<div class="connect-link-wrap">
+								<div class="connectlink">
+									<ul class="fconnect-link">
+										<li class="sina"><a id="sina_login" href="/homeNew.html"><i></i>新浪微博登录</a></li>
+										<li class="qq"><a id="qq_login" href="/homeNew.html"><i></i>QQ&nbsp;帐号登录</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="#" target="_target">
+					<img width="624" height="375" src="images/index_capture.png" alt="" class="promo">
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 底部开始 -->
+	<div class="bottomWrapper">
+		<div id="bottom" class="bottom-container">
+			<div class="left">
+				<h1>今日话题</h1>
+				<div class="cont">
+					<ul>
+						<li>
+							<span class="show-cont">第<a>20131120</a>期双色球推荐</span>
+							<span class="show-time">2013-11-12</span>
+						</li>
+						<li>
+							<span class="show-cont">第<a>20131120</a>期双色球推荐</span>
+							<span class="show-time">2013-11-12</span>
+						</li>
+						<li>
+							<span class="show-cont">第<a>20131120</a>期双色球推荐</span>
+							<span class="show-time">2013-11-12</span>
+						</li>
+						<li>
+							<span class="show-cont">第<a>20131120</a>期双色球推荐</span>
+							<span class="show-time">2013-11-12</span>
+						</li>
+						<li>
+							<span class="show-cont">第<a>20131120</a>期双色球推荐</span>
+							<span class="show-time">2013-11-12</span>
+						</li>
+						<li>
+							<span class="show-cont">第<a>20131120</a>期双色球推荐</span>
+							<span class="show-time">2013-11-12</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="right">
+				<div class="">
+					<ul>
+						<li>
+							<div id="gallery">
+								<span class="image-wrapper">
+									<a href="#" title="V5德胜">
+									<img alt="赵巨涛" src="images/1327904867627-20121221.png!100x100.png"></a>
+								</span>
+								<div id="caption" class="caption-container">
+									<div id="image-frame">
+										<span class="point"><span class="sky"></span></span>
+										<div class="image-content">
+											<h2>V5德胜</h2>
+											<span>
+												简介：彩票投注界的标杆，一盏鲜活的明灯；引领无数投注者发家自富。。。
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>	
+						</li>
+						<div class="active_user">
+							<ul class="user">
+								<li>
+									<a href="#1" title="一只花蛤" class="thumb" rel="history">
+									<img src="images/1333248344218-20121221.png!50x50.png" width="50" height="50" title="一只花蛤" alt="" class="user_pic"></a>
+								</li>
+								<li>
+									<a href="#2" title="年纪不轻轻吴向军" class="thumb" rel="history">
+									<img src="images/1369988101194-1369988174078.png!50x50.png" width="50" height="50" title="年纪不轻轻吴向军" alt="" class="user_pic"></a>
+								</li>
+								<li>
+									<a href="#3" title="上交所_我是股东" class="thumb" rel="history">
+									<img src="images/1363594120391-1363594136033.png!50x50.png" width="50" height="50" title="上交所_我是股东" alt="" class="user_pic"></a>
+								</li>
+								<li><a href="#4" title="岁寒知松柏" class="thumb" rel="history">
+									<img src="images/1333545764374-20121221.png!50x50.png" width="50" height="50" title="岁寒知松柏" alt="" class="user_pic"></a>
+								</li>
+								<li><a href="#5" title="余晓光" class="thumb" rel="history">
+									<img src="images/1307498370665-20121221.png!50x50.png" width="50" height="50" title="余晓光" alt="" class="user_pic"></a>
+								</li>
+								<li><a href="#6" title="投行笔记" class="thumb" rel="history">
+									<img src="images/1377743959014-1377743962671.png!50x50.png" width="50" height="50" title="投行笔记" alt="" class="user_pic"></a>
+								</li>
+								<li><a href="#7" title="赵巨涛" class="thumb" rel="history">
+									<img src="images/1327904867627-20121221.png!50x50.png" width="50" height="50" title="赵巨涛" alt="" class="user_pic"></a>
+								</li>
+								<li>
+									<a href="#8" title="502的牛" class="thumb" rel="history">
+									<img src="images/1338545224272-20121221.png!50x50.png" width="50" height="50" title="502的牛" alt="" class="user_pic"></a>
+								</li>
+								<li><a href="#9" title="付羽_投资笔记" class="thumb" rel="history">
+									<img src="images/1325744956180-20121221.png!50x50.png" width="50" height="50" title="付羽_投资笔记" alt="" class="user_pic"></a>
+								</li>
+								<li>
+									<a href="#10" title="白云之乡" class="thumb" rel="history">
+									<img src="images/1374748877693-1374748887689.png!50x50.png" width="50" height="50" title="白云之乡" alt="" class="user_pic"></a>
+								</li>
+								<li>
+									<a href="#11" title="董宝珍" class="thumb" rel="history">
+									<img src="images/1381235624071-1381235634176.png!50x50.png" width="50" height="50" title="董宝珍" alt="" class="user_pic"></a>
+								</li>
+								<li class="last" style="opacity: 1;">
+									<a href="#12" title="不明真相的群众" class="thumb" rel="history">
+									<img src="images/1293612628607-20121221.png!50x50.png" width="50" height="50" title="不明真相的群众" alt="" class="user_pic"></a>
+								</li>
+							</ul>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 版权开始 -->
+		<div class="footer">
+			<div class="copyright">
+				<ul>
+					<li><a href="javascript:void(0)">大V彩客户端</a></li>
+					<li><a href="javascript:void(0)">关于大V彩</a></li>
+					<li><a href="javascript:void(0)">常见问题</a></li>
+					<li><span>@2013 davcai.com</span></li>
+					<li><a href="javascript:void(0)">京ICP证10086号</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 版权结束 -->
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>

@@ -1,0 +1,100 @@
+<div class="post-content-right"><!-----post-content-right开始--------->
+  	      	  <div class="davcai-popular-race-outer" id="hot_recommend_">
+		   	  </div><!------davcai-popular-race-outer部分 ------->
+  	      	 <div class="davcai-ranking-list-outer">
+		  	  	  <h4 class="title">晒单胜率排行榜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="blue-mark-tips" tid="3"></i></h4>
+		  	  	  <hr class="hr-solid">
+		  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-3">
+		  	  	  	 晒单胜率，是指用户已开奖的晒单方案中盈利方案的比例。
+					  例如，用户近7天已开奖晒单方案数为10单,
+					 其中盈利方案数为5单，胜率为50%。
+		  	  	  </div>
+		  	  	  <p class="ranking-list-tab" id="showschemeshenglv">
+		  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="showscheme7dayshenglv">7日内</a>
+		  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="showscheme50matchshenglv">近50单</a>
+		  	  	  </p>
+		  	  	<div> <!-- 7日晒单胜率-->
+		  	  	   <ul class="davcai-plus-interest" id="showscheme7dayshenglv">
+  	  	           		<div class="loading" style="height: 40px; display: true;" ></div>
+  	  	           </ul>
+		  	    </div>
+		  	    <div> <!-- 50场单胜率-->
+		  	  	   <ul class="davcai-plus-interest" id="showscheme50matchshenglv" style="display:none">
+  	  	           		<div class="loading" style="height: 40px; display: true;" ></div>
+  	  	           </ul>
+		  	    </div>
+		  	  </div><!----davcai-ranking-list-outer部分------->
+  	      	   <div class="davcai-ranking-list-outer">
+		  	  	  <h4 class="title">跟单胜率排行榜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="blue-mark-tips" tid="2"></i></h4>
+		  	  	  <hr class="hr-solid">
+		  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-2">
+		  	  	  	      跟单胜率，是指用户已开奖的跟单方案中盈利方案的比例。
+		  	  	  	      例如，用户近7天已开奖跟单方案数为10单，
+		  	  	  	      其中盈利方案数为5单，过单率为50%
+		  	  	  </div>
+		  	  	  <p class="ranking-list-tab" id="followschemeyingli">
+		  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="followscheme7dayyingli">7日内</a>
+		  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="followscheme50matchyingli">近50单</a>
+		  	  	  </p>
+		  	  	<div >
+		  	  	   <ul class="davcai-plus-interest" id="followscheme7dayyingli">
+  	  	           		<div class="loading" style="height: 40px; display: true;"></div>
+  	  	           </ul>
+		  	    </div>
+		  	   <div> 
+		  	        <ul class="davcai-plus-interest" id="followscheme50matchyingli" style="display:none">
+  	  	             	<div class="loading" style="height: 40px; display: true;" ></div>
+  	  	            </ul>
+		  	    </div>
+		  	  	 
+		  	  </div><!----davcai-ranking-list-outer部分------->
+		  	   <div class="davcai-ranking-list-outer">
+		  	  	  <h4 class="title">晒单助人奖金排行榜<i class="blue-mark-tips" tid="4"></i></h4>
+		  	  	  <hr class="hr-solid">
+		  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-4">
+		  	  	  	          晒单助人奖金，是指用户帮助跟单用户中奖的奖金总额。
+		  	  	  </div>
+		  	  	  <p class="ranking-list-tab" id="showschemeprize">
+		  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="showschemeprize7day">7日内</a>
+		  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="showschemeprize50match">近50单</a>
+		  	  	  </p>
+		  	    <div>
+		  	  	   <ul class="davcai-plus-interest" id="showschemeprize7day">
+  	  	           <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	            </ul>
+		  	    </div>
+		  	  <div>
+		  	  	   <ul class="davcai-plus-interest" id="showschemeprize50match" style="display:none">
+  	  	           		<div class="loading" style="height: 40px; display: true;" ></div>
+  	  	           </ul>
+		  	  </div>
+		  	  </div><!----davcai-ranking-list-outer部分------->
+		  	  <div class="davcai-ranking-list-outer">
+		  	  	  <h4 class="title">跟单中奖奖金排行榜<i class="blue-mark-tips" tid="5"></i></h4>
+		  	  	  <hr class="hr-solid">
+		  	  	  <div class="blue-mark-tips-tan" id="blue-mark-tips-tan-5">
+		  	  	  	               跟单中奖奖金，是指用户跟单所中奖金总额。
+		  	  	  </div>
+		  	  	  <p class="ranking-list-tab" id="followschemewin">
+		  	  	  	 <a href="javascript:void(0);" class="seven-days current" _id="followschemewin7day">7日内</a>
+		  	  	  	 <a href="javascript:void(0);" class="nearly-fifty-field" _id="followschemewin50match">近50单</a>
+		  	  	  </p>
+		  	  	 <div>
+		  	  	   <ul class="davcai-plus-interest" id="followschemewin7day">
+  	  	           <div class="loading" style="height: 40px; display: true;" ></div>
+  	  	            </ul>
+		  	     </div>
+		  	      <div>
+		  	  	   <ul class="davcai-plus-interest" id="followschemewin50match" style="display:none">
+  	  	           		<div class="loading" style="height: 40px; display: true;" ></div>
+  	  	           </ul>
+		  	      </div>
+		  	  </div><!----davcai-ranking-list-outer部分------->
+   <div class="davcai-ranking-list-outer" id="score_top_list">
+  </div><!----davcai-ranking-list-outer部分------->
+</div><!---post-content-right结束---->
+#parse("web/inc/common_tmpl.vm")
+<script type="text/javascript" src="$base/js/davcai/scoreTopList/scoreTopList.js"></script>
+<script type="text/javascript" src="$base/js/davcai/recommend/hot_recommend.js"></script>
+<script type="text/javascript" src="$base/js/davcai/winlist/showSchemeList.js"></script>
+<script type="text/javascript" src="$base/js/davcai/winlist/commonShowSchemeList.js"></script>

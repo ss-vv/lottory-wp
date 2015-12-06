@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 投注页面 -->
+	<package name="bet-page" extends="follow-default" namespace="/bet">
+		<action name="index"
+			class="com.xhcms.lottery.dc.feed.web.action.bet.BetAction">
+			<result type="layout">/bet/format.vm</result>
+		</action>
+		<!-- 
+			根据彩种和玩法去定位投注页面模版，第一个*代表彩种，第二个*代表彩种玩法
+			{1}是去取第一个*，{2}是去取第二个*
+		 -->
+		<action name="*_*"
+			class="com.xhcms.lottery.dc.feed.web.action.bet.BetAction">
+			<param name="lottery">{1}</param>
+			<param name="playId">{2}</param>
+			<result name="success" type="layout">/bet/format.vm</result>
+		</action>
+		
+		<!-- 新版竞彩足球投注 -->
+		<action name="jczq"
+			class="com.xhcms.lottery.dc.feed.web.action.bet.JCZQAction">
+			<result name="success" type="layout">/bet/jczq/jczq.vm</result>
+		</action>
+		<action name="jczq_all_matches"
+			class="com.xhcms.lottery.dc.feed.web.action.bet.JCZQAction" method="allMatches">
+			<result type="json">
+				<param name="root">jczqAllMatches</param>
+			</result>
+		</action>
+		<!-- 新版竞彩篮球投注 -->
+		<action name="jclq"
+			class="com.xhcms.lottery.dc.feed.web.action.bet.JCLQAction">
+			<result name="success" type="layout">/bet/jclq/jclq.vm</result>
+		</action>
+		<action name="jclq_all_matches"
+			class="com.xhcms.lottery.dc.feed.web.action.bet.JCLQAction" method="allMatches">
+			<result type="json">
+				<param name="root">jclqAllMatches</param>
+			</result>
+		</action>
+		
+		<action name="match_odds_data"
+			class="com.xhcms.lottery.dc.feed.web.action.matchdata.ExponentAction">
+			<result type="json"/>
+		</action>
+	</package>
+</struts>

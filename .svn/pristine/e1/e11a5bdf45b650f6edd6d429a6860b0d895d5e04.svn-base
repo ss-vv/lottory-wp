@@ -1,0 +1,32 @@
+# 优惠劵加入范围属性
+ALTER TABLE `lt_voucher`  ADD COLUMN `limit` VARCHAR(50) NULL COMMENT '范围：web client' AFTER `type`;
+
+# 客户端优惠劵
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) VALUES ('CZS_20_10_CLIENT', '充20送10', 20.00, 10.00, 'recharge', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '充值20元送10元；本金与赠金均须购彩后方可提现。只能在客户端使用。', '2013-02-25 14:28:51');
+# 网站优惠劵
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) VALUES ('CZS_50_10_WEB', '充50送10', 50.00, 10.00, 'recharge', 'web', 'http://ac.davcai.com/images/bet/voucher.png', '充值50元送10元；本金与赠金均须购彩后方可提现。只能在网站使用。', '2013-02-25 14:28:51');
+
+
+# 返回状态
+INSERT INTO `lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('query_voucers_succ', '3100', '查询可用优惠劵成功');
+INSERT INTO `lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('query_voucers_fail', '3101', '查询可用优惠劵失败');
+INSERT INTO `lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('use_voucer_succ', '3200', '使用彩金优惠劵成功');
+INSERT INTO `lt_return_status` (`system_key`, `status_code_for_client`, `desc_for_client`) VALUES ('use_voucer_fail', '3201', '使用彩金优惠劵失败');
+
+# 赠款类型
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (45, '2013.08竞彩足彩中奖加奖赠款');
+INSERT INTO `lt_granttype` (`id`, `name`) VALUES (46, '2013.08竞彩篮彩中奖加奖赠款');
+
+# 8月活动3
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, `play_ids`, `scheme_status`, `buy_amount`, `after_tax_bonus`, `after_tax_bonus_max`, `scheme_types`, `show`, `pass_type_ids`, `pass_type_ids_logic`, `everyone_join_count`, `count_relevance_granType_ids`, `join_count_type`) VALUES (37, '2013.08竞彩足彩中奖加奖赠款', 45, '2013-08-01 00:00:00', '2013-08-31 23:59:59', 1, '2013.08竞彩足彩中奖加奖赠款', '2013-07-29 10:11:42', 'JCZQ', NULL, '12', 0, 100.00, 10000.00, NULL, 1, ',1@1,', 'ne', 3, '45,46', 1);
+INSERT INTO `pm_promotion` (`id`, `name`, `granttype_id`, `start_time`, `end_time`, `status`, `remark`, `create_time`, `lottery_id`, `play_ids`, `scheme_status`, `buy_amount`, `after_tax_bonus`, `after_tax_bonus_max`, `scheme_types`, `show`, `pass_type_ids`, `pass_type_ids_logic`, `everyone_join_count`, `count_relevance_granType_ids`, `join_count_type`) VALUES (38, '2013.08竞彩篮彩中奖加奖赠款', 46, '2013-08-01 00:00:00', '2013-08-31 23:59:59', 1, '2013.08竞彩篮彩中奖加奖赠款', '2013-07-29 10:11:42', 'JCLQ', NULL, '12', 0, 100.00, 10000.00, NULL, 1, ',1@1,', 'ne', 3, '45,46', 1);
+
+# 活动详情
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (25, 37, ',1@1,', 'ne', 100.00, 1000.00, 10.00, NULL);
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (26, 37, ',1@1,', 'ne', 1000.00, 10000.00, 100.00, NULL);
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (27, 38, ',1@1,', 'ne', 100.00, 1000.00, 10.00, NULL);
+INSERT INTO `pm_promotion_detail` (`id`, `promotion_id`, `pass_type_ids`, `pass_type_ids_logic`, `min_value`, `max_value`, `grant`, `percent`) VALUES (28, 38, ',1@1,', 'ne', 1000.00, 10000.00, 100.00, NULL);
+
+INSERT INTO `lt_voucher` (`id`, `name`, `price`, `grant`, `type`, `limit`, `imgUrl`, `instructions`, `create_time`) VALUES ('CZS_2_1_CLIENT', '充2送1', 2.00, 1.00, 'recharge', 'client', 'http://ac.davcai.com/images/bet/voucher.png', '充值2元送1元；本金与赠金均须购彩后方可提现。只能在客户端使用。', '2013-02-25 14:28:51');
+
+

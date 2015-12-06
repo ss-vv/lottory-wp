@@ -1,0 +1,61 @@
+#set($layout="web/regist-guide.vm")
+#set($p_title="关注用户")
+#set($styles=["css/regist-guide.css","css/float-left.css"])
+#set($scripts=[	"js/web/login.js",
+				"js/web/add_rec_user.js",
+				"js/web/relationship.js"])
+
+<div class="main" style="margin: 0px auto;width:70%">
+	<div class="regist-guide-progress-bar">
+    	<span class="span01">完善个人资料</span>
+    	<span class="span02">关注你感兴趣的彩种</span>
+    	<span class="span03">关注其他彩票人</span>
+  	    <p><img src="images/step-3.png"/></p>
+ 	</div><!---------progress-bar部分----------->
+ 	
+ 	<div id="attention-lottery-people">
+ 		
+ 		 <div class="attention-lottery-people-title">
+  	    	 <span>推荐您关注以下大V彩用户：</span>
+  	    	 <span class="attention-lottery-people-user-change"></span>
+  	         <p>
+  	            <span id="check-all-btn" class="checkbox-all-selected">
+  	            	<label for="check-all" _type="checkbox">全选</label>
+  	            </span>
+  	         </p>
+  	    </div>
+  	    
+  	    <ul class="attention-lottery-people-list">
+  	    #foreach($user in $users)
+  	    	<li _uid="$user.weiboUserId" _checked="true">
+  	    		<div class="attention-lottery-people-logo">
+  	    			<img src="$user.headImageURL" class="headpic" _userid="$user.weiboUserId" />
+  	    			<span class="checkbox-selected"></span>
+  	    		</div>
+  	    		<span><a href="javascript:void(0);" target="_blank" _nickname_block="_nickname_block"  _userid="$user.weiboUserId" >$user.nickName</a>
+  	    		#if($user.certificationType == 1)
+  	    			<i class="niu" title="大V彩牛人" style="width: 32px;height: 15px;display: inline-block;"></i>
+  	    		#else
+  	    			<i style="width: 32px;height: 15px;display: inline-block;"></i>
+  	    		#end
+  	    		</span>
+  	    		<p class="attention-lottery-people-list-details">
+  	    			主贴(<i>$user.weiboCount</i>)<em>|</em>关注(<i>$user.followingCount</i>)<em>|</em>粉丝(<i>$user.followerCount</i>)
+  	    		</p>
+  	    		<p class="attention-lottery-people-list-bottom">
+					 开奖$user.realWeibo7OpenCount单，盈利$user.realWeibo7GainCount单，
+					<i>过单率
+						  #if($user.guodanlv > 0)
+		    		      	$user.guodanlv  %
+					      #else
+					      	--
+					      #end
+					</i>  <em>总奖金$user.totalBonus元</em>
+				</p>
+  	    	</li>
+  	    #end
+  	    </ul>
+  	    <p class="dashed"></p>
+  	    <div style="margin-top:20px;float:right"><input type="button" value="进入首页" class="btn btn-primary" style="width:100px;" id="next-btn"></div>
+ 	</div><!--------------------attention-lottery-people------------->
+</div>

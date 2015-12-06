@@ -1,0 +1,48 @@
+<div class="list-paper-content-topbg"></div>
+<div class="list-paper-content-middlebg">
+<ul class="list-paper-content-nav">
+  	<li class="list-paper-width01" style="width: 80px;">赛事编号</li>
+	<li class="list-paper-width02" style="width: 135px;">主队VS客队</li>
+  	<li class="list-paper-width03" style="width: 60px;">玩法</li>
+  	<li class="list-paper-width04" style="width: 110px;">投注内容</li>
+	<li class="list-paper-width05" style="width: 30px;">比分</li>
+  	<li class="list-paper-width06" style="width: 50px;">赛果</li>
+</ul>
+     #foreach($m in ${scheme.matchs})
+	  #getPlayId($schemeView, $m)
+      <ul class="list-paper-content-details">
+    	  <li class="list-paper-width01" style="width: 80px;">$!{m.code}</li>
+    	  <li class="list-paper-width02" style="width: 135px;">
+			#bdMatchName($!{m})
+		  </li>
+    	  <li class="list-paper-width03" style="width: 60px;">
+			$status.getPlayName($!{scheme.playId})
+		  </li>
+    	  <li class="list-paper-width04" title="$Result.cn(${_playId}, ${m.betCode}, ${m.odds})"
+			#if($Result.isMatchWin(${m},${scheme})) 
+				style="width: 110px;background: url('http://trade.davcai.com/ac/images/bet/pass.png') no-repeat 36px 36px;background-position: 0 0;color: red;text-align: center;" 
+			#else style="width: 110px;text-align:center" 
+			#end>
+			$Result.cn(${_playId}, ${m.betCode}, ${m.odds})
+		  </li>
+		  <li class="list-paper-width05" style="width: 30px;">$!{m.score}</li>
+    	  <li class="list-paper-width06" style="width: 50px;">
+			#if(${m.status} == 5)
+				$Result.cn(${_playId}, ${m.result},${m.resultOdd})
+			#end
+		  </li>
+    	  #if($!{m.annotation} && $!{m.annotation} != "")
+    		<p class="list-paper-content-review">${m.annotation}</p>
+    	  #end
+      </ul>
+	 #end
+<p class="list-paper-content-pass"><span>过关方式：</span><label>$status.getPlayName(${scheme.playId})</label><label>$!{scheme.passTypeIds}</label></p>	 
+<p class="list-paper-content-multiple"><span>倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</span><label> ${scheme.multiple}倍</label></p>
+#if($scheme.status == 5203 || $scheme.status == 12)
+	<p class="list-paper-content-multiple" style="font-weight: bold;"><span>方案金额：</span><label  style="color: #FF4040;margin-right: 5px;">￥$math.mul(${scheme.betNote}, 2)</label><i>元</i></p>
+	<p class="list-paper-content-money" style="font-weight: bold;"><span>奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金：</span><label  style="color: #FF4040;margin-right: 5px;">￥${sumBonus}</label><i>元</i></p>
+#else
+	<p class="list-paper-content-money" style="font-weight: bold;"><span>方案金额：</span><label  style="color: #FF4040;margin-right: 5px;">￥$math.mul(${scheme.betNote}, 2)</label><i>元</i></p>
+#end		
+</div>
+<div class="list-paper-content-juchi"></div>

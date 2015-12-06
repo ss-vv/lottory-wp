@@ -1,0 +1,8 @@
+.ni1 {
+	background-color: #EEF2F7;
+	border-bottom: 1px solid #D6DCE4;
+	border-top: 1px solid #D6DCE4;
+}
+.ni2,.ni1 {
+	padding: 2px 0px 2px 2px;
+}

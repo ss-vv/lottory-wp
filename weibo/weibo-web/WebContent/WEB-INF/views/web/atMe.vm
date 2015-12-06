@@ -1,0 +1,15 @@
+#set($layout="web/home_default.vm")
+#set($scripts=["js/web/atMeList.js"])
+#set($p_title="提到我的")
+<div class="wrapper">
+    <div id="sysnotify" class="sysnotify"></div>
+    <!-- status list-->
+    <h2>提到我的</h2>
+    <div class="home-timeline processing" _atMe>
+        <ul class="status-list" atMe>
+        </ul>
+    </div>
+</div>
+
+<div class="pager-wrapper" id="pager-wrapper">
+</div>

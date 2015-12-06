@@ -1,0 +1,40 @@
+<div class="match-form">
+    <ul class="match-nav">
+       <li class="jj-nav-match li-bg"><a href="javascript:void(0)">赛事<span class="icon_dwn"></span></a>
+       	   <div class="jj-layer">
+       	   	    <p>
+       	   	    	<span class="jczq-select-all"><a href="javascript:void(0)">全选</a></span>
+       	   	    	<span class="jczq-reverse-select"><a href="javascript:void(0)">反选</a></span>
+       	   	    	<span class="jczq-clear-league"><a href="javascript:void(0)">全清</a></span>
+       	   	    </p>
+       	   	    <p class="check" id="jczq_leagues"></p>
+		   </div>
+		</li>
+		<li class="jj-nav-time ">
+			<input type="text" id="jczq_calendar" class="jj-nav-calendar" readonly="readonly" value=""/>
+			<a href="javascript:void(0)"><span class="icon_dwnc"></span></a>
+		</li>
+		<li class="jj-nav-team "><a href="javascript:void(0)">球队</a></li>
+		<li class="jj-nav-sp li-bgc">
+			<a id="jczq_spf_sp" _currPlay="true" href="javascript:void(0)">
+				<span class="spf">胜平负sp</span>
+				<span class="icon_dwnb"></span>
+			</a>
+			<ul><li>
+				<a id="jczq_rqspf_sp" href="javascript:void(0)">
+					<span class="rqspf" _playId="01_ZC_2">让球胜平负sp</span>
+				</a>
+			</li></ul>
+		</li>
+		<li class="jj-nav-operate"><a href="javascript:void(0)">操作</a></li>
+	</ul>
+	<p class="jj-show-fr">
+		<input type="checkbox" id="jczq_hidden_stop_cell" value="">
+		<label class="jj-show-stop" for="jczq_hidden_stop_cell">
+			隐藏已停售比赛<span id="jczq_stop_MatchSum"></span>
+		</label>
+	</p>
+	<div class="loading" id="jczq_match_loading"></div>
+	<div id="jczq_matchs">
+	</div>
+</div>

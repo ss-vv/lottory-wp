@@ -1,0 +1,138 @@
+#set($title="提现管理")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span><a href="$base/recharge/list.do"><b>充值管理</b></a></span>
+		<span class="current"><b>提现管理</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="qForm" action="$base/withdraw/list.do" method="post">
+        <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+  			<div class="tabH tabH02 panel">
+          <span class="current"><b>查询条件</b></span>
+  				<div class="l">开始日期：<input type="text" id="fromDP" name="from" value="$date.format('yyyy-MM-dd', $from)" readonly="readonly" size="10"/>
+  					结束日期：<input type="text" id="toDP" name="to" value="$date.format('yyyy-MM-dd', $to)" readonly="readonly" size="10"/>
+             用户名：<input type="text" name="username" value="$!{username}" maxlength="32" size="16"/>
+  					订单状态：<select name="state" value="${state}" id="stateSel">
+  						<option value="-1">不限状态</option>
+  						<option value="0">待审核</option>
+  						<option value="1">已审核，待付款</option>
+  						<option value="2">已付款，待确认</option>
+  						<option value="90">已完成</option>
+  						<option value="98">驳回</option>
+  						<option value="99">提现失败</option>
+            </select>
+  				</div>
+  				<div class="r" style="margin: 4px 4px 0 0;">
+            <input id="query" type="button" class="hand btn" value="查询">
+          </div>
+  			</div>
+			</form>
+      <div class="tabH tabH02 panel">
+        <span class="current"><b>批量操作</b></span>
+        <div style="margin: 4px 4px 0 10px;">
+          <input type="button" class="hand btn" value="确认所选" id="batchPass"/>
+        </div>
+      </div>
+		</div>
+    <form id="pForm">
+		<table cellspacing="0" class="tab" id="dataGrid">
+			<tr>
+        <th style="width:25px;text-align:center;"><span><input type="checkbox" id="checkAll" /></span></th>
+        <th style="width:60px;text-align:center;"><span>编号</span></th>
+				<th style="width:60px;text-align:center;"><span>用户名称</span></th>
+				<th style="width:90px;text-align:center;"><span>真实姓名</span></th>
+				<th style="width:80px;text-align:center;"><span>提现金额</span></th>
+				<th style="width:60px;text-align:center;"><span>总手续费</span></th>
+				<th style="width:80px;text-align:center;"><span>划账金额</span></th>
+				<th style="width:100px;text-align:center;"><span>申请时间</span></th>
+				<th style="width:100px;text-align:center;"><span>状态</span></th>
+				<th style="width:60px;text-align:center;"><span>操作</span></th>
+			</tr>
+			#foreach($w in $paging.results)
+			<tr>
+				<td style="text-align:center;"><input type="checkbox" name="id" value="${w.id}" #if(${w.status} != 2)disabled="disabled"#end/></td>
+				<td style="text-align:center;">${w.id}</td>
+				<td style="text-align:center;">${w.username}</td>
+        <td style="text-align:center;">${w.realName}</td>
+				<td style="text-align:right;">￥${w.amount}</td>
+				<td style="text-align:right;"><span class="green">￥${w.totalFee}</span></td>
+				<td style="text-align:right;"><span class="red">￥${w.payAmount}</span></td>
+				<td style="text-align:center;">$date.format("yyyy-MM-dd HH:mm", ${w.createdTime})</td>
+				<td style="text-align:center;">$status.withdraw($w.status)</td>
+				<td style="text-align:center;"><a href="javascript:void(0);" _wid="${w.id}">查看详情</a></td>
+			</tr>
+			#end
+		</table>
+    </form>
+	</div>
+	<div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#stateSel option[value="${state}"]').attr('selected', 'selected');
+    
+    $('#query').bind('click', function(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(t.getTime() < f.getTime()){
+            alert('终止日期不能早于开始日期');
+            return false;
+        }
+        if((t.getTime() - f.getTime()) / 86400000 > 90){
+            alert('查询日期区间不能超过90天');
+            return false;
+        }
+        
+        $('#qForm').submit();
+    });
+    
+    $('#dataGrid td a[_wid]').bind('click', function(){
+        var wid = $(this).attr('_wid');
+        xhOpenWindow('$base/withdraw/view.do?id=' + wid, {
+            id: 'p_' + wid,
+            title: '查看提现单',
+            height: 500,
+            width: 660
+        });
+        
+        return false;
+    });
+    
+    $('#checkAll').bind('click', function(){
+        if($(this).is(':checked')){
+            $('#dataGrid :checkbox[name="id"]:enabled').attr('checked', true);
+        }else{
+            $('#dataGrid :checkbox[name="id"]:enabled').removeAttr('checked');
+        }
+    });
+    
+    $('#batchPass').bind('click', function(){
+        if($('#dataGrid :checkbox[name="id"]:checked').length == 0){
+            alert('请选择要确认的提现申请单');
+            return false;
+        }
+        if(confirm('确认后将从用户账户扣除资金，确定要继续？')){
+            jQuery.getJSON('$base/withdraw/aj_pass.do', $('#pForm').serialize(), function(json){
+                if(json.success){
+                    $('#qForm').submit();
+                }
+            });
+        }
+    });
+});
+</script>

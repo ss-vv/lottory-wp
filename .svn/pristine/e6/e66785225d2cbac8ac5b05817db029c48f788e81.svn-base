@@ -1,0 +1,101 @@
+#set($styles=["css/jqueryui/jquery-ui"])
+<script language="javascript" type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+	<div class="tabH" id="tabList" >
+		<span class="current"><b>快速账户</b></span>
+	</div>
+	<div class="bx_c">
+		<div class="bx_in" >
+			<form id="gForm" action="$base/kuaisu/list.do" method="post" >
+        		<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			    <div class="tabH tabH02 panel">
+			    	 查询日期：从 <input type="text" id="fromDP" name="from" value="2015-08-08"  #if($from)value="$date.format('yyyy-MM-dd', $from)"#end readonly="readonly" size="10"/>
+         至 <input type="text" id="toDP" name="to" value="2015-08-09"  #if($to)value="$date.format('yyyy-MM-dd', $to)"#end readonly="readonly" size="10"/>
+                     出账/进账：<select name="state"  id="stateSel">
+              <option value="-1" size="10">出账</option>
+              <option value="0" size="10">进账</option>
+            </select>
+                                         
+             <input type="button" name="query" id="chaxun"  onclick="javascript:checkDate()" value="查询"/>
+                                   ：<input type="text" id="p"  name="Page"  hidden="true" /> 
+			    </div>
+			 </form>
+		</div>
+		<div>
+	    <form id="pForm" action="$base/user/regCode.do">
+	    	<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+			<table cellspacing="0" class="tab" id="dataGrid">
+				<tr>
+					<th style="width:60px;text-align:center;"><span>用户ID</span></th>
+	        		<th style="width:80px;text-align:center;"><span>Amount</span></th>
+				</tr>
+				
+				#foreach($re in ${result} )
+				<tr>
+				    <td style="width:60px;text-align:center;"><span>$re.OrderId</span></td>
+					<td style="width:60px;text-align:center;"><span>$re.Amount</span></td>
+				</tr>
+				#end
+			</table>
+	    </form>
+	    </div>
+	</div>
+</div>
+<div>
+<div class="page_c">#pager($paging 8 "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+
+function pager_reload(pn){
+    $('#gForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+function addPage(){
+   var pa= document.getElementById("p");
+   pa.value=(parseInt(pa.value)+1).toString();
+   alert(pa.value)
+     checkDate();
+}
+
+function reducePage(){
+   var pa= document.getElementById("p");
+   pa.value=(parseInt(pa.value)-1).toString();
+     checkDate();
+}
+
+function checkDate()
+{
+	
+	query();
+}
+
+
+function query(){
+        var f = $('#fromDP').datepicker('getDate');
+        var t = $('#toDP').datepicker('getDate');
+        if(f != null && t != null){
+            if(t.getTime() < f.getTime()){
+                alert('终止日期不能早于开始日期');
+                return false;
+            }
+        }
+        $('#gForm').submit();
+    }  
+
+
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    
+   
+   });   
+  
+</script>

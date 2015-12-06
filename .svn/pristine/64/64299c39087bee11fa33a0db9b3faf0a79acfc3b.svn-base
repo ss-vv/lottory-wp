@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+	<title>
+		大V彩-wap支付宝
+	</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" />
+<meta name="MobileOptimized" content="240" />
+<link type="text/css" href="$base/css/buy.css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="$base/js/jquery.js"></script> 
+</head>
+<body>
+<form method="post" action="$base/user/aliaffirm.do" id="form1">
+
+<div class="mainDiv">
+	<div class='topNavigationBar' style="color: #FFF;"> <a href="../index.do">首页</a>
+		> <a href='/user/charge.do'>充值</a> > 支付宝充值</div>
+	<div style="background-color:#EAEAEA; line-height:21px; padding-left:5px; border-bottom:dotted 1px #8d8d8d;">
+		您好，<a href="/user/myAccount.do">$account.username</a>
+    <div><label>可用金额 <span style='color:red;font-weight:bolder;'>${account.free}</span>元</label></div>
+</div>
+      	<div class="msgTitle" style="border-top:0px; color:Red;">支付宝充值</div>
+        <div id="msg"></div>
+      	<div class="msgTitle" ><span style="color:Red">*</span>充值账户：${account.username}</div>
+     	<div class="msgTitle">
+      		<span style="color:Red">*</span>
+      		<input name="amount" type="text" id="amount" size="4" />
+      		 元
+      	</div>
+        &nbsp;&nbsp;<span style="color:#999">请填写整数金额，交易额度以银行为准</span><br />
+        
+        <div class="msgTitle"><input type="button" name="alipay" value="去支付宝支付" id="alipay" /></div>
+       	<div class="txtTitle">提醒</div>
+        <div style="padding-left:8px; font-size:12px;"> 
+            1.如您还不是支付宝会员，请先注册支付宝账号<br />
+            2.手机支付宝将通过WAP或短信方式从您的支付宝账户扣款完成支付<br />
+            3.支付宝客服热线：0571-88156688    
+        </div>
+        <div class="msgTitle"><a href="$base/user/charge.do">选择其它充值方式>></a></div>
+    </div>
+	<div class="topNavigationBar" style="color: #FFF;"> 
+		<a href="$base/index.do">首页</a>
+	 	> <a href="$base/user/charge.do">充值</a> > 支付宝充值
+	</div>
+</form>
+</body>
+</html>
+<script language="javascript">
+$(function(){
+    var J = jQuery;
+    $('#alipay').bind('click', function(){
+        var amount = J.trim($('#amount').val());
+        if(amount == ''){
+            alert('请输入充值金额');
+            $('#amount').focus();
+            return false;
+        }
+        if(!(/^\d+(\.\d{1,2})?$/.test(amount)) || amount <= 0){
+            alert('请输入有效充值金额：如123或1.23');
+            $('#amount').focus();
+            return false;
+        }
+		if(amount.length > 10) {
+			var msg = $("<div class='divErrorMSG'>充值金额过大[最大为10位]</div>");
+			$("#msg").html(msg);
+            $('#amount').focus();
+			$('#amount').val("");
+            return false;
+		}
+        if(parseFloat(amount) < 2.00) {
+			var msg = $("<div class='divErrorMSG'>最小充值金额为2元</div>");
+			$("#msg").html(msg);
+            $('#amount').focus();
+            return false;
+        }
+        $('#form1').submit();
+        return true;
+     });
+});     
+</script>

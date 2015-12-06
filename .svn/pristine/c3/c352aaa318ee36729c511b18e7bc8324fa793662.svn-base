@@ -1,0 +1,37 @@
+<div class="widget home-widget">
+    <div class="tipstop">
+        <h2 class="widget-title">
+            <a href="javascript:void(0)"><span class="index-color">竞足销售时间</span></a>
+        </h2>
+        <div class="fixit"></div>
+        <div class="tipstopic">
+            <ul>
+				<li><span>周一至周五 开售：09:00</span> <span>停售：23：45</span></li>
+                <li><span>周六、日 &nbsp;&nbsp;&nbsp;开售：09:00</span> <span>停售：00：45</span></li>
+			</ul>
+        </div>
+        <div class="fixit"></div>
+    </div>
+</div>
+
+<div class="widget home-widget">
+    <div class="tipstop">
+        <h2 class="widget-title">
+            <a href="javascript:void(0)"><span class="index-color">竞篮销售时间</span></a>
+        </h2>
+        <div class="fixit"></div>
+        <div class="tipstopic">
+            <ul>
+				<li><span>周一至周五 开售：09:00</span> <span>停售：23：45</span></li>
+                <li><span>周三、四 &nbsp;&nbsp;&nbsp;开售：07:30</span> <span>停售：23：45</span></li>
+                <li><span>周六、日 &nbsp;&nbsp;&nbsp;开售：09:00</span> <span>停售：00：45</span></li>
+			</ul>
+        </div>
+        <div class="fixit"></div>
+    </div>
+</div>
+
+#include("/web/inc/online_service.vm")
+
+
+#parse("web/profile/inc/atWindow.vm")

@@ -1,0 +1,43 @@
+<p>
+	<span class="back">赛事回查：</span>
+	<select id="find-bet-match-by-date" style="border: 1px #D2D2D2 solid;font-size: 12px;color: #333333;">
+		<script type="text/javascript">
+			jQuery(document).ready(function (){
+				var nowDate = new Date();
+				var nowTime = nowDate.getTime();
+				var getDate = function(date){
+		 			var str = "yyyy-MM-dd";
+		 			str=str.replace(/yyyy|YYYY/,date.getFullYear());
+		 			var mon = parseInt(date.getMonth())+1;  
+		 			str=str.replace(/MM/,mon>9?mon:'0' + mon);     
+		 			str=str.replace(/dd|DD/,date.getDate()>9?date.getDate().toString():'0' + date.getDate());
+		 			return str;
+				};
+				var getWeek = function (date){
+					var Week = ['日','一','二','三','四','五','六'];   
+					var str = "星期W";
+					str=str.replace(/w|W/g,Week[date.getDay()]);
+					return str;									    	 					
+				};
+				time=nowTime;
+				jQuery("#find-bet-match-by-date").append('<option value="'+getDate(new Date(time))+'" selected="selected">'+getDate(new Date(time))+ ' ' + getWeek(new Date(time)) +'</option>');
+				for(var i=2;i<9;i++){
+					time=time-60*60*24*1000;
+					jQuery("#find-bet-match-by-date").append('<option value="'+getDate(new Date(time))+'">'+getDate(new Date(time))+ ' ' + getWeek(new Date(time))+'</option>');
+				}
+				jQuery("#find-bet-match-by-date").change(function (){
+					window.location.href='http://trade.davcai.com/df/bet/jczq.do?time='+jQuery(this).val();
+				});
+				var index = window.location.href.indexOf('time=');
+				if(index != -1){
+					var dateStr = window.location.href.substring(index+5);
+					jQuery("#find-bet-match-by-date option").each(function (){
+						if(jQuery(this).val() == dateStr){
+							jQuery(this).attr("selected",'selected');
+	 					}
+	 				});
+	 			}
+	 		});
+ 		</script>
+	</select>
+ </p>

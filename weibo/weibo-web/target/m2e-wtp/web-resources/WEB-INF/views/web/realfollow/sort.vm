@@ -1,0 +1,46 @@
+<p class="sort">
+	<i class="sortText"><text>排序：</text></text></i>
+	#if($timeSort == "asc")
+		<span class="sortText" sort_option="timeSort" timeSort="asc"><text class="fontGray current">时间</text><img src="http://www.davcai.com/images/davcai/post/sort-up.png"/></span>
+	#elseif($timeSort == "desc")
+		<span class="sortText" sort_option="timeSort" timeSort="desc"><text class="fontGray current">时间</text><img src="http://www.davcai.com/images/davcai/post/sort-down.png"/></span>
+	#else
+		<span class="sortText" sort_option="timeSort" timeSort="null"><text class="fontGray">时间</text><img src="http://www.davcai.com/images/davcai/post/blank.png"/></span>	
+	#end
+	
+	#if($followCountSort == "asc")
+		<span class="sortText" sort_option="followCountSort" followCountSort="asc"><text class="fontGray current">跟单人气</text><img src="http://www.davcai.com/images/davcai/post/sort-up.png"/></span>
+	#elseif($followCountSort == "desc")
+		<span class="sortText" sort_option="followCountSort" followCountSort="desc"><text class="fontGray current">跟单人气</text><img src="http://www.davcai.com/images/davcai/post/sort-down.png"/></span>
+	#else
+		<span class="sortText" sort_option="followCountSort" followCountSort="null"><text class="fontGray">跟单人气</text><img src="http://www.davcai.com/images/davcai/post/blank.png"/></span>	
+	#end
+	
+	#if($buyAmountSort == "asc")
+		<span class="sortText" sort_option="buyAmountSort" buyAmountSort="asc"><text class="fontGray current">方案金额</text><img src="http://www.davcai.com/images/davcai/post/sort-up.png"/></span>
+	#elseif($buyAmountSort == "desc")
+		<span class="sortText" sort_option="buyAmountSort" buyAmountSort="desc"><text class="fontGray current">方案金额</text><img src="http://www.davcai.com/images/davcai/post/sort-down.png"/></span>
+	#else
+		<span class="sortText" sort_option="buyAmountSort" buyAmountSort="null"><text class="fontGray">方案金额</text><img src="http://www.davcai.com/images/davcai/post/blank.png"/></span>	
+	#end
+
+	#if($rateOfReturnSort == "asc")
+		<span class="sortText" sort_option="rateOfReturnSort" rateOfReturnSort="asc"><text class="fontGray current">回报率</text><img src="http://www.davcai.com/images/davcai/post/sort-up.png"/></span>
+	#elseif($rateOfReturnSort == "desc")
+		<span class="sortText" sort_option="rateOfReturnSort" rateOfReturnSort="desc"><text class="fontGray current">回报率</text><img src="http://www.davcai.com/images/davcai/post/sort-down.png"/></span>
+	#else
+		<span class="sortText" sort_option="rateOfReturnSort" rateOfReturnSort="null"><text class="fontGray">回报率</text><img src="http://www.davcai.com/images/davcai/post/blank.png"/></span>	
+	#end
+ </p>
+<select id="date_range" style="
+		float: right;
+		margin-right: 38px;
+		margin-top: -18px;
+		border: 1px #D2D2D2 solid;
+		font-size: 12px;
+		color: #333333;">
+	<option value="1" name="gender" #if($recentDays == 1) selected="selected" #end>最近1天</option>
+	<option value="3" name="gender" #if($recentDays == 3) selected="selected" #end>最近3天</option>
+	<option value="7" name="gender" #if($recentDays == 7) selected="selected" #end>最近7天</option>
+	<option value="30" name="gender" #if($recentDays == 30) selected="selected" #end>最近1个月</option>
+</select>

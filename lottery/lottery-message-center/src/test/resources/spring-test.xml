@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+
+	<bean id="placeholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:init.properties" />
+	</bean>
+
+	<bean id="openSaleIntercessor" class="com.xhcms.lottery.dc.task.ticket.OpenSaleIntercessor">
+		<property name="fbSaleTime">
+			<array>
+				<value>0902-2354</value> <!-- 周一 -->
+				<value>0902-2354</value>
+				<value>0902-2354</value>
+				<value>0902-2354</value>
+				<value>0902-2354</value>
+				<value>0902-0054</value>
+				<value>0902-0054</value>
+			</array>
+		</property>
+		<property name="bbSaleTime">
+			<array>
+				<value>0902-2354</value> <!-- 周一 -->
+				<value>0902-2354</value>
+				<value>0732-2354</value>
+				<value>0732-2354</value>
+				<value>0902-2354</value>
+				<value>0902-0054</value>
+				<value>0902-0054</value>
+			</array>
+		</property>
+	</bean>
+
+	<bean id="zmClient" class="com.unison.lottery.mc.uni.ZMClient"
+		abstract="true">
+		<property name="key" value="${zm.ticket.key}" />
+		<property name="partnerId" value="${zm.ticket.partnerId}" />
+		<property name="version" value="${zm.ticket.version}" />
+		<property name="url" value="${zm.ticket.url}" />
+	</bean>
+
+	<!-- 竞彩足球赛事 -->
+	<bean class="com.unison.lottery.mc.uni.client.QueryMatchesClient"
+		parent="zmClient">
+		<property name="template" value="/tpl/zm_query_matches.xml" />
+		<property name="parser">
+			<bean class="com.unison.lottery.mc.uni.parser.QueryMatchesParser">
+				<property name="openSaleIntercessor" ref="openSaleIntercessor" />
+			</bean>
+		</property>
+	</bean>
+
+    <!-- 竞彩足球赛果 -->
+    <bean class="com.unison.lottery.mc.uni.client.QueryMatchResultsClient"
+        parent="zmClient">
+        <property name="template" value="/tpl/zm_query_match_results.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryMatchResultsParser"/>
+        </property>
+    </bean>
+
+    <!-- 竞彩足球赔率 -->
+    <bean class="com.unison.lottery.mc.uni.client.QueryJCOddsClient"
+        parent="zmClient">
+        <property name="template" value="/tpl/zm_query_jc_odds.xml" />
+        <property name="parser">
+            <bean class="com.unison.lottery.mc.uni.parser.QueryJCOddsParser"/>
+        </property>
+    </bean>
+
+</beans>

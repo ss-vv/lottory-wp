@@ -1,0 +1,120 @@
+#set($p_title="合买大厅")
+#set($user_score="合买红人总战绩榜")
+#set($referer="http://trade.davcai.com/df/groupbuy/index.do")
+#set($pos="gb")
+#set($keywords="足球方案,篮球方案,晒单跟单,竞彩中奖排行,热门推荐")
+#set($description="推荐用户,合买方案推荐,跟单方案推荐,中奖排行榜")
+#set($styles = ["style/style_follow_group", "css/hack-bootstrap"])
+
+<div class="lyl lyw-g fl">
+	<div class="mod mod-c mod-c-a wh-mh">
+		<form id="qForm" action="$base/groupbuy/index.do" method="post">  
+		<input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+		<input id="orderBy" name="orderBy" type="hidden" value="$!{orderBy}">
+		<input id="asc" name="asc" type="hidden" value="$!{asc}">
+		<div class="mh">
+			<div class="tabh tabh-e">
+				<a href="javascript:void(0);" class="cur"><span>热门推荐</span></a>
+			    <a href="$base/groupbuy/gblist.do?lottery=JCZQ"><span>足球方案</span></a>
+			    <a href="$base/groupbuy/gblist.do?lottery=JCLQ"><span>篮球方案</span></a>
+                <a href="$base/groupbuy/gblist.do?lottery=CTZC"><span>传统足彩方案</span></a>
+                <a href="$base/groupbuy/gblist.do?lottery=SSQ"><span>双色球方案</span></a>
+				<a href="$base/groupbuy/gblist.do?lottery=BJDC"><span>北京单场方案</span></a>
+			</div>
+		</div>
+		<div>
+			<div class="mp-ma"></div>
+			<div class="search-box">
+				用户名:<input type="text" size="14" name="username" value="$!{username}">
+				提成:<select name="commission">
+						#foreach($y in $yesNoAll)
+						<option #if(${y.value}==${commission}) selected #end value="${y.value}">$y.desc</option>
+						#end
+					</select>
+				玩法:<select name="play">
+						<option value="">全部</option>
+						#foreach($p in $plays)
+						<option #if(${play}==${p.id}) selected #end value="${p.id}">${p.name}</option>
+						#end
+					</select>			   
+				<input id="btnQuery" type="button" value="查询">
+			</div>
+			<div class="tblbox tblbox-c mp-f">
+				<!-- 筛选条件 -->
+			    <table  cellspacing="0" cellpadding="0" border="0" class="tbl">
+				         <tr>
+				            <th style="width:90px;" class="thl"><div class="inth"><div >发起人</div></div></th>
+				            <th><div class="inth"><div >战绩</div></div></th>
+				            <th style="width:110px;"><div class="inth"><div >玩法</div></div></th>
+				            <th style="width:60px;"><div class="inth"><div ><a href="javascript:void(0);" _col="returnRate"><div class="c-c">#orderColumn2($!{orderBy},'returnRate',$!{asc})回报率</div></a></div></div></th>
+				            <th style="width:70px;"><div class="inth"><div ><a href="javascript:void(0);" _col="totalAmount"><div class="c-c">#orderColumn2($!{orderBy},'totalAmount',$!{asc})总金额(元)</div></a></div></div></th>
+				            <th style="width:70px;"><div class="inth"><div ><a href="javascript:void(0);" _col="totalProcessPer"><div class="c-c">#orderColumn2($!{orderBy},'totalProcessPer',$!{asc})进度+保底</div></a></div></div></th>
+				            <th style="width:65px;"><div class="inth"><div >剩余(元)</div></div></th>
+				            <th style="width:50px;"><div class="inth"><div ><a href="javascript:void(0);" _col="offtime"><div class="c-c">#orderColumn2($!{orderBy},'offtime',$!{asc})截止</div></a></div></div></th>
+				            <th style="width:60px;"><div class="inth"><div >状态</div></div></th>
+				            <th style="width:45px;"><div class="inth"><div ><a href="javascript:void(0);" _col="shareRatio"><div class="c-c">#orderColumn2($!{orderBy},'shareRatio',$!{asc})提成</div></a></div></div></th>
+				            <th style="width:65px;" class="tdr"><div class="inth"><div >操作</div></div></th>
+				          </tr>
+			           #foreach($gs in $paging.results)
+							#set($s=${gs.scheme})
+				          <tr>
+				            <td class="tdl">$!{s.sponsor}</td>
+				            <td>#userScoreGroupbuy(${gs.userScore})&nbsp;</td>
+				            <td class="tdc">#lotteryIcon($s)$!{s.play.name}</td>
+				            <td>$Number.format("#", $math.div($!{s.maxBonus}, $!{s.totalAmount}))倍</td>
+				    		<td>$!{s.totalAmount}</td>
+				            <td>$Number.format("#0.#%",$math.div($!{s.purchasedAmount}, $!{s.totalAmount}))#if(${s.floorAmount}>0)+<font color="red">$Number.format("#0%", $math.div($!{s.floorAmount}, $!{s.totalAmount}))</font>#end</td>				            
+				            <td>$math.sub($!{s.totalAmount}, $!{s.purchasedAmount})</td>
+				            <td>$dfDateTool.formatDayOrTime(${s.offtime}, -9)</td>
+				            <td>#schemeStatus(${s})</td>
+				            <td>#if($!{s.shareRatio}==0)无 #else $!{s.shareRatio}% #end</td>
+				            <td class="tdr">
+				            	<a href="http://trade.davcai.com/ac/groupbuy.do?id=$!{s.id}" target="_blank" style="margin-right:0px;">#if(${s.saleStatus}==0)<font color="red">合买</a>#else详情#end</a>|<a href="http://trade.davcai.com/ac/cm.do?fuid=$!{s.sponsorId}"  target="_blank" style="margin:auto;">定制</a>
+				            </td>
+				          </tr>
+			          #end
+				          <tr class="last">
+	            			<td colspan="10" class="tdr" style="text-align:right;">
+	              			<div class="pager fr">
+	                			#pager($paging, 8, "pager")
+	              			</div>
+	            			</td>
+	          			 </tr>			          
+				</table>
+			</div>
+			<span>&nbsp;</span>
+		</div>
+		</form>
+	</div>
+</div>
+<div class="lyr lyw-f fr">
+	#parse("inc/topn2.vm")
+	#include("inc/topn2-desc.vm")
+</div>
+<script type="text/javascript">
+
+$(function(){
+    $('#btnQuery').bind('click', function(){
+		$('#qForm').submit();
+    });
+    
+    $("a[_col]").click(function() {
+    	if($("#orderBy").val() == $(this).attr("_col")) {
+    		if($("#asc").val().trim() == "true") {
+    			$("#asc").val("false");
+    		} else {
+    			$("#asc").val("true");
+    		}
+    	} else {
+    		$("#orderBy").val($(this).attr("_col"));
+    		$("#asc").val("false");
+    	}
+    	$("#qForm").submit();
+    });
+});
+
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+
+</script>

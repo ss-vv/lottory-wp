@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>注册  大V彩微博</title>
+<meta name="keywords" content="大V彩微博">
+<meta name="description" content="大V彩微博">
+<link rel="shortcut icon" href="http://www.davcai.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/reg.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/placeholder.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//首页搜索
+		$("#searchSubmit").click(function() {
+			$("#homeSearch").submit();
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="header">
+		<div class="headContainer">
+			<h1 id="logo"><span><a href="/">大V彩</a></span></h1>
+			<div class="search">
+				<form id="homeSearch" method="GET" action="http://www.davcai.com">
+					<label for="keyword-search">
+						<input type="text" id="keyword" name="keyword" placeholder="搜索人名 / 球队"
+							autocomplete="off" value="" class="placeholderHack"/>
+						<span class="icon" id="searchSubmit"><i></i></span>
+	                </label>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="center" class="container">
+		<div class="wrapper">
+			<div class="main">
+				<ul>
+					<li><h2>加入大V彩，讨论共同关注的彩票和话题</h2></li>
+					<li class="comm">用合作网站帐号注册（以后可一键登录）</li>
+					<ul class="fconnect-link">
+						<li class="sina"><a id="sina_login" href="/home.html"><i></i>新浪微博登录</a></li>
+						<li class="qq"><a id="qq_login" href="/home.html"><i></i>QQ&nbsp;帐号登录</a></li>
+					</ul>
+					<form method="GET" action="http://www.davcai.com">
+						<li class="mail-reg">或者，使用邮箱注册</li>
+						<li class="reg_sep">
+							<label for="nickname">昵称：</label>
+							<input type="text" tabindex="1" id="nickname" class="regInput"
+								placeholder="昵称" class="placeholderHack"/>
+						</li>
+						<li class="reg_sep">
+							<label for="mail">邮箱：</label>
+							<input type="text" tabindex="2" id="mail" class="regInput"
+								placeholder="邮箱" class="placeholderHack"/>
+						</li>
+						<li class="reg_sep">
+							<label for="password">密码：</label>
+							<input type="text" tabindex="3" id="password" class="regInput"
+								placeholder="密码" class="placeholderHack"/>
+						</li>
+						<li class="indent reg_sep">
+							<label for="apply_pws">确认密码：</label>
+							<input type="text" tabindex="4" id="apply_pws" class="regInput"
+								placeholder="确认密码" class="placeholderHack"/>
+						</li>
+						<li>
+							<div class="reg_sep">
+								<input id="agree" type="checkbox" checked="checked" tabindex="5"/>
+								<label for="agree">我已阅读并同意<a class="agree-support" href="javascript:void(0)" target="_blank">《大V彩微博服务协议》</a></label>
+							</div>
+						</li>
+						<div class="reg_sep">
+							<input type="submit" tabindex="6" value="注册" class="button_red regbtn"/>
+						</div>
+					</form>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 底部开始 -->
+	<div class="bottomWrapper">
+		<!-- 版权开始 -->
+		<div class="footer">
+			<div class="copyright">
+				<ul>
+					<li><a href="javascript:void(0)">大V彩客户端</a></li>
+					<li><a href="javascript:void(0)">关于大V彩</a></li>
+					<li><a href="javascript:void(0)">常见问题</a></li>
+					<li><span>@2013 davcai.com</span></li>
+					<li><a href="javascript:void(0)">京ICP证10086号</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 版权结束 -->
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>

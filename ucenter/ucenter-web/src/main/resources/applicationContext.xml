@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<context:annotation-config />
+	
+	<bean name="propertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:ucenter.properties</value>
+				<value>classpath*:discuz.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="cookieGenerator" class="com.xhcms.ucenter.sso.web.util.GrantingTicketCookieGenerator">
+		<property name="cookieDomain" value="${ucenter.sso.cookie.Domain}"></property>
+		<property name="cookieMaxAge" value="${ucenter.sso.cookie.MaxAge}"></property>
+		<property name="cookieName" value="${ucenter.sso.cookie.Name}"></property>
+		<property name="cookiePath" value="${ucenter.sso.cookie.Path}"></property>
+	</bean>
+	
+	<bean name="discuzAuthCookieGenerator" class="com.xhcms.ucenter.sso.discuz.DiscuzAuthCookieGenerator">
+		<property name="cookieDomain" value="${ucenter.sso.cookie.Domain}"></property>
+		<property name="cookieMaxAge" value="${ucenter.sso.cookie.MaxAge}"></property>
+		<property name="cookieName" value="${discuz.cookie.auth}"></property>
+		<property name="cookiePath" value="${ucenter.sso.cookie.Path}"></property>
+	</bean>
+	
+	<bean name="discuzSaltKeyCookieGenerator" class="com.xhcms.ucenter.sso.discuz.DiscuzAuthCookieGenerator">
+		<property name="cookieDomain" value="${ucenter.sso.cookie.Domain}"></property>
+		<property name="cookieMaxAge" value="${ucenter.sso.cookie.MaxAge}"></property>
+		<property name="cookieName" value="${discuz.cookie.saltkey}"></property>
+		<property name="cookiePath" value="${ucenter.sso.cookie.Path}"></property>
+	</bean>
+	
+	<bean name="discuzSynchronizer" class="com.xhcms.ucenter.sso.discuz.DiscuzSynchronizer">
+		<property name="appKey" value="${discuz.appkey}"></property>
+	</bean>
+	
+	<!-- Open Id service -->
+	<bean id="ucenterPersistUserManager" class="com.xhcms.ucenter.persistent.service.impl.UserManagerImpl" />
+	
+	<bean id="userLoginService" class="com.xhcms.ucenter.sso.service.impl.UserLoginService"/>
+	
+	<bean id="weixinService"
+		class="com.unison.lottery.weibo.uc.service.impl.WeixinServiceImpl"></bean>
+	<bean id="sinaWeiboService"
+		class="com.unison.lottery.weibo.uc.service.impl.SinaWeiboServiceImpl"></bean>
+	<bean id="qqConnectService"
+		class="com.unison.lottery.weibo.uc.service.impl.QQConnectServiceImpl"></bean>
+	
+	<bean id="userAccountService" class="com.unison.lottery.weibo.uc.service.impl.UserAccountServiceImpl"></bean>
+	
+	<bean id="userAccountDao" class="com.unison.lottery.weibo.uc.persist.impl.UserAccountDaoImpl"></bean>
+	<bean id="registrationCodeDao" class="com.xhcms.lottery.commons.persist.dao.impl.RegistrationCodeDaoImpl">
+		<property name="sessionFactory" ref="mainSessionFactory" />
+	</bean>
+	
+	<!-- solr -->
+	<bean id="solrJ" class="com.unison.lottery.weibo.common.solrj.SolrJImpl"></bean>
+	
+	<!-- IdGenerator -->
+	<bean id="idGenerator" class="com.unison.lottery.weibo.common.service.impl.IdGeneratorImpl"></bean>
+	
+	<bean id="commonUserService" class="com.xhcms.lottery.commons.persist.service.impl.UserServiceImpl"></bean>
+	<bean id="systemConfImpl" class="com.xhcms.lottery.conf.SystemConfImpl" />
+	<bean id="registrationCodeService" class="com.xhcms.lottery.commons.persist.service.impl.RegistrationCodeServiceImpl" />
+</beans>

@@ -1,0 +1,70 @@
+#set($layout="password.vm")
+#set($p_title="找回密码")
+
+#set($scripts = ["js/jquery.validate"])
+
+<div class="mh">
+  <div class="tt">重新设定密码</div>
+</div>
+<div class="mm">
+  <div class="formbox formbox-a formbox-a-b mp-b">
+    <form id="pForm" action="$base/editpwd.do" method="post">
+      <input type="hidden" name="uid" value="$!{uid}"/>
+      <input type="hidden" name="code" value="$!{code}"/>
+      <div class="row">
+        <label class="lbl fs14">&nbsp;&nbsp;用户名：</label>
+        <div class="wh-txtb wh-txtb-a"><div class="tips">$!{username}</div></div>
+      </div>
+      <div class="row">
+        <label class="lbl fs14">&nbsp;&nbsp;&nbsp;&nbsp;密码：</label>
+        <div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input id="password" class="inipttxt" name="password" type="password"></div>
+        <div class="tips c-i"></div>
+      </div>
+      <div class="row">
+        <label class="lbl fs14">确认密码：</label>
+        <div class="ipttxt ipttxt-b wh-txtb wh-txtb-a"><input class="inipttxt" name="confirmPassword" type="password"></div>
+        <div class="tips c-i"></div>
+      </div>
+      <div class="row"><label class="lbl wh-a">&nbsp;</label></div>
+      <div class="row"><label class="lbl wh-a"></label><a class="btnx2 btnx2-b fl" href="javascript:void(0);"><span class="inbtn"><input class="iptbtn" type="submit" value="找回密码"></span></a></div>
+      <span class="clear"></span>
+    </form>
+  </div>
+</div>
+  
+<script type="text/javascript">
+$(function(){
+    $('#changeCode').bind('click', function(){
+        $("#validCodeImg").attr("src", "$base/water.do?t=" + (new Date()).getTime());
+        return false;
+    });
+
+    $('#pForm').validate({
+        errorPlacement: function(error, element) { //验证消息放置的地方
+            error.appendTo(element.parent("div").next("div"));
+        },
+        rules: {
+            'password': {
+                required: true,
+                rangelength: [6, 15]
+            },
+            'confirmPassword': {
+                required: true,
+                rangelength: [6, 15],
+                equalTo: '#password'
+            }
+        },
+        messages: {
+            'password': {
+                required: '请输入新密码！',
+                rangelength: '必须在{0}至{1}个字符之间'
+            },
+            'confirmPassword': {
+                required: '请输入确认密码！',
+                rangelength: '必须在{0}至{1}个字符之间',
+                equalTo: '两次输入必须一致'
+            }
+        }
+    });
+});
+</script>

@@ -1,0 +1,12 @@
+CREATE TABLE `pm_colorring_grant` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id',
+	`trade_no` VARCHAR(80) NOT NULL COMMENT '交易流水号',
+	`mobile` VARCHAR(20) NOT NULL COMMENT '手机号',
+	`grant_amount` INT(10) UNSIGNED NOT NULL COMMENT '赠送金额（分）',
+	`order_time` DATETIME NOT NULL COMMENT '订购彩铃成功时间',
+	`created_time` DATETIME NOT NULL COMMENT '创建时间',
+	`status` VARCHAR(10) NOT NULL COMMENT '是否赠送（0未赠款，1已赠款）',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `tradeNo` (`trade_no`)
+)
+COMMENT='订购彩铃送购彩金';

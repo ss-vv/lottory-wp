@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>大V彩-提示信息</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="max-age=0" />
+    <link type="text/css" href="/css/buy.css" rel="stylesheet" />
+</head>
+<body>
+<meta name="viewport" content="width=device-width; initial-scale=1.3; minimum-scale=1.0; maximum-scale=2.0" />
+<meta name="MobileOptimized" content="240" />
+<div class="mainDiv">
+	<div class='topNavigationBar' style="color: #FFF;"> 
+ 		<a href="../index.do">首页</a>
+ 		> <a href='/lottery/jx11s5.do?lotteryId=JX11'>江西11选5</a>
+	</div>
+    
+	<div>    
+		<b>您的方案已成功发起</b><br/>
+		<a href="/record/scheme-detail.do?schemeId=$!{scheme.id}">方案详情</a>：
+		<a href="/record/scheme-detail.do?schemeId=$!{scheme.id}">$!{scheme.id}</a> 
+	</div>
+	
+	<div class="topNavigationBar">高频彩投注区</div>
+	<div class="list_lottory">
+	    <ul>
+			<li>[任选]</li>
+		   	<li>
+		    	<a href="playJX11s5.do?selectNum=1&playId=11&lotteryId=JX11&selectType=0">任选一</a>&nbsp;
+		    	<a href="playJX11s5.do?selectNum=2&playId=12&lotteryId=JX11&selectType=0">任选二</a>&nbsp;
+		    	<a href="playJX11s5.do?selectNum=3&playId=13&lotteryId=JX11&selectType=0">任选三</a>&nbsp;
+		    	<a href="playJX11s5.do?selectNum=4&playId=14&lotteryId=JX11&selectType=0">任选四</a>
+		    </li>
+		    <li>
+				<a href="playJX11s5.do?selectNum=5&playId=15&lotteryId=JX11&selectType=0">任选五</a>&nbsp;
+				<a href="playJX11s5.do?selectNum=6&playId=16&lotteryId=JX11&selectType=0">任选六</a>&nbsp;
+				<a href="playJX11s5.do?selectNum=7&playId=17&lotteryId=JX11&selectType=0">任选七</a>&nbsp;
+				<a href="playJX11s5.do?selectNum=8&playId=18&lotteryId=JX11&selectType=0">任选八</a>
+			</li>
+		    <li>[直选]</li>
+		    <li>
+		    	<a href="playJX11s5.do?selectNum=2&playId=19&lotteryId=JX11&selectType=0">前二直选</a>&nbsp;
+		    	<a href="playJX11s5.do?selectNum=3&playId=20&lotteryId=JX11&selectType=0">前三直选</a>
+		    </li>
+		    <li>[组选]</li>
+		    <li>
+				<a href="playJX11s5.do?selectNum=2&playId=21&lotteryId=JX11&selectType=0">前二组选</a>&nbsp;
+				<a href="playJX11s5.do?selectNum=3&playId=22&lotteryId=JX11&selectType=0">前三组选</a>	
+		    </li>
+	    </ul>
+	          第$!{issueInfo.issueNumber}期<br/>
+	          投注截止:$!date.format('yyyy-MM-dd HH:mm',$!{issueInfo.stopTimeForUser})<br/>
+	    <b><a href="$base/record/accountRecord.do?lotteryId=JX11&duration=-1">>>查看投注历史记录</a></b>
+	</div>
+	
+</div> 
+    #include("inc/bottomNavigate.inc")
+</body>
+</html>

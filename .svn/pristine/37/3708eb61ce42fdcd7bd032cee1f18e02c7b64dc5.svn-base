@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>个人主页</title>
+  <meta name="keywords" content="我的主页 - 大V彩微博" />
+  <meta name="description" content="我的主页 - 大V彩微博" />
+  <link rel="shortcut icon" href="http://www.davcai.com/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/home.css" />
+  <link rel="stylesheet" type="text/css" href="css/emoticon.css" />
+  <link rel="stylesheet" type="text/css" href="css/profile.css" />
+  <script type="text/javascript" src="js/jquery.js">
+  </script>
+  <script type="text/javascript" src="js/home.js">
+  </script>
+  <script type="text/javascript" src="js/jquery.emoticons.js">
+  </script>
+</head>
+
+<body id="my_profile">
+  <div class="profile_box container">
+    <div class="profile_box_info">
+      <div class="profile_info">
+        <div class="profile_info_pic">
+          <a href="/setting/face"><img src="http://photo.xueqiu.com/community/20138/1379903740995.png!100x100.png" width="100" height="100" /></a>
+        </div>
+
+        <div class="profile_info_content">
+          <h2>
+            <span>hassan小翔</span> 
+            <a href="/setting/user" class="editBtn">修改资料</a> 
+            <a target="_blank" title="雪球名片" style="margin-left:6px" href="/4177084251/card">
+              <img title="雪球名片" src="http://assets.xueqiu.com/images/card/namecard-icon2-gray.png" />
+            </a> 
+            <a target="_blank" title="投资者性格" style="margin-left:6px" href="/event/personality/x/4177084251">
+              <img title="投资者性格" src="http://assets.xueqiu.com/images/personality/icon_character_gray.png" />
+            </a>
+          </h2>
+
+          <ul>
+            <li class="gender_info">保密&nbsp;&nbsp;&nbsp;北京东城区&nbsp;&nbsp;&nbsp; <a href="http://weibo.com/2104126071" target="_blank"><span class="newIcon newIcon_weibo">&nbsp;</span> 微博</a></li>
+
+            <li>讨论9条&nbsp;&nbsp;粉丝2人</li>
+
+            <li>
+              <div class="item_title">
+                简介：
+              </div>
+
+              <div class="item_content expend_in_oneline">
+                <p class="summary">-</p>
+
+                <p style="display:none" class="detail">- <span class="fold_all">收起</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

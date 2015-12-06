@@ -1,0 +1,19 @@
+<table class="fanr-table" cellspacing="0" cellpadding="0">
+	<tr>
+		<th>赛事编号</th>
+		<th>主队 VS 客队</th>
+		<th>投注内容</th>
+		<th>胆码</th>
+	</tr>
+	#foreach($m in ${schemeView.matchs})
+		<tr>
+			<td>${m.cnCode}</td>
+			<td>${m.name}</td>
+			<td>$Result.rendBetMatchContent($m)</td>
+			<td>#if($m.seed)胆#else -- #end</td>
+		</tr>
+	#end
+	<tr class="only">
+		<td colspan="5">过关方式： ${schemeView.passTypeIds}</td>
+	</tr>
+</table>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg>
+  <head msg="002" partnerId="exampleId" version="1.0" time="20140901175541" />
+  <body>
+  <betReq  lotteryType="FC3D" playType="97_FC3D_ZXDS" issueNumber="2014247" betMoney="14"
+     betContent="0,3,8;1,2,9;3,3,4;3,3,4;3,2,4;1,3,7;3,2,6" multiple="1" partnerUserId="qq6652" uuid="550e8400-e29b-41d4-a716-446655441111"/>
+  </body>
+</msg>

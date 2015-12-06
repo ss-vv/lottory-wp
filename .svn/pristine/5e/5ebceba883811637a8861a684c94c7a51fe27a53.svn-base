@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd"
+	default-autowire="byName">
+
+	<bean id="messageConverter" class="com.xhcms.commons.mq.DefaultMessageConverter" />
+	<bean id="mqTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory">
+			<amq:connectionFactory id="mqFactory"
+				brokerURL="${amq.brokerURL}" />
+		</property>
+	</bean>
+
+	<!-- 提款通知 -->
+	<bean id="withdrawProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="WB_LAICAI_WITH_DRAW_CMD"
+				physicalName="com.unison.weibo.queue.WB_LAICAI_WITH_DRAW_CMD" />
+		</property>
+	</bean>
+	<!-- 派奖通知 -->
+	<bean id="awardProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="WB_LAICAI_AWARD_CMD"
+				physicalName="com.unison.weibo.queue.WB_LAICAI_AWARD_CMD" />
+		</property>
+	</bean>
+		
+	<!-- 喜报通知 -->
+	<bean id="winningProducer" class="com.xhcms.commons.mq.jms.MessageProducer">
+		<property name="template" ref="mqTemplate" />
+		<property name="destination">
+			<amq:queue name="WB_LAICAI_WINNING_CMD"
+				physicalName="com.unison.weibo.queue.WB_LAICAI_WINNING_CMD" />
+		</property>
+	</bean>
+		
+	<!-- 消息发送器 -->
+	<bean id="messageSender" class="com.xhcms.commons.mq.jms.DefaultMessageSender"
+		init-method="init" destroy-method="destroy">
+		<property name="threads" value="${amq.sender.threads}" />
+		<property name="producers">
+			<map>
+				<entry key="WithdrawMessageHandler" value-ref="withdrawProducer" />
+				<entry key="AwardMessageHandler" value-ref="awardProducer" />
+				<entry key="WinningMessageHandler" value-ref="winningProducer" />
+			</map>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,14 @@
+
+# database
+db.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_lottery?useUnicode=true&characterEncoding=utf8
+db.username = lottery
+db.password = 8DFy4unX
+
+# database
+db2.url = jdbc:mysql://rdsbenain3yiqrn.mysql.rds.aliyuncs.com:3306/db_account?useUnicode=true&characterEncoding=utf8
+db2.username = account
+db2.password = C2g5GL4m
+
+# ring
+ring.username = 3528802334260976
+ring.password = qwc6jdSsfjDs3243dHDLEn15FD2ldh4smkE5x3h32KLne84lfdsh58dfewe93he

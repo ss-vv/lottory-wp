@@ -1,0 +1,117 @@
+#set($title="合买推荐方案列表")
+#set($styles=["css/jqueryui/jquery-ui"])
+<script type="text/javascript" src="$base/js/jquery-ui.js"></script>
+
+<div class="w">
+    <div class="tabH">
+        <span #if("REC_SCHEME" == $tab) class="current" #end><a href="$base/gf/list_gb.do?tab=REC_SCHEME"><b>合买推荐方案</b></a></span>
+        <span #if("JCZQ" == $tab) class="current" #end><a href="$base/gf/list_gb.do?tab=JCZQ"><b>在售竞彩足球合买</b></a></span>
+        <span #if("JCLQ" == $tab) class="current" #end><a href="$base/gf/list_gb.do?tab=JCLQ"><b>在售竞彩篮球合买</b></a></span>
+        <span #if("CTZC" == $tab) class="current" #end><a href="$base/gf/list_gb.do?tab=CTZC"><b>在售传统足彩合买</b></a></span>
+    </div>
+    <div class="bx_c">
+        <div class="bx_in">
+            <form id="qForm" action="$base/gf/list_gb.do" method="post">
+            <input type="hidden" name="tab" value="${tab}"/>
+            <input type="hidden" name="lotteryId" value="${lotteryId}"/>
+            <input type="hidden" name="pageNo" value="${paging.pageNo}"/>
+            <div class="tabH tabH02 panel">
+        <span class="current"><b>查询条件</b></span>
+        <div class="l">
+          <select name="onSale" value="${onSale}" id="onSaleSel">
+            <option value="true">在售</option>
+            <option value="false">全部</option>
+          </select>
+        </div>
+        <div class="r" style="margin: 4px 4px 0 0">
+          <input type="submit" class="hand btn" value="查询">
+        </div>
+            </div>
+            </form>
+        </div>
+        <table cellspacing="0" id="dataGrid" class="tab">
+            <tr>
+                <th style="width:50px;text-align:center;"><span>方案编号</span></th>
+                <th style="width:70px;text-align:center;"><span>玩法</span></th>
+                <th style="width:40px;text-align:center;"><span>类型</span></th>
+                <th style="width:100px;text-align:center;"><span>发起人</span></th>
+                <th style="width:50px;text-align:right;"><span>投注倍数</span></th>
+                <th style="width:60px;text-align:right;"><span>金额（元）</span></th>
+                <th style="width:70px;text-align:center;"><span>投注时间</span></th>
+                <th style="width:70px;text-align:center;"><span>投注状态</span></th>
+                <th style="width:70px;text-align:center;"><span>状态</span></th>
+                <th style="width:70px;text-align:center;"><span>停售时间</span></th>
+                <th style="width:70px;text-align:center;">操作</th>
+            </tr>
+        
+            #foreach($s in $paging.results)
+            <tr>
+                <td style="text-align:center;">${s.id}</td>
+                <td style="text-align:center;">$status.playName($s.playId)</td>
+                <td style="text-align:center;">#schemeType($s.type)</td>
+                <td style="text-align:center;">${s.sponsor}</td>
+                <td style="text-align:right;">${s.multiple}</td>
+                <td style="text-align:right;">￥${s.totalAmount}</td>
+                <td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.createdTime})</td>
+                <td style="text-align:center;">#saleStatus($s.saleStatus)</td>
+                <td style="text-align:center;">$status.bet($s.status)</td>
+                <td style="text-align:center;">$date.format("MM-dd HH:mm", ${s.offtime})</td>
+                <td style="text-align:center;">
+                  <a href="javascript:void(0);" _action="view" _sid="${s.id}" title="查看详情">详情</a>
+                  <a href="javascript:void(0);" _action="recommend" _sid="${s.id}" title="推荐该方案"><span class="red">取消推荐</span></a>
+                </td>
+            </tr>
+            #end
+        </table>
+    </div>
+    <div class="page_c">#pager($paging, 8, "pager")</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+function pager_reload(pn){
+    $('#qForm').find(':input[name="pageNo"]').val(pn).end().submit();
+}
+$(function(){
+    var J = jQuery;
+    $('#fromDP, #toDP').datepicker({
+        dateFormat: 'yy-mm-dd',
+        prevText: '上月',
+        nextText: '下月',
+        dayNamesMin: ['日','一','二','三','四','五','六'],
+        monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+    });
+    $('#onSaleSel option[value="${onSale}"]').attr('selected', 'selected');
+    
+    function query(){
+        $('#qForm').submit();
+    }
+    
+    // 查看详情
+    $('#dataGrid td a[_action="view"]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        xhOpenWindow('../scheme/view.do?id=' + sid, {
+            id: 's_' + sid,
+            title: '查看投注方案详情',
+            height: 600,
+            width: 900
+        });
+        
+        return false;
+    });
+    
+    // 推荐方案
+    $('#dataGrid td a[_action="recommend"]').bind('click', function(){
+        var sid = $(this).attr('_sid');
+        
+        if(confirm('你确定要取消推荐此方案吗？')){
+            xhOpenWindow('$base/gf/cancel_rec_scheme.do?id=' + sid, {
+                id: 's_' + sid,
+                title: '取消推荐方案',
+                height: 600,
+                width: 900
+            });
+        }
+        return false;
+    });
+});
+</script>

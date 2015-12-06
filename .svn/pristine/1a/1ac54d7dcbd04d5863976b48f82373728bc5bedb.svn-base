@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName" default-init-method="init"
+	default-destroy-method="destroy">
+	<context:annotation-config /> 
+	<bean id="lotteryPlatformChooser" class="com.davcai.lottery.platform.client.chooser.LotteryPlatformChooserImpl">
+    	<property name="map4Clients">
+    		<map>
+    			<!-- <entry key="orderTicket">
+    				<ref bean="zunAoOrderTicketClient"/>
+    			</entry> -->
+				<entry key="zunao_queryMatch">
+    				<ref bean="zunAoQueryMatchesClientImpl"/>
+    			</entry>
+    			<entry key="zunao_queryMatchOdds">
+    				<ref bean="zunAoQueryMatchOddsClientImpl"/>
+    			</entry>
+    			<entry key="anruizhiying_queryMatch">
+    				<ref bean="anRuiQueryMatchesClient"/>
+    			</entry>
+    			<entry key="anruizhiying_queryMatchOdds">
+    				<ref bean="anRuiQueryMatchesClient"/>
+    			</entry>
+    			<entry key="qiutan_queryMatch">
+    				<ref bean="qiutanQueryMatchesClient"/>
+    			</entry>
+    			<entry key="qiutan_queryMatchOdds">
+    				<ref bean="qiutanQueryMatchesClient"/>
+    			</entry>
+    		</map>
+    	</property>
+    </bean>
+    <bean id="qiutanCTZCIssueInfoClient" class="com.davcai.lottery.platform.client.qiutan.QiutanCTZCIssueInfoClient">
+    </bean>
+    <bean id="anRuiQueryMatchesClient" class="com.davcai.lottery.platform.client.anruizhiying.AnRuiQueryMatchesClient">
+    	<property name="interfaceUrl4BasketballPV" value="${anruizhiying.interfaceUrl4BasketballPV}" />
+    	<property name="interfaceUrl4FootballPV" value="${anruizhiying.interfaceUrl4FootballPV}" />
+    </bean>
+</beans>
